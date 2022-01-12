@@ -57,15 +57,19 @@ const completionItemProvider: vscode.CompletionItemProvider = {
 		const wordRange = document.getWordRangeAtPosition(position);
 		const word = document.getText(wordRange);
 
-		const labelPrefix = word.startsWith('"') ? '"' : '';
-		const labelSuffix = word.endsWith('"') ? '"' : '';
-
+		const labelPrefix = word.startsWith('"') 
+			? '"' : word.startsWith(`'`) 
+			? `'` : '';
+		
+			const labelSuffix = word.endsWith('"') 
+			? '"' : word.endsWith(`'`) 
+			? `'` : '';
 
 		const suggestions: vscode.CompletionItem[] = serviceKeys.map(service => ({
 			label: `${labelPrefix}${service}`,
 			filterText: `${labelPrefix}${service}${labelSuffix}`,
 			kind: CompletionItemKind.Module,
-			documentation: `${service} service [IAM Reference](http://google.com)`,
+			documentation: formatServiceDocumentation(service, 'http://example.com'),
 		}));
 
 		return { items: suggestions, isIncomplete: true };
@@ -75,10 +79,44 @@ const completionItemProvider: vscode.CompletionItemProvider = {
 const hoverProvider: vscode.HoverProvider = {
 	provideHover(document, position, token) {
 		const range = document.getWordRangeAtPosition(position);
+		if (!range) { return { contents: [] }; }
+		
 		const word = document.getText(range);
-		return new vscode.Hover(`I am legend ${word}`);
+		const trimmedWord = word.replace(/"/g, '').replace(/'/g, '').trim();
+
+		let [service, action] = trimmedWord.split(':');
+		if (!actions[service]) {
+			// if the hovered word doesn't include a known service, try with previous word
+			action = service;
+			let serviceWordRange = document.getWordRangeAtPosition(new vscode.Position(
+				position.line,
+				range.start.character - 2
+			));
+			service = document.getText(serviceWordRange).replace(/"/g, '').replace(/'/g, '').trim();
+		}
+
+		// if word matches 'service' but no action
+		// return hover with documentation for that service
+		if (actions[service] && !action) {
+			return {
+				contents: [formatServiceDocumentation(service, 'http://example.com')],
+			};
+		}
+
+		// if matches 'service:action'
+		// return hover with documentation for that action
+		// TODO: respect handle * and ? wildcards and show summary of all actions
+		const hoveredAction = actions[service] && actions[service].find(x => x.name === action);
+		if (!hoveredAction) { return { contents: [] }; }
+
+		return {
+			contents: [formatActionDocumentation(hoveredAction)],
+		};
 	}
 };
+
+const formatServiceDocumentation = (service: string, urlDocumentation: string) =>
+	`${service} service [IAM Reference](${urlDocumentation})`;
 
 const formatActionDocumentation = (action: IamAction): string => {
 	const entries = [];
