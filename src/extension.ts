@@ -13,7 +13,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
-	console.debug('iam-legend extension activating');
+	console.info('iam-legend extension activating');
 
 	actions = await getActions();
 
@@ -33,6 +33,12 @@ const registerCompletionItemProviders = () => {
 
 const completionItemProvider: vscode.CompletionItemProvider = {
 	provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
+		if (!isInsideActionsArray(document, position)) { 
+			console.debug('outside actions array, not adding suggestions');
+			return [];
+		}
+		console.debug('inside actions array, adding suggestions');
+		
 		const serviceKeys = Object.keys(actions);
 		const lineText = document.lineAt(position.line).text;
 
@@ -44,7 +50,7 @@ const completionItemProvider: vscode.CompletionItemProvider = {
 				label: action.name,
 				kind: CompletionItemKind.Field,
 				data: action,
-				documentation: formatActionDocumentation(action),
+				documentation: new vscode.MarkdownString(formatActionDocumentation(action)),
 				// Set explicit range as default behavior is to replace the whole current word.
 				// that causes the service prefix to be overwritten with the action so we instead
 				// set a range that starts from the current position instead
@@ -69,17 +75,49 @@ const completionItemProvider: vscode.CompletionItemProvider = {
 			label: `${labelPrefix}${service}`,
 			filterText: `${labelPrefix}${service}${labelSuffix}`,
 			kind: CompletionItemKind.Module,
-			documentation: formatServiceDocumentation(service, 'http://example.com'),
+			documentation: new vscode.MarkdownString(formatServiceDocumentation(service, 'http://example.com')),
 		}));
 
 		return { items: suggestions, isIncomplete: true };
 	}
 };
 
+const isInsideActionsArray = (document: vscode.TextDocument, position: vscode.Position): boolean => {
+	// if current line includes 'actions:', we are in the actions array
+	if (document.getText(new vscode.Range(position.line, 0, position.line, Number.MAX_VALUE)).includes('actions:')) {
+		return true;
+	}
+
+	// if all previous lines start with '-' until we find a line that starts with 'actions:', then we're also good
+	let line = position.line;
+	while (line > 0) {
+		const lineText = document.lineAt(line).text.trimStart().toLowerCase();
+
+		if (/^"?action"?:/.test(lineText)) {
+			return true;
+		}
+		
+		if (/^["-]/.test(lineText)) {
+			line--;
+			continue;
+		}
+		
+		return false;
+	}
+
+	return false;
+};
+
 const hoverProvider: vscode.HoverProvider = {
 	provideHover(document, position, token) {
 		const range = document.getWordRangeAtPosition(position);
-		if (!range) { return { contents: [] }; }
+
+		const emptyResult = { contents: [] };
+		if (!range) { return emptyResult; }
+
+		if (!isInsideActionsArray(document, position)) { 
+			return emptyResult;
+		}
 		
 		const word = document.getText(range);
 		const trimmedWord = word.replace(/"/g, '').replace(/'/g, '').trim();
@@ -107,7 +145,7 @@ const hoverProvider: vscode.HoverProvider = {
 		// return hover with documentation for that action
 		// TODO: respect handle * and ? wildcards and show summary of all actions
 		const hoveredAction = actions[service] && actions[service].find(x => x.name === action);
-		if (!hoveredAction) { return { contents: [] }; }
+		if (!hoveredAction) { return emptyResult; }
 
 		return {
 			contents: [formatActionDocumentation(hoveredAction)],
@@ -135,7 +173,7 @@ const formatActionDocumentation = (action: IamAction): string => {
 		entries.push('');
 	}
 
-	entries.push(`[Read more](${action.documentationUrl})`);
+	entries.push(`[Read more](http://example.com)`);
 
 	return entries.join('\n');
 };
