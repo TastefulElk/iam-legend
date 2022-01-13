@@ -7,6 +7,13 @@ import { Position, Range, TextDocument } from "vscode";
  */
 export const normalize = (text: string) => text.replace(/[^a-z0-9-*:]/gi, ' ').trim();
 
+/**
+ * Check whether or not the given position appears to be within an array of actions
+ *
+ * @param {TextDocument} document
+ * @param {Position} position
+ * @return {*}  {boolean}
+ */
 export const isInsideActionsArray = (document: TextDocument, position: Position): boolean => {
   // if current line is actions/notActions field, we are inside the actions field
   const actionsFieldPattern = /^"?(not)?action"?:/i;
@@ -35,6 +42,12 @@ export const isInsideActionsArray = (document: TextDocument, position: Position)
   return false;
 };
 
+/**
+ * Try parse an IAM service name from the given line of text
+ *
+ * @param {string} text
+ * @return {*}  {(string | undefined)}
+ */
 export const tryParseServiceFromText = (text: string): string | undefined => {
 	let match = /([a-z0-9-]*)"?'?:/gi.exec(text);
 	if (match) {
