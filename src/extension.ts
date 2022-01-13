@@ -4,7 +4,7 @@ import * as vscode from 'vscode';
 import { CompletionItemKind } from 'vscode';
 import { EOL } from 'os';
 
-import { partialMatch, exactMatch } from './match';
+import { match } from './match';
 import { getActions, IamAction, IamService } from './iamActions';
 
 let services: Record<string, IamService> = {};
@@ -154,7 +154,7 @@ const hoverProvider: vscode.HoverProvider = {
 		// if matches 'service:action'
 		// return hover with documentation for that action
 		// if matches multiple actions, return hover with summary of actions
-		const hoveredActions = services[serviceName] && services[serviceName].actions.filter(x => exactMatch(action, x.name));
+		const hoveredActions = services[serviceName] && services[serviceName].actions.filter(x => match(action, x.name));
 		if (!hoveredActions) { return emptyResult; }
 
 		return {
@@ -206,7 +206,7 @@ const formatShortActionDocumentation = (actions: IamAction[]): string => {
 		const subject = documentationUrl ? `[${name}](${documentationUrl})` : `**${name}**`;
 		return `- ${subject}:	${description}`;
 	}).join(EOL));
-	return entries.join('\n');
+	return entries.join(EOL);
 };
 
 // this method is called when your extension is deactivated
