@@ -3,6 +3,7 @@
 import * as vscode from 'vscode';
 import { CompletionItemKind } from 'vscode';
 
+import { match } from './match';
 import { getActions, IamAction, IamService } from './iamActions';
 
 let services: Record<string, IamService> = {};
@@ -144,12 +145,14 @@ const hoverProvider: vscode.HoverProvider = {
 
 		// if matches 'service:action'
 		// return hover with documentation for that action
-		// TODO: respect handle * and ? wildcards and show summary of all actions
-		const hoveredAction = services[serviceName] && services[serviceName].actions.find(x => x.name === action);
-		if (!hoveredAction) { return emptyResult; }
+		// if matches multiple actions, return hover with summary of actions
+		const hoveredActions = services[serviceName] && services[serviceName].actions.filter(x => match(action, x.name));
+		if (!hoveredActions) { return emptyResult; }
 
 		return {
-			contents: [formatActionDocumentation(hoveredAction)],
+			contents: hoveredActions.length === 1
+				? [formatActionDocumentation(hoveredActions[0])]
+				: [formatShortActionDocumentation(hoveredActions)]
 		};
 	}
 };
@@ -184,6 +187,18 @@ const formatActionDocumentation = (action: IamAction): string => {
 		entries.push(`[Read more](${action.documentationUrl})`);
 	}
 
+	return entries.join('\n');
+};
+
+const formatShortActionDocumentation = (actions: IamAction[]): string => {
+	const entries = [];
+	entries.push('Multiple actions matched:');
+	entries.push('');
+
+	entries.push(actions.map(({name, documentationUrl, description}) => {
+		const subject = documentationUrl ? `[${name}](${documentationUrl})` : `**${name}**`;
+		return `- ${subject}:	${description}`;
+	}).join('\n'));
 	return entries.join('\n');
 };
 
