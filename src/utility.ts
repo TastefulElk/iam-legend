@@ -5,7 +5,7 @@ import { Position, Range, TextDocument } from "vscode";
  *
  * @param {string} text
  */
-export const normalize = (text: string) => text.replace(/[^a-z0-9-:]/gi, ' ').trim();
+export const normalize = (text: string) => text.replace(/[^a-z0-9-*:]/gi, ' ').trim();
 
 export const isInsideActionsArray = (document: TextDocument, position: Position): boolean => {
   // if current line is actions/notActions field, we are inside the actions field
