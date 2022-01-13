@@ -49,8 +49,8 @@ export const isInsideActionsArray = (document: TextDocument, position: Position)
  * @return {*}  {(string | undefined)}
  */
 export const tryParseServiceFromText = (text: string): string | undefined => {
-	let match = /([a-z0-9-]*)"?'?:/gi.exec(text);
-	if (match) {
-		return match[1];
-	}
+  let match = /([a-z0-9-]*)"?'?:/gi.exec(text);
+  if (match) {
+    return match[1];
+  }
 };

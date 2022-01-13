@@ -44,7 +44,7 @@ export const createActionsSummaryDocs = (actions: IamAction[]) => {
     const subject = documentationUrl
       ? `[${name}](${documentationUrl})`
       : `**${name}**`;
-    return `- ${subject}:	${description}`;
+    return `- ${subject}: ${description}`;
   }).join(mdEOL));
 
   return new MarkdownString(lines.join(mdEOL));

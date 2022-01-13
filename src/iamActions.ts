@@ -13,15 +13,15 @@ export interface IamService {
 }
 
 export interface IamAction {
-	name: string;
-	description: string;
-	resourceTypes: string[];
-	conditionKeys: string[];
-	dependentActions: string[];
-	documentationUrl: string;
+  name: string;
+  description: string;
+  resourceTypes: string[];
+  conditionKeys: string[];
+  dependentActions: string[];
+  documentationUrl: string;
 }
 
-export const getIamServices = async (): Promise<Record<string, IamService>> => {
+export const loadIamServices = async (): Promise<Record<string, IamService>> => {
   const files = await readdirAsync(resolve(__dirname, 'iam-services'));
   const readFiles = files.map(
     file => readFileAsync(resolve(__dirname, 'iam-services', file), 'utf8')

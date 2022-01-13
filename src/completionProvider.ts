@@ -1,7 +1,7 @@
 import { CancellationToken, CompletionContext, CompletionItem, CompletionItemKind, CompletionItemProvider, Position, Range, TextDocument } from "vscode";
 import { createActionDocs, createServiceDocs } from "./documentation";
 import { IamService } from "./iamActions";
-import { isInsideActionsArray, tryParseServiceFromText } from "./utility";
+import { isInsideActionsArray, tryParseServiceFromText } from "./utility/utility";
 
 export const getCompletionItemProvider = (services: Record<string, IamService>): CompletionItemProvider => ({
   provideCompletionItems(document: TextDocument, position: Position, token: CancellationToken, context: CompletionContext) {
