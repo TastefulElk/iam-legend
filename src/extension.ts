@@ -3,7 +3,7 @@
 import * as vscode from 'vscode';
 import { CompletionItemKind } from 'vscode';
 
-import { match } from './match';
+import { partialMatch, exactMatch } from './match';
 import { getActions, IamAction, IamService } from './iamActions';
 
 let services: Record<string, IamService> = {};
@@ -148,13 +148,15 @@ const hoverProvider: vscode.HoverProvider = {
 		// if matches 'service:action'
 		// return hover with documentation for that action
 		// if matches multiple actions, return hover with summary of actions
-		const hoveredActions = services[serviceName] && services[serviceName].actions.filter(x => match(action, x.name));
+		const hoveredActions = services[serviceName] && services[serviceName].actions.filter(x => exactMatch(action, x.name));
 		if (!hoveredActions) { return emptyResult; }
 
 		return {
-			contents: hoveredActions.length === 1
-				? [formatActionDocumentation(hoveredActions[0])]
-				: [formatShortActionDocumentation(hoveredActions)]
+			contents: hoveredActions.length === 0
+				?	['No matching actions']
+				: hoveredActions.length === 1
+					? [formatActionDocumentation(hoveredActions[0])]
+					: [formatShortActionDocumentation(hoveredActions)]
 		};
 	}
 };
