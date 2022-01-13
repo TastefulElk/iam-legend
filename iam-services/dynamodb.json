@@ -1,660 +1,722 @@
-[
-  {
-    "name": "BatchGetItem",
-    "description": "Grants permission to return the attributes of one or more items from one or more tables",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [
-      "dynamodb:Attributes",
-      "dynamodb:LeadingKeys",
-      "dynamodb:ReturnConsumedCapacity",
-      "dynamodb:Select"
-    ],
-    "dependentActions": []
-  },
-  {
-    "name": "BatchWriteItem",
-    "description": "Grants permission to put or delete multiple items in one or more tables",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [
-      "dynamodb:Attributes",
-      "dynamodb:LeadingKeys",
-      "dynamodb:ReturnConsumedCapacity"
-    ],
-    "dependentActions": []
-  },
-  {
-    "name": "ConditionCheckItem",
-    "description": "Grants permission to the ConditionCheckItem operation checks the existence of a set of attributes for the item with the given primary key",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [
-      "dynamodb:Attributes",
-      "dynamodb:LeadingKeys",
-      "dynamodb:ReturnConsumedCapacity",
-      "dynamodb:ReturnValues"
-    ],
-    "dependentActions": []
-  },
-  {
-    "name": "CreateBackup",
-    "description": "Grants permission to create a backup for an existing table",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "CreateGlobalTable",
-    "description": "Grants permission to create a global table from an existing table",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "global-table*",
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "CreateTable",
-    "description": "Grants permission to the CreateTable operation adds a new table to your account",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "CreateTableReplica",
-    "description": "Grants permission to add a new replica table",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DeleteBackup",
-    "description": "Grants permission to delete an existing backup of a table",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "backup*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DeleteItem",
-    "description": "Grants permission to deletes a single item in a table by primary key",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [
-      "dynamodb:Attributes",
-      "dynamodb:EnclosingOperation",
-      "dynamodb:LeadingKeys",
-      "dynamodb:ReturnConsumedCapacity",
-      "dynamodb:ReturnValues"
-    ],
-    "dependentActions": []
-  },
-  {
-    "name": "DeleteTable",
-    "description": "Grants permission to the DeleteTable operation which deletes a table and all of its items",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DeleteTableReplica",
-    "description": "Grants permission to delete a replica table and all of its items",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DescribeBackup",
-    "description": "Grants permission to describe an existing backup of a table",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "backup*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DescribeContinuousBackups",
-    "description": "Grants permission to check the status of the backup restore settings on the specified table",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DescribeContributorInsights",
-    "description": "Grants permission to describe the contributor insights status and related details for a given table or global secondary index",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "table*",
-      "index"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DescribeExport",
-    "description": "Grants permission to describe an existing Export of a table",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "export*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DescribeGlobalTable",
-    "description": "Grants permission to return information about the specified global table",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "global-table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DescribeGlobalTableSettings",
-    "description": "Grants permission to return settings information about the specified global table",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "global-table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DescribeKinesisStreamingDestination",
-    "description": "Grants permission to grant permission to describe the status of Kinesis streaming and related details for a given table",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DescribeLimits",
-    "description": "Grants permission to return the current provisioned-capacity limits for your AWS account in a region, both for the region as a whole and for any one DynamoDB table that you create there",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DescribeReservedCapacity",
-    "description": "Grants permission to describe one or more of the Reserved Capacity purchased",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DescribeReservedCapacityOfferings",
-    "description": "Grants permission to describe Reserved Capacity offerings that are available for purchase",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DescribeStream",
-    "description": "Grants permission to return information about a stream, including the current status of the stream, its Amazon Resource Name (ARN), the composition of its shards, and its corresponding DynamoDB table",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "stream*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DescribeTable",
-    "description": "Grants permission to return information about the table",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DescribeTableReplicaAutoScaling",
-    "description": "Grants permission to describe the auto scaling settings across all replicas of the global table",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DescribeTimeToLive",
-    "description": "Grants permission to give a description of the Time to Live (TTL) status on the specified table",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "DisableKinesisStreamingDestination",
-    "description": "Grants permission to grant permission to stop replication from the DynamoDB table to the Kinesis data stream",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "EnableKinesisStreamingDestination",
-    "description": "Grants permission to grant permission to start table data replication to the specified Kinesis data stream at a timestamp chosen during the enable workflow",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "ExportTableToPointInTime",
-    "description": "Grants permission to initiate an Export of a DynamoDB table to S3",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "GetItem",
-    "description": "Grants permission to the GetItem operation that returns a set of attributes for the item with the given primary key",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [
-      "dynamodb:Attributes",
-      "dynamodb:EnclosingOperation",
-      "dynamodb:LeadingKeys",
-      "dynamodb:ReturnConsumedCapacity",
-      "dynamodb:Select"
-    ],
-    "dependentActions": []
-  },
-  {
-    "name": "GetRecords",
-    "description": "Grants permission to retrieve the stream records from a given shard",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "stream*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "GetShardIterator",
-    "description": "Grants permission to return a shard iterator",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "stream*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "ListBackups",
-    "description": "Grants permission to list backups associated with the account and endpoint",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "ListContributorInsights",
-    "description": "Grants permission to list the ContributorInsightsSummary for all tables and global secondary indexes associated with the current account and endpoint",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "ListExports",
-    "description": "Grants permission to list exports associated with the account and endpoint",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "ListGlobalTables",
-    "description": "Grants permission to list all global tables that have a replica in the specified region",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "ListStreams",
-    "description": "Grants permission to return an array of stream ARNs associated with the current account and endpoint",
-    "accessLevel": "Read",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "ListTables",
-    "description": "Grants permission to return an array of table names associated with the current account and endpoint",
-    "accessLevel": "List",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "ListTagsOfResource",
-    "description": "Grants permission to list all tags on an Amazon DynamoDB resource",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "PartiQLDelete",
-    "description": "Grants permission to delete a single item in a table by primary key",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [
-      "dynamodb:Attributes",
-      "dynamodb:EnclosingOperation",
-      "dynamodb:LeadingKeys",
-      "dynamodb:ReturnValues"
-    ],
-    "dependentActions": []
-  },
-  {
-    "name": "PartiQLInsert",
-    "description": "Grants permission to create a new item, if an item with same primary key does not exist in the table",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [
-      "dynamodb:Attributes",
-      "dynamodb:EnclosingOperation",
-      "dynamodb:LeadingKeys"
-    ],
-    "dependentActions": []
-  },
-  {
-    "name": "PartiQLSelect",
-    "description": "Grants permission to read a set of attributes for items from a table or index",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "table*",
-      "index"
-    ],
-    "conditionKeys": [
-      "dynamodb:Attributes",
-      "dynamodb:EnclosingOperation",
-      "dynamodb:FullTableScan",
-      "dynamodb:LeadingKeys",
-      "dynamodb:Select"
-    ],
-    "dependentActions": []
-  },
-  {
-    "name": "PartiQLUpdate",
-    "description": "Grants permission to edit an existing item's attributes",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [
-      "dynamodb:Attributes",
-      "dynamodb:EnclosingOperation",
-      "dynamodb:LeadingKeys",
-      "dynamodb:ReturnValues"
-    ],
-    "dependentActions": []
-  },
-  {
-    "name": "PurchaseReservedCapacityOfferings",
-    "description": "Grants permission to purchases reserved capacity for use with your account",
-    "accessLevel": "Write",
-    "resourceTypes": [],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "PutItem",
-    "description": "Grants permission to create a new item, or replace an old item with a new item",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [
-      "dynamodb:Attributes",
-      "dynamodb:EnclosingOperation",
-      "dynamodb:LeadingKeys",
-      "dynamodb:ReturnConsumedCapacity",
-      "dynamodb:ReturnValues"
-    ],
-    "dependentActions": []
-  },
-  {
-    "name": "Query",
-    "description": "Grants permission to use the primary key of a table or a secondary index to directly access items from that table or index",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "table*",
-      "index"
-    ],
-    "conditionKeys": [
-      "dynamodb:Attributes",
-      "dynamodb:LeadingKeys",
-      "dynamodb:ReturnConsumedCapacity",
-      "dynamodb:ReturnValues",
-      "dynamodb:Select"
-    ],
-    "dependentActions": []
-  },
-  {
-    "name": "RestoreTableFromAwsBackup",
-    "description": "Grants permission to create a new table from recovery point on AWS Backup",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "RestoreTableFromBackup",
-    "description": "Grants permission to create a new table from an existing backup",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "backup*",
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "RestoreTableToPointInTime",
-    "description": "Grants permission to restore a table to a point in time",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "Scan",
-    "description": "Grants permission to return one or more items and item attributes by accessing every item in a table or a secondary index",
-    "accessLevel": "Read",
-    "resourceTypes": [
-      "table*",
-      "index"
-    ],
-    "conditionKeys": [
-      "dynamodb:Attributes",
-      "dynamodb:ReturnConsumedCapacity",
-      "dynamodb:ReturnValues",
-      "dynamodb:Select"
-    ],
-    "dependentActions": []
-  },
-  {
-    "name": "StartAwsBackupJob",
-    "description": "Grants permission to create a backup on AWS Backup with advanced features enabled",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "TagResource",
-    "description": "Grants permission to associate a set of tags with an Amazon DynamoDB resource",
-    "accessLevel": "Tagging",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "UntagResource",
-    "description": "Grants permission to remove the association of tags from an Amazon DynamoDB resource",
-    "accessLevel": "Tagging",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "UpdateContinuousBackups",
-    "description": "Grants permission to enable or disable continuous backups",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "UpdateContributorInsights",
-    "description": "Grants permission to update the status for contributor insights for a specific table or global secondary index",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*",
-      "index"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "UpdateGlobalTable",
-    "description": "Grants permission to add or remove replicas in the specified global table",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "global-table*",
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "UpdateGlobalTableSettings",
-    "description": "Grants permission to update settings of the specified global table",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "global-table*",
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "UpdateItem",
-    "description": "Grants permission to edit an existing item's attributes, or adds a new item to the table if it does not already exist",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [
-      "dynamodb:Attributes",
-      "dynamodb:EnclosingOperation",
-      "dynamodb:LeadingKeys",
-      "dynamodb:ReturnConsumedCapacity",
-      "dynamodb:ReturnValues"
-    ],
-    "dependentActions": []
-  },
-  {
-    "name": "UpdateTable",
-    "description": "Grants permission to modify the provisioned throughput settings, global secondary indexes, or DynamoDB Streams settings for a given table",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "UpdateTableReplicaAutoScaling",
-    "description": "Grants permission to update auto scaling settings on your replica table",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  },
-  {
-    "name": "UpdateTimeToLive",
-    "description": "Grants permission to enable or disable TTL for the specified table",
-    "accessLevel": "Write",
-    "resourceTypes": [
-      "table*"
-    ],
-    "conditionKeys": [],
-    "dependentActions": []
-  }
-]
+{
+  "serviceName": "Amazon DynamoDB",
+  "servicePrefix": "dynamodb",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazondynamodb.html",
+  "actions": [
+    {
+      "name": "BatchGetItem",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchGetItem.html",
+      "description": "Grants permission to return the attributes of one or more items from one or more tables",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [
+        "dynamodb:Attributes",
+        "dynamodb:LeadingKeys",
+        "dynamodb:ReturnConsumedCapacity",
+        "dynamodb:Select"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchWriteItem",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchWriteItem.html",
+      "description": "Grants permission to put or delete multiple items in one or more tables",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [
+        "dynamodb:Attributes",
+        "dynamodb:LeadingKeys",
+        "dynamodb:ReturnConsumedCapacity"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ConditionCheckItem",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ConditionCheckItem.html",
+      "description": "Grants permission to the ConditionCheckItem operation checks the existence of a set of attributes for the item with the given primary key",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [
+        "dynamodb:Attributes",
+        "dynamodb:LeadingKeys",
+        "dynamodb:ReturnConsumedCapacity",
+        "dynamodb:ReturnValues"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateBackup",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateBackup.html",
+      "description": "Grants permission to create a backup for an existing table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateGlobalTable",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateGlobalTable.html",
+      "description": "Grants permission to create a global table from an existing table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "global-table*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTable",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html",
+      "description": "Grants permission to the CreateTable operation adds a new table to your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTableReplica",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/V2gt_IAM.html",
+      "description": "Grants permission to add a new replica table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteBackup",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteBackup.html",
+      "description": "Grants permission to delete an existing backup of a table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "backup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteItem",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html",
+      "description": "Grants permission to deletes a single item in a table by primary key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [
+        "dynamodb:Attributes",
+        "dynamodb:EnclosingOperation",
+        "dynamodb:LeadingKeys",
+        "dynamodb:ReturnConsumedCapacity",
+        "dynamodb:ReturnValues"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTable",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteTable.html",
+      "description": "Grants permission to the DeleteTable operation which deletes a table and all of its items",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTableReplica",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/V2gt_IAM.html",
+      "description": "Grants permission to delete a replica table and all of its items",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeBackup",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeBackup.html",
+      "description": "Grants permission to describe an existing backup of a table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "backup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeContinuousBackups",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeContinuousBackups.html",
+      "description": "Grants permission to check the status of the backup restore settings on the specified table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeContributorInsights",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeContributorInsights.html",
+      "description": "Grants permission to describe the contributor insights status and related details for a given table or global secondary index",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*",
+        "index"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeExport",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeExport.html",
+      "description": "Grants permission to describe an existing Export of a table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "export*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeGlobalTable",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeGlobalTable.html",
+      "description": "Grants permission to return information about the specified global table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "global-table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeGlobalTableSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeGlobalTableSettings.html",
+      "description": "Grants permission to return settings information about the specified global table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "global-table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeKinesisStreamingDestination",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeKinesisStreamingDestination.html",
+      "description": "Grants permission to grant permission to describe the status of Kinesis streaming and related details for a given table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeLimits",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeLimits.html",
+      "description": "Grants permission to return the current provisioned-capacity limits for your AWS account in a region, both for the region as a whole and for any one DynamoDB table that you create there",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReservedCapacity",
+      "description": "Grants permission to describe one or more of the Reserved Capacity purchased",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReservedCapacityOfferings",
+      "description": "Grants permission to describe Reserved Capacity offerings that are available for purchase",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStream",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeStream.html",
+      "description": "Grants permission to return information about a stream, including the current status of the stream, its Amazon Resource Name (ARN), the composition of its shards, and its corresponding DynamoDB table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stream*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTable",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html",
+      "description": "Grants permission to return information about the table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTableReplicaAutoScaling",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTableReplicaAutoScaling.html",
+      "description": "Grants permission to describe the auto scaling settings across all replicas of the global table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTimeToLive",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTimeToLive.html",
+      "description": "Grants permission to give a description of the Time to Live (TTL) status on the specified table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisableKinesisStreamingDestination",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DisableKinesisStreamingDestination.html",
+      "description": "Grants permission to grant permission to stop replication from the DynamoDB table to the Kinesis data stream",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "EnableKinesisStreamingDestination",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_EnableKinesisStreamingDestination.html",
+      "description": "Grants permission to grant permission to start table data replication to the specified Kinesis data stream at a timestamp chosen during the enable workflow",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ExportTableToPointInTime",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ExportTableToPointInTime.html",
+      "description": "Grants permission to initiate an Export of a DynamoDB table to S3",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetItem",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html",
+      "description": "Grants permission to the GetItem operation that returns a set of attributes for the item with the given primary key",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [
+        "dynamodb:Attributes",
+        "dynamodb:EnclosingOperation",
+        "dynamodb:LeadingKeys",
+        "dynamodb:ReturnConsumedCapacity",
+        "dynamodb:Select"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRecords",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetRecords.html",
+      "description": "Grants permission to retrieve the stream records from a given shard",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stream*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetShardIterator",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetShardIterator.html",
+      "description": "Grants permission to return a shard iterator",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stream*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListBackups",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListBackups.html",
+      "description": "Grants permission to list backups associated with the account and endpoint",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListContributorInsights",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListContributorInsights.html",
+      "description": "Grants permission to list the ContributorInsightsSummary for all tables and global secondary indexes associated with the current account and endpoint",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExports",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListExports.html",
+      "description": "Grants permission to list exports associated with the account and endpoint",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListGlobalTables",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListGlobalTables.html",
+      "description": "Grants permission to list all global tables that have a replica in the specified region",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStreams",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListStreams.html",
+      "description": "Grants permission to return an array of stream ARNs associated with the current account and endpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTables",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListTables.html",
+      "description": "Grants permission to return an array of table names associated with the current account and endpoint",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsOfResource",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListTagsOfResource.html",
+      "description": "Grants permission to list all tags on an Amazon DynamoDB resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PartiQLDelete",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ExecuteStatement.html",
+      "description": "Grants permission to delete a single item in a table by primary key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [
+        "dynamodb:Attributes",
+        "dynamodb:EnclosingOperation",
+        "dynamodb:LeadingKeys",
+        "dynamodb:ReturnValues"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PartiQLInsert",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ExecuteStatement.html",
+      "description": "Grants permission to create a new item, if an item with same primary key does not exist in the table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [
+        "dynamodb:Attributes",
+        "dynamodb:EnclosingOperation",
+        "dynamodb:LeadingKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PartiQLSelect",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ExecuteStatement.html",
+      "description": "Grants permission to read a set of attributes for items from a table or index",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*",
+        "index"
+      ],
+      "conditionKeys": [
+        "dynamodb:Attributes",
+        "dynamodb:EnclosingOperation",
+        "dynamodb:FullTableScan",
+        "dynamodb:LeadingKeys",
+        "dynamodb:Select"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PartiQLUpdate",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ExecuteStatement.html",
+      "description": "Grants permission to edit an existing item's attributes",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [
+        "dynamodb:Attributes",
+        "dynamodb:EnclosingOperation",
+        "dynamodb:LeadingKeys",
+        "dynamodb:ReturnValues"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PurchaseReservedCapacityOfferings",
+      "description": "Grants permission to purchases reserved capacity for use with your account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutItem",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html",
+      "description": "Grants permission to create a new item, or replace an old item with a new item",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [
+        "dynamodb:Attributes",
+        "dynamodb:EnclosingOperation",
+        "dynamodb:LeadingKeys",
+        "dynamodb:ReturnConsumedCapacity",
+        "dynamodb:ReturnValues"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "Query",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Query.html",
+      "description": "Grants permission to use the primary key of a table or a secondary index to directly access items from that table or index",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*",
+        "index"
+      ],
+      "conditionKeys": [
+        "dynamodb:Attributes",
+        "dynamodb:LeadingKeys",
+        "dynamodb:ReturnConsumedCapacity",
+        "dynamodb:ReturnValues",
+        "dynamodb:Select"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RestoreTableFromAwsBackup",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_RestoreTableFromAwsBackup.html",
+      "description": "Grants permission to create a new table from recovery point on AWS Backup",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RestoreTableFromBackup",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_RestoreTableFromBackup.html",
+      "description": "Grants permission to create a new table from an existing backup",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "backup*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RestoreTableToPointInTime",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_RestoreTableToPointInTime.html",
+      "description": "Grants permission to restore a table to a point in time",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "Scan",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html",
+      "description": "Grants permission to return one or more items and item attributes by accessing every item in a table or a secondary index",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*",
+        "index"
+      ],
+      "conditionKeys": [
+        "dynamodb:Attributes",
+        "dynamodb:ReturnConsumedCapacity",
+        "dynamodb:ReturnValues",
+        "dynamodb:Select"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StartAwsBackupJob",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_StartAwsBackupJob.html",
+      "description": "Grants permission to create a backup on AWS Backup with advanced features enabled",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to associate a set of tags with an Amazon DynamoDB resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove the association of tags from an Amazon DynamoDB resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateContinuousBackups",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateContinuousBackups.html",
+      "description": "Grants permission to enable or disable continuous backups",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateContributorInsights",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateContributorInsights.html",
+      "description": "Grants permission to update the status for contributor insights for a specific table or global secondary index",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*",
+        "index"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateGlobalTable",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateGlobalTable.html",
+      "description": "Grants permission to add or remove replicas in the specified global table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "global-table*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateGlobalTableSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateGlobalTableSettings.html",
+      "description": "Grants permission to update settings of the specified global table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "global-table*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateItem",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html",
+      "description": "Grants permission to edit an existing item's attributes, or adds a new item to the table if it does not already exist",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [
+        "dynamodb:Attributes",
+        "dynamodb:EnclosingOperation",
+        "dynamodb:LeadingKeys",
+        "dynamodb:ReturnConsumedCapacity",
+        "dynamodb:ReturnValues"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTable",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html",
+      "description": "Grants permission to modify the provisioned throughput settings, global secondary indexes, or DynamoDB Streams settings for a given table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTableReplicaAutoScaling",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTableReplicaAutoScaling.html",
+      "description": "Grants permission to update auto scaling settings on your replica table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTimeToLive",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTimeToLive.html",
+      "description": "Grants permission to enable or disable TTL for the specified table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

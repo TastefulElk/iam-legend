@@ -1,0 +1,253 @@
+{
+  "serviceName": "Amazon MQ",
+  "servicePrefix": "mq",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonmq.html",
+  "actions": [
+    {
+      "name": "CreateBroker",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-brokers.html#rest-api-brokers-methods-post",
+      "description": "Grants permission to create a broker",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:CreateNetworkInterfacePermission                                                                                        ec2:CreateSecurityGroup                                                                                        ec2:CreateVpcEndpoint                                                                                        ec2:DescribeInternetGateways                                                                                        ec2:DescribeNetworkInterfacePermissions                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSecurityGroups                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcEndpoints                                                                                        ec2:DescribeVpcs                                                                                        ec2:ModifyNetworkInterfaceAttribute                                                                                        iam:CreateServiceLinkedRole                                                                                        route53:AssociateVPCWithHostedZone"
+      ]
+    },
+    {
+      "name": "CreateConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-configurations.html#rest-api-configurations-methods-post",
+      "description": "Grants permission to create a new configuration for the specified configuration name. Amazon MQ uses the default configuration (the engine type and engine version)",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTags",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-tags.html#rest-api-tags-methods-post",
+      "description": "Grants permission to create tags",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "brokers",
+        "configurations"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateUser",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-username.html#rest-api-username-methods-post",
+      "description": "Grants permission to create an ActiveMQ user",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "brokers*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteBroker",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-broker.html#rest-api-broker-methods-delete",
+      "description": "Grants permission to delete a broker",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "brokers*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DeleteNetworkInterface                                                                                        ec2:DeleteNetworkInterfacePermission                                                                                        ec2:DeleteVpcEndpoints                                                                                        ec2:DetachNetworkInterface"
+      ]
+    },
+    {
+      "name": "DeleteTags",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-tags.html#rest-api-tags-methods-delete",
+      "description": "Grants permission to delete tags",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "brokers",
+        "configurations"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteUser",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-username.html#rest-api-username-methods-delete",
+      "description": "Grants permission to delete an ActiveMQ user",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "brokers*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeBroker",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-broker.html#rest-api-broker-methods-get",
+      "description": "Grants permission to return information about the specified broker",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "brokers*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeBrokerEngineTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/broker-engine-types.html#broker-engine-types-http-methods",
+      "description": "Grants permission to return information about broker engines",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeBrokerInstanceOptions",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/broker-instance-options.html#broker-engine-types-http-methods",
+      "description": "Grants permission to return information about the broker instance options",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-configuration.html#rest-api-configuration-methods-get",
+      "description": "Grants permission to return information about the specified configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "configurations*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeConfigurationRevision",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-configuration-revision.html#rest-api-configuration-revision-methods-get",
+      "description": "Grants permission to return the specified configuration revision for the specified configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "configurations*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeUser",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-username.html#rest-api-username-methods-get",
+      "description": "Grants permission to return information about an ActiveMQ user",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "brokers*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListBrokers",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-brokers.html#rest-api-brokers-methods-get",
+      "description": "Grants permission to return a list of all brokers",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListConfigurationRevisions",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-revisions.html#rest-api-revisions-methods-get",
+      "description": "Grants permission to return a list of all existing revisions for the specified configuration",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "configurations*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-configurations.html#rest-api-configurations-methods-get",
+      "description": "Grants permission to return a list of all configurations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTags",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-tags.html#rest-api-tags-methods-get",
+      "description": "Grants permission to return a list of tags",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "brokers",
+        "configurations"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListUsers",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-users.html#rest-api-users-methods-get",
+      "description": "Grants permission to return a list of all ActiveMQ users",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "brokers*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RebootBroker",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-restart.html#rest-api-reboot-methods-post",
+      "description": "Grants permission to reboot a broker",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "brokers*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateBroker",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-broker.html#rest-api-broker-methods-get",
+      "description": "Grants permission to add a pending configuration change to a broker",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "brokers*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-configuration.html#rest-api-configuration-methods-put",
+      "description": "Grants permission to update the specified configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configurations*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateUser",
+      "documentationUrl": "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/rest-api-username.html#rest-api-username-methods-put",
+      "description": "Grants permission to update the information for an ActiveMQ user",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "brokers*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

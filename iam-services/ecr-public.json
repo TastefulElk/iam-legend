@@ -1,0 +1,267 @@
+{
+  "serviceName": "Amazon Elastic Container Registry Public",
+  "servicePrefix": "ecr-public",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelasticcontainerregistrypublic.html",
+  "actions": [
+    {
+      "name": "BatchCheckLayerAvailability",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_BatchCheckLayerAvailability.html",
+      "description": "Grants permission to check the availability of multiple image layers in a specified registry and repository",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchDeleteImage",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_BatchDeleteImage.html",
+      "description": "Grants permission to delete a list of specified images within a specified repository",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CompleteLayerUpload",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_CompleteLayerUpload.html",
+      "description": "Grants permission to inform Amazon ECR that the image layer upload for a specified registry, repository name, and upload ID, has completed",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateRepository",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_CreateRepository.html",
+      "description": "Grants permission to create an image repository",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRepository",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_DeleteRepository.html",
+      "description": "Grants permission to delete an existing image repository",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRepositoryPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_DeleteRepositoryPolicy.html",
+      "description": "Grants permission to delete the repository policy from a specified repository",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeImageTags",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_DescribeImageTags.html",
+      "description": "Grants permission to describe all the image tags for a given repository",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeImages",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_DescribeImages.html",
+      "description": "Grants permission to get metadata about the images in a repository, including image size, image tags, and creation date",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRegistries",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_DescribeRegistries.html",
+      "description": "Grants permission to retrieve the catalog data associated with a registry",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "registry*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRepositories",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_DescribeRepositories.html",
+      "description": "Grants permission to describe image repositories in a registry",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "repository"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAuthorizationToken",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_GetAuthorizationToken.html",
+      "description": "Grants permission to retrieve a token that is valid for a specified registry for 12 hours",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRegistryCatalogData",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_GetRegistryCatalogData.html",
+      "description": "Grants permission to retrieve the catalog data associated with a registry",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "registry*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRepositoryCatalogData",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_GetRepositoryCatalogData.html",
+      "description": "Grants permission to retrieve the catalog data associated with a repository",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRepositoryPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_GetRepositoryPolicy.html",
+      "description": "Grants permission to retrieve the repository policy for a specified repository",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "InitiateLayerUpload",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_InitiateLayerUpload.html",
+      "description": "Grants permission to notify Amazon ECR that you intend to upload an image layer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list the tags for an Amazon ECR resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutImage",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_PutImage.html",
+      "description": "Grants permission to create or update the image manifest associated with an image",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutRegistryCatalogData",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_PutRegistryCatalogData.html",
+      "description": "Grants permission to create and update the catalog data associated with a registry",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "registry*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutRepositoryCatalogData",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_PutRepositoryCatalogData.html",
+      "description": "Grants permission to update the catalog data associated with a repository",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SetRepositoryPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_SetRepositoryPolicy.html",
+      "description": "Grants permission to apply a repository policy on a specified repository to control access permissions",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag an Amazon ECR resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag an Amazon ECR resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UploadLayerPart",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/API_UploadLayerPart.html",
+      "description": "Grants permission to upload an image layer part to Amazon ECR Public",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

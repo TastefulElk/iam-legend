@@ -1,0 +1,214 @@
+{
+  "serviceName": "Amazon CodeGuru Reviewer",
+  "servicePrefix": "codeguru-reviewer",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoncodegurureviewer.html",
+  "actions": [
+    {
+      "name": "AssociateRepository",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_AssociateRepository.html",
+      "description": "Grants permission to associates a repository with Amazon CodeGuru Reviewer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "association*",
+        "connection",
+        "repository"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "codecommit:ListRepositories                                                                                        codecommit:TagResource                                                                                        events:PutRule                                                                                        events:PutTargets                                                                                        iam:CreateServiceLinkedRole                                                                                        s3:CreateBucket                                                                                        s3:ListBucket                                                                                        s3:PutBucketPolicy                                                                                        s3:PutLifecycleConfiguration"
+      ]
+    },
+    {
+      "name": "CreateCodeReview",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview.html",
+      "description": "Grants permission to create a code review",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "association*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "s3:GetObject"
+      ]
+    },
+    {
+      "name": "CreateConnectionToken",
+      "description": "Grants permission to perform webbased oauth handshake for 3rd party providers",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCodeReview",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_DescribeCodeReview.html",
+      "description": "Grants permission to describe a code review",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "association*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRecommendationFeedback",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_DescribeRecommendationFeedback.html",
+      "description": "Grants permission to describe a recommendation feedback on a code review",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "association*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRepositoryAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_DescribeRepositoryAssociation.html",
+      "description": "Grants permission to describe a repository association",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "association*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateRepository",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_DisassociateRepository.html",
+      "description": "Grants permission to disassociate a repository with Amazon CodeGuru Reviewer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "association*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "codecommit:UntagResource                                                                                        events:DeleteRule                                                                                        events:RemoveTargets"
+      ]
+    },
+    {
+      "name": "GetMetricsData",
+      "description": "Grants permission to view pull request metrics in console",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCodeReviews",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListCodeReviews.html",
+      "description": "Grants permission to list summary of code reviews",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRecommendationFeedback",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRecommendationFeedback.html",
+      "description": "Grants permission to list summary of recommendation feedback on a code review",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "association*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRecommendations.html",
+      "description": "Grants permission to list summary of recommendations on a code review",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "association*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRepositoryAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html",
+      "description": "Grants permission to list summary of repository associations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListTagsForResource.html",
+      "description": "Grants permission to list the resource attached to a associated repository ARN",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "association*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListThirdPartyRepositories",
+      "description": "Grants permission to list 3rd party providers repositories in console",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutRecommendationFeedback",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_PutRecommendationFeedback.html",
+      "description": "Grants permission to put feedback for a recommendation on a code review",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "association*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_TagResource.html",
+      "description": "Grants permission to attach resource tags to an associated repository ARN",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "association*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UnTagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_UnTagResource.html",
+      "description": "Grants permission to disassociate resource tags from an associated repository ARN",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "association*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

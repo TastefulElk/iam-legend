@@ -1,0 +1,310 @@
+{
+  "serviceName": "AWS Migration Hub Refactor Spaces",
+  "servicePrefix": "refactor-spaces",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsmigrationhubrefactorspaces.html",
+  "actions": [
+    {
+      "name": "CreateApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateApplication.html",
+      "description": "Grants permission to create an application within an environment",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "refactor-spaces:ApplicationCreatedByAccount                                                                                                                                                            refactor-spaces:CreatedByAccountIds                                                                                                                                                            aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateEnvironment.html",
+      "description": "Grants permission to create an environment",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateRoute",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateRoute.html",
+      "description": "Grants permission to create a route within an application",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "refactor-spaces:ApplicationCreatedByAccount                                                                                                                                                            refactor-spaces:ServiceCreatedByAccount                                                                                                                                                            refactor-spaces:RouteCreatedByAccount                                                                                                                                                            refactor-spaces:CreatedByAccountIds                                                                                                                                                            refactor-spaces:SourcePath                                                                                                                                                            aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateService",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_CreateService.html",
+      "description": "Grants permission to create a service within an application",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "refactor-spaces:ApplicationCreatedByAccount                                                                                                                                                            refactor-spaces:ServiceCreatedByAccount                                                                                                                                                            refactor-spaces:CreatedByAccountIds                                                                                                                                                            aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_DeleteApplication.html",
+      "description": "Grants permission to delete an application from an environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [
+        "refactor-spaces:ApplicationCreatedByAccount",
+        "refactor-spaces:CreatedByAccountIds",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_DeleteEnvironment.html",
+      "description": "Grants permission to delete an environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_DeleteResourcePolicy.html",
+      "description": "Grants permission to delete a resource policy",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRoute",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_DeleteRoute.html",
+      "description": "Grants permission to delete a route from an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "route*"
+      ],
+      "conditionKeys": [
+        "refactor-spaces:ApplicationCreatedByAccount",
+        "refactor-spaces:ServiceCreatedByAccount",
+        "refactor-spaces:RouteCreatedByAccount",
+        "refactor-spaces:CreatedByAccountIds",
+        "refactor-spaces:SourcePath",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteService",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_DeleteService.html",
+      "description": "Grants permission to delete a service from an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [
+        "refactor-spaces:ApplicationCreatedByAccount",
+        "refactor-spaces:ServiceCreatedByAccount",
+        "refactor-spaces:CreatedByAccountIds",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_GetApplication.html",
+      "description": "Grants permission to get more information about an application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [
+        "refactor-spaces:ApplicationCreatedByAccount",
+        "refactor-spaces:CreatedByAccountIds",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_GetEnvironment.html",
+      "description": "Grants permission to get more information for an environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_GetResourcePolicy.html",
+      "description": "Grants permission to get the details about a resource policy",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRoute",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_GetRoute.html",
+      "description": "Grants permission to get more information about a route",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "route*"
+      ],
+      "conditionKeys": [
+        "refactor-spaces:ApplicationCreatedByAccount",
+        "refactor-spaces:ServiceCreatedByAccount",
+        "refactor-spaces:RouteCreatedByAccount",
+        "refactor-spaces:CreatedByAccountIds",
+        "refactor-spaces:SourcePath",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetService",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_GetService.html",
+      "description": "Grants permission to get more information about a service",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [
+        "refactor-spaces:ApplicationCreatedByAccount",
+        "refactor-spaces:ServiceCreatedByAccount",
+        "refactor-spaces:CreatedByAccountIds",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_ListApplications.html",
+      "description": "Grants permission to list all the applications in an environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEnvironmentVpcs",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_ListEnvironmentVpcs.html",
+      "description": "Grants permission to list all the VPCs for the environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEnvironments",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_ListEnvironment.html",
+      "description": "Grants permission to list all environments",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRoutes",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_ListRoutes.html",
+      "description": "Grants permission to list all the routes in an application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListServices",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_ListServices.html",
+      "description": "Grants permission to list all the services in an environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list all the tags for a given resource",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_PutResourcePolicy.html",
+      "description": "Grants permission to add a resource policy",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "application",
+        "environment",
+        "route",
+        "service"
+      ],
+      "conditionKeys": [
+        "refactor-spaces:ApplicationCreatedByAccount",
+        "refactor-spaces:ServiceCreatedByAccount",
+        "refactor-spaces:RouteCreatedByAccount",
+        "refactor-spaces:CreatedByAccountIds",
+        "refactor-spaces:SourcePath",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove a tag from a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "application",
+        "environment",
+        "route",
+        "service"
+      ],
+      "conditionKeys": [
+        "refactor-spaces:ApplicationCreatedByAccount",
+        "refactor-spaces:ServiceCreatedByAccount",
+        "refactor-spaces:RouteCreatedByAccount",
+        "refactor-spaces:CreatedByAccountIds",
+        "refactor-spaces:SourcePath",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

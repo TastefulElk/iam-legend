@@ -1,0 +1,609 @@
+{
+  "serviceName": "AWS Database Migration Service",
+  "servicePrefix": "dms",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html",
+  "actions": [
+    {
+      "name": "AddTagsToResource",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_AddTagsToResource.html",
+      "description": "Grants permission to add metadata tags to DMS resources, including replication instances, endpoints, security groups, and migration tasks",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "Certificate",
+        "Endpoint",
+        "EventSubscription",
+        "ReplicationInstance",
+        "ReplicationSubnetGroup",
+        "ReplicationTask"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "dms:req-tag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ApplyPendingMaintenanceAction",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_ApplyPendingMaintenanceAction.html",
+      "description": "Grants permission to apply a pending maintenance action to a resource (for example, to a replication instance)",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationInstance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelReplicationTaskAssessmentRun",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_CancelReplicationTaskAssessmentRun.html",
+      "description": "Grants permission to cancel a single premigration assessment run",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationTaskAssessmentRun*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateEndpoint.html",
+      "description": "Grants permission to create an endpoint using the provided settings",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys                                                                                                                                                            dms:req-tag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEventSubscription",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateEventSubscription.html",
+      "description": "Grants permission to create an AWS DMS event notification subscription",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys                                                                                                                                                            dms:req-tag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateReplicationInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationInstance.html",
+      "description": "Grants permission to create a replication instance using the specified parameters",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys                                                                                                                                                            dms:req-tag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateReplicationSubnetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationSubnetGroup.html",
+      "description": "Grants permission to create a replication subnet group given a list of the subnet IDs in a VPC",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys                                                                                                                                                            dms:req-tag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateReplicationTask",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationTask.html",
+      "description": "Grants permission to create a replication task using the specified parameters",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Endpoint*",
+        "ReplicationInstance*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "dms:req-tag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DeleteCertificate.html",
+      "description": "Grants permission to delete the specified certificate",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Certificate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DeleteConnection.html",
+      "description": "Grants permission to delete the specified connection between a replication instance and an endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Endpoint*",
+        "ReplicationInstance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DeleteEndpoint.html",
+      "description": "Grants permission to delete the specified endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEventSubscription",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DeleteEventSubscription.html",
+      "description": "Grants permission to delete an AWS DMS event subscription",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "EventSubscription*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteReplicationInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DeleteReplicationInstance.html",
+      "description": "Grants permission to delete the specified replication instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationInstance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteReplicationSubnetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DeleteReplicationSubnetGroup.html",
+      "description": "Grants permission to deletes a subnet group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationSubnetGroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteReplicationTask",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DeleteReplicationTask.html",
+      "description": "Grants permission to delete the specified replication task",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationTask*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteReplicationTaskAssessmentRun",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DeleteReplicationTaskAssessmentRun.html",
+      "description": "Grants permission to delete the record of a single premigration assessment run",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationTaskAssessmentRun*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAccountAttributes",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeAccountAttributes.html",
+      "description": "Grants permission to list all of the AWS DMS attributes for a customer account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeApplicableIndividualAssessments",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeApplicableIndividualAssessments.html",
+      "description": "Grants permission to list individual assessments that you can specify for a new premigration assessment run",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ReplicationInstance",
+        "ReplicationTask"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCertificates",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeCertificates.html",
+      "description": "Grants permission to provide a description of the certificate",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeConnections",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeConnections.html",
+      "description": "Grants permission to describe the status of the connections that have been made between the replication instance and an endpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEndpointSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeEndpointSettings.html",
+      "description": "Grants permission to return the possible endpoint settings available when you create an endpoint for a specific database engine",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEndpointTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeEndpointTypes.html",
+      "description": "Grants permission to return information about the type of endpoints available",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEndpoints",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeEndpoints.html",
+      "description": "Grants permission to return information about the endpoints for your account in the current region",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEventCategories",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeEventCategories.html",
+      "description": "Grants permission to list categories for all event source types, or, if specified, for a specified source type",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEventSubscriptions",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeEventSubscriptions.html",
+      "description": "Grants permission to list all the event subscriptions for a customer account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEvents",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeEvents.html",
+      "description": "Grants permission to list events for a given source identifier and source type",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeOrderableReplicationInstances",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeOrderableReplicationInstances.html",
+      "description": "Grants permission to return information about the replication instance types that can be created in the specified region",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRefreshSchemasStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeRefreshSchemasStatus.html",
+      "description": "Grants permission to returns the status of the RefreshSchemas operation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReplicationInstanceTaskLogs",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeReplicationInstanceTaskLogs.html",
+      "description": "Grants permission to return information about the task logs for the specified task",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ReplicationInstance*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReplicationInstances",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeReplicationInstances.html",
+      "description": "Grants permission to return information about replication instances for your account in the current region",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReplicationSubnetGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeReplicationSubnetGroups.html",
+      "description": "Grants permission to return information about the replication subnet groups",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReplicationTaskAssessmentResults",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeReplicationTaskAssessmentResults.html",
+      "description": "Grants permission to return the latest task assessment results from Amazon S3",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ReplicationTask"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReplicationTaskAssessmentRuns",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeReplicationTaskAssessmentRuns.html",
+      "description": "Grants permission to return a paginated list of premigration assessment runs based on filter settings",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ReplicationInstance",
+        "ReplicationTask",
+        "ReplicationTaskAssessmentRun"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReplicationTaskIndividualAssessments",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeReplicationTaskIndividualAssessments.html",
+      "description": "Grants permission to return a paginated list of individual assessments based on filter settings",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ReplicationTask",
+        "ReplicationTaskAssessmentRun"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReplicationTasks",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeReplicationTasks.html",
+      "description": "Grants permission to return information about replication tasks for your account in the current region",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSchemas",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeSchemas.html",
+      "description": "Grants permission to return information about the schema for the specified endpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTableStatistics",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeTableStatistics.html",
+      "description": "Grants permission to return table statistics on the database migration task, including table name, rows inserted, rows updated, and rows deleted",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ReplicationTask*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ImportCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_ImportCertificate.html",
+      "description": "Grants permission to upload the specified certificate",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list all tags for an AWS DMS resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Certificate",
+        "Endpoint",
+        "EventSubscription",
+        "ReplicationInstance",
+        "ReplicationSubnetGroup",
+        "ReplicationTask"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyEndpoint.html",
+      "description": "Grants permission to modify the specified endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Endpoint*",
+        "Certificate"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyEventSubscription",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyEventSubscription.html",
+      "description": "Grants permission to modify an existing AWS DMS event notification subscription",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyReplicationInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyReplicationInstance.html",
+      "description": "Grants permission to modify the replication instance to apply new settings",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationInstance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyReplicationSubnetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyReplicationSubnetGroup.html",
+      "description": "Grants permission to modify the settings for the specified replication subnet group",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyReplicationTask",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyReplicationTask.html",
+      "description": "Grants permission to modify the specified replication task",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationTask*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "MoveReplicationTask",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_MoveReplicationTask.html",
+      "description": "Grants permission to move the specified replication task to a different replication instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationInstance*",
+        "ReplicationTask*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RebootReplicationInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_RebootReplicationInstance.html",
+      "description": "Grants permission to reboot a replication instance. Rebooting results in a momentary outage, until the replication instance becomes available again",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationInstance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RefreshSchemas",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_RefreshSchemas.html",
+      "description": "Grants permission to populate the schema for the specified endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Endpoint*",
+        "ReplicationInstance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ReloadTables",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_ReloadTables.html",
+      "description": "Grants permission to reload the target database table with the source data",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationTask*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RemoveTagsFromResource",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_RemoveTagsFromResource.html",
+      "description": "Grants permission to remove metadata tags from a DMS resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "Certificate",
+        "Endpoint",
+        "EventSubscription",
+        "ReplicationInstance",
+        "ReplicationSubnetGroup",
+        "ReplicationTask"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StartReplicationTask",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html",
+      "description": "Grants permission to start the replication task",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationTask*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartReplicationTaskAssessment",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTaskAssessment.html",
+      "description": "Grants permission to start the replication task assessment for unsupported data types in the source database",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationTask*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartReplicationTaskAssessmentRun",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTaskAssessmentRun.html",
+      "description": "Grants permission to start a new premigration assessment run for one or more individual assessments of a migration task",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationTask*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopReplicationTask",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_StopReplicationTask.html",
+      "description": "Grants permission to stop the replication task",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationTask*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TestConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_TestConnection.html",
+      "description": "Grants permission to test the connection between the replication instance and the endpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Endpoint*",
+        "ReplicationInstance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

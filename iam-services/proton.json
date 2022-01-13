@@ -1,0 +1,990 @@
+{
+  "serviceName": "AWS Proton",
+  "servicePrefix": "proton",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsproton.html",
+  "actions": [
+    {
+      "name": "AcceptEnvironmentAccountConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_AcceptEnvironmentAccountConnection.html",
+      "description": "Grants permission to reject an environment account connection request from another environment account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-account-connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelEnvironmentDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CancelEnvironmentDeployment.html",
+      "description": "Grants permission to cancel an environment deployment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "proton:EnvironmentTemplate"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelServiceInstanceDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CancelServiceInstanceDeployment.html",
+      "description": "Grants permission to cancel a service instance deployment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service-instance*"
+      ],
+      "conditionKeys": [
+        "proton:ServiceTemplate"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelServicePipelineDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CancelServicePipelineDeployment.html",
+      "description": "Grants permission to cancel a service pipeline deployment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [
+        "proton:ServiceTemplate"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateEnvironment.html",
+      "description": "Grants permission to create an environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "proton:EnvironmentTemplate"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateEnvironmentAccountConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateEnvironmentAccountConnection.html",
+      "description": "Grants permission to create an environment account connection",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEnvironmentTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateEnvironmentTemplate.html",
+      "description": "Grants permission to create an environment template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEnvironmentTemplateMajorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateEnvironmentTemplateMajorVersion.html",
+      "description": "Grants permission to create an environment template major version.  DEPRECATED - use CreateEnvironmentTemplateVersion instead",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEnvironmentTemplateMinorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateEnvironmentTemplateMinorVersion.html",
+      "description": "Grants permission to create an environment template minor version.  DEPRECATED - use CreateEnvironmentTemplateVersion instead",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEnvironmentTemplateVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateEnvironmentTemplateVersion.html",
+      "description": "Grants permission to create an environment template version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateRepository",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateRepository.html",
+      "description": "Grants permission to create a repository",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateService",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateService.html",
+      "description": "Grants permission to create a service",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "proton:ServiceTemplate"
+      ],
+      "dependentActions": [
+        "codestar-connections:PassConnection"
+      ]
+    },
+    {
+      "name": "CreateServiceTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateServiceTemplate.html",
+      "description": "Grants permission to create a service template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateServiceTemplateMajorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateServiceTemplateMajorVersion.html",
+      "description": "Grants permission to create a service template major version.  DEPRECATED - use CreateServiceTemplateVersion instead",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateServiceTemplateMinorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateServiceTemplateMinorVersion.html",
+      "description": "Grants permission to create a service template minor version.  DEPRECATED - use CreateServiceTemplateVersion instead",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateServiceTemplateVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateServiceTemplateVersion.html",
+      "description": "Grants permission to create a service template version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTemplateSyncConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateTemplateSyncConfig.html",
+      "description": "Grants permission to create a template sync config",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAccountRoles",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteAccountRoles.html",
+      "description": "Grants permission to delete account roles.  DEPRECATED - use UpdateAccountSettings instead",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteEnvironment.html",
+      "description": "Grants permission to delete an environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "proton:EnvironmentTemplate"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEnvironmentAccountConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteEnvironmentAccountConnection.html",
+      "description": "Grants permission to delete an environment account connection",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-account-connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEnvironmentTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteEnvironmentTemplate.html",
+      "description": "Grants permission to delete an environment template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEnvironmentTemplateMajorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteEnvironmentTemplateMajorVersion.html",
+      "description": "Grants permission to delete an environment template major version.  DEPRECATED - use DeleteEnvironmentTemplateVersion instead",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEnvironmentTemplateMinorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteEnvironmentTemplateMinorVersion.html",
+      "description": "Grants permission to delete an environment template minor version.  DEPRECATED - use DeleteEnvironmentTemplateVersion instead",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEnvironmentTemplateVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteEnvironmentTemplateVersion.html",
+      "description": "Grants permission to delete an environment template version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRepository",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteRepository.html",
+      "description": "Grants permission to delete a repository",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteService",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteService.html",
+      "description": "Grants permission to delete a service",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [
+        "proton:ServiceTemplate"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteServiceTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteServiceTemplate.html",
+      "description": "Grants permission to delete a service template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteServiceTemplateMajorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteServiceTemplateMajorVersion.html",
+      "description": "Grants permission to delete a service template major version.  DEPRECATED - use DeleteServiceTemplateVersion instead",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteServiceTemplateMinorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteServiceTemplateMinorVersion.html",
+      "description": "Grants permission to delete a service template minor version.  DEPRECATED - use DeleteServiceTemplateVersion instead",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteServiceTemplateVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteServiceTemplateVersion.html",
+      "description": "Grants permission to delete a service template version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTemplateSyncConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteTemplateSyncConfig.html",
+      "description": "Grants permission to delete a TemplateSyncConfig",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccountRoles",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetAccountRoles.html",
+      "description": "Grants permission to get account roles.  DEPRECATED - use GetAccountSettings instead",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccountSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetAccountRoles.html",
+      "description": "Grants permission to describe the account settings",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetEnvironment.html",
+      "description": "Grants permission to describe an environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEnvironmentAccountConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetEnvironmentAccountConnection.html",
+      "description": "Grants permission to describe an environment account connection",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment-account-connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEnvironmentTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetEnvironmentTemplate.html",
+      "description": "Grants permission to describe an environment template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEnvironmentTemplateMajorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetEnvironmentTemplateMajorVersion.html",
+      "description": "Grants permission to get an environment template major version.  DEPRECATED - use GetEnvironmentTemplateVersion instead",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEnvironmentTemplateMinorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetEnvironmentTemplateMinorVersion.html",
+      "description": "Grants permission to get an environment template minor version.  DEPRECATED - use GetEnvironmentTemplateVersion instead",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEnvironmentTemplateVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetEnvironmentTemplateVersion.html",
+      "description": "Grants permission to describe an environment template version",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRepository",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetRepository.html",
+      "description": "Grants permission to describe a repository",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRepositorySyncStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetRepositorySyncStatus.html",
+      "description": "Grants permission to get the latest sync status for a repository",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetService",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetService.html",
+      "description": "Grants permission to describe a service",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetServiceInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetServiceInstance.html",
+      "description": "Grants permission to describe a service instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "service-instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetServiceTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetServiceTemplate.html",
+      "description": "Grants permission to describe a service template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetServiceTemplateMajorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetServiceTemplateMajorVersion.html",
+      "description": "Grants permission to get a service template major version.  DEPRECATED - use GetServiceTemplateVersion instead",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetServiceTemplateMinorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetServiceTemplateMinorVersion.html",
+      "description": "Grants permission to get a service template minor version.  DEPRECATED - use GetServiceTemplateVersion instead",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetServiceTemplateVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetServiceTemplateVersion.html",
+      "description": "Grants permission to describe a service template version",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTemplateSyncConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetTemplateSyncConfig.html",
+      "description": "Grants permission to describe a TemplateSyncConfig",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTemplateSyncStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetTemplateSyncStatus.html",
+      "description": "Grants permission to describe the sync status of a template",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEnvironmentAccountConnections",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentAccountConnections.html",
+      "description": "Grants permission to list environment account connections",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "environment-account-connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEnvironmentTemplateMajorVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentTemplateMajorVersions.html",
+      "description": "Grants permission to list environment template major versions.  DEPRECATED - use ListEnvironmentTemplateVersions instead",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEnvironmentTemplateMinorVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentTemplateMinorVersions.html",
+      "description": "Grants permission to list an environment template minor versions.  DEPRECATED - use ListEnvironmentTemplateVersions instead",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEnvironmentTemplateVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentTemplateVersions.html",
+      "description": "Grants permission to list environment template versions",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEnvironmentTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentTemplates.html",
+      "description": "Grants permission to list environment templates",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEnvironments",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironments.html",
+      "description": "Grants permission to list environments",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRepositories",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListRepositories.html",
+      "description": "Grants permission to list repositories",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRepositorySyncDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListRepositorySyncDefinitions.html",
+      "description": "Grants permission to list repository sync definitions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListServiceInstances",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServiceInstances.html",
+      "description": "Grants permission to list service instances",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListServiceTemplateMajorVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServiceTemplateMajorVersions.html",
+      "description": "Grants permission to list service template major versions.  DEPRECATED - use ListServiceTemplateVersions instead",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListServiceTemplateMinorVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServiceTemplateMinorVersions.html",
+      "description": "Grants permission to list service template minor versions.  DEPRECATED - use ListServiceTemplateVersions instead",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListServiceTemplateVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServiceTemplateVersions.html",
+      "description": "Grants permission to list service template versions",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListServiceTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServiceTemplates.html",
+      "description": "Grants permission to list service templates",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListServices",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListServices.html",
+      "description": "Grants permission to list services",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags of a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment",
+        "environment-template",
+        "environment-template-major-version",
+        "environment-template-minor-version",
+        "environment-template-version",
+        "service",
+        "service-instance",
+        "service-template",
+        "service-template-major-version",
+        "service-template-minor-version",
+        "service-template-version"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RejectEnvironmentAccountConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_RejectEnvironmentAccountConnection.html",
+      "description": "Grants permission to reject an environment account connection request from another environment account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-account-connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to add tags to a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "environment",
+        "environment-template",
+        "environment-template-major-version",
+        "environment-template-minor-version",
+        "environment-template-version",
+        "service",
+        "service-instance",
+        "service-template",
+        "service-template-major-version",
+        "service-template-minor-version",
+        "service-template-version"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove tags from a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "environment",
+        "environment-template",
+        "environment-template-major-version",
+        "environment-template-minor-version",
+        "environment-template-version",
+        "service",
+        "service-instance",
+        "service-template",
+        "service-template-major-version",
+        "service-template-minor-version",
+        "service-template-version"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAccountRoles",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateAccountRoles.html",
+      "description": "Grants permission to update account roles.  DEPRECATED - use UpdateAccountSettings instead",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdateAccountSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateAccountRoles.html",
+      "description": "Grants permission to update the account settings",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdateEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateEnvironment.html",
+      "description": "Grants permission to update an environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "proton:EnvironmentTemplate"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdateEnvironmentAccountConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateEnvironmentAccountConnection.html",
+      "description": "Grants permission to update an environment account connection",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-account-connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEnvironmentTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateEnvironmentTemplate.html",
+      "description": "Grants permission to update an environment template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEnvironmentTemplateMajorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateEnvironmentTemplateMajorVersion.html",
+      "description": "Grants permission to update an environment template major version.  DEPRECATED - use UpdateEnvironmentTemplateVersion instead",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEnvironmentTemplateMinorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateEnvironmentTemplateMinorVersion.html",
+      "description": "Grants permission to update an environment template minor version.  DEPRECATED - use UpdateEnvironmentTemplateVersion instead",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEnvironmentTemplateVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateEnvironmentTemplateVersion.html",
+      "description": "Grants permission to update an environment template version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRepository",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateRepository.html",
+      "description": "Grants permission to update a repository",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateService",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateService.html",
+      "description": "Grants permission to update a service",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [
+        "proton:ServiceTemplate"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateServiceInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateServiceInstance.html",
+      "description": "Grants permission to update a service instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service-instance*"
+      ],
+      "conditionKeys": [
+        "proton:ServiceTemplate"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateServicePipeline",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateServicePipeline.html",
+      "description": "Grants permission to update a service pipeline",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [
+        "proton:ServiceTemplate"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateServiceTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateServiceTemplate.html",
+      "description": "Grants permission to update a service template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateServiceTemplateMajorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateServiceTemplateMajorVersion.html",
+      "description": "Grants permission to update a service template major version.  DEPRECATED - use UpdateServiceTemplateVersion instead",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateServiceTemplateMinorVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateServiceTemplateMinorVersion.html",
+      "description": "Grants permission to create a service template minor version.  DEPRECATED - use UpdateServiceTemplateVersion instead",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateServiceTemplateVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateServiceTemplateVersion.html",
+      "description": "Grants permission to update a service template version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTemplateSyncConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateTemplateSyncConfig.html",
+      "description": "Grants permission to update a TemplateSyncConfig",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

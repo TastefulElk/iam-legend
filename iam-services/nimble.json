@@ -1,0 +1,628 @@
+{
+  "serviceName": "Amazon Nimble Studio",
+  "servicePrefix": "nimble",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonnimblestudio.html",
+  "actions": [
+    {
+      "name": "AcceptEulas",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_AcceptEulas.html",
+      "description": "Grants permission to accept EULAs",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "eula*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateLaunchProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_CreateLaunchProfile.html",
+      "description": "Grants permission to create a launch profile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:RunInstances"
+      ]
+    },
+    {
+      "name": "CreateStreamingImage",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_CreateStreamingImage.html",
+      "description": "Grants permission to create a streaming image",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:DescribeImages                                                                                        ec2:DescribeSnapshots                                                                                        ec2:ModifyInstanceAttribute                                                                                        ec2:ModifySnapshotAttribute                                                                                        ec2:RegisterImage"
+      ]
+    },
+    {
+      "name": "CreateStreamingSession",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_CreateStreamingSession.html",
+      "description": "Grants permission to create a streaming session",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "launch-profile*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:CreateNetworkInterfacePermission                                                                                        nimble:GetLaunchProfile                                                                                        nimble:GetLaunchProfileInitialization                                                                                        nimble:ListEulaAcceptances"
+      ]
+    },
+    {
+      "name": "CreateStreamingSessionStream",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_CreateStreamingSessionStream.html",
+      "description": "Grants permission to create a StreamingSessionStream",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "streaming-session*"
+      ],
+      "conditionKeys": [
+        "nimble:requesterPrincipalId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateStudio",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_CreateStudio.html",
+      "description": "Grants permission to create a studio",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "iam:PassRole                                                                                        sso:CreateManagedApplicationInstance"
+      ]
+    },
+    {
+      "name": "CreateStudioComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_CreateStudioComponent.html",
+      "description": "Grants permission to create a studio component. A studio component designates a network resource to which a launch profile will provide access",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ds:AuthorizeApplication                                                                                        ds:DescribeDirectories                                                                                        ec2:DescribeSecurityGroups                                                                                        fsx:DescribeFileSystems"
+      ]
+    },
+    {
+      "name": "DeleteLaunchProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_DeleteLaunchProfile.html",
+      "description": "Grants permission to delete a launch profile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "launch-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteLaunchProfileMember",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_DeleteLaunchProfileMember.html",
+      "description": "Grants permission to delete a launch profile member",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "launch-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteStreamingImage",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_DeleteStreamingImage.html",
+      "description": "Grants permission to delete a streaming image",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "streaming-image*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DeleteSnapshot                                                                                        ec2:DeregisterImage                                                                                        ec2:ModifyInstanceAttribute                                                                                        ec2:ModifySnapshotAttribute"
+      ]
+    },
+    {
+      "name": "DeleteStreamingSession",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_DeleteStreamingSession.html",
+      "description": "Grants permission to delete a streaming session",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "streaming-session*"
+      ],
+      "conditionKeys": [
+        "nimble:requesterPrincipalId"
+      ],
+      "dependentActions": [
+        "ec2:DeleteNetworkInterface"
+      ]
+    },
+    {
+      "name": "DeleteStudio",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_DeleteStudio.html",
+      "description": "Grants permission to delete a studio",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sso:DeleteManagedApplicationInstance"
+      ]
+    },
+    {
+      "name": "DeleteStudioComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_DeleteStudioComponent.html",
+      "description": "Grants permission to delete a studio component",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "studio-component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ds:UnauthorizeApplication"
+      ]
+    },
+    {
+      "name": "DeleteStudioMember",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_DeleteStudioMember.html",
+      "description": "Grants permission to delete a studio member",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEula",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_GetEula.html",
+      "description": "Grants permission to get a EULA",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "eula*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetFeatureMap",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/userguide/security-iam-service-with-iam.html",
+      "description": "Grants permission to allow Nimble Studio portal to show the appropriate features for this account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetLaunchProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_GetLaunchProfile.html",
+      "description": "Grants permission to get a launch profile",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "launch-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetLaunchProfileDetails",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_GetLaunchProfileDetails.html",
+      "description": "Grants permission to get a launch profile's details, which includes the summary of studio components and streaming images used by the launch profile",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "launch-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetLaunchProfileInitialization",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_GetLaunchProfileInitialization.html",
+      "description": "Grants permission to get a launch profile initialization. A launch profile initialization is a dereferenced version of a launch profile, including attached studio component connection information",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "launch-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ds:DescribeDirectories                                                                                        ec2:DescribeSecurityGroups                                                                                        fsx:DescribeFileSystems"
+      ]
+    },
+    {
+      "name": "GetLaunchProfileMember",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_GetLaunchProfileMember.html",
+      "description": "Grants permission to get a launch profile member",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "launch-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetStreamingImage",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_GetStreamingImage.html",
+      "description": "Grants permission to get a streaming image",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "streaming-image*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetStreamingSession",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_GetStreamingSession.html",
+      "description": "Grants permission to get a streaming session",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "streaming-session*"
+      ],
+      "conditionKeys": [
+        "nimble:requesterPrincipalId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetStreamingSessionStream",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_GetStreamingSessionStream.html",
+      "description": "Grants permission to get a streaming session stream",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "streaming-session*"
+      ],
+      "conditionKeys": [
+        "nimble:requesterPrincipalId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetStudio",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_GetStudio.html",
+      "description": "Grants permission to get a studio",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetStudioComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_GetStudioComponent.html",
+      "description": "Grants permission to get a studio component",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "studio-component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetStudioMember",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_GetStudioMember.html",
+      "description": "Grants permission to get a studio member",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEulaAcceptances",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_ListEulaAcceptances.html",
+      "description": "Grants permission to list EULA acceptances",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "eula-acceptance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEulas",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_ListEulas.html",
+      "description": "Grants permission to list EULAs",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "eula*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLaunchProfileMembers",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_ListLaunchProfileMembers.html",
+      "description": "Grants permission to list launch profile members",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "launch-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLaunchProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_ListLaunchProfiles.html",
+      "description": "Grants permission to list launch profiles",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [
+        "nimble:principalId",
+        "nimble:requesterPrincipalId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStreamingImages",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_ListStreamingImages.html",
+      "description": "Grants permission to list streaming images",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStreamingSessions",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_ListStreamingSessions.html",
+      "description": "Grants permission to list streaming sessions",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [
+        "nimble:createdBy",
+        "nimble:ownedBy",
+        "nimble:requesterPrincipalId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStudioComponents",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_ListStudioComponents.html",
+      "description": "Grants permission to list studio components",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStudioMembers",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_ListStudioMembers.html",
+      "description": "Grants permission to list studio members",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStudios",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_ListStudios.html",
+      "description": "Grants permission to list all studios",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list all tags on a Nimble Studio resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "launch-profile",
+        "streaming-image",
+        "streaming-session",
+        "studio",
+        "studio-component"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutLaunchProfileMembers",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_PutLaunchProfileMembers.html",
+      "description": "Grants permission to add/update launch profile members",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "launch-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sso-directory:DescribeUsers"
+      ]
+    },
+    {
+      "name": "PutStudioLogEvents",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/userguide/security-iam-service-with-iam.html",
+      "description": "Grants permission to report metrics and logs for the Nimble Studio portal to monitor application health",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutStudioMembers",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_PutStudioMembers.html",
+      "description": "Grants permission to add/update studio members",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sso-directory:DescribeUsers"
+      ]
+    },
+    {
+      "name": "StartStreamingSession",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_StartStreamingSession.html",
+      "description": "Grants permission to start a streaming session",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "streaming-session*"
+      ],
+      "conditionKeys": [
+        "nimble:requesterPrincipalId"
+      ],
+      "dependentActions": [
+        "nimble:GetLaunchProfile                                                                                        nimble:GetLaunchProfileMember"
+      ]
+    },
+    {
+      "name": "StartStudioSSOConfigurationRepair",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_StartStudioSSOConfigurationRepair.html",
+      "description": "Grants permission to repair the studio's AWS SSO configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sso:CreateManagedApplicationInstance                                                                                        sso:GetManagedApplicationInstance"
+      ]
+    },
+    {
+      "name": "StopStreamingSession",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_StopStreamingSession.html",
+      "description": "Grants permission to stop a streaming session",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "streaming-session*"
+      ],
+      "conditionKeys": [
+        "nimble:requesterPrincipalId"
+      ],
+      "dependentActions": [
+        "nimble:GetLaunchProfile"
+      ]
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to add or overwrite one or more tags for the specified Nimble Studio resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "launch-profile",
+        "streaming-image",
+        "streaming-session",
+        "studio",
+        "studio-component"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to disassociate one or more tags from the specified Nimble Studio resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "launch-profile",
+        "streaming-image",
+        "streaming-session",
+        "studio",
+        "studio-component"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateLaunchProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_UpdateLaunchProfile.html",
+      "description": "Grants permission to update a launch profile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "launch-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateLaunchProfileMember",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_UpdateLaunchProfileMember.html",
+      "description": "Grants permission to update a launch profile member",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "launch-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateStreamingImage",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_UpdateStreamingImage.html",
+      "description": "Grants permission to update a streaming image",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "streaming-image*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateStudio",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_UpdateStudio.html",
+      "description": "Grants permission to update a studio",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "studio*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdateStudioComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/nimble-studio/latest/APIReference/API_UpdateStudioComponent.html",
+      "description": "Grants permission to update a studio component",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "studio-component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ds:AuthorizeApplication                                                                                        ds:DescribeDirectories                                                                                        ec2:DescribeSecurityGroups                                                                                        fsx:DescribeFileSystems"
+      ]
+    }
+  ]
+}

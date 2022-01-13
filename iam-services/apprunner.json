@@ -1,0 +1,283 @@
+{
+  "serviceName": "AWS App Runner",
+  "servicePrefix": "apprunner",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsapprunner.html",
+  "actions": [
+    {
+      "name": "AssociateCustomDomain",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_AssociateCustomDomain.html",
+      "description": "Grants permission to associate your own domain name with the AWS App Runner subdomain URL of your App Runner service",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAutoScalingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_CreateAutoScalingConfiguration.html",
+      "description": "Grants permission to create an AWS App Runner automatic scaling configuration resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "autoscalingconfiguration*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_CreateConnection.html",
+      "description": "Grants permission to create an AWS App Runner connection resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connection*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateService",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_CreateService.html",
+      "description": "Grants permission to create an AWS App Runner service",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service*",
+        "autoscalingconfiguration",
+        "connection"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "apprunner:ConnectionArn",
+        "apprunner:AutoScalingConfigurationArn"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAutoScalingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteAutoScalingConfiguration.html",
+      "description": "Grants permission to delete an AWS App Runner automatic scaling configuration resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "autoscalingconfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteConnection.html",
+      "description": "Grants permission to delete an AWS App Runner connection",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteService",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteService.html",
+      "description": "Grants permission to delete an AWS App Runner service",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAutoScalingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeAutoScalingConfiguration.html",
+      "description": "Grants permission to retrieve descriptions of an AWS App Runner automatic scaling configuration resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "autoscalingconfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCustomDomains",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeCustomDomains.html",
+      "description": "Grants permission to retrieve descriptions of custom domain names associated with an AWS App Runner service",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeOperation",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeOperation.html",
+      "description": "Grants permission to retrieve description of an operation that occurred on an AWS App Runner service",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeService",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeService.html",
+      "description": "Grants permission to retrieve description of an AWS App Runner service",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateCustomDomain",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DisassociateCustomDomain.html",
+      "description": "Grants permission to disassociate a custom domain name from an AWS App Runner service",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAutoScalingConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_ListAutoScalingConfigurations.html",
+      "description": "Grants permission to retrieve a list of AWS App Runner automatic scaling configurations in your AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListConnections",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_ListConnections.html",
+      "description": "Grants permission to retrieve a list of AWS App Runner connections associated with your AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListOperations",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_ListOperations.html",
+      "description": "Grants permission to retrieve a list of operations that occurred on an AWS App Runner service",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListServices",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_ListServices.html",
+      "description": "Grants permission to retrieve a list of running AWS App Runner services in your AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags associated with an AWS App Runner resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "autoscalingconfiguration",
+        "connection",
+        "service"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PauseService",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_PauseService.html",
+      "description": "Grants permission to pause an active AWS App Runner service",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ResumeService",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_ResumeService.html",
+      "description": "Grants permission to resume an active AWS App Runner service",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_StartDeployment.html",
+      "description": "Grants permission to initiate a manual deployemnt to an AWS App Runner service",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_TagResource.html",
+      "description": "Grants permission to add tags to, or update tag values of, an App Runner resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "autoscalingconfiguration",
+        "connection",
+        "service"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_UntagResource.html",
+      "description": "Grants permission to remove tags from an App Runner resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "autoscalingconfiguration",
+        "connection",
+        "service"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateService",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_UpdateService.html",
+      "description": "Grants permission to update an AWS App Runner service",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service*",
+        "autoscalingconfiguration",
+        "connection"
+      ],
+      "conditionKeys": [
+        "apprunner:ConnectionArn",
+        "apprunner:AutoScalingConfigurationArn"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

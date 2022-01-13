@@ -1,0 +1,746 @@
+{
+  "serviceName": "AWS Direct Connect",
+  "servicePrefix": "directconnect",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdirectconnect.html",
+  "actions": [
+    {
+      "name": "AcceptDirectConnectGatewayAssociationProposal",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AcceptDirectConnectGatewayAssociationProposal.html",
+      "description": "Grants permission to accept a proposal request to attach a virtual private gateway to a Direct Connect gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dx-gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AllocateConnectionOnInterconnect",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateConnectionOnInterconnect.html",
+      "description": "Grants permission to create a hosted connection on an interconnect",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AllocateHostedConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html",
+      "description": "Grants permission to create a new hosted connection between a AWS Direct Connect partner's network and a specific AWS Direct Connect location",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon",
+        "dxlag"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AllocatePrivateVirtualInterface",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocatePrivateVirtualInterface.html",
+      "description": "Grants permission to provision a private virtual interface to be owned by a different customer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon",
+        "dxlag"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AllocatePublicVirtualInterface",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocatePublicVirtualInterface.html",
+      "description": "Grants permission to provision a public virtual interface to be owned by a different customer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon",
+        "dxlag"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AllocateTransitVirtualInterface",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateTransitVirtualInterface.html",
+      "description": "Grants permission to provision a transit virtual interface to be owned by a different customer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon",
+        "dxlag"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateConnectionWithLag",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AssociateConnectionWithLag.html",
+      "description": "Grants permission to associate a connection with a LAG",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon*",
+        "dxlag*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateHostedConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AssociateHostedConnection.html",
+      "description": "Grants permission to associate a hosted connection and its virtual interfaces with a link aggregation group (LAG) or interconnect",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon*",
+        "dxcon",
+        "dxlag"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateMacSecKey",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AssociateMacSecKey.html",
+      "description": "Grants permission to associate a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity Association Key (CAK) pair with an AWS Direct Connect dedicated connection",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon",
+        "dxlag"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateVirtualInterface",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AssociateVirtualInterface.html",
+      "description": "Grants permission to associate a virtual interface with a specified link aggregation group (LAG) or connection",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxvif*",
+        "dxcon",
+        "dxlag"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ConfirmConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmConnection.html",
+      "description": "Grants permission to confirm the creation of a hosted connection on an interconnect",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ConfirmCustomerAgreement",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmCustomerAgreement.html",
+      "description": "Grants permission to confirm the the terms of agreement when creating the connection or link aggregation group (LAG)",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ConfirmPrivateVirtualInterface",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPrivateVirtualInterface.html",
+      "description": "Grants permission to accept ownership of a private virtual interface created by another customer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxvif*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ConfirmPublicVirtualInterface",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPublicVirtualInterface.html",
+      "description": "Grants permission to accept ownership of a public virtual interface created by another customer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxvif*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ConfirmTransitVirtualInterface",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmTransitVirtualInterface.html",
+      "description": "Grants permission to accept ownership of a transit virtual interface created by another customer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxvif*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateBGPPeer",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateBGPPeer.html",
+      "description": "Grants permission to create a BGP peer on the specified virtual interface",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxvif*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html",
+      "description": "Grants permission to create a new connection between the customer network and a specific AWS Direct Connect location",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxlag"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateDirectConnectGateway",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateDirectConnectGateway.html",
+      "description": "Grants permission to create a Direct Connect gateway, which is an intermediate object that enables you to connect a set of virtual interfaces and virtual private gateways",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateDirectConnectGatewayAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateDirectConnectGatewayAssociation.html",
+      "description": "Grants permission to create an association between a Direct Connect gateway and a virtual private gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dx-gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateDirectConnectGatewayAssociationProposal",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateDirectConnectGatewayAssociationProposal.html",
+      "description": "Grants permission to create a proposal to associate the specified virtual private gateway with the specified Direct Connect gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dx-gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateInterconnect",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateInterconnect.html",
+      "description": "Grants permission to create a new interconnect between a AWS Direct Connect partner's network and a specific AWS Direct Connect location",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxlag"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateLag",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateLag.html",
+      "description": "Grants permission to create a link aggregation group (LAG) with the specified number of bundled physical connections between the customer network and a specific AWS Direct Connect location",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreatePrivateVirtualInterface",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePrivateVirtualInterface.html",
+      "description": "Grants permission to create a new private virtual interface",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon",
+        "dxlag"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreatePublicVirtualInterface",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreatePublicVirtualInterface.html",
+      "description": "Grants permission to create a new public virtual interface",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon",
+        "dxlag"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTransitVirtualInterface",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateTransitVirtualInterface.html",
+      "description": "Grants permission to create a new transit virtual interface",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon",
+        "dxlag"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteBGPPeer",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteBGPPeer.html",
+      "description": "Grants permission to delete the specified BGP peer on the specified virtual interface with the specified customer address and ASN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxvif*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteConnection.html",
+      "description": "Grants permission to delete the connection",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDirectConnectGateway",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteDirectConnectGateway.html",
+      "description": "Grants permission to delete the specified Direct Connect gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dx-gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDirectConnectGatewayAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteDirectConnectGatewayAssociation.html",
+      "description": "Grants permission to delete the association between the specified Direct Connect gateway and virtual private gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dx-gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDirectConnectGatewayAssociationProposal",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteDirectConnectGatewayAssociationProposal.html",
+      "description": "Grants permission to delete the association proposal request between the specified Direct Connect gateway and virtual private gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteInterconnect",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteInterconnect.html",
+      "description": "Grants permission to delete the specified interconnect",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteLag",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteLag.html",
+      "description": "Grants permission to delete the specified link aggregation group (LAG)",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxlag*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteVirtualInterface",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteVirtualInterface.html",
+      "description": "Grants permission to delete a virtual interface",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxvif*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeConnectionLoa",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnectionLoa.html",
+      "description": "Grants permission to describe the LOA-CFA for a Connection",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dxcon*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeConnections",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnections.html",
+      "description": "Grants permission to describe all connections in this region",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dxcon"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeConnectionsOnInterconnect",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnectionsOnInterconnect.html",
+      "description": "Grants permission to describe a list of connections that have been provisioned on the given interconnect",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dxcon*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCustomerMetadata",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeCustomerMetadata.html",
+      "description": "Grants permission to view a list of customer agreements, along with their signed status and whether the customer is an NNIPartner, NNIPartnerV2, or a nonPartner",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDirectConnectGatewayAssociationProposals",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeDirectConnectGatewayAssociationProposals.html",
+      "description": "Grants permission to describe one or more association proposals for connection between a virtual private gateway and a Direct Connect gateway",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dx-gateway"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDirectConnectGatewayAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeDirectConnectGatewayAssociations.html",
+      "description": "Grants permission to describe the associations between your Direct Connect gateways and virtual private gateways",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dx-gateway"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDirectConnectGatewayAttachments",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeDirectConnectGatewayAttachments.html",
+      "description": "Grants permission to describe the attachments between your Direct Connect gateways and virtual interfaces",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dx-gateway"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDirectConnectGateways",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeDirectConnectGateways.html",
+      "description": "Grants permission to describe all your Direct Connect gateways or only the specified Direct Connect gateway",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dx-gateway"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeHostedConnections",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeHostedConnections.html",
+      "description": "Grants permission to describe the hosted connections that have been provisioned on the specified interconnect or link aggregation group (LAG)",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dxcon",
+        "dxlag"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeInterconnectLoa",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeInterconnectLoa.html",
+      "description": "Grants permission to describe the LOA-CFA for an Interconnect",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dxcon*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeInterconnects",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeInterconnects.html",
+      "description": "Grants permission to describe a list of interconnects owned by the AWS account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dxcon"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeLags",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLags.html",
+      "description": "Grants permission to describe all your link aggregation groups (LAG) or the specified LAG",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dxlag"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeLoa",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLoa.html",
+      "description": "Grants permission to describe the LOA-CFA for a connection, interconnect, or link aggregation group (LAG)",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dxcon",
+        "dxlag"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeLocations",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html",
+      "description": "Grants permission to describe the list of AWS Direct Connect locations in the current AWS region",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRouterConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeRouterConfiguration.html",
+      "description": "Grants permission to describe Details about the router for a virtual interface",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dxvif*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTags",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeTags.html",
+      "description": "Grants permission to describe the tags associated with the specified AWS Direct Connect resources",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dxcon",
+        "dxlag",
+        "dxvif"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeVirtualGateways",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualGateways.html",
+      "description": "Grants permission to describe a list of virtual private gateways owned by the AWS account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeVirtualInterfaces",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualInterfaces.html",
+      "description": "Grants permission to describe all virtual interfaces for an AWS account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dxcon",
+        "dxlag",
+        "dxvif"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateConnectionFromLag",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DisassociateConnectionFromLag.html",
+      "description": "Grants permission to disassociate a connection from a link aggregation group (LAG)",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon*",
+        "dxlag*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateMacSecKey",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DisassociateMacSecKey.html",
+      "description": "Grants permission to remove the association between a MAC Security (MACsec) security key and an AWS Direct Connect dedicated connection",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon",
+        "dxlag"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListVirtualInterfaceTestHistory",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_ListVirtualInterfaceTestHistory.html",
+      "description": "Grants permission to list the virtual interface failover test history",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "dxvif*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartBgpFailoverTest",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_StartBgpFailoverTest.html",
+      "description": "Grants permission to start the virtual interface failover test that verifies your configuration meets your resiliency requirements by placing the BGP peering session in the DOWN state. You can then send traffic to verify that there are no outages",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxvif*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopBgpFailoverTest",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_StopBgpFailoverTest.html",
+      "description": "Grants permission to stop the virtual interface failover test",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxvif*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to add the specified tags to the specified AWS Direct Connect resource. Each resource can have a maximum of 50 tags",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "dxcon",
+        "dxlag",
+        "dxvif"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove one or more tags from the specified AWS Direct Connect resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "dxcon",
+        "dxlag",
+        "dxvif"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UpdateConnection.html",
+      "description": "Grants permission to update the AWS Direct Connect dedicated connection configuration. You can update the following parameters for a connection: The connection name or The connection's MAC Security (MACsec) encryption mode",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxcon*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDirectConnectGateway",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UpdateDirectConnectGateway.html",
+      "description": "Grants permission to update the name of a Direct Connect gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dx-gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDirectConnectGatewayAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UpdateDirectConnectGatewayAssociation.html",
+      "description": "Grants permission to update the specified attributes of the Direct Connect gateway association",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateLag",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UpdateLag.html",
+      "description": "Grants permission to update the attributes of the specified link aggregation group (LAG)",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxlag*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateVirtualInterfaceAttributes",
+      "documentationUrl": "https://docs.aws.amazon.com/directconnect/latest/APIReference/API_UpdateVirtualInterfaceAttributes.html",
+      "description": "Grants permission to update the specified attributes of the specified virtual private interface",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dxvif*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

@@ -1,0 +1,687 @@
+{
+  "serviceName": "Amazon Route 53",
+  "servicePrefix": "route53",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonroute53.html",
+  "actions": [
+    {
+      "name": "ActivateKeySigningKey",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ActivateKeySigningKey.html",
+      "description": "Grants permission to activate a key-signing key so that it can be used for signing by DNSSEC",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateVPCWithHostedZone",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html",
+      "description": "Grants permission to associate an additional Amazon VPC with a private hosted zone",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vpc*",
+        "hostedzone"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "ChangeResourceRecordSets",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html",
+      "description": "Grants permission to create, update, or delete a record, which contains authoritative DNS information for a specified domain or subdomain name",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ChangeTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeTagsForResource.html",
+      "description": "Grants permission to add, edit, or delete tags for a health check or a hosted zone",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "healthcheck*",
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateHealthCheck",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheck.html",
+      "description": "Grants permission to create a new health check, which monitors the health and performance of your web applications, web servers, and other resources",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateHostedZone",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html",
+      "description": "Grants permission to create a public hosted zone, which you use to specify how the Domain Name System (DNS) routes traffic on the Internet for a domain, such as example.com, and its subdomains",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "CreateKeySigningKey",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateKeySigningKey.html",
+      "description": "Grants permission to create a new key-signing key associated with a hosted zone",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateQueryLoggingConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html",
+      "description": "Grants permission to create a configuration for DNS query logging",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateReusableDelegationSet",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html",
+      "description": "Grants permission to create a delegation set (a group of four name servers) that can be reused by multiple hosted zones",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTrafficPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html",
+      "description": "Grants permission to create a traffic policy, which you use to create multiple DNS records for one domain name (such as example.com) or one subdomain name (such as www.example.com)",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTrafficPolicyInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicyInstance.html",
+      "description": "Grants permission to create records in a specified hosted zone based on the settings in a specified traffic policy version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hostedzone*",
+        "trafficpolicy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTrafficPolicyVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicyVersion.html",
+      "description": "Grants permission to create a new version of an existing traffic policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "trafficpolicy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateVPCAssociationAuthorization",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateVPCAssociationAuthorization.html",
+      "description": "Grants permission to authorize the AWS account that created a specified VPC to submit an AssociateVPCWithHostedZone request, which associates the VPC with a specified hosted zone that was created by a different account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeactivateKeySigningKey",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeactivateKeySigningKey.html",
+      "description": "Grants permission to deactivate a key-signing key so that it will not be used for signing by DNSSEC",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteHealthCheck",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html",
+      "description": "Grants permission to delete a health check",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "healthcheck*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteHostedZone",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html",
+      "description": "Grants permission to delete a hosted zone",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteKeySigningKey",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteKeySigningKey.html",
+      "description": "Grants permission to delete a key-signing key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteQueryLoggingConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteQueryLoggingConfig.html",
+      "description": "Grants permission to delete a configuration for DNS query logging",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queryloggingconfig*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteReusableDelegationSet",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteReusableDelegationSet.html",
+      "description": "Grants permission to delete a reusable delegation set",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "delegationset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTrafficPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html",
+      "description": "Grants permission to delete a traffic policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "trafficpolicy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTrafficPolicyInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicyInstance.html",
+      "description": "Grants permission to delete a traffic policy instance and all the records that Route 53 created when you created the instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "trafficpolicyinstance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteVPCAssociationAuthorization",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteVPCAssociationAuthorization.html",
+      "description": "Grants permission to remove authorization for associating an Amazon Virtual Private Cloud with a Route 53 private hosted zone",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisableHostedZoneDNSSEC",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_DisableHostedZoneDNSSEC.html",
+      "description": "Grants permission to disable DNSSEC signing in a specific hosted zone",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateVPCFromHostedZone",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_DisassociateVPCFromHostedZone.html",
+      "description": "Grants permission to disassociate an Amazon Virtual Private Cloud from a Route 53 private hosted zone",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hostedzone",
+        "vpc"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "EnableHostedZoneDNSSEC",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_EnableHostedZoneDNSSEC.html",
+      "description": "Grants permission to enable DNSSEC signing in a specific hosted zone",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccountLimit",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html",
+      "description": "Grants permission to get the specified limit for the current account, for example, the maximum number of health checks that you can create using the account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetChange",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html",
+      "description": "Grants permission to get the current status of a request to create, update, or delete one or more records",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "change*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCheckerIpRanges",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetCheckerIpRanges.html",
+      "description": "Grants permission to get a list of the IP ranges that are used by Route 53 health checkers to check the health of your resources",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDNSSEC",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetDNSSEC.html",
+      "description": "Grants permission to get information about DNSSEC for a specific hosted zone, including the key-signing keys in the hosted zone",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetGeoLocation",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetGeoLocation.html",
+      "description": "Grants permission to get information about whether a specified geographic location is supported for Route 53 geolocation records",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetHealthCheck",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html",
+      "description": "Grants permission to get information about a specified health check",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "healthcheck*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetHealthCheckCount",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckCount.html",
+      "description": "Grants permission to get the number of health checks that are associated with the current AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetHealthCheckLastFailureReason",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckLastFailureReason.html",
+      "description": "Grants permission to get the reason that a specified health check failed most recently",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "healthcheck*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetHealthCheckStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckStatus.html",
+      "description": "Grants permission to get the status of a specified health check",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "healthcheck*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetHostedZone",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZone.html",
+      "description": "Grants permission to get information about a specified hosted zone including the four name servers that Route 53 assigned to the hosted zone",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetHostedZoneCount",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneCount.html",
+      "description": "Grants permission to get the number of hosted zones that are associated with the current AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetHostedZoneLimit",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneLimit.html",
+      "description": "Grants permission to get the specified limit for a specified hosted zone",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetQueryLoggingConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetQueryLoggingConfig.html",
+      "description": "Grants permission to get information about a specified configuration for DNS query logging",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "queryloggingconfig*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetReusableDelegationSet",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html",
+      "description": "Grants permission to get information about a specified reusable delegation set, including the four name servers that are assigned to the delegation set",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "delegationset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetReusableDelegationSetLimit",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSetLimit.html",
+      "description": "Grants permission to get the maximum number of hosted zones that you can associate with the specified reusable delegation set",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "delegationset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTrafficPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html",
+      "description": "Grants permission to get information about a specified traffic policy version",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "trafficpolicy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTrafficPolicyInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicyInstance.html",
+      "description": "Grants permission to get information about a specified traffic policy instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "trafficpolicyinstance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTrafficPolicyInstanceCount",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicyInstanceCount.html",
+      "description": "Grants permission to get the number of traffic policy instances that are associated with the current AWS account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListGeoLocations",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListGeoLocations.html",
+      "description": "Grants permission to get a list of geographic locations that Route 53 supports for geolocation",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHealthChecks",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHealthChecks.html",
+      "description": "Grants permission to get a list of the health checks that are associated with the current AWS account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHostedZones",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZones.html",
+      "description": "Grants permission to get a list of the public and private hosted zones that are associated with the current AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHostedZonesByName",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByName.html",
+      "description": "Grants permission to get a list of your hosted zones in lexicographic order. Hosted zones are sorted by name with the labels reversed, for example, com.example.www",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHostedZonesByVPC",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByVPC.html",
+      "description": "Grants permission to get a list of all the private hosted zones that a specified VPC is associated with",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "ListQueryLoggingConfigs",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html",
+      "description": "Grants permission to list the configurations for DNS query logging that are associated with the current AWS account or the configuration that is associated with a specified hosted zone",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "hostedzone"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResourceRecordSets",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html",
+      "description": "Grants permission to list the records in a specified hosted zone",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListReusableDelegationSets",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListReusableDelegationSets.html",
+      "description": "Grants permission to list the reusable delegation sets that are associated with the current AWS account.",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for one health check or hosted zone",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "healthcheck",
+        "hostedzone"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResources",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResources.html",
+      "description": "Grants permission to list tags for up to 10 health checks or hosted zones",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "healthcheck",
+        "hostedzone"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrafficPolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicies.html",
+      "description": "Grants permission to get information about the latest version for every traffic policy that is associated with the current AWS account. Policies are listed in the order in which they were created",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrafficPolicyInstances",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicyInstances.html",
+      "description": "Grants permission to get information about the traffic policy instances that you created by using the current AWS account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrafficPolicyInstancesByHostedZone",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicyInstancesByHostedZone.html",
+      "description": "Grants permission to get information about the traffic policy instances that you created in a specified hosted zone",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrafficPolicyInstancesByPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicyInstancesByPolicy.html",
+      "description": "Grants permission to get information about the traffic policy instances that you created using a specified traffic policy version",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "trafficpolicy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrafficPolicyVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTrafficPolicyVersions.html",
+      "description": "Grants permission to get information about all the versions for a specified traffic policy",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "trafficpolicy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListVPCAssociationAuthorizations",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListVPCAssociationAuthorizations.html",
+      "description": "Grants permission to get a list of the VPCs that were created by other accounts and that can be associated with a specified hosted zone",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TestDNSAnswer",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_TestDNSAnswer.html",
+      "description": "Grants permission to get the value that Route 53 returns in response to a DNS query for a specified record name and type",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateHealthCheck",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html",
+      "description": "Grants permission to update an existing health check",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "healthcheck*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateHostedZoneComment",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneComment.html",
+      "description": "Grants permission to update the comment for a specified hosted zone",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hostedzone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTrafficPolicyComment",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateTrafficPolicyComment.html",
+      "description": "Grants permission to update the comment for a specified traffic policy version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "trafficpolicy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTrafficPolicyInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateTrafficPolicyInstance.html",
+      "description": "Grants permission to update the records in a specified hosted zone that were created based on the settings in a specified traffic policy version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "trafficpolicyinstance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

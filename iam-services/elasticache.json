@@ -1,0 +1,971 @@
+{
+  "serviceName": "Amazon ElastiCache",
+  "servicePrefix": "elasticache",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelasticache.html",
+  "actions": [
+    {
+      "name": "AddTagsToResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AddTagsToResource.html",
+      "description": "Grants permission to add tags to an ElastiCache resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "cluster",
+        "parametergroup",
+        "replicationgroup",
+        "reserved-instance",
+        "securitygroup",
+        "snapshot",
+        "subnetgroup",
+        "user",
+        "usergroup"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AuthorizeCacheSecurityGroupIngress",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AuthorizeCacheSecurityGroupIngress.html",
+      "description": "Grants permission to authorize an EC2 security group on a ElastiCache security group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "securitygroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:AuthorizeSecurityGroupIngress"
+      ]
+    },
+    {
+      "name": "BatchApplyUpdateAction",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_BatchApplyUpdateAction.html",
+      "description": "Grants permission to apply ElastiCache service updates to sets of clusters and replication groups",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster",
+        "replicationgroup"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs                                                                                        s3:GetObject"
+      ]
+    },
+    {
+      "name": "BatchStopUpdateAction",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_BatchStopUpdateAction.html",
+      "description": "Grants permission to stop ElastiCache service updates from being executed on a set of clusters",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster",
+        "replicationgroup"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CompleteMigration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CompleteMigration.html",
+      "description": "Grants permission to complete an online migration of data from hosted Redis on Amazon EC2 to ElastiCache",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster",
+        "replicationgroup"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CopySnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CopySnapshot.html",
+      "description": "Grants permission to make a copy of an existing snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "elasticache:KmsKeyId"
+      ],
+      "dependentActions": [
+        "elasticache:AddTagsToResource                                                                                        s3:DeleteObject                                                                                        s3:GetBucketAcl                                                                                        s3:PutObject"
+      ]
+    },
+    {
+      "name": "CreateCacheCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheCluster.html",
+      "description": "Grants permission to create a cache cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "parametergroup*",
+        "cluster",
+        "replicationgroup",
+        "securitygroup",
+        "snapshot",
+        "subnetgroup"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "elasticache:CacheNodeType",
+        "elasticache:EngineVersion",
+        "elasticache:EngineType",
+        "elasticache:MultiAZEnabled",
+        "elasticache:AuthTokenEnabled",
+        "elasticache:SnapshotRetentionLimit",
+        "elasticache:CacheParameterGroupName"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs                                                                                        elasticache:AddTagsToResource                                                                                        s3:GetObject"
+      ]
+    },
+    {
+      "name": "CreateCacheParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheParameterGroup.html",
+      "description": "Grants permission to create a parameter group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "elasticache:CacheParameterGroupName"
+      ],
+      "dependentActions": [
+        "elasticache:AddTagsToResource"
+      ]
+    },
+    {
+      "name": "CreateCacheSecurityGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSecurityGroup.html",
+      "description": "Grants permission to create a cache security group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "securitygroup*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "elasticache:AddTagsToResource"
+      ]
+    },
+    {
+      "name": "CreateCacheSubnetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html",
+      "description": "Grants permission to create a cache subnet group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "subnetgroup*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "elasticache:AddTagsToResource"
+      ]
+    },
+    {
+      "name": "CreateGlobalReplicationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateGlobalReplicationGroup.html",
+      "description": "Grants permission to create a global replication group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "globalreplicationgroup*",
+        "replicationgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateReplicationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html",
+      "description": "Grants permission to create a replication group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "parametergroup*",
+        "cluster",
+        "globalreplicationgroup",
+        "replicationgroup",
+        "securitygroup",
+        "snapshot",
+        "subnetgroup",
+        "usergroup"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "elasticache:NumNodeGroups",
+        "elasticache:CacheNodeType",
+        "elasticache:ReplicasPerNodeGroup",
+        "elasticache:EngineVersion",
+        "elasticache:EngineType",
+        "elasticache:AtRestEncryptionEnabled",
+        "elasticache:TransitEncryptionEnabled",
+        "elasticache:AutomaticFailoverEnabled",
+        "elasticache:MultiAZEnabled",
+        "elasticache:ClusterModeEnabled",
+        "elasticache:AuthTokenEnabled",
+        "elasticache:SnapshotRetentionLimit",
+        "elasticache:KmsKeyId",
+        "elasticache:CacheParameterGroupName"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs                                                                                        elasticache:AddTagsToResource                                                                                        s3:GetObject"
+      ]
+    },
+    {
+      "name": "CreateSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateSnapshot.html",
+      "description": "Grants permission to create a copy of an entire Redis cluster at a specific moment in time",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*",
+        "cluster",
+        "replicationgroup"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "elasticache:KmsKeyId"
+      ],
+      "dependentActions": [
+        "elasticache:AddTagsToResource                                                                                        s3:DeleteObject                                                                                        s3:GetBucketAcl                                                                                        s3:PutObject"
+      ]
+    },
+    {
+      "name": "CreateUser",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateUser.html",
+      "description": "Grants permission to create a Redis user for Redis engine version 6.x and onwards",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "elasticache:AddTagsToResource"
+      ]
+    },
+    {
+      "name": "CreateUserGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateUserGroup.html",
+      "description": "Grants permission to create a Redis user group for Redis engine version 6.x and onwards",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*",
+        "usergroup*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "elasticache:AddTagsToResource"
+      ]
+    },
+    {
+      "name": "DecreaseNodeGroupsInGlobalReplicationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DecreaseNodeGroupsInGlobalReplicationGroup.html",
+      "description": "Grants permission to decrease the number of node groups in global replication groups",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "globalreplicationgroup*"
+      ],
+      "conditionKeys": [
+        "elasticache:NumNodeGroups"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DecreaseReplicaCount",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DecreaseReplicaCount.html",
+      "description": "Grants permission to decrease the number of replicas in a Redis (cluster mode disabled) replication group or the number of replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "replicationgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticache:ReplicasPerNodeGroup"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "DeleteCacheCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheCluster.html",
+      "description": "Grants permission to delete a previously provisioned cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "snapshot"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "DeleteCacheParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheParameterGroup.html",
+      "description": "Grants permission to delete the specified cache parameter group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticache:CacheParameterGroupName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCacheSecurityGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSecurityGroup.html",
+      "description": "Grants permission to delete a cache security group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "securitygroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCacheSubnetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSubnetGroup.html",
+      "description": "Grants permission to delete a cache subnet group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "subnetgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "DeleteGlobalReplicationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteGlobalReplicationGroup.html",
+      "description": "Grants permission to delete an existing global replication group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "globalreplicationgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteReplicationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteReplicationGroup.html",
+      "description": "Grants permission to delete an existing replication group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "replicationgroup*",
+        "snapshot"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "DeleteSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteSnapshot.html",
+      "description": "Grants permission to delete an existing snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteUser",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteUser.html",
+      "description": "Grants permission to delete an existing user and thus remove it from all user groups and replication groups where it was assigned",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteUserGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteUserGroup.html",
+      "description": "Grants permission to delete an existing user group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "usergroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCacheClusters",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheClusters.html",
+      "description": "Grants permission to list information about provisioned cache clusters",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCacheEngineVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheEngineVersions.html",
+      "description": "Grants permission to list available cache engines and their versions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCacheParameterGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameterGroups.html",
+      "description": "Grants permission to list cache parameter group descriptions",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCacheParameters",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameters.html",
+      "description": "Grants permission to retrieve the detailed parameter list for a particular cache parameter group",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCacheSecurityGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSecurityGroups.html",
+      "description": "Grants permission to list cache security group descriptions",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "securitygroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCacheSubnetGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSubnetGroups.html",
+      "description": "Grants permission to list cache subnet group descriptions",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "subnetgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEngineDefaultParameters",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEngineDefaultParameters.html",
+      "description": "Grants permission to retrieve the default engine and system parameter information for the specified cache engine",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEvents",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html",
+      "description": "Grants permission to list events related to clusters, cache security groups, and cache parameter groups",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeGlobalReplicationGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeGlobalReplicationGroups.html",
+      "description": "Grants permission to list information about global replication groups",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "globalreplicationgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReplicationGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReplicationGroups.html",
+      "description": "Grants permission to list information about provisioned replication groups",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "replicationgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReservedCacheNodes",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodes.html",
+      "description": "Grants permission to list information about purchased reserved cache nodes",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "reserved-instance*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReservedCacheNodesOfferings",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodesOfferings.html",
+      "description": "Grants permission to list available reserved cache node offerings",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeServiceUpdates",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeServiceUpdates.html",
+      "description": "Grants permission to list details of the service updates",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSnapshots",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeSnapshots.html",
+      "description": "Grants permission to list information about cluster or replication group snapshots",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeUpdateActions",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeUpdateActions.html",
+      "description": "Grants permission to list details of the update actions for a set of clusters or replication groups",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "cluster",
+        "replicationgroup"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeUserGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeUserGroups.html",
+      "description": "Grants permission to list information about Redis user groups",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "usergroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeUsers",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeUsers.html",
+      "description": "Grants permission to list information about Redis users",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateGlobalReplicationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DisassociateGlobalReplicationGroup.html",
+      "description": "Grants permission to remove a secondary replication group from the global replication group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "globalreplicationgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "FailoverGlobalReplicationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_FailoverGlobalReplicationGroup.html",
+      "description": "Grants permission to failover the primary region to a selected secondary region of a global replication group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "globalreplicationgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "IncreaseNodeGroupsInGlobalReplicationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_IncreaseNodeGroupsInGlobalReplicationGroup.html",
+      "description": "Grants permission to increase the number of node groups in a global replication group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "globalreplicationgroup*"
+      ],
+      "conditionKeys": [
+        "elasticache:NumNodeGroups"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "IncreaseReplicaCount",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_IncreaseReplicaCount.html",
+      "description": "Grants permission to increase the number of replicas in a Redis (cluster mode disabled) replication group or the number of replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "replicationgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticache:ReplicasPerNodeGroup"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "ListAllowedNodeTypeModifications",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ListAllowedNodeTypeModifications.html",
+      "description": "Grants permission to list available node type that can be used to scale a particular Redis cluster or replication group",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "cluster",
+        "replicationgroup"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for an ElastiCache resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster",
+        "snapshot"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyCacheCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html",
+      "description": "Grants permission to modify settings for a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "parametergroup",
+        "securitygroup"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticache:CacheNodeType",
+        "elasticache:EngineVersion",
+        "elasticache:MultiAZEnabled",
+        "elasticache:AuthTokenEnabled",
+        "elasticache:SnapshotRetentionLimit",
+        "elasticache:CacheParameterGroupName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyCacheParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheParameterGroup.html",
+      "description": "Grants permission to modify parameters of a cache parameter group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticache:CacheParameterGroupName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyCacheSubnetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheSubnetGroup.html",
+      "description": "Grants permission to modify an existing cache subnet group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "subnetgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyGlobalReplicationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyGlobalReplicationGroup.html",
+      "description": "Grants permission to modify settings for a global replication group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "globalreplicationgroup*"
+      ],
+      "conditionKeys": [
+        "elasticache:CacheNodeType",
+        "elasticache:EngineVersion",
+        "elasticache:AutomaticFailoverEnabled"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyReplicationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroup.html",
+      "description": "Grants permission to modify the settings for a replication group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "replicationgroup*",
+        "parametergroup",
+        "securitygroup",
+        "usergroup"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticache:CacheNodeType",
+        "elasticache:EngineVersion",
+        "elasticache:AutomaticFailoverEnabled",
+        "elasticache:MultiAZEnabled",
+        "elasticache:AuthTokenEnabled",
+        "elasticache:SnapshotRetentionLimit",
+        "elasticache:CacheParameterGroupName"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "ModifyReplicationGroupShardConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html",
+      "description": "Grants permission to add shards, remove shards, or rebalance the keyspaces among existing shards of a replication group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "replicationgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticache:NumNodeGroups"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "ModifyUser",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyUser.html",
+      "description": "Grants permission to change Redis user password(s) and/or access string",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyUserGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyUserGroup.html",
+      "description": "Grants permission to change list of users that belong to the user group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*",
+        "usergroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PurchaseReservedCacheNodesOffering",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html",
+      "description": "Grants permission to purchase a reserved cache node offering",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "reserved-instance*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "elasticache:AddTagsToResource"
+      ]
+    },
+    {
+      "name": "RebalanceSlotsInGlobalReplicationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RebalanceSlotsInGlobalReplicationGroup.html",
+      "description": "Grants permission to perform a key space rebalance operation to redistribute slots and ensure uniform key distribution across existing shards in a global replication group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "globalreplicationgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RebootCacheCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RebootCacheCluster.html",
+      "description": "Grants permission to reboot some, or all, of the cache nodes within a provisioned cache cluster or replication group (cluster mode disabled)",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RemoveTagsFromResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RemoveTagsFromResource.html",
+      "description": "Grants permission to remove tags from a ElastiCache resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "cluster",
+        "parametergroup",
+        "replicationgroup",
+        "reserved-instance",
+        "securitygroup",
+        "snapshot",
+        "subnetgroup",
+        "user",
+        "usergroup"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ResetCacheParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ResetCacheParameterGroup.html",
+      "description": "Grants permission to modify parameters of a cache parameter group back to their default values",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticache:CacheParameterGroupName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RevokeCacheSecurityGroupIngress",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RevokeCacheSecurityGroupIngress.html",
+      "description": "Grants permission to remove an EC2 security group ingress from a ElastiCache security group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "securitygroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StartMigration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_StartMigration.html",
+      "description": "Grants permission to start a migration of data from hosted Redis on Amazon EC2 to ElastiCache for Redis",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "replicationgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TestFailover",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_TestFailover.html",
+      "description": "Grants permission to test automatic failover on a specified node group in a replication group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "replicationgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs"
+      ]
+    }
+  ]
+}

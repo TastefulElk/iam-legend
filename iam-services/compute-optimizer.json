@@ -1,0 +1,201 @@
+{
+  "serviceName": "AWS Compute Optimizer",
+  "servicePrefix": "compute-optimizer",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscomputeoptimizer.html",
+  "actions": [
+    {
+      "name": "DeleteRecommendationPreferences",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_DeleteRecommendationPreferences.html",
+      "description": "Grants permission to delete recommendation preferences",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "compute-optimizer:ResourceType"
+      ],
+      "dependentActions": [
+        "autoscaling:DescribeAutoScalingGroups                                                                                        ec2:DescribeInstances"
+      ]
+    },
+    {
+      "name": "DescribeRecommendationExportJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_DescribeRecommendationExportJobs.html",
+      "description": "Grants permission to view the status of recommendation export jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ExportAutoScalingGroupRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_ExportAutoScalingGroupRecommendations.html",
+      "description": "Grants permission to export AutoScaling group recommendations to S3 for the provided accounts",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "autoscaling:DescribeAutoScalingGroups                                                                                        compute-optimizer:GetAutoScalingGroupRecommendations"
+      ]
+    },
+    {
+      "name": "ExportEBSVolumeRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_ExportEBSVolumeRecommendations.html",
+      "description": "Grants permission to export EBS volume recommendations to S3 for the provided accounts",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "compute-optimizer:GetEBSVolumeRecommendations                                                                                        ec2:DescribeVolumes"
+      ]
+    },
+    {
+      "name": "ExportEC2InstanceRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_ExportEC2InstanceRecommendations.html",
+      "description": "Grants permission to export EC2 instance recommendations to S3 for the provided accounts",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "compute-optimizer:GetEC2InstanceRecommendations                                                                                        ec2:DescribeInstances"
+      ]
+    },
+    {
+      "name": "ExportLambdaFunctionRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_ExportLambdaFunctionRecommendations.html",
+      "description": "Grants permission to export Lambda function recommendations to S3 for the provided accounts",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "compute-optimizer:GetLambdaFunctionRecommendations                                                                                        lambda:ListFunctions                                                                                        lambda:ListProvisionedConcurrencyConfigs"
+      ]
+    },
+    {
+      "name": "GetAutoScalingGroupRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetAutoScalingGroupRecommendations.html",
+      "description": "Grants permission to get recommendations for the provided AutoScaling groups",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "autoscaling:DescribeAutoScalingGroups"
+      ]
+    },
+    {
+      "name": "GetEBSVolumeRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetEBSVolumeRecommendations.html",
+      "description": "Grants permission to get recommendations for the provided EBS volumes",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeVolumes"
+      ]
+    },
+    {
+      "name": "GetEC2InstanceRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetEC2InstanceRecommendations.html",
+      "description": "Grants permission to get recommendations for the provided EC2 instances",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeInstances"
+      ]
+    },
+    {
+      "name": "GetEC2RecommendationProjectedMetrics",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetEC2RecommendationProjectedMetrics.html",
+      "description": "Grants permission to get the recommendation projected metrics of the specified instance",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeInstances"
+      ]
+    },
+    {
+      "name": "GetEffectiveRecommendationPreferences",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetEffectiveRecommendationPreferences.html",
+      "description": "Grants permission to get recommendation preferences that are in effect",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "compute-optimizer:ResourceType"
+      ],
+      "dependentActions": [
+        "autoscaling:DescribeAutoScalingGroups                                                                                        autoscaling:DescribeAutoScalingInstances                                                                                        ec2:DescribeInstances"
+      ]
+    },
+    {
+      "name": "GetEnrollmentStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetEnrollmentStatus.html",
+      "description": "Grants permission to get the enrollment status for the specified account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEnrollmentStatusesForOrganization",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetEnrollmentStatusesForOrganization.html",
+      "description": "Grants permission to get the enrollment statuses for member accounts of the organization",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetLambdaFunctionRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetLambdaFunctionRecommendations.html",
+      "description": "Grants permission to get recommendations for the provided Lambda functions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "lambda:ListFunctions                                                                                        lambda:ListProvisionedConcurrencyConfigs"
+      ]
+    },
+    {
+      "name": "GetRecommendationPreferences",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetRecommendationPreferences.html",
+      "description": "Grants permission to get recommendation preferences",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "compute-optimizer:ResourceType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRecommendationSummaries",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetRecommendationSummaries.html",
+      "description": "Grants permission to get the recommendation summaries for the specified account(s)",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutRecommendationPreferences",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_PutRecommendationPreferences.html",
+      "description": "Grants permission to put recommendation preferences",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "compute-optimizer:ResourceType"
+      ],
+      "dependentActions": [
+        "autoscaling:DescribeAutoScalingGroups                                                                                        autoscaling:DescribeAutoScalingInstances                                                                                        ec2:DescribeInstances"
+      ]
+    },
+    {
+      "name": "UpdateEnrollmentStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_UpdateEnrollmentStatus.html",
+      "description": "Grants permission to update the enrollment status",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

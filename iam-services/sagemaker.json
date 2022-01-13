@@ -1,0 +1,3259 @@
+{
+  "serviceName": "Amazon SageMaker",
+  "servicePrefix": "sagemaker",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html",
+  "actions": [
+    {
+      "name": "AddAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_AddAssociation.html",
+      "description": "Grants permission to associate a lineage entity (artifact, context, action, experiment, experiment-trial-component) to each other",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "action*",
+        "artifact*",
+        "context*",
+        "experiment*",
+        "experiment-trial-component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AddTags",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_AddTags.html",
+      "description": "Grants permission to add or overwrite one or more tags for the specified Amazon SageMaker resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "action",
+        "algorithm",
+        "app",
+        "app-image-config",
+        "artifact",
+        "automl-job",
+        "code-repository",
+        "context",
+        "data-quality-job-definition",
+        "device",
+        "device-fleet",
+        "domain",
+        "edge-packaging-job",
+        "endpoint",
+        "endpoint-config",
+        "experiment",
+        "experiment-trial",
+        "experiment-trial-component",
+        "feature-group",
+        "flow-definition",
+        "human-task-ui",
+        "hyper-parameter-tuning-job",
+        "image",
+        "inference-recommendations-job",
+        "labeling-job",
+        "model",
+        "model-bias-job-definition",
+        "model-explainability-job-definition",
+        "model-package",
+        "model-package-group",
+        "model-quality-job-definition",
+        "monitoring-schedule",
+        "notebook-instance",
+        "pipeline",
+        "processing-job",
+        "project",
+        "training-job",
+        "transform-job",
+        "user-profile",
+        "workteam"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateTrialComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_AssociateTrialComponent.html",
+      "description": "Grants permission to associate a trial component with a trial",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment-trial*",
+        "experiment-trial-component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchDescribeModelPackage",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_BatchDescribeModelPackage.html",
+      "description": "Grants permission to describe one or more ModelPackages",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model-package*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchGetMetrics",
+      "description": "Grants permission to retrieve metrics associated with SageMaker Resources such as Training Jobs. This API is not publicly exposed at this point, however admins can control this action",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "training-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchGetRecord",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_BatchGetRecord.html",
+      "description": "Grants permission to get a batch of records from one or more feature groups",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "feature-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchPutMetrics",
+      "description": "Grants permission to publish metrics associated with a SageMaker Resource such as a Training Job. This API is not publicly exposed at this point, however admins can control this action",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "training-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAction",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateAction.html",
+      "description": "Grants permission to create an action",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "action*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAlgorithm",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateAlgorithm.html",
+      "description": "Grants permission to create an algorithm",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "algorithm*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateApp",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateApp.html",
+      "description": "Grants permission to create an App for a SageMaker Studio UserProfile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:InstanceTypes",
+        "sagemaker:ImageArns",
+        "sagemaker:ImageVersionArns"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAppImageConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateAppImageConfig.html",
+      "description": "Grants permission to create an AppImageConfig",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-image-config*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateArtifact",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateArtifact.html",
+      "description": "Grants permission to create an artifact",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "artifact*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAutoMLJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateAutoMLJob.html",
+      "description": "Grants permission to create an AutoML job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "automl-job*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:InterContainerTrafficEncryption",
+        "sagemaker:OutputKmsKey",
+        "sagemaker:VolumeKmsKey",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateCodeRepository",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateCodeRepository.html",
+      "description": "Grants permission to create a CodeRepository",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "code-repository*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCompilationJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateCompilationJob.html",
+      "description": "Grants permission to create a compilation job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "compilation-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateContext",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateContext.html",
+      "description": "Grants permission to create a context",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "context*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateDataQualityJobDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateDataQualityJobDefinition.html",
+      "description": "Grants permission to create a data quality job definition",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "data-quality-job-definition*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:InstanceTypes",
+        "sagemaker:InterContainerTrafficEncryption",
+        "sagemaker:MaxRuntimeInSeconds",
+        "sagemaker:NetworkIsolation",
+        "sagemaker:OutputKmsKey",
+        "sagemaker:VolumeKmsKey",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateDeviceFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateDeviceFleet.html",
+      "description": "Grants permission to create a device fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "device-fleet*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateDomain",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateDomain.html",
+      "description": "Grants permission to create a Domain for SageMaker Studio",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domain*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:AppNetworkAccessType",
+        "sagemaker:InstanceTypes",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets",
+        "sagemaker:DomainSharingOutputKmsKey",
+        "sagemaker:VolumeKmsKey",
+        "sagemaker:ImageArns",
+        "sagemaker:ImageVersionArns"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole                                                                                        iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateEdgePackagingJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEdgePackagingJob.html",
+      "description": "Grants permission to create an edge packaging job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "edge-packaging-job*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html",
+      "description": "Grants permission to create an endpoint using the endpoint configuration specified in the request",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "endpoint*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEndpointConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html",
+      "description": "Grants permission to create an endpoint configuration that can be deployed using Amazon SageMaker hosting services",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "endpoint-config*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:AcceleratorTypes",
+        "sagemaker:InstanceTypes",
+        "sagemaker:ModelArn",
+        "sagemaker:VolumeKmsKey"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateExperiment",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateExperiment.html",
+      "description": "Grants permission to create an experiment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateFeatureGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFeatureGroup.html",
+      "description": "Grants permission to create a feature group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "feature-group*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:FeatureGroupOnlineStoreKmsKey",
+        "sagemaker:FeatureGroupOfflineStoreKmsKey",
+        "sagemaker:FeatureGroupOfflineStoreS3Uri"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateFlowDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFlowDefinition.html",
+      "description": "Grants permission to create a flow definition, which defines settings for a human workflow",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "flow-definition*"
+      ],
+      "conditionKeys": [
+        "sagemaker:WorkteamArn",
+        "sagemaker:WorkteamType",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateHumanTaskUi",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateHumanTaskUi.html",
+      "description": "Grants permission to define the settings you will use for the human review workflow user interface",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "human-task-ui*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateHyperParameterTuningJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateHyperParameterTuningJob.html",
+      "description": "Grants permission to create a hyper parameter tuning job that can be deployed using Amazon SageMaker",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hyper-parameter-tuning-job*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:FileSystemAccessMode",
+        "sagemaker:FileSystemDirectoryPath",
+        "sagemaker:FileSystemId",
+        "sagemaker:FileSystemType",
+        "sagemaker:InstanceTypes",
+        "sagemaker:InterContainerTrafficEncryption",
+        "sagemaker:MaxRuntimeInSeconds",
+        "sagemaker:NetworkIsolation",
+        "sagemaker:OutputKmsKey",
+        "sagemaker:VolumeKmsKey",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateImage",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateImage.html",
+      "description": "Grants permission to create a SageMaker Image",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "image*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateImageVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateImageVersion.html",
+      "description": "Grants permission to create a SageMaker ImageVersion",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "image*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateInferenceRecommendationsJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateInferenceRecommendationsJob.html",
+      "description": "Grants permission to create an inference recommendations job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "inference-recommendations-job*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateLabelingJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateLabelingJob.html",
+      "description": "Grants permission to start a labeling job. A labeling job takes unlabeled data in and produces labeled data as output, which can be used for training SageMaker models",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "labeling-job*"
+      ],
+      "conditionKeys": [
+        "sagemaker:WorkteamArn",
+        "sagemaker:WorkteamType",
+        "sagemaker:VolumeKmsKey",
+        "sagemaker:OutputKmsKey",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateLineageGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateLineageGroupPolicy.html",
+      "description": "Grants permission to create a lineage group policy",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateModel",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModel.html",
+      "description": "Grants permission to create a model in Amazon SageMaker. In the request, you specify a name for the model and describe one or more containers",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:NetworkIsolation",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateModelBiasJobDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModelBiasJobDefinition.html",
+      "description": "Grants permission to create a model bias job definition",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-bias-job-definition*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:InstanceTypes",
+        "sagemaker:InterContainerTrafficEncryption",
+        "sagemaker:MaxRuntimeInSeconds",
+        "sagemaker:NetworkIsolation",
+        "sagemaker:OutputKmsKey",
+        "sagemaker:VolumeKmsKey",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateModelExplainabilityJobDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModelExplainabilityJobDefinition.html",
+      "description": "Grants permission to create a model explainability job definition",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-explainability-job-definition*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:InstanceTypes",
+        "sagemaker:InterContainerTrafficEncryption",
+        "sagemaker:MaxRuntimeInSeconds",
+        "sagemaker:NetworkIsolation",
+        "sagemaker:OutputKmsKey",
+        "sagemaker:VolumeKmsKey",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateModelPackage",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModelPackage.html",
+      "description": "Grants permission to create a ModelPackage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-package",
+        "model-package-group"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:ModelApprovalStatus"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateModelPackageGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModelPackageGroup.html",
+      "description": "Grants permission to create a ModelPackageGroup",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-package-group*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateModelQualityJobDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModelQualityJobDefinition.html",
+      "description": "Grants permission to create a model quality job definition",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-quality-job-definition*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:InstanceTypes",
+        "sagemaker:InterContainerTrafficEncryption",
+        "sagemaker:MaxRuntimeInSeconds",
+        "sagemaker:NetworkIsolation",
+        "sagemaker:OutputKmsKey",
+        "sagemaker:VolumeKmsKey",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateMonitoringSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateMonitoringSchedule.html",
+      "description": "Grants permission to create a monitoring schedule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "monitoring-schedule*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:InstanceTypes",
+        "sagemaker:InterContainerTrafficEncryption",
+        "sagemaker:MaxRuntimeInSeconds",
+        "sagemaker:NetworkIsolation",
+        "sagemaker:OutputKmsKey",
+        "sagemaker:VolumeKmsKey",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateNotebookInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateNotebookInstance.html",
+      "description": "Grants permission to create an Amazon SageMaker notebook instance. A notebook instance is an Amazon EC2 instance running on a Jupyter Notebook",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook-instance*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:AcceleratorTypes",
+        "sagemaker:DirectInternetAccess",
+        "sagemaker:InstanceTypes",
+        "sagemaker:RootAccess",
+        "sagemaker:VolumeKmsKey",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateNotebookInstanceLifecycleConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateNotebookInstanceLifecycleConfig.html",
+      "description": "Grants permission to create a notebook instance lifecycle configuration that can be deployed using Amazon SageMaker",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook-instance-lifecycle-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreatePipeline",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreatePipeline.html",
+      "description": "Grants permission to create a pipeline",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "pipeline*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreatePresignedDomainUrl",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreatePresignedDomainUrl.html",
+      "description": "Grants permission to return a URL that you can use from your browser to connect to the Domain as a specified UserProfile when AuthMode is 'IAM'",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user-profile*"
+      ],
+      "conditionKeys": [
+        "aws:SourceIp",
+        "aws:SourceVpc",
+        "aws:SourceVpce"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreatePresignedNotebookInstanceUrl",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreatePresignedNotebookInstanceUrl.html",
+      "description": "Grants permission to create a URL that you can use from your browser to connect to the Notebook Instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook-instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateProcessingJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateProcessingJob.html",
+      "description": "Grants permission to start a processing job. After processing completes, Amazon SageMaker saves the resulting artifacts and other optional output to an Amazon S3 location that you specify",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "processing-job*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:InstanceTypes",
+        "sagemaker:MaxRuntimeInSeconds",
+        "sagemaker:NetworkIsolation",
+        "sagemaker:OutputKmsKey",
+        "sagemaker:VolumeKmsKey",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets",
+        "sagemaker:InterContainerTrafficEncryption"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateProject",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateProject.html",
+      "description": "Grants permission to create a Project",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "project*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTrainingJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateTrainingJob.html",
+      "description": "Grants permission to start a model training job. After training completes, Amazon SageMaker saves the resulting model artifacts and other optional output to an Amazon S3 location that you specify",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "training-job*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:FileSystemAccessMode",
+        "sagemaker:FileSystemDirectoryPath",
+        "sagemaker:FileSystemId",
+        "sagemaker:FileSystemType",
+        "sagemaker:InstanceTypes",
+        "sagemaker:InterContainerTrafficEncryption",
+        "sagemaker:MaxRuntimeInSeconds",
+        "sagemaker:NetworkIsolation",
+        "sagemaker:OutputKmsKey",
+        "sagemaker:VolumeKmsKey",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateTransformJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateTransformJob.html",
+      "description": "Grants permission to start a transform job. After the results are obtained, Amazon SageMaker saves them to an Amazon S3 location that you specify",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "transform-job*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:InstanceTypes",
+        "sagemaker:ModelArn",
+        "sagemaker:OutputKmsKey",
+        "sagemaker:VolumeKmsKey"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTrial",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateTrial.html",
+      "description": "Grants permission to create a trial",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment-trial*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTrialComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateTrialComponent.html",
+      "description": "Grants permission to create a trial component",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment-trial-component*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateUserProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateUserProfile.html",
+      "description": "Grants permission to create a UserProfile for a SageMaker Studio Domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user-profile*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:InstanceTypes",
+        "sagemaker:DomainSharingOutputKmsKey",
+        "sagemaker:ImageArns",
+        "sagemaker:ImageVersionArns"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateWorkforce",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateWorkforce.html",
+      "description": "Grants permission to create a workforce",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workforce*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateWorkteam",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateWorkteam.html",
+      "description": "Grants permission to create a workteam",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workteam*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAction",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteAction.html",
+      "description": "Grants permission to delete an action",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "action*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAlgorithm",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteAlgorithm.html",
+      "description": "Grants permission to delete an algorithm",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "algorithm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteApp",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteApp.html",
+      "description": "Grants permission to delete an App",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAppImageConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteAppImageConfig.html",
+      "description": "Grants permission to delete an AppImageConfig",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-image-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteArtifact",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteArtifact.html",
+      "description": "Grants permission to delete an artifact",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "artifact*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteAssociation.html",
+      "description": "Grants permission to delete the association from a lineage entity (artifact, context, action, experiment, experiment-trial-component) to another",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "action*",
+        "artifact*",
+        "context*",
+        "experiment*",
+        "experiment-trial-component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCodeRepository",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteCodeRepository.html",
+      "description": "Grants permission to delete a CodeRepository",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "code-repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteContext",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteContext.html",
+      "description": "Grants permission to delete a context",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "context*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDataQualityJobDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteDataQualityJobDefinition.html",
+      "description": "Grants permission to delete the data quality job definition created using the CreateDataQualityJobDefinition API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "data-quality-job-definition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDeviceFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteDeviceFleet.html",
+      "description": "Grants permission to delete a device fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "device-fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDomain",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteDomain.html",
+      "description": "Grants permission to delete a Domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteEndpoint.html",
+      "description": "Grants permission to delete an endpoint. Amazon SageMaker frees up all the resources that were deployed when the endpoint was created",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEndpointConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteEndpointConfig.html",
+      "description": "Grants permission to delete the endpoint configuration created using the CreateEndpointConfig API. The DeleteEndpointConfig API deletes only the specified configuration. It does not delete any endpoints created using the configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "endpoint-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteExperiment",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteExperiment.html",
+      "description": "Grants permission to delete an experiment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteFeatureGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteFeatureGroup.html",
+      "description": "Grants permission to delete a feature group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "feature-group*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteFlowDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteFlowDefinition.html",
+      "description": "Grants permission to delete the specified flow definition",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "flow-definition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteHumanLoop",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteHumanLoop.html",
+      "description": "Grants permission to delete a specified human loop",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "human-loop*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteHumanTaskUi",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteHumanTaskUi.html",
+      "description": "Grants permission to delete the specified human task user interface (worker task template)",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "human-task-ui*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteImage",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteImage.html",
+      "description": "Grants permission to delete a SageMaker Image",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "image*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteImageVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteImageVersion.html",
+      "description": "Grants permission to delete a SageMaker ImageVersion",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "image-version*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteLineageGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteLineageGroupPolicy.html",
+      "description": "Grants permission to delete a lineage group policy",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteModel",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteModel.html",
+      "description": "Grants permission to delete a model created using the CreateModel API. The DeleteModel API deletes only the model entry in Amazon SageMaker that you created by calling the CreateModel API. It does not delete model artifacts, inference code, or the IAM role that you specified when creating the model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteModelBiasJobDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteModelBiasJobDefinition.html",
+      "description": "Grants permission to delete the model bias job definition created using the CreateModelBiasJobDefinition API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-bias-job-definition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteModelExplainabilityJobDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteModelExplainabilityJobDefinition.html",
+      "description": "Grants permission to delete the model explainability job definition created using the CreateModelExplainabilityJobDefinition API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-explainability-job-definition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteModelPackage",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteModelPackage.html",
+      "description": "Grants permission to delete a ModelPackage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-package*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteModelPackageGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteModelPackageGroup.html",
+      "description": "Grants permission to delete a ModelPackageGroup",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-package-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteModelPackageGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteModelPackageGroupPolicy.html",
+      "description": "Grants permission to delete a ModelPackageGroup policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-package-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteModelQualityJobDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteModelQualityJobDefinition.html",
+      "description": "Grants permission to delete the model quality job definition created using the CreateModelQualityJobDefinition API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-quality-job-definition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMonitoringSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteMonitoringSchedule.html",
+      "description": "Grants permission to delete a monitoring schedule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "monitoring-schedule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteNotebookInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteNotebookInstance.html",
+      "description": "Grants permission to delete a Amazon SageMaker notebook instance. Before you can delete a notebook instance, you must call the StopNotebookInstance API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook-instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteNotebookInstanceLifecycleConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteNotebookInstanceLifecycleConfig.html",
+      "description": "Grants permission to delete a notebook instance lifecycle configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook-instance-lifecycle-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePipeline",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeletePipeline.html",
+      "description": "Grants permission to delete a pipeline",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "pipeline*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteProject",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteProject.html",
+      "description": "Grants permission to delete a project",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "project*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRecord",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteRecord.html",
+      "description": "Grants permission to delete a record from a feature group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "feature-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTags",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteTags.html",
+      "description": "Grants permission to delete the specified set of tags from an Amazon SageMaker resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "action",
+        "algorithm",
+        "app",
+        "app-image-config",
+        "artifact",
+        "automl-job",
+        "code-repository",
+        "compilation-job",
+        "context",
+        "data-quality-job-definition",
+        "device",
+        "device-fleet",
+        "domain",
+        "edge-packaging-job",
+        "endpoint",
+        "endpoint-config",
+        "experiment",
+        "experiment-trial",
+        "experiment-trial-component",
+        "feature-group",
+        "flow-definition",
+        "human-task-ui",
+        "hyper-parameter-tuning-job",
+        "image",
+        "inference-recommendations-job",
+        "labeling-job",
+        "model",
+        "model-bias-job-definition",
+        "model-explainability-job-definition",
+        "model-package",
+        "model-package-group",
+        "model-quality-job-definition",
+        "monitoring-schedule",
+        "notebook-instance",
+        "pipeline",
+        "processing-job",
+        "project",
+        "training-job",
+        "transform-job",
+        "user-profile",
+        "workteam"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTrial",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteTrial.html",
+      "description": "Grants permission to delete a trial",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment-trial*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTrialComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteTrialComponent.html",
+      "description": "Grants permission to delete a trial component",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment-trial-component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteUserProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteUserProfile.html",
+      "description": "Grants permission to delete a UserProfile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWorkforce",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteWorkforce.html",
+      "description": "Grants permission to delete a workforce",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workforce*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWorkteam",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteWorkteam.html",
+      "description": "Grants permission to delete a workteam",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workteam*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeregisterDevices",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeregisterDevices.html",
+      "description": "Grants permission to deregister a set of devices",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "device*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAction",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeAction.html",
+      "description": "Grants permission to get information about an action",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "action*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAlgorithm",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeAlgorithm.html",
+      "description": "Grants permission to describe an algorithm",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "algorithm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeApp",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeApp.html",
+      "description": "Grants permission to describe an App",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "app*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAppImageConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeAppImageConfig.html",
+      "description": "Grants permission to describe an AppImageConfig",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "app-image-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeArtifact",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeArtifact.html",
+      "description": "Grants permission to get information about an artifact",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "artifact*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAutoMLJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeAutoMLJob.html",
+      "description": "Grants permission to describe an AutoML job that was created via the CreateAutoMLJob API",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "automl-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCodeRepository",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeCodeRepository.html",
+      "description": "Grants permission to describe a CodeRepository",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "code-repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCompilationJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeCompilationJob.html",
+      "description": "Grants permission to return information about a compilation job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "compilation-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeContext",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeContext.html",
+      "description": "Grants permission to get information about a context",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "context*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDataQualityJobDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeDataQualityJobDefinition.html",
+      "description": "Grants permission to return information about a data quality job definition",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "data-quality-job-definition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDevice",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeDevice.html",
+      "description": "Grants permission to access information about a device",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "device*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDeviceFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeDeviceFleet.html",
+      "description": "Grants permission to access information about a device fleet",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "device-fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDomain",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeDomain.html",
+      "description": "Grants permission to describe a Domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEdgePackagingJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEdgePackagingJob.html",
+      "description": "Grants permission to access information about an edge packaging job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "edge-packaging-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html",
+      "description": "Grants permission to return the description of an endpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEndpointConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpointConfig.html",
+      "description": "Grants permission to return the description of an endpoint configuration, which was created using the CreateEndpointConfig API",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "endpoint-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeExperiment",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeExperiment.html",
+      "description": "Grants permission to return information about an experiment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "experiment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeFeatureGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeFeatureGroup.html",
+      "description": "Grants permission to return information about a feature group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "feature-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeFlowDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeFlowDefinition.html",
+      "description": "Grants permission to return information about the specified flow definition",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "flow-definition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeHumanLoop",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeHumanLoop.html",
+      "description": "Grants permission to return information about the specified human loop",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "human-loop*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeHumanTaskUi",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeHumanTaskUi.html",
+      "description": "Grants permission to return detailed information about the specified human review workflow user interface",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "human-task-ui*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeHyperParameterTuningJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeHyperParameterTuningJob.html",
+      "description": "Grants permission to describe a hyper parameter tuning job that was created via the CreateHyperParameterTuningJob API",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "hyper-parameter-tuning-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeImage",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeImage.html",
+      "description": "Grants permission to return information about a SageMaker Image",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "image*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeImageVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeImageVersion.html",
+      "description": "Grants permission to return information about a SageMaker ImageVersion",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "image-version*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeInferenceRecommendationsJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeInferenceRecommendationsJob.html",
+      "description": "Grants permission to get information about an inference recommendations job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "inference-recommendations-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeLabelingJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeLabelingJob.html",
+      "description": "Grants permission to return information about a labeling job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "labeling-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeLineageGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeLineageGroup.html",
+      "description": "Grants permission to describe a lineage group",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeModel",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeModel.html",
+      "description": "Grants permission to describe a model that you created using the CreateModel API",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeModelBiasJobDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeModelBiasJobDefinition.html",
+      "description": "Grants permission to return information about a model bias job definition",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model-bias-job-definition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeModelExplainabilityJobDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeModelExplainabilityJobDefinition.html",
+      "description": "Grants permission to return information about a model explainability job definition",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model-explainability-job-definition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeModelPackage",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeModelPackage.html",
+      "description": "Grants permission to describe a ModelPackage",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model-package*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeModelPackageGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeModelPackageGroup.html",
+      "description": "Grants permission to describe a ModelPackageGroup",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model-package-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeModelQualityJobDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeModelQualityJobDefinition.html",
+      "description": "Grants permission to return information about a model quality job definition",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model-quality-job-definition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeMonitoringSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeMonitoringSchedule.html",
+      "description": "Grants permission to return information about a monitoring schedule",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "monitoring-schedule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeNotebookInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeNotebookInstance.html",
+      "description": "Grants permission to return information about a notebook instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "notebook-instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeNotebookInstanceLifecycleConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeNotebookInstanceLifecycleConfig.html",
+      "description": "Grants permission to describe a notebook instance lifecycle configuration that was created via the CreateNotebookInstanceLifecycleConfig API",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "notebook-instance-lifecycle-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribePipeline",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribePipeline.html",
+      "description": "Grants permission to get information about a pipeline",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "pipeline*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribePipelineDefinitionForExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribePipelineDefinitionForExecution.html",
+      "description": "Grants permission to get the pipeline definition for a pipeline execution",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "pipeline-execution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribePipelineExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribePipelineExecution.html",
+      "description": "Grants permission to get information about a pipeline execution",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "pipeline-execution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeProcessingJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeProcessingJob.html",
+      "description": "Grants permission to return information about a processing job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "processing-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeProject",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeProject.html",
+      "description": "Grants permission to describe a project",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "project*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSubscribedWorkteam",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeSubscribedWorkteam.html",
+      "description": "Grants permission to return information about a subscribed workteam",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "workteam*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTrainingJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeTrainingJob.html",
+      "description": "Grants permission to return information about a training job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "training-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTransformJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeTransformJob.html",
+      "description": "Grants permission to return information about a transform job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "transform-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTrial",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeTrial.html",
+      "description": "Grants permission to return information about a trial",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "experiment-trial*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTrialComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeTrialComponent.html",
+      "description": "Grants permission to return information about a trial component",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "experiment-trial-component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeUserProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeUserProfile.html",
+      "description": "Grants permission to describe a UserProfile",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "user-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorkforce",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeWorkforce.html",
+      "description": "Grants permission to return information about a workforce",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "workforce*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorkteam",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeWorkteam.html",
+      "description": "Grants permission to return information about a workteam",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "workteam*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisableSagemakerServicecatalogPortfolio",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DisableSagemakerServicecatalogPortfolio.html",
+      "description": "Grants permission to disable a SageMaker Service Catalog Portfolio",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateTrialComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DisassociateTrialComponent.html",
+      "description": "Grants permission to disassociate a trial component from a trial",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment-trial*",
+        "experiment-trial-component*",
+        "processing-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "EnableSagemakerServicecatalogPortfolio",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_EnableSagemakerServicecatalogPortfolio.html",
+      "description": "Grants permission to enable a SageMaker Service Catalog Portfolio",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDeviceFleetReport",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_GetDeviceFleetReport.html",
+      "description": "Grants permission to access a summary of the devices in a device fleet",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "device-fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDeviceRegistration",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_GetDeviceRegistration.html",
+      "description": "Grants permission to get device registration. After you deploy a model onto edge devices this api is used to get current device registration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "device*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetLineageGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_GetLineageGroupPolicy.html",
+      "description": "Grants permission to retreive a lineage group policy",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetModelPackageGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_GetModelPackageGroupPolicy.html",
+      "description": "Grants permission to get a ModelPackageGroup policy",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model-package-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRecord",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_GetRecord.html",
+      "description": "Grants permission to get a record from a feature group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "feature-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSagemakerServicecatalogPortfolioStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_GetSagemakerServicecatalogPortfolioStatus.html",
+      "description": "Grants permission to get a SageMaker Service Catalog Portfolio",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSearchSuggestions",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_GetSearchSuggestions.html",
+      "description": "Grants permission to get search suggestions when provided with a keyword",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "InvokeEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_InvokeEndpoint.html",
+      "description": "Grants permission to invoke an endpoint. After you deploy a model into production using Amazon SageMaker hosting services, your client applications use this API to get inferences from the model hosted at the specified endpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "endpoint*"
+      ],
+      "conditionKeys": [
+        "sagemaker:TargetModel"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "InvokeEndpointAsync",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_InvokeEndpointAsync.html",
+      "description": "Grants permission to get inferences from the hosted model at the specified endpoint in an asynchronous manner",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListActions",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListActions.html",
+      "description": "Grants permission to list actions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAlgorithms",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListAlgorithms.html",
+      "description": "Grants permission to list Algorithms",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAppImageConfigs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListAppImageConfigs.html",
+      "description": "Grants permission to list the AppImageConfigs in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListApps",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListApps.html",
+      "description": "Grants permission to list the Apps in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListArtifacts",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListArtifacts.html",
+      "description": "Grants permission to list artifacts",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListAssociations.html",
+      "description": "Grants permission to list associations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAutoMLJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListAutoMLJobs.html",
+      "description": "Grants permission to list AutoML jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCandidatesForAutoMLJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListCandidatesForAutoMLJob.html",
+      "description": "Grants permission to lists candidates for an AutoML job",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCodeRepositories",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListCodeRepositories.html",
+      "description": "Grants permission to list code repositories",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCompilationJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListCompilationJobs.html",
+      "description": "Grants permission to list compilation jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListContexts",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListContexts.html",
+      "description": "Grants permission to list contexts",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDataQualityJobDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListDataQualityJobDefinitions.html",
+      "description": "Grants permission to list data quality job definitions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDeviceFleets",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListDeviceFleets.html",
+      "description": "Grants permission to list device fleets",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDevices",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListDevices.html",
+      "description": "Grants permission to list devices",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDomains",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListDomains.html",
+      "description": "Grants permission to list the Domains in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEdgePackagingJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListEdgePackagingJobs.html",
+      "description": "Grants permission to list edge packaging jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEndpointConfigs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListEndpointConfigs.html",
+      "description": "Grants permission to list endpoint configurations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEndpoints",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListEndpoints.html",
+      "description": "Grants permission to list endpoints",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExperiments",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListExperiments.html",
+      "description": "Grants permission to list experiments",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFeatureGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListFeatureGroups.html",
+      "description": "Grants permission to list feature groups",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFlowDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListFlowDefinitions.html",
+      "description": "Grants permission to return summary information about flow definitions, given the specified parameters",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHumanLoops",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListHumanLoops.html",
+      "description": "Grants permission to return summary information about human loops, given the specified parameters",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHumanTaskUis",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListHumanTaskUis.html",
+      "description": "Grants permission to return summary information about human review workflow user interfaces, given the specified parameters",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHyperParameterTuningJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListHyperParameterTuningJobs.html",
+      "description": "Grants permission to list hyper parameter tuning jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListImageVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListImageVersions.html",
+      "description": "Grants permission to list ImageVersions that belong to a SageMaker Image",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "image*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListImages",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListImages.html",
+      "description": "Grants permission to list SageMaker Images in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListInferenceRecommendationsJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListInferenceRecommendationsJobs.html",
+      "description": "Grants permission to list inference recommendations jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLabelingJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListLabelingJobs.html",
+      "description": "Grants permission to list labeling jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLabelingJobsForWorkteam",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListLabelingJobs.html",
+      "description": "Grants permission to list labeling jobs for workteam",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "workteam*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLineageGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListLineageGroups.html",
+      "description": "Grants permission to list lineage groups",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListModelBiasJobDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListModelBiasJobDefinitions.html",
+      "description": "Grants permission to list model bias job definitions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListModelExplainabilityJobDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListModelExplainabilityJobDefinitions.html",
+      "description": "Grants permission to list model explainability job definitions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListModelMetadata",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListModelMetadata.html",
+      "description": "Grants permission to list model metadata for inference recommendations jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListModelPackageGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListModelPackageGroups.html",
+      "description": "Grants permission to list ModelPackageGroups",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListModelPackages",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListModelPackages.html",
+      "description": "Grants permission to list ModelPackages",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "model-package-group"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListModelQualityJobDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListModelQualityJobDefinitions.html",
+      "description": "Grants permission to list model quality job definitions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListModels",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListModels.html",
+      "description": "Grants permission to list the models created with the CreateModel API",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMonitoringExecutions",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListMonitoringExecutions.html",
+      "description": "Grants permission to list monitoring executions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMonitoringSchedules",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListMonitoringSchedules.html",
+      "description": "Grants permission to list monitoring schedules",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListNotebookInstanceLifecycleConfigs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListNotebookInstanceLifecycleConfigs.html",
+      "description": "Grants permission to list the notebook instance lifecycle configurations that can be deployed using Amazon SageMaker",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListNotebookInstances",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListNotebookInstances.html",
+      "description": "Grants permission to list the Amazon SageMaker notebook instances in the requester's account in an AWS Region",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPipelineExecutionSteps",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListPipelineExecutionSteps.html",
+      "description": "Grants permission to list steps for a pipeline execution",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "pipeline-execution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPipelineExecutions",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListPipelineExecutions.html",
+      "description": "Grants permission to list executions for a pipeline",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "pipeline*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPipelineParametersForExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListPipelineParametersForExecution.html",
+      "description": "Grants permission to list parameters for a pipeline execution",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "pipeline-execution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPipelines",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListPipelines.html",
+      "description": "Grants permission to list pipelines",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListProcessingJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListProcessingJobs.html",
+      "description": "Grants permission to list processing jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListProjects",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListProjects.html",
+      "description": "Grants permission to list Projects",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSubscribedWorkteams",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListSubscribedWorkteams.html",
+      "description": "Grants permission to list subscribed workteams",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTags",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListTags.html",
+      "description": "Grants permission to list the tag set associated with the specified resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "action",
+        "algorithm",
+        "app",
+        "app-image-config",
+        "artifact",
+        "automl-job",
+        "code-repository",
+        "context",
+        "data-quality-job-definition",
+        "device",
+        "device-fleet",
+        "domain",
+        "edge-packaging-job",
+        "endpoint",
+        "endpoint-config",
+        "experiment",
+        "experiment-trial",
+        "experiment-trial-component",
+        "feature-group",
+        "flow-definition",
+        "human-task-ui",
+        "hyper-parameter-tuning-job",
+        "image",
+        "labeling-job",
+        "model",
+        "model-bias-job-definition",
+        "model-explainability-job-definition",
+        "model-package",
+        "model-package-group",
+        "model-quality-job-definition",
+        "monitoring-schedule",
+        "notebook-instance",
+        "pipeline",
+        "project",
+        "training-job",
+        "transform-job",
+        "user-profile",
+        "workteam"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrainingJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListTrainingJobs.html",
+      "description": "Grants permission to list training jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrainingJobsForHyperParameterTuningJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_%20ListTrainingJobsForHyperParameterTuningJob.html",
+      "description": "Grants permission to list training jobs for a hyper parameter tuning job",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "hyper-parameter-tuning-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTransformJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListTransformJobs.html",
+      "description": "Grants permission to list transform jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrialComponents",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListTrialComponents.html",
+      "description": "Grants permission to list trial components",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrials",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListTrials.html",
+      "description": "Grants permission to list trials",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListUserProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListUserProfiles.html",
+      "description": "Grants permission to list the UserProfiles in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWorkforces",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListWorkforces.html",
+      "description": "Grants permission to list workforces",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWorkteams",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListWorkteams.html",
+      "description": "Grants permission to list workteams",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutLineageGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_PutLineageGroupPolicy.html",
+      "description": "Grants permission to put a lineage group policy",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutModelPackageGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_PutModelPackageGroupPolicy.html",
+      "description": "Grants permission to put a ModelPackageGroup policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-package-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutRecord",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_PutRecord.html",
+      "description": "Grants permission to put a record to a feature group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "feature-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "QueryLineage",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_QueryLineage.html",
+      "description": "Grants permission to explore the lineage graph",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RegisterDevices",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_RegisterDevices.html",
+      "description": "Grants permission to register a set of devices",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "device*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RenderUiTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_RenderUiTemplate.html",
+      "description": "Grants permission to render a UI template used for a human annotation task",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "Search",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_Search.html",
+      "description": "Grants permission to search for SageMaker objects",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SendHeartbeat",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_SendHeartbeat.html",
+      "description": "Grants permission to publish heartbeat data from devices. After you deploy a model onto edge devices this api is used to report device status",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "device*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SendPipelineExecutionStepFailure",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_SendPipelineExecutionStepFailure.html",
+      "description": "Grants permission to fail a pending callback step",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "pipeline-execution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SendPipelineExecutionStepSuccess",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_SendPipelineExecutionStepSuccess.html",
+      "description": "Grants permission to succeed a pending callback step",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "pipeline-execution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartHumanLoop",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StartHumanLoop.html",
+      "description": "Grants permission to start a human loop",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "flow-definition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartMonitoringSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StartMonitoringSchedule.html",
+      "description": "Grants permission to start a monitoring schedule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "monitoring-schedule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartNotebookInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StartNotebookInstance.html",
+      "description": "Grants permission to start a notebook instance. This launches an EC2 instance with the latest version of the libraries and attaches your EBS volume",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook-instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartPipelineExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StartPipelineExecution.html",
+      "description": "Grants permission to start a pipeline execution",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "pipeline*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopAutoMLJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StopAutoMLJob.html",
+      "description": "Grants permission to stop a running AutoML job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "automl-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopCompilationJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StopCompilationJob.html",
+      "description": "Grants permission to stop a compilation job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "compilation-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopEdgePackagingJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StopEdgePackagingJob.html",
+      "description": "Grants permission to stop an edge packaging job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "edge-packaging-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopHumanLoop",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StopHumanLoop.html",
+      "description": "Grants permission to stop a specified human loop",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "human-loop*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopHyperParameterTuningJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StopHyperParameterTuningJob.html",
+      "description": "Grants permission to stop a running hyper parameter tuning job create via the CreateHyperParameterTuningJob",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hyper-parameter-tuning-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopInferenceRecommendationsJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StopInferenceRecommendationsJob.html",
+      "description": "Grants permission to stop an inference recommendations job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "inference-recommendations-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopLabelingJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StopLabelingJob.html",
+      "description": "Grants permission to stop a labeling job. Any labels already generated will be exported before stopping",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "labeling-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopMonitoringSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StopMonitoringSchedule.html",
+      "description": "Grants permission to stop a monitoring schedule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "monitoring-schedule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopNotebookInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StopNotebookInstance.html",
+      "description": "Grants permission to stop a notebook instance. This terminates the EC2 instance. Before terminating the instance, Amazon SageMaker disconnects the EBS volume from it. Amazon SageMaker preserves the EBS volume",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook-instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopPipelineExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StopPipelineExecution.html",
+      "description": "Grants permission to stop a pipeline execution",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "pipeline-execution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopProcessingJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StopProcessingJob.html",
+      "description": "Grants permission to stop a processing job. To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal, which delays job termination for 120 seconds",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "processing-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopTrainingJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StopTrainingJob.html",
+      "description": "Grants permission to stop a training job. To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal, which delays job termination for 120 seconds",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "training-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopTransformJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_StopTransformJob.html",
+      "description": "Grants permission to stop a transform job.  When Amazon SageMaker receives a StopTransformJob request, the status of the job changes to Stopping.  After Amazon SageMaker stops the job, the status is set to Stopped",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "transform-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAction",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateAction.html",
+      "description": "Grants permission to update an action",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "action*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAppImageConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateAppImageConfig.html",
+      "description": "Grants permission to update an AppImageConfig",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-image-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateArtifact",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateArtifact.html",
+      "description": "Grants permission to update an artifact",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "artifact*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCodeRepository",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateCodeRepository.html",
+      "description": "Grants permission to update a CodeRepository",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "code-repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateContext",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateContext.html",
+      "description": "Grants permission to update a context",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "context*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDeviceFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateDeviceFleet.html",
+      "description": "Grants permission to update a device fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "device-fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDevices",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateDevices.html",
+      "description": "Grants permission to update a set of devices",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "device*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDomain",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateDomain.html",
+      "description": "Grants permission to update a Domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domain*"
+      ],
+      "conditionKeys": [
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:InstanceTypes",
+        "sagemaker:DomainSharingOutputKmsKey",
+        "sagemaker:ImageArns",
+        "sagemaker:ImageVersionArns"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateEndpoint.html",
+      "description": "Grants permission to update an endpoint to use the endpoint configuration specified in the request",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEndpointWeightsAndCapacities",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateEndpointWeightsAndCapacities.html",
+      "description": "Grants permission to update variant weight, capacity, or both of one or more variants associated with an endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateExperiment",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateExperiment.html",
+      "description": "Grants permission to update an experiment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateImage",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateImage.html",
+      "description": "Grants permission to update the properties of a SageMaker Image",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "image*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdateModelPackage",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateModelPackage.html",
+      "description": "Grants permission to update a ModelPackage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-package*"
+      ],
+      "conditionKeys": [
+        "sagemaker:ModelApprovalStatus"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateMonitoringSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateMonitoringSchedule.html",
+      "description": "Grants permission to update a monitoring schedule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "monitoring-schedule*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:InstanceTypes",
+        "sagemaker:MaxRuntimeInSeconds",
+        "sagemaker:NetworkIsolation",
+        "sagemaker:OutputKmsKey",
+        "sagemaker:VolumeKmsKey",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets",
+        "sagemaker:InterContainerTrafficEncryption"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdateNotebookInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateNotebookInstance.html",
+      "description": "Grants permission to update a notebook instance. Notebook instance updates include upgrading or downgrading the EC2 instance used for your notebook instance to accommodate changes in your workload requirements. You can also update the VPC security groups",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook-instance*"
+      ],
+      "conditionKeys": [
+        "sagemaker:AcceleratorTypes",
+        "sagemaker:InstanceTypes",
+        "sagemaker:RootAccess"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateNotebookInstanceLifecycleConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_%20UpdateNotebookInstanceLifecycleConfig.html",
+      "description": "Grants permission to updates a notebook instance lifecycle configuration created with the CreateNotebookInstanceLifecycleConfig API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook-instance-lifecycle-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePipeline",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdatePipeline.html",
+      "description": "Grants permission to update a pipeline",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "pipeline*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdatePipelineExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdatePipelineExecution.html",
+      "description": "Grants permission to update a pipeline execution",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "pipeline-execution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateProject",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateProject.html",
+      "description": "Grants permission to update a Project",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "project*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTrainingJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateTrainingJob.html",
+      "description": "Grants permission to update a training job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "training-job*"
+      ],
+      "conditionKeys": [
+        "sagemaker:InstanceTypes"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTrial",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateTrial.html",
+      "description": "Grants permission to update a trial",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment-trial*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTrialComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateTrialComponent.html",
+      "description": "Grants permission to update a trial component",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment-trial-component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateUserProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateUserProfile.html",
+      "description": "Grants permission to update a UserProfile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user-profile*"
+      ],
+      "conditionKeys": [
+        "sagemaker:InstanceTypes",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:InstanceTypes",
+        "sagemaker:DomainSharingOutputKmsKey",
+        "sagemaker:ImageArns",
+        "sagemaker:ImageVersionArns"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateWorkforce",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateWorkforce.html",
+      "description": "Grants permission to update a workforce",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workforce*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateWorkteam",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateWorkteam.html",
+      "description": "Grants permission to update a workteam",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workteam*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

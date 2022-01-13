@@ -1,0 +1,294 @@
+{
+  "serviceName": "AWS X-Ray",
+  "servicePrefix": "xray",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsx-ray.html",
+  "actions": [
+    {
+      "name": "BatchGetTraces",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_BatchGetTraces.html",
+      "description": "Grants permission to retrieve a list of traces specified by ID. Each trace is a collection of segment documents that originates from a single request. Use GetTraceSummaries to get a list of trace IDs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_CreateGroup.html",
+      "description": "Grants permission to create a group resource with a name and a filter expression",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSamplingRule",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_CreateSamplingRule.html",
+      "description": "Grants permission to create a rule to control sampling behavior for instrumented applications",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "sampling-rule*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_DeleteGroup.html",
+      "description": "Grants permission to delete a group resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSamplingRule",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_DeleteSamplingRule.html",
+      "description": "Grants permission to delete a sampling rule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "sampling-rule*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEncryptionConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetEncryptionConfig.html",
+      "description": "Grants permission to retrieve the current encryption configuration for X-Ray data",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetGroup.html",
+      "description": "Grants permission to retrieve group resource details",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetGroups.html",
+      "description": "Grants permission to retrieve all active group details",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetInsight",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetInsight.html",
+      "description": "Grants permission to retrieve the details of a specific insight",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetInsightEvents",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetInsightEvents.html",
+      "description": "Grants permission to retrieve the events of a specific insight",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetInsightImpactGraph",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetInsightImpactGraph.html",
+      "description": "Grants permission to retrieve the part of the service graph which is impacted for a specific insight",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetInsightSummaries",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetInsightSummaries.html",
+      "description": "Grants permission to retrieve the summary of all insights for a group and time range with optional filters",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSamplingRules",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html",
+      "description": "Grants permission to retrieve all sampling rules",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSamplingStatisticSummaries",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingStatisticSummaries.html",
+      "description": "Grants permission to retrieve information about recent sampling results for all sampling rules",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSamplingTargets",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html",
+      "description": "Grants permission to request a sampling quota for rules that the service is using to sample requests",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetServiceGraph",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetServiceGraph.html",
+      "description": "Grants permission to retrieve a document that describes services that process incoming requests, and downstream services that they call as a result",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTimeSeriesServiceStatistics",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetTimeSeriesServiceStatistics.html",
+      "description": "Grants permission to retrieve an aggregation of service statistics defined by a specific time range bucketed into time intervals",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTraceGraph",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetTraceGraph.html",
+      "description": "Grants permission to retrieve a service graph for one or more specific trace IDs",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTraceSummaries",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetTraceSummaries.html",
+      "description": "Grants permission to retrieve IDs and metadata for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to BatchGetTraces",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for an X-Ray resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "group",
+        "sampling-rule"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutEncryptionConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_PutEncryptionConfig.html",
+      "description": "Grants permission to update the encryption configuration for X-Ray data",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutTelemetryRecords",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_PutTelemetryRecords.html",
+      "description": "Grants permission to send AWS X-Ray daemon telemetry to the service",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutTraceSegments",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_PutTraceSegments.html",
+      "description": "Grants permission to upload segment documents to AWS X-Ray. The X-Ray SDK generates segment documents and sends them to the X-Ray daemon, which uploads them in batches",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_TagResource.html",
+      "description": "Grants permission to add tags to an X-Ray resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "group",
+        "sampling-rule"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_UntagResource.html",
+      "description": "Grants permission to remove tags from an X-Ray resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "group",
+        "sampling-rule"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_UpdateGroup.html",
+      "description": "Grants permission to update a group resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSamplingRule",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_UpdateSamplingRule.html",
+      "description": "Grants permission to modify a sampling rule's configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "sampling-rule*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

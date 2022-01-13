@@ -1,0 +1,294 @@
+{
+  "serviceName": "AWS Resource Access Manager",
+  "servicePrefix": "ram",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsresourceaccessmanager.html",
+  "actions": [
+    {
+      "name": "AcceptResourceShareInvitation",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_AcceptResourceShareInvitation.html",
+      "description": "Grants permission to accept the specified resource share invitation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resource-share-invitation*"
+      ],
+      "conditionKeys": [
+        "ram:ShareOwnerAccountId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateResourceShare",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_AssociateResourceShare.html",
+      "description": "Grants permission to associate resource(s) and/or principal(s) to a resource share",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resource-share*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ram:ResourceShareName",
+        "ram:AllowsExternalPrincipals",
+        "ram:Principal",
+        "ram:RequestedResourceType",
+        "ram:ResourceArn"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateResourceSharePermission",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_AssociateResourceSharePermission.html",
+      "description": "Grants permission to associate a Permission with a Resource Share",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "permission*",
+        "resource-share*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateResourceShare",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html",
+      "description": "Grants permission to create a resource share with provided resource(s) and/or principal(s)",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys                                                                                                                                                            ram:RequestedResourceType                                                                                                                                                            ram:ResourceArn                                                                                                                                                            ram:RequestedAllowsExternalPrincipals                                                                                                                                                            ram:Principal"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteResourceShare",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_DeleteResourceShare.html",
+      "description": "Grants permission to delete resource share",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resource-share*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ram:ResourceShareName",
+        "ram:AllowsExternalPrincipals"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateResourceShare",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_DisassociateResourceShare.html",
+      "description": "Grants permission to disassociate resource(s) and/or principal(s) from a resource share",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resource-share*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ram:ResourceShareName",
+        "ram:AllowsExternalPrincipals",
+        "ram:Principal",
+        "ram:RequestedResourceType",
+        "ram:ResourceArn"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateResourceSharePermission",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_DisassociateResourceSharePermission.html",
+      "description": "Grants permission to disassociate a Permission from a Resource Share",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "permission*",
+        "resource-share*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "EnableSharingWithAwsOrganization",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_EnableSharingWithAwsOrganization.html",
+      "description": "Grants permission to access customer's organization and create a SLR in the customer's account",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPermission",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_GetPermission.html",
+      "description": "Grants permission to get the contents of an AWS RAM permission",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "permission*"
+      ],
+      "conditionKeys": [
+        "ram:PermissionArn"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResourcePolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_GetResourcePolicies.html",
+      "description": "Grants permission to get the policies for the specified resources that you own and have shared",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResourceShareAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_GetResourceShareAssociations.html",
+      "description": "Grants permission to get a set of resource share associations from a provided list or with a specified status of the specified type",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResourceShareInvitations",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_GetResourceShareInvitations.html",
+      "description": "Grants permission to get resource share invitations by the specified invitation arn or those for the resource share",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResourceShares",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_GetResourceShares.html",
+      "description": "Grants permission to get a set of resource shares from a provided list or with a specified status",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPendingInvitationResources",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html",
+      "description": "Grants permission to list the resources in a resource share that is shared with you but that the invitation is still pending for",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "resource-share-invitation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPermissions",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPermissions.html",
+      "description": "Grants permission to list the AWS RAM permissions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPrincipals",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPrincipals.html",
+      "description": "Grants permission to list the principals that you have shared resources with or that have shared resources with you",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResourceSharePermissions",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_ListResourceSharePermissions.html",
+      "description": "Grants permission to list the Permissions associated with a Resource Share",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "resource-share*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ram:ResourceShareName",
+        "ram:AllowsExternalPrincipals"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResourceTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_ListResourceTypes.html",
+      "description": "Grants permission to list the shareable resource types supported by AWS RAM",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResources",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_ListResources.html",
+      "description": "Grants permission to list the resources that you added to resource shares or the resources that are shared with you",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PromoteResourceShareCreatedFromPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html",
+      "description": "Grants permission to promote the specified resource share",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resource-share*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RejectResourceShareInvitation",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_RejectResourceShareInvitation.html",
+      "description": "Grants permission to reject the specified resource share invitation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resource-share-invitation*"
+      ],
+      "conditionKeys": [
+        "ram:ShareOwnerAccountId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag the specified resource share",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "resource-share*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag the specified resource share",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "resource-share*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateResourceShare",
+      "documentationUrl": "https://docs.aws.amazon.com/ram/latest/APIReference/API_UpdateResourceShare.html",
+      "description": "Grants permission to update attributes of the resource share",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resource-share*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ram:ResourceShareName",
+        "ram:AllowsExternalPrincipals",
+        "ram:RequestedAllowsExternalPrincipals"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

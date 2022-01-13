@@ -1,0 +1,566 @@
+{
+  "serviceName": "AWS WAF V2",
+  "servicePrefix": "wafv2",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswafv2.html",
+  "actions": [
+    {
+      "name": "AssociateWebACL",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html",
+      "description": "Grants permission to associate a WebACL with a resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "webacl*",
+        "apigateway",
+        "appsync",
+        "loadbalancer/app/"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CheckCapacity",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_CheckCapacity.html",
+      "description": "Grants permission to calculate web ACL capacity unit (WCU) requirements for a specified scope and set of rules",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateIPSet",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateIPSet.html",
+      "description": "Grants permission to create an IPSet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ipset*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateRegexPatternSet",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRegexPatternSet.html",
+      "description": "Grants permission to create a RegexPatternSet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "regexpatternset*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateRuleGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html",
+      "description": "Grants permission to create a RuleGroup",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rulegroup*",
+        "ipset",
+        "regexpatternset"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateWebACL",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html",
+      "description": "Grants permission to create a WebACL",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "webacl*",
+        "ipset",
+        "managedruleset",
+        "regexpatternset",
+        "rulegroup"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteFirewallManagerRuleGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteFirewallManagerRuleGroups.html",
+      "description": "Grants permission to delete FirewallManagedRulesGroups from a WebACL if not managed by Firewall Manager anymore",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "webacl*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteIPSet",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteIPSet.html",
+      "description": "Grants permission to delete an IPSet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ipset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteLoggingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteLoggingConfiguration.html",
+      "description": "Grants permission to delete the LoggingConfiguration from a WebACL",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "webacl*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePermissionPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_DeletePermissionPolicy.html",
+      "description": "Grants permission to delete the PermissionPolicy on a RuleGroup",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "rulegroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRegexPatternSet",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteRegexPatternSet.html",
+      "description": "Grants permission to delete a RegexPatternSet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "regexpatternset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRuleGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteRuleGroup.html",
+      "description": "Grants permission to delete a RuleGroup",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rulegroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWebACL",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteWebACL.html",
+      "description": "Grants permission to delete a WebACL",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "webacl*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeManagedRuleGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_DescribeManagedRuleGroup.html",
+      "description": "Grants permission to retrieve high-level information for a managed rule group",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateFirewallManager",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_DisassociateFirewallManager.html",
+      "description": "Grants permission to disassociate Firewall Manager from a WebACL",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "webacl*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateWebACL",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_DisassociateWebACL.html",
+      "description": "Grants permission to disassociate a WebACL from an application resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "apigateway",
+        "appsync",
+        "loadbalancer/app/"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetIPSet",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_GetIPSet.html",
+      "description": "Grants permission to retrieve details about an IPSet",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ipset*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetLoggingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_GetLoggingConfiguration.html",
+      "description": "Grants permission to retrieve LoggingConfiguration for a WebACL",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "webacl*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetManagedRuleSet",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_GetManagedRuleSet.html",
+      "description": "Grants permission to retrieve details about a ManagedRuleSet",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "managedruleset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPermissionPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_GetPermissionPolicy.html",
+      "description": "Grants permission to retrieve a PermissionPolicy for a RuleGroup",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "rulegroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRateBasedStatementManagedKeys",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_GetRateBasedStatementManagedKeys.html",
+      "description": "Grants permission to retrieve the keys that are currently blocked by a rate-based rule",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "webacl*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRegexPatternSet",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_GetRegexPatternSet.html",
+      "description": "Grants permission to retrieve details about a RegexPatternSet",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "regexpatternset*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRuleGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_GetRuleGroup.html",
+      "description": "Grants permission to retrieve details about a RuleGroup",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "rulegroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSampledRequests",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_GetSampledRequests.html",
+      "description": "Grants permission to retrieve detailed information about a sampling of web requests",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "webacl*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetWebACL",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_GetWebACL.html",
+      "description": "Grants permission to retrieve details about a WebACL",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "webacl*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetWebACLForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_GetWebACLForResource.html",
+      "description": "Grants permission to retrieve the WebACL that's associated with a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "apigateway",
+        "appsync",
+        "loadbalancer/app/"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAvailableManagedRuleGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_ListAvailableManagedRuleGroups.html",
+      "description": "Grants permission to retrieve an array of managed rule groups that are available for you to use",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListIPSets",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_ListIPSets.html",
+      "description": "Grants permission to retrieve an array of IPSetSummary objects for the IP sets that you manage",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLoggingConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_ListLoggingConfigurations.html",
+      "description": "Grants permission to retrieve an array of your LoggingConfiguration objects",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListManagedRuleSets",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_ListManagedRuleSets.html",
+      "description": "Grants permission to retrieve an array of your ManagedRuleSet objects",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRegexPatternSets",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_ListRegexPatternSets.html",
+      "description": "Grants permission to retrieve an array of RegexPatternSetSummary objects for the regex pattern sets that you manage",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResourcesForWebACL",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_ListResourcesForWebACL.html",
+      "description": "Grants permission to retrieve an array of the Amazon Resource Names (ARNs) for the resources that are associated with a web ACL",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "webacl*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRuleGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_ListRuleGroups.html",
+      "description": "Grants permission to retrieve an array of RuleGroupSummary objects for the rule groups that you manage",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ipset",
+        "regexpatternset",
+        "rulegroup",
+        "webacl"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWebACLs",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_ListWebACLs.html",
+      "description": "Grants permission to retrieve an array of WebACLSummary objects for the web ACLs that you manage",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutFirewallManagerRuleGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_PutFirewallManagerRuleGroups.html",
+      "description": "Grants permission to create FirewallManagedRulesGroups in a WebACL",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "webacl*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutLoggingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_PutLoggingConfiguration.html",
+      "description": "Grants permission to enable a LoggingConfiguration, to start logging for a web ACL",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "webacl*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
+      "name": "PutManagedRuleSetVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_PutManagedRuleSetVersions.html",
+      "description": "Grants permission to enable create a new or update an existing version of a ManagedRuleSet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "managedruleset*",
+        "rulegroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutPermissionPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_PutPermissionPolicy.html",
+      "description": "Grants permission to attach an IAM policy to a resource, used to share rule groups between accounts",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "rulegroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to associate tags with a AWS resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "ipset",
+        "regexpatternset",
+        "rulegroup",
+        "webacl"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to disassociate tags from an AWS resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "ipset",
+        "regexpatternset",
+        "rulegroup",
+        "webacl"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateIPSet",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateIPSet.html",
+      "description": "Grants permission to update an IPSet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ipset*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateManagedRuleSetVersionExpiryDate",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateManagedRuleSetVersionExpiryDate.html",
+      "description": "Grants permission to update the expiry date of a version in ManagedRuleSet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "managedruleset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRegexPatternSet",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateRegexPatternSet.html",
+      "description": "Grants permission to update a RegexPatternSet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "regexpatternset*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRuleGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateRuleGroup.html",
+      "description": "Grants permission to update a RuleGroup",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rulegroup*",
+        "ipset",
+        "regexpatternset"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateWebACL",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_UpdateWebACL.html",
+      "description": "Grants permission to update a WebACL",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "webacl*",
+        "ipset",
+        "managedruleset",
+        "regexpatternset",
+        "rulegroup"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

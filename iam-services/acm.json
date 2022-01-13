@@ -1,0 +1,175 @@
+{
+  "serviceName": "AWS Certificate Manager",
+  "servicePrefix": "acm",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscertificatemanager.html",
+  "actions": [
+    {
+      "name": "AddTagsToCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_AddTagsToCertificate.html",
+      "description": "Grants permission to add one or more tags to a certificate",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "certificate*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_DeleteCertificate.html",
+      "description": "Grants permission to delete a certificate and its associated private key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "certificate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html",
+      "description": "Grants permission to retreive a certificates and its metadata",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "certificate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ExportCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_ExportCertificate.html",
+      "description": "Grants permission to export a private certificate issued by a private certificate authority (CA) for use anywhere",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "certificate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccountConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_GetAccountConfiguration.html",
+      "description": "Grants permission to retrieve account level configuration from AWS Certificate Manager",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_GetCertificate.html",
+      "description": "Grants permission to retrieve a certificate and certificate chain for a certificate ARN",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "certificate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ImportCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_ImportCertificate.html",
+      "description": "Grants permission to import a 3rd party certificate into AWS Certificate Manager (ACM)",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "certificate*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCertificates",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_ListCertificates.html",
+      "description": "Grants permission to retrieve a list of the certificate ARNs and the domain name for each ARN",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_ListTagsForCertificate.html",
+      "description": "Grants permission to lists the tags that have been associated with a certificate",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "certificate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutAccountConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_PutAccountConfiguration.html",
+      "description": "Grants permission to update account level configuration in AWS Certificate Manager",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RemoveTagsFromCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_RemoveTagsFromCertificate.html",
+      "description": "Grants permission to remove one or more tags from a certificate",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "certificate*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RenewCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_RenewCertificate.html",
+      "description": "Grants permission to renew an eligible private certificate",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "certificate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RequestCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html",
+      "description": "Grants permission to requests a public or private certificate",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ResendValidationEmail",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_ResendValidationEmail.html",
+      "description": "Grants permission to resend an email to request domain ownership validation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "certificate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCertificateOptions",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_UpdateCertificateOptions.html",
+      "description": "Grants permission to update a certificate configuration. Use this to specify whether to opt in to or out of certificate transparency logging",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "certificate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

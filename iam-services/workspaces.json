@@ -1,0 +1,606 @@
+{
+  "serviceName": "Amazon WorkSpaces",
+  "servicePrefix": "workspaces",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonworkspaces.html",
+  "actions": [
+    {
+      "name": "AssociateConnectionAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_AssociateConnectionAlias.html",
+      "description": "Grants permission to associate connection aliases with directories",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connectionalias*",
+        "directoryid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateIpGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_AssociateIpGroups.html",
+      "description": "Grants permission to associate IP access control groups with directories",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directoryid*",
+        "workspaceipgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AuthorizeIpRules",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_AuthorizeIpRules.html",
+      "description": "Grants permission to add rules to IP access control groups",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceipgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CopyWorkspaceImage",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_CopyWorkspaceImage.html",
+      "description": "Grants permission to copy a WorkSpace image",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceimage*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "workspaces:DescribeWorkspaceImages"
+      ]
+    },
+    {
+      "name": "CreateConnectionAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_CreateConnectionAlias.html",
+      "description": "Grants permission to create connection aliases for use with cross-Region redirection",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateIpGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_CreateIpGroup.html",
+      "description": "Grants permission to create IP access control groups",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTags",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_CreateTags.html",
+      "description": "Grants permission to create tags for WorkSpaces resources",
+      "accessLevel": "Tagging",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateUpdatedWorkspaceImage",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_CreateUpdatedWorkspaceImage.html",
+      "description": "Grants permission to create an updated WorkSpace image",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceimage*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateWorkspaceBundle",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_CreateWorkspaceBundle.html",
+      "description": "Grants permission to create a WorkSpace bundle",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspacebundle*",
+        "workspaceimage*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "workspaces:CreateTags"
+      ]
+    },
+    {
+      "name": "CreateWorkspaces",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_CreateWorkspaces.html",
+      "description": "Grants permission to create one or more WorkSpaces",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directoryid*",
+        "workspacebundle*",
+        "workspaceid*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConnectionAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteConnectionAlias.html",
+      "description": "Grants permission to delete connection aliases",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connectionalias*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteIpGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteIpGroup.html",
+      "description": "Grants permission to delete IP access control groups",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceipgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTags",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteTags.html",
+      "description": "Grants permission to delete tags from WorkSpaces resources",
+      "accessLevel": "Tagging",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWorkspaceBundle",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteWorkspaceBundle.html",
+      "description": "Grants permission to delete WorkSpace bundles",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspacebundle*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWorkspaceImage",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteWorkspaceImage.html",
+      "description": "Grants permission to delete WorkSpace images",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceimage*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeregisterWorkspaceDirectory",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DeregisterWorkspaceDirectory.html",
+      "description": "Grants permission to deregister directories from use with Amazon WorkSpaces",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directoryid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAccount",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeAccount.html",
+      "description": "Grants permission to retrieve the configuration of Bring Your Own License (BYOL) for WorkSpaces accounts",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAccountModifications",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeAccountModifications.html",
+      "description": "Grants permission to retrieve modifications to the configuration of Bring Your Own License (BYOL) for WorkSpaces accounts",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeClientProperties",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeClientProperties.html",
+      "description": "Grants permission to retrieve information about WorkSpaces clients",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "directoryid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeConnectionAliasPermissions",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliasPermissions.html",
+      "description": "Grants permission to retrieve the permissions that the owners of connection aliases have granted to other AWS accounts for connection aliases",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "connectionalias*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeConnectionAliases",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html",
+      "description": "Grants permission to retrieve a list that describes the connection aliases used for cross-Region redirection",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeIpGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeIpGroups.html",
+      "description": "Grants permission to retrieve information about IP access control groups",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "workspaceipgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTags",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeTags.html",
+      "description": "Grants permission to describe the tags for WorkSpaces resources",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorkspaceBundles",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceBundles.html",
+      "description": "Grants permission to obtain information about WorkSpace bundles",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorkspaceDirectories",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceDirectories.html",
+      "description": "Grants permission to retrieve information about directories that are registered with WorkSpaces",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorkspaceImagePermissions",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html",
+      "description": "Grants permission to retrieve information about WorkSpace image permissions",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "workspaceimage*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorkspaceImages",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html",
+      "description": "Grants permission to retrieve information about WorkSpace images",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorkspaceSnapshots",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceSnapshots.html",
+      "description": "Grants permission to retrieve information about WorkSpace snapshots",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "workspaceid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorkspaces",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html",
+      "description": "Grants permission to obtain information about WorkSpaces",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorkspacesConnectionStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspacesConnectionStatus.html",
+      "description": "Grants permission to obtain the connection status of WorkSpaces",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateConnectionAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DisassociateConnectionAlias.html",
+      "description": "Grants permission to disassociate connection aliases from directories",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connectionalias*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateIpGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DisassociateIpGroups.html",
+      "description": "Grants permission to disassociate IP access control groups from directories",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directoryid*",
+        "workspaceipgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ImportWorkspaceImage",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ImportWorkspaceImage.html",
+      "description": "Grants permission to import Bring Your Own License (BYOL) images into Amazon WorkSpaces",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeImages                                                                                        ec2:ModifyImageAttribute"
+      ]
+    },
+    {
+      "name": "ListAvailableManagementCidrRanges",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ListAvailableManagementCidrRanges.html",
+      "description": "Grants permission to list the available CIDR ranges for enabling Bring Your Own License (BYOL) for WorkSpaces accounts",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "MigrateWorkspace",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_MigrateWorkspace.html",
+      "description": "Grants permission to migrate WorkSpaces",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspacebundle*",
+        "workspaceid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyAccount",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ModifyAccount.html",
+      "description": "Grants permission to modify the configuration of Bring Your Own License (BYOL) for WorkSpaces accounts",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyClientProperties",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ModifyClientProperties.html",
+      "description": "Grants permission to modify the properties of WorkSpaces clients",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directoryid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifySelfservicePermissions",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ModifySelfservicePermissions.html",
+      "description": "Grants permission to modify the self-service WorkSpace management capabilities for your users",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "directoryid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyWorkspaceAccessProperties",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ModifyWorkspaceAccessProperties.html",
+      "description": "Grants permission to specify which devices and operating systems users can use to access their WorkSpaces",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directoryid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyWorkspaceCreationProperties",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ModifyWorkspaceCreationProperties.html",
+      "description": "Grants permission to modify the default properties used to create WorkSpaces",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directoryid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyWorkspaceProperties",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ModifyWorkspaceProperties.html",
+      "description": "Grants permission to modify WorkSpace properties, including the running mode and the AutoStop period",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyWorkspaceState",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ModifyWorkspaceState.html",
+      "description": "Grants permission to modify the state of WorkSpaces",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RebootWorkspaces",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_RebootWorkspaces.html",
+      "description": "Grants permission to reboot WorkSpaces",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RebuildWorkspaces",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_RebuildWorkspaces.html",
+      "description": "Grants permission to rebuild WorkSpaces",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RegisterWorkspaceDirectory",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_RegisterWorkspaceDirectory.html",
+      "description": "Grants permission to register directories for use with Amazon WorkSpaces",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directoryid*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RestoreWorkspace",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_RestoreWorkspace.html",
+      "description": "Grants permission to restore WorkSpaces",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RevokeIpRules",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_RevokeIpRules.html",
+      "description": "Grants permission to remove rules from IP access control groups",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceipgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartWorkspaces",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_StartWorkspaces.html",
+      "description": "Grants permission to start AutoStop WorkSpaces",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopWorkspaces",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_StopWorkspaces.html",
+      "description": "Grants permission to stop AutoStop WorkSpaces",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TerminateWorkspaces",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_TerminateWorkspaces.html",
+      "description": "Grants permission to terminate WorkSpaces",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateConnectionAliasPermission",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_UpdateConnectionAliasPermission.html",
+      "description": "Grants permission to share or unshare connection aliases with other accounts",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "connectionalias*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRulesOfIpGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_UpdateRulesOfIpGroup.html",
+      "description": "Grants permission to replace rules for IP access control groups",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceipgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateWorkspaceBundle",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_UpdateWorkspaceBundle.html",
+      "description": "Grants permission to update the WorkSpace images used in WorkSpace bundles",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspacebundle*",
+        "workspaceimage*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateWorkspaceImagePermission",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_UpdateWorkspaceImagePermission.html",
+      "description": "Grants permission to share or unshare WorkSpace images with other accounts by specifying whether other accounts have permission to copy the image",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "workspaceimage*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

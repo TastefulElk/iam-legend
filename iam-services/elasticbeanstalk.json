@@ -1,0 +1,675 @@
+{
+  "serviceName": "AWS Elastic Beanstalk",
+  "servicePrefix": "elasticbeanstalk",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awselasticbeanstalk.html",
+  "actions": [
+    {
+      "name": "AbortEnvironmentUpdate",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_AbortEnvironmentUpdate.html",
+      "description": "Grants permission to cancel in-progress environment configuration update or application version deployment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AddTags",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateTagsForResource.html",
+      "description": "Grants permission to add tags to an Elastic Beanstalk resource and to update tag values",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "application",
+        "applicationversion",
+        "configurationtemplate",
+        "environment",
+        "platform"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ApplyEnvironmentManagedAction",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ApplyEnvironmentManagedAction.html",
+      "description": "Grants permission to apply a scheduled managed action immediately",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateEnvironmentOperationsRole",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_AssociateEnvironmentOperationsRole.html",
+      "description": "Grants permission to associate an operations role with an environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CheckDNSAvailability",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CheckDNSAvailability.html",
+      "description": "Grants permission to check CNAME availability",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ComposeEnvironments",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ComposeEnvironments.html",
+      "description": "Grants permission to create or update a group of environments, each running a separate component of a single application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*",
+        "applicationversion*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplication.html",
+      "description": "Grants permission to create a new application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateApplicationVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplicationVersion.html",
+      "description": "Grants permission to create an application version for an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*",
+        "applicationversion*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateConfigurationTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateConfigurationTemplate.html",
+      "description": "Grants permission to create a configuration template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configurationtemplate*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication",
+        "elasticbeanstalk:FromApplication",
+        "elasticbeanstalk:FromApplicationVersion",
+        "elasticbeanstalk:FromConfigurationTemplate",
+        "elasticbeanstalk:FromEnvironment",
+        "elasticbeanstalk:FromSolutionStack",
+        "elasticbeanstalk:FromPlatform",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateEnvironment.html",
+      "description": "Grants permission to launch an environment for an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication",
+        "elasticbeanstalk:FromApplicationVersion",
+        "elasticbeanstalk:FromConfigurationTemplate",
+        "elasticbeanstalk:FromSolutionStack",
+        "elasticbeanstalk:FromPlatform",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreatePlatformVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreatePlatformVersion.html",
+      "description": "Grants permission to create a new version of a custom platform",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "platform*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateStorageLocation",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateStorageLocation.html",
+      "description": "Grants permission to create the Amazon S3 storage location for the account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteApplication.html",
+      "description": "Grants permission to delete an application along with all associated versions and configurations",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteApplicationVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteApplicationVersion.html",
+      "description": "Grants permission to delete an application version from an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "applicationversion*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConfigurationTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteConfigurationTemplate.html",
+      "description": "Grants permission to delete a configuration template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configurationtemplate*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEnvironmentConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteEnvironmentConfiguration.html",
+      "description": "Grants permission to delete the draft configuration associated with the running environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePlatformVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeletePlatformVersion.html",
+      "description": "Grants permission to delete a version of a custom platform",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "platform*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAccountAttributes",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeAccountAttributes.html",
+      "description": "Grants permission to retrieve a list of account attributes, including resource quotas",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeApplicationVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplicationVersions.html",
+      "description": "Grants permission to retrieve a list of application versions stored in an AWS Elastic Beanstalk storage bucket",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "applicationversion"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplications.html",
+      "description": "Grants permission to retrieve the descriptions of existing applications",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "application"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeConfigurationOptions",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationOptions.html",
+      "description": "Grants permission to retrieve descriptions of environment configuration options",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "configurationtemplate",
+        "environment",
+        "solutionstack"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication",
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeConfigurationSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationSettings.html",
+      "description": "Grants permission to retrieve a description of the settings for a configuration set",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "configurationtemplate",
+        "environment"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication",
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEnvironmentHealth",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentHealth.html",
+      "description": "Grants permission to retrieve information about the overall health of an environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEnvironmentManagedActionHistory",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentManagedActionHistory.html",
+      "description": "Grants permission to retrieve a list of an environment's completed and failed managed actions",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEnvironmentManagedActions",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentManagedActions.html",
+      "description": "Grants permission to retrieve a list of an environment's upcoming and in-progress managed actions",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEnvironmentResources",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentResources.html",
+      "description": "Grants permission to retrieve a list of AWS resources for an environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEnvironments",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html",
+      "description": "Grants permission to retrieve descriptions for existing environments",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "environment"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEvents",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEvents.html",
+      "description": "Grants permission to retrieve a list of event descriptions matching a set of criteria",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application",
+        "applicationversion",
+        "configurationtemplate",
+        "environment"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication",
+        "elasticbeanstalk:InApplication",
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeInstancesHealth",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeInstancesHealth.html",
+      "description": "Grants permission to retrieve more detailed information about the health of environment instances",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribePlatformVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribePlatformVersion.html",
+      "description": "Grants permission to retrieve a description of a platform version",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "platform"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateEnvironmentOperationsRole",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DisassociateEnvironmentOperationsRole.html",
+      "description": "Grants permission to disassociate an operations role with an environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAvailableSolutionStacks",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListAvailableSolutionStacks.html",
+      "description": "Grants permission to retrieve a list of the available solution stack names",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "solutionstack"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPlatformBranches",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListPlatformBranches.html",
+      "description": "Grants permission to retrieve a list of the available platform branches",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPlatformVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListPlatformVersions.html",
+      "description": "Grants permission to retrieve a list of the available platforms",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "platform"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ListTagsForResource.html",
+      "description": "Grants permission to retrieve a list of tags of an Elastic Beanstalk resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application",
+        "applicationversion",
+        "configurationtemplate",
+        "environment",
+        "platform"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutInstanceStatistics",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html#health-enhanced-authz",
+      "description": "Grants permission to submit instance statistics for enhanced health",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*",
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RebuildEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RebuildEnvironment.html",
+      "description": "Grants permission to delete and recreate all of the AWS resources for an environment and to force a restart",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RemoveTags",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateTagsForResource.html",
+      "description": "Grants permission to remove tags from an Elastic Beanstalk resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "application",
+        "applicationversion",
+        "configurationtemplate",
+        "environment",
+        "platform"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RequestEnvironmentInfo",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RequestEnvironmentInfo.html",
+      "description": "Grants permission to initiate a request to compile information of the deployed environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RestartAppServer",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RestartAppServer.html",
+      "description": "Grants permission to request an environment to restart the application container server running on each Amazon EC2 instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RetrieveEnvironmentInfo",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RetrieveEnvironmentInfo.html",
+      "description": "Grants permission to retrieve the compiled information from a RequestEnvironmentInfo request",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "SwapEnvironmentCNAMEs",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_SwapEnvironmentCNAMEs.html",
+      "description": "Grants permission to swap the CNAMEs of two environments",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication",
+        "elasticbeanstalk:FromEnvironment"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TerminateEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_TerminateEnvironment.html",
+      "description": "Grants permission to terminate an environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplication.html",
+      "description": "Grants permission to update an application with specified properties",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateApplicationResourceLifecycle",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplicationResourceLifecycle.html",
+      "description": "Grants permission to update the application version lifecycle policy associated with the application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateApplicationVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplicationVersion.html",
+      "description": "Grants permission to update an application version with specified properties",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "applicationversion*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateConfigurationTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateConfigurationTemplate.html",
+      "description": "Grants permission to update a configuration template with specified properties or configuration option values",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configurationtemplate*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication",
+        "elasticbeanstalk:FromApplication",
+        "elasticbeanstalk:FromApplicationVersion",
+        "elasticbeanstalk:FromConfigurationTemplate",
+        "elasticbeanstalk:FromEnvironment",
+        "elasticbeanstalk:FromSolutionStack",
+        "elasticbeanstalk:FromPlatform"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateEnvironment.html",
+      "description": "Grants permission to update an environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication",
+        "elasticbeanstalk:FromApplicationVersion",
+        "elasticbeanstalk:FromConfigurationTemplate",
+        "elasticbeanstalk:FromSolutionStack",
+        "elasticbeanstalk:FromPlatform"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateTagsForResource.html",
+      "description": "Grants permission to add tags to an Elastic Beanstalk resource, remove tags, and to update tag values",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "application",
+        "applicationversion",
+        "configurationtemplate",
+        "environment",
+        "platform"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ValidateConfigurationSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_ValidateConfigurationSettings.html",
+      "description": "Grants permission to check the validity of a set of configuration settings for a configuration template or an environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "configurationtemplate",
+        "environment"
+      ],
+      "conditionKeys": [
+        "elasticbeanstalk:InApplication",
+        "elasticbeanstalk:InApplication"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

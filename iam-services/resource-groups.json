@@ -1,0 +1,199 @@
+{
+  "serviceName": "AWS Resource Groups",
+  "servicePrefix": "resource-groups",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsresourcegroups.html",
+  "actions": [
+    {
+      "name": "CreateGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_CreateGroup.html",
+      "description": "Grants permission to create a resource group with a specified name, description, and resource query",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_DeleteGroup.html",
+      "description": "Grants permission to delete a specified resource group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_GetGroup.html",
+      "description": "Grants permission to get information of a specified resource group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetGroupConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_GetGroupConfiguration.html",
+      "description": "Grants permission to get the service configuration associated with the specified resource group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetGroupQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_GetGroupQuery.html",
+      "description": "Grants permission to get the query associated with a specified resource group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTags",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_GetTags.html",
+      "description": "Grants permission to get the tags associated with a specified resource group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GroupResources",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_GroupResources.html",
+      "description": "Grants permission to add the specified resources to the specified group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListGroupResources",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_ListGroupResources.html",
+      "description": "Grants permission to list the resources that are members of a specified resource group",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "cloudformation:DescribeStacks                                                                                        cloudformation:ListStackResources                                                                                        tag:GetResources"
+      ]
+    },
+    {
+      "name": "ListGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_ListGroups.html",
+      "description": "Grants permission to list all resource groups in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutGroupConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_PutGroupConfiguration.html",
+      "description": "Grants permission to put the service configuration associated with the specified resource group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/LM_REDIRECT",
+      "description": "Grants permission to add a resource-based policy for the specified group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SearchResources",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_SearchResources.html",
+      "description": "Grants permission to search for AWS resources matching the given query",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "cloudformation:DescribeStacks                                                                                        cloudformation:ListStackResources                                                                                        tag:GetResources"
+      ]
+    },
+    {
+      "name": "Tag",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_Tag.html",
+      "description": "Grants permission to tag a specified resource group",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UngroupResources",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_UngroupResources.html",
+      "description": "Grants permission to remove the specified resources from the specified group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "Untag",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_Untag.html",
+      "description": "Grants permission to remove tags associated with a specified resource group",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_UpdateGroup.html",
+      "description": "Grants permission to update a specified resource group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateGroupQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_UpdateGroupQuery.html",
+      "description": "Grants permission to update the query associated with a specified resource group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

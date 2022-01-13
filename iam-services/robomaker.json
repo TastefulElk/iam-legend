@@ -1,0 +1,673 @@
+{
+  "serviceName": "AWS RoboMaker",
+  "servicePrefix": "robomaker",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsrobomaker.html",
+  "actions": [
+    {
+      "name": "BatchDeleteWorlds",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_BatchDeleteWorlds.html",
+      "description": "Delete one or more worlds in a batch operation",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchDescribeSimulationJob",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_BatchDescribeSimulationJob.html",
+      "description": "Describe multiple simulation jobs",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelDeploymentJob",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CancelDeploymentJob.html",
+      "description": "Cancel a deployment job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "deploymentJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelSimulationJob",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CancelSimulationJob.html",
+      "description": "Cancel a simulation job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "simulationJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelSimulationJobBatch",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CancelSimulationJobBatch.html",
+      "description": "Cancel a simulation job batch",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "simulationJobBatch*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelWorldExportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CancelWorldExportJob.html",
+      "description": "Cancel a world export job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "worldExportJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelWorldGenerationJob",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CancelWorldGenerationJob.html",
+      "description": "Cancel a world generation job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "worldGenerationJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateDeploymentJob",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateDeploymentJob.html",
+      "description": "Create a deployment job",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
+      "name": "CreateFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateFleet.html",
+      "description": "Create a deployment fleet that represents a logical group of robots running the same robot application",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateRobot",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateRobot.html",
+      "description": "Create a robot that can be registered to a fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
+      "name": "CreateRobotApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateRobotApplication.html",
+      "description": "Create a robot application",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateRobotApplicationVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateRobotApplicationVersion.html",
+      "description": "Create a snapshot of a robot application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "robotApplication*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "s3:GetObject"
+      ]
+    },
+    {
+      "name": "CreateSimulationApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateSimulationApplication.html",
+      "description": "Create a simulation application",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSimulationApplicationVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateSimulationApplicationVersion.html",
+      "description": "Create a snapshot of a simulation application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "simulationApplication*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "s3:GetObject"
+      ]
+    },
+    {
+      "name": "CreateSimulationJob",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateSimulationJob.html",
+      "description": "Create a simulation job",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
+      "name": "CreateWorldExportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateWorldExportJob.html",
+      "description": "Create a world export job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "world*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateWorldGenerationJob",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateWorldGenerationJob.html",
+      "description": "Create a world generation job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "worldTemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateWorldTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_CreateWorldTemplate.html",
+      "description": "Create a world template",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DeleteFleet.html",
+      "description": "Delete a deployment fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "deploymentFleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRobot",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DeleteRobot.html",
+      "description": "Delete a robot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "robot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRobotApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DeleteRobotApplication.html",
+      "description": "Delete a robot application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "robotApplication*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSimulationApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DeleteSimulationApplication.html",
+      "description": "Delete a simulation application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "simulationApplication*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWorldTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DeleteWorldTemplate.html",
+      "description": "Delete a world template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "worldTemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeregisterRobot",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DeregisterRobot.html",
+      "description": "Deregister a robot from a fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "deploymentFleet*",
+        "robot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDeploymentJob",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeDeploymentJob.html",
+      "description": "Describe a deployment job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "deploymentJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeFleet.html",
+      "description": "Describe a deployment fleet",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "deploymentFleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRobot",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeRobot.html",
+      "description": "Describe a robot",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "robot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRobotApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeRobotApplication.html",
+      "description": "Describe a robot application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "robotApplication*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSimulationApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeSimulationApplication.html",
+      "description": "Describe a simulation application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "simulationApplication*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSimulationJob",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeSimulationJob.html",
+      "description": "Describe a simulation job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "simulationJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSimulationJobBatch",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeSimulationJobBatch.html",
+      "description": "Describe a simulation job batch",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "simulationJobBatch*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorld",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeWorld.html",
+      "description": "Describe a world",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "world*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorldExportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeWorldExportJob.html",
+      "description": "Describe a world export job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "worldExportJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorldGenerationJob",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeWorldGenerationJob.html",
+      "description": "Describe a world generation job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "worldGenerationJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorldTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_DescribeWorldTemplate.html",
+      "description": "Describe a world template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "worldTemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetWorldTemplateBody",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_GetWorldTemplateBody.html",
+      "description": "Get the body of a world template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "worldTemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDeploymentJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_ListDeploymentJobs.html",
+      "description": "List deployment jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFleets",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_ListFleets.html",
+      "description": "List fleets",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRobotApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_ListRobotApplications.html",
+      "description": "List robot applications",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRobots",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_ListRobots.html",
+      "description": "List robots",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSimulationApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_ListSimulationApplications.html",
+      "description": "List simulation applications",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSimulationJobBatches",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_ListSimulationJobBatches.html",
+      "description": "List simulation job batches",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSimulationJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_ListSimulationJobs.html",
+      "description": "List simulation jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSupportedAvailabilityZones",
+      "description": "Lists supported availability zones",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_ListTagsForResource.html",
+      "description": "List tags for a RoboMaker resource.",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "deploymentFleet",
+        "deploymentJob",
+        "robot",
+        "robotApplication",
+        "simulationApplication",
+        "simulationJob",
+        "simulationJobBatch",
+        "world",
+        "worldExportJob",
+        "worldGenerationJob",
+        "worldTemplate"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWorldExportJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_ListWorldExportJobs.html",
+      "description": "List world export jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWorldGenerationJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_ListWorldGenerationJobs.html",
+      "description": "List world generation jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWorldTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_ListWorldTemplates.html",
+      "description": "List world templates",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWorlds",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_ListWorlds.html",
+      "description": "List worlds",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RegisterRobot",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_RegisterRobot.html",
+      "description": "Register a robot to a fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "deploymentFleet*",
+        "robot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RestartSimulationJob",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_RestartSimulationJob.html",
+      "description": "Restart a running simulation job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "simulationJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartSimulationJobBatch",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_StartSimulationJobBatch.html",
+      "description": "Create a simulation job batch",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
+      "name": "SyncDeploymentJob",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_SyncDeploymentJob.html",
+      "description": "Ensures the most recently deployed robot application is deployed to all robots in the fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "deploymentFleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html",
+      "description": "Add tags to a RoboMaker resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "deploymentFleet",
+        "deploymentJob",
+        "robot",
+        "robotApplication",
+        "simulationApplication",
+        "simulationJob",
+        "simulationJobBatch",
+        "world",
+        "worldExportJob",
+        "worldGenerationJob",
+        "worldTemplate"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_UntagResource.html",
+      "description": "Remove tags from a RoboMaker resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "deploymentFleet",
+        "deploymentJob",
+        "robot",
+        "robotApplication",
+        "simulationApplication",
+        "simulationJob",
+        "simulationJobBatch",
+        "world",
+        "worldExportJob",
+        "worldGenerationJob",
+        "worldTemplate"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRobotApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_UpdateRobotApplication.html",
+      "description": "Update a robot application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "robotApplication*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRobotDeployment",
+      "description": "Report the deployment status for an individual robot",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSimulationApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_UpdateSimulationApplication.html",
+      "description": "Update a simulation application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "simulationApplication*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateWorldTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_UpdateWorldTemplate.html",
+      "description": "Update a world template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "worldTemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

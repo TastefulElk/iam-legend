@@ -1,0 +1,754 @@
+{
+  "serviceName": "AWS CloudFormation",
+  "servicePrefix": "cloudformation",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscloudformation.html",
+  "actions": [
+    {
+      "name": "ActivateType",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html",
+      "description": "Grants permission to activate a public third-party extension, making it available for use in stack templates",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchDescribeTypeConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_BatchDescribeTypeConfigurations.html",
+      "description": "Grants permission to return configuration data for the specified CloudFormation extensions",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelUpdateStack",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html",
+      "description": "Grants permission to cancel an update on the specified stack",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ContinueUpdateRollback",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ContinueUpdateRollback.html",
+      "description": "Grants permission to continue rolling back a stack that is in the UPDATE_ROLLBACK_FAILED state to the UPDATE_ROLLBACK_COMPLETE state",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [
+        "cloudformation:RoleArn"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateChangeSet",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateChangeSet.html",
+      "description": "Grants permission to create a list of changes for a stack",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [
+        "cloudformation:ChangeSetName",
+        "cloudformation:ResourceTypes",
+        "cloudformation:ImportResourceTypes",
+        "cloudformation:RoleArn",
+        "cloudformation:StackPolicyUrl",
+        "cloudformation:TemplateUrl",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateStack",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStack.html",
+      "description": "Grants permission to create a stack as specified in the template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [
+        "cloudformation:ResourceTypes",
+        "cloudformation:RoleArn",
+        "cloudformation:StackPolicyUrl",
+        "cloudformation:TemplateUrl",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateStackInstances",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html",
+      "description": "Grants permission to create stack instances for the specified accounts, within the specified regions",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stackset*",
+        "stackset-target",
+        "type"
+      ],
+      "conditionKeys": [
+        "cloudformation:TargetRegion"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateStackSet",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackSet.html",
+      "description": "Grants permission to create a stackset as specified in the template",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "cloudformation:RoleArn                                                                                                                                                            cloudformation:TemplateUrl                                                                                                                                                            aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateUploadBucket",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/$%7BAuthZDocPage%7D",
+      "description": "Grants permission to upload templates to Amazon S3 buckets. Used only by the AWS CloudFormation console and is not documented in the API reference",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeactivateType",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeactivateType.html",
+      "description": "Grants permission to deactivate a public extension that was previously activated in this account and region",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteChangeSet",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteChangeSet.html",
+      "description": "Grants permission to delete the specified change set. Deleting change sets ensures that no one executes the wrong change set",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [
+        "cloudformation:ChangeSetName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteStack",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteStack.html",
+      "description": "Grants permission to delete a specified stack",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [
+        "cloudformation:RoleArn"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteStackInstances",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteStackInstances.html",
+      "description": "Grants permission to delete stack instances for the specified accounts, in the specified regions",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stackset*",
+        "stackset-target",
+        "type"
+      ],
+      "conditionKeys": [
+        "cloudformation:TargetRegion"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteStackSet",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteStackSet.html",
+      "description": "Grants permission to delete a specified stackset",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stackset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeregisterType",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeregisterType.html",
+      "description": "Grants permission to deregister an existing CloudFormation type or type version",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAccountLimits",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeAccountLimits.html",
+      "description": "Grants permission to retrieve your account's AWS CloudFormation limits",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeChangeSet",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeChangeSet.html",
+      "description": "Grants permission to return the description for the specified change set",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [
+        "cloudformation:ChangeSetName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribePublisher",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribePublisher.html",
+      "description": "Grants permission to return information about a CloudFormation extension publisher",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStackDriftDetectionStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackDriftDetectionStatus.html",
+      "description": "Grants permission to return information about a stack drift detection operation",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStackEvents",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackEvents.html",
+      "description": "Grants permission to return all stack related events for a specified stack",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStackInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackInstance.html",
+      "description": "Grants permission to return the stack instance that's associated with the specified stack set, AWS account, and region",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stackset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStackResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html",
+      "description": "Grants permission to return a description of the specified resource in the specified stack",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStackResourceDrifts",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResourceDrifts.html",
+      "description": "Grants permission to return drift information for the resources that have been checked for drift in the specified stack",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStackResources",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResources.html",
+      "description": "Grants permission to return AWS resource descriptions for running and deleted stacks",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStackSet",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackSet.html",
+      "description": "Grants permission to return the description of the specified stack set",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stackset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStackSetOperation",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackSetOperation.html",
+      "description": "Grants permission to return the description of the specified stack set operation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stackset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStacks",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStacks.html",
+      "description": "Grants permission to return the description for the specified stack",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeType",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html",
+      "description": "Grants permission to return information about the CloudFormation type requested",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTypeRegistration",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeTypeRegistration.html",
+      "description": "Grants permission to return information about the registration process for a CloudFormation type",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DetectStackDrift",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DetectStackDrift.html",
+      "description": "Grants permission to detects whether a stack's actual configuration differs, or has drifted, from it's expected configuration, as defined in the stack template and any values specified as template parameters",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DetectStackResourceDrift",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DetectStackResourceDrift.html",
+      "description": "Grants permission to return information about whether a resource's actual configuration differs, or has drifted, from it's expected configuration, as defined in the stack template and any values specified as template parameters",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DetectStackSetDrift",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DetectStackSetDrift.html",
+      "description": "Grants permission to enable users to detect drift on a stack set and the stack instances that belong to that stack set",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stackset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "EstimateTemplateCost",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_EstimateTemplateCost.html",
+      "description": "Grants permission to return the estimated monthly cost of a template",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ExecuteChangeSet",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html",
+      "description": "Grants permission to update a stack using the input information that was provided when the specified change set was created",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [
+        "cloudformation:ChangeSetName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetStackPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetStackPolicy.html",
+      "description": "Grants permission to return the stack policy for a specified stack",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplate.html",
+      "description": "Grants permission to return the template body for a specified stack",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTemplateSummary",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplateSummary.html",
+      "description": "Grants permission to return information about a new or existing template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stack",
+        "stackset"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ImportStacksToStackSet",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ImportStacksToStackSet.html",
+      "description": "Grants permission to enable users to import existing stacks to a new or existing stackset",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stackset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListChangeSets",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListChangeSets.html",
+      "description": "Grants permission to return the ID and status of each active change set for a stack. For example, AWS CloudFormation lists change sets that are in the CREATE_IN_PROGRESS or CREATE_PENDING state",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExports",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListExports.html",
+      "description": "Grants permission to list all exported output values in the account and region in which you call this action",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListImports",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListImports.html",
+      "description": "Grants permission to list all stacks that are importing an exported output value",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStackInstances",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSets.html",
+      "description": "Grants permission to return summary information about stack instances that are associated with the specified stack set",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "stackset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStackResources",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackResources.html",
+      "description": "Grants permission to return descriptions of all resources of the specified stack",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStackSetOperationResults",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetOperationResults.html",
+      "description": "Grants permission to return summary information about the results of a stack set operation",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "stackset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStackSetOperations",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSetOperations.html",
+      "description": "Grants permission to return summary information about operations performed on a stack set",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "stackset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStackSets",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSets.html",
+      "description": "Grants permission to return summary information about stack sets that are associated with the user",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "stackset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStacks",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStacks.html",
+      "description": "Grants permission to return the summary information for stacks whose status matches the specified StackStatusFilter",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTypeRegistrations",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListTypeRegistrations.html",
+      "description": "Grants permission to list CloudFormation type registration attempts",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTypeVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListTypeVersions.html",
+      "description": "Grants permission to list versions of a particular CloudFormation type",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListTypes.html",
+      "description": "Grants permission to list available CloudFormation types",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PublishType",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_PublishType.html",
+      "description": "Grants permission to publish the specified extension to the CloudFormation registry as a public extension in this region",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RecordHandlerProgress",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RecordHandlerProgress.html",
+      "description": "Grants permission to record the handler progress",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RegisterPublisher",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html",
+      "description": "Grants permission to register account as a publisher of public extensions in the CloudFormation registry",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RegisterType",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html",
+      "description": "Grants permission to register a new CloudFormation type",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SetStackPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetStackPolicy.html",
+      "description": "Grants permission to set a stack policy for a specified stack",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [
+        "cloudformation:StackPolicyUrl"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "SetTypeConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html",
+      "description": "Grants permission to set the configuration data for a registered CloudFormation extension, in the given account and region",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SetTypeDefaultVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeDefaultVersion.html",
+      "description": "Grants permission to set which version of a CloudFormation type applies to CloudFormation operations",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SignalResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SignalResource.html",
+      "description": "Grants permission to send a signal to the specified resource with a success or failure status",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopStackSetOperation",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_StopStackSetOperation.html",
+      "description": "Grants permission to stop an in-progress operation on a stack set and its associated stack instances",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stackset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag cloudformation resources",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "stack",
+        "stackset"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TestType",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_TestType.html",
+      "description": "Grants permission to test a registered extension to make sure it meets all necessary requirements for being published in the CloudFormation registry",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag cloudformation resources",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "stack",
+        "stackset"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateStack",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStack.html",
+      "description": "Grants permission to update a stack as specified in the template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [
+        "cloudformation:ResourceTypes",
+        "cloudformation:RoleArn",
+        "cloudformation:StackPolicyUrl",
+        "cloudformation:TemplateUrl",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateStackInstances",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackInstances.html",
+      "description": "Grants permission to update the parameter values for stack instances for the specified accounts, within the specified regions",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stackset*",
+        "stackset-target",
+        "type"
+      ],
+      "conditionKeys": [
+        "cloudformation:TargetRegion"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateStackSet",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html",
+      "description": "Grants permission to update a stackset as specified in the template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stackset*",
+        "stackset-target",
+        "type"
+      ],
+      "conditionKeys": [
+        "cloudformation:RoleArn",
+        "cloudformation:TemplateUrl",
+        "cloudformation:TargetRegion",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTerminationProtection",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateTerminationProtection.html",
+      "description": "Grants permission to update termination protection for the specified stack",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ValidateTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ValidateTemplate.html",
+      "description": "Grants permission to validate a specified template",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

@@ -1,0 +1,730 @@
+{
+  "serviceName": "AWS Key Management Service",
+  "servicePrefix": "kms",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awskeymanagementservice.html",
+  "actions": [
+    {
+      "name": "CancelKeyDeletion",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_CancelKeyDeletion.html",
+      "description": "Controls permission to cancel the scheduled deletion of an AWS KMS key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ConnectCustomKeyStore",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ConnectCustomKeyStore.html",
+      "description": "Controls permission to connect or reconnect a custom key store to its associated AWS CloudHSM cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "kms:CallerAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateAlias.html",
+      "description": "Controls permission to create an alias for an AWS KMS key. Aliases are optional friendly names that you can associate with KMS keys",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "alias*",
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCustomKeyStore",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateCustomKeyStore.html",
+      "description": "Controls permission to create a custom key store that is associated with an AWS CloudHSM cluster that you own and manage",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "kms:CallerAccount"
+      ],
+      "dependentActions": [
+        "cloudhsm:DescribeClusters                                                                                        iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
+      "name": "CreateGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html",
+      "description": "Controls permission to add a grant to an AWS KMS key. You can use grants to add permissions without changing the key policy or IAM policy",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:GrantConstraintType",
+        "kms:GrantIsForAWSResource",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateKey",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html",
+      "description": "Controls permission to create an AWS KMS key that can be used to protect data keys and other sensitive information",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "kms:BypassPolicyLockoutSafetyCheck                                                                                                                                                            kms:CallerAccount                                                                                                                                                            kms:ViaService"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole                                                                                        kms:PutKeyPolicy                                                                                        kms:TagResource"
+      ]
+    },
+    {
+      "name": "Decrypt",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html",
+      "description": "Controls permission to decrypt ciphertext that was encrypted under an AWS KMS key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:EncryptionAlgorithm",
+        "kms:EncryptionContext:${EncryptionContextKey}",
+        "kms:EncryptionContextKeys",
+        "kms:RecipientAttestation:ImageSha384",
+        "kms:RequestAlias",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteAlias.html",
+      "description": "Controls permission to delete an alias. Aliases are optional friendly names that you can associate with AWS KMS keys",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "alias*",
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCustomKeyStore",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteCustomKeyStore.html",
+      "description": "Controls permission to delete a custom key store",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "kms:CallerAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteImportedKeyMaterial",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteImportedKeyMaterial.html",
+      "description": "Controls permission to delete cryptographic material that you imported into an AWS KMS key. This action makes the key unusable",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCustomKeyStores",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeCustomKeyStores.html",
+      "description": "Controls permission to view detailed information about custom key stores in the account and region",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "kms:CallerAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeKey",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html",
+      "description": "Controls permission to view detailed information about an AWS KMS key",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:RequestAlias",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisableKey",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html",
+      "description": "Controls permission to disable an AWS KMS key, which prevents it from being used in cryptographic operations",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisableKeyRotation",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKeyRotation.html",
+      "description": "Controls permission to disable automatic rotation of a customer managed AWS KMS key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisconnectCustomKeyStore",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_DisconnectCustomKeyStore.html",
+      "description": "Controls permission to disconnect the custom key store from its associated AWS CloudHSM cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "kms:CallerAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "EnableKey",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html",
+      "description": "Controls permission to change the state of an AWS KMS key to enabled. This allows the KMS key to be used in cryptographic operations",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "EnableKeyRotation",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKeyRotation.html",
+      "description": "Controls permission to enable automatic rotation of the cryptographic material in an AWS KMS key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "Encrypt",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html",
+      "description": "Controls permission to use the specified AWS KMS key to encrypt data and data keys",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:EncryptionAlgorithm",
+        "kms:EncryptionContext:${EncryptionContextKey}",
+        "kms:EncryptionContextKeys",
+        "kms:RequestAlias",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GenerateDataKey",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html",
+      "description": "Controls permission to use the AWS KMS key to generate data keys. You can use the data keys to encrypt data outside of AWS KMS",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:EncryptionAlgorithm",
+        "kms:EncryptionContext:${EncryptionContextKey}",
+        "kms:EncryptionContextKeys",
+        "kms:RecipientAttestation:ImageSha384",
+        "kms:RequestAlias",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GenerateDataKeyPair",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPair.html",
+      "description": "Controls permission to use the AWS KMS key to generate data key pairs",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:DataKeyPairSpec",
+        "kms:EncryptionAlgorithm",
+        "kms:EncryptionContext:${EncryptionContextKey}",
+        "kms:EncryptionContextKeys",
+        "kms:RequestAlias",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GenerateDataKeyPairWithoutPlaintext",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyPairWithoutPlaintext.html",
+      "description": "Controls permission to use the AWS KMS key to generate data key pairs. Unlike the GenerateDataKeyPair operation, this operation returns an encrypted private key without a plaintext copy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:DataKeyPairSpec",
+        "kms:EncryptionAlgorithm",
+        "kms:EncryptionContext:${EncryptionContextKey}",
+        "kms:EncryptionContextKeys",
+        "kms:RequestAlias",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GenerateDataKeyWithoutPlaintext",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.html",
+      "description": "Controls permission to use the AWS KMS key to generate a data key. Unlike the GenerateDataKey operation, this operation returns an encrypted data key without a plaintext version of the data key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:EncryptionAlgorithm",
+        "kms:EncryptionContext:${EncryptionContextKey}",
+        "kms:EncryptionContextKeys",
+        "kms:RequestAlias",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GenerateRandom",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateRandom.html",
+      "description": "Controls permission to get a cryptographically secure random byte string from AWS KMS",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "kms:RecipientAttestation:ImageSha384"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetKeyPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyPolicy.html",
+      "description": "Controls permission to view the key policy for the specified AWS KMS key",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetKeyRotationStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyRotationStatus.html",
+      "description": "Controls permission to determine whether automatic key rotation is enabled on the AWS KMS key",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetParametersForImport",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_GetParametersForImport.html",
+      "description": "Controls permission to get data that is required to import cryptographic material into a customer managed key, including a public key and import token",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService",
+        "kms:WrappingAlgorithm",
+        "kms:WrappingKeySpec"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPublicKey",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html",
+      "description": "Controls permission to download the public key of an asymmetric AWS KMS key",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:RequestAlias",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ImportKeyMaterial",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ImportKeyMaterial.html",
+      "description": "Controls permission to import cryptographic material into an AWS KMS key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ExpirationModel",
+        "kms:ValidTo",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAliases",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ListAliases.html",
+      "description": "Controls permission to view the aliases that are defined in the account. Aliases are optional friendly names that you can associate with AWS KMS keys",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListGrants",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html",
+      "description": "Controls permission to view all grants for an AWS KMS key",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:GrantIsForAWSResource",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListKeyPolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeyPolicies.html",
+      "description": "Controls permission to view the names of key policies for an AWS KMS key",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListKeys",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html",
+      "description": "Controls permission to view the key ID and Amazon Resource Name (ARN) of all AWS KMS keys in the account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResourceTags",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ListResourceTags.html",
+      "description": "Controls permission to view all tags that are attached to an AWS KMS key",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRetirableGrants",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ListRetirableGrants.html",
+      "description": "Controls permission to view grants in which the specified principal is the retiring principal. Other principals might be able to retire the grant and this principal might be able to retire other grants",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutKeyPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html",
+      "description": "Controls permission to replace the key policy for the specified AWS KMS key",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:BypassPolicyLockoutSafetyCheck",
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ReEncryptFrom",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html",
+      "description": "Controls permission to decrypt data as part of the process that decrypts and reencrypts the data within AWS KMS",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:EncryptionAlgorithm",
+        "kms:EncryptionContext:${EncryptionContextKey}",
+        "kms:EncryptionContextKeys",
+        "kms:ReEncryptOnSameKey",
+        "kms:RequestAlias",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ReEncryptTo",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html",
+      "description": "Controls permission to encrypt data as part of the process that decrypts and reencrypts the data within AWS KMS",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:EncryptionAlgorithm",
+        "kms:EncryptionContext:${EncryptionContextKey}",
+        "kms:EncryptionContextKeys",
+        "kms:ReEncryptOnSameKey",
+        "kms:RequestAlias",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ReplicateKey",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ReplicateKey.html",
+      "description": "Controls permission to replicate a multi-Region primary key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ReplicaRegion",
+        "kms:ViaService"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole                                                                                        kms:CreateKey                                                                                        kms:PutKeyPolicy                                                                                        kms:TagResource"
+      ]
+    },
+    {
+      "name": "RetireGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html",
+      "description": "Controls permission to retire a grant. The RetireGrant operation is typically called by the grant user after they complete the tasks that the grant allowed them to perform",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RevokeGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html",
+      "description": "Controls permission to revoke a grant, which denies permission for all operations that depend on the grant",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:GrantIsForAWSResource",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ScheduleKeyDeletion",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html",
+      "description": "Controls permission to schedule deletion of an AWS KMS key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "Sign",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_Sign.html",
+      "description": "Controls permission to produce a digital signature for a message",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:MessageType",
+        "kms:RequestAlias",
+        "kms:SigningAlgorithm",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "SynchronizeMultiRegionKey",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-auth.html#multi-region-auth-slr",
+      "description": "Controls access to internal APIs that synchronize multi-Region keys",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_TagResource.html",
+      "description": "Controls permission to create or update tags that are attached to an AWS KMS key",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_UntagResource.html",
+      "description": "Controls permission to delete tags that are attached to an AWS KMS key",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateAlias.html",
+      "description": "Controls permission to associate an alias with a different AWS KMS key. An alias is an optional friendly name that you can associate with a KMS key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "alias*",
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCustomKeyStore",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateCustomKeyStore.html",
+      "description": "Controls permission to change the properties of a custom key store",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "kms:CallerAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateKeyDescription",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateKeyDescription.html",
+      "description": "Controls permission to delete or change the description of an AWS KMS key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePrimaryRegion",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_UpdatePrimaryRegion.html",
+      "description": "Controls permission to update the primary Region of a multi-Region primary key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:PrimaryRegion",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "Verify",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_Verify.html",
+      "description": "Controls permission to use the specified AWS KMS key to verify digital signatures",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:MessageType",
+        "kms:RequestAlias",
+        "kms:SigningAlgorithm",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

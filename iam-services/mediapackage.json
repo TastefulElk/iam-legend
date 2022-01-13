@@ -1,0 +1,223 @@
+{
+  "serviceName": "AWS Elemental MediaPackage",
+  "servicePrefix": "mediapackage",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awselementalmediapackage.html",
+  "actions": [
+    {
+      "name": "ConfigureLogs",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/channels-id-configure_logs.html#channels-id-configure_logsput",
+      "description": "Grants permission to configure access logs for a Channel",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channels*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
+      "name": "CreateChannel",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/channels.html#channelspost",
+      "description": "Grants permission to create a channel in AWS Elemental MediaPackage",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateHarvestJob",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/harvest_jobs.html#harvest_jobspost",
+      "description": "Grants permission to create a harvest job in AWS Elemental MediaPackage",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateOriginEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/origin_endpoints.html#origin_endpointspost",
+      "description": "Grants permission to create an endpoint in AWS Elemental MediaPackage",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteChannel",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/channels-id.html#channels-iddelete",
+      "description": "Grants permission to delete a channel in AWS Elemental MediaPackage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channels*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteOriginEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/origin_endpoints-id.html#origin_endpoints-iddelete",
+      "description": "Grants permission to delete an endpoint in AWS Elemental MediaPackage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "origin_endpoints*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeChannel",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/channels-id.html#channels-idget",
+      "description": "Grants permission to view the details of a channel in AWS Elemental MediaPackage",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "channels*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeHarvestJob",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/harvest_jobs-id.html#harvest_jobs-idget",
+      "description": "Grants permission to view the details of a harvest job in AWS Elemental MediaPackage",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "harvest_jobs*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeOriginEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/origin_endpoints-id.html#origin_endpoints-idget",
+      "description": "Grants permission to view the details of an endpoint in AWS Elemental MediaPackage",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "origin_endpoints*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListChannels",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/channels.html#channelsget",
+      "description": "Grants permission to view a list of channels in AWS Elemental MediaPackage",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHarvestJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/harvest_jobs.html#harvest_jobsget",
+      "description": "Grants permission to view a list of harvest jobs in AWS Elemental MediaPackage",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListOriginEndpoints",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/origin_endpoints.html#origin_endpointsget",
+      "description": "Grants permission to view a list of endpoints in AWS Elemental MediaPackage",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/tags-resource-arn.html#tags-resource-arnget",
+      "description": "Grants permission to list the tags assigned to a Channel or OriginEndpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "channels",
+        "harvest_jobs",
+        "origin_endpoints"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RotateChannelCredentials",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/channels-id-credentials.html#channels-id-credentialsput",
+      "description": "Grants permission to rotate credentials for the first IngestEndpoint of a Channel in AWS Elemental MediaPackage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channels*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RotateIngestEndpointCredentials",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/channels-id-ingest_endpoints-ingest_endpoint_id-credentials.html#channels-id-ingest_endpoints-ingest_endpoint_id-credentialsput",
+      "description": "Grants permission to rotate IngestEndpoint credentials for a Channel in AWS Elemental MediaPackage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channels*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/hj-create.html",
+      "description": "Grants permission to tag a MediaPackage resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "channels",
+        "harvest_jobs",
+        "origin_endpoints"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/tags-resource-arn.html#tags-resource-arndelete",
+      "description": "Grants permission to delete tags to a Channel or OriginEndpoint",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "channels",
+        "harvest_jobs",
+        "origin_endpoints"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateChannel",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/channels-id.html#channels-idput",
+      "description": "Grants permission to make changes to a channel in AWS Elemental MediaPackage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channels*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateOriginEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/apireference/origin_endpoints-id.html#origin_endpoints-idput",
+      "description": "Grants permission to make changes to an endpoint in AWS Elemental MediaPackage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "origin_endpoints*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

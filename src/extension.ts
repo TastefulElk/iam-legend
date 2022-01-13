@@ -3,9 +3,9 @@
 import * as vscode from 'vscode';
 import { CompletionItemKind } from 'vscode';
 
-import { getActions, IamAction } from './iamActions';
+import { getActions, IamAction, IamService } from './iamActions';
 
-let actions: Record<string, IamAction[]> = {};
+let services: Record<string, IamService> = {};
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -15,7 +15,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	// This line of code will only be executed once when your extension is activated
 	console.info('iam-legend extension activating');
 
-	actions = await getActions();
+	services = await getActions();
 
 	registerHoverProviders();
 	registerCompletionItemProviders();
@@ -39,12 +39,12 @@ const completionItemProvider: vscode.CompletionItemProvider = {
 		}
 		console.debug('inside actions array, adding suggestions');
 		
-		const serviceKeys = Object.keys(actions);
+		const serviceKeys = Object.keys(services);
 		const lineText = document.lineAt(position.line).text;
 
 		const service = serviceKeys.find(x => lineText.includes(`${x}:`));
 		if (service) {
-			const serviceActions = actions[service];
+			const serviceActions = services[service].actions;
 			const startIndex = lineText.indexOf(`${service}:`) + service.length + 1;
 			const suggestions: vscode.CompletionItem[] = serviceActions.map(action => ({
 				label: action.name,
@@ -75,7 +75,7 @@ const completionItemProvider: vscode.CompletionItemProvider = {
 			label: `${labelPrefix}${service}`,
 			filterText: `${labelPrefix}${service}${labelSuffix}`,
 			kind: CompletionItemKind.Module,
-			documentation: new vscode.MarkdownString(formatServiceDocumentation(service, 'http://example.com')),
+			documentation: new vscode.MarkdownString(formatServiceDocumentation(services[service].serviceName, services[service].url)),
 		}));
 
 		return { items: suggestions, isIncomplete: true };
@@ -109,7 +109,7 @@ const isInsideActionsArray = (document: vscode.TextDocument, position: vscode.Po
 };
 
 const hoverProvider: vscode.HoverProvider = {
-	provideHover(document, position, token) {
+	provideHover(document, position) {
 		const range = document.getWordRangeAtPosition(position);
 
 		const emptyResult = { contents: [] };
@@ -122,29 +122,30 @@ const hoverProvider: vscode.HoverProvider = {
 		const word = document.getText(range);
 		const trimmedWord = word.replace(/"/g, '').replace(/'/g, '').trim();
 
-		let [service, action] = trimmedWord.split(':');
-		if (!actions[service]) {
+		let [serviceName, action] = trimmedWord.split(':');
+		if (!services[serviceName]) {
 			// if the hovered word doesn't include a known service, try with previous word
-			action = service;
+			action = serviceName;
 			let serviceWordRange = document.getWordRangeAtPosition(new vscode.Position(
 				position.line,
 				range.start.character - 2
 			));
-			service = document.getText(serviceWordRange).replace(/"/g, '').replace(/'/g, '').trim();
+			serviceName = document.getText(serviceWordRange).replace(/"/g, '').replace(/'/g, '').trim();
 		}
 
 		// if word matches 'service' but no action
 		// return hover with documentation for that service
-		if (actions[service] && !action) {
+		if (services[serviceName] && !action) {
+			const service = services[serviceName];
 			return {
-				contents: [formatServiceDocumentation(service, 'http://example.com')],
+				contents: [formatServiceDocumentation(service.serviceName, service.url)],
 			};
 		}
 
 		// if matches 'service:action'
 		// return hover with documentation for that action
 		// TODO: respect handle * and ? wildcards and show summary of all actions
-		const hoveredAction = actions[service] && actions[service].find(x => x.name === action);
+		const hoveredAction = services[serviceName] && services[serviceName].actions.find(x => x.name === action);
 		if (!hoveredAction) { return emptyResult; }
 
 		return {
@@ -154,7 +155,7 @@ const hoverProvider: vscode.HoverProvider = {
 };
 
 const formatServiceDocumentation = (service: string, urlDocumentation: string) =>
-	`${service} service [IAM Reference](${urlDocumentation})`;
+	`${service} [IAM Reference](${urlDocumentation})`;
 
 const formatActionDocumentation = (action: IamAction): string => {
 	const entries = [];
@@ -173,7 +174,15 @@ const formatActionDocumentation = (action: IamAction): string => {
 		entries.push('');
 	}
 
-	entries.push(`[Read more](http://example.com)`);
+	if (action.dependentActions && action.dependentActions.length) {
+		entries.push('Dependent Actions:');
+		entries.push(action.dependentActions.map(x => '- ' + x).join('\n'));
+		entries.push('');
+	}
+
+	if (action.documentationUrl) {
+		entries.push(`[Read more](${action.documentationUrl})`);
+	}
 
 	return entries.join('\n');
 };

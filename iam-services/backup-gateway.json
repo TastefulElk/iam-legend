@@ -1,0 +1,221 @@
+{
+  "serviceName": "AWS Backup Gateway",
+  "servicePrefix": "backup-gateway",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbackupgateway.html",
+  "actions": [
+    {
+      "name": "AssociateGatewayToServer",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_AssociateGatewayToServer.html",
+      "description": "Grants permission to AssociateGatewayToServer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*",
+        "hypervisor*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "Backup",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_Backup.html",
+      "description": "Grants permission to Backup",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "virtualmachine*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateGateway",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateGateway.html",
+      "description": "Grants permission to to CreateGateway",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteGateway",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DeleteGateway.html",
+      "description": "Grants permission to DeleteGateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteHypervisor",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DeleteHypervisor.html",
+      "description": "Grants permission to DeleteHypervisor",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hypervisor*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateGatewayFromServer",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DisassociateGatewayFromServer.html",
+      "description": "Grants permission to DisassociateGatewayFromServer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ImportHypervisorConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ImportHypervisorConfiguration.html",
+      "description": "Grants permission to ImportHypervisorConfiguration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hypervisor"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListGateways",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListGateways.html",
+      "description": "Grants permission to ListGateways",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHypervisors",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListHypervisors.html",
+      "description": "Grants permission to ListHypervisors",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListTagsForResource.html",
+      "description": "Grants permission to ListTagsForResource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "gateway",
+        "hypervisor",
+        "virtualmachine"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListVirtualMachines",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListVirtualMachines.html",
+      "description": "Grants permission to ListVirtualMachines",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutMaintenanceStartTime",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_PutMaintenanceStartTime.html",
+      "description": "Grants permission to PutMaintenanceStartTime",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "Restore",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_Restore.html",
+      "description": "Grants permission to Restore",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hypervisor*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_TagResource.html",
+      "description": "Grants permission to TagResource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "gateway",
+        "hypervisor",
+        "virtualmachine"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TestHypervisorConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_TestHypervisorConfiguration.html",
+      "description": "Grants permission to TestHypervisorConfiguration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UntagResource.html",
+      "description": "Grants permission to UntagResource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "gateway",
+        "hypervisor",
+        "virtualmachine"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateGatewayInformation",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateGatewayInformation.html",
+      "description": "Grants permission to UpdateGatewayInformation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateHypervisor",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UpdateHypervisor.html",
+      "description": "Grants permission to UpdateHypervisor",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

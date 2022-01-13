@@ -1,0 +1,603 @@
+{
+  "serviceName": "AWS Organizations",
+  "servicePrefix": "organizations",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html",
+  "actions": [
+    {
+      "name": "AcceptHandshake",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_AcceptHandshake.html",
+      "description": "Grants permission to send a response to the originator of a handshake agreeing to the action proposed by the handshake request.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "handshake*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AttachPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_AttachPolicy.html",
+      "description": "Grants permission to attach a policy to a root, an organizational unit, or an individual account.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "policy*",
+        "account",
+        "organizationalunit",
+        "root"
+      ],
+      "conditionKeys": [
+        "organizations:PolicyType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelHandshake",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_CancelHandshake.html",
+      "description": "Grants permission to cancel a handshake.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "handshake*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAccount",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateAccount.html",
+      "description": "Grants permission to create an AWS account that is automatically a member of the organization with the credentials that made the request.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateGovCloudAccount",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateGovCloudAccount.html",
+      "description": "Grants permission to create an AWS GovCloud (US) account.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateOrganization",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateOrganization.html",
+      "description": "Grants permission to create an organization. The account with the credentials that calls the CreateOrganization operation automatically becomes the management account of the new organization.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateOrganizationalUnit",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreateOrganizationalUnit.html",
+      "description": "Grants permission to create an organizational unit (OU) within a root or parent OU.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "organizationalunit",
+        "root"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreatePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_CreatePolicy.html",
+      "description": "Grants permission to create a policy that you can attach to a root, an organizational unit (OU), or an individual AWS account.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "organizations:PolicyType                                                                                                                                                            aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeclineHandshake",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeclineHandshake.html",
+      "description": "Grants permission to decline a handshake request. This sets the handshake state to DECLINED and effectively deactivates the request.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "handshake*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteOrganization",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeleteOrganization.html",
+      "description": "Grants permission to delete the organization.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteOrganizationalUnit",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeleteOrganizationalUnit.html",
+      "description": "Grants permission to delete an organizational unit from a root or another OU.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "organizationalunit*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeletePolicy.html",
+      "description": "Grants permission to delete a policy from your organization.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "policy*"
+      ],
+      "conditionKeys": [
+        "organizations:PolicyType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeregisterDelegatedAdministrator",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeregisterDelegatedAdministrator.html",
+      "description": "Grants permission to deregister the specified member AWS account as a delegated administrator for the AWS service that is specified by ServicePrincipal.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "account*"
+      ],
+      "conditionKeys": [
+        "organizations:ServicePrincipal"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAccount",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeAccount.html",
+      "description": "Grants permission to retrieve Organizations-related details about the specified account.",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "account*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCreateAccountStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeCreateAccountStatus.html",
+      "description": "Grants permission to retrieve the current status of an asynchronous request to create an account.",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEffectivePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeEffectivePolicy.html",
+      "description": "Grants permission to retrieve the effective policy for an account.",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "account*"
+      ],
+      "conditionKeys": [
+        "organizations:PolicyType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeHandshake",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeHandshake.html",
+      "description": "Grants permission to retrieve details about a previously requested handshake.",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "handshake*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeOrganization",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html",
+      "description": "Grants permission to retrieves details about the organization that the calling credentials belong to.",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeOrganizationalUnit",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganizationalUnit.html",
+      "description": "Grants permission to retrieve details about an organizational unit (OU).",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "organizationalunit*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribePolicy.html",
+      "description": "Grants permission to retrieves details about a policy.",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "policy*"
+      ],
+      "conditionKeys": [
+        "organizations:PolicyType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DetachPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DetachPolicy.html",
+      "description": "Grants permission to detach a policy from a target root, organizational unit, or account.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "policy*",
+        "account",
+        "organizationalunit",
+        "root"
+      ],
+      "conditionKeys": [
+        "organizations:PolicyType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisableAWSServiceAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisableAWSServiceAccess.html",
+      "description": "Grants permission to disable integration of an AWS service (the service that is specified by ServicePrincipal) with AWS Organizations.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "organizations:ServicePrincipal"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisablePolicyType",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DisablePolicyType.html",
+      "description": "Grants permission to disable an organization policy type in a root.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "root*"
+      ],
+      "conditionKeys": [
+        "organizations:PolicyType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "EnableAWSServiceAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html",
+      "description": "Grants permission to enable integration of an AWS service (the service that is specified by ServicePrincipal) with AWS Organizations.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "organizations:ServicePrincipal"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "EnableAllFeatures",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAllFeatures.html",
+      "description": "Grants permission to start the process to enable all features in an organization, upgrading it from supporting only Consolidated Billing features.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "EnablePolicyType",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html",
+      "description": "Grants permission to enable a policy type in a root.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "root*"
+      ],
+      "conditionKeys": [
+        "organizations:PolicyType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "InviteAccountToOrganization",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_InviteAccountToOrganization.html",
+      "description": "Grants permission to send an invitation to another AWS account, asking it to join your organization as a member account.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "account"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "LeaveOrganization",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_LeaveOrganization.html",
+      "description": "Grants permission to remove a member account from its parent organization.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAWSServiceAccessForOrganization",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListAWSServiceAccessForOrganization.html",
+      "description": "Grants permission to retrieve the list of the AWS services for which you enabled integration with your organization.",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAccounts",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListAccounts.html",
+      "description": "Grants permission to list all of the the accounts in the organization.",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAccountsForParent",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListAccountsForParent.html",
+      "description": "Grants permission to list the accounts in an organization that are contained by a root or organizational unit (OU).",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "organizationalunit",
+        "root"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListChildren",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListChildren.html",
+      "description": "Grants permission to list all of the OUs or accounts that are contained in a parent OU or root.",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "organizationalunit",
+        "root"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCreateAccountStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListCreateAccountStatus.html",
+      "description": "Grants permission to list the asynchronous account creation requests that are currently being tracked for the organization.",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDelegatedAdministrators",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListDelegatedAdministrators.html",
+      "description": "Grants permission to list the AWS accounts that are designated as delegated administrators in this organization.",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "organizations:ServicePrincipal"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDelegatedServicesForAccount",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListDelegatedServicesForAccount.html",
+      "description": "Grants permission to list the AWS services for which the specified account is a delegated administrator in this organization.",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "account*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHandshakesForAccount",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListHandshakesForAccount.html",
+      "description": "Grants permission to list all of the handshakes that are associated with an account.",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHandshakesForOrganization",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListHandshakesForOrganization.html",
+      "description": "Grants permission to list the handshakes that are associated with the organization.",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListOrganizationalUnitsForParent",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListOrganizationalUnitsForParent.html",
+      "description": "Grants permission to lists all of the organizational units (OUs) in a parent organizational unit or root.",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "organizationalunit",
+        "root"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListParents",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListParents.html",
+      "description": "Grants permission to list the root or organizational units (OUs) that serve as the immediate parent of a child OU or account.",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "account",
+        "organizationalunit"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPolicies.html",
+      "description": "Grants permission to list all of the policies in an organization.",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "organizations:PolicyType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPoliciesForTarget",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListPoliciesForTarget.html",
+      "description": "Grants permission to list all of the policies that are directly attached to a root, organizational unit (OU), or account.",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "account",
+        "organizationalunit",
+        "root"
+      ],
+      "conditionKeys": [
+        "organizations:PolicyType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRoots",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html",
+      "description": "Grants permission to list all of the roots that are defined in the organization.",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list all tags for the specified resource.",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "account",
+        "organizationalunit",
+        "policy",
+        "root"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTargetsForPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListTargetsForPolicy.html",
+      "description": "Grants permission to list all the roots, OUs, and accounts to which a policy is attached.",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "policy*"
+      ],
+      "conditionKeys": [
+        "organizations:PolicyType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "MoveAccount",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_MoveAccount.html",
+      "description": "Grants permission to move an account from its current root or OU to another parent root or OU.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "account*",
+        "organizationalunit",
+        "root"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RegisterDelegatedAdministrator",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html",
+      "description": "Grants permission to register the specified member account to administer the Organizations features of the AWS service that is specified by ServicePrincipal.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "account*"
+      ],
+      "conditionKeys": [
+        "organizations:ServicePrincipal"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RemoveAccountFromOrganization",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_RemoveAccountFromOrganization.html",
+      "description": "Grants permission to removes the specified account from the organization.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "account*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to add one or more tags to the specified resource.",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "account",
+        "organizationalunit",
+        "policy",
+        "root"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove one or more tags from the specified resource.",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "account",
+        "organizationalunit",
+        "policy",
+        "root"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateOrganizationalUnit",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_UpdateOrganizationalUnit.html",
+      "description": "Grants permission to rename an organizational unit (OU).",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "organizationalunit*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_UpdatePolicy.html",
+      "description": "Grants permission to update an existing policy with a new name, description, or content.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "policy*"
+      ],
+      "conditionKeys": [
+        "organizations:PolicyType"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

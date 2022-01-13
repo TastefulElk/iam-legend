@@ -1,0 +1,248 @@
+{
+  "serviceName": "Amazon AppIntegrations",
+  "servicePrefix": "app-integrations",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonappintegrations.html",
+  "actions": [
+    {
+      "name": "CreateDataIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html",
+      "description": "Grants permissions to create a new DataIntegration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "data-integration*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateDataIntegrationAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegrationAssociation.html",
+      "description": "Grants permissions to create a DataIntegrationAssociation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "data-integration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEventIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateEventIntegration.html",
+      "description": "Grants permissions to create a new EventIntegration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "event-integration*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEventIntegrationAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateEventIntegrationAssociation.html",
+      "description": "Grants permissions to create an EventIntegrationAssociation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "event-integration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "events:PutRule                                                                                        events:PutTargets"
+      ]
+    },
+    {
+      "name": "DeleteDataIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html",
+      "description": "Grants permissions to delete a DataIntegration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "data-integration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDataIntegrationAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegrationAssociation.html",
+      "description": "Grants permissions to delete a DataIntegrationAssociation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "data-integration-association*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEventIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteEventIntegration.html",
+      "description": "Grants permissions to delete an EventIntegration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "event-integration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEventIntegrationAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteEventIntegrationAssociation.html",
+      "description": "Grants permissions to delete an EventIntegrationAssociation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "event-integration-association*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "events:DeleteRule                                                                                        events:ListTargetsByRule                                                                                        events:RemoveTargets"
+      ]
+    },
+    {
+      "name": "GetDataIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_GetDataIntegration.html",
+      "description": "Grants permissions to view details about DataIntegrations",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "data-integration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEventIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_GetEventIntegration.html",
+      "description": "Grants permissions to view details about EventIntegrations",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "event-integration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDataIntegrationAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListDataIntegrationAssociations",
+      "description": "Grants permissions to list DataIntegrationAssociations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDataIntegrations",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListDataIntegrations.html",
+      "description": "Grants permissions to list DataIntegrations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEventIntegrationAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListEventIntegrationAssociations",
+      "description": "Grants permissions to list EventIntegrationAssociations",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEventIntegrations",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListEventIntegrations.html",
+      "description": "Grants permissions to list EventIntegrations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to lists tag for an Amazon AppIntegration resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "data-integration",
+        "data-integration-association",
+        "event-integration",
+        "event-integration-association"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag an Amazon AppIntegration resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "data-integration",
+        "data-integration-association",
+        "event-integration",
+        "event-integration-association"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permissions to untag an Amazon AppIntegration resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "data-integration",
+        "data-integration-association",
+        "event-integration",
+        "event-integration-association"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDataIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_UpdateDataIntegration.html",
+      "description": "Grants permissions to modify a DataIntegration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "data-integration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEventIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_UpdateEventIntegration.html",
+      "description": "Grants permissions to modify an EventIntegration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "event-integration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

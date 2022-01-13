@@ -1,0 +1,163 @@
+{
+  "serviceName": "AWS Serverless Application Repository",
+  "servicePrefix": "serverlessrepo",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsserverlessapplicationrepository.html",
+  "actions": [
+    {
+      "name": "CreateApplication",
+      "description": "Creates an application, optionally including an AWS SAM file to create the first application version in the same call.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateApplicationVersion",
+      "description": "Creates an application version.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "applications*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCloudFormationChangeSet",
+      "description": "Creates an AWS CloudFormation ChangeSet for the given application.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "applications*"
+      ],
+      "conditionKeys": [
+        "serverlessrepo:applicationType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCloudFormationTemplate",
+      "description": "Creates an AWS CloudFormation template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "applications*"
+      ],
+      "conditionKeys": [
+        "serverlessrepo:applicationType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteApplication",
+      "description": "Deletes the specified application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "applications*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetApplication",
+      "description": "Gets the specified application.",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "applications*"
+      ],
+      "conditionKeys": [
+        "serverlessrepo:applicationType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetApplicationPolicy",
+      "description": "Gets the policy for the specified application.",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "applications*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCloudFormationTemplate",
+      "description": "Gets the specified AWS CloudFormation template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "applications*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListApplicationDependencies",
+      "description": "Retrieves the list of applications nested in the containing application",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "applications*"
+      ],
+      "conditionKeys": [
+        "serverlessrepo:applicationType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListApplicationVersions",
+      "description": "Lists versions for the specified application owned by the requester.",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "applications*"
+      ],
+      "conditionKeys": [
+        "serverlessrepo:applicationType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListApplications",
+      "description": "Lists applications owned by the requester.",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutApplicationPolicy",
+      "description": "Puts the policy for the specified application.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "applications*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SearchApplications",
+      "description": "Gets all applications authorized for this user",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "serverlessrepo:applicationType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UnshareApplication",
+      "description": "Unshares the specified application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "applications*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateApplication",
+      "description": "Updates meta-data of the application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "applications*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

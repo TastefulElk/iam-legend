@@ -1,0 +1,31 @@
+{
+  "serviceName": "Amazon EC2 Instance Connect",
+  "servicePrefix": "ec2-instance-connect",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2instanceconnect.html",
+  "actions": [
+    {
+      "name": "SendSSHPublicKey",
+      "documentationUrl": "https://docs.aws.amazon.com/ec2-instance-connect/latest/APIReference/API_SendSSHPublicKey.html",
+      "description": "Grants access to push an SSH public key to the specified EC2 instance to be used for standard SSH",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "ec2:osuser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "SendSerialConsoleSSHPublicKey",
+      "documentationUrl": "https://docs.aws.amazon.com/ec2-instance-connect/latest/APIReference/API_SendSerialConsoleSSHPublicKey.html",
+      "description": "Grants access to push an SSH public key to the specified EC2 instance to be used for serial console SSH",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

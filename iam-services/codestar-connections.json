@@ -1,0 +1,256 @@
+{
+  "serviceName": "AWS CodeStar Connections",
+  "servicePrefix": "codestar-connections",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscodestarconnections.html",
+  "actions": [
+    {
+      "name": "CreateConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_CreateConnection.html",
+      "description": "Grants permission to create a Connection resource",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys                                                                                                                                                            codestar-connections:ProviderType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateHost",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_CreateHost.html",
+      "description": "Grants permission to create a host resource",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "codestar-connections:ProviderType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_DeleteConnection.html",
+      "description": "Grants permission to delete a Connection resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteHost",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_DeleteHost.html",
+      "description": "Grants permission to delete a host resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Host*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_GetConnection.html",
+      "description": "Grants permission to get details about a Connection resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetHost",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_GetHost.html",
+      "description": "Grants permission to get details about a host resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Host*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetIndividualAccessToken",
+      "documentationUrl": "https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-handshake",
+      "description": "Grants permission to associate a third party, such as a Bitbucket App installation, with a Connection",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "codestar-connections:ProviderType"
+      ],
+      "dependentActions": [
+        "codestar-connections:StartOAuthHandshake"
+      ]
+    },
+    {
+      "name": "GetInstallationUrl",
+      "documentationUrl": "https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-handshake",
+      "description": "Grants permission to associate a third party, such as a Bitbucket App installation, with a Connection",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "codestar-connections:ProviderType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListConnections",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_ListConnections.html",
+      "description": "Grants permission to list Connection resources",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "codestar-connections:ProviderTypeFilter"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHosts",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_ListHosts.html",
+      "description": "Grants permission to list host resources",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "codestar-connections:ProviderTypeFilter"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListInstallationTargets",
+      "documentationUrl": "https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-handshake",
+      "description": "Grants permission to associate a third party, such as a Bitbucket App installation, with a Connection",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "codestar-connections:GetIndividualAccessToken                                                                                        codestar-connections:StartOAuthHandshake"
+      ]
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Gets the set of key-value pairs that are used to manage the resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PassConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-passconnection",
+      "description": "Grants permission to pass a Connection resource to an AWS service that accepts a Connection ARN as input, such as codepipeline:CreatePipeline",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Connection*"
+      ],
+      "conditionKeys": [
+        "codestar-connections:PassedToService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RegisterAppCode",
+      "documentationUrl": "https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#connections-permissions-actions-host-registration",
+      "description": "Grants permission to associate a third party server, such as a GitHub Enterprise Server instance, with a Host",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "codestar-connections:HostArn"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StartAppRegistrationHandshake",
+      "documentationUrl": "https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#connections-permissions-actions-host-registration",
+      "description": "Grants permission to associate a third party server, such as a GitHub Enterprise Server instance, with a Host",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "codestar-connections:HostArn"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StartOAuthHandshake",
+      "documentationUrl": "https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-handshake",
+      "description": "Grants permission to associate a third party, such as a Bitbucket App installation, with a Connection",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "codestar-connections:ProviderType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_TagResource.html",
+      "description": "Adds to or modifies the tags of the given resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "Connection*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_UntagResource.html",
+      "description": "Removes tags from an AWS resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "Connection*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateConnectionInstallation",
+      "documentationUrl": "https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-handshake",
+      "description": "Grants permission to update a Connection resource with an installation of the CodeStar Connections App",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Connection*"
+      ],
+      "conditionKeys": [
+        "codestar-connections:InstallationId"
+      ],
+      "dependentActions": [
+        "codestar-connections:GetIndividualAccessToken                                                                                        codestar-connections:GetInstallationUrl                                                                                        codestar-connections:ListInstallationTargets                                                                                        codestar-connections:StartOAuthHandshake"
+      ]
+    },
+    {
+      "name": "UpdateHost",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_UpdateHost.html",
+      "description": "Grants permission to update a host resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Host*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UseConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-use",
+      "description": "Grants permission to use a Connection resource to call provider actions",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Connection*"
+      ],
+      "conditionKeys": [
+        "codestar-connections:FullRepositoryId",
+        "codestar-connections:ProviderAction",
+        "codestar-connections:ProviderPermissionsRequired"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

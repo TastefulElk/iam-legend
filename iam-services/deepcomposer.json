@@ -1,0 +1,226 @@
+{
+  "serviceName": "AWS DeepComposer",
+  "servicePrefix": "deepcomposer",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdeepcomposer.html",
+  "actions": [
+    {
+      "name": "AssociateCoupon",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/what-it-is-keyboard.html",
+      "description": "Grants permission to associate a DeepComposer coupon (or DSN) with the account associated with the sender of the request",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAudio",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html",
+      "description": "Grants permission to create an audio file by converting the midi composition into a wav or mp3 file",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "audio*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateComposition",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html",
+      "description": "Grants permission to create a multi-track midi composition",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "composition*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateModel",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-custom-model.html",
+      "description": "Grants permission to start creating/training a generative-model that is able to perform inference against the user-provided piano-melody to create a multi-track midi composition",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteComposition",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html",
+      "description": "Grants permission to delete the composition",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "composition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteModel",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-custom-model.html",
+      "description": "Grants permission to delete the model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetComposition",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html",
+      "description": "Grants permission to get information about the composition",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "composition*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetModel",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-custom-model.html",
+      "description": "Grants permission to get information about the model",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSampleModel",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html",
+      "description": "Grants permission to get information about the sample/pre-trained DeepComposer model",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCompositions",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html",
+      "description": "Grants permission to list all the compositions owned by the sender of the request",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "composition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListModels",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-custom-model.html",
+      "description": "Grants permission to list all the models owned by the sender of the request",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSampleModels",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html",
+      "description": "Grants permission to list all the sample/pre-trained models provided by the DeepComposer service",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/deepcomposer-tagging.html",
+      "description": "Grants permission to list tags for a resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "composition",
+        "model"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrainingTopics",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-custom-model.html",
+      "description": "Grants permission to list all the training options or topic for creating/training a model",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/deepcomposer-tagging.html",
+      "description": "Grants permission to tag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "composition",
+        "model"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/deepcomposer-tagging.html",
+      "description": "Grants permission to untag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "composition",
+        "model"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateComposition",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.html",
+      "description": "Grants permission to modify the mutable properties associated with a composition",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "composition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateModel",
+      "documentationUrl": "https://docs.aws.amazon.com/deepcomposer/latest/devguide/get-started-custom-model.html",
+      "description": "Grants permission to to modify the mutable properties associated with a model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

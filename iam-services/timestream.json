@@ -1,0 +1,291 @@
+{
+  "serviceName": "Amazon Timestream",
+  "servicePrefix": "timestream",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazontimestream.html",
+  "actions": [
+    {
+      "name": "CancelQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_CancelQuery.html",
+      "description": "Grants permission to cancel queries in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateDatabase",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_CreateDatabase.html",
+      "description": "Grants permission to create a database in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "database*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateScheduledQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_CreateScheduledQuery.html",
+      "description": "Grants permission to create a scheduled query in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateTable",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_CreateTable.html",
+      "description": "Grants permission to create a table in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDatabase",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_DeleteDatabase.html",
+      "description": "Grants permission to delete a database in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "database*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteScheduledQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_DeleteScheduledQuery.html",
+      "description": "Grants permission to delete a scheduled query in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "scheduled-query*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTable",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_DeleteTable.html",
+      "description": "Grants permission to delete a table in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDatabase",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_DescribeDatabase.html",
+      "description": "Grants permission to describe a database in your account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "database*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEndpoints",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_DescribeEndpoints.html",
+      "description": "Grants permission to describe timestream endpoints",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeScheduledQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_DescribeScheduledQuery.html",
+      "description": "Grants permission to describe a scheduled query in your account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "scheduled-query*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTable",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_DescribeTable.html",
+      "description": "Grants permission to describe a table in your account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ExecuteScheduledQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_ExecuteScheduledQuery.html",
+      "description": "Grants permission to execute a scheduled query in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "scheduled-query*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDatabases",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListDatabases.html",
+      "description": "Grants permission to list databases in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMeasures",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_Query.html",
+      "description": "Grants permission to list measures of a table in your account",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListScheduledQueries",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_ListScheduledQueries.html",
+      "description": "Grants permission to list scheduled queries in your account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTables",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListTables.html",
+      "description": "Grants permission to list tables in your account",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "database*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags of a resource in your account",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "database*",
+        "scheduled-query*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "Select",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_Query.html",
+      "description": "Grants permission to issue 'select from table' queries",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SelectValues",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_Query.html",
+      "description": "Grants permission to issue 'select 1' queries",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_TagResource.html",
+      "description": "Grants permission to add tags to a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "database*",
+        "scheduled-query*",
+        "table*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_UntagResource.html",
+      "description": "Grants permission to remove a tag from a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "database*",
+        "scheduled-query*",
+        "table*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDatabase",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_UpdateDatabase.html",
+      "description": "Grants permission to update a database in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "database*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateScheduledQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_UpdateScheduledQuery.html",
+      "description": "Grants permission to update a scheduled query in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "scheduled-query*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTable",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_UpdateTable.html",
+      "description": "Grants permission to update a table in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "WriteRecords",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_WriteRecords.html",
+      "description": "Grants permission to ingest data to a table in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

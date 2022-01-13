@@ -1,0 +1,664 @@
+{
+  "serviceName": "AWS DeepRacer",
+  "servicePrefix": "deepracer",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdeepracer.html",
+  "actions": [
+    {
+      "name": "AddLeaderboardAccessPermission",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-manage-community-races.html",
+      "description": "Grants permission to add access for a private leaderboard",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "leaderboard*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AdminGetAccountConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-admin-set-account-config.html",
+      "description": "Grants permission to get current admin multiuser configuration for this account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AdminListAssociatedResources",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-admin-list-associated-resources.html",
+      "description": "Grants permission to list all deepracer users with their associated resources created under this account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AdminListAssociatedUsers",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-admin-list-associated-users.html",
+      "description": "Grants permission to list user data for all users associated with this account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AdminManageUser",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-admin-manage-user.html",
+      "description": "Grants permission to manage a user associated with this account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AdminSetAccountConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-admin-set-account-config.html",
+      "description": "Grants permission to set configuration options for this account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CloneReinforcementLearningModel",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-console-train-evaluate-models.html#deepracer-clone-trained-model",
+      "description": "Grants permission to clone an existing DeepRacer model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "reinforcement_learning_model*",
+        "track*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCar",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-choose-race-type.html",
+      "description": "Grants permission to create a DeepRacer car in your garage",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys                                                                                                                                                            deepracer:UserToken                                                                                                                                                            deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateLeaderboard",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-create-community-race.html",
+      "description": "Grants permission to create a leaderboard",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys                                                                                                                                                            deepracer:UserToken                                                                                                                                                            deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateLeaderboardAccessToken",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-manage-community-races.html",
+      "description": "Grants permission to create an access token for a private leaderboard",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "leaderboard*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateLeaderboardSubmission",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html",
+      "description": "Grants permission to submit a DeepRacer model to be evaluated for leaderboards",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "leaderboard*",
+        "reinforcement_learning_model*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateReinforcementLearningModel",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html",
+      "description": "Grants permission to create ra einforcement learning model for DeepRacer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "track*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteLeaderboard",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-manage-community-races.html",
+      "description": "Grants permission to delete a leaderboard",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "leaderboard*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteModel",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html",
+      "description": "Grants permission to delete a DeepRacer model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "reinforcement_learning_model*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "EditLeaderboard",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-manage-community-races.html",
+      "description": "Grants permission to edit a leaderboard",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "leaderboard*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccountConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-admin-set-account-config.html",
+      "description": "Grants permission to get current multiuser configuration for this account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "deepracer:UserToken                                                                                                                                                            deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html",
+      "description": "Grants permission to retrieve the user's alias for submitting a DeepRacer model to leaderboards",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "deepracer:UserToken                                                                                                                                                            deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAssetUrl",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-console-train-evaluate-models.html",
+      "description": "Grants permission to download artifacts for an existing DeepRacer model",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "reinforcement_learning_model*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCar",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-choose-race-type.html",
+      "description": "Grants permission to retrieve a specific DeepRacer car from your garage",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "car*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCars",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-choose-race-type.html",
+      "description": "Grants permission to view all the DeepRacer cars in your garage",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "deepracer:UserToken                                                                                                                                                            deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEvaluation",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-test-in-simulator.html",
+      "description": "Grants permission to retrieve information about an existing DeepRacer model's evaluation jobs",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "evaluation_job*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetLatestUserSubmission",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html",
+      "description": "Grants permission to retrieve information about how the latest submitted DeepRacer model for a user performed on a leaderboard",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "leaderboard*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetLeaderboard",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html",
+      "description": "Grants permission to retrieve information about leaderboards",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "leaderboard*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetModel",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html",
+      "description": "Grants permission to retrieve information about an existing DeepRacer model",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "reinforcement_learning_model*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPrivateLeaderboard",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-join-community-race.html",
+      "description": "Grants permission to retrieve information about private leaderboards",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "leaderboard*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRankedUserSubmission",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html",
+      "description": "Grants permission to retrieve information about the performance of a user's DeepRacer model that got placed on a leaderboard",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "leaderboard*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTrack",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-console-train-evaluate-models.html",
+      "description": "Grants permission to retrieve information about DeepRacer tracks",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "track*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTrainingJob",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html",
+      "description": "Grants permission to retrieve information about an existing DeepRacer model's training job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "training_job*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ImportModel",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-troubleshooting-service-migration-errors.html",
+      "description": "Grants permission to import a reinforcement learning model for DeepRacer",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "deepracer:UserToken                                                                                                                                                            deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEvaluations",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-test-in-simulator.html",
+      "description": "Grants permission to list a DeepRacer model's evaluation jobs",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "reinforcement_learning_model*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLeaderboardSubmissions",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html",
+      "description": "Grants permission to list all the DeepRacer model submissions of a user on a leaderboard",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "leaderboard*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLeaderboards",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html",
+      "description": "Grants permission to list all the available leaderboards",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "deepracer:UserToken                                                                                                                                                            deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListModels",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html",
+      "description": "Grants permission to list all existing DeepRacer models",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "deepracer:UserToken                                                                                                                                                            deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPrivateLeaderboardParticipants",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-join-community-race.html",
+      "description": "Grants permission to retrieve participant information about private leaderboards",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "leaderboard*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPrivateLeaderboards",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-join-community-race.html",
+      "description": "Grants permission to list all the available private leaderboards",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "deepracer:UserToken                                                                                                                                                            deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSubscribedPrivateLeaderboards",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-join-community-race.html",
+      "description": "Grants permission to list all the subscribed private leaderboards",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "deepracer:UserToken                                                                                                                                                            deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-tagging.html",
+      "description": "Grants permission to lists tag for a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "car",
+        "evaluation_job",
+        "leaderboard",
+        "leaderboard_evaluation_job",
+        "reinforcement_learning_model",
+        "training_job"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTracks",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-console-train-evaluate-models.html",
+      "description": "Grants permission to list all DeepRacer tracks",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrainingJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html",
+      "description": "Grants permission to list a DeepRacer model's training jobs",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "reinforcement_learning_model*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "MigrateModels",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-troubleshooting-service-migration-errors.html",
+      "description": "Grants permission to migrate previous reinforcement learning models for DeepRacer",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PerformLeaderboardOperation",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-perform-leaderboard-operation.html",
+      "description": "Grants permission to performs the leaderboard operation mentioned in the operation attribute",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "leaderboard"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RemoveLeaderboardAccessPermission",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-manage-community-races.html",
+      "description": "Grants permission to remove access for a private leaderboard",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "leaderboard*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "SetAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html",
+      "description": "Grants permission to set the user's alias for submitting a DeepRacer model to leaderboards",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "deepracer:UserToken                                                                                                                                                            deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StartEvaluation",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-test-in-simulator.html",
+      "description": "Grants permission to evaluate a DeepRacer model in a simulated environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "reinforcement_learning_model*",
+        "track*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StopEvaluation",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-test-in-simulator.html",
+      "description": "Grants permission to stop DeepRacer model evaluations",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "evaluation_job*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StopTrainingReinforcementLearningModel",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-get-started-training-model.html",
+      "description": "Grants permission to stop training a DeepRacer model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "reinforcement_learning_model*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-tagging.html",
+      "description": "Grants permission to tag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "car",
+        "evaluation_job",
+        "leaderboard",
+        "leaderboard_evaluation_job",
+        "reinforcement_learning_model",
+        "training_job"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TestRewardFunction",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-console-train-evaluate-models.html#deepracer-train-models-define-reward-function",
+      "description": "Grants permission to test reward functions for correctness",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-tagging.html",
+      "description": "Grants permission to untag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "car",
+        "evaluation_job",
+        "leaderboard",
+        "leaderboard_evaluation_job",
+        "reinforcement_learning_model",
+        "training_job"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCar",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-choose-race-type.html",
+      "description": "Grants permission to update a DeepRacer car in your garage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "car*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

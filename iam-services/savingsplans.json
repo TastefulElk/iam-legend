@@ -1,0 +1,113 @@
+{
+  "serviceName": "AWS Savings Plans",
+  "servicePrefix": "savingsplans",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssavingsplans.html",
+  "actions": [
+    {
+      "name": "CreateSavingsPlan",
+      "documentationUrl": "https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_CreateSavingsPlan.html",
+      "description": "Grants permission to create a savings plan",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteQueuedSavingsPlan",
+      "documentationUrl": "https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_DeleteQueuedSavingsPlan.html",
+      "description": "Grants permission to delete the queued savings plan associated with customers account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "savingsplan*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSavingsPlanRates",
+      "documentationUrl": "https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_DescribeSavingsPlanRates.html",
+      "description": "Grants permission to describe the rates associated with customers savings plan",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "savingsplan*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSavingsPlans",
+      "documentationUrl": "https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_DescribeSavingsPlans.html",
+      "description": "Grants permission to describe the savings plans associated with customers account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "savingsplan*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSavingsPlansOfferingRates",
+      "documentationUrl": "https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferingRates.html",
+      "description": "Grants permission to describe the rates assciated with savings plans offerings",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSavingsPlansOfferings",
+      "documentationUrl": "https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferings.html",
+      "description": "Grants permission to describe the savings plans offerings that customer is eligible to purchase",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a savings plan",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "savingsplan*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag a savings plan",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "savingsplan*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/savingsplans/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag a savings plan",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "savingsplan*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

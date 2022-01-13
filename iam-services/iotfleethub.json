@@ -1,0 +1,102 @@
+{
+  "serviceName": "AWS IoT Fleet Hub for Device Management",
+  "servicePrefix": "iotfleethub",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotfleethubfordevicemanagement.html",
+  "actions": [
+    {
+      "name": "CreateApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html",
+      "description": "Grants permission to create an application",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": [
+        "sso:CreateManagedApplicationInstance                                                                                        sso:DescribeRegisteredRegions"
+      ]
+    },
+    {
+      "name": "DeleteApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_DeleteApplication.html",
+      "description": "Grants permission to delete an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sso:DeleteManagedApplicationInstance"
+      ]
+    },
+    {
+      "name": "DescribeApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_DescribeApplication.html",
+      "description": "Grants permission to describe an application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_ListApplications.html",
+      "description": "Grants permission to list all applications",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_ListTagsForResource.html",
+      "description": "Grants permission to list all tags for a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_TagResource.html",
+      "description": "Grants permission to tag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "application"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_UntagResource.html",
+      "description": "Grants permission to untag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "application"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_UpdateApplication.html",
+      "description": "Grants permission to update an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

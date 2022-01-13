@@ -1,0 +1,501 @@
+{
+  "serviceName": "Amazon MemoryDB",
+  "servicePrefix": "memorydb",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonmemorydb.html",
+  "actions": [
+    {
+      "name": "BatchUpdateClusters",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_BatchUpdateClusters.html",
+      "description": "Grants permissions to apply service updates",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs                                                                                        s3:GetObject"
+      ]
+    },
+    {
+      "name": "CopySnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_CopySnapshot.html",
+      "description": "Grants permissions to make a copy of an existing snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "memorydb:TagResource                                                                                        s3:DeleteObject                                                                                        s3:GetBucketAcl                                                                                        s3:PutObject"
+      ]
+    },
+    {
+      "name": "CreateAcl",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_CreateAcl.html",
+      "description": "Grants permissions to create a new access control list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "memorydb:TagResource"
+      ]
+    },
+    {
+      "name": "CreateCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_CreateCluster.html",
+      "description": "Grants permissions to create a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "acl*",
+        "parametergroup*",
+        "subnetgroup*",
+        "snapshot"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs                                                                                        memorydb:TagResource                                                                                        s3:GetObject"
+      ]
+    },
+    {
+      "name": "CreateParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_CreateParameterGroup.html",
+      "description": "Grants permissions to create a new parameter group",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": [
+        "memorydb:TagResource"
+      ]
+    },
+    {
+      "name": "CreateSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_CreateSnapshot.html",
+      "description": "Grants permissions to create a backup of a cluster at the current point in time",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "memorydb:TagResource                                                                                        s3:DeleteObject                                                                                        s3:GetBucketAcl                                                                                        s3:PutObject"
+      ]
+    },
+    {
+      "name": "CreateSubnetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_CreateSubnetGroup.html",
+      "description": "Grants permissions to create a new subnet group",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": [
+        "memorydb:TagResource"
+      ]
+    },
+    {
+      "name": "CreateUser",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_CreateUser.html",
+      "description": "Grants permissions to create a new user",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": [
+        "memorydb:TagResource"
+      ]
+    },
+    {
+      "name": "DeleteAcl",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DeleteAcl.html",
+      "description": "Grants permissions to delete an access control list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "acl*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DeleteCluster.html",
+      "description": "Grants permissions to delete a previously provisioned cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "snapshot"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "DeleteParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DeleteParameterGroup.html",
+      "description": "Grants permissions to delete a parameter group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DeleteSnapshot.html",
+      "description": "Grants permissions to delete a snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSubnetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DeleteSubnetGroup.html",
+      "description": "Grants permissions to delete a subnet group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "subnetgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "DeleteUser",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DeleteUser.html",
+      "description": "Grants permissions to delete a user",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAcls",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeAcls.html",
+      "description": "Grants permissions to retrieve information about access control lists",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "acl*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeClusters",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeClusters.html",
+      "description": "Grants permissions to retrieve information about all provisioned clusters if no cluster identifier is specified, or about a specific cluster if a cluster identifier is supplied",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEngineVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeEngineVersions.html",
+      "description": "Grants permissions to list of the available engines and their versions",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEvents",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeEvents.html",
+      "description": "Grants permissions to retrieve events related to clusters, subnet groups, and parameter groups",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeParameterGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeParameterGroups.html",
+      "description": "Grants permissions to retrieve information about parameter groups",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeParameters",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeParameters.html",
+      "description": "Grants permissions to retrieve a detailed parameter list for a particular parameter group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeServiceUpdates",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeServiceUpdates.html",
+      "description": "Grants permissions to retrieve details of the service updates",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSnapshots",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeSnapshots.html",
+      "description": "Grants permissions to retrieve information about cluster snapshots",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSubnetGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeSubnetGroups.html",
+      "description": "Grants permissions to retrieve a list of subnet group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "subnetgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeUsers",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeUsers.html",
+      "description": "Grants permissions to retrieve information about users",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "FailoverShard",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_FailoverShard.html",
+      "description": "Grants permissions to test automatic failover on a specified shard in a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "ListNodeTypeUpdates",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_ListNodeTypeUpdates.html",
+      "description": "Grants permissions to list available node type updates",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTags",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_ListTags.html",
+      "description": "Grants permissions to list cost allocation tags",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "acl",
+        "cluster",
+        "parametergroup",
+        "snapshot",
+        "subnetgroup",
+        "user"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ResetParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_ResetParameterGroup.html",
+      "description": "Grants permissions to modify the parameters of a parameter group to the engine or system default value",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_TagResource.html",
+      "description": "Grants permissions to add up to 10 cost allocation tags to the named resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "acl",
+        "cluster",
+        "parametergroup",
+        "snapshot",
+        "subnetgroup",
+        "user"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permissions to remove the tags identified by the TagKeys list from a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "acl",
+        "cluster",
+        "parametergroup",
+        "snapshot",
+        "subnetgroup",
+        "user"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAcl",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_UpdateAcl.html",
+      "description": "Grants permissions to update an access control list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "acl*",
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_UpdateCluster.html",
+      "description": "Grants permissions to update the settings for a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "acl",
+        "parametergroup"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "UpdateParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_UpdateParameterGroup.html",
+      "description": "Grants permissions to update parameters in a parameter group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSubnetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_UpdateSubnetGroup.html",
+      "description": "Grants permissions to update a subnet group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "subnetgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateUser",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_UpdateUser.html",
+      "description": "Grants permissions to update a user",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

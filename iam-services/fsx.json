@@ -1,0 +1,533 @@
+{
+  "serviceName": "Amazon FSx",
+  "servicePrefix": "fsx",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonfsx.html",
+  "actions": [
+    {
+      "name": "AssociateFileGateway",
+      "documentationUrl": "https://docs.aws.amazon.com/filegateway/latest/filefsxw/what-is-file-fsxw.html",
+      "description": "Grants permission to associate a File Gateway instance with an Amazon FSx for Windows File Server file system",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "file-system*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateFileSystemAliases",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_AssociateFileSystemAliases.html",
+      "description": "Grants permission to associate DNS aliases with an Amazon FSx for Windows File Server file system",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "file-system*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelDataRepositoryTask",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CancelDataRepositoryTask.html",
+      "description": "Grants permission to cancel a data repository task",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "task*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CopyBackup",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopyBackup.html",
+      "description": "Grants permission to copy a backup",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "backup*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "fsx:TagResource"
+      ]
+    },
+    {
+      "name": "CreateBackup",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateBackup.html",
+      "description": "Grants permission to create a new backup of an Amazon FSx file system or an Amazon FSx volume",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "backup*",
+        "file-system",
+        "volume"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "fsx:TagResource"
+      ]
+    },
+    {
+      "name": "CreateDataRepositoryAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateDataRepositoryAssociation.html",
+      "description": "Grants permission to create a new data respository association for an Amazon FSx for Lustre file system",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "association*",
+        "file-system*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "fsx:TagResource"
+      ]
+    },
+    {
+      "name": "CreateDataRepositoryTask",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateDataRepositoryTask.html",
+      "description": "Grants permission to create a new data respository task for an Amazon FSx for Lustre file system",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "file-system*",
+        "task*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "fsx:TagResource"
+      ]
+    },
+    {
+      "name": "CreateFileSystem",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html",
+      "description": "Grants permission to create a new, empty, Amazon FSx file system",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "file-system*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "fsx:TagResource"
+      ]
+    },
+    {
+      "name": "CreateFileSystemFromBackup",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystemFromBackup.html",
+      "description": "Grants permission to create a new Amazon FSx file system from an existing backup",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "backup*",
+        "file-system*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "fsx:TagResource"
+      ]
+    },
+    {
+      "name": "CreateSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateSnapshot.html",
+      "description": "Grants permission to create a new snapshot on a volume",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*",
+        "volume*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "fsx:TagResource"
+      ]
+    },
+    {
+      "name": "CreateStorageVirtualMachine",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateStorageVirtualMachine.html",
+      "description": "Grants permission to create a new storage virtual machine in an Amazon FSx for Ontap file system",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "file-system*",
+        "storage-virtual-machine*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "fsx:TagResource"
+      ]
+    },
+    {
+      "name": "CreateVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateVolume.html",
+      "description": "Grants permission to create a new volume",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "volume*",
+        "snapshot"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "fsx:StorageVirtualMachineId",
+        "fsx:ParentVolumeId"
+      ],
+      "dependentActions": [
+        "fsx:TagResource"
+      ]
+    },
+    {
+      "name": "CreateVolumeFromBackup",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateVolumeFromBackup.html",
+      "description": "Grants permission to create a new volume from backup",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "backup*",
+        "storage-virtual-machine*",
+        "volume*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "fsx:StorageVirtualMachineId"
+      ],
+      "dependentActions": [
+        "fsx:TagResource"
+      ]
+    },
+    {
+      "name": "DeleteBackup",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteBackup.html",
+      "description": "Grants permission to delete a backup, deleting its contents. After deletion, the backup no longer exists, and its data is no longer available",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "backup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDataRepositoryAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteDataRepositoryAssociation.html",
+      "description": "Grants permission to delete a data repository association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "association*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteFileSystem",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteFileSystem.html",
+      "description": "Grants permission to delete a file system, deleting its contents and any existing automatic backups of the file system",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "file-system*",
+        "backup"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "fsx:CreateBackup                                                                                        fsx:TagResource"
+      ]
+    },
+    {
+      "name": "DeleteSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteSnapshot.html",
+      "description": "Grants permission to delete a snapshot on a volume",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteStorageVirtualMachine",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteStorageVirtualMachine.html",
+      "description": "Grants permission to delete a storage virtual machine, deleting its contents",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "storage-virtual-machine*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteVolume.html",
+      "description": "Grants permission to delete a volume, deleting its contents and any existing automatic backups of the volume",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "volume*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "fsx:StorageVirtualMachineId",
+        "fsx:ParentVolumeId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAssociatedFileGateways",
+      "documentationUrl": "https://docs.aws.amazon.com/filegateway/latest/filefsxw/what-is-file-fsxw.html",
+      "description": "Grants permission to describe the File Gateway instances associated with an Amazon FSx for Windows File Server file system",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "file-system*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeBackups",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeBackups.html",
+      "description": "Grants permission to return the descriptions of all backups owned by your AWS account in the AWS Region of the endpoint that you're calling",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDataRepositoryAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeDataRepositoryAssociations.html",
+      "description": "Grants permission to return the descriptions of all data repository associations owned by your AWS account in the AWS Region of the endpoint that you're calling",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDataRepositoryTasks",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeDataRepositoryTasks.html",
+      "description": "Grants permission to return the descriptions of all data repository tasks owned by your AWS account in the AWS Region of the endpoint that you're calling",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeFileSystemAliases",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystemAliases.html",
+      "description": "Grants permission to return the description of all DNS aliases owned by your Amazon FSx for Windows File Server file system",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "file-system*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeFileSystems",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileSystems.html",
+      "description": "Grants permission to return the descriptions of all file systems owned by your AWS account in the AWS Region of the endpoint that you're calling",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSnapshots",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeSnapshots.html",
+      "description": "Grants permission to return the descriptions of all snapshots owned by your AWS account in the AWS Region of the endpoint you're calling",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStorageVirtualMachines",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeStorageVirtualMachines.html",
+      "description": "Grants permission to return the descriptions of all storage virtual machines owned by your AWS account in the AWS Region of the endpoint that you're calling",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeVolumes",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeVolumes.html",
+      "description": "Grants permission to return the descriptions of all volumes owned by your AWS account in the AWS Region of the endpoint that you're calling",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateFileGateway",
+      "documentationUrl": "https://docs.aws.amazon.com/filegateway/latest/filefsxw/what-is-file-fsxw.html",
+      "description": "Grants permission to disassociate a File Gateway instance from an Amazon FSx for Windows File Server file system",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "file-system*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateFileSystemAliases",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DisassociateFileSystemAliases.html",
+      "description": "Grants permission to disassociate file system aliases with an Amazon FSx for Windows File Server file system",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "file-system*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for an Amazon FSx resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "association",
+        "backup",
+        "file-system",
+        "snapshot",
+        "storage-virtual-machine",
+        "task",
+        "volume"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ManageBackupPrincipalAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopyBackup.html",
+      "description": "Grants permission to manage backup principal associations through AWS Backup",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "backup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RestoreVolumeFromSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_RestoreVolumeFromSnapshot.html",
+      "description": "Grants permission to restore volume state from a snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*",
+        "volume*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag an Amazon FSx resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "association",
+        "backup",
+        "file-system",
+        "snapshot",
+        "storage-virtual-machine",
+        "task",
+        "volume"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove a tag from an Amazon FSx resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "association",
+        "backup",
+        "file-system",
+        "snapshot",
+        "storage-virtual-machine",
+        "task",
+        "volume"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDataRepositoryAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateDataRepositoryAssociation.html",
+      "description": "Grants permission to update data repository association configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "association*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateFileSystem",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html",
+      "description": "Grants permission to update file system configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "file-system*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateSnapshot.html",
+      "description": "Grants permission to update snapshot configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateStorageVirtualMachine",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateStorageVirtualMachine.html",
+      "description": "Grants permission to update storage virtual machine configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "storage-virtual-machine*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateVolume.html",
+      "description": "Grants permission to update volume configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "volume*"
+      ],
+      "conditionKeys": [
+        "fsx:StorageVirtualMachineId",
+        "fsx:ParentVolumeId"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

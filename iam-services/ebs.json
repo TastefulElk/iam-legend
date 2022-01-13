@@ -1,0 +1,90 @@
+{
+  "serviceName": "Amazon Elastic Block Store",
+  "servicePrefix": "ebs",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelasticblockstore.html",
+  "actions": [
+    {
+      "name": "CompleteSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/ebs/latest/APIReference/API_CompleteSnapshot.html",
+      "description": "Grants permission to seal and complete the snapshot after all of the required blocks of data have been written to it",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSnapshotBlock",
+      "documentationUrl": "https://docs.aws.amazon.com/ebs/latest/APIReference/API_GetSnapshotBlock.html",
+      "description": "Grants permission to return the data of a block in an Amazon Elastic Block Store (EBS) snapshot",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListChangedBlocks",
+      "documentationUrl": "https://docs.aws.amazon.com/ebs/latest/APIReference/API_ListChangedBlocks.html",
+      "description": "Grants permission to list the blocks that are different between two Amazon Elastic Block Store (EBS) snapshots of the same volume/snapshot lineage",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSnapshotBlocks",
+      "documentationUrl": "https://docs.aws.amazon.com/ebs/latest/APIReference/API_ListSnapshotBlocks.html",
+      "description": "Grants permission to list the blocks in an Amazon Elastic Block Store (EBS) snapshot",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutSnapshotBlock",
+      "documentationUrl": "https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html",
+      "description": "Grants permission to write a block of data to a snapshot created by the StartSnapshot operation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StartSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/ebs/latest/APIReference/API_StartSnapshot.html",
+      "description": "Grants permission to create a new EBS snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "ebs:Description",
+        "ebs:ParentSnapshot",
+        "ebs:VolumeSize"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

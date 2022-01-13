@@ -1,0 +1,403 @@
+{
+  "serviceName": "Amazon QLDB",
+  "servicePrefix": "qldb",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonqldb.html",
+  "actions": [
+    {
+      "name": "CancelJournalKinesisStream",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_CancelJournalKinesisStream.html",
+      "description": "Grants permission to cancel a journal kinesis stream",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stream*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateLedger",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_CreateLedger.html",
+      "description": "Grants permission to create a ledger",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ledger*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteLedger",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_DeleteLedger.html",
+      "description": "Grants permission to delete a ledger",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ledger*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeJournalKinesisStream",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_DescribeJournalKinesisStream.html",
+      "description": "Grants permission to describe information about a journal kinesis stream",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stream*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeJournalS3Export",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_DescribeJournalS3Export.html",
+      "description": "Grants permission to describe information about a journal export job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ledger*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeLedger",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_DescribeLedger.html",
+      "description": "Grants permission to describe a ledger",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ledger*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ExecuteStatement",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/console_QLDB.html",
+      "description": "Grants permission to send commands to a ledger via the console",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ledger*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ExportJournalToS3",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_ExportJournalToS3.html",
+      "description": "Grants permission to export journal contents to an Amazon S3 bucket",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ledger*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetBlock",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_GetBlock.html",
+      "description": "Grants permission to retrieve a block from a ledger for a given BlockAddress",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ledger*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDigest",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_GetDigest.html",
+      "description": "Grants permission to retrieve a digest from a ledger for a given BlockAddress",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ledger*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRevision",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_GetRevision.html",
+      "description": "Grants permission to retrieve a revision for a given document ID and a given BlockAddress",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ledger*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "InsertSampleData",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/console_QLDB.html",
+      "description": "Grants permission to insert sample application data via the console",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ledger*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListJournalKinesisStreamsForLedger",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_ListJournalKinesisStreamsForLedger.html",
+      "description": "Grants permission to list journal kinesis streams for a specified ledger",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "stream*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListJournalS3Exports",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_ListJournalS3Exports.html",
+      "description": "Grants permission to list journal export jobs for all ledgers",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListJournalS3ExportsForLedger",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_ListJournalS3ExportsForLedger.html",
+      "description": "Grants permission to list journal export jobs for a specified ledger",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "ledger*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLedgers",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_ListLedgers.html",
+      "description": "Grants permission to list existing ledgers",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "catalog",
+        "ledger",
+        "stream",
+        "table"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PartiQLCreateIndex",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/ql-reference.create-index.html",
+      "description": "Grants permission to create an index on a table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PartiQLCreateTable",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/ql-reference.create-table.html",
+      "description": "Grants permission to create a table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PartiQLDelete",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/ql-reference.delete.html",
+      "description": "Grants permission to delete documents from a table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PartiQLDropIndex",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/ql-reference.drop-index.html",
+      "description": "Grants permission to drop an index from a table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [
+        "qldb:Purge"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PartiQLDropTable",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/ql-reference.drop-table.html",
+      "description": "Grants permission to drop a table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [
+        "qldb:Purge"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PartiQLHistoryFunction",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/working.history.html",
+      "description": "Grants permission to use the history function on a table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PartiQLInsert",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/ql-reference.insert.html",
+      "description": "Grants permission to insert documents into a table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PartiQLSelect",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/ql-reference.select.html",
+      "description": "Grants permission to select documents from a table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "catalog",
+        "table"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PartiQLUndropTable",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/ql-reference.undrop-table.html",
+      "description": "Grants permission to undrop a table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PartiQLUpdate",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/ql-reference.update.html",
+      "description": "Grants permission to update existing documents in a table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SendCommand",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/API_QLDB-Session_SendCommand.html",
+      "description": "Grants permission to send commands to a ledger",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ledger*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ShowCatalog",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/console_QLDB.html",
+      "description": "Grants permission to view a ledger's catalog via the console",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ledger*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StreamJournalToKinesis",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_StreamJournalToKinesis.html",
+      "description": "Grants permission to stream journal contents to a Kinesis Data Stream",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stream*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_TagResource.html",
+      "description": "Grants permission to add one or more tags to a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "catalog",
+        "ledger",
+        "stream",
+        "table"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_UntagResource.html",
+      "description": "Grants permission to remove one or more tags from a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "catalog",
+        "ledger",
+        "stream",
+        "table"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateLedger",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_UpdateLedger.html",
+      "description": "Grants permission to update properties on a ledger",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ledger*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateLedgerPermissionsMode",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_UpdateLedgerPermissionsMode.html",
+      "description": "Grants permission to update the permissions mode on a ledger",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ledger*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

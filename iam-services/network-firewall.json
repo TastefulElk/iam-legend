@@ -1,0 +1,379 @@
+{
+  "serviceName": "AWS Network Firewall",
+  "servicePrefix": "network-firewall",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsnetworkfirewall.html",
+  "actions": [
+    {
+      "name": "AssociateFirewallPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_AssociateFirewallPolicy.html",
+      "description": "Grants permission to create an association between a firewall policy and a firewall",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*",
+        "FirewallPolicy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateSubnets",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_AssociateSubnets.html",
+      "description": "Grants permission to associate VPC subnets to a firewall",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateFirewall",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_CreateFirewall.html",
+      "description": "Grants permission to create an AWS Network Firewall firewall",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*",
+        "FirewallPolicy*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
+      "name": "CreateFirewallPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_CreateFirewallPolicy.html",
+      "description": "Grants permission to create an AWS Network Firewall firewall policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "FirewallPolicy*",
+        "StatefulRuleGroup",
+        "StatelessRuleGroup"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateRuleGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_CreateRuleGroup.html",
+      "description": "Grants permission to create an AWS Network Firewall rule group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "StatefulRuleGroup",
+        "StatelessRuleGroup"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteFirewall",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DeleteFirewall.html",
+      "description": "Grants permission to delete a firewall",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteFirewallPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DeleteFirewallPolicy.html",
+      "description": "Grants permission to delete a firewall policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "FirewallPolicy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DeleteResourcePolicy.html",
+      "description": "Grants permission to delete a resource policy for a firewall policy or rule group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "FirewallPolicy",
+        "StatefulRuleGroup",
+        "StatelessRuleGroup"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRuleGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DeleteRuleGroup.html",
+      "description": "Grants permission to delete a rule group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "StatefulRuleGroup",
+        "StatelessRuleGroup"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeFirewall",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeFirewall.html",
+      "description": "Grants permission to retrieve the data objects that define a firewall",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeFirewallPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeFirewallPolicy.html",
+      "description": "Grants permission to retrieve the data objects that define a firewall policy",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "FirewallPolicy*",
+        "StatefulRuleGroup",
+        "StatelessRuleGroup"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeLoggingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeLoggingConfiguration.html",
+      "description": "Grants permission to describe the logging configuration of a firewall",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeResourcePolicy.html",
+      "description": "Grants permission to describe a resource policy for a firewall policy or rule group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "FirewallPolicy",
+        "StatefulRuleGroup",
+        "StatelessRuleGroup"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRuleGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html",
+      "description": "Grants permission to retrieve the data objects that define a rule group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "StatefulRuleGroup",
+        "StatelessRuleGroup"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRuleGroupMetadata",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeRuleGroup.html",
+      "description": "Grants permission to retrieve the high-level information about a rule group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "StatefulRuleGroup",
+        "StatelessRuleGroup"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateSubnets",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DisassociateSubnets.html",
+      "description": "Grants permission to disassociate VPC subnets from a firewall",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFirewallPolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ListFirewallPolicies.html",
+      "description": "Grants permission to retrieve the metadata for firewall policies",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "FirewallPolicy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFirewalls",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ListFirewalls.html",
+      "description": "Grants permission to retrieve the metadata for firewalls",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRuleGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ListRuleGroups.html",
+      "description": "Grants permission to retrieve the metadata for rule groups",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to retrieve the tags for a resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Firewall*",
+        "FirewallPolicy*",
+        "StatefulRuleGroup",
+        "StatelessRuleGroup"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html",
+      "description": "Grants permission to put a resource policy for a firewall policy or rule group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "FirewallPolicy",
+        "StatefulRuleGroup",
+        "StatelessRuleGroup"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to attach tags to a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "Firewall*",
+        "FirewallPolicy*",
+        "StatefulRuleGroup",
+        "StatelessRuleGroup"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove tags from a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "Firewall*",
+        "FirewallPolicy*",
+        "StatefulRuleGroup",
+        "StatelessRuleGroup"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateFirewallDeleteProtection",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_UpdateFirewallDeleteProtection.html",
+      "description": "Grants permission to add or remove delete protection for a firewall",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateFirewallDescription",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_UpdateFirewallDescription.html",
+      "description": "Grants permission to modify the description for a firewall",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateFirewallPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_UpdateFirewallPolicy.html",
+      "description": "Grants permission to modify a firewall policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "FirewallPolicy*",
+        "StatefulRuleGroup",
+        "StatelessRuleGroup"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateFirewallPolicyChangeProtection",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_UpdateFirewallPolicyChangeProtection.html",
+      "description": "Grants permission to add or remove firewall policy change protection for a firewall",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateLoggingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_UpdateLoggingConfiguration.html",
+      "description": "Grants permission to modify the logging configuration of a firewall",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRuleGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_UpdateRuleGroup.html",
+      "description": "Grants permission to modify a rule group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "StatefulRuleGroup",
+        "StatelessRuleGroup"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSubnetChangeProtection",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_UpdateSubnetChangeProtection.html",
+      "description": "Grants permission to add or remove subnet change protection for a firewall",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

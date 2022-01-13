@@ -1,0 +1,735 @@
+{
+  "serviceName": "Amazon Route 53 Resolver",
+  "servicePrefix": "route53resolver",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonroute53resolver.html",
+  "actions": [
+    {
+      "name": "AssociateFirewallRuleGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateFirewallRuleGroup.html",
+      "description": "Grants permission to associate an Amazon VPC with a specified firewall rule group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "firewall-rule-group-association*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "AssociateResolverEndpointIpAddress",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverEndpointIpAddress.html",
+      "description": "Grants permission to associate a specified IP address with a Resolver endpoint. This is an IP address that DNS queries pass through on the way to your network (outbound) or your VPCs (inbound)",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateResolverQueryLogConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverQueryLogConfig.html",
+      "description": "Grants permission to associate an Amazon VPC with a specified query logging configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-query-log-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateResolverRule",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html",
+      "description": "Grants permission to associate a specified Resolver rule with a specified VPC",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-rule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateFirewallDomainList",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateFirewallDomainList.html",
+      "description": "Grants permission to create a Firewall domain list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "firewall-domain-list*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateFirewallRule",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateFirewallRule.html",
+      "description": "Grants permission to create a Firewall rule within a Firewall rule group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "firewall-rule-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateFirewallRuleGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateFirewallRuleGroup.html",
+      "description": "Grants permission to create a Firewall rule group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "firewall-rule-group*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateResolverEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverEndpoint.html",
+      "description": "Grants permission to create a Resolver endpoint. There are two types of Resolver endpoints, inbound and outbound",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-endpoint*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateResolverQueryLogConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverQueryLogConfig.html",
+      "description": "Grants permission to create a Resolver query logging configuration, which defines where you want Resolver to save DNS query logs that originate in your VPCs",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-query-log-config*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateResolverRule",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateResolverRule.html",
+      "description": "Grants permission to define how to route queries originating from your VPC out of the VPC",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-rule*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteFirewallDomainList",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteFirewallDomainList.html",
+      "description": "Grants permission to delete a Firewall domain list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "firewall-domain-list*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteFirewallRule",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteFirewallRule.html",
+      "description": "Grants permission to delete a Firewall rule within a Firewall rule group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "firewall-rule-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteFirewallRuleGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteFirewallRuleGroup.html",
+      "description": "Grants permission to delete a Firewall rule group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "firewall-rule-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteResolverEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteResolverEndpoint.html",
+      "description": "Grants permission to delete a Resolver endpoint. The effect of deleting a Resolver endpoint depends on whether it's an inbound or an outbound endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteResolverQueryLogConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteResolverQueryLogConfig.html",
+      "description": "Grants permission to delete a Resolver query logging configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-query-log-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteResolverRule",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteResolverRule.html",
+      "description": "Grants permission to delete a Resolver rule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-rule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateFirewallRuleGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateFirewallRuleGroup.html",
+      "description": "Grants permission to remove the association between a specified Firewall rule group and a specified VPC",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "firewall-rule-group-association*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateResolverEndpointIpAddress",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverEndpointIpAddress.html",
+      "description": "Grants permission to remove a specified IP address from a Resolver endpoint. This is an IP address that DNS queries pass through on the way to your network (outbound) or your VPCs (inbound)",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateResolverQueryLogConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html",
+      "description": "Grants permission to remove the association between a specified Resolver query logging configuration and a specified VPC",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-query-log-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateResolverRule",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html",
+      "description": "Grants permission to remove the association between a specified Resolver rule and a specified VPC",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-rule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetFirewallConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetFirewallConfig.html",
+      "description": "Grants permission to get information about a specified Firewall config",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "firewall-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "GetFirewallDomainList",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetFirewallDomainList.html",
+      "description": "Grants permission to get information about a specified Firewall domain list",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "firewall-domain-list*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetFirewallRuleGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetFirewallRuleGroup.html",
+      "description": "Grants permission to get information about a specified Firewall rule group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "firewall-rule-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetFirewallRuleGroupAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetFirewallRuleGroupAssociation.html",
+      "description": "Grants permission to get information about an association between a specified Firewall rule group and a VPC",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "firewall-rule-group-association*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetFirewallRuleGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetFirewallRuleGroupPolicy.html",
+      "description": "Grants permission to get information about a specified Firewall rule group policy, which specifies the Firewall rule group operations and resources that you want to allow another AWS account to use",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "firewall-rule-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResolverConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverConfig.html",
+      "description": "Grants permission to get the Resolver Config status within the specified resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "resolver-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "GetResolverDnssecConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverDnssecConfig.html",
+      "description": "Grants permission to get the DNSSEC validation support status for DNS queries within the specified resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "resolver-dnssec-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResolverEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html",
+      "description": "Grants permission to get information about a specified Resolver endpoint, such as whether it's an inbound or an outbound endpoint, and the IP addresses in your VPC that DNS queries are forwarded to on the way into or out of your VPC",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "resolver-endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResolverQueryLogConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverQueryLogConfig.html",
+      "description": "Grants permission to get information about a specified Resolver query logging configuration, such as the number of VPCs that the configuration is logging queries for and the location that logs are sent to",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "resolver-query-log-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResolverQueryLogConfigAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverQueryLogConfigAssociation.html",
+      "description": "Grants permission to get information about a specified association between a Resolver query logging configuration and an Amazon VPC. When you associate a VPC with a query logging configuration, Resolver logs DNS queries that originate in that VPC",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "resolver-query-log-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResolverQueryLogConfigPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverQueryLogConfigPolicy.html",
+      "description": "Grants permission to get information about a specified Resolver query logging policy, which specifies the Resolver query logging operations and resources that you want to allow another AWS account to use",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "resolver-query-log-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResolverRule",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRule.html",
+      "description": "Grants permission to get information about a specified Resolver rule, such as the domain name that the rule forwards DNS queries for and the IP address that queries are forwarded to",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "resolver-rule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResolverRuleAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRuleAssociation.html",
+      "description": "Grants permission to get information about an association between a specified Resolver rule and a VPC",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "resolver-rule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResolverRulePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverRulePolicy.html",
+      "description": "Grants permission to get information about a Resolver rule policy, which specifies the Resolver operations and resources that you want to allow another AWS account to use",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "resolver-rule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ImportFirewallDomains",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ImportFirewallDomains.html",
+      "description": "Grants permission to add, remove or replace Firewall domains in a Firewall domain list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "firewall-domain-list*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFirewallConfigs",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListFirewallConfigs.html",
+      "description": "Grants permission to list all the Firewall config that current AWS account is able to check",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "firewall-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "ListFirewallDomainLists",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListFirewallDomainLists.html",
+      "description": "Grants permission to list all the Firewall domain list that current AWS account is able to use",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFirewallDomains",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListFirewallDomains.html",
+      "description": "Grants permission to list all the Firewall domain under a speicfied Firewall domain list",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "firewall-domain-list*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFirewallRuleGroupAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListFirewallRuleGroupAssociations.html",
+      "description": "Grants permission to list information about associations between Amazon VPCs and Firewall rule group",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFirewallRuleGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListFirewallRuleGroups.html",
+      "description": "Grants permission to list all the Firewall rule group that current AWS account is able to use",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFirewallRules",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListFirewallRules.html",
+      "description": "Grants permission to list all the Firewall rule under a speicfied Firewall rule group",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "firewall-rule-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResolverConfigs",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverConfigs.html",
+      "description": "Grants permission to list Resolver Config statuses",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "resolver-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "ListResolverDnssecConfigs",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverDnssecConfigs.html",
+      "description": "Grants permission to list the DNSSEC validation support status for DNS queries",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "resolver-dnssec-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResolverEndpointIpAddresses",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpointIpAddresses.html",
+      "description": "Grants permission to list the IP addresses that DNS queries pass through on the way to your network (outbound) or your VPCs (inbound) for a specified Resolver endpoint",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "resolver-endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResolverEndpoints",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverEndpoints.html",
+      "description": "Grants permission to list all the Resolver endpoints that were created using the current AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResolverQueryLogConfigAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverQueryLogConfigAssociations.html",
+      "description": "Grants permission to list information about associations between Amazon VPCs and query logging configurations",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "resolver-query-log-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResolverQueryLogConfigs",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverQueryLogConfigs.html",
+      "description": "Grants permission to list information about the specified query logging configurations, which define where you want Resolver to save DNS query logs and specify the VPCs that you want to log queries for",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "resolver-query-log-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResolverRuleAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html",
+      "description": "Grants permission to list the associations that were created between Resolver rules and VPCs using the current AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResolverRules",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRules.html",
+      "description": "Grants permission to list the Resolver rules that were created using the current AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListTagsForResource.html",
+      "description": "Grants permission to list the tags that you associated with the specified resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "firewall-domain-list",
+        "firewall-rule-group",
+        "firewall-rule-group-association",
+        "resolver-endpoint",
+        "resolver-query-log-config",
+        "resolver-rule"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutFirewallRuleGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_PutFirewallRuleGroupPolicy.html",
+      "description": "Grants permission to specify an AWS account that you want to share a Firewall rule group with, the Firewall rule group that you want to share, and the operations that you want the account to be able to perform on the configuration",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "firewall-rule-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutResolverQueryLogConfigPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_PutResolverQueryLogConfigPolicy.html",
+      "description": "Grants permission to specify an AWS account that you want to share a query logging configuration with, the query logging configuration that you want to share, and the operations that you want the account to be able to perform on the configuration",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "resolver-query-log-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutResolverRulePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_PutResolverRulePolicy.html",
+      "description": "Grants permission to specify an AWS account that you want to share rules with, the Resolver rules that you want to share, and the operations that you want the account to be able to perform on those rules",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "resolver-rule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_TagResource.html",
+      "description": "Grants permission to add one or more tags to a specified resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "firewall-domain-list",
+        "firewall-rule-group",
+        "firewall-rule-group-association",
+        "resolver-endpoint",
+        "resolver-query-log-config",
+        "resolver-rule"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UntagResource.html",
+      "description": "Grants permission to remove one or more tags from a specified resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "firewall-domain-list",
+        "firewall-rule-group",
+        "firewall-rule-group-association",
+        "resolver-endpoint",
+        "resolver-query-log-config",
+        "resolver-rule"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateFirewallConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateFirewallConfig.html",
+      "description": "Grants permission to update selected settings for an Firewall config",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "firewall-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "UpdateFirewallDomains",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateFirewallDomains.html",
+      "description": "Grants permission to add, remove or replace Firewall domains in a Firewall domain list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "firewall-domain-list*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateFirewallRule",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateFirewallRule.html",
+      "description": "Grants permission to update selected settings for an Firewall rule in a Firewall rule group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "firewall-rule-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateFirewallRuleGroupAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateFirewallRuleGroupAssociation.html",
+      "description": "Grants permission to update selected settings for an Firewall rule group association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "firewall-rule-group-association*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateResolverConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverConfig.html",
+      "description": "Grants permission to update the Resolver Config status within the specified resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "UpdateResolverDnssecConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverDnssecConfig.html",
+      "description": "Grants permission to update the DNSSEC validation support status for DNS queries within the specified resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-dnssec-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateResolverEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverEndpoint.html",
+      "description": "Grants permission to update selected settings for an inbound or an outbound Resolver endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateResolverRule",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateResolverRule.html",
+      "description": "Grants permission to update settings for a specified Resolver rule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resolver-rule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

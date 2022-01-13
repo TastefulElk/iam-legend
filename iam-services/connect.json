@@ -1,0 +1,1841 @@
+{
+  "serviceName": "Amazon Connect",
+  "servicePrefix": "connect",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html",
+  "actions": [
+    {
+      "name": "AssociateApprovedOrigin",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to associate approved origin for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateBot",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to associate a Lex bot for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": [
+        "iam:AttachRolePolicy                                                                                        iam:CreateServiceLinkedRole                                                                                        iam:PutRolePolicy                                                                                        lex:CreateResourcePolicy                                                                                        lex:DescribeBotAlias                                                                                        lex:GetBot                                                                                        lex:UpdateResourcePolicy"
+      ]
+    },
+    {
+      "name": "AssociateCustomerProfilesDomain",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to associate a Customer Profiles domain for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:AttachRolePolicy                                                                                        iam:CreateServiceLinkedRole                                                                                        iam:PutRolePolicy                                                                                        profile:GetDomain"
+      ]
+    },
+    {
+      "name": "AssociateInstanceStorageConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to associate instance storage for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:StorageResourceType",
+        "connect:InstanceId"
+      ],
+      "dependentActions": [
+        "ds:DescribeDirectories                                                                                        firehose:DescribeDeliveryStream                                                                                        iam:AttachRolePolicy                                                                                        iam:CreateServiceLinkedRole                                                                                        iam:PutRolePolicy                                                                                        kinesis:DescribeStream                                                                                        kms:CreateGrant                                                                                        kms:DescribeKey                                                                                        s3:GetBucketAcl                                                                                        s3:GetBucketLocation"
+      ]
+    },
+    {
+      "name": "AssociateLambdaFunction",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to associate a Lambda function for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": [
+        "lambda:AddPermission"
+      ]
+    },
+    {
+      "name": "AssociateLexBot",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to associate a Lex bot for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": [
+        "iam:AttachRolePolicy                                                                                        iam:CreateServiceLinkedRole                                                                                        iam:PutRolePolicy                                                                                        lex:GetBot"
+      ]
+    },
+    {
+      "name": "AssociateQueueQuickConnects",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateQueueQuickConnects.html",
+      "description": "Grants permission to associate quick connects with a queue in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*",
+        "quick-connect*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateRoutingProfileQueues",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateRoutingProfileQueues.html",
+      "description": "Grants permission to associate queues with a routing profile in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*",
+        "routing-profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateSecurityKey",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to associate a security key for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAgentStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateAgentStatus.html",
+      "description": "Grants permission to create agent status in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent-status*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateContactFlow",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateContactFlow.html",
+      "description": "Grants permission to create a contact flow in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateContactFlowModule",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateContactFlowModule.html",
+      "description": "Grants permission to create a contact flow module in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow-module*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateHoursOfOperation",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateHoursOfOperation.html",
+      "description": "Grants permission to create hours of operation in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hours-of-operation*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to create a new Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ds:AuthorizeApplication                                                                                        ds:CheckAlias                                                                                        ds:CreateAlias                                                                                        ds:CreateDirectory                                                                                        ds:CreateIdentityPoolDirectory                                                                                        ds:DeleteDirectory                                                                                        ds:DescribeDirectories                                                                                        ds:UnauthorizeApplication                                                                                        iam:AttachRolePolicy                                                                                        iam:CreateServiceLinkedRole                                                                                        iam:PutRolePolicy"
+      ]
+    },
+    {
+      "name": "CreateIntegrationAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html",
+      "description": "Grants permission to create an integration association with an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*",
+        "integration-association*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "app-integrations:CreateEventIntegrationAssociation                                                                                        connect:DescribeInstance                                                                                        ds:DescribeDirectories                                                                                        events:PutRule                                                                                        events:PutTargets                                                                                        mobiletargeting:GetApp                                                                                        voiceid:DescribeDomain                                                                                        wisdom:GetAssistant                                                                                        wisdom:GetKnowledgeBase"
+      ]
+    },
+    {
+      "name": "CreateQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateQueue.html",
+      "description": "Grants permission to create a queue in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hours-of-operation*",
+        "queue*",
+        "contact-flow",
+        "phone-number",
+        "quick-connect"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateQuickConnect",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateQuickConnect.html",
+      "description": "Grants permission to create a quick connect in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "quick-connect*",
+        "contact-flow",
+        "queue",
+        "user"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateRoutingProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateRoutingProfile.html",
+      "description": "Grants permission to create a routing profile in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*",
+        "routing-profile*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSecurityProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateSecurityProfile.html",
+      "description": "Grants permission to create a security profile for the specified Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "security-profile*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateUseCase",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateUseCase.html",
+      "description": "Grants permission to create a use case for an integration association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*",
+        "integration-association*",
+        "use-case*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "connect:DescribeInstance                                                                                        ds:DescribeDirectories"
+      ]
+    },
+    {
+      "name": "CreateUser",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateUser.html",
+      "description": "Grants permission to create a user for the specified Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "routing-profile*",
+        "security-profile*",
+        "user*",
+        "hierarchy-group"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateUserHierarchyGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateUserHierarchyGroup.html",
+      "description": "Grants permission to create a user hierarchy group in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hierarchy-group"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteContactFlow",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteContactFlow.html",
+      "description": "Grants permission to delete a contact flow in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteContactFlowModule",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteContactFlowModule.html",
+      "description": "Grants permission to delete a contact flow module in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow-module*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteHoursOfOperation",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteHoursOfOperation.html",
+      "description": "Grants permission to delete hours of operation in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hours-of-operation*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to delete an Amazon Connect instance. When you remove an instance, the link to an existing AWS directory is also removed",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ds:DeleteDirectory                                                                                        ds:DescribeDirectories                                                                                        ds:UnauthorizeApplication"
+      ]
+    },
+    {
+      "name": "DeleteIntegrationAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteIntegrationAssociation.html",
+      "description": "Grants permission to delete an integration association from an Amazon Connect instance. The association must not have any use cases associated with it",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*",
+        "integration-association*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": [
+        "app-integrations:DeleteEventIntegrationAssociation                                                                                        connect:DescribeInstance                                                                                        ds:DescribeDirectories                                                                                        events:DeleteRule                                                                                        events:ListTargetsByRule                                                                                        events:RemoveTargets"
+      ]
+    },
+    {
+      "name": "DeleteQuickConnect",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html",
+      "description": "Grants permission to delete a quick connect in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "quick-connect*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSecurityProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteSecurityProfile.html",
+      "description": "Grants permission to delete a security profile in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "security-profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteUseCase",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUseCase.html",
+      "description": "Grants permission to delete a use case from an integration association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*",
+        "use-case*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": [
+        "connect:DescribeInstance                                                                                        ds:DescribeDirectories"
+      ]
+    },
+    {
+      "name": "DeleteUser",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUser.html",
+      "description": "Grants permission to delete a user in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteUserHierarchyGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUserHierarchyGroup.html",
+      "description": "Grants permission to delete a user hierarchy group in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hierarchy-group*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAgentStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeAgentStatus.html",
+      "description": "Grants permission to describe agent status in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "agent-status*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeContact",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeContact.html",
+      "description": "Grants permission to describe a contact in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "contact*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeContactFlow",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeContactFlow.html",
+      "description": "Grants permission to describe a contact flow in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "contact-flow*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeContactFlowModule",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeContactFlowModule.html",
+      "description": "Grants permission to describe a contact flow module in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "contact-flow-module*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeHoursOfOperation",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeHoursOfOperation.html",
+      "description": "Grants permission to describe hours of operation in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "hours-of-operation*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to view details of an Amazon Connect instance and is also required to create an instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ds:DescribeDirectories"
+      ]
+    },
+    {
+      "name": "DescribeInstanceAttribute",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to view the attribute details of an existing Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:AttributeType",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeInstanceStorageConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to view the instance storage configuration for an existing Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:StorageResourceType",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeQueue.html",
+      "description": "Grants permission to describe a queue in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeQuickConnect",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeQuickConnect.html",
+      "description": "Grants permission to describe a quick connect in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "quick-connect*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRoutingProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html",
+      "description": "Grants permission to describe a routing profile in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "routing-profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSecurityProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeSecurityProfile.html",
+      "description": "Grants permission to describe a security profile in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "security-profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeUser",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html",
+      "description": "Grants permission to describe a user in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeUserHierarchyGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUserHierarchyGroup.html",
+      "description": "Grants permission to describe a hierarchy group for an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "hierarchy-group*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeUserHierarchyStructure",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUserHierarchyStructure.html",
+      "description": "Grants permission to describe the hierarchy structure for an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateApprovedOrigin",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to disassociate approved origin for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateBot",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to disassociate a Lex bot for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": [
+        "iam:AttachRolePolicy                                                                                        iam:CreateServiceLinkedRole                                                                                        iam:PutRolePolicy                                                                                        lex:DeleteResourcePolicy                                                                                        lex:UpdateResourcePolicy"
+      ]
+    },
+    {
+      "name": "DisassociateCustomerProfilesDomain",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to disassociate a Customer Profiles domain for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:AttachRolePolicy                                                                                        iam:DeleteRolePolicy                                                                                        iam:DetachRolePolicy                                                                                        iam:GetPolicy                                                                                        iam:GetPolicyVersion                                                                                        iam:GetRolePolicy"
+      ]
+    },
+    {
+      "name": "DisassociateInstanceStorageConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to disassociate instance storage for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:StorageResourceType",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateLambdaFunction",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to disassociate a Lambda function for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": [
+        "lambda:RemovePermission"
+      ]
+    },
+    {
+      "name": "DisassociateLexBot",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to disassociate a Lex bot for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": [
+        "iam:AttachRolePolicy                                                                                        iam:CreateServiceLinkedRole                                                                                        iam:PutRolePolicy"
+      ]
+    },
+    {
+      "name": "DisassociateQueueQuickConnects",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateQueueQuickConnects.html",
+      "description": "Grants permission to disassociate quick connects from a queue in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*",
+        "quick-connect*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateRoutingProfileQueues",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateRoutingProfileQueues.html",
+      "description": "Grants permission to disassociate queues from a routing profile in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "routing-profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateSecurityKey",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to disassociate the security key for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetContactAttributes",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_GetContactAttributes.html",
+      "description": "Grants permission to retrieve the contact attributes for the specified contact",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "contact*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCurrentMetricData",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_GetCurrentMetricData.html",
+      "description": "Grants permission to retrieve current metric data for the queues in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetFederationToken",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_GetFederationToken.html",
+      "description": "Grants permission to federate into an Amazon Connect instance when using SAML-based authentication for identity management",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetFederationTokens",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/emergency-admin-login.html",
+      "description": "Grants permission to federate into an Amazon Connect instance (Log in for emergency access functionality in the Amazon Connect console)",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "connect:DescribeInstance                                                                                        connect:ListInstances                                                                                        ds:DescribeDirectories"
+      ]
+    },
+    {
+      "name": "GetMetricData",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html",
+      "description": "Grants permission to retrieve historical metric data for queues in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAgentStatuses",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListAgentStatuses.html",
+      "description": "Grants permission to list agent statuses in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "wildcard-agent-status*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListApprovedOrigins",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to view approved origins of an existing Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListBots",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to view the Lex bots of an existing Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListContactFlowModules",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListContactFlowModules.html",
+      "description": "Grants permission to list contact flow module resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListContactFlows",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListContactFlows.html",
+      "description": "Grants permission to list contact flow resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "wildcard-contact-flow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListContactReferences",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListContactReferences.html",
+      "description": "Grants permission to list references associated with a contact in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "contact*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHoursOfOperations",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListHoursOfOperations.html",
+      "description": "Grants permission to list hours of operation resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListInstanceAttributes",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to view the attributes of an existing Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListInstanceStorageConfigs",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to view storage configurations of an existing Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListInstances",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to view the Amazon Connect instances associated with an AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ds:DescribeDirectories"
+      ]
+    },
+    {
+      "name": "ListIntegrationAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListIntegrationAssociations.html",
+      "description": "Grants permission to list summary information about the integration associations for the specified Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": [
+        "connect:DescribeInstance                                                                                        ds:DescribeDirectories"
+      ]
+    },
+    {
+      "name": "ListLambdaFunctions",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to view the Lambda functions of an existing Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLexBots",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to view the Lex bots of an existing Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPhoneNumbers",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html",
+      "description": "Grants permission to list phone number resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "wildcard-phone-number*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPrompts",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPrompts.html",
+      "description": "Grants permission to list prompt resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListQueueQuickConnects",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListQueueQuickConnects.html",
+      "description": "Grants permission to list quick connect resources in a queue in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListQueues",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListQueues.html",
+      "description": "Grants permission to list queue resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "wildcard-queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListQuickConnects",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListQuickConnects.html",
+      "description": "Grants permission to list quick connect resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "wildcard-quick-connect*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRealtimeContactAnalysisSegments",
+      "documentationUrl": "https://docs.aws.amazon.com/contact-lens/latest/APIReference/API_ListRealtimeContactAnalysisSegments.html",
+      "description": "Grants permission to list the analysis segments for a real-time analysis session",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "contact*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRoutingProfileQueues",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListRoutingProfileQueues.html",
+      "description": "Grants permission to list queue resources in a routing profile in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "routing-profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRoutingProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListRoutingProfiles.html",
+      "description": "Grants permission to list routing profile resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSecurityKeys",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to view the security keys of an existing Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSecurityProfilePermissions",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListSecurityProfilePermissions.html",
+      "description": "Grants permission to list permissions associated with security profile in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "security-profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSecurityProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListSecurityProfiles.html",
+      "description": "Grants permission to list security profile resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for an Amazon Connect resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "agent-status",
+        "contact-flow",
+        "contact-flow-module",
+        "hours-of-operation",
+        "integration-association",
+        "queue",
+        "quick-connect",
+        "routing-profile",
+        "security-profile",
+        "use-case",
+        "user"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListUseCases",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListUseCases.html",
+      "description": "Grants permission to list the use cases of an integration association",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": [
+        "connect:DescribeInstance                                                                                        ds:DescribeDirectories"
+      ]
+    },
+    {
+      "name": "ListUserHierarchyGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListUserHierarchyGroups.html",
+      "description": "Grants permission to list the hierarchy group resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListUsers",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListUsers.html",
+      "description": "Grants permission to list user resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ResumeContactRecording",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ResumeContactRecording.html",
+      "description": "Grants permission to resume recording for the specified contact",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartChatContact",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html",
+      "description": "Grants permission to initiate a chat using the Amazon Connect API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartContactRecording",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactRecording.html",
+      "description": "Grants permission to start recording for the specified contact",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartOutboundVoiceContact",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundVoiceContact.html",
+      "description": "Grants permission to initiate outbound calls using the Amazon Connect API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartTaskContact",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_StartTaskContact.html",
+      "description": "Grants permission to initiate a task using the Amazon Connect API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StopContact",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_StopContact.html",
+      "description": "Grants permission to stop contacts that were initiated using the Amazon Connect API. If you use this operation on an active contact the contact ends, even if the agent is active on a call with a customer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StopContactRecording",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_StopContactRecording.html",
+      "description": "Grants permission to stop recording for the specified contact",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SuspendContactRecording",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SuspendContactRecording.html",
+      "description": "Grants permission to suspend recording for the specified contact",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag an Amazon Connect resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "agent-status",
+        "contact-flow",
+        "contact-flow-module",
+        "hours-of-operation",
+        "integration-association",
+        "queue",
+        "quick-connect",
+        "routing-profile",
+        "security-profile",
+        "use-case",
+        "user"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag an Amazon Connect resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "agent-status",
+        "contact-flow",
+        "contact-flow-module",
+        "hours-of-operation",
+        "integration-association",
+        "queue",
+        "quick-connect",
+        "routing-profile",
+        "security-profile",
+        "use-case",
+        "user"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAgentStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateAgentStatus.html",
+      "description": "Grants permission to update agent status in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent-status*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateContact",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContact.html",
+      "description": "Grants permission to update a contact in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateContactAttributes",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContactAttributes.html",
+      "description": "Grants permission to create or update the contact attributes associated with the specified contact",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateContactFlowContent",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContactFlowContent.html",
+      "description": "Grants permission to update contact flow content in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateContactFlowMetadata",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContactFlowMetadata.html",
+      "description": "Grants permission to update the metadata of a contact flow in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateContactFlowModuleMetadata",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContactFlowModuleMetadata.html",
+      "description": "Grants permission to update the metadata of a contact flow module in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow-module*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateContactFlowName",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContactFlowName.html",
+      "description": "Grants permission to update the name and description of a contact flow in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateContactSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContactSchedule.html",
+      "description": "Grants permission to update the schedule of a contact that is already scheduled in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateHoursOfOperation",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateHoursOfOperation.html",
+      "description": "Grants permission to update hours of operation in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hours-of-operation*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateInstanceAttribute",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to update the attribute for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:AttributeType",
+        "connect:InstanceId"
+      ],
+      "dependentActions": [
+        "ds:DescribeDirectories                                                                                        iam:AttachRolePolicy                                                                                        iam:CreateServiceLinkedRole                                                                                        iam:PutRolePolicy                                                                                        logs:CreateLogGroup"
+      ]
+    },
+    {
+      "name": "UpdateInstanceStorageConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to update the storage configuration for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:StorageResourceType",
+        "connect:InstanceId"
+      ],
+      "dependentActions": [
+        "ds:DescribeDirectories                                                                                        firehose:DescribeDeliveryStream                                                                                        iam:AttachRolePolicy                                                                                        iam:CreateServiceLinkedRole                                                                                        iam:PutRolePolicy                                                                                        kinesis:DescribeStream                                                                                        kms:CreateGrant                                                                                        kms:DescribeKey                                                                                        s3:GetBucketAcl                                                                                        s3:GetBucketLocation"
+      ]
+    },
+    {
+      "name": "UpdateQueueHoursOfOperation",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueHoursOfOperation.html",
+      "description": "Grants permission to update queue hours of operation in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hours-of-operation*",
+        "queue*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateQueueMaxContacts",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueMaxContacts.html",
+      "description": "Grants permission to update queue capacity in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateQueueName",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueName.html",
+      "description": "Grants permission to update a queue name and description in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateQueueOutboundCallerConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueOutboundCallerConfig.html",
+      "description": "Grants permission to update queue outbound caller config in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*",
+        "contact-flow",
+        "phone-number"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateQueueStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueStatus.html",
+      "description": "Grants permission to update queue status in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateQuickConnectConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQuickConnectConfig.html",
+      "description": "Grants permission to update the configuration of a quick connect in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "quick-connect*",
+        "contact-flow",
+        "queue",
+        "user"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateQuickConnectName",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQuickConnectName.html",
+      "description": "Grants permission to update a quick connect name and description in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "quick-connect*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRoutingProfileConcurrency",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateRoutingProfileConcurrency.html",
+      "description": "Grants permission to update the concurrency in a routing profile in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "routing-profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRoutingProfileDefaultOutboundQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateRoutingProfileDefaultOutboundQueue.html",
+      "description": "Grants permission to update the outbound queue in a routing profile in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*",
+        "routing-profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRoutingProfileName",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateRoutingProfileName.html",
+      "description": "Grants permission to update a routing profile name and description in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "routing-profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRoutingProfileQueues",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateRoutingProfileQueues.html",
+      "description": "Grants permission to update the queues in routing profile in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "routing-profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSecurityProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateSecurityProfile.html",
+      "description": "Grants permission to update a security profile group for a user in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "security-profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateUserHierarchy",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserHierarchy.html",
+      "description": "Grants permission to update a hierarchy group for a user in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*",
+        "hierarchy-group"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateUserHierarchyGroupName",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserHierarchyGroupName.html",
+      "description": "Grants permission to update a user hierarchy group name in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hierarchy-group*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateUserHierarchyStructure",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserHierarchyStructure.html",
+      "description": "Grants permission to update user hierarchy structure in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateUserIdentityInfo",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html",
+      "description": "Grants permission to update identity information for a user in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateUserPhoneConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserPhoneConfig.html",
+      "description": "Grants permission to update phone configuration settings for a user in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateUserRoutingProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserRoutingProfile.html",
+      "description": "Grants permission to update a routing profile for a user in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "routing-profile*",
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateUserSecurityProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserSecurityProfiles.html",
+      "description": "Grants permission to update security profiles for a user in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "security-profile*",
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatedescribeContent",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatedescribeContent.html",
+      "description": "Grants permission to update contact flow module content in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow-module*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

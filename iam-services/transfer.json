@@ -1,0 +1,375 @@
+{
+  "serviceName": "AWS Transfer Family",
+  "servicePrefix": "transfer",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awstransferfamily.html",
+  "actions": [
+    {
+      "name": "CreateAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_CreateAccess.html",
+      "description": "Grants permission to add an access associated with a server",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "server*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateServer",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_CreateServer.html",
+      "description": "Grants permission to create a server",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateUser",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_CreateUser.html",
+      "description": "Grants permission to add a user associated with a server",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "server*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateWorkflow",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_CreateWorkflow.html",
+      "description": "Grants permission to create a workflow",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DeleteAccess.html",
+      "description": "Grants permission to delete access",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "server*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteServer",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DeleteServer.html",
+      "description": "Grants permission to delete a server",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "server*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSshPublicKey",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DeleteSshPublicKey.html",
+      "description": "Grants permission to delete an SSH public key from a user",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteUser",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DeleteUser.html",
+      "description": "Grants permission to delete a user associated with a server",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWorkflow",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DeleteWorkflow.html",
+      "description": "Grants permission to delete a workflow",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeAccess.html",
+      "description": "Grants permission to describe an access assigned to a server",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "server*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeExecution.html",
+      "description": "Grants permission to describe an execution associated with a workflow",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSecurityPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeSecurityPolicy.html",
+      "description": "Grants permission to describe a security policy",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeServer",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeServer.html",
+      "description": "Grants permission to describe a server",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "server*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeUser",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeUser.html",
+      "description": "Grants permission to describe a user associated with a server",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorkflow",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeWorkflow.html",
+      "description": "Grants permission to describe a workflow",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ImportSshPublicKey",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ImportSshPublicKey.html",
+      "description": "Grants permission to add an SSH public key to a user",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAccesses",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListAccesses.html",
+      "description": "Grants permission to list accesses",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "server*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExecutions",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListExecutions.html",
+      "description": "Grants permission to list executions associated with a workflow",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSecurityPolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListSecurityPolicies.html",
+      "description": "Grants permission to list security policies",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListServers",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListServers.html",
+      "description": "Grants permission to list servers",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a server, a user, or a workflow",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "server",
+        "user",
+        "workflow"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListUsers",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListUsers.html",
+      "description": "Grants permission to list users associated with a server",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "server*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWorkflows",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListWorkflows.html",
+      "description": "Grants permission to list workflows",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SendWorkflowStepState",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_SendWorkflowStepState.html",
+      "description": "Grants permission to send a callback for asynchronous custom steps",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartServer",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_StartServer.html",
+      "description": "Grants permission to start a server",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "server*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopServer",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_StopServer.html",
+      "description": "Grants permission to stop a server",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "server*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_TagResource.html",
+      "description": "Grants permission to tag a server or a user",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "server",
+        "user",
+        "workflow"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TestIdentityProvider",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_TestIdentityProvider.html",
+      "description": "Grants permission to test a server's custom identity provider",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_UntagResource.html",
+      "description": "Grants permission to untag a server, a user, or a workflow",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "server",
+        "user",
+        "workflow"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateAccess.html",
+      "description": "Grants permission to update access",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdateServer",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html",
+      "description": "Grants permission to update the configuration of a server",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "server*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdateUser",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateUser.html",
+      "description": "Grants permission to update the configuration of a user",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    }
+  ]
+}

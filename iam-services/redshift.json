@@ -1,0 +1,1359 @@
+{
+  "serviceName": "Amazon Redshift",
+  "servicePrefix": "redshift",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonredshift.html",
+  "actions": [
+    {
+      "name": "AcceptReservedNodeExchange",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_AcceptReservedNodeExchange.html",
+      "description": "Grants permission to exchange a DC1 reserved node for a DC2 reserved node with no changes to the configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateDataShareConsumer",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_AssociateDataShareConsumer.html",
+      "description": "Grants permission to associate a consumer to a datashare",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "datashare*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AuthorizeClusterSecurityGroupIngress",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeClusterSecurityGroupIngress.html",
+      "description": "Grants permission to add an inbound (ingress) rule to an Amazon Redshift security group",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "securitygroup*",
+        "securitygroupingress-ec2securitygroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AuthorizeDataShare",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeDataShare.html",
+      "description": "Grants permission to authorize the specified datashare consumer to consume a datashare",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "datashare*"
+      ],
+      "conditionKeys": [
+        "redshift:ConsumerIdentifier"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AuthorizeSnapshotAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeSnapshotAccess.html",
+      "description": "Grants permission to the specified AWS account to restore a snapshot",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchDeleteClusterSnapshots",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_BatchDeleteClusterSnapshots.html",
+      "description": "Grants permission to delete snapshots in a batch of size upto 100",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchModifyClusterSnapshots",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_BatchModifyClusterSnapshots.html",
+      "description": "Grants permission to modify settings for a list of snapshots",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to cancel a query through the Amazon Redshift console",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelQuerySession",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to see queries in the Amazon Redshift console",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelResize",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CancelResize.html",
+      "description": "Grants permission to cancel a resize operation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CopyClusterSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CopyClusterSnapshot.html",
+      "description": "Grants permission to copy a cluster snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAuthenticationProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateAuthenticationProfile.html",
+      "description": "Grants permission to create an Amazon Redshift authentication profile",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateCluster.html",
+      "description": "Grants permission to create a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateClusterParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterParameterGroup.html",
+      "description": "Grants permission to create an Amazon Redshift parameter group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateClusterSecurityGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSecurityGroup.html",
+      "description": "Grants permission to create an Amazon Redshift security group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "securitygroup*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateClusterSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSnapshot.html",
+      "description": "Grants permission to create a manual snapshot of the specified cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateClusterSubnetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSubnetGroup.html",
+      "description": "Grants permission to create an Amazon Redshift subnet group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "subnetgroup*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateClusterUser",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/generating-iam-credentials-role-permissions.html",
+      "description": "Grants permission to automatically create the specified Amazon Redshift user if it does not exist",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "dbuser*"
+      ],
+      "conditionKeys": [
+        "redshift:DbUser"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEventSubscription",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateEventSubscription.html",
+      "description": "Grants permission to create an Amazon Redshift event notification subscription",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "eventsubscription*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateHsmClientCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHsmClientCertificate.html",
+      "description": "Grants permission to create an HSM client certificate that a cluster uses to connect to an HSM",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hsmclientcertificate*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateHsmConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateHsmConfiguration.html",
+      "description": "Grants permission to create an HSM configuration that contains information required by a cluster to store and use database encryption keys in a hardware security module (HSM)",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hsmconfiguration*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSavedQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to create saved SQL queries through the Amazon Redshift console",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateScheduledAction",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateScheduledAction.html",
+      "description": "Grants permission to create an Amazon Redshift scheduled action",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSnapshotCopyGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateSnapshotCopyGrant.html",
+      "description": "Grants permission to create a snapshot copy grant and encrypt copied snapshots in a destination AWS Region",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "snapshotcopygrant*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSnapshotSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateSnapshotSchedule.html",
+      "description": "Grants permission to create a snapshot schedule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshotschedule*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTags",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateTags.html",
+      "description": "Grants permission to add one or more tags to a specified resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "cluster",
+        "dbgroup",
+        "dbname",
+        "dbuser",
+        "eventsubscription",
+        "hsmclientcertificate",
+        "hsmconfiguration",
+        "parametergroup",
+        "securitygroup",
+        "securitygroupingress-cidr",
+        "securitygroupingress-ec2securitygroup",
+        "snapshot",
+        "snapshotcopygrant",
+        "snapshotschedule",
+        "subnetgroup",
+        "usagelimit"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateUsageLimit",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateUsageLimit.html",
+      "description": "Grants permission to create a usage limit",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "usagelimit*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeauthorizeDataShare",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeauthorizeDataShare.html",
+      "description": "Grants permission to remove permission from the specified datashare consumer to consume a datashare",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "datashare*"
+      ],
+      "conditionKeys": [
+        "redshift:ConsumerIdentifier"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAuthenticationProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/API_DeleteAuthenticationProfile.html",
+      "description": "Grants permission to delete an Amazon Redshift authentication profile",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteCluster.html",
+      "description": "Grants permission to delete a previously provisioned cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteClusterParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterParameterGroup.html",
+      "description": "Grants permission to delete an Amazon Redshift parameter group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteClusterSecurityGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSecurityGroup.html",
+      "description": "Grants permission to delete an Amazon Redshift security group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "securitygroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteClusterSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSnapshot.html",
+      "description": "Grants permission to delete a manual snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteClusterSubnetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSubnetGroup.html",
+      "description": "Grants permission to delete a cluster subnet group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "subnetgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEventSubscription",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteEventSubscription.html",
+      "description": "Grants permission to delete an Amazon Redshift event notification subscription",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "eventsubscription*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteHsmClientCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteHsmClientCertificate.html",
+      "description": "Grants permission to delete an HSM client certificate",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hsmclientcertificate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteHsmConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteHsmConfiguration.html",
+      "description": "Grants permission to delete an Amazon Redshift HSM configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hsmconfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSavedQueries",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to delete saved SQL queries through the Amazon Redshift console",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteScheduledAction",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/API_DeleteScheduledAction.html",
+      "description": "Grants permission to delete an Amazon Redshift scheduled action",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSnapshotCopyGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteSnapshotCopyGrant.html",
+      "description": "Grants permission to delete a snapshot copy grant",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshotcopygrant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSnapshotSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteSnapshotSchedule.html",
+      "description": "Grants permission to delete a snapshot schedule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshotschedule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTags",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteTags.html",
+      "description": "Grants permission to delete a tag or tags from a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "cluster",
+        "dbgroup",
+        "dbname",
+        "dbuser",
+        "eventsubscription",
+        "hsmclientcertificate",
+        "hsmconfiguration",
+        "parametergroup",
+        "securitygroup",
+        "securitygroupingress-cidr",
+        "securitygroupingress-ec2securitygroup",
+        "snapshot",
+        "snapshotcopygrant",
+        "snapshotschedule",
+        "subnetgroup",
+        "usagelimit"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteUsageLimit",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteUsageLimit.html",
+      "description": "Grants permission to delete a usage limit",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "usagelimit*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAccountAttributes",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeAccountAttributes.html",
+      "description": "Grants permission to describe attributes attached to the specified AWS account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAuthenticationProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/API_DescribeAuthenticationProfiles.html",
+      "description": "Grants permission to describe created Amazon Redshift authentication profiles",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeClusterDbRevisions",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterDbRevisions.html",
+      "description": "Grants permission to describe database revisions for a cluster",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeClusterParameterGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameterGroups.html",
+      "description": "Grants permission to describe Amazon Redshift parameter groups, including parameter groups you created and the default parameter group",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeClusterParameters",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameters.html",
+      "description": "Grants permission to describe parameters contained within an Amazon Redshift parameter group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeClusterSecurityGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSecurityGroups.html",
+      "description": "Grants permission to describe Amazon Redshift security groups",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeClusterSnapshots",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSnapshots.html",
+      "description": "Grants permission to describe one or more snapshot objects, which contain metadata about your cluster snapshots",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeClusterSubnetGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSubnetGroups.html",
+      "description": "Grants permission to describe one or more cluster subnet group objects, which contain metadata about your cluster subnet groups",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeClusterTracks",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterTracks.html",
+      "description": "Grants permission to describe available maintenance tracks",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeClusterVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterVersions.html",
+      "description": "Grants permission to describe available Amazon Redshift cluster versions",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeClusters",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusters.html",
+      "description": "Grants permission to describe properties of provisioned clusters",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDataShares",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeDataShares.html",
+      "description": "Grants permission to describe datashares created and consumed by your clusters",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDataSharesForConsumer",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeDataSharesForConsumer.html",
+      "description": "Grants permission to describe only datashares consumed by your clusters",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDataSharesForProducer",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeDataSharesForProducer.html",
+      "description": "Grants permission to describe only datashares created by your clusters",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDefaultClusterParameters",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeDefaultClusterParameters.html",
+      "description": "Grants permission to describe parameter settings for a parameter group family",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEventCategories",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventCategories.html",
+      "description": "Grants permission to describe event categories for all event source types, or for a specified source type",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEventSubscriptions",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventSubscriptions.html",
+      "description": "Grants permission to describe Amazon Redshift event notification subscriptions for the specified AWS account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEvents",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEvents.html",
+      "description": "Grants permission to describe events related to clusters, security groups, snapshots, and parameter groups for the past 14 days",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeHsmClientCertificates",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHsmClientCertificates.html",
+      "description": "Grants permission to describe HSM client certificates",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeHsmConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHsmConfigurations.html",
+      "description": "Grants permission to describe Amazon Redshift HSM configurations",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeLoggingStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeLoggingStatus.html",
+      "description": "Grants permission to describe whether information, such as queries and connection attempts, is being logged for a cluster",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeNodeConfigurationOptions",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeNodeConfigurationOptions.html",
+      "description": "Grants permission to describe properties of possible node configurations such as node type, number of nodes, and disk usage for the specified action type",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeOrderableClusterOptions",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeOrderableClusterOptions.html",
+      "description": "Grants permission to describe orderable cluster options",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to describe a query through the Amazon Redshift console",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReservedNodeOfferings",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodeOfferings.html",
+      "description": "Grants permission to describe available reserved node offerings by Amazon Redshift",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReservedNodes",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodes.html",
+      "description": "Grants permission to describe the reserved nodes",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeResize",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeResize.html",
+      "description": "Grants permission to describe the last resize operation for a cluster",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSavedQueries",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to describe saved queries through the Amazon Redshift console",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeScheduledActions",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/API_DescribeScheduledActions.html",
+      "description": "Grants permission to describe created Amazon Redshift scheduled actions",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSnapshotCopyGrants",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeSnapshotCopyGrants.html",
+      "description": "Grants permission to describe snapshot copy grants owned by the specified AWS account in the destination AWS Region",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSnapshotSchedules",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeSnapshotSchedules.html",
+      "description": "Grants permission to describe snapshot schedules",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "snapshotschedule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStorage",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeStorage.html",
+      "description": "Grants permission to describe account level backups storage size and provisional storage",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTable",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to describe a table through the Amazon Redshift console",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTableRestoreStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeTableRestoreStatus.html",
+      "description": "Grants permission to describe status of one or more table restore requests made using the RestoreTableFromClusterSnapshot API action",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTags",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeTags.html",
+      "description": "Grants permission to describe tags",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster",
+        "dbgroup",
+        "dbname",
+        "dbuser",
+        "eventsubscription",
+        "hsmclientcertificate",
+        "hsmconfiguration",
+        "parametergroup",
+        "securitygroup",
+        "securitygroupingress-cidr",
+        "securitygroupingress-ec2securitygroup",
+        "snapshot",
+        "snapshotcopygrant",
+        "snapshotschedule",
+        "subnetgroup",
+        "usagelimit"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeUsageLimits",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeUsageLimits.html",
+      "description": "Grants permission to describe usage limits",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "usagelimit*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisableLogging",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DisableLogging.html",
+      "description": "Grants permission to disable logging information, such as queries and connection attempts, for a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisableSnapshotCopy",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DisableSnapshotCopy.html",
+      "description": "Grants permission to disable the automatic copy of snapshots for a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateDataShareConsumer",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DisassociateDataShareConsumer.html",
+      "description": "Grants permission to disassociate a consumer from a datashare",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "datashare*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "EnableLogging",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableLogging.html",
+      "description": "Grants permission to enable logging information, such as queries and connection attempts, for a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "EnableSnapshotCopy",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableSnapshotCopy.html",
+      "description": "Grants permission to enable the automatic copy of snapshots for a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ExecuteQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to execute a query through the Amazon Redshift console",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "FetchResults",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to fetch query results through the Amazon Redshift console",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetClusterCredentials",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html",
+      "description": "Grants permission to get temporary credentials to access an Amazon Redshift database by the specified AWS account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dbuser*",
+        "dbgroup",
+        "dbname"
+      ],
+      "conditionKeys": [
+        "redshift:DbName",
+        "redshift:DbUser",
+        "redshift:DurationSeconds"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetReservedNodeExchangeOfferings",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetReservedNodeExchangeOfferings.html",
+      "description": "Grants permission to get an array of DC2 ReservedNodeOfferings that matches the payment type, term, and usage price of the given DC1 reserved node",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "JoinGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetClusterCredentials.html",
+      "description": "Grants permission to join the specified Amazon Redshift group",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "dbgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDatabases",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to list databases through the Amazon Redshift console",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSavedQueries",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to list saved queries through the Amazon Redshift console",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSchemas",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to list schemas through the Amazon Redshift console",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTables",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to list tables through the Amazon Redshift console",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyAquaConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyAquaConfiguration.html",
+      "description": "Grants permission to modify the AQUA configuration of a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyAuthenticationProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyAuthenticationProfile.html",
+      "description": "Grants permission to modify an existing Amazon Redshift authentication profile",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyCluster.html",
+      "description": "Grants permission to modify the settings of a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyClusterDbRevision",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterDbRevision.html",
+      "description": "Grants permission to modify the database revision of a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyClusterIamRoles",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterIamRoles.html",
+      "description": "Grants permission to modify the list of AWS Identity and Access Management (IAM) roles that can be used by a cluster to access other AWS services",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyClusterMaintenance",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterMaintenance.html",
+      "description": "Grants permission to modify the maintenance settings of a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyClusterParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterParameterGroup.html",
+      "description": "Grants permission to modify the parameters of a parameter group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyClusterSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterSnapshot.html",
+      "description": "Grants permission to modify the settings of a snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyClusterSnapshotSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterSnapshotSchedule.html",
+      "description": "Grants permission to modify a snapshot schedule for a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyClusterSubnetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterSubnetGroup.html",
+      "description": "Grants permission to modify a cluster subnet group to include the specified list of VPC subnets",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "subnetgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyEventSubscription",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyEventSubscription.html",
+      "description": "Grants permission to modify an existing Amazon Redshift event notification subscription",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "eventsubscription*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifySavedQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to modify an existing saved query through the Amazon Redshift console",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyScheduledAction",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyScheduledAction.html",
+      "description": "Grants permission to modify an existing Amazon Redshift scheduled action",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifySnapshotCopyRetentionPeriod",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifySnapshotCopyRetentionPeriod.html",
+      "description": "Grants permission to modify the number of days to retain snapshots in the destination AWS Region after they are copied from the source AWS Region",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifySnapshotSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifySnapshotSchedule.html",
+      "description": "Grants permission to modify a snapshot schedule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshotschedule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyUsageLimit",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyUsageLimit.html",
+      "description": "Grants permission to modify a usage limit",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "usagelimit*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PauseCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_PauseCluster.html",
+      "description": "Grants permission to pause a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PurchaseReservedNodeOffering",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_PurchaseReservedNodeOffering.html",
+      "description": "Grants permission to purchase a reserved node",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RebootCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_RebootCluster.html",
+      "description": "Grants permission to reboot a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RejectDataShare",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_RejectDataShare.html",
+      "description": "Grants permission to decline a datashare shared from another account",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "datashare*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ResetClusterParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ResetClusterParameterGroup.html",
+      "description": "Grants permission to set one or more parameters of a parameter group to their default values and set the source values of the parameters to \"engine-default\"",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "parametergroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ResizeCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ResizeCluster.html",
+      "description": "Grants permission to change the size of a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RestoreFromClusterSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_RestoreFromClusterSnapshot.html",
+      "description": "Grants permission to create a cluster from a snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RestoreTableFromClusterSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_RestoreTableFromClusterSnapshot.html",
+      "description": "Grants permission to create a table from a table in an Amazon Redshift cluster snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "snapshot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ResumeCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ResumeCluster.html",
+      "description": "Grants permission to resume a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RevokeClusterSecurityGroupIngress",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeClusterSecurityGroupIngress.html",
+      "description": "Grants permission to revoke an ingress rule in an Amazon Redshift security group for a previously authorized IP range or Amazon EC2 security group",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "securitygroup*",
+        "securitygroupingress-ec2securitygroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RevokeSnapshotAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeSnapshotAccess.html",
+      "description": "Grants permission to revoke access from the specified AWS account to restore a snapshot",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RotateEncryptionKey",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_RotateEncryptionKey.html",
+      "description": "Grants permission to rotate an encryption key for a cluster",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ViewQueriesFromConsole",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to view query results through the Amazon Redshift console",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ViewQueriesInConsole",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to terminate running queries and loads through the Amazon Redshift console",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

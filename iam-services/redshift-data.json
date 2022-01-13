@@ -1,0 +1,117 @@
+{
+  "serviceName": "Amazon Redshift Data API",
+  "servicePrefix": "redshift-data",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonredshiftdataapi.html",
+  "actions": [
+    {
+      "name": "BatchExecuteStatement",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_BatchExecuteStatement.html",
+      "description": "Grants permission to execute multiple queries under a single connection.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelStatement",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_CancelStatement.html",
+      "description": "Grants permission to cancel a running query",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "redshift-data:statement-owner-iam-userid"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStatement",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_DescribeStatement.html",
+      "description": "Grants permission to retrieve detailed information about a statement execution",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "redshift-data:statement-owner-iam-userid"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTable",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_DescribeTable.html",
+      "description": "Grants permission to retrieve metadata about a particular table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ExecuteStatement",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_ExecuteStatement.html",
+      "description": "Grants permission to execute a query",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetStatementResult",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_GetStatementResult.html",
+      "description": "Grants permission to fetch the result of a query",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "redshift-data:statement-owner-iam-userid"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDatabases",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_ListDatabases.html",
+      "description": "Grants permission to list databases for a given cluster",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSchemas",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_ListSchemas.html",
+      "description": "Grants permission to list schemas for a given cluster",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStatements",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_ListStatements.html",
+      "description": "Grants permission to list queries for a given principal",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "redshift-data:statement-owner-iam-userid"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTables",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_ListTables.html",
+      "description": "Grants permission to list tables for a given cluster",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

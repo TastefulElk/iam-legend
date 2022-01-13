@@ -1,0 +1,325 @@
+{
+  "serviceName": "Amazon DynamoDB Accelerator (DAX)",
+  "servicePrefix": "dax",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazondynamodbacceleratordax.html",
+  "actions": [
+    {
+      "name": "BatchGetItem",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchGetItem.html",
+      "description": "The BatchGetItem action returns the attributes of one or more items from one or more tables.",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchWriteItem",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchWriteItem.html",
+      "description": "The BatchWriteItem action operation puts or deletes multiple items in one or more tables.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ConditionCheckItem",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ConditionCheckItem.html",
+      "description": "The ConditionCheckItem operation checks the existence of a set of attributes for the item with the given primary key",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_CreateCluster.html",
+      "description": "The CreateCluster action creates a DAX cluster.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dax:CreateParameterGroup                                                                                        dax:CreateSubnetGroup                                                                                        ec2:CreateNetworkInterface                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DescribeNetworkInterfaces                                                                                        ec2:DescribeSecurityGroups                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs                                                                                        iam:GetRole                                                                                        iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_CreateParameterGroup.html",
+      "description": "The CreateParameterGroup action creates collection of parameters that you apply to all of the nodes in a DAX cluster.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSubnetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_CreateSubnetGroup.html",
+      "description": "The CreateSubnetGroup action creates a new subnet group.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DecreaseReplicationFactor",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_DecreaseReplicationFactor.html",
+      "description": "The DecreaseReplicationFactor action removes one or more nodes from a DAX cluster.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_DeleteCluster.html",
+      "description": "The DeleteCluster action deletes a previously provisioned DAX cluster.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteItem",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteItem.html",
+      "description": "The DeleteItem action deletes a single item in a table by primary key.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [
+        "dax:EnclosingOperation"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_DeleteParameterGroup.html",
+      "description": "The DeleteParameterGroup action deletes the specified parameter group.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSubnetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_DeleteSubnetGroup.html",
+      "description": "The DeleteSubnetGroup action deletes a subnet group.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeClusters",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_DescribeClusters.html",
+      "description": "The DescribeClusters action returns information about all provisioned DAX clusters.",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "application"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDefaultParameters",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_DescribeDefaultParameters.html",
+      "description": "The DescribeDefaultParameters action returns the default system parameter information for DAX.",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEvents",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_DescribeEvents.html",
+      "description": "The DescribeEvents action returns events related to DAX clusters and parameter groups.",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeParameterGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_DescribeParameterGroups.html",
+      "description": "The DescribeParameterGroups action returns a list of parameter group descriptions.",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeParameters",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_DescribeParameters.html",
+      "description": "The DescribeParameters action returns the detailed parameter list for a particular parameter group.",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSubnetGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_DescribeSubnetGroups.html",
+      "description": "The DescribeSubnetGroups action returns a list of subnet group descriptions.",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetItem",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html",
+      "description": "The GetItem action returns a set of attributes for the item with the given primary key.",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [
+        "dax:EnclosingOperation"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "IncreaseReplicationFactor",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_IncreaseReplicationFactor.html",
+      "description": "The IncreaseReplicationFactor action adds one or more nodes to a DAX cluster.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTags",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_ListTags.html",
+      "description": "The ListTags action returns a list all of the tags for a DAX cluster.",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutItem",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html",
+      "description": "The PutItem action creates a new item, or replaces an old item with a new item.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [
+        "dax:EnclosingOperation"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "Query",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Query.html",
+      "description": "The Query action finds items based on primary key values. You can query any table or secondary index that has a composite primary key (a partition key and a sort key).",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RebootNode",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_RebootNode.html",
+      "description": "The RebootNode action reboots a single node of a DAX cluster.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "Scan",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html",
+      "description": "The Scan action returns one or more items and item attributes by accessing every item in a table or a secondary index.",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_TagResource.html",
+      "description": "The TagResource action associates a set of tags with a DAX resource.",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_UntagResource.html",
+      "description": "The UntagResource action removes the association of tags from a DAX resource.",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_UpdateCluster.html",
+      "description": "The UpdateCluster action modifies the settings for a DAX cluster.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateItem",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html",
+      "description": "The UpdateItem action edits an existing item's attributes, or adds a new item to the table if it does not already exist.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [
+        "dax:EnclosingOperation"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_UpdateParameterGroup.html",
+      "description": "The UpdateParameterGroup action modifies the parameters of a parameter group.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSubnetGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_dax_UpdateSubnetGroup.html",
+      "description": "The UpdateSubnetGroup action modifies an existing subnet group.",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}
