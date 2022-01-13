@@ -35,12 +35,12 @@ const registerCompletionItemProviders = () => {
 
 const completionItemProvider: vscode.CompletionItemProvider = {
 	provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
-		if (!isInsideActionsArray(document, position)) { 
+		if (!isInsideActionsArray(document, position)) {
 			console.debug('outside actions array, not adding suggestions');
 			return [];
 		}
 		console.debug('inside actions array, adding suggestions');
-		
+
 		const serviceKeys = Object.keys(services);
 		const lineText = document.lineAt(position.line).text;
 
@@ -66,13 +66,13 @@ const completionItemProvider: vscode.CompletionItemProvider = {
 		const wordRange = document.getWordRangeAtPosition(position);
 		const word = document.getText(wordRange);
 
-		const labelPrefix = word.startsWith('"') 
-			? '"' : word.startsWith(`'`) 
-			? `'` : '';
-		
-		const labelSuffix = word.endsWith('"') 
-		? '"' : word.endsWith(`'`) 
-		? `'` : '';
+		const labelPrefix = word.startsWith('"')
+			? '"' : word.startsWith(`'`)
+				? `'` : '';
+
+		const labelSuffix = word.endsWith('"')
+			? '"' : word.endsWith(`'`)
+				? `'` : '';
 
 		const suggestions: vscode.CompletionItem[] = serviceKeys.map(service => ({
 			label: `${labelPrefix}${service}`,
@@ -105,12 +105,12 @@ const isInsideActionsArray = (document: vscode.TextDocument, position: vscode.Po
 		if (actionsFieldPattern.test(lineText)) {
 			return true;
 		}
-		
+
 		if (/^["-]/.test(lineText)) {
 			line--;
 			continue;
 		}
-		
+
 		return false;
 	}
 
@@ -124,10 +124,10 @@ const hoverProvider: vscode.HoverProvider = {
 		const emptyResult = { contents: [] };
 		if (!range) { return emptyResult; }
 
-		if (!isInsideActionsArray(document, position)) { 
+		if (!isInsideActionsArray(document, position)) {
 			return emptyResult;
 		}
-		
+
 		const word = document.getText(range);
 		const trimmedWord = word.replace(/"/g, '').replace(/'/g, '').trim();
 
@@ -159,7 +159,7 @@ const hoverProvider: vscode.HoverProvider = {
 
 		return {
 			contents: hoveredActions.length === 0
-				?	['No matching actions']
+				? ['No matching actions']
 				: hoveredActions.length === 1
 					? [formatActionDocumentation(hoveredActions[0])]
 					: [formatShortActionDocumentation(hoveredActions)]
@@ -202,7 +202,7 @@ const formatShortActionDocumentation = (actions: IamAction[]): string => {
 	entries.push('Multiple actions matched:');
 	entries.push('');
 
-	entries.push(actions.map(({name, documentationUrl, description}) => {
+	entries.push(actions.map(({ name, documentationUrl, description }) => {
 		const subject = documentationUrl ? `[${name}](${documentationUrl})` : `**${name}**`;
 		return `- ${subject}:	${description}`;
 	}).join(EOL));
