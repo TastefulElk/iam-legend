@@ -47,7 +47,8 @@ const completionItemProvider: vscode.CompletionItemProvider = {
 		const service = serviceKeys.find(x => lineText.includes(`${x}:`));
 		if (service) {
 			const serviceActions = services[service].actions;
-			const startIndex = lineText.indexOf(`${service}:`) + service.length + 1;
+			const actionStartIndex = lineText.indexOf(`${service}:`) + service.length + 1;
+
 			const suggestions: vscode.CompletionItem[] = serviceActions.map(action => ({
 				label: action.name,
 				kind: CompletionItemKind.Field,
@@ -56,7 +57,7 @@ const completionItemProvider: vscode.CompletionItemProvider = {
 				// Set explicit range as default behavior is to replace the whole current word.
 				// that causes the service prefix to be overwritten with the action so we instead
 				// set a range that starts from the current position instead
-				range: new vscode.Range(position.line, startIndex, position.line, position.character),
+				range: new vscode.Range(position.line, actionStartIndex, position.line, position.character),
 			}));
 
 			return { items: suggestions, isIncomplete: true };
@@ -69,15 +70,19 @@ const completionItemProvider: vscode.CompletionItemProvider = {
 			? '"' : word.startsWith(`'`) 
 			? `'` : '';
 		
-			const labelSuffix = word.endsWith('"') 
-			? '"' : word.endsWith(`'`) 
-			? `'` : '';
+		const labelSuffix = word.endsWith('"') 
+		? '"' : word.endsWith(`'`) 
+		? `'` : '';
 
 		const suggestions: vscode.CompletionItem[] = serviceKeys.map(service => ({
 			label: `${labelPrefix}${service}`,
 			filterText: `${labelPrefix}${service}${labelSuffix}`,
 			kind: CompletionItemKind.Module,
 			documentation: new vscode.MarkdownString(formatServiceDocumentation(services[service].serviceName, services[service].url)),
+			// Set explicit range as default behavior is to replace the whole current word.
+			// that causes the service prefix to overwrite the action if already present
+			// set a range that starts from the current position instead
+			range: new vscode.Range(position.line, wordRange?.start.character as number, position.line, position.character),
 		}));
 
 		return { items: suggestions, isIncomplete: true };
