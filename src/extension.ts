@@ -2,6 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import { CompletionItemKind } from 'vscode';
+import { EOL } from 'os';
 
 import { partialMatch, exactMatch } from './match';
 import { getActions, IamAction, IamService } from './iamActions';
@@ -166,32 +167,29 @@ const formatServiceDocumentation = (service: string, urlDocumentation: string) =
 
 const formatActionDocumentation = (action: IamAction): string => {
 	const entries = [];
-	entries.push(action.description);
-	entries.push('');
+	entries.push(`**${action.name}**${EOL}`);
+	entries.push(`${action.description}${EOL}`);
 
 	if (action.resourceTypes && action.resourceTypes.length) {
 		entries.push('Resource Types:');
-		entries.push(action.resourceTypes.map(x => '- ' + x).join('\n'));
-		entries.push('');
+		entries.push(action.resourceTypes.map(x => '- ' + x).join(EOL) + EOL);
 	}
 
 	if (action.conditionKeys && action.conditionKeys.length) {
 		entries.push('Condition Keys:');
-		entries.push(action.conditionKeys.map(x => '- ' + x).join('\n'));
-		entries.push('');
+		entries.push(action.conditionKeys.map(x => '- ' + x).join(EOL) + EOL);
 	}
 
 	if (action.dependentActions && action.dependentActions.length) {
 		entries.push('Dependent Actions:');
-		entries.push(action.dependentActions.map(x => '- ' + x).join('\n'));
-		entries.push('');
+		entries.push(action.dependentActions.map(x => '- ' + x).join(EOL) + EOL);
 	}
 
 	if (action.documentationUrl) {
 		entries.push(`[Read more](${action.documentationUrl})`);
 	}
 
-	return entries.join('\n');
+	return entries.join(EOL);
 };
 
 const formatShortActionDocumentation = (actions: IamAction[]): string => {
@@ -202,7 +200,7 @@ const formatShortActionDocumentation = (actions: IamAction[]): string => {
 	entries.push(actions.map(({name, documentationUrl, description}) => {
 		const subject = documentationUrl ? `[${name}](${documentationUrl})` : `**${name}**`;
 		return `- ${subject}:	${description}`;
-	}).join('\n'));
+	}).join(EOL));
 	return entries.join('\n');
 };
 
