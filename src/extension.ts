@@ -2,10 +2,10 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import { CompletionItemKind } from 'vscode';
-import { EOL } from 'os';
 
 import { match } from './match';
 import { getActions, IamAction, IamService } from './iamActions';
+import { createActionDocs, createActionsSummaryDocs, createServiceDocs } from './documentation';
 
 let services: Record<string, IamService> = {};
 
@@ -33,38 +33,45 @@ const registerCompletionItemProviders = () => {
 	vscode.languages.registerCompletionItemProvider({ language: 'json' }, completionItemProvider);
 };
 
+const normalize = (text: string) => text.replace(/^[^a-z0-9-:]/gi, ' ').trim();
+
+const tryParseServiceFromText = (text: string): string | undefined => {
+	let match = /([a-z0-9-]*)"?'?:/gi.exec(text);
+	if (match) {
+		return match[1];
+	}
+};
+
 const completionItemProvider: vscode.CompletionItemProvider = {
 	provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
 		if (!isInsideActionsArray(document, position)) {
 			console.debug('outside actions array, not adding suggestions');
-			return [];
+			return { items: [] };
 		}
 		console.debug('inside actions array, adding suggestions');
-
-		const serviceKeys = Object.keys(services);
 		const lineText = document.lineAt(position.line).text;
-
-		const service = serviceKeys.find(x => lineText.includes(`${x}:`));
+		const maybeServiceName = tryParseServiceFromText(lineText);
+		
+		const service = maybeServiceName && services[maybeServiceName];
 		if (service) {
-			const serviceActions = services[service].actions;
-			const actionStartIndex = lineText.indexOf(`${service}:`) + service.length + 1;
+			const actionOffset = lineText.indexOf(`${service.servicePrefix}:`) + service.servicePrefix.length + 1;
 
-			const suggestions: vscode.CompletionItem[] = serviceActions.map(action => ({
+			const suggestions: vscode.CompletionItem[] = service.actions.map(action => ({
 				label: action.name,
 				kind: CompletionItemKind.Field,
 				data: action,
-				documentation: new vscode.MarkdownString(formatActionDocumentation(action)),
+				documentation: createActionDocs(action),
 				// Set explicit range as default behavior is to replace the whole current word.
 				// that causes the service prefix to be overwritten with the action so we instead
 				// set a range that starts from the current position instead
-				range: new vscode.Range(position.line, actionStartIndex, position.line, position.character),
+				range: new vscode.Range(position.line, actionOffset, position.line, position.character),
 			}));
 
-			return { items: suggestions, isIncomplete: true };
+			return { items: suggestions };
 		}
 
 		const wordRange = document.getWordRangeAtPosition(position);
-		const word = document.getText(wordRange);
+		const word = wordRange ? document.getText(wordRange) : '';
 
 		const labelPrefix = word.startsWith('"')
 			? '"' : word.startsWith(`'`)
@@ -74,18 +81,25 @@ const completionItemProvider: vscode.CompletionItemProvider = {
 			? '"' : word.endsWith(`'`)
 				? `'` : '';
 		
-		const suggestions: vscode.CompletionItem[] = serviceKeys.map(service => ({
-			label: `${labelPrefix}${service}`,
-			filterText: `${labelPrefix}${service}${labelSuffix}`,
-			kind: CompletionItemKind.Module,
-			documentation: new vscode.MarkdownString(formatServiceDocumentation(services[service].serviceName, services[service].url)),
-			// Set explicit range as default behavior is to replace the whole current word.
-			// that causes the service prefix to overwrite the action if already present
-			// set a range that starts from the current position instead
-			range: new vscode.Range(position.line, wordRange?.start.character as number, position.line, position.character),
-		}));
+		try {
+			const suggestions: vscode.CompletionItem[] = Object.values(services).map(service => ({
+				label: `${labelPrefix}${service.servicePrefix}`,
+				filterText: `${labelPrefix}${service.servicePrefix}${labelSuffix}`,
+				kind: CompletionItemKind.Module,
+				documentation: createServiceDocs(service),
+				// Set explicit range as default behavior is to replace the whole current word.
+				// that causes the service prefix to overwrite the action if already present
+				// set a range that starts from the current position instead
+				range: new vscode.Range(position.line, wordRange?.start.character as number || position.character, position.line, position.character),
+			}));
 
-		return { items: suggestions, isIncomplete: true };
+			// preselect the first suggestion, since we likely have the most relevant suggestion here
+			suggestions[0].preselect = true;
+
+			return { items: suggestions };
+		} catch (e) {
+			console.error(e);
+		}
 	}
 };
 
@@ -128,10 +142,9 @@ const hoverProvider: vscode.HoverProvider = {
 			return emptyResult;
 		}
 
-		const word = document.getText(wordRange);
-		const trimmedWord = word.replace(/"/g, '').replace(/'/g, '').trim();
+		const word = normalize(document.getText(wordRange));
 		
-		let [serviceName, action] = trimmedWord.split(':');
+		let [serviceName, action] = word.split(':');
 		if (!services[serviceName]) {
 			// if the hovered word doesn't include a known service, try with previous word
 			action = serviceName;
@@ -139,7 +152,7 @@ const hoverProvider: vscode.HoverProvider = {
 				position.line,
 				wordRange.start.character - 2
 			));
-			serviceName = document.getText(serviceWordRange).replace(/"/g, '').replace(/'/g, '').trim();
+			serviceName = normalize(document.getText(serviceWordRange));
 		}
 
 		const service = services[serviceName];
@@ -151,13 +164,13 @@ const hoverProvider: vscode.HoverProvider = {
 		// return hover with documentation for that service
 		if (service && !action) {
 			return {
-				contents: [formatServiceDocumentation(service.serviceName, service.url)],
+				contents: [createServiceDocs(service)],
 			};
 		}
 
 		if (word.includes(':') && position.character < wordRange.start.character + serviceName.length + 1) {
 			return {
-				contents: [formatServiceDocumentation(service.serviceName, service.url)],
+				contents: [createServiceDocs(service)],
 			};
 		}
 
@@ -171,52 +184,10 @@ const hoverProvider: vscode.HoverProvider = {
 			contents: hoveredActions.length === 0
 				? ['No matching actions']
 				: hoveredActions.length === 1
-					? [formatActionDocumentation(hoveredActions[0])]
-					: [formatShortActionDocumentation(hoveredActions)]
+					? [createActionDocs(hoveredActions[0])]
+					: [createActionsSummaryDocs(hoveredActions)]
 		};
 	}
-};
-
-const formatServiceDocumentation = (service: string, urlDocumentation: string) =>
-	`${service} [IAM Reference](${urlDocumentation})`;
-
-const formatActionDocumentation = (action: IamAction): string => {
-	const entries = [];
-	entries.push(`**${action.name}**${EOL}`);
-	entries.push(`${action.description}${EOL}`);
-
-	if (action.resourceTypes && action.resourceTypes.length) {
-		entries.push('Resource Types:');
-		entries.push(action.resourceTypes.map(x => '- ' + x).join(EOL) + EOL);
-	}
-
-	if (action.conditionKeys && action.conditionKeys.length) {
-		entries.push('Condition Keys:');
-		entries.push(action.conditionKeys.map(x => '- ' + x).join(EOL) + EOL);
-	}
-
-	if (action.dependentActions && action.dependentActions.length) {
-		entries.push('Dependent Actions:');
-		entries.push(action.dependentActions.map(x => '- ' + x).join(EOL) + EOL);
-	}
-
-	if (action.documentationUrl) {
-		entries.push(`[Read more](${action.documentationUrl})`);
-	}
-
-	return entries.join(EOL);
-};
-
-const formatShortActionDocumentation = (actions: IamAction[]): string => {
-	const entries = [];
-	entries.push('Multiple actions matched:');
-	entries.push('');
-
-	entries.push(actions.map(({ name, documentationUrl, description }) => {
-		const subject = documentationUrl ? `[${name}](${documentationUrl})` : `**${name}**`;
-		return `- ${subject}:	${description}`;
-	}).join(EOL));
-	return entries.join(EOL);
 };
 
 // this method is called when your extension is deactivated
