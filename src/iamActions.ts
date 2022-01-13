@@ -21,16 +21,16 @@ export interface IamAction {
 	documentationUrl: string;
 }
 
-export const getActions = async (): Promise<Record<string, IamService>> => {
+export const getIamServices = async (): Promise<Record<string, IamService>> => {
   const files = await readdirAsync(resolve(__dirname, 'iam-services'));
   const readFiles = files.map(
     file => readFileAsync(resolve(__dirname, 'iam-services', file), 'utf8')
       .then((data) => JSON.parse(data))
   );
 
-  const actions = (await Promise.all(readFiles)).reduce((acc, curr) => ({
+  const services = (await Promise.all(readFiles)).reduce((acc, curr) => ({
     ...acc,
     [curr.servicePrefix]: curr
   }), {});
-  return actions;
+  return services;
 };
