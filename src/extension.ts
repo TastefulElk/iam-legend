@@ -84,17 +84,19 @@ const completionItemProvider: vscode.CompletionItemProvider = {
 };
 
 const isInsideActionsArray = (document: vscode.TextDocument, position: vscode.Position): boolean => {
-	// if current line includes 'actions:', we are in the actions array
-	if (document.getText(new vscode.Range(position.line, 0, position.line, Number.MAX_VALUE)).includes('actions:')) {
+	// if current line is actions/notActions field, we are inside the actions field
+	const actionsFieldPattern = /^"?(not)?action"?:/i;
+	let lineText = document.getText(new vscode.Range(position.line, 0, position.line, Number.MAX_VALUE)).toLowerCase();
+	if (actionsFieldPattern.test(lineText)) {
 		return true;
 	}
 
-	// if all previous lines start with '-' until we find a line that starts with 'actions:', then we're also good
+	// if all previous lines start with '-' until we find a line that starts with 'actions/notActions', then we're also good
 	let line = position.line;
 	while (line > 0) {
-		const lineText = document.lineAt(line).text.trimStart().toLowerCase();
+		lineText = document.lineAt(line).text.trimStart().toLowerCase();
 
-		if (/^"?action"?:/.test(lineText)) {
+		if (actionsFieldPattern.test(lineText)) {
 			return true;
 		}
 		
