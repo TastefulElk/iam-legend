@@ -22,9 +22,9 @@ export interface IamAction {
 }
 
 export const getActions = async (): Promise<Record<string, IamService>> => {
-  const files = await readdirAsync(resolve(__dirname, '..', 'iam-services'));
+  const files = await readdirAsync(resolve(__dirname, 'iam-services'));
   const readFiles = files.map(
-    file => readFileAsync(resolve(__dirname, '..', 'iam-services', file), 'utf8')
+    file => readFileAsync(resolve(__dirname, 'iam-services', file), 'utf8')
       .then((data) => JSON.parse(data))
   );
 
