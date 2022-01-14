@@ -5,7 +5,8 @@ import { Position, Range, TextDocument } from "vscode";
  *
  * @param {string} text
  */
-export const normalize = (text: string) => text.replace(/[^a-z0-9-*:]/gi, ' ').trim();
+export const normalize = (text: string) => 
+  text.replace(/[^a-z0-9-\*:]/gi, ' ').trim();
 
 /**
  * Check whether or not the given position appears to be within an array of actions
