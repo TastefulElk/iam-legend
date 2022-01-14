@@ -20,17 +20,17 @@ export const createActionDocs = (action: IamAction) => {
 
   if (action.resourceTypes && action.resourceTypes.length) {
     lines.push('Resource Types:');
-    lines.push(action.resourceTypes.map(x => '- ' + x).join(mdEOL));
+    lines.push(action.resourceTypes.map(x => '- ' + x).join(EOL));
   }
 
   if (action.conditionKeys && action.conditionKeys.length) {
     lines.push('Condition Keys:');
-    lines.push(action.conditionKeys.map(x => '- ' + x).join(mdEOL));
+    lines.push(action.conditionKeys.map(x => '- ' + x).join(EOL));
   }
 
   if (action.dependentActions && action.dependentActions.length) {
     lines.push('Dependent Actions:');
-    lines.push(action.dependentActions.map(x => '- ' + x).join(mdEOL));
+    lines.push(action.dependentActions.map(x => '- ' + x).join(EOL));
   }
 
   return new MarkdownString(lines.join(mdEOL));
