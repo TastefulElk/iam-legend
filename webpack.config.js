@@ -49,8 +49,8 @@ const extensionConfig = {
     new CopyPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, "src/iam-services/*"),
-          to: path.resolve(__dirname, "dist/iam-services"),
+          from: path.resolve(__dirname, "src/iam-services"),
+          to: path.resolve(__dirname, "dist/iam-services")
         },
       ],
     }),
