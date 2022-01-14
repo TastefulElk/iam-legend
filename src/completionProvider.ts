@@ -7,7 +7,7 @@ export const getCompletionItemProvider = (services: Record<string, IamService>):
   provideCompletionItems(document: TextDocument, position: Position, token: CancellationToken, context: CompletionContext) {
     if (!isInsideActionsArray(document, position)) {
       console.debug('outside actions array, not adding suggestions');
-      return { items: [] };
+      return { items: [], isIncomplete: true };
     }
     console.debug('inside actions array, adding suggestions');
     const lineText = document.lineAt(position.line).text;
@@ -28,7 +28,7 @@ export const getCompletionItemProvider = (services: Record<string, IamService>):
         range: new Range(position.line, actionOffset, position.line, position.character),
       }));
 
-      return { items: suggestions };
+      return { items: suggestions, isIncomplete: true };
     }
 
     const wordRange = document.getWordRangeAtPosition(position);
@@ -56,6 +56,6 @@ export const getCompletionItemProvider = (services: Record<string, IamService>):
     // preselect the first suggestion, since we likely have the most relevant suggestion here
     suggestions[0].preselect = true;
 
-    return { items: suggestions };
+    return { items: suggestions, isIncomplete: true };
   }
 });
