@@ -27,10 +27,12 @@ const registerCompletionItemProviders = (
   const completionItemProvider = getCompletionItemProvider(services);
   vscode.languages.registerCompletionItemProvider(
     { language: "yaml" },
-    completionItemProvider
+    completionItemProvider,
+    ':'
   );
   vscode.languages.registerCompletionItemProvider(
     { language: "json" },
-    completionItemProvider
+    completionItemProvider,
+    ':'
   );
 };
