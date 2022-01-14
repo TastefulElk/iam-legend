@@ -31,7 +31,7 @@ export const isInsideActionsArray = (document: TextDocument, position: Position)
       return true;
     }
 
-    if (/^["-]/.test(lineText)) {
+    if (/^["\[-]/.test(lineText)) {
       line--;
       continue;
     }
@@ -40,17 +40,4 @@ export const isInsideActionsArray = (document: TextDocument, position: Position)
   }
 
   return false;
-};
-
-/**
- * Try parse an IAM service name from the given line of text
- *
- * @param {string} text
- * @return {*}  {(string | undefined)}
- */
-export const tryParseServiceFromText = (text: string): string | undefined => {
-  let match = /([a-z0-9-]*)"?'?:/gi.exec(text);
-  if (match) {
-    return match[1];
-  }
 };
