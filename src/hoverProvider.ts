@@ -6,7 +6,7 @@ import { isInsideActionsArray, normalize } from "./utility/utility";
 
 export const getHoverProvider = (services: Record<string, IamService>): HoverProvider => ({
   provideHover(document, position) {
-    const wordRange = document.getWordRangeAtPosition(position);
+    const wordRange = document.getWordRangeAtPosition(position, /[a-z0-9-*]+/i);
 
     const emptyResult = { contents: [] };
     if (!wordRange) { return emptyResult; }
