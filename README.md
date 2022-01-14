@@ -1,70 +1,27 @@
-# iam-legend README
+# IAM Legend
 
-This is the README for your extension "iam-legend". After writing up a brief description, we recommend including the following sections.
+AWS [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) actions autocomplete, documentation and wildcard resolution for Visual Studio Code.
+
+Supports Serverless Framework, AWS SAM and CloudFormation.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Autocomplete for all IAM services & actions
 
-For example if there is an image subfolder under your extension project workspace:
+![service suggestions](https://raw.githubusercontent.com/TastefulElk/iam-legend/master/images/service_suggest.png)
 
-\!\[feature X\]\(images/feature-x.png\)
+- Inline documentation for each action, including what *Resources* and *Condition Keys* they support as well as any *Dependent Actions*
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+![action suggestions and documentation](https://raw.githubusercontent.com/TastefulElk/iam-legend/master/images/action_suggest.png)
 
-## Requirements
+- Wildcard support when hovering an action definition to easily see exactly what action(s) will be granted
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+![docs for multiple actions when hovering action with wildcard](https://raw.githubusercontent.com/TastefulElk/iam-legend/master/images/wildcard_hover.png)
 
-## Extension Settings
+## Contributions
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+Feedback, suggestions, bug reports or any other kind of contributions are very welcome! You can find the source [here](https://github.com/TastefulElk/iam-legend)!
 
-For example:
+## Author
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+[Sebastian Bille](https://twitter.com/TastefulElk)
