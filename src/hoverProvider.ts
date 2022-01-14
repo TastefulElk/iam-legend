@@ -24,7 +24,7 @@ export const getHoverProvider = (services: Record<string, IamService>): HoverPro
       let serviceWordRange = document.getWordRangeAtPosition(new Position(
         position.line,
         wordRange.start.character - 2
-      ));
+      ), /[a-z0-9-]+/i);
       serviceName = normalize(document.getText(serviceWordRange));
     }
 
