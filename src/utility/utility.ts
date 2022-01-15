@@ -17,18 +17,19 @@ export const normalize = (text: string) =>
  */
 export const isInsideActionsArray = (document: TextDocument, position: Position): boolean => {
   // if current line is actions/notActions field, we are inside the actions field
-  const actionsFieldPattern = /^"?(not)?action"?:/i;
-  let lineText = document.getText(new Range(position.line, 0, position.line, Number.MAX_VALUE)).toLowerCase();
-  if (actionsFieldPattern.test(lineText)) {
+  const actionsPatternSameLine = /^"?(not)?action"?:\s+/i;
+  let lineText = document.getText(new Range(position.line, 0, position.line, Number.MAX_VALUE)).trimStart().toLowerCase();
+  if (actionsPatternSameLine.test(lineText)) {
     return true;
   }
 
-  // if all previous lines start with '-' until we find a line that starts with 'actions/notActions', then we're also good
-  let line = position.line;
+  // if all previous lines start with '-' or '"' until we find a line that starts with 'actions/notActions', then we're also good
+  const actionsPatternOtherLine = /^"?(not)?action"?:/i; // same as above minus the trailing whitespace
+  let line = position.line - 1;
   while (line > 0) {
     lineText = document.lineAt(line).text.trimStart().toLowerCase();
 
-    if (actionsFieldPattern.test(lineText)) {
+    if (actionsPatternOtherLine.test(lineText)) {
       return true;
     }
 
