@@ -41,11 +41,11 @@
     "compile": "rimraf dist && webpack",
     "watch": "webpack --watch",
     "package": "rimraf dist && webpack --mode production --devtool hidden-source-map",
-    "compile-tests": "tsc -p . --outDir out",
+    "compile-integration-tests": "tsc -p . --outDir out --types mocha",
     "watch-tests": "tsc -p . -w --outDir out",
     "lint": "eslint src --ext ts",
     "test": "jest",
-    "pretest:integration": "yarn run compile-tests && yarn run compile && yarn run lint",
+    "pretest:integration": "yarn run compile-integration-tests && yarn run compile && yarn run lint",
     "test:integration": "node ./out/test/runTest.js"
   },
   "devDependencies": {
@@ -63,7 +63,7 @@
     "eslint": "^8.6.0",
     "glob": "^7.2.0",
     "jest": "^27.4.7",
-    "mocha": "^9.1.3",
+    "mocha": "^9.1.4",
     "rimraf": "^3.0.2",
     "ts-loader": "^9.2.6",
     "typescript": "^4.5.4",
