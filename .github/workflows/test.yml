@@ -1,0 +1,31 @@
+name: Test
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      max-parallel: 3
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+        node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: yarn
+    - name: Unit Tests
+      run: yarn test
+    - name: Integration tests - macos/windows
+      run: xvfb-run -a yarn test:integration
+      if: runner.os == 'Linux'
+    - name: Integration tests - Linux
+      run: yarn test:integration
+      if: runner.os != 'Linux'
