@@ -23,9 +23,9 @@ jobs:
       run: yarn
     - name: Unit Tests
       run: yarn test
-    - name: Integration tests - macos/windows
+    - name: Integration tests - Linux
       run: xvfb-run -a yarn test:integration
       if: runner.os == 'Linux'
-    - name: Integration tests - Linux
+    - name: Integration tests - macos/windows
       run: yarn test:integration
       if: runner.os != 'Linux'
