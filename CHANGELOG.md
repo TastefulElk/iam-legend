@@ -2,6 +2,10 @@
 
 All notable changes to the "iam-legend" extension will be documented in this file.
 
+## [1.0.3] - 2022-01-18
+
+- fix issue with sometimes getting duplicate Terraform suggestions
+
 ## [1.0.2] - 2022-01-18
 
 - add Terraform support

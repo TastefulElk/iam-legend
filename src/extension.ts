@@ -21,18 +21,8 @@ const supportedLanguages: vscode.DocumentSelector[] = [{
   language: 'json'
 }, {
   pattern: '**/*.{tf,tfvars}'
-}, {
-  /* 
-    Separate for {.tf/tfvars} since 'terraform' isn't a native
-    languageId but is dependent on 3rd party extension.
-    therefore we add support for both known file extension and the language
-    
-    this one gives us support in case user creates a new file in vscode and 
-    choses 'terraform' as the language but the file isn't saved yet so it doesn't
-    have a file extension
-  */
-  language: 'terraform'
-}];
+}
+];
 
 const registerHoverProviders = (services: Record<string, IamService>, context: vscode.ExtensionContext) => {
   const hoverProvider = getHoverProvider(services);
