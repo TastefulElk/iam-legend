@@ -7,6 +7,38 @@ import { commands, Position, ViewColumn, window, workspace } from "vscode";
 suite("CompletionProvider", () => {
   window.showInformationMessage("Start CompletionItemProvider tests");
 
+  test("suggests services - tf", async () => {
+    const doc = await workspace.openTextDocument({ language: 'json' });
+    const editor = await window.showTextDocument(doc, ViewColumn.One);
+    await editor.edit(edit => {
+      edit.insert(new Position(0, 0), '\n');
+      edit.insert(new Position(1, 0), 'action = [\n');
+      edit.insert(new Position(2, 2), '"');
+    });
+
+    await triggerAndAcceptSuggestion();
+
+    const wordRange = doc.getWordRangeAtPosition(new Position(2, 3));
+    const word = doc.getText(wordRange);
+    assert.strictEqual(word, 'a4b');
+  });
+
+  test("suggests actions - tf", async () => {
+    const doc = await workspace.openTextDocument({ language: 'json' });
+    const editor = await window.showTextDocument(doc, ViewColumn.One);
+    await editor.edit(edit => {
+      edit.insert(new Position(0, 0), '\n');
+      edit.insert(new Position(1, 0), 'action = [\n');
+      edit.insert(new Position(2, 2), '"dynamodb:');
+    });
+
+    await triggerAndAcceptSuggestion();
+
+    const wordRange = doc.getWordRangeAtPosition(new Position(2, 12), /[a-z]+/i);
+    const word = doc.getText(wordRange);
+    assert.strictEqual(word, 'BatchGetItem');
+  });
+  
   test("suggests services - yaml", async () => {
     const doc = await workspace.openTextDocument({ language: 'yaml' });
     const editor = await window.showTextDocument(doc, ViewColumn.One);
