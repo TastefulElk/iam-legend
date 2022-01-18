@@ -26,7 +26,12 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "ec2:CreateNetworkInterface                                                                                        ec2:CreateNetworkInterfacePermission                                                                                        ec2:CreateTags                                                                                        ec2:DeleteNetworkInterface                                                                                        ec2:DeleteNetworkInterfacePermission                                                                                        ec2:ModifyNetworkInterfaceAttribute"
+        "ec2:CreateNetworkInterface",
+        "ec2:CreateNetworkInterfacePermission",
+        "ec2:CreateTags",
+        "ec2:DeleteNetworkInterface",
+        "ec2:DeleteNetworkInterfacePermission",
+        "ec2:ModifyNetworkInterfaceAttribute"
       ]
     },
     {
@@ -60,10 +65,14 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": [
-        "kms:CreateGrant                                                                                        kms:Decrypt                                                                                        kms:DescribeKey                                                                                        kms:GenerateDataKey"
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey"
       ]
     },
     {
@@ -84,7 +93,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -95,10 +105,15 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": [
-        "iam:CreateServiceLinkedRole                                                                                        kms:CreateGrant                                                                                        kms:Decrypt                                                                                        kms:DescribeKey                                                                                        kms:GenerateDataKey"
+        "iam:CreateServiceLinkedRole",
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey"
       ]
     },
     {
@@ -108,7 +123,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -119,7 +135,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -396,7 +413,8 @@
       "accessLevel": "Tagging",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -407,7 +425,8 @@
       "accessLevel": "Tagging",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": []
     },

@@ -21,10 +21,18 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "cloud9:EnvironmentName                                                                                                                                                            cloud9:InstanceType                                                                                                                                                            cloud9:SubnetId                                                                                                                                                            cloud9:UserArn                                                                                                                                                            cloud9:OwnerArn                                                                                                                                                            aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "cloud9:EnvironmentName",
+        "cloud9:InstanceType",
+        "cloud9:SubnetId",
+        "cloud9:UserArn",
+        "cloud9:OwnerArn",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": [
-        "ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs                                                                                        iam:CreateServiceLinkedRole"
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs",
+        "iam:CreateServiceLinkedRole"
       ]
     },
     {
@@ -49,7 +57,10 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "cloud9:EnvironmentName                                                                                                                                                            cloud9:OwnerArn                                                                                                                                                            aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "cloud9:EnvironmentName",
+        "cloud9:OwnerArn",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },

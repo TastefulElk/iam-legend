@@ -10,7 +10,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:TagKeys                                                                                                                                                            aws:RequestTag/${TagKey}"
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": [
         "iam:CreateServiceLinkedRole"
@@ -80,7 +81,8 @@
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": [
-        "codeguru-reviewer:DescribeCodeReview                                                                                        codeguru-reviewer:ListRecommendations"
+        "codeguru-reviewer:DescribeCodeReview",
+        "codeguru-reviewer:ListRecommendations"
       ]
     },
     {
@@ -199,7 +201,13 @@
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": [
-        "codeguru-profiler:DescribeProfilingGroup                                                                                        codeguru-profiler:ListProfilingGroups                                                                                        codeguru-reviewer:DescribeCodeReview                                                                                        codeguru-reviewer:ListCodeReviews                                                                                        codeguru-reviewer:ListRecommendations                                                                                        codeguru-reviewer:TagResource                                                                                        codeguru-reviewer:UnTagResource"
+        "codeguru-profiler:DescribeProfilingGroup",
+        "codeguru-profiler:ListProfilingGroups",
+        "codeguru-reviewer:DescribeCodeReview",
+        "codeguru-reviewer:ListCodeReviews",
+        "codeguru-reviewer:ListRecommendations",
+        "codeguru-reviewer:TagResource",
+        "codeguru-reviewer:UnTagResource"
       ]
     },
     {

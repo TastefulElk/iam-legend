@@ -10,7 +10,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -90,7 +91,9 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "cloudformation:DescribeStacks                                                                                        cloudformation:ListStackResources                                                                                        tag:GetResources"
+        "cloudformation:DescribeStacks",
+        "cloudformation:ListStackResources",
+        "tag:GetResources"
       ]
     },
     {
@@ -132,7 +135,9 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": [
-        "cloudformation:DescribeStacks                                                                                        cloudformation:ListStackResources                                                                                        tag:GetResources"
+        "cloudformation:DescribeStacks",
+        "cloudformation:ListStackResources",
+        "tag:GetResources"
       ]
     },
     {

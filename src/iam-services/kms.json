@@ -53,7 +53,8 @@
         "kms:CallerAccount"
       ],
       "dependentActions": [
-        "cloudhsm:DescribeClusters                                                                                        iam:CreateServiceLinkedRole"
+        "cloudhsm:DescribeClusters",
+        "iam:CreateServiceLinkedRole"
       ]
     },
     {
@@ -79,10 +80,14 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "kms:BypassPolicyLockoutSafetyCheck                                                                                                                                                            kms:CallerAccount                                                                                                                                                            kms:ViaService"
+        "kms:BypassPolicyLockoutSafetyCheck",
+        "kms:CallerAccount",
+        "kms:ViaService"
       ],
       "dependentActions": [
-        "iam:CreateServiceLinkedRole                                                                                        kms:PutKeyPolicy                                                                                        kms:TagResource"
+        "iam:CreateServiceLinkedRole",
+        "kms:PutKeyPolicy",
+        "kms:TagResource"
       ]
     },
     {
@@ -555,7 +560,10 @@
         "kms:ViaService"
       ],
       "dependentActions": [
-        "iam:CreateServiceLinkedRole                                                                                        kms:CreateKey                                                                                        kms:PutKeyPolicy                                                                                        kms:TagResource"
+        "iam:CreateServiceLinkedRole",
+        "kms:CreateKey",
+        "kms:PutKeyPolicy",
+        "kms:TagResource"
       ]
     },
     {

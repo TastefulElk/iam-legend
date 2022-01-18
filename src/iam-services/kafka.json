@@ -11,7 +11,8 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": [
-        "kms:CreateGrant                                                                                        kms:RetireGrant"
+        "kms:CreateGrant",
+        "kms:RetireGrant"
       ]
     },
     {
@@ -32,10 +33,18 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": [
-        "ec2:DescribeSecurityGroups                                                                                        ec2:DescribeSubnets                                                                                        ec2:DescribeVpcs                                                                                        iam:AttachRolePolicy                                                                                        iam:CreateServiceLinkedRole                                                                                        iam:PutRolePolicy                                                                                        kms:CreateGrant                                                                                        kms:DescribeKey"
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs",
+        "iam:AttachRolePolicy",
+        "iam:CreateServiceLinkedRole",
+        "iam:PutRolePolicy",
+        "kms:CreateGrant",
+        "kms:DescribeKey"
       ]
     },
     {
@@ -291,7 +300,8 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": [
-        "ec2:DescribeRouteTables                                                                                        ec2:DescribeSubnets"
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeSubnets"
       ]
     },
     {

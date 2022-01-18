@@ -4,6 +4,17 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsappsync.html",
   "actions": [
     {
+      "name": "AssociateApi",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_AssociateApi.html",
+      "description": "Grants permission to attach a GraphQL API to a custom domain name in AppSync",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateApiCache",
       "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateApiCache.html",
       "description": "Grants permission to create an API cache in AppSync",
@@ -31,6 +42,15 @@
       "dependentActions": []
     },
     {
+      "name": "CreateDomainName",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateDomainName.html",
+      "description": "Grants permission to create a custom domain name in AppSync",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateFunction",
       "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateFunction.html",
       "description": "Grants permission to create a new function",
@@ -46,7 +66,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": [
         "iam:CreateServiceLinkedRole"
@@ -98,6 +119,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteDomainName",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteDomainName.html",
+      "description": "Grants permission to delete a custom domain name in AppSync",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteFunction",
       "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteFunction.html",
       "description": "Grants permission to delete a function",
@@ -138,11 +170,33 @@
       "dependentActions": []
     },
     {
+      "name": "DisassociateApi",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_DisassociateApi.html",
+      "description": "Grants permission to dettach a GraphQL API to a custom domain name in AppSync",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "FlushApiCache",
       "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_FlushApiCache.html",
       "description": "Grants permission to flush an API cache in AppSync",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetApiAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetApiAssociation.html",
+      "description": "Grants permission to read custom domain name - GraphQL API association details in AppSync",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "domain*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -161,6 +215,17 @@
       "description": "Grants permission to retrieve a data source",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDomainName",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetDomainName.html",
+      "description": "Grants permission to read information about a custom domain name in AppSync",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "domain*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -247,6 +312,15 @@
       "name": "ListDataSources",
       "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListDataSources.html",
       "description": "Grants permission to list the data sources for a given API",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDomainNames",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListDomainNames.html",
+      "description": "Grants permission to enumerate custom domain names in AppSync",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -380,6 +454,17 @@
       "description": "Grants permission to update a data source",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDomainName",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_UpdateDomainName.html",
+      "description": "Grants permission to update a custom domain name in AppSync",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domain*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },

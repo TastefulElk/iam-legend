@@ -10,7 +10,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -21,7 +22,9 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "ecs:capacity-provider                                                                                                                                                            aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "ecs:capacity-provider",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -50,7 +53,10 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "ecs:cluster                                                                                                                                                            ecs:capacity-provider                                                                                                                                                            ecs:service                                                                                                                                                            ecs:task-definition"
+        "ecs:cluster",
+        "ecs:capacity-provider",
+        "ecs:service",
+        "ecs:task-definition"
       ],
       "dependentActions": []
     },
@@ -428,7 +434,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },

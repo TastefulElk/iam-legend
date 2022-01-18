@@ -18,7 +18,15 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "codecommit:ListRepositories                                                                                        codecommit:TagResource                                                                                        events:PutRule                                                                                        events:PutTargets                                                                                        iam:CreateServiceLinkedRole                                                                                        s3:CreateBucket                                                                                        s3:ListBucket                                                                                        s3:PutBucketPolicy                                                                                        s3:PutLifecycleConfiguration"
+        "codecommit:ListRepositories",
+        "codecommit:TagResource",
+        "events:PutRule",
+        "events:PutTargets",
+        "iam:CreateServiceLinkedRole",
+        "s3:CreateBucket",
+        "s3:ListBucket",
+        "s3:PutBucketPolicy",
+        "s3:PutLifecycleConfiguration"
       ]
     },
     {
@@ -95,7 +103,9 @@
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": [
-        "codecommit:UntagResource                                                                                        events:DeleteRule                                                                                        events:RemoveTargets"
+        "codecommit:UntagResource",
+        "events:DeleteRule",
+        "events:RemoveTargets"
       ]
     },
     {

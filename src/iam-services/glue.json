@@ -68,6 +68,17 @@
       "dependentActions": []
     },
     {
+      "name": "BatchGetBlueprints",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-BatchGetBlueprints",
+      "description": "Grants permission to retrieve one or more blueprints",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "blueprint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "BatchGetCrawlers",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-BatchGetCrawlers",
       "description": "Grants permission to retrieve one or more crawlers",
@@ -189,6 +200,18 @@
       "dependentActions": []
     },
     {
+      "name": "CreateBlueprint",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-CreateBlueprint",
+      "description": "Grants permission to create a blueprint",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateClassifier",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-classifiers.html#aws-glue-api-crawler-classifiers-CreateClassifier",
       "description": "Grants permission to create a classifier",
@@ -218,7 +241,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -240,7 +264,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -251,7 +276,11 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys                                                                                                                                                            glue:VpcIds                                                                                                                                                            glue:SubnetIds                                                                                                                                                            glue:SecurityGroupIds"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "glue:VpcIds",
+        "glue:SubnetIds",
+        "glue:SecurityGroupIds"
       ],
       "dependentActions": []
     },
@@ -262,7 +291,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -340,7 +370,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -363,7 +394,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -386,8 +418,20 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteBlueprint",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-DeleteBlueprint",
+      "description": "Grants permission to delete a blueprint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "blueprint*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -644,6 +688,39 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetBlueprint",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-GetBlueprint",
+      "description": "Grants permission to retrieve a blueprint",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "blueprint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetBlueprintRun",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-GetBlueprintRun",
+      "description": "Grants permission to retrieve a blueprint run",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "blueprint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetBlueprintRuns",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-GetBlueprintRuns",
+      "description": "Grants permission to retrieve all runs of a blueprint",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "blueprint*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1245,6 +1322,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListBlueprints",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-ListBlueprints",
+      "description": "Grants permission to retrieve all blueprints",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListCrawlers",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-ListCrawlers",
       "description": "Grants permission to retrieve all crawlers",
@@ -1489,6 +1575,17 @@
       "dependentActions": []
     },
     {
+      "name": "StartBlueprintRun",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-StartBlueprintRun",
+      "description": "Grants permission to start running a blueprint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "blueprint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartCrawler",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-StartCrawler",
       "description": "Grants permission to start a crawler",
@@ -1670,6 +1767,17 @@
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateBlueprint",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-UpdateBlueprint",
+      "description": "Grants permission to update a blueprint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "blueprint*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {

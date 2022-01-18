@@ -27,7 +27,13 @@
         "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": [
-        "ec2:CreateNetworkInterface                                                                                        ec2:RunInstances"
+        "ec2:CreateNetworkInterface",
+        "ec2:DescribeNatGateways",
+        "ec2:DescribeNetworkAcls",
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:RunInstances"
       ]
     },
     {
@@ -43,7 +49,11 @@
         "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": [
-        "ec2:DescribeImages                                                                                        ec2:DescribeSnapshots                                                                                        ec2:ModifyInstanceAttribute                                                                                        ec2:ModifySnapshotAttribute                                                                                        ec2:RegisterImage"
+        "ec2:DescribeImages",
+        "ec2:DescribeSnapshots",
+        "ec2:ModifyInstanceAttribute",
+        "ec2:ModifySnapshotAttribute",
+        "ec2:RegisterImage"
       ]
     },
     {
@@ -59,7 +69,11 @@
         "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": [
-        "ec2:CreateNetworkInterface                                                                                        ec2:CreateNetworkInterfacePermission                                                                                        nimble:GetLaunchProfile                                                                                        nimble:GetLaunchProfileInitialization                                                                                        nimble:ListEulaAcceptances"
+        "ec2:CreateNetworkInterface",
+        "ec2:CreateNetworkInterfacePermission",
+        "nimble:GetLaunchProfile",
+        "nimble:GetLaunchProfileInitialization",
+        "nimble:ListEulaAcceptances"
       ]
     },
     {
@@ -88,7 +102,8 @@
         "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": [
-        "iam:PassRole                                                                                        sso:CreateManagedApplicationInstance"
+        "iam:PassRole",
+        "sso:CreateManagedApplicationInstance"
       ]
     },
     {
@@ -104,7 +119,10 @@
         "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": [
-        "ds:AuthorizeApplication                                                                                        ds:DescribeDirectories                                                                                        ec2:DescribeSecurityGroups                                                                                        fsx:DescribeFileSystems"
+        "ds:AuthorizeApplication",
+        "ds:DescribeDirectories",
+        "ec2:DescribeSecurityGroups",
+        "fsx:DescribeFileSystems"
       ]
     },
     {
@@ -139,7 +157,10 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "ec2:DeleteSnapshot                                                                                        ec2:DeregisterImage                                                                                        ec2:ModifyInstanceAttribute                                                                                        ec2:ModifySnapshotAttribute"
+        "ec2:DeleteSnapshot",
+        "ec2:DeregisterImage",
+        "ec2:ModifyInstanceAttribute",
+        "ec2:ModifySnapshotAttribute"
       ]
     },
     {
@@ -246,7 +267,9 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "ds:DescribeDirectories                                                                                        ec2:DescribeSecurityGroups                                                                                        fsx:DescribeFileSystems"
+        "ds:DescribeDirectories",
+        "ec2:DescribeSecurityGroups",
+        "fsx:DescribeFileSystems"
       ]
     },
     {
@@ -498,7 +521,8 @@
         "nimble:requesterPrincipalId"
       ],
       "dependentActions": [
-        "nimble:GetLaunchProfile                                                                                        nimble:GetLaunchProfileMember"
+        "nimble:GetLaunchProfile",
+        "nimble:GetLaunchProfileMember"
       ]
     },
     {
@@ -511,7 +535,8 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "sso:CreateManagedApplicationInstance                                                                                        sso:GetManagedApplicationInstance"
+        "sso:CreateManagedApplicationInstance",
+        "sso:GetManagedApplicationInstance"
       ]
     },
     {
@@ -574,7 +599,13 @@
         "launch-profile*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeNatGateways",
+        "ec2:DescribeNetworkAcls",
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcEndpoints"
+      ]
     },
     {
       "name": "UpdateLaunchProfileMember",
@@ -621,7 +652,10 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "ds:AuthorizeApplication                                                                                        ds:DescribeDirectories                                                                                        ec2:DescribeSecurityGroups                                                                                        fsx:DescribeFileSystems"
+        "ds:AuthorizeApplication",
+        "ds:DescribeDirectories",
+        "ec2:DescribeSecurityGroups",
+        "fsx:DescribeFileSystems"
       ]
     }
   ]

@@ -62,7 +62,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -134,6 +135,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "nodegroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeregisterCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_DeregisterCluster.html",
+      "description": "Grants permission to deregister an External cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -305,6 +317,18 @@
         "nodegroup"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RegisterCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_RegisterCluster.html",
+      "description": "Grants permission to register an External cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

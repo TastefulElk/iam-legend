@@ -10,7 +10,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -20,8 +21,17 @@
       "description": "Grants permission to delete a suite definition",
       "accessLevel": "Write",
       "resourceTypes": [
-        "suitedefinition*"
+        "Suitedefinition*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_iotdeviceadvisor_GetEndpoint.html",
+      "description": "Grants permission to get a Device Advisor endpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -31,7 +41,7 @@
       "description": "Grants permission to get a suite definition",
       "accessLevel": "Read",
       "resourceTypes": [
-        "suitedefinition*"
+        "Suitedefinition*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -42,7 +52,7 @@
       "description": "Grants permission to get a suite run",
       "accessLevel": "Read",
       "resourceTypes": [
-        "suiterun*"
+        "Suiterun*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -53,7 +63,7 @@
       "description": "Grants permission to get the qualification report for a suite run",
       "accessLevel": "Read",
       "resourceTypes": [
-        "suiterun*"
+        "Suiterun*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -73,7 +83,7 @@
       "description": "Grants permission to list suite runs",
       "accessLevel": "List",
       "resourceTypes": [
-        "suitedefinition*"
+        "Suitedefinition*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -84,8 +94,8 @@
       "description": "Grants permission to list the tags (metadata) assigned to a resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "suitedefinition",
-        "suiterun"
+        "Suitedefinition",
+        "Suiterun"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -97,7 +107,8 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}                                                                                                                                                            aws:TagKeys"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -107,7 +118,7 @@
       "description": "Grants permission to stop a suite run",
       "accessLevel": "Write",
       "resourceTypes": [
-        "suiterun*"
+        "Suiterun*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -118,8 +129,8 @@
       "description": "Grants permission to add to or modify the tags of the given resource. Tags are metadata which can be used to manage a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "suitedefinition",
-        "suiterun"
+        "Suitedefinition",
+        "Suiterun"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -133,8 +144,8 @@
       "description": "Grants permission to remove the given tags (metadata) from a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "suitedefinition",
-        "suiterun"
+        "Suitedefinition",
+        "Suiterun"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -147,7 +158,7 @@
       "description": "Grants permission to update a suite definition",
       "accessLevel": "Write",
       "resourceTypes": [
-        "suitedefinition*"
+        "Suitedefinition*"
       ],
       "conditionKeys": [],
       "dependentActions": []
