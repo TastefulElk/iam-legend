@@ -2,7 +2,7 @@
 
 AWS [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) actions autocomplete, documentation and wildcard resolution for Visual Studio Code.
 
-Supports Serverless Framework, AWS SAM and CloudFormation.
+Supports Serverless Framework, AWS SAM, CloudFormation and Terraform.
 
 ## Features
 
