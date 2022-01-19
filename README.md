@@ -1,3 +1,7 @@
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/sebastianbille.iam-legend.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=sebastianbille.iam-legend)
+[![Visual Studio Marketplace Rating Stars](https://img.shields.io/visual-studio-marketplace/stars/sebastianbille.iam-legend.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=sebastianbille.iam-legend)
+[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/sebastianbille.iam-legend.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=sebastianbille.iam-legend)
+
 # IAM Legend
 
 AWS [IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) actions autocomplete, documentation and wildcard resolution for Visual Studio Code.
