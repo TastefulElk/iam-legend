@@ -1,0 +1,41 @@
+name: Scrape
+
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'  
+  schedule:
+    - cron: '0 8 * * *' # run daily at 08:00 UTC
+  
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: yarn
+    - name: Scrape
+      run: node scraper/scraper.mjs
+    - name: Create PR
+      uses: technote-space/create-pr-action@v2
+      with:
+        COMMIT_MESSAGE: 'chore: update IAM services'
+        COMMIT_NAME: 'Scraper'
+        COMMIT_EMAIL: 'example@example.com'
+        PR_BRANCH_NAME: 'chore-iam-service-update-${PR_ID}'
+        PR_TITLE: 'chore: update IAM services'
