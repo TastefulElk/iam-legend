@@ -93,7 +93,7 @@ const getActions = ($) => {
       const documentationUrl = $(tds[0]).find("a[href]").first().attr("href");
 
       actions.push({
-        name,
+        name: name.split(' ')[0], // action name will always be first word but it may contain junk
         documentationUrl,
         description,
         accessLevel,

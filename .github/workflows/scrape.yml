@@ -2,13 +2,6 @@ name: Scrape
 
 on:
   workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'     
-        required: true
-        default: 'warning'
-      tags:
-        description: 'Test scenario tags'  
   schedule:
     - cron: '0 8 * * *' # run daily at 08:00 UTC
   
@@ -29,11 +22,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: yarn
-    - name: Scrape
-      run: node scraper/scraper.mjs
-    - name: Create PR
+    - name: Scrape & Create PR
       uses: technote-space/create-pr-action@v2
       with:
+        EXECUTE_COMMANDS: |
+          node scraper/scraper.mjs
         COMMIT_MESSAGE: 'chore: update IAM services'
         COMMIT_NAME: 'Scraper'
         COMMIT_EMAIL: 'example@example.com'
