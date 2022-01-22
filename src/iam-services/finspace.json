@@ -6,45 +6,39 @@
     {
       "name": "CreateEnvironment",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_CreateEnvironment.html",
-      "description": "Grants permissions to create a FinSpace environment",
+      "description": "Grants permission to create a FinSpace environment",
       "accessLevel": "Write",
       "resourceTypes": [
         "environment*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "CreateUser",
-      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_CreateUser.html",
-      "description": "Grants permissions to create a FinSpace user.",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html",
+      "description": "Grants permission to create a FinSpace user",
       "accessLevel": "Write",
       "resourceTypes": [
         "environment*",
         "user*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "DeleteEnvironment",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_DeleteEnvironment.html",
-      "description": "Grants permissions to delete a FinSpace environment.",
+      "description": "Grants permission to delete a FinSpace environment",
       "accessLevel": "Write",
       "resourceTypes": [
         "environment*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "DeleteUser",
-      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_DeleteUser.html",
-      "description": "Grants permissions to delete a FinSpace user.",
-      "accessLevel": "Write",
-      "resourceTypes": [
-        "environment*",
-        "user*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -52,7 +46,7 @@
     {
       "name": "GetEnvironment",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_GetEnvironment.html",
-      "description": "Grants permissions to describe a FinSpace environment.",
+      "description": "Grants permission to describe a FinSpace environment",
       "accessLevel": "Read",
       "resourceTypes": [
         "environment*"
@@ -62,8 +56,8 @@
     },
     {
       "name": "GetLoadSampleDataSetGroupIntoEnvironmentStatus",
-      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_GetLoadSampleDataSetGroupIntoEnvironmentStatus.html",
-      "description": "Grants permissions to request status of the loading of sample data bundle.",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html",
+      "description": "Grants permission to request status of the loading of sample data bundle",
       "accessLevel": "Read",
       "resourceTypes": [
         "environment*"
@@ -73,8 +67,8 @@
     },
     {
       "name": "GetUser",
-      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_GetUser.html",
-      "description": "Grants permissions to describe a FinSpace user.",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html",
+      "description": "Grants permission to describe a FinSpace user",
       "accessLevel": "Read",
       "resourceTypes": [
         "environment*",
@@ -86,7 +80,7 @@
     {
       "name": "ListEnvironments",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_ListEnvironments.html",
-      "description": "Grants permissions to list FinSpace environments in the AWS account.",
+      "description": "Grants permission to list FinSpace environments in the AWS account",
       "accessLevel": "List",
       "resourceTypes": [
         "environment*"
@@ -97,7 +91,7 @@
     {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_ListTagsForResource.html",
-      "description": "Grants permissions to return a list of tags for a resource.",
+      "description": "Grants permission to return a list of tags for a resource",
       "accessLevel": "Read",
       "resourceTypes": [
         "environment*"
@@ -107,8 +101,8 @@
     },
     {
       "name": "ListUsers",
-      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_ListUsers.html",
-      "description": "Grants permissions to list FinSpace users in an environment.",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html",
+      "description": "Grants permission to list FinSpace users in an environment",
       "accessLevel": "List",
       "resourceTypes": [
         "environment*",
@@ -119,8 +113,8 @@
     },
     {
       "name": "LoadSampleDataSetGroupIntoEnvironment",
-      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_LoadSampleDataSetGroupIntoEnvironment.html",
-      "description": "Grants permissions to load sample data bundle into your FinSpace environment.",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html",
+      "description": "Grants permission to load sample data bundle into your FinSpace environment",
       "accessLevel": "Write",
       "resourceTypes": [
         "environment*"
@@ -129,9 +123,21 @@
       "dependentActions": []
     },
     {
+      "name": "ResetUserPassword",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html",
+      "description": "Grants permission to reset the password for a FinSpace user",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*",
+        "user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_TagResource.html",
-      "description": "Grants permissions to tag a resource.",
+      "description": "Grants permission to tag a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "environment*"
@@ -142,7 +148,7 @@
     {
       "name": "UntagResource",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_UntagResource.html",
-      "description": "Grants permissions to untag a resource.",
+      "description": "Grants permission to untag a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "environment*"
@@ -153,10 +159,22 @@
     {
       "name": "UpdateEnvironment",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_UpdateEnvironment.html",
-      "description": "Grants permissions to update a FinSpace environment",
+      "description": "Grants permission to update a FinSpace environment",
       "accessLevel": "Write",
       "resourceTypes": [
         "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateUser",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html",
+      "description": "Grants permission to update a FinSpace user",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*",
+        "user*"
       ],
       "conditionKeys": [],
       "dependentActions": []
