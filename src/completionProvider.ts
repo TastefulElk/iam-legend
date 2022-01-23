@@ -1,4 +1,4 @@
-import { CancellationToken, CompletionContext, CompletionItem, CompletionItemKind, CompletionItemProvider, Position, Range, TextDocument } from "vscode";
+import { CompletionItem, CompletionItemKind, CompletionItemProvider, Position, Range, TextDocument } from "vscode";
 import { createActionDocs, createServiceDocs } from "./documentation";
 import { IamService } from "./iamActions";
 import { isInsideActionsArray } from "./utility/utility";
@@ -6,10 +6,8 @@ import { isInsideActionsArray } from "./utility/utility";
 export const getCompletionItemProvider = (services: Record<string, IamService>): CompletionItemProvider => ({
   provideCompletionItems(document: TextDocument, position: Position) {
     if (!isInsideActionsArray(document, position)) {
-      console.debug('outside actions array, not adding suggestions');
       return { items: [], isIncomplete: true };
     }
-    console.debug('inside actions array, adding suggestions');
 
     const fullWordRange = document.getWordRangeAtPosition(position, /[a-z0-9:-]+/i);
     const fullWord = fullWordRange && document.getText(fullWordRange);
