@@ -1,0 +1,19 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+    - name: Publish to Visual Studio Marketplace
+      run: npx vsce publish -p ${{ secrets.VS_MARKETPLACE_PAT }}
+    - name: Publish to Open VSX Registry
+      run: npx ovsx publish -p ${{ secrets.OPENVSX_PAT }}
