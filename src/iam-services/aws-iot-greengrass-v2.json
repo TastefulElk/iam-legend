@@ -1,0 +1,369 @@
+{
+  "serviceName": "AWS IoT Greengrass V2",
+  "servicePrefix": "greengrass",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotgreengrassv2.html",
+  "actions": [
+    {
+      "name": "AssociateServiceRoleToAccount",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_AssociateServiceRoleToAccount.html",
+      "description": "Grants permission to associate a role with your account. AWS IoT Greengrass uses this role to access your Lambda functions and AWS IoT resources",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "BatchAssociateClientDeviceWithCoreDevice",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchAssociateClientDeviceWithCoreDevice.html",
+      "description": "Grants permission to associate a list of client devices with a core device",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "coreDevice*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchDisassociateClientDeviceFromCoreDevice",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_BatchDisassociateClientDeviceFromCoreDevice.html",
+      "description": "Grants permission to disassociate a list of client devices from a core device",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "coreDevice*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_CancelDeployment.html",
+      "description": "Grants permission to cancel a deployment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "deployment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iot:CancelJob",
+        "iot:DeleteThingShadow",
+        "iot:DescribeJob",
+        "iot:DescribeThing",
+        "iot:DescribeThingGroup",
+        "iot:GetThingShadow",
+        "iot:UpdateJob",
+        "iot:UpdateThingShadow"
+      ]
+    },
+    {
+      "name": "CreateComponentVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_CreateComponentVersion.html",
+      "description": "Grants permission to create a component",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "component*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_CreateDeployment.html",
+      "description": "Grants permission to create a deployment",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iot:CancelJob",
+        "iot:CreateJob",
+        "iot:DeleteThingShadow",
+        "iot:DescribeJob",
+        "iot:DescribeThing",
+        "iot:DescribeThingGroup",
+        "iot:GetThingShadow",
+        "iot:UpdateJob",
+        "iot:UpdateThingShadow"
+      ]
+    },
+    {
+      "name": "DeleteComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_DeleteComponent.html",
+      "description": "Grants permission to delete a component",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "componentVersion*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCoreDevice",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_DeleteCoreDevice.html",
+      "description": "Grants permission to delete a AWS IoT Greengrass core device, which is an AWS IoT thing. This operation removes the core device from the list of core devices. This operation doesn't delete the AWS IoT thing",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "coreDevice*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iot:DescribeJobExecution"
+      ]
+    },
+    {
+      "name": "DescribeComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_DescribeComponent.html",
+      "description": "Grants permission to retrieve metadata for a version of a component",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "componentVersion*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateServiceRoleFromAccount",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_DisassociateServiceRoleFromAccount.html",
+      "description": "Grants permission to disassociate the service role from an account. Without a service role, deployments will not work",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetComponent.html",
+      "description": "Grants permission to get the recipe for a version of a component",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "componentVersion*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetComponentVersionArtifact",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetComponentVersionArtifact.html",
+      "description": "Grants permission to get the pre-signed URL to download a public component artifact",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "componentVersion*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetConnectivityInfo",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetConnectivityInfo.html",
+      "description": "Grants permission to retrieve the connectivity information for a Greengrass core device",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "connectivityInfo*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iot:GetThingShadow"
+      ]
+    },
+    {
+      "name": "GetCoreDevice",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetCoreDevice.html",
+      "description": "Grants permission to retrieves metadata for a AWS IoT Greengrass core device",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "coreDevice*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetDeployment.html",
+      "description": "Grants permission to get a deployment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "deployment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iot:DescribeJob",
+        "iot:DescribeThing",
+        "iot:DescribeThingGroup",
+        "iot:GetThingShadow"
+      ]
+    },
+    {
+      "name": "GetServiceRoleForAccount",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_GetServiceRoleForAccount.html",
+      "description": "Grants permission to retrieve the service role that is attached to an account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListClientDevicesAssociatedWithCoreDevice",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListClientDevicesAssociatedWithCoreDevice.html",
+      "description": "Grants permission to retrieve a paginated list of client devices associated to a AWS IoT Greengrass core device",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "coreDevice*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListComponentVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListComponentVersions.html",
+      "description": "Grants permission to retrieve a paginated list of all versions for a component",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListComponents",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListComponents.html",
+      "description": "Grants permission to retrieve a paginated list of component summaries",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCoreDevices",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListCoreDevices.html",
+      "description": "Grants permission to retrieve a paginated list of AWS IoT Greengrass core devices",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDeployments",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListDeployments.html",
+      "description": "Grants permission to retrieves a paginated list of deployments",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iot:DescribeJob",
+        "iot:DescribeThing",
+        "iot:DescribeThingGroup",
+        "iot:GetThingShadow"
+      ]
+    },
+    {
+      "name": "ListEffectiveDeployments",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListEffectiveDeployments.html",
+      "description": "Grants permission to retrieves a paginated list of deployment jobs that AWS IoT Greengrass sends to AWS IoT Greengrass core devices",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "coreDevice*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iot:DescribeJob",
+        "iot:DescribeJobExecution",
+        "iot:DescribeThing",
+        "iot:DescribeThingGroup",
+        "iot:GetThingShadow"
+      ]
+    },
+    {
+      "name": "ListInstalledComponents",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListInstalledComponents.html",
+      "description": "Grants permission to retrieve a paginated list of the components that a AWS IoT Greengrass core device runs",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "coreDevice*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list the tags for a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "component",
+        "componentVersion",
+        "coreDevice",
+        "deployment"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ResolveComponentCandidates",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_ResolveComponentCandidates.html",
+      "description": "Grants permission to list components that meet the component, version, and platform requirements of a deployment",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "componentVersion*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_TagResource.html",
+      "description": "Grants permission to add tags to a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "component",
+        "componentVersion",
+        "coreDevice",
+        "deployment"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove tags from a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "component",
+        "componentVersion",
+        "coreDevice",
+        "deployment"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateConnectivityInfo",
+      "documentationUrl": "https://docs.aws.amazon.com/greengrass/v2/APIReference/API_UpdateConnectivityInfo.html",
+      "description": "Grants permission to update the connectivity information for a Greengrass core. Any devices that belong to the group that has this core will receive this information in order to find the location of the core and connect to it",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connectivityInfo*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iot:GetThingShadow",
+        "iot:UpdateThingShadow"
+      ]
+    }
+  ]
+}
