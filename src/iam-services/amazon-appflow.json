@@ -50,6 +50,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/appflow/1.0/APIReference/API_DescribeConnector.html",
+      "description": "Grants permission to describe a connector registered in Amazon AppFlow",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "connector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeConnectorEntity",
       "documentationUrl": "https://docs.aws.amazon.com/appflow/1.0/APIReference/API_DescribeConnectorEntity.html",
       "description": "Grants permission to describe all fields for an object in a login profile configured in Amazon AppFlow",
@@ -152,6 +163,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListConnectors",
+      "documentationUrl": "https://docs.aws.amazon.com/appflow/1.0/APIReference/API_ListConnectors.html",
+      "description": "Grants permission to list all connectors supported in Amazon AppFlow",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "connector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListFlows",
       "documentationUrl": "https://docs.aws.amazon.com/appflow/1.0/APIReference/API_ListFlows.html",
       "description": "Grants permission to list all flows configured in Amazon AppFlow",
@@ -171,6 +193,18 @@
         "flow*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RegisterConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/appflow/1.0/APIReference/API_RegisterConnector.html",
+      "description": "Grants permission to register an Amazon AppFlow connector",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -217,6 +251,20 @@
       "conditionKeys": [
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UnRegisterConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/appflow/1.0/APIReference/API_UnRegisterConnector.html",
+      "description": "Grants permission to un-register a connector in Amazon AppFlow",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connector*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },

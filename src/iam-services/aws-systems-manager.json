@@ -1311,10 +1311,13 @@
       "resourceTypes": [
         "document",
         "instance",
+        "managed-instance",
         "task"
       ],
       "conditionKeys": [
-        "ssm:SessionDocumentAccessCheck"
+        "ssm:SessionDocumentAccessCheck",
+        "ssm:resourceTag/tag-key",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
