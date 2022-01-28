@@ -14,6 +14,8 @@ jobs:
     - name: Install dependencies
       run: yarn install --frozen-lockfile
     - name: Publish to Visual Studio Marketplace
-      run: npx vsce publish -p ${{ secrets.VS_MARKETPLACE_PAT }}
+      run: npx vsce publish
+      env:
+        VSCE_PAT: ${{ secrets.VS_MARKETPLACE_PAT }}
     - name: Publish to Open VSX Registry
       run: npx ovsx publish -p ${{ secrets.OPENVSX_PAT }}
