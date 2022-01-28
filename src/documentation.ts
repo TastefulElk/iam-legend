@@ -61,10 +61,9 @@ export const createServicesActionDocs = (items: { service: IamService; actions: 
     return [new MarkdownString('No matching actions')];
   };
 
-  const preText = 'Matches multiple actions:\n';
   if (items.length === 1 && items[0].actions.length === 1) {
-    return [new MarkdownString(preText + createActionDocs(items[0].actions[0]).value)];
+    return [...items.map(({ service, actions }) => createServiceActionDocs(service, actions))];
   }
 
-  return [new MarkdownString(preText), ...items.map(({ service, actions }) => createServiceActionDocs(service, actions))];
+  return [new MarkdownString(`Matches multiple actions:${EOL}`), ...items.map(({ service, actions }) => createServiceActionDocs(service, actions))];
 };
