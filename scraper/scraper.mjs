@@ -52,9 +52,11 @@ const scrapeService = async (url, browser) => {
 
 const save = async ({ serviceName, servicePrefix, actions, url }) =>
   writeFileAsync(
-    `./src/iam-services/${servicePrefix}.json`,
+    `./src/iam-services/${formatFileName(serviceName)}.json`,
     JSON.stringify({ serviceName, servicePrefix, url, actions }, null, 2)
   );
+
+const formatFileName = (serviceName) => serviceName.replace(/\s+/g, "-").toLowerCase();
 
 const getServicePrefix = ($) => {
   const elements = $("p > code").toArray();

@@ -9,7 +9,6 @@ export const createServiceDocs = ({ serviceName, url }: IamService) =>
 
 export const createActionDocs = (action: IamAction) => {
   const lines = [];
-
   lines.push(
     action.documentationUrl
       ? `**[${action.name}](${action.documentationUrl})**`
@@ -36,16 +35,36 @@ export const createActionDocs = (action: IamAction) => {
   return new MarkdownString(lines.join(mdEOL));
 };
 
-export const createActionsSummaryDocs = (actions: IamAction[]) => {
+const createServiceActionDocs = ({ serviceName }: IamService, actions: IamAction[]) => {
   const lines = [];
-  lines.push('Multiple actions matched:');
-
-  lines.push(actions.map(({ name, documentationUrl, description }) => {
-    const subject = documentationUrl
-      ? `[${name}](${documentationUrl})`
-      : `**${name}**`;
-    return `- ${subject}: ${description}`;
-  }).join(mdEOL));
+  lines.push(`**${serviceName}**`);
+  lines.push(actions.map(x => createShortActionDocs(x).value).join(mdEOL));
 
   return new MarkdownString(lines.join(mdEOL));
+};
+
+const createShortActionDocs = ({ name, documentationUrl, description }: IamAction) => {
+  const lines = [];
+  lines.push(
+    documentationUrl
+      ? `**[${name}](${documentationUrl})**`
+      : `**${name}**`
+  );
+
+  lines.push(`${description}`);
+
+  return new MarkdownString(lines.join(mdEOL));
+};
+
+export const createServicesActionDocs = (items: { service: IamService; actions: IamAction[]; }[]): MarkdownString[] => {
+  if (items.length === 0) {
+    return [new MarkdownString('No matching actions')];
+  };
+
+  const preText = 'Matches multiple actions:\n';
+  if (items.length === 1 && items[0].actions.length === 1) {
+    return [new MarkdownString(preText + createActionDocs(items[0].actions[0]).value)];
+  }
+
+  return [new MarkdownString(preText), ...items.map(({ service, actions }) => createServiceActionDocs(service, actions))];
 };

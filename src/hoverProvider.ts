@@ -1,10 +1,10 @@
 import { HoverProvider, Position } from "vscode";
-import { createActionDocs, createActionsSummaryDocs, createServiceDocs } from "./documentation";
-import { IamService } from "./iamActions";
+import { createServicesActionDocs, createServiceDocs } from "./documentation";
+import { IamServicesByPrefix } from "./iamActions";
 import { match } from "./utility/match";
 import { isInsideActionsArray, normalize } from "./utility/utility";
 
-export const getHoverProvider = (services: Record<string, IamService>): HoverProvider => ({
+export const getHoverProvider = (iamServicesByPrefix: IamServicesByPrefix): HoverProvider => ({
   provideHover(document, position) {
     const wordRange = document.getWordRangeAtPosition(position, /[a-z0-9-*]+/i);
 
@@ -18,7 +18,7 @@ export const getHoverProvider = (services: Record<string, IamService>): HoverPro
     const word = normalize(document.getText(wordRange));
 
     let [serviceName, action] = word.split(':');
-    if (!services[serviceName]) {
+    if (!iamServicesByPrefix[serviceName]) {
       // if the hovered word doesn't include a known service, try with previous word
       action = serviceName;
       let serviceWordRange = document.getWordRangeAtPosition(new Position(
@@ -28,37 +28,30 @@ export const getHoverProvider = (services: Record<string, IamService>): HoverPro
       serviceName = normalize(document.getText(serviceWordRange));
     }
 
-    const service = services[serviceName];
-    if (!service) {
+    const services = iamServicesByPrefix[serviceName];
+    if (!services) {
       return emptyResult;
     }
 
     // if word matches 'service' but no action
     // return hover with documentation for that service
-    if (service && !action) {
+    if (services && !action) {
       return {
-        contents: [createServiceDocs(service)],
+        contents: services.map(x => createServiceDocs(x)),
       };
     }
 
     if (word.includes(':') && position.character < wordRange.start.character + serviceName.length + 1) {
       return {
-        contents: [createServiceDocs(service)],
+        contents: services.map(x => createServiceDocs(x)),
       };
     }
 
-    // if matches 'service:action'
-    // return hover with documentation for that action
-    // if matches multiple actions, return hover with summary of actions
-    const hoveredActions = service.actions.filter(x => match(action, x.name));
-    if (!hoveredActions) { return emptyResult; }
+    const serviceActions = services.map(x => ({ service: x, actions: x.actions.filter(x => match(action, x.name)) })).filter(x => x.actions.length > 0); 
+    if (!serviceActions) { return emptyResult; }
 
     return {
-      contents: hoveredActions.length === 0
-        ? ['No matching actions']
-        : hoveredActions.length === 1
-          ? [createActionDocs(hoveredActions[0])]
-          : [createActionsSummaryDocs(hoveredActions)]
+      contents: [...createServicesActionDocs(serviceActions)],
     };
   }
 });

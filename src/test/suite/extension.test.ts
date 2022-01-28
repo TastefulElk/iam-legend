@@ -106,7 +106,7 @@ suite("CompletionProvider", () => {
 
 const triggerAndAcceptSuggestion = async () => {
   await commands.executeCommand('editor.action.triggerSuggest');
-  await delay(500); // wait for the suggestions to be populated
+  await delay(750); // wait for the suggestions to be populated
   await commands.executeCommand('acceptSelectedSuggestion');
 };
 
