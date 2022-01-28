@@ -21,7 +21,7 @@
       "description": "Grants permission to get a batch of variables",
       "accessLevel": "List",
       "resourceTypes": [
-        "variable"
+        "variable*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -86,7 +86,9 @@
       "description": "Grants permission to create a detector version. The detector version starts in a DRAFT status",
       "accessLevel": "Write",
       "resourceTypes": [
-        "detector*"
+        "detector*",
+        "external-model",
+        "model-version"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -427,6 +429,19 @@
       "dependentActions": []
     },
     {
+      "name": "GetEventPredictionMetadata",
+      "documentationUrl": "https://docs.aws.amazon.com/frauddetector/latest/api/API_GetEventPredictionMetadata.html",
+      "description": "Grants permission to get more details of a particular prediction",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "detector*",
+        "detector-version*",
+        "event-type*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetEventTypes",
       "documentationUrl": "https://docs.aws.amazon.com/frauddetector/latest/api/API_GetEventTypes.html",
       "description": "Grants permission to get all event types or a specific event type if name is provided. This is a paginated API. If you provide a null maxResults, this action retrieves a maximum of 10 records per page. If you provide a maxResults, the value must be between 5 and 10. To get the next page results, provide the pagination token from the GetEventTypesResponse as part of your request. A null pagination token fetches the records from the beginning",
@@ -524,11 +539,26 @@
       "dependentActions": []
     },
     {
+      "name": "ListEventPredictions",
+      "documentationUrl": "https://docs.aws.amazon.com/frauddetector/latest/api/API_ListEventPredictions.html",
+      "description": "Grants permission to get a list of past predictions",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "detector",
+        "detector-version",
+        "event-type"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/frauddetector/latest/api/API_ListTagsForResource.html",
       "description": "Grants permission to list all tags associated with the resource. This is a paginated API. To get the next page results, provide the pagination token from the response as part of your request. A null pagination token fetches the records from the beginning",
       "accessLevel": "Read",
       "resourceTypes": [
+        "batch-import",
+        "batch-prediction",
         "detector",
         "detector-version",
         "entity-type",
@@ -659,6 +689,7 @@
       "description": "Grants permission to assign tags to a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "batch-import",
         "batch-prediction",
         "detector",
         "detector-version",
@@ -684,6 +715,7 @@
       "description": "Grants permission to remove tags from a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "batch-import",
         "batch-prediction",
         "detector",
         "detector-version",
@@ -709,7 +741,9 @@
       "description": "Grants permission to update a detector version. The detector version attributes that you can update include models, external model endpoints, rules, rule execution mode, and description. You can only update a DRAFT detector version",
       "accessLevel": "Write",
       "resourceTypes": [
-        "detector*"
+        "detector*",
+        "external-model",
+        "model-version"
       ],
       "conditionKeys": [],
       "dependentActions": []

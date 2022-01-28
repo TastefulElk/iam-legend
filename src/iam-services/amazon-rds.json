@@ -1630,7 +1630,10 @@
       "description": "Grants permission to create an Amazon Aurora DB cluster from data stored in an Amazon S3 bucket",
       "accessLevel": "Write",
       "resourceTypes": [
-        "cluster*"
+        "cluster*",
+        "cluster-pg*",
+        "og*",
+        "subgrp*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1652,8 +1655,10 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*",
+        "cluster-pg*",
         "cluster-snapshot*",
-        "og*"
+        "og*",
+        "subgrp*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1676,6 +1681,7 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*",
+        "cluster-pg*",
         "og*",
         "subgrp*"
       ],
@@ -1701,6 +1707,7 @@
       "resourceTypes": [
         "db*",
         "og*",
+        "pg*",
         "snapshot*",
         "subgrp*"
       ],
@@ -1721,7 +1728,10 @@
       "description": "Grants permission to create a new DB instance from an Amazon S3 bucket",
       "accessLevel": "Write",
       "resourceTypes": [
-        "db*"
+        "db*",
+        "og*",
+        "pg*",
+        "subgrp*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1741,6 +1751,7 @@
       "resourceTypes": [
         "db*",
         "og*",
+        "pg*",
         "subgrp*"
       ],
       "conditionKeys": [
@@ -1771,7 +1782,8 @@
       "description": "Grants permission to start Activity Stream",
       "accessLevel": "Write",
       "resourceTypes": [
-        "cluster*"
+        "cluster",
+        "db"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1826,7 +1838,8 @@
       "description": "Grants permission to stop Activity Stream",
       "accessLevel": "Write",
       "resourceTypes": [
-        "cluster*"
+        "cluster",
+        "db"
       ],
       "conditionKeys": [],
       "dependentActions": []
