@@ -48,6 +48,32 @@
       ]
     },
     {
+      "name": "CreateClusterV2",
+      "documentationUrl": "https://docs.aws.amazon.com/MSK/2.0/APIReference/v2-clusters.html#CreateClusterV2",
+      "description": "Grants permission to create an MSK cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags",
+        "ec2:CreateVpcEndpoint",
+        "ec2:DeleteVpcEndpoints",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcAttribute",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeVpcs",
+        "iam:AttachRolePolicy",
+        "iam:CreateServiceLinkedRole",
+        "iam:PutRolePolicy",
+        "kms:CreateGrant",
+        "kms:DescribeKey"
+      ]
+    },
+    {
       "name": "CreateConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/configurations.html#CreateConfiguration",
       "description": "Grants permission to create an MSK configuration",
@@ -63,7 +89,11 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DeleteVpcEndpoints",
+        "ec2:DescribeVpcAttribute",
+        "ec2:DescribeVpcEndpoints"
+      ]
     },
     {
       "name": "DeleteConfiguration",
@@ -87,6 +117,15 @@
       "name": "DescribeClusterOperation",
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/operations-clusteroperationarn.html#DescribeClusterOperation",
       "description": "Grants permission to describe the cluster operation that is specified by the given ARN",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeClusterV2",
+      "documentationUrl": "https://docs.aws.amazon.com/MSK/2.0/APIReference/v2-clusters-clusterarn.html#DescribeClusterV2",
+      "description": "Grants permission to describe an MSK cluster",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -140,6 +179,15 @@
     {
       "name": "ListClusters",
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#ListClusters",
+      "description": "Grants permission to list all MSK clusters in this account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListClustersV2",
+      "documentationUrl": "https://docs.aws.amazon.com/MSK/2.0/APIReference/v2-clusters.html#ListClustersV2",
       "description": "Grants permission to list all MSK clusters in this account",
       "accessLevel": "List",
       "resourceTypes": [],
