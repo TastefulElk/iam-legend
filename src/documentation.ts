@@ -1,6 +1,6 @@
 import { EOL } from 'os';
 import { MarkdownString } from 'vscode';
-import { IamService, IamAction } from "./iamActions";
+import { IamService, IamAction } from "./domain";
 
 const mdEOL = EOL + EOL; // use two line breaks because markdown..
 

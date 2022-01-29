@@ -2,7 +2,8 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 
-import { getIamServicesByPrefix, IamService, IamServicesByPrefix } from "./iamActions";
+import { getIamServicesByPrefix } from "./iamProvider";
+import { IamServicesByPrefix } from './domain';
 
 import { getHoverProvider } from "./hoverProvider";
 import { getCompletionItemProvider } from "./completionProvider";
