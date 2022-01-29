@@ -52,7 +52,7 @@ const scrapeService = async (url, browser) => {
 
 const save = async ({ serviceName, servicePrefix, actions, url }) =>
   writeFileAsync(
-    `./src/iam-services/${formatFileName(serviceName)}.json`,
+    `./src/data/iam-services/${formatFileName(serviceName)}.json`,
     JSON.stringify({ serviceName, servicePrefix, url, actions }, null, 2)
   );
 
