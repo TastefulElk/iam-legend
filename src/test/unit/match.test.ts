@@ -1,4 +1,4 @@
-import { match } from "../../domain/utility/match";
+import { match } from "../../domain/utility";
 
 describe("[match]", () => {
   it("should match same values", () => {

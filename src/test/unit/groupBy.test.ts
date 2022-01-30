@@ -1,4 +1,4 @@
-import groupBy from '../../domain/utility/groupBy';
+import { groupBy } from '../../domain/utility';
 
 describe('[groupBy]', () => {
   it('should group an array of objects by the given key', () => {

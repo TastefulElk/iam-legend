@@ -1,7 +1,7 @@
 import { CompletionItem, CompletionItemKind, CompletionItemProvider, Position, Range, TextDocument } from "vscode";
 import { createActionDocs, createServiceDocs } from "./documentation";
 import { IamService, IamServicesByPrefix } from "./domain";
-import { isInsideActionsArray } from "./domain/utility/document";
+import { isInsideActionsArray } from "./domain/utility";
 
 const getActionSuggestions = (services: IamService[], range: Range) => {
   const suggestions: CompletionItem[] = services.map(x => x.actions.map(action => ({

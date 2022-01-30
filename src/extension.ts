@@ -1,6 +1,6 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-import * as vscode from "vscode";
+import { DocumentSelector, ExtensionContext, languages } from "vscode";
 
 import { getIamServicesByPrefix } from "./iamProvider";
 import { IamServicesByPrefix } from './domain';
@@ -8,7 +8,7 @@ import { IamServicesByPrefix } from './domain';
 import { getHoverProvider } from "./hoverProvider";
 import { getCompletionItemProvider } from "./completionProvider";
 
-export async function activate(context: vscode.ExtensionContext) {
+export async function activate(context: ExtensionContext) {
   console.info("iam-legend extension activating");
 
   const iamServicesByPrefix = await getIamServicesByPrefix();
@@ -16,7 +16,7 @@ export async function activate(context: vscode.ExtensionContext) {
   registerCompletionItemProviders(iamServicesByPrefix, context);
 }
 
-const supportedLanguages: vscode.DocumentSelector[] = [{
+const supportedLanguages: DocumentSelector[] = [{
   language: 'yaml'
 }, {
   language: 'json'
@@ -25,9 +25,9 @@ const supportedLanguages: vscode.DocumentSelector[] = [{
 }
 ];
 
-const registerHoverProviders = (services: IamServicesByPrefix, context: vscode.ExtensionContext) => {
+const registerHoverProviders = (services: IamServicesByPrefix, context: ExtensionContext) => {
   const hoverProvider = getHoverProvider(services);
-  context.subscriptions.push(...supportedLanguages.map(language => vscode.languages.registerHoverProvider(
+  context.subscriptions.push(...supportedLanguages.map(language => languages.registerHoverProvider(
     language,
     hoverProvider
   )));
@@ -35,10 +35,10 @@ const registerHoverProviders = (services: IamServicesByPrefix, context: vscode.E
 
 const registerCompletionItemProviders = (
   iamServicesByPrefix: IamServicesByPrefix,
-  context: vscode.ExtensionContext
+  context: ExtensionContext
 ) => {
   const completionItemProvider = getCompletionItemProvider(iamServicesByPrefix);
-  context.subscriptions.push(...supportedLanguages.map(language => vscode.languages.registerCompletionItemProvider(
+  context.subscriptions.push(...supportedLanguages.map(language => languages.registerCompletionItemProvider(
     language,
     completionItemProvider,
     ':'
