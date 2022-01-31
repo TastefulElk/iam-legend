@@ -1,7 +1,9 @@
 import { CompletionItem, CompletionItemKind, CompletionItemProvider, Position, Range, TextDocument } from "vscode";
 import { createActionDocs, createServiceDocs } from "./documentation";
+import { getActionOffset, getActionRange, getFullWordAtPosition, getWordAtPosition } from "./documentParser";
 import { IamService, IamServicesByPrefix } from "./domain";
-import { isInsideActionsArray } from "./domain/utility";
+import { isInsideActionsArray } from "./documentParser";
+import { getServiceFromServiceAction } from "./domain/utility";
 
 const getActionSuggestions = (services: IamService[], range: Range) => {
   const suggestions: CompletionItem[] = services.map(x => x.actions.map(action => ({
@@ -19,16 +21,16 @@ const getActionSuggestions = (services: IamService[], range: Range) => {
   return { items: suggestions, isIncomplete: true };
 };
 
-const getServiceSuggestions = (matchedWord: string, servicesByPrefix: IamServicesByPrefix, range: Range) => {
-  // if the matched word starts or ends with quotes, help the json language server
+const getServiceSuggestions = (matchedWord: string | undefined, servicesByPrefix: IamServicesByPrefix, range: Range) => {
+// if the matched word starts or ends with quotes, help the json language server
   // to find the correct service name by applying it to the suggestions as it otherwise
   // fails to suggest it
-  const labelPrefix = matchedWord.startsWith('"')
-    ? '"' : matchedWord.startsWith(`'`)
+  const labelPrefix = matchedWord?.startsWith('"')
+    ? '"' : matchedWord?.startsWith(`'`)
       ? `'` : '';
 
-  const labelSuffix = matchedWord.endsWith('"')
-    ? '"' : matchedWord.endsWith(`'`)
+  const labelSuffix = matchedWord?.endsWith('"')
+    ? '"' : matchedWord?.endsWith(`'`)
       ? `'` : '';
   
   const suggestions: CompletionItem[] = Object.values(servicesByPrefix).map(service => service.map(x => ({
@@ -49,32 +51,32 @@ const getServiceSuggestions = (matchedWord: string, servicesByPrefix: IamService
   return { items: suggestions, isIncomplete: true };
 };
 
-const getActionOffset = (word: string, range: Range) => word.indexOf(':') >= 0 ? word.indexOf(':') + 1 + range?.start.character : 0;
-const getActionRange = (position: Position, actionOffset: number) => new Range(position.line, actionOffset, position.line, position.character);
-
 export const getCompletionItemProvider = (servicesByPrefix: IamServicesByPrefix): CompletionItemProvider => ({
   provideCompletionItems(document: TextDocument, position: Position) {
     if (!isInsideActionsArray(document, position)) {
-      return { items: [], isIncomplete: true };
+      return { items: [] };
     }
 
-    const fullWordRange = document.getWordRangeAtPosition(position, /[a-z0-9:-]+/i);
-    const fullWord = fullWordRange && document.getText(fullWordRange);
-    if (fullWord) {
-      const [serviceWord] = fullWord.split(':');
+    const { range, word } = getFullWordAtPosition(document, position);
+    if (range && word) {
+      const serviceWord = getServiceFromServiceAction(word);
 
+      // if there's a full service prefix at the position, suggest actions for that/those service(s)
       const services = serviceWord && servicesByPrefix[serviceWord];
       if (services) {
-        const actionOffset = getActionOffset(fullWord, fullWordRange);
+        const actionOffset = getActionOffset(word, range);
         const actionRange = getActionRange(position, actionOffset);
         return getActionSuggestions(services, actionRange);
       }
     }
 
-    const partialWordRange = document.getWordRangeAtPosition(position);
-    const matchedWord = partialWordRange ? document.getText(partialWordRange) : '';
+    // check only first part of word at position since some formats treat all values inside quotes
+    // as one word, and we're only interested in the service part of the word here
+    // const serviceWordRange = document.getWordRangeAtPosition(position);
+    // const serviceWord = serviceWordRange ? document.getText(serviceWordRange) : '';
+    const { word: serviceWord, range: serviceWordRange } = getWordAtPosition(document, position);
 
-    const serviceRange = new Range(position.line, partialWordRange?.start.character as number || position.character, position.line, position.character);
-    return getServiceSuggestions(matchedWord,servicesByPrefix, serviceRange);
+    const serviceRange = new Range(position.line, serviceWordRange?.start.character as number || position.character, position.line, position.character);
+    return getServiceSuggestions(serviceWord, servicesByPrefix, serviceRange);
   }
 });
