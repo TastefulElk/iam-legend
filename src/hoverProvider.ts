@@ -1,7 +1,8 @@
 import { HoverProvider, Position } from "vscode";
 import { createServicesActionDocs, createServiceDocs } from "./documentation";
+import { isInsideActionsArray } from "./documentParser";
 import { IamServicesByPrefix } from "./domain";
-import { isInsideActionsArray, match, normalize } from "./domain/utility";
+import { match, normalize } from "./domain/utility";
 
 export const getHoverProvider = (iamServicesByPrefix: IamServicesByPrefix): HoverProvider => ({
   provideHover(document, position) {
