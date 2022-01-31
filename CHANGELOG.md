@@ -2,6 +2,10 @@
 
 All notable changes to the "iam-legend" extension will be documented in this file.
 
+## [1.0.6] - 2022-01-32
+
+- IAM service updates
+
 ## [1.0.5] - 2022-01-28
 
 - improve support for services that share the same service prefix. (ex. API Gateway v1/v2)
