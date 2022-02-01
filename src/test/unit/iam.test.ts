@@ -28,6 +28,4 @@ describe('[iam]', () => {
       expect(actual).toEqual(expected);
     });
   });
-  
-  
 });
