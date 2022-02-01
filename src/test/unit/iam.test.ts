@@ -1,4 +1,4 @@
-import { getServiceFromServiceAction } from "../../domain/utility";
+import { getServiceFromServiceAction, normalize } from "../../domain/utility";
 
 describe('[iam]', () => {
   describe('[getServiceFromServiceAction]', () => {
@@ -18,5 +18,16 @@ describe('[iam]', () => {
       expect(actual).toEqual(expected);
     });
   });
+
+  describe('[normalize]', () => {
+    it('should normalize service/action', () => {
+      const input = '     "dynamodb:GetItem"';
+      const expected = 'dynamodb:GetItem';
+      
+      const actual = normalize(input);
+      expect(actual).toEqual(expected);
+    });
+  });
+  
   
 });
