@@ -4,6 +4,30 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkendra.html",
   "actions": [
     {
+      "name": "AssociateEntitiesToExperience",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_PutPrincipalMapping.html",
+      "description": "Grants permission to put principal mapping in index",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experience*",
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociatePersonasToEntities",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_AssociatePersonasToEntities.html",
+      "description": "Defines the specific permissions of users or groups in your AWS SSO identity source with access to your Amazon Kendra experience",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experience*",
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "BatchDeleteDocument",
       "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html",
       "description": "Grants permission to batch delete document",
@@ -59,6 +83,17 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateExperience",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_CreateExperience.html",
+      "description": "Creates an Amazon Kendra experience such as a search application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "index*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -122,6 +157,18 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "data-source*",
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteExperience",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_DeleteExperience.html",
+      "description": "Deletes your Amazon Kendra experience such as a search application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experience*",
         "index*"
       ],
       "conditionKeys": [],
@@ -199,6 +246,18 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeExperience",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_DescribeExperience.html",
+      "description": "Gets information about your Amazon Kendra experience such as a search application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "experience*",
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeFaq",
       "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_DescribeFaq.html",
       "description": "Grants permission to describe an Faq",
@@ -269,9 +328,44 @@
       "dependentActions": []
     },
     {
+      "name": "DisassociateEntitiesFromExperience",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_DisassociateEntitiesFromExperience.html",
+      "description": "Prevents users or groups in your AWS SSO identity source from accessing your Amazon Kendra experience",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experience*",
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociatePersonasFromEntities",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_DisassociatePersonasFromEntities.html",
+      "description": "Removes the specific permissions of users or groups in your AWS SSO identity source with access to your Amazon Kendra experience",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experience*",
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetQuerySuggestions",
       "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html",
       "description": "Grants permission to get suggestions for a query prefix",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSnapshots",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_GetSnapshots.html",
+      "description": "Retrieves search metrics data",
       "accessLevel": "Read",
       "resourceTypes": [
         "index*"
@@ -295,6 +389,41 @@
       "name": "ListDataSources",
       "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_ListDataSources.html",
       "description": "Grants permission to list the data sources",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEntityPersonas",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_ListEntityPersonas.html",
+      "description": "Lists specific permissions of users and groups with access to your Amazon Kendra experience",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "experience*",
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExperienceEntities",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_ListExperienceEntities.html",
+      "description": "Lists users or groups in your AWS SSO identity source that are granted access to your Amazon Kendra experience",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "experience*",
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExperiences",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_ListExperiences.html",
+      "description": "Lists one or more Amazon Kendra experiences. You can create an Amazon Kendra experience such as a search application",
       "accessLevel": "List",
       "resourceTypes": [
         "index*"
@@ -471,6 +600,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "data-source*",
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateExperience",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateExperience.html",
+      "description": "Updates your Amazon Kendra experience such as a search application",
+      "accessLevel": "Write",
+      "resourceTypes": [
         "index*"
       ],
       "conditionKeys": [],

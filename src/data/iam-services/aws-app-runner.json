@@ -45,18 +45,34 @@
     {
       "name": "CreateService",
       "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_CreateService.html",
-      "description": "Grants permission to create an AWS App Runner service",
+      "description": "Grants permission to create an AWS App Runner service resource",
       "accessLevel": "Write",
       "resourceTypes": [
         "service*",
         "autoscalingconfiguration",
-        "connection"
+        "connection",
+        "vpcconnector"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "apprunner:ConnectionArn",
-        "apprunner:AutoScalingConfigurationArn"
+        "apprunner:AutoScalingConfigurationArn",
+        "apprunner:VpcConnectorArn"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateVpcConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_CreateVpcConnector.html",
+      "description": "Grants permission to create an AWS App Runner VPC connector resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vpcconnector*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -74,7 +90,7 @@
     {
       "name": "DeleteConnection",
       "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteConnection.html",
-      "description": "Grants permission to delete an AWS App Runner connection",
+      "description": "Grants permission to delete an AWS App Runner connection resource",
       "accessLevel": "Write",
       "resourceTypes": [
         "connection*"
@@ -85,7 +101,7 @@
     {
       "name": "DeleteService",
       "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteService.html",
-      "description": "Grants permission to delete an AWS App Runner service",
+      "description": "Grants permission to delete an AWS App Runner service resource",
       "accessLevel": "Write",
       "resourceTypes": [
         "service*"
@@ -94,9 +110,20 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteVpcConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteVpcConnector.html",
+      "description": "Grants permission to delete an AWS App Runner VPC connector resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vpcconnector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeAutoScalingConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeAutoScalingConfiguration.html",
-      "description": "Grants permission to retrieve descriptions of an AWS App Runner automatic scaling configuration resource",
+      "description": "Grants permission to retrieve the description of an AWS App Runner automatic scaling configuration resource",
       "accessLevel": "Read",
       "resourceTypes": [
         "autoscalingconfiguration*"
@@ -118,7 +145,7 @@
     {
       "name": "DescribeOperation",
       "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeOperation.html",
-      "description": "Grants permission to retrieve description of an operation that occurred on an AWS App Runner service",
+      "description": "Grants permission to retrieve the description of an operation that occurred on an AWS App Runner service",
       "accessLevel": "Read",
       "resourceTypes": [
         "service*"
@@ -129,10 +156,21 @@
     {
       "name": "DescribeService",
       "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeService.html",
-      "description": "Grants permission to retrieve description of an AWS App Runner service",
+      "description": "Grants permission to retrieve the description of an AWS App Runner service resource",
       "accessLevel": "Read",
       "resourceTypes": [
         "service*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeVpcConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeVpcConnector.html",
+      "description": "Grants permission to retrieve the description of an AWS App Runner VPC connector resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "vpcconnector*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -160,7 +198,7 @@
     {
       "name": "ListConnections",
       "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_ListConnections.html",
-      "description": "Grants permission to retrieve a list of AWS App Runner connections associated with your AWS account",
+      "description": "Grants permission to retrieve a list of AWS App Runner connections in your AWS account",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -169,7 +207,7 @@
     {
       "name": "ListOperations",
       "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_ListOperations.html",
-      "description": "Grants permission to retrieve a list of operations that occurred on an AWS App Runner service",
+      "description": "Grants permission to retrieve a list of operations that occurred on an AWS App Runner service resource",
       "accessLevel": "List",
       "resourceTypes": [
         "service*"
@@ -194,8 +232,18 @@
       "resourceTypes": [
         "autoscalingconfiguration",
         "connection",
-        "service"
+        "service",
+        "vpcconnector"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListVpcConnectors",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_ListVpcConnectors.html",
+      "description": "Grants permission to retrieve a list of AWS App Runner VPC connectors in your AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -235,12 +283,13 @@
     {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_TagResource.html",
-      "description": "Grants permission to add tags to, or update tag values of, an App Runner resource",
+      "description": "Grants permission to add tags to, or update tag values of, an AWS App Runner resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "autoscalingconfiguration",
         "connection",
-        "service"
+        "service",
+        "vpcconnector"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -251,12 +300,13 @@
     {
       "name": "UntagResource",
       "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_UntagResource.html",
-      "description": "Grants permission to remove tags from an App Runner resource",
+      "description": "Grants permission to remove tags from an AWS App Runner resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "autoscalingconfiguration",
         "connection",
-        "service"
+        "service",
+        "vpcconnector"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -266,16 +316,18 @@
     {
       "name": "UpdateService",
       "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_UpdateService.html",
-      "description": "Grants permission to update an AWS App Runner service",
+      "description": "Grants permission to update an AWS App Runner service resource",
       "accessLevel": "Write",
       "resourceTypes": [
         "service*",
         "autoscalingconfiguration",
-        "connection"
+        "connection",
+        "vpcconnector"
       ],
       "conditionKeys": [
         "apprunner:ConnectionArn",
-        "apprunner:AutoScalingConfigurationArn"
+        "apprunner:AutoScalingConfigurationArn",
+        "apprunner:VpcConnectorArn"
       ],
       "dependentActions": []
     }

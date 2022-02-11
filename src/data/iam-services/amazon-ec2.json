@@ -249,7 +249,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -338,7 +340,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -564,7 +568,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -1003,6 +1009,15 @@
       "dependentActions": []
     },
     {
+      "name": "CreateCoipPoolPermission",
+      "documentationUrl": "https://docs.aws.amazon.com/outposts/latest/userguide/identity-access-management.html",
+      "description": "Grants permission to allow a service to access a customer owned IP (CoIP) pool",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateCustomerGateway",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateCustomerGateway.html",
       "description": "Grants permission to create a customer gateway, which provides information to AWS about your customer gateway device",
@@ -1218,18 +1233,19 @@
       "resourceTypes": [
         "image*",
         "instance*",
-        "snapshot"
+        "snapshot*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "ec2:Owner",
-        "ec2:Public",
         "ec2:Region",
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -1240,12 +1256,12 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
         "ec2:Tenancy",
-        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:OutpostArn",
         "ec2:Owner",
         "ec2:ParentVolume",
         "ec2:Region",
-        "ec2:ResourceTag/${TagKey}",
         "ec2:SnapshotTime",
         "ec2:SourceOutpostArn",
         "ec2:VolumeSize"
@@ -1287,7 +1303,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -1439,6 +1457,21 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:Region",
+        "ec2:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateLocalGatewayRouteTablePermission",
+      "documentationUrl": "https://docs.aws.amazon.com/outposts/latest/userguide/identity-access-management.html",
+      "description": "Grants permission to allow a service to access a local gateway route table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "local-gateway-route-table*"
+      ],
+      "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
@@ -1731,7 +1764,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -1868,6 +1903,7 @@
         "ec2:Encrypted",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:VolumeIops",
         "ec2:VolumeSize",
         "ec2:VolumeThroughput",
         "ec2:VolumeType"
@@ -1908,6 +1944,7 @@
         "ec2:Encrypted",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:VolumeIops",
         "ec2:VolumeSize",
         "ec2:VolumeThroughput",
         "ec2:VolumeType"
@@ -2123,7 +2160,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -2306,6 +2345,7 @@
         "ec2:GatewayType",
         "ec2:IKEVersions",
         "ec2:InsideTunnelCidr",
+        "ec2:InsideTunnelIpv6Cidr",
         "ec2:Phase1DHGroup",
         "ec2:Phase1EncryptionAlgorithms",
         "ec2:Phase1IntegrityAlgorithms",
@@ -2318,6 +2358,7 @@
         "ec2:Region",
         "ec2:RekeyFuzzPercentage",
         "ec2:RekeyMarginTimeSeconds",
+        "ec2:ReplayWindowSizePackets",
         "ec2:ResourceTag/${TagKey}",
         "ec2:RoutingType",
         "aws:ResourceTag/${TagKey}",
@@ -2617,6 +2658,7 @@
         "ec2:KmsKeyId",
         "ec2:ParentSnapshot",
         "ec2:Region",
+        "ec2:VolumeIops",
         "ec2:VolumeSize",
         "ec2:VolumeThroughput",
         "ec2:VolumeType"
@@ -2766,6 +2808,7 @@
         "ec2:GatewayType",
         "ec2:IKEVersions",
         "ec2:InsideTunnelCidr",
+        "ec2:InsideTunnelIpv6Cidr",
         "ec2:Phase1DHGroup",
         "ec2:Phase1EncryptionAlgorithms",
         "ec2:Phase1IntegrityAlgorithms",
@@ -2778,6 +2821,7 @@
         "ec2:Region",
         "ec2:RekeyFuzzPercentage",
         "ec2:RekeyMarginTimeSeconds",
+        "ec2:ReplayWindowSizePackets",
         "ec2:RoutingType",
         "aws:ResourceTag/${TagKey}",
         "ec2:Region",
@@ -2883,6 +2927,15 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:Vpc"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCoipPoolPermission",
+      "documentationUrl": "https://docs.aws.amazon.com/outposts/latest/userguide/identity-access-management.html",
+      "description": "Grants permission to deny a service from accessing a customer owned IP (CoIP) pool",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -3100,6 +3153,21 @@
       "name": "DeleteLocalGatewayRoute",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteLocalGatewayRoute.html",
       "description": "Grants permission to delete a route from a local gateway route table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "local-gateway-route-table*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:Region",
+        "ec2:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteLocalGatewayRouteTablePermission",
+      "documentationUrl": "https://docs.aws.amazon.com/outposts/latest/userguide/identity-access-management.html",
+      "description": "Grants permission to deny a service from accessing a local gateway route table",
       "accessLevel": "Write",
       "resourceTypes": [
         "local-gateway-route-table*"
@@ -4665,7 +4733,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -4809,6 +4879,15 @@
       "name": "DescribeLaunchTemplates",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html",
       "description": "Grants permission to describe one or more launch templates",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeLocalGatewayRouteTablePermissions",
+      "documentationUrl": "https://docs.aws.amazon.com/outposts/latest/userguide/identity-access-management.html",
+      "description": "Grants permission to allow a service to describe a local gateway route table",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -5089,8 +5168,15 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupReferences.html",
       "description": "Grants permission to describe the VPCs on the other side of a VPC peering connection that are referencing specified VPC security groups",
       "accessLevel": "List",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "security-group"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:Region",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Vpc"
+      ],
       "dependentActions": []
     },
     {
@@ -5116,8 +5202,22 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshotAttribute.html",
       "description": "Grants permission to describe an attribute of a snapshot",
       "accessLevel": "List",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "snapshot"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:Encrypted",
+        "ec2:OutpostArn",
+        "ec2:Owner",
+        "ec2:ParentVolume",
+        "ec2:Region",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:SnapshotTime",
+        "ec2:SourceOutpostArn",
+        "ec2:VolumeSize"
+      ],
       "dependentActions": []
     },
     {
@@ -5197,8 +5297,15 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeStaleSecurityGroups.html",
       "description": "Grants permission to describe the stale security group rules for security groups in a specified VPC",
       "accessLevel": "List",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "vpc"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:Region",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Tenancy"
+      ],
       "dependentActions": []
     },
     {
@@ -5351,8 +5458,22 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumeAttribute.html",
       "description": "Grants permission to describe an attribute of an EBS volume",
       "accessLevel": "List",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "volume"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:Encrypted",
+        "ec2:KmsKeyId",
+        "ec2:ParentSnapshot",
+        "ec2:Region",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:VolumeIops",
+        "ec2:VolumeSize",
+        "ec2:VolumeThroughput",
+        "ec2:VolumeType"
+      ],
       "dependentActions": []
     },
     {
@@ -5387,8 +5508,15 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcAttribute.html",
       "description": "Grants permission to describe an attribute of a VPC",
       "accessLevel": "List",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "vpc"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:Region",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Tenancy"
+      ],
       "dependentActions": []
     },
     {
@@ -5563,7 +5691,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -5869,7 +5999,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -6299,6 +6431,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:CapacityReservationFleet",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
       ],
@@ -6325,7 +6458,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -6344,8 +6479,28 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetConsoleScreenshot.html",
       "description": "Grants permission to retrieve a JPG-format screenshot of a running instance",
       "accessLevel": "Read",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "instance"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
+        "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
+        "ec2:InstanceProfile",
+        "ec2:InstanceType",
+        "ec2:MetadataHttpEndpoint",
+        "ec2:MetadataHttpPutResponseHopLimit",
+        "ec2:MetadataHttpTokens",
+        "ec2:NewInstanceProfile",
+        "ec2:PlacementGroup",
+        "ec2:Region",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:RootDeviceType",
+        "ec2:Tenancy"
+      ],
       "dependentActions": []
     },
     {
@@ -6400,6 +6555,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:CapacityReservationFleet",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
       ],
@@ -6494,7 +6650,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -6568,7 +6726,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -6674,25 +6834,8 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "ec2:AuthenticationType",
-        "ec2:DPDTimeoutSeconds",
-        "ec2:GatewayType",
-        "ec2:IKEVersions",
-        "ec2:InsideTunnelCidr",
-        "ec2:Phase1DHGroup",
-        "ec2:Phase1EncryptionAlgorithms",
-        "ec2:Phase1IntegrityAlgorithms",
-        "ec2:Phase1LifetimeSeconds",
-        "ec2:Phase2DHGroup",
-        "ec2:Phase2EncryptionAlgorithms",
-        "ec2:Phase2IntegrityAlgorithms",
-        "ec2:Phase2LifetimeSeconds",
-        "ec2:PreSharedKeys",
         "ec2:Region",
-        "ec2:RekeyFuzzPercentage",
-        "ec2:RekeyMarginTimeSeconds",
         "ec2:ResourceTag/${TagKey}",
-        "ec2:RoutingType",
         "aws:ResourceTag/${TagKey}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
@@ -6776,14 +6919,8 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
-        "ec2:EbsOptimized",
-        "ec2:InstanceProfile",
-        "ec2:InstanceType",
-        "ec2:PlacementGroup",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
-        "ec2:RootDeviceType",
-        "ec2:Tenancy",
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:Encrypted",
@@ -6902,6 +7039,7 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:AllocationId",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Domain",
         "ec2:PublicIpAddress",
@@ -6929,6 +7067,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:CapacityReservationFleet",
         "ec2:Region",
@@ -6946,6 +7085,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
@@ -6964,6 +7104,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:ClientRootCertificateChainArn",
         "ec2:CloudwatchLogGroupArn",
@@ -7017,6 +7158,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
@@ -7071,6 +7213,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Owner",
         "ec2:Public",
@@ -7089,6 +7232,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
@@ -7123,6 +7267,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:ImageType",
         "ec2:Owner",
@@ -7145,10 +7290,13 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -7187,10 +7335,13 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -7217,10 +7368,13 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -7275,10 +7429,13 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -7304,10 +7461,13 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -7337,6 +7497,8 @@
         "ipam*"
       ],
       "conditionKeys": [
+        "ec2:Attribute",
+        "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
       ],
@@ -7351,6 +7513,8 @@
         "ipam-pool*"
       ],
       "conditionKeys": [
+        "ec2:Attribute",
+        "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
       ],
@@ -7365,6 +7529,8 @@
         "ipam-scope*"
       ],
       "conditionKeys": [
+        "ec2:Attribute",
+        "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
       ],
@@ -7379,6 +7545,8 @@
         "ipam-scope*"
       ],
       "conditionKeys": [
+        "ec2:Attribute",
+        "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
       ],
@@ -7394,6 +7562,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
@@ -7410,6 +7579,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
@@ -7428,6 +7598,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:AvailabilityZone",
         "ec2:Region",
@@ -7437,7 +7608,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -7465,10 +7638,13 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -7493,6 +7669,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:AvailabilityZone",
         "ec2:InstanceType",
@@ -7515,6 +7692,8 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
+        "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Vpc",
@@ -7537,10 +7716,15 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Add/group",
+        "ec2:Add/userId",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Owner",
         "ec2:ParentVolume",
         "ec2:Region",
+        "ec2:Remove/group",
+        "ec2:Remove/userId",
         "ec2:ResourceTag/${TagKey}",
         "ec2:SnapshotTime",
         "ec2:VolumeSize"
@@ -7557,6 +7741,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:AvailabilityZone",
         "ec2:Encrypted",
@@ -7581,6 +7766,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
@@ -7605,6 +7791,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:AvailabilityZone",
         "ec2:Region",
@@ -7623,6 +7810,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
@@ -7640,9 +7828,11 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region"
       ],
@@ -7660,6 +7850,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
@@ -7683,6 +7874,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
@@ -7704,10 +7896,12 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
@@ -7728,6 +7922,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
@@ -7747,6 +7942,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:AvailabilityZone",
         "ec2:Encrypted",
@@ -7770,6 +7966,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:AvailabilityZone",
         "ec2:Encrypted",
@@ -7793,6 +7990,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
@@ -7813,6 +8011,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
@@ -7839,10 +8038,12 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
@@ -7859,6 +8060,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
@@ -7876,6 +8078,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
@@ -7892,6 +8095,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
@@ -7909,6 +8113,7 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:AccepterVpc",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:RequesterVpc",
@@ -7926,6 +8131,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
@@ -7943,12 +8149,14 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:AuthenticationType",
         "ec2:DPDTimeoutSeconds",
         "ec2:GatewayType",
         "ec2:IKEVersions",
         "ec2:InsideTunnelCidr",
+        "ec2:InsideTunnelIpv6Cidr",
         "ec2:Phase1DHGroup",
         "ec2:Phase1EncryptionAlgorithms",
         "ec2:Phase1IntegrityAlgorithms",
@@ -7961,6 +8169,7 @@
         "ec2:Region",
         "ec2:RekeyFuzzPercentage",
         "ec2:RekeyMarginTimeSeconds",
+        "ec2:ReplayWindowSizePackets",
         "ec2:ResourceTag/${TagKey}",
         "ec2:RoutingType"
       ],
@@ -7976,6 +8185,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
@@ -7992,6 +8202,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}"
@@ -8008,12 +8219,14 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:AuthenticationType",
         "ec2:DPDTimeoutSeconds",
         "ec2:GatewayType",
         "ec2:IKEVersions",
         "ec2:InsideTunnelCidr",
+        "ec2:InsideTunnelIpv6Cidr",
         "ec2:Phase1DHGroup",
         "ec2:Phase1EncryptionAlgorithms",
         "ec2:Phase1IntegrityAlgorithms",
@@ -8026,6 +8239,7 @@
         "ec2:Region",
         "ec2:RekeyFuzzPercentage",
         "ec2:RekeyMarginTimeSeconds",
+        "ec2:ReplayWindowSizePackets",
         "ec2:ResourceTag/${TagKey}",
         "ec2:RoutingType"
       ],
@@ -8043,7 +8257,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -8168,7 +8384,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -8194,7 +8412,6 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:Owner",
-        "ec2:Public",
         "ec2:Region",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -8402,7 +8619,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -8729,6 +8948,7 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:AllocationId",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Domain",
         "ec2:PublicIpAddress",
@@ -8756,6 +8976,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Owner",
         "ec2:Public",
@@ -8774,6 +8995,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:ImageType",
         "ec2:Owner",
@@ -8837,6 +9059,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Owner",
         "ec2:ParentVolume",
@@ -9012,7 +9235,9 @@
         "aws:TagKeys",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:IsLaunchTemplateResource",
@@ -9250,7 +9475,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -9275,7 +9502,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -9481,7 +9710,9 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
