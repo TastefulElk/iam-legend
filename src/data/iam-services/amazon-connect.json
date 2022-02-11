@@ -54,6 +54,19 @@
       ]
     },
     {
+      "name": "AssociateDefaultVocabulary",
+      "documentationUrl": "API_AssociateDefaultVocabulary.html",
+      "description": "Grants permission to default vocabulary for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateInstanceStorageConfig",
       "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
       "description": "Grants permission to associate instance storage for an existing Amazon Connect instance",
@@ -386,6 +399,21 @@
       "dependentActions": []
     },
     {
+      "name": "CreateVocabulary",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateVocabulary.html",
+      "description": "Grants permission to create a vocabulary in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vocabulary*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteContactFlow",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteContactFlow.html",
       "description": "Grants permission to delete a contact flow in an Amazon Connect instance",
@@ -534,6 +562,20 @@
         "hierarchy-group*"
       ],
       "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteVocabulary",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteVocabulary.html",
+      "description": "Grants permission to delete a vocabulary in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vocabulary*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "connect:InstanceId"
       ],
       "dependentActions": []
@@ -743,6 +785,20 @@
         "instance*"
       ],
       "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeVocabulary",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeVocabulary.html",
+      "description": "Grants permission to describe a vocabulary in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "vocabulary*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "connect:InstanceId"
       ],
       "dependentActions": []
@@ -1018,6 +1074,19 @@
       "accessLevel": "List",
       "resourceTypes": [
         "contact*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDefaultVocabularies",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListDefaultVocabularies.html",
+      "description": "Grants permission to list default vocabularies associated with a Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
       ],
       "conditionKeys": [
         "connect:InstanceId"
@@ -1329,6 +1398,19 @@
         "contact*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SearchVocabularies",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchVocabularies.html",
+      "description": "Grants permission to search vocabularies in a Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "vocabulary*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
       "dependentActions": []
     },
     {

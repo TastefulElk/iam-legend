@@ -381,6 +381,23 @@
       ]
     },
     {
+      "name": "ImportVmImage",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ImportVmImage.html",
+      "description": "Grants permission to import an image",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "image*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ec2:DescribeImportImageTasks",
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
       "name": "ListComponentBuildVersions",
       "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponentBuildVersions.html",
       "description": "Grants permission to list the component build versions in your account",

@@ -9,7 +9,10 @@
       "description": "Grants permission to create a canary",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -29,7 +32,9 @@
       "description": "Grants permission to list information of all canaries",
       "accessLevel": "Read",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "synthetics:Names"
+      ],
       "dependentActions": []
     },
     {
@@ -38,7 +43,9 @@
       "description": "Grants permission to list information about the last test run associated with all canaries",
       "accessLevel": "Read",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "synthetics:Names"
+      ],
       "dependentActions": []
     },
     {
