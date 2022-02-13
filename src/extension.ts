@@ -21,6 +21,8 @@ const supportedLanguages: DocumentSelector[] = [{
 }, {
   language: 'json'
 }, {
+  language: 'typescript'
+}, {
   pattern: '**/*.{tf,tfvars}'
 }
 ];
