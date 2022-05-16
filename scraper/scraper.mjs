@@ -17,7 +17,7 @@ const scrapeServices = async (url, browser) => {
   const $ = cheerio.load(content);
 
   const services = [];
-  $("#awsui-expandable-section-1 ul a").each((_, el) => {
+  $("#main-col-body .highlights ul a").each((_, el) => {
     let name = $(el).text();
     const serviceDocsUrl = url.slice(0, url.lastIndexOf("/")) + "/" + $(el).attr("href");
     services.push({ name, url: serviceDocsUrl });
@@ -76,7 +76,7 @@ const getServiceName = ($) => {
 };
 
 const getActions = ($) => {
-  const actionsTable = $("#main-column table").first();
+  const actionsTable = $("#main-col-body table").first();
   const actionRows = actionsTable.find("tr");
 
   const actions = [];
@@ -131,11 +131,15 @@ const formatToList = (str) => str
     headless: true,
     ignoreHTTPSErrors: true,
   });
+
   const limit = pLimit(10);
   const services = await scrapeServices(
     "https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html",
     browser
   );
+  if (!services || services.length === 0) {
+    throw new Error("no services found");
+  }
 
   await Promise.all(services.map(({ url }) => limit(() => {
     console.log('Scraping: ', url);
