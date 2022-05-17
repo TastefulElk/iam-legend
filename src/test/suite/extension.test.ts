@@ -21,7 +21,7 @@ suite("CompletionProvider", () => {
     const wordRange = doc.getWordRangeAtPosition(new Position(2, 3));
     const word = doc.getText(wordRange);
     assert.strictEqual(word, 'a4b');
-  }).timeout(5000);
+  }).timeout(10000);
 
   test("suggests actions - tf", async () => {
     const doc = await workspace.openTextDocument({ language: 'json' });
@@ -37,7 +37,7 @@ suite("CompletionProvider", () => {
     const wordRange = doc.getWordRangeAtPosition(new Position(2, 12), /[a-z]+/i);
     const word = doc.getText(wordRange);
     assert.strictEqual(word, 'BatchGetItem');
-  }).timeout(5000);
+  }).timeout(10000);
   
   test("suggests services - yaml", async () => {
     const doc = await workspace.openTextDocument({ language: 'yaml' });
@@ -53,7 +53,7 @@ suite("CompletionProvider", () => {
     const wordRange = doc.getWordRangeAtPosition(new Position(2, 3));
     const word = doc.getText(wordRange);
     assert.strictEqual(word, 'a4b');
-  }).timeout(5000);
+  }).timeout(10000);
 
   test("suggests actions - yaml", async () => {
     const doc = await workspace.openTextDocument({ language: 'yaml' });
@@ -69,7 +69,7 @@ suite("CompletionProvider", () => {
     const wordRange = doc.getWordRangeAtPosition(new Position(2, 12));
     const word = doc.getText(wordRange);
     assert.strictEqual(word, 'BatchGetItem');
-  }).timeout(5000);
+  }).timeout(10000);
 
   test("suggests services - json", async () => {
     const doc = await workspace.openTextDocument({ language: 'yaml' });
@@ -85,7 +85,7 @@ suite("CompletionProvider", () => {
     const wordRange = doc.getWordRangeAtPosition(new Position(2, 3));
     const word = doc.getText(wordRange);
     assert.strictEqual(word, 'a4b');
-  }).timeout(5000);
+  }).timeout(10000);
 
   test("suggests actions - json", async () => {
     const doc = await workspace.openTextDocument({ language: 'yaml' });
@@ -101,7 +101,7 @@ suite("CompletionProvider", () => {
     const wordRange = doc.getWordRangeAtPosition(new Position(2, 12), /[a-z]+/i);
     const word = doc.getText(wordRange);
     assert.strictEqual(word, 'BatchGetItem');
-  }).timeout(5000);
+  }).timeout(10000);
 
   test("suggests services - typescript", async () => {
     const doc = await workspace.openTextDocument({ language: 'typescript' });
@@ -112,12 +112,12 @@ suite("CompletionProvider", () => {
       edit.insert(new Position(2, 2), '"');
     });
 
-    await triggerAndAcceptSuggestion();
+    await triggerAndAcceptSuggestion(5000); // slow in CI for some reason so wait a little extra..
 
     const wordRange = doc.getWordRangeAtPosition(new Position(2, 3));
     const word = doc.getText(wordRange);
     assert.strictEqual(word, 'a4b');
-  }).timeout(5000);
+  }).timeout(10000);
 
   test("suggests actions - typescript", async () => {
     const doc = await workspace.openTextDocument({ language: 'typescript' });
@@ -133,12 +133,12 @@ suite("CompletionProvider", () => {
     const wordRange = doc.getWordRangeAtPosition(new Position(2, 12), /[a-z]+/i);
     const word = doc.getText(wordRange);
     assert.strictEqual(word, 'BatchGetItem');
-  }).timeout(5000);
+  }).timeout(10000);
 });
 
-const triggerAndAcceptSuggestion = async () => {
+const triggerAndAcceptSuggestion = async (triggerDelay = 2000) => {
   await commands.executeCommand('editor.action.triggerSuggest');
-  await delay(750); // wait for the suggestions to be populated
+  await delay(triggerDelay); // wait for the suggestions to be populated
   await commands.executeCommand('acceptSelectedSuggestion');
 };
 
