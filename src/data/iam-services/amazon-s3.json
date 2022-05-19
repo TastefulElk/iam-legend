@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon S3",
   "servicePrefix": "s3",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazons3.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazons3.html",
   "actions": [
     {
       "name": "AbortMultipartUpload",
@@ -1180,6 +1180,28 @@
       "dependentActions": []
     },
     {
+      "name": "GetObjectAttributes",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html",
+      "description": "Grants permission to retrieve attributes related to a specific object",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "object*"
+      ],
+      "conditionKeys": [
+        "s3:DataAccessPointAccount",
+        "s3:DataAccessPointArn",
+        "s3:AccessPointNetworkOrigin",
+        "s3:ExistingObjectTag/<key>",
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetObjectLegalHold",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectLegalHold.html",
       "description": "Grants permission to get an object's current Legal Hold status",
@@ -1288,6 +1310,29 @@
       "name": "GetObjectVersionAcl",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html",
       "description": "Grants permission to return the access control list (ACL) of a specific object version",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "object*"
+      ],
+      "conditionKeys": [
+        "s3:DataAccessPointAccount",
+        "s3:DataAccessPointArn",
+        "s3:AccessPointNetworkOrigin",
+        "s3:ExistingObjectTag/<key>",
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:versionid",
+        "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetObjectVersionAttributes",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html",
+      "description": "Grants permission to retrieve attributes related to a specific version of an object",
       "accessLevel": "Read",
       "resourceTypes": [
         "object*"

@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon CloudWatch Synthetics",
   "servicePrefix": "synthetics",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoncloudwatchsynthetics.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazoncloudwatchsynthetics.html",
   "actions": [
     {
       "name": "CreateCanary",
@@ -120,7 +120,10 @@
       "resourceTypes": [
         "canary"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -131,7 +134,9 @@
       "resourceTypes": [
         "canary"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

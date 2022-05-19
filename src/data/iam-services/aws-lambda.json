@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS Lambda",
   "servicePrefix": "lambda",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awslambda.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awslambda.html",
   "actions": [
     {
       "name": "AddLayerVersionPermission",
@@ -23,7 +23,8 @@
         "function*"
       ],
       "conditionKeys": [
-        "lambda:Principal"
+        "lambda:Principal",
+        "lambda:FunctionUrlAuthType"
       ],
       "dependentActions": []
     },
@@ -43,9 +44,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_CreateCodeSigningConfig.html",
       "description": "Grants permission to create an AWS Lambda code signing config",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "codesigning config*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -74,6 +73,20 @@
         "lambda:SubnetIds",
         "lambda:SecurityGroupIds",
         "lambda:CodeSigningConfigArn"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateFunctionUrlConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunctionUrlConfig.html",
+      "description": "Grants permission to create a function url configuration for a Lambda function",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "function*"
+      ],
+      "conditionKeys": [
+        "lambda:FunctionUrlAuthType",
+        "lambda:FunctionArn"
       ],
       "dependentActions": []
     },
@@ -154,6 +167,20 @@
         "function*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteFunctionUrlConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_DeleteFunctionUrlConfig.html",
+      "description": "Grants permission to delete function url configuration for a Lambda function",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "function*"
+      ],
+      "conditionKeys": [
+        "lambda:FunctionUrlAuthType",
+        "lambda:FunctionArn"
+      ],
       "dependentActions": []
     },
     {
@@ -299,6 +326,20 @@
       "dependentActions": []
     },
     {
+      "name": "GetFunctionUrlConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionUrlConfig.html",
+      "description": "Grants permission to read function url configuration for a Lambda function",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "function*"
+      ],
+      "conditionKeys": [
+        "lambda:FunctionUrlAuthType",
+        "lambda:FunctionArn"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetLayerVersion",
       "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html",
       "description": "Grants permission to view details about a version of an AWS Lambda layer. Note this action also supports GetLayerVersionByArn API",
@@ -366,6 +407,20 @@
       "dependentActions": []
     },
     {
+      "name": "InvokeFunctionUrl",
+      "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_InvokeFunctionUrl.html",
+      "description": "Grants permission to invoke an AWS Lambda function through url",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "function*"
+      ],
+      "conditionKeys": [
+        "lambda:FunctionUrlAuthType",
+        "lambda:FunctionArn"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListAliases",
       "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_ListAliases.html",
       "description": "Grants permission to retrieve a list of aliases for an AWS Lambda function",
@@ -403,6 +458,19 @@
         "function*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFunctionUrlConfigs",
+      "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_ListFunctionUrlConfigs.html",
+      "description": "Grants permission to read function url configurations for a function",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "function*"
+      ],
+      "conditionKeys": [
+        "lambda:FunctionUrlAuthType"
+      ],
       "dependentActions": []
     },
     {
@@ -566,7 +634,8 @@
         "function*"
       ],
       "conditionKeys": [
-        "lambda:Principal"
+        "lambda:Principal",
+        "lambda:FunctionUrlAuthType"
       ],
       "dependentActions": []
     },
@@ -675,6 +744,20 @@
         "function*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateFunctionUrlConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_UpdateFunctionUrlConfig.html",
+      "description": "Grants permission to update a function url configuration for a Lambda function",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "function*"
+      ],
+      "conditionKeys": [
+        "lambda:FunctionUrlAuthType",
+        "lambda:FunctionArn"
+      ],
       "dependentActions": []
     }
   ]

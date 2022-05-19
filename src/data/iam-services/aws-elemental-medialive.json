@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS Elemental MediaLive",
   "servicePrefix": "medialive",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awselementalmedialive.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awselementalmedialive.html",
   "actions": [
     {
       "name": "AcceptInputDeviceTransfer",
@@ -56,6 +56,17 @@
       "name": "CancelInputDeviceTransfer",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/eml-devices.html",
       "description": "Grants permission to cancel an input device transfer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "input-device*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ClaimDevice",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/eml-devices.html",
+      "description": "Grants permission to claim an input device",
       "accessLevel": "Write",
       "resourceTypes": [
         "input-device*"
@@ -597,7 +608,10 @@
       "resourceTypes": [
         "input-security-group*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

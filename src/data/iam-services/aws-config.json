@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS Config",
   "servicePrefix": "config",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsconfig.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsconfig.html",
   "actions": [
     {
       "name": "BatchGetAggregateResourceConfig",
@@ -775,7 +775,10 @@
       "resourceTypes": [
         "StoredQuery*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

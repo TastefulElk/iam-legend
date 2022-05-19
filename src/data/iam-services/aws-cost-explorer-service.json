@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS Cost Explorer Service",
   "servicePrefix": "ce",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscostexplorerservice.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awscostexplorerservice.html",
   "actions": [
     {
       "name": "CreateAnomalyMonitor",
@@ -9,7 +9,10 @@
       "description": "Grants permission to create a new Anomaly Monitor",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -18,7 +21,10 @@
       "description": "Grants permission to create a new Anomaly Subscription",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -27,7 +33,10 @@
       "description": "Grants permission to create a new Cost Category with the requested name and rules",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -53,8 +62,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DeleteAnomalyMonitor.html",
       "description": "Grants permission to delete an Anomaly Monitor",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "anomalymonitor*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -62,8 +75,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DeleteAnomalySubscription.html",
       "description": "Grants permission to delete an Anomaly Subscription",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "anomalysubscription*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -71,8 +88,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DeleteCostCategoryDefinition.html",
       "description": "Grants permission to delete a Cost Category",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "costcategory*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -98,8 +119,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DescribeCostCategoryDefinition.html",
       "description": "Grants permission to retrieve descriptions such as the name, ARN, rules, definition, and effective dates of a Cost Category",
       "accessLevel": "Read",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "costcategory*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -125,8 +150,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetAnomalies.html",
       "description": "Grants permission to retrieve anomalies",
       "accessLevel": "Read",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "anomalymonitor*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -134,8 +163,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetAnomalyMonitors.html",
       "description": "Grants permission to query Anomaly Monitors",
       "accessLevel": "Read",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "anomalymonitor*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -143,8 +176,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetAnomalySubscriptions.html",
       "description": "Grants permission to query Anomaly Subscriptions",
       "accessLevel": "Read",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "anomalysubscription*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -301,6 +338,21 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a Cost Explorer resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "anomalymonitor",
+        "anomalysubscription",
+        "costcategory"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ProvideAnomalyFeedback",
       "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ProvideAnomalyFeedback.html",
       "description": "Grants permission to provide feedback on detected anomalies",
@@ -310,12 +362,49 @@
       "dependentActions": []
     },
     {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag a Cost Explorer resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "anomalymonitor",
+        "anomalysubscription",
+        "costcategory"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove tags from a Cost Explorer resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "anomalymonitor",
+        "anomalysubscription",
+        "costcategory"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateAnomalyMonitor",
       "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_UpdateAnomalyMonitor.html",
       "description": "Grants permission to update an existing Anomaly Monitor",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "anomalymonitor*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -323,8 +412,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_UpdateAnomalySubscription.html",
       "description": "Grants permission to update an existing Anomaly Subscription",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "anomalysubscription*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -332,8 +425,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_UpdateCostCategoryDefinition.html",
       "description": "Grants permission to update an existing Cost Category",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "costcategory*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {

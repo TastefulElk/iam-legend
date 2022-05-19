@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS Resource Access Manager",
   "servicePrefix": "ram",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsresourceaccessmanager.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsresourceaccessmanager.html",
   "actions": [
     {
       "name": "AcceptResourceShareInvitation",
@@ -60,7 +60,9 @@
         "ram:RequestedAllowsExternalPrincipals",
         "ram:Principal"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
     },
     {
       "name": "DeleteResourceShare",
@@ -114,7 +116,11 @@
       "accessLevel": "Permissions management",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole",
+        "organizations:DescribeOrganization",
+        "organizations:EnableAWSServiceAccess"
+      ]
     },
     {
       "name": "GetPermission",
@@ -162,7 +168,10 @@
       "description": "Grants permission to get a set of resource shares from a provided list or with a specified status",
       "accessLevel": "Read",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

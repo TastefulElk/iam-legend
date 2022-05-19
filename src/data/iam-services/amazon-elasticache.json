@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon ElastiCache",
   "servicePrefix": "elasticache",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelasticache.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonelasticache.html",
   "actions": [
     {
       "name": "AddTagsToResource",
@@ -125,7 +125,6 @@
         "subnetgroup"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "elasticache:CacheNodeType",
@@ -134,7 +133,15 @@
         "elasticache:MultiAZEnabled",
         "elasticache:AuthTokenEnabled",
         "elasticache:SnapshotRetentionLimit",
-        "elasticache:CacheParameterGroupName"
+        "elasticache:CacheParameterGroupName",
+        "elasticache:CacheNodeType",
+        "elasticache:EngineVersion",
+        "elasticache:EngineType",
+        "elasticache:MultiAZEnabled",
+        "elasticache:AuthTokenEnabled",
+        "elasticache:SnapshotRetentionLimit",
+        "elasticache:CacheParameterGroupName",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": [
         "ec2:CreateNetworkInterface",
@@ -155,6 +162,7 @@
         "parametergroup*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "elasticache:CacheParameterGroupName"
@@ -172,6 +180,7 @@
         "securitygroup*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
@@ -188,6 +197,7 @@
         "subnetgroup*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
@@ -225,7 +235,20 @@
         "usergroup"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
+        "elasticache:NumNodeGroups",
+        "elasticache:CacheNodeType",
+        "elasticache:ReplicasPerNodeGroup",
+        "elasticache:EngineVersion",
+        "elasticache:EngineType",
+        "elasticache:AtRestEncryptionEnabled",
+        "elasticache:TransitEncryptionEnabled",
+        "elasticache:AutomaticFailoverEnabled",
+        "elasticache:MultiAZEnabled",
+        "elasticache:ClusterModeEnabled",
+        "elasticache:AuthTokenEnabled",
+        "elasticache:SnapshotRetentionLimit",
+        "elasticache:KmsKeyId",
+        "elasticache:CacheParameterGroupName",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "elasticache:NumNodeGroups",
@@ -241,7 +264,8 @@
         "elasticache:AuthTokenEnabled",
         "elasticache:SnapshotRetentionLimit",
         "elasticache:KmsKeyId",
-        "elasticache:CacheParameterGroupName"
+        "elasticache:CacheParameterGroupName",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": [
         "ec2:CreateNetworkInterface",
@@ -264,10 +288,10 @@
         "replicationgroup"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
-        "elasticache:KmsKeyId"
+        "elasticache:KmsKeyId",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": [
         "elasticache:AddTagsToResource",
@@ -285,8 +309,9 @@
         "user*"
       ],
       "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": [
         "elasticache:AddTagsToResource"
@@ -302,8 +327,8 @@
         "usergroup*"
       ],
       "conditionKeys": [
-        "aws:TagKeys",
         "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": [
@@ -755,7 +780,14 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "cluster",
-        "snapshot"
+        "parametergroup",
+        "replicationgroup",
+        "reserved-instance",
+        "securitygroup",
+        "snapshot",
+        "subnetgroup",
+        "user",
+        "usergroup"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
@@ -773,13 +805,13 @@
         "securitygroup"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
         "elasticache:CacheNodeType",
         "elasticache:EngineVersion",
         "elasticache:MultiAZEnabled",
         "elasticache:AuthTokenEnabled",
         "elasticache:SnapshotRetentionLimit",
-        "elasticache:CacheParameterGroupName"
+        "elasticache:CacheParameterGroupName",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -837,14 +869,14 @@
         "usergroup"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
         "elasticache:CacheNodeType",
         "elasticache:EngineVersion",
         "elasticache:AutomaticFailoverEnabled",
         "elasticache:MultiAZEnabled",
         "elasticache:AuthTokenEnabled",
         "elasticache:SnapshotRetentionLimit",
-        "elasticache:CacheParameterGroupName"
+        "elasticache:CacheParameterGroupName",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": [
         "ec2:CreateNetworkInterface",
@@ -910,8 +942,9 @@
         "reserved-instance*"
       ],
       "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": [
         "elasticache:AddTagsToResource"

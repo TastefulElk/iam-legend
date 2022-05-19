@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS Backup",
   "servicePrefix": "backup",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbackup.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsbackup.html",
   "actions": [
     {
       "name": "CopyFromBackupVault",
@@ -592,7 +592,10 @@
       "resourceTypes": [
         "backupVault*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": [
         "iam:PassRole"
       ]
@@ -686,7 +689,10 @@
       "resourceTypes": [
         "backupPlan*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -697,7 +703,10 @@
       "resourceTypes": [
         "framework*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

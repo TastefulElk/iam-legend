@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon Comprehend",
   "servicePrefix": "comprehend",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoncomprehend.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazoncomprehend.html",
   "actions": [
     {
       "name": "BatchDetectDominantLanguage",
@@ -62,7 +62,7 @@
     {
       "name": "ContainsPiiEntities",
       "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ContainsPiiEntities.html",
-      "description": "Grants permission to classify the personally identifiable information within given documents at realtime",
+      "description": "Grants permission to classify the personally identifiable information within given documents in real-time",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -292,6 +292,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeTargetedSentimentDetectionJob",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeTargetedSentimentDetectionJob.html",
+      "description": "Grants permission to get the properties associated with a targeted sentiment detection job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "targeted-sentiment-detection-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeTopicsDetectionJob",
       "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeTopicsDetectionJob.html",
       "description": "Grants permission to get the properties associated with a topic detection job",
@@ -499,8 +510,18 @@
         "key-phrases-detection-job",
         "pii-entities-detection-job",
         "sentiment-detection-job",
+        "targeted-sentiment-detection-job",
         "topics-detection-job"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTargetedSentimentDetectionJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListTargetedSentimentDetectionJobs.html",
+      "description": "Grants permission to get a list of targeted sentiment detection jobs that you have submitted",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -648,6 +669,24 @@
       "dependentActions": []
     },
     {
+      "name": "StartTargetedSentimentDetectionJob",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StartTargetedSentimentDetectionJob.html",
+      "description": "Grants permission to start an asynchronous targeted sentiment detection job for a collection of documents",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "targeted-sentiment-detection-job*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "comprehend:VolumeKmsKey",
+        "comprehend:OutputKmsKey",
+        "comprehend:VpcSecurityGroupIds",
+        "comprehend:VpcSubnets"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "StartTopicsDetectionJob",
       "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StartTopicsDetectionJob.html",
       "description": "Grants permission to start an asynchronous job to detect the most common topics in the collection of documents and the phrases associated with each topic",
@@ -727,6 +766,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "sentiment-detection-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopTargetedSentimentDetectionJob",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StopTargetedSentimentDetectionJob.html",
+      "description": "Grants permission to stop a targeted sentiment detection job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "targeted-sentiment-detection-job*"
       ],
       "conditionKeys": [],
       "dependentActions": []

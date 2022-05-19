@@ -1,12 +1,21 @@
 {
   "serviceName": "AWS Firewall Manager",
   "servicePrefix": "fms",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsfirewallmanager.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsfirewallmanager.html",
   "actions": [
     {
       "name": "AssociateAdminAccount",
       "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_AssociateAdminAccount.html",
       "description": "Grants permission to set the AWS Firewall Manager administrator account and enables the service in all organization accounts",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateThirdPartyFirewall",
+      "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_AssociateThirdPartyFirewall.html",
+      "description": "Grants permission to set the Firewall Manager administrator as a tenant administrator of a third-party firewall service",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -60,6 +69,15 @@
       "name": "DisassociateAdminAccount",
       "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DisassociateAdminAccount.html",
       "description": "Grants permission to disassociate the account that has been set as the AWS Firewall Manager administrator account and and disables the service in all organization accounts",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateThirdPartyFirewall",
+      "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DisassociateThirdPartyFirewall.html",
+      "description": "Grants permission to disassociate a Firewall Manager administrator from a third-party firewall tenant",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -139,6 +157,15 @@
       "dependentActions": []
     },
     {
+      "name": "GetThirdPartyFirewallAssociationStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_GetThirdPartyFirewallAssociationStatus.html",
+      "description": "Grants permission to retrieve the onboarding status of a Firewall Manager administrator account to third-party firewall vendor tenant",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetViolationDetails",
       "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_GetViolationDetails.html",
       "description": "Grants permission to retrieve violations for a resource based on the specified AWS Firewall Manager policy and AWS account",
@@ -204,6 +231,15 @@
       "resourceTypes": [
         "policy*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListThirdPartyFirewallFirewallPolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_ListThirdPartyFirewallFirewallPolicies.html",
+      "description": "Grants permission to retrieve a list of all of the third-party firewall policies that are associated with the third-party firewall administrator's account",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },

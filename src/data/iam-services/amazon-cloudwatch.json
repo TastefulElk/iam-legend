@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon CloudWatch",
   "servicePrefix": "cloudwatch",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoncloudwatch.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazoncloudwatch.html",
   "actions": [
     {
       "name": "DeleteAlarms",
@@ -339,7 +339,10 @@
       "resourceTypes": [
         "metric-stream*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS Audit Manager",
   "servicePrefix": "auditmanager",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsauditmanager.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsauditmanager.html",
   "actions": [
     {
       "name": "AssociateAssessmentReportEvidenceFolder",
@@ -87,7 +87,10 @@
       "description": "Grants permission to create a framework for use in AWS Audit Manager",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

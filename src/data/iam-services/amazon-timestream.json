@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon Timestream",
   "servicePrefix": "timestream",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazontimestream.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazontimestream.html",
   "actions": [
     {
       "name": "CancelQuery",
@@ -10,7 +10,9 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "CreateDatabase",
@@ -24,11 +26,13 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "CreateScheduledQuery",
-      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_CreateScheduledQuery.html",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_CreateScheduledQuery.html",
       "description": "Grants permission to create a scheduled query in your account",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -37,7 +41,8 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "timestream:DescribeEndpoints"
       ]
     },
     {
@@ -52,7 +57,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "DeleteDatabase",
@@ -63,18 +70,22 @@
         "database*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "DeleteScheduledQuery",
-      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_DeleteScheduledQuery.html",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_DeleteScheduledQuery.html",
       "description": "Grants permission to delete a scheduled query in your account",
       "accessLevel": "Write",
       "resourceTypes": [
         "scheduled-query*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "DeleteTable",
@@ -85,7 +96,9 @@
         "table*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "DescribeDatabase",
@@ -96,7 +109,9 @@
         "database*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "DescribeEndpoints",
@@ -109,14 +124,16 @@
     },
     {
       "name": "DescribeScheduledQuery",
-      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_DescribeScheduledQuery.html",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_DescribeScheduledQuery.html",
       "description": "Grants permission to describe a scheduled query in your account",
       "accessLevel": "Read",
       "resourceTypes": [
         "scheduled-query*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "DescribeTable",
@@ -127,18 +144,22 @@
         "table*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "ExecuteScheduledQuery",
-      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_ExecuteScheduledQuery.html",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_ExecuteScheduledQuery.html",
       "description": "Grants permission to execute a scheduled query in your account",
       "accessLevel": "Write",
       "resourceTypes": [
         "scheduled-query*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "ListDatabases",
@@ -147,7 +168,9 @@
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "ListMeasures",
@@ -158,16 +181,20 @@
         "table*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "ListScheduledQueries",
-      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_ListScheduledQueries.html",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListScheduledQueries.html",
       "description": "Grants permission to list scheduled queries in your account",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "ListTables",
@@ -178,20 +205,38 @@
         "database*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListTagsForResource.html",
       "description": "Grants permission to list tags of a resource in your account",
-      "accessLevel": "List",
+      "accessLevel": "Read",
       "resourceTypes": [
         "database*",
         "scheduled-query*",
         "table*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
+    },
+    {
+      "name": "PrepareQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_PrepareQuery.html",
+      "description": "Grants permission to issue prepare queries",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "timestream:DescribeEndpoints",
+        "timestream:Select"
+      ]
     },
     {
       "name": "Select",
@@ -202,7 +247,9 @@
         "table*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "SelectValues",
@@ -211,7 +258,9 @@
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "TagResource",
@@ -227,7 +276,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "UntagResource",
@@ -242,7 +293,9 @@
       "conditionKeys": [
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "UpdateDatabase",
@@ -253,18 +306,22 @@
         "database*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "UpdateScheduledQuery",
-      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_UpdateScheduledQuery.html",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_UpdateScheduledQuery.html",
       "description": "Grants permission to update a scheduled query in your account",
       "accessLevel": "Write",
       "resourceTypes": [
         "scheduled-query*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "UpdateTable",
@@ -275,7 +332,9 @@
         "table*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     },
     {
       "name": "WriteRecords",
@@ -286,7 +345,9 @@
         "table*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
     }
   ]
 }

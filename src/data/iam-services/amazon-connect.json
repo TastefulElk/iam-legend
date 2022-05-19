@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon Connect",
   "servicePrefix": "connect",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonconnect.html",
   "actions": [
     {
       "name": "AssociateApprovedOrigin",
@@ -125,6 +125,21 @@
       ]
     },
     {
+      "name": "AssociatePhoneNumberContactFlow",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociatePhoneNumberContactFlow.html",
+      "description": "Grants permission to associate contact flow resources to phone number resources in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow*",
+        "phone-number*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateQueueQuickConnects",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateQueueQuickConnects.html",
       "description": "Grants permission to associate quick connects with a queue in an Amazon Connect instance",
@@ -164,6 +179,47 @@
       ],
       "conditionKeys": [
         "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchAssociateAnalyticsDataSet",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/adminguide/optimization-apis.html",
+      "description": "Grants permission to grant access and to associate the datasets with the specified AWS account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchDisassociateAnalyticsDataSet",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/adminguide/optimization-apis.html",
+      "description": "Grants permission to revoke access and to disassociate the datasets with the specified AWS account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ClaimPhoneNumber",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html",
+      "description": "Grants permission to claim phone number resources in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*",
+        "wildcard-phone-number*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -694,6 +750,19 @@
       "dependentActions": []
     },
     {
+      "name": "DescribePhoneNumber",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html",
+      "description": "Grants permission to describe phone number resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "phone-number*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeQueue",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeQueue.html",
       "description": "Grants permission to describe a queue in an Amazon Connect instance",
@@ -898,6 +967,20 @@
         "iam:CreateServiceLinkedRole",
         "iam:PutRolePolicy"
       ]
+    },
+    {
+      "name": "DisassociatePhoneNumberContactFlow",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociatePhoneNumberContactFlow.html",
+      "description": "Grants permission to disassociate contact flow resources from phone number resources in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "phone-number*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
     },
     {
       "name": "DisassociateQueueQuickConnects",
@@ -1191,6 +1274,17 @@
       "description": "Grants permission to list phone number resources in an Amazon Connect instance",
       "accessLevel": "List",
       "resourceTypes": [
+        "wildcard-legacy-phone-number*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPhoneNumbersV2",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbersV2.html",
+      "description": "Grants permission to list phone number resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
         "wildcard-phone-number*"
       ],
       "conditionKeys": [],
@@ -1335,12 +1429,14 @@
         "hierarchy-group",
         "hours-of-operation",
         "integration-association",
+        "phone-number",
         "queue",
         "quick-connect",
         "routing-profile",
         "security-profile",
         "use-case",
-        "user"
+        "user",
+        "wildcard-phone-number"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
@@ -1390,6 +1486,35 @@
       "dependentActions": []
     },
     {
+      "name": "PutUserStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_PutUserStatus.html",
+      "description": "Grants permission to switch User Status in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent-status*",
+        "instance*",
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ReleasePhoneNumber",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ReleasePhoneNumber.html",
+      "description": "Grants permission to release phone number resources in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "phone-number*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ResumeContactRecording",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ResumeContactRecording.html",
       "description": "Grants permission to resume recording for the specified contact",
@@ -1399,6 +1524,33 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "SearchAvailablePhoneNumbers",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html",
+      "description": "Grants permission to search phone number resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "wildcard-phone-number*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SearchUsers",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchUsers.html",
+      "description": "Grants permission to search user resources in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "connect:SearchTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "connect:DescribeUser"
+      ]
     },
     {
       "name": "SearchVocabularies",
@@ -1431,6 +1583,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "contact*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartContactStreaming",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html",
+      "description": "Grants permission to start chat streaming using the Amazon Connect API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1484,6 +1647,17 @@
       "dependentActions": []
     },
     {
+      "name": "StopContactStreaming",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_StopContactStreaming.html",
+      "description": "Grants permission to stop chat streaming using the Amazon Connect API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "SuspendContactRecording",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SuspendContactRecording.html",
       "description": "Grants permission to suspend recording for the specified contact",
@@ -1506,12 +1680,14 @@
         "hierarchy-group",
         "hours-of-operation",
         "integration-association",
+        "phone-number",
         "queue",
         "quick-connect",
         "routing-profile",
         "security-profile",
         "use-case",
-        "user"
+        "user",
+        "wildcard-phone-number"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -1531,12 +1707,14 @@
         "hierarchy-group",
         "hours-of-operation",
         "integration-association",
+        "phone-number",
         "queue",
         "quick-connect",
         "routing-profile",
         "security-profile",
         "use-case",
-        "user"
+        "user",
+        "wildcard-phone-number"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -1605,6 +1783,20 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "contact-flow*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateContactFlowModuleContent",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContactFlowModuleContent.html",
+      "description": "Grants permission to update contact flow module content in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow-module*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -1711,6 +1903,20 @@
         "s3:GetBucketAcl",
         "s3:GetBucketLocation"
       ]
+    },
+    {
+      "name": "UpdatePhoneNumber",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html",
+      "description": "Grants permission to update phone number resources in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*",
+        "phone-number*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
     },
     {
       "name": "UpdateQueueHoursOfOperation",

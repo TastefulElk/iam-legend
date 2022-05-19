@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS Key Management Service",
   "servicePrefix": "kms",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awskeymanagementservice.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awskeymanagementservice.html",
   "actions": [
     {
       "name": "CancelKeyDeletion",
@@ -67,8 +67,13 @@
       ],
       "conditionKeys": [
         "kms:CallerAccount",
+        "kms:EncryptionContext:${EncryptionContextKey}",
+        "kms:EncryptionContextKeys",
         "kms:GrantConstraintType",
+        "kms:GranteePrincipal",
         "kms:GrantIsForAWSResource",
+        "kms:GrantOperations",
+        "kms:RetiringPrincipal",
         "kms:ViaService"
       ],
       "dependentActions": []
@@ -80,8 +85,16 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "kms:BypassPolicyLockoutSafetyCheck",
         "kms:CallerAccount",
+        "kms:KeySpec",
+        "kms:KeyUsage",
+        "kms:KeyOrigin",
+        "kms:MultiRegion",
+        "kms:MultiRegionKeyType",
         "kms:ViaService"
       ],
       "dependentActions": [
@@ -330,6 +343,22 @@
         "kms:EncryptionAlgorithm",
         "kms:EncryptionContext:${EncryptionContextKey}",
         "kms:EncryptionContextKeys",
+        "kms:RequestAlias",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GenerateMac",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateMac.html",
+      "description": "Controls permission to use the AWS KMS key to generate message authentication codes",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:MacAlgorithm",
         "kms:RequestAlias",
         "kms:ViaService"
       ],
@@ -643,6 +672,8 @@
         "key*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "kms:CallerAccount",
         "kms:ViaService"
       ],
@@ -657,6 +688,7 @@
         "key*"
       ],
       "conditionKeys": [
+        "aws:TagKeys",
         "kms:CallerAccount",
         "kms:ViaService"
       ],
@@ -730,6 +762,22 @@
         "kms:MessageType",
         "kms:RequestAlias",
         "kms:SigningAlgorithm",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "VerifyMac",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_VerifyMac.html",
+      "description": "Controls permission to use the AWS KMS key to verify message authentication codes",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:MacAlgorithm",
+        "kms:RequestAlias",
         "kms:ViaService"
       ],
       "dependentActions": []

@@ -1,8 +1,17 @@
 {
   "serviceName": "Amazon QuickSight",
   "servicePrefix": "quicksight",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonquicksight.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonquicksight.html",
   "actions": [
+    {
+      "name": "AccountConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/accessing-data-sources.html",
+      "description": "Grants permission to enable setting default access to AWS resources",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
     {
       "name": "CancelIngestion",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CancelIngestion.html",
@@ -216,7 +225,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ds:CreateIdentityPoolDirectory"
+      ]
     },
     {
       "name": "CreateReader",
@@ -461,7 +472,9 @@
         "namespace*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ds:DeleteDirectory"
+      ]
     },
     {
       "name": "DeleteTemplate",
@@ -723,6 +736,19 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeGroupMembership",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeGroupMembership.html",
+      "description": "Grants permission to describe a QuickSight group member",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [
+        "quicksight:UserName"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeIAMPolicyAssignment",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeIAMPolicyAssignment.html",
       "description": "Grants permission to describe an existing assignment",
@@ -853,7 +879,10 @@
         "dashboard*",
         "namespace*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1226,6 +1255,15 @@
       "dependentActions": []
     },
     {
+      "name": "ScopeDownPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/accessing-data-sources.html",
+      "description": "Grants permission to manage scoping policies for permissions to AWS resources",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "SearchAnalyses",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_SearchAnalyses.html",
       "description": "Grants permission to search for a sub-set of analyses",
@@ -1263,6 +1301,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "folder*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SearchGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_SearchGroups.html",
+      "description": "Grants permission to search for a sub-set of QuickSight groups",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "group*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1534,6 +1583,15 @@
       "name": "UpdateIpRestriction",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateIpRestriction.html",
       "description": "Grants permission to update the IP restrictions for QuickSight account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePublicSharingSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdatePublicSharingSettings.html",
+      "description": "Grants permission to enable or disable public sharing on an account",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],

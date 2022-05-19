@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon Managed Grafana",
   "servicePrefix": "grafana",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonmanagedgrafana.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonmanagedgrafana.html",
   "actions": [
     {
       "name": "AssociateLicense",
@@ -22,13 +22,27 @@
       "description": "Grants permission to create a workspace",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": [
         "organizations:DescribeOrganization",
         "sso:CreateManagedApplicationInstance",
         "sso:DescribeRegisteredRegions",
         "sso:GetSharedSsoConfiguration"
       ]
+    },
+    {
+      "name": "CreateWorkspaceApiKey",
+      "documentationUrl": "https://docs.aws.amazon.com/grafana/latest/userguide/AMG-and-IAM.html",
+      "description": "Grants permission to create API keys for a workspace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspace*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "DeleteWorkspace",
@@ -44,6 +58,17 @@
       ]
     },
     {
+      "name": "DeleteWorkspaceApiKey",
+      "documentationUrl": "https://docs.aws.amazon.com/grafana/latest/userguide/AMG-and-IAM.html",
+      "description": "Grants permission to delete API keys from a workspace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspace*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeWorkspace",
       "documentationUrl": "https://docs.aws.amazon.com/grafana/latest/userguide/AMG-and-IAM.html",
       "description": "Grants permission to describe a workspace",
@@ -57,7 +82,7 @@
     {
       "name": "DescribeWorkspaceAuthentication",
       "documentationUrl": "https://docs.aws.amazon.com/grafana/latest/userguide/AMG-and-IAM.html",
-      "description": "Grants permission to describe authetication providers on a workspace",
+      "description": "Grants permission to describe authentication providers on a workspace",
       "accessLevel": "Read",
       "resourceTypes": [
         "workspace*"
@@ -88,12 +113,51 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/grafana/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags associated with a workspace",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "workspace"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListWorkspaces",
       "documentationUrl": "https://docs.aws.amazon.com/grafana/latest/userguide/AMG-and-IAM.html",
       "description": "Grants permission to list workspaces",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/grafana/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to add tags to, or update tag values of, a workspace",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "workspace"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/grafana/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove tags from a workspace",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "workspace"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -121,7 +185,7 @@
     {
       "name": "UpdateWorkspaceAuthentication",
       "documentationUrl": "https://docs.aws.amazon.com/grafana/latest/userguide/AMG-and-IAM.html",
-      "description": "Grants permission to modify authetication providers on a workspace",
+      "description": "Grants permission to modify authentication providers on a workspace",
       "accessLevel": "Write",
       "resourceTypes": [
         "workspace*"

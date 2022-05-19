@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS License Manager",
   "servicePrefix": "license-manager",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awslicensemanager.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awslicensemanager.html",
   "actions": [
     {
       "name": "AcceptGrant",
@@ -101,13 +101,16 @@
       "description": "Grants permission to create a report generator for a license configuration",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
       "name": "CreateLicenseVersion",
       "documentationUrl": "https://docs.aws.amazon.com/license-manager/latest/APIReference/API_CreateLicenseVersion.html",
-      "description": "Grants permission to create new version of license.",
+      "description": "Grants permission to create new version of license",
       "accessLevel": "Write",
       "resourceTypes": [
         "license*"
@@ -129,7 +132,7 @@
     {
       "name": "DeleteGrant",
       "documentationUrl": "https://docs.aws.amazon.com/license-manager/latest/APIReference/API_DeleteGrant.html",
-      "description": "Deletes a grant",
+      "description": "Grants permission to delete a grant",
       "accessLevel": "Write",
       "resourceTypes": [
         "grant*"

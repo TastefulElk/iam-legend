@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon GuardDuty",
   "servicePrefix": "guardduty",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonguardduty.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonguardduty.html",
   "actions": [
     {
       "name": "AcceptInvitation",
@@ -57,7 +57,10 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:DeleteRolePolicy",
+        "iam:PutRolePolicy"
+      ]
     },
     {
       "name": "CreateMembers",
@@ -215,7 +218,7 @@
     {
       "name": "DisassociateFromMasterAccount",
       "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DisassociateFromMasterAccount.html",
-      "description": "Grants permission to disassociate a GuardDuty member account from its GuardDuty master account",
+      "description": "Grants permission to disassociate a GuardDuty member account from its GuardDuty administrator account",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -224,7 +227,7 @@
     {
       "name": "DisassociateMembers",
       "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DisassociateMembers.html",
-      "description": "Grants permission to disassociate GuardDuty member accounts from their master GuardDuty account",
+      "description": "Grants permission to disassociate GuardDuty member accounts from their administrator GuardDuty account",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -282,7 +285,7 @@
     {
       "name": "GetIPSet",
       "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetIPSet.html",
-      "description": "Grants permsission to retrieve GuardDuty IPSets",
+      "description": "Grants permission to retrieve GuardDuty IPSets",
       "accessLevel": "Read",
       "resourceTypes": [
         "ipset*"
@@ -302,7 +305,7 @@
     {
       "name": "GetMasterAccount",
       "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetMasterAccount.html",
-      "description": "Grants permission to retrieve details of the GuardDuty master account associated with a member account",
+      "description": "Grants permission to retrieve details of the GuardDuty administrator account associated with a member account",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -320,7 +323,7 @@
     {
       "name": "GetMembers",
       "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetMembers.html",
-      "description": "Grants permission to retrieve the member accounts associated with a master account",
+      "description": "Grants permission to retrieve the member accounts associated with an administrator account",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -394,7 +397,7 @@
     {
       "name": "ListInvitations",
       "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListInvitations.html",
-      "description": "Grants permission to retrieve a lists of all of the GuardDuty membership invitations that were sent to an AWS account",
+      "description": "Grants permission to retrieve a list of all of the GuardDuty membership invitations that were sent to an AWS account",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -403,7 +406,7 @@
     {
       "name": "ListMembers",
       "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListMembers.html",
-      "description": "Grants permission to retrierve a lsit of GuardDuty member accounts associated with a master account",
+      "description": "Grants permission to retrieve a list of GuardDuty member accounts associated with an administrator account",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -550,7 +553,10 @@
         "ipset*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:DeleteRolePolicy",
+        "iam:PutRolePolicy"
+      ]
     },
     {
       "name": "UpdateMemberDetectors",
@@ -593,7 +599,10 @@
         "threatintelset*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:DeleteRolePolicy",
+        "iam:PutRolePolicy"
+      ]
     }
   ]
 }

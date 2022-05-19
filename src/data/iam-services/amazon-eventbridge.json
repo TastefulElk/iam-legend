@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon EventBridge",
   "servicePrefix": "events",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazoneventbridge.html",
   "actions": [
     {
       "name": "ActivateEventSource",
@@ -57,6 +57,19 @@
         "connection*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEndpoint.html",
+      "description": "Grants permission to create an endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "endpoint*"
+      ],
+      "conditionKeys": [
+        "events:EventBusArn"
+      ],
       "dependentActions": []
     },
     {
@@ -140,6 +153,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DeleteEndpoint.html",
+      "description": "Grants permission to delete an endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteEventBus",
       "documentationUrl": "https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DeletePartnerEventSource",
       "description": "Grants permission to delete event buses",
@@ -205,6 +229,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEndpoint.html",
+      "description": "Grants permission to retrieve details about an endpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "endpoint*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -333,9 +368,18 @@
       "dependentActions": []
     },
     {
+      "name": "ListEndpoints",
+      "documentationUrl": "https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListEndpoints.html",
+      "description": "Grants permission to retrieve a list of endpoints",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListEventBuses",
       "documentationUrl": "https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListEventBuses.html",
-      "description": "Grants permission to to retrieve a list of the event buses in your account",
+      "description": "Grants permission to retrieve a list of the event buses in your account",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -600,6 +644,19 @@
         "connection*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdateEndpoint.html",
+      "description": "Grants permission to update an endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "endpoint*"
+      ],
+      "conditionKeys": [
+        "events:EventBusArn"
+      ],
       "dependentActions": []
     }
   ]

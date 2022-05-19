@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon Elastic File System",
   "servicePrefix": "elasticfilesystem",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelasticfilesystem.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonelasticfilesystem.html",
   "actions": [
     {
       "name": "Backup",
@@ -64,7 +64,10 @@
       "resourceTypes": [
         "file-system*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -180,7 +183,8 @@
         "file-system*"
       ],
       "conditionKeys": [
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -375,7 +379,10 @@
         "access-point",
         "file-system"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -387,7 +394,10 @@
         "access-point",
         "file-system"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {

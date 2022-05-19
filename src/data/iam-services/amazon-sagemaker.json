@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon SageMaker",
   "servicePrefix": "sagemaker",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsagemaker.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonsagemaker.html",
   "actions": [
     {
       "name": "AddAssociation",
@@ -241,7 +241,10 @@
       "resourceTypes": [
         "compilation-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": [
         "iam:PassRole"
       ]
@@ -369,7 +372,9 @@
         "sagemaker:AcceleratorTypes",
         "sagemaker:InstanceTypes",
         "sagemaker:ModelArn",
-        "sagemaker:VolumeKmsKey"
+        "sagemaker:VolumeKmsKey",
+        "sagemaker:ServerlessMaxConcurrency",
+        "sagemaker:ServerlessMemorySize"
       ],
       "dependentActions": []
     },
@@ -741,11 +746,7 @@
       "resourceTypes": [
         "user-profile*"
       ],
-      "conditionKeys": [
-        "aws:SourceIp",
-        "aws:SourceVpc",
-        "aws:SourceVpce"
-      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -795,6 +796,17 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateStudioLifecycleConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateStudioLifecycleConfig.html",
+      "description": "Grants permission to create a Studio Lifecycle Configuration that can be deployed using Amazon SageMaker",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "studio-lifecycle-config*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -1294,6 +1306,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "feature-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteStudioLifecycleConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DeleteStudioLifecycleConfig.html",
+      "description": "Grants permission to delete a Studio Lifecycle Configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "studio-lifecycle-config*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1862,6 +1885,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "project*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStudioLifecycleConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeStudioLifecycleConfig.html",
+      "description": "Grants permission to describe a Studio Lifecycle Configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "studio-lifecycle-config*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2516,6 +2550,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListStudioLifecycleConfigs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListStudioLifecycleConfigs.html",
+      "description": "Grants permission to list the Studio Lifecycle Configurations that can be deployed using Amazon SageMaker",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListSubscribedWorkteams",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_ListSubscribedWorkteams.html",
       "description": "Grants permission to list subscribed workteams",
@@ -2710,6 +2753,17 @@
       "dependentActions": [
         "iam:PassRole"
       ]
+    },
+    {
+      "name": "RetryPipelineExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/API_RetryPipelineExecution.html",
+      "description": "Grants permission to retry a pipeline execution",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "pipeline-execution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "Search",
