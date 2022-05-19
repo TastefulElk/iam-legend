@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS IoT Greengrass",
   "servicePrefix": "greengrass",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotgreengrass.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsiotgreengrass.html",
   "actions": [
     {
       "name": "AssociateRoleToGroup",
@@ -129,7 +129,7 @@
     {
       "name": "CreateGroup",
       "documentationUrl": "https://docs.aws.amazon.com/greengrass/latest/apireference/creategroup-post.html",
-      "description": "Grants permission to create a group.",
+      "description": "Grants permission to create a group",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
@@ -870,7 +870,10 @@
       "description": "Grants permission to deploy multiple groups in one operation",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

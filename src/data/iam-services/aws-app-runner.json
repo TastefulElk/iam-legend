@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS App Runner",
   "servicePrefix": "apprunner",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsapprunner.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsapprunner.html",
   "actions": [
     {
       "name": "AssociateCustomDomain",
@@ -43,6 +43,20 @@
       "dependentActions": []
     },
     {
+      "name": "CreateObservabilityConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_CreateObservabilityConfiguration.html",
+      "description": "Grants permission to create an AWS App Runner observability configuration resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "observabilityconfiguration*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateService",
       "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_CreateService.html",
       "description": "Grants permission to create an AWS App Runner service resource",
@@ -51,6 +65,7 @@
         "service*",
         "autoscalingconfiguration",
         "connection",
+        "observabilityconfiguration",
         "vpcconnector"
       ],
       "conditionKeys": [
@@ -58,6 +73,7 @@
         "aws:TagKeys",
         "apprunner:ConnectionArn",
         "apprunner:AutoScalingConfigurationArn",
+        "apprunner:ObservabilityConfigurationArn",
         "apprunner:VpcConnectorArn"
       ],
       "dependentActions": []
@@ -94,6 +110,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteObservabilityConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteObservabilityConfiguration.html",
+      "description": "Grants permission to delete an AWS App Runner observability configuration resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "observabilityconfiguration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -138,6 +165,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "service*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeObservabilityConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeObservabilityConfiguration.html",
+      "description": "Grants permission to retrieve the description of an AWS App Runner observability configuration resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "observabilityconfiguration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -205,6 +243,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListObservabilityConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_ListObservabilityConfigurations.html",
+      "description": "Grants permission to retrieve a list of AWS App Runner observability configurations in your AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListOperations",
       "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_ListOperations.html",
       "description": "Grants permission to retrieve a list of operations that occurred on an AWS App Runner service resource",
@@ -232,6 +279,7 @@
       "resourceTypes": [
         "autoscalingconfiguration",
         "connection",
+        "observabilityconfiguration",
         "service",
         "vpcconnector"
       ],
@@ -288,6 +336,7 @@
       "resourceTypes": [
         "autoscalingconfiguration",
         "connection",
+        "observabilityconfiguration",
         "service",
         "vpcconnector"
       ],
@@ -305,6 +354,7 @@
       "resourceTypes": [
         "autoscalingconfiguration",
         "connection",
+        "observabilityconfiguration",
         "service",
         "vpcconnector"
       ],
@@ -322,11 +372,13 @@
         "service*",
         "autoscalingconfiguration",
         "connection",
+        "observabilityconfiguration",
         "vpcconnector"
       ],
       "conditionKeys": [
         "apprunner:ConnectionArn",
         "apprunner:AutoScalingConfigurationArn",
+        "apprunner:ObservabilityConfigurationArn",
         "apprunner:VpcConnectorArn"
       ],
       "dependentActions": []

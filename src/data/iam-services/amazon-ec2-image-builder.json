@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon EC2 Image Builder",
   "servicePrefix": "imagebuilder",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2imagebuilder.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonec2imagebuilder.html",
   "actions": [
     {
       "name": "CancelImageCreation",
@@ -148,7 +148,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "imagebuilder:CreatedResourceTagKeys",
-        "imagebuilder:CreatedResourceTag/<key>"
+        "imagebuilder:CreatedResourceTag/<key>",
+        "imagebuilder:Ec2MetadataHttpTokens",
+        "imagebuilder:StatusTopicArn"
       ],
       "dependentActions": [
         "iam:CreateServiceLinkedRole",
@@ -656,7 +658,9 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "imagebuilder:CreatedResourceTagKeys",
-        "imagebuilder:CreatedResourceTag/<key>"
+        "imagebuilder:CreatedResourceTag/<key>",
+        "imagebuilder:Ec2MetadataHttpTokens",
+        "imagebuilder:StatusTopicArn"
       ],
       "dependentActions": [
         "iam:PassRole",

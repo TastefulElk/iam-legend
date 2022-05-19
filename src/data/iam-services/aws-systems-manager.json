@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS Systems Manager",
   "servicePrefix": "ssm",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssystemsmanager.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awssystemsmanager.html",
   "actions": [
     {
       "name": "AddTagsToResource",
@@ -9,6 +9,7 @@
       "description": "Grants permission to add or overwrite one or more tags for a specified AWS resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "automation-execution",
         "document",
         "maintenancewindow",
         "managed-instance",
@@ -878,7 +879,9 @@
       "resourceTypes": [
         "parameter*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:Recursive"
+      ],
       "dependentActions": []
     },
     {
@@ -1084,6 +1087,7 @@
       "description": "Grants permission to view a list of resource tags for a specified resource",
       "accessLevel": "Read",
       "resourceTypes": [
+        "automation-execution",
         "document",
         "maintenancewindow",
         "managed-instance",
@@ -1145,7 +1149,8 @@
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "ssm:Overwrite"
       ],
       "dependentActions": []
     },
@@ -1211,6 +1216,7 @@
       "description": "Grants permission to remove a specified tag key from a specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "automation-execution",
         "document",
         "maintenancewindow",
         "managed-instance",

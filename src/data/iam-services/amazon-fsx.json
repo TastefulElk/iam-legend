@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon FSx",
   "servicePrefix": "fsx",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonfsx.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonfsx.html",
   "actions": [
     {
       "name": "AssociateFileGateway",
@@ -277,9 +277,11 @@
       "description": "Grants permission to delete a volume, deleting its contents and any existing automatic backups of the volume",
       "accessLevel": "Write",
       "resourceTypes": [
-        "volume*"
+        "volume*",
+        "backup"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "fsx:StorageVirtualMachineId",
         "fsx:ParentVolumeId"

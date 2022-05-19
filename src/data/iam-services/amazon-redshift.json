@@ -1,12 +1,21 @@
 {
   "serviceName": "Amazon Redshift",
   "servicePrefix": "redshift",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonredshift.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonredshift.html",
   "actions": [
     {
       "name": "AcceptReservedNodeExchange",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_AcceptReservedNodeExchange.html",
       "description": "Grants permission to exchange a DC1 reserved node for a DC2 reserved node with no changes to the configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AddPartner",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_AddPartner.html",
+      "description": "Grants permission to add a partner integration to a cluster",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -27,7 +36,7 @@
       "name": "AuthorizeClusterSecurityGroupIngress",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeClusterSecurityGroupIngress.html",
       "description": "Grants permission to add an inbound (ingress) rule to an Amazon Redshift security group",
-      "accessLevel": "Permissions management",
+      "accessLevel": "Write",
       "resourceTypes": [
         "securitygroup*",
         "securitygroupingress-ec2securitygroup*"
@@ -46,6 +55,15 @@
       "conditionKeys": [
         "redshift:ConsumerIdentifier"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "AuthorizeEndpointAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeEndpointAccess.html",
+      "description": "Grants permission to authorize endpoint related activities for redshift-managed vpc endpoint",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -214,6 +232,15 @@
       "conditionKeys": [
         "redshift:DbUser"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEndpointAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateEndpointAccess.html",
+      "description": "Grants permission to create a redshift-managed vpc endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -425,6 +452,15 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteEndpointAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteEndpointAccess.html",
+      "description": "Grants permission to delete a redshift-managed vpc endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteEventSubscription",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteEventSubscription.html",
       "description": "Grants permission to delete an Amazon Redshift event notification subscription",
@@ -454,6 +490,15 @@
       "resourceTypes": [
         "hsmconfiguration*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePartner",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeletePartner.html",
+      "description": "Grants permission to delete a partner integration from a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -674,6 +719,24 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeEndpointAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEndpointAccess.html",
+      "description": "Grants permission to describe redshift-managed vpc endpoints",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEndpointAuthorization",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEndpointAuthorization.html",
+      "description": "Grants permission to authorize describe activity for redshift-managed vpc endpoint",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeEventCategories",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventCategories.html",
       "description": "Grants permission to describe event categories for all event source types, or for a specified source type",
@@ -748,9 +811,27 @@
       "dependentActions": []
     },
     {
+      "name": "DescribePartners",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribePartners.html",
+      "description": "Grants permission to retrieve information about the partner integrations defined for a cluster",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeQuery",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
       "description": "Grants permission to describe a query through the Amazon Redshift console",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReservedNodeExchangeStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodeExchangeStatus.html",
+      "description": "Grants permission to describe exchange status details and associated metadata for a reserved-node exchange. Statuses include such values as in progress and requested",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -978,6 +1059,15 @@
       "dependentActions": []
     },
     {
+      "name": "GetReservedNodeExchangeConfigurationOptions",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetReservedNodeExchangeConfigurationOptions.html",
+      "description": "Grants permission to get the configuration options for the reserved-node exchange",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetReservedNodeExchangeOfferings",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_GetReservedNodeExchangeOfferings.html",
       "description": "Grants permission to get an array of DC2 ReservedNodeOfferings that matches the payment type, term, and usage price of the given DC1 reserved node",
@@ -1136,6 +1226,15 @@
       "resourceTypes": [
         "subnetgroup*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyEndpointAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyEndpointAccess.html",
+      "description": "Grants permission to modify a redshift-managed vpc endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1307,11 +1406,20 @@
       "name": "RevokeClusterSecurityGroupIngress",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeClusterSecurityGroupIngress.html",
       "description": "Grants permission to revoke an ingress rule in an Amazon Redshift security group for a previously authorized IP range or Amazon EC2 security group",
-      "accessLevel": "Permissions management",
+      "accessLevel": "Write",
       "resourceTypes": [
         "securitygroup*",
         "securitygroupingress-ec2securitygroup*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RevokeEndpointAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_RevokeEndpointAccess.html",
+      "description": "Grants permission to revoke access for endpoint related activities for redshift-managed vpc endpoint",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1330,10 +1438,19 @@
       "name": "RotateEncryptionKey",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_RotateEncryptionKey.html",
       "description": "Grants permission to rotate an encryption key for a cluster",
-      "accessLevel": "Permissions management",
+      "accessLevel": "Write",
       "resourceTypes": [
         "cluster*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePartnerStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_UpdatePartnerStatus.html",
+      "description": "Grants permission to update the status of a partner integration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },

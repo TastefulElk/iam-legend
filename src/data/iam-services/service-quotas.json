@@ -1,7 +1,7 @@
 {
   "serviceName": "Service Quotas",
   "servicePrefix": "servicequotas",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_servicequotas.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_servicequotas.html",
   "actions": [
     {
       "name": "AssociateServiceQuotaTemplate",
@@ -170,7 +170,10 @@
       "description": "Grants permission to associate a set of tags with an existing SQ resource",
       "accessLevel": "Tagging",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -179,7 +182,10 @@
       "description": "Grants permission to remove a set of tags from a SQ resource, where tags to be removed match a set of customer-supplied tag keys",
       "accessLevel": "Tagging",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     }
   ]

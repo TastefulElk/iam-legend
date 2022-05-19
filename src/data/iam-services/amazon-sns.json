@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon SNS",
   "servicePrefix": "sns",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonsns.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonsns.html",
   "actions": [
     {
       "name": "AddPermission",
@@ -71,7 +71,10 @@
       "resourceTypes": [
         "topic*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": [
         "iam:PassRole"
       ]

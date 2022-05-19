@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS Glue",
   "servicePrefix": "glue",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsglue.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsglue.html",
   "actions": [
     {
       "name": "BatchCreatePartition",
@@ -90,6 +90,15 @@
       "dependentActions": []
     },
     {
+      "name": "BatchGetCustomEntityTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-sensitive-data-api.html#aws-glue-sensitive-data-api-BatchGetCustomEntityTypes",
+      "description": "Grants permission to retrieve one or more Custom Entity Types",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "BatchGetDevEndpoints",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-dev-endpoint.html#aws-glue-api-dev-endpoint-BatchGetDevEndpoints",
       "description": "Grants permission to retrieve one or more development endpoints",
@@ -151,7 +160,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html#aws-glue-api-jobs-runs-BatchStopStartJobRun",
       "description": "Grants permission to stop one or more job runs for a job",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "job*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -247,6 +258,15 @@
       "dependentActions": []
     },
     {
+      "name": "CreateCustomEntityType",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-sensitive-data-api.html#aws-glue-sensitive-data-api-CreateCustomEntityType",
+      "description": "Grants permission to create a Custom Entity Type",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateDatabase",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-databases.html#aws-glue-api-catalog-databases-CreateDatabase",
       "description": "Grants permission to create a database",
@@ -330,7 +350,10 @@
       "resourceTypes": [
         "registry*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -342,7 +365,10 @@
         "registry*",
         "schema*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -489,6 +515,15 @@
       "resourceTypes": [
         "crawler*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCustomEntityType",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-sensitive-data-api.html#aws-glue-sensitive-data-api-DeleteCustomEntityType",
+      "description": "Grants permission to delete a Custom Entity Type",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -834,6 +869,15 @@
       "dependentActions": []
     },
     {
+      "name": "GetCustomEntityType",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-sensitive-data-api.html#aws-glue-sensitive-data-api-GetCustomEntityType",
+      "description": "Grants permission to read a Custom Entity Type",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetDataCatalogEncryptionSettings",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-security.html#aws-glue-api-jobs-security-GetDataCatalogEncryptionSettings",
       "description": "Grants permission to retrieve catalog encryption settings",
@@ -922,7 +966,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html#aws-glue-api-jobs-runs-GetJobRun",
       "description": "Grants permission to retrieve a job run",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "job*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -931,7 +977,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html#aws-glue-api-jobs-runs-GetJobRuns",
       "description": "Grants permission to retrieve all job runs of a job",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "job*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1001,6 +1049,19 @@
       "name": "GetPartition",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-GetPartition",
       "description": "Grants permission to retrieve a partition",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "catalog*",
+        "database*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPartitionIndexes",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-GetPartitionIndexes",
+      "description": "Grants permission to retrieve partition indexes for a table",
       "accessLevel": "Read",
       "resourceTypes": [
         "catalog*",
@@ -1328,7 +1389,10 @@
       "description": "Grants permission to retrieve all blueprints",
       "accessLevel": "List",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1337,7 +1401,22 @@
       "description": "Grants permission to retrieve all crawlers",
       "accessLevel": "List",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCustomEntityTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-sensitive-data-api.html#aws-glue-sensitive-data-api-ListGetCustomEntityTypes",
+      "description": "Grants permission to retrieve all Custom Entity Types",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1346,7 +1425,10 @@
       "description": "Grants permission to retrieve all development endpoints",
       "accessLevel": "List",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1355,7 +1437,10 @@
       "description": "Grants permission to retrieve all current jobs",
       "accessLevel": "List",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1366,7 +1451,10 @@
       "resourceTypes": [
         "mlTransform*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1427,7 +1515,10 @@
       "description": "Grants permission to retrieve all triggers",
       "accessLevel": "List",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1633,7 +1724,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html#aws-glue-api-jobs-runs-StartJobRun",
       "description": "Grants permission to start running a job",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "job*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },

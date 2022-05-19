@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS IoT",
   "servicePrefix": "iot",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsiot.html",
   "actions": [
     {
       "name": "AcceptCertificateTransfer",
@@ -1443,17 +1443,6 @@
       "dependentActions": []
     },
     {
-      "name": "GetPendingJobExecutions",
-      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_GetPendingJobExecutions.html",
-      "description": "Grants permission to get the list of all jobs for a thing that are not in a terminal state",
-      "accessLevel": "Read",
-      "resourceTypes": [
-        "thing*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
       "name": "GetPercentiles",
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_GetPercentiles.html",
       "description": "Grants permission to get percentiles for IoT fleet index",
@@ -1781,6 +1770,17 @@
       "description": "Grants permission to list managed job templates",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMetricValues",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_ListMetricValues.html",
+      "description": "Adds support to list metric datapoints collected for IoT devices",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "thing*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -2280,6 +2280,21 @@
       "dependentActions": []
     },
     {
+      "name": "RotateTunnelAccessToken",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_RotateTunnelAccessToken.html",
+      "description": "Grants permission to rotate the access token of a tunnel",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "tunnel*"
+      ],
+      "conditionKeys": [
+        "iot:ThingGroupArn",
+        "iot:TunnelDestinationService",
+        "iot:ClientMode"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "SearchIndex",
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_SearchIndex.html",
       "description": "Grants permission to search IoT fleet index",
@@ -2355,17 +2370,6 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "securityprofile"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "StartNextPendingJobExecution",
-      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_StartNextPendingJobExecution.html",
-      "description": "Grants permission to get and start the next pending job execution for a thing",
-      "accessLevel": "Write",
-      "resourceTypes": [
-        "thing*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2653,17 +2657,6 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "job*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "UpdateJobExecution",
-      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateJobExecution.html",
-      "description": "Grants permission to update a job execution",
-      "accessLevel": "Write",
-      "resourceTypes": [
-        "thing*"
       ],
       "conditionKeys": [],
       "dependentActions": []

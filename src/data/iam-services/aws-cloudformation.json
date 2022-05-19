@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS CloudFormation",
   "servicePrefix": "cloudformation",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscloudformation.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awscloudformation.html",
   "actions": [
     {
       "name": "ActivateType",
@@ -114,7 +114,7 @@
     },
     {
       "name": "CreateUploadBucket",
-      "documentationUrl": "${AuthZDocPage}",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html",
       "description": "Grants permission to upload templates to Amazon S3 buckets. Used only by the AWS CloudFormation console and is not documented in the API reference",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -204,6 +204,19 @@
       "name": "DescribeChangeSet",
       "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeChangeSet.html",
       "description": "Grants permission to return the description for the specified change set",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [
+        "cloudformation:ChangeSetName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeChangeSetHooks",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeChangeSetHooks.html",
+      "description": "Grants permission to return the Hook invocation information for the specified change set",
       "accessLevel": "Read",
       "resourceTypes": [
         "stack*"
@@ -596,6 +609,19 @@
       "dependentActions": []
     },
     {
+      "name": "RollbackStack",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RollbackStack.html",
+      "description": "Grants permission to rollback the stack to the last stable state",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [
+        "cloudformation:RoleArn"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "SetStackPolicy",
       "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetStackPolicy.html",
       "description": "Grants permission to set a stack policy for a specified stack",
@@ -654,6 +680,7 @@
       "description": "Grants permission to tag cloudformation resources",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "changeset",
         "stack",
         "stackset"
       ],
@@ -675,6 +702,7 @@
       "description": "Grants permission to untag cloudformation resources",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "changeset",
         "stack",
         "stackset"
       ],

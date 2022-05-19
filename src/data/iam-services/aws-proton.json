@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS Proton",
   "servicePrefix": "proton",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsproton.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsproton.html",
   "actions": [
     {
       "name": "AcceptEnvironmentAccountConnection",
@@ -146,7 +146,10 @@
       "resourceTypes": [
         "repository*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -396,7 +399,7 @@
     },
     {
       "name": "GetAccountSettings",
-      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetAccountRoles.html",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetAccountSettings.html",
       "description": "Grants permission to describe the account settings",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -792,12 +795,25 @@
         "environment-template-major-version",
         "environment-template-minor-version",
         "environment-template-version",
+        "repository",
         "service",
         "service-instance",
         "service-template",
         "service-template-major-version",
         "service-template-minor-version",
         "service-template-version"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "NotifyResourceDeploymentStatusChange",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_NotifyResourceDeploymentStatusChange.html",
+      "description": "Grants permission to notify Proton of resource deployment status changes",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment",
+        "service-instance"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -824,6 +840,7 @@
         "environment-template-major-version",
         "environment-template-minor-version",
         "environment-template-version",
+        "repository",
         "service",
         "service-instance",
         "service-template",
@@ -848,6 +865,7 @@
         "environment-template-major-version",
         "environment-template-minor-version",
         "environment-template-version",
+        "repository",
         "service",
         "service-instance",
         "service-template",
@@ -873,7 +891,7 @@
     },
     {
       "name": "UpdateAccountSettings",
-      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateAccountRoles.html",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateAccountSettings.html",
       "description": "Grants permission to update the account settings",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -948,17 +966,6 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "environment-template*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "UpdateRepository",
-      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateRepository.html",
-      "description": "Grants permission to update a repository",
-      "accessLevel": "Write",
-      "resourceTypes": [
-        "repository*"
       ],
       "conditionKeys": [],
       "dependentActions": []

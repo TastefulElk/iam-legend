@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon WorkSpaces Web",
   "servicePrefix": "workspaces-web",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonworkspacesweb.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonworkspacesweb.html",
   "actions": [
     {
       "name": "AssociateBrowserSettings",
@@ -96,7 +96,9 @@
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
     },
     {
       "name": "CreatePortal",

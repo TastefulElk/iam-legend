@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS CloudWatch RUM",
   "servicePrefix": "rum",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awscloudwatchrum.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awscloudwatchrum.html",
   "actions": [
     {
       "name": "CreateAppMonitor",
@@ -76,7 +76,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/rum/latest/APIReference/API_PutRumEvents.html",
       "description": "Grants permission to put RUM events for appmonitor",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "AppMonitorResource*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -86,7 +88,10 @@
       "description": "Grants permission to tag resources",
       "accessLevel": "Tagging",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -95,7 +100,10 @@
       "description": "Grants permission to untag resources",
       "accessLevel": "Tagging",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

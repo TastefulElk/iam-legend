@@ -1,8 +1,21 @@
 {
   "serviceName": "AWS Elemental MediaTailor",
   "servicePrefix": "mediatailor",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awselementalmediatailor.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awselementalmediatailor.html",
   "actions": [
+    {
+      "name": "ConfigureLogsForPlaybackConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/configurelogs-playbackconfiguration.html",
+      "description": "Grants permission to configure logs for a playback configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "playbackConfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
     {
       "name": "CreateChannel",
       "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/channel-channelname.html",
@@ -13,6 +26,31 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateLiveSource",
+      "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/sourcelocation-sourcelocationname-livesource-livesourcename.html",
+      "description": "Grants permission to create a new live source on the source location with the specified source location name",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "sourceLocation*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreatePrefetchSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/prefetchschedule-playbackconfigurationname-name.html",
+      "description": "Grants permission to create a prefetch schedule for the playback configuration with the specified playback configuration name",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "playbackConfiguration*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -75,12 +113,36 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteLiveSource",
+      "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/sourcelocation-sourcelocationname-livesource-livesourcename.html",
+      "description": "Grants permission to delete the live source with the specified live source name on the source location with the specified source location name",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "liveSource*",
+        "sourceLocation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeletePlaybackConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/playbackconfiguration-name.html",
-      "description": "Deletes the playback configuration for the specified name",
+      "description": "Grants permission to delete the specified playback configuration",
       "accessLevel": "Write",
       "resourceTypes": [
         "playbackConfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePrefetchSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/prefetchschedule-playbackconfigurationname-name.html",
+      "description": "Grants permission to delete a prefetch schedule for a playback configuration with the specified prefetch schedule name",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "playbackConfiguration*",
+        "prefetchSchedule*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -127,6 +189,18 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeLiveSource",
+      "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/sourcelocation-sourcelocationname-livesource-livesourcename.html",
+      "description": "Grants permission to retrieve the live source with the specified live source name on the source location with the specified source location name",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "liveSource*",
+        "sourceLocation*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -200,6 +274,18 @@
       "dependentActions": []
     },
     {
+      "name": "GetPrefetchSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/prefetchschedule-playbackconfigurationname-name.html",
+      "description": "Grants permission to retrieve prefetch schedule for a playback configuration with the specified prefetch schedule name",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "playbackConfiguration*",
+        "prefetchSchedule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListAlerts",
       "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/alerts.html",
       "description": "Grants permission to retrieve the list of alerts on a resource",
@@ -218,11 +304,33 @@
       "dependentActions": []
     },
     {
+      "name": "ListLiveSources",
+      "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/sourcelocation-sourcelocationname-livesources.html",
+      "description": "Grants permission to retrieve the list of existing live sources on the source location with the specified source location name",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "sourceLocation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListPlaybackConfigurations",
       "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/playbackconfigurations.html",
       "description": "Grants permission to retrieve the list of available configurations",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPrefetchSchedules",
+      "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/prefetchschedule-playbackconfigurationname.html",
+      "description": "Grants permission to retrieve the list of prefetch schedules for a playback configuration",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "playbackConfiguration*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -238,9 +346,15 @@
     {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/tags-resourcearn.html",
-      "description": "Returns a list of the tags assigned to the specified playback configuration resource",
+      "description": "Grants permission to list the tags assigned to the specified playback configuration resource",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "channel",
+        "liveSource",
+        "playbackConfiguration",
+        "sourceLocation",
+        "vodSource"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -303,9 +417,15 @@
     {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/tags-resourcearn.html",
-      "description": "Adds tags to the specified playback configuration resource",
+      "description": "Grants permission to add tags to the specified playback configuration resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "channel",
+        "liveSource",
+        "playbackConfiguration",
+        "sourceLocation",
+        "vodSource"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -315,9 +435,15 @@
     {
       "name": "UntagResource",
       "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/tags-resourcearn.html",
-      "description": "Removes tags from the specified playback configuration resource",
+      "description": "Grants permission to remove tags from the specified playback configuration resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "channel",
+        "liveSource",
+        "playbackConfiguration",
+        "sourceLocation",
+        "vodSource"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -331,6 +457,18 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateLiveSource",
+      "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/sourcelocation-sourcelocationname-livesource-livesourcename.html",
+      "description": "Grants permission to update the live source with the specified live source name on the source location with the specified source location name",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "liveSource*",
+        "sourceLocation*"
       ],
       "conditionKeys": [],
       "dependentActions": []

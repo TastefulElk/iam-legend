@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS RoboMaker",
   "servicePrefix": "robomaker",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsrobomaker.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsrobomaker.html",
   "actions": [
     {
       "name": "BatchDeleteWorlds",
@@ -188,7 +188,10 @@
       "resourceTypes": [
         "world*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -199,7 +202,10 @@
       "resourceTypes": [
         "worldTemplate*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -208,7 +214,10 @@
       "description": "Create a world template",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -484,7 +493,7 @@
     {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/robomaker/latest/dg/API_ListTagsForResource.html",
-      "description": "List tags for a RoboMaker resource.",
+      "description": "List tags for a RoboMaker resource",
       "accessLevel": "List",
       "resourceTypes": [
         "deploymentFleet",

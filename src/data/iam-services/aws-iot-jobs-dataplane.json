@@ -1,0 +1,55 @@
+{
+  "serviceName": "AWS IoT Jobs DataPlane",
+  "servicePrefix": "iotjobsdata",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsiotjobsdataplane.html",
+  "actions": [
+    {
+      "name": "DescribeJobExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_iot-jobs-data_DescribeJobExecution.html",
+      "description": "Grants permission to describe a job execution",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "thing*"
+      ],
+      "conditionKeys": [
+        "iot:JobId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPendingJobExecutions",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_iot-jobs-data_GetPendingJobExecutions.html",
+      "description": "Grants permission to get the list of all jobs for a thing that are not in a terminal state",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "thing*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartNextPendingJobExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_iot-jobs-data_StartNextPendingJobExecution.html",
+      "description": "Grants permission to get and start the next pending job execution for a thing",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "thing*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateJobExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_iot-jobs-data_UpdateJobExecution.html",
+      "description": "Grants permission to update a job execution",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "thing*"
+      ],
+      "conditionKeys": [
+        "iot:JobId"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

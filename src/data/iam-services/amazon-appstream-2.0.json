@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon AppStream 2.0",
   "servicePrefix": "appstream",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonappstream2.0.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonappstream2.0.html",
   "actions": [
     {
       "name": "AssociateApplicationFleet",
@@ -86,10 +86,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateAppBlock.html",
       "description": "Grants permission to create an app block. App blocks store details about the virtual hard disk that contains the files for the application in an S3 bucket. It also stores the setup script with details about how to mount the virtual hard disk. App blocks are only supported for Elastic fleets",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "app-block*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:TagKeys"
       ],
@@ -104,6 +103,7 @@
         "app-block*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:TagKeys"
       ],
@@ -209,6 +209,7 @@
         "image*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:TagKeys"
       ],

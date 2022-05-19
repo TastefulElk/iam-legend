@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon Chime",
   "servicePrefix": "chime",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonchime.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonchime.html",
   "actions": [
     {
       "name": "AcceptDelegate",
@@ -372,7 +372,10 @@
       "description": "Grants permission to create a media capture pipeline",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -706,7 +709,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteMediaCapturePipeline.html",
       "description": "Grants permission to delete a media capture pipeline",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "media-pipeline*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1205,7 +1210,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_GetMediaCapturePipeline.html",
       "description": "Grants permission to get an existing media capture pipeline",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "media-pipeline*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -2243,7 +2250,8 @@
       "description": "Grants permission to apply the specified tags to the specified Amazon Chime resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "channel"
+        "channel",
+        "media-pipeline"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -2289,7 +2297,8 @@
       "description": "Grants permission to untag the specified tags from the specified Amazon Chime resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "channel"
+        "channel",
+        "media-pipeline"
       ],
       "conditionKeys": [],
       "dependentActions": []

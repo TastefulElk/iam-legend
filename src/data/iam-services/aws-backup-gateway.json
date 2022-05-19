@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS Backup Gateway",
   "servicePrefix": "backup-gateway",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsbackupgateway.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsbackupgateway.html",
   "actions": [
     {
       "name": "AssociateGatewayToServer",
@@ -79,10 +79,11 @@
       "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ImportHypervisorConfiguration.html",
       "description": "Grants permission to ImportHypervisorConfiguration",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "hypervisor"
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
-      "conditionKeys": [],
       "dependentActions": []
     },
     {

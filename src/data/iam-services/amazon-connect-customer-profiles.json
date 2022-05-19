@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon Connect Customer Profiles",
   "servicePrefix": "profile",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnectcustomerprofiles.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonconnectcustomerprofiles.html",
   "actions": [
     {
       "name": "AddProfileKey",
@@ -20,6 +20,20 @@
       "description": "Grants permission to create a Domain",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateIntegrationWorkflow",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateIntegrationWorkflow.html",
+      "description": "Grants permission to create an integration workflow in a domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -107,6 +121,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteWorkflow",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteWorkflow.html",
+      "description": "Grants permission to delete a workflow in a domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetAutoMergingPreview",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetAutoMergingPreview.html",
       "description": "Grants permission to get a preview of auto merging in a domain",
@@ -180,6 +205,28 @@
       "description": "Grants permission to get a specific object type template",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetWorkflow",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetWorkflow.html",
+      "description": "Grants permission to get workflow details in a domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetWorkflowSteps",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetWorkflowSteps.html",
+      "description": "Grants permission to get workflow step details in a domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "domains*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -261,6 +308,17 @@
       "description": "Grants permission to list tags for a resource",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWorkflows",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListWorkflows.html",
+      "description": "Grants permission to list all the workflows in a specific domain",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "domains*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },

@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS AppConfig",
   "servicePrefix": "appconfig",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsappconfig.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsappconfig.html",
   "actions": [
     {
       "name": "CreateApplication",
@@ -349,7 +349,10 @@
         "deploymentstrategy*",
         "environment*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

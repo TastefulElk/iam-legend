@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon QLDB",
   "servicePrefix": "qldb",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonqldb.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonqldb.html",
   "actions": [
     {
       "name": "CancelJournalKinesisStream",
@@ -312,7 +312,7 @@
     },
     {
       "name": "SendCommand",
-      "documentationUrl": "API_QLDB-Session_SendCommand.html",
+      "documentationUrl": "https://docs.aws.amazon.com/qldb/latest/developerguide/API_QLDB-Session_SendCommand.html",
       "description": "Grants permission to send commands to a ledger",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -340,7 +340,10 @@
       "resourceTypes": [
         "stream*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

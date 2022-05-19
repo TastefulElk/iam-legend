@@ -1,7 +1,7 @@
 {
   "serviceName": "Amazon Pinpoint",
   "servicePrefix": "mobiletargeting",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonpinpoint.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonpinpoint.html",
   "actions": [
     {
       "name": "CreateApp",
@@ -64,6 +64,19 @@
         "apps*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateInAppTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-inapp.html#templates-template-name-inapp-http-methods",
+      "description": "Grants permission to create an in-app message template",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -284,6 +297,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "apps*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteInAppTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-inapp.html#templates-template-name-inapp-http-methods",
+      "description": "Grants permission to delete an in-app message template or an in-app message template version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "templates*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -692,6 +716,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetInAppTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-inapp.html#templates-template-name-inapp-http-methods",
+      "description": "Grants permission to retrieve information about a specific or the active version of an in-app message template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "templates*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetJourney",
       "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys-journey-id.html#apps-application-id-journeys-journey-id-http-methods",
       "description": "Grants permission to retrieve information about a specific journey",
@@ -1007,6 +1042,17 @@
       "dependentActions": []
     },
     {
+      "name": "SendOTPMessage",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-otp.html",
+      "description": "Grants permission to send an OTP code to a user of your application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "apps*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "SendUsersMessages",
       "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-users-messages.html#rest-api-users-messages-methods",
       "description": "Grants permission to send an SMS message or push notification to all endpoints that are associated with a specific user ID",
@@ -1200,6 +1246,20 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateInAppTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-inapp.html#templates-template-name-inapp-http-methods",
+      "description": "Grants permission to update a specific in-app message template under the same version or generate a new version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "templates*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateJourney",
       "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys-journey-id.html#apps-application-id-journeys-journey-id-http-methods",
       "description": "Grants permission to update a specific journey",
@@ -1328,6 +1388,17 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "VerifyOTPMessage",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-verify-otp.html",
+      "description": "Grants permission to check the validity of One-Time Passwords (OTPs)",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "apps*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     }
   ]

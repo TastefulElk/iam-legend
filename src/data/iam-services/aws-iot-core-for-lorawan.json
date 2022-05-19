@@ -1,7 +1,7 @@
 {
   "serviceName": "AWS IoT Core for LoRaWAN",
   "servicePrefix": "iotwireless",
-  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotcoreforlorawan.html",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsiotcoreforlorawan.html",
   "actions": [
     {
       "name": "AssociateAwsAccountWithPartnerAccount",
@@ -151,6 +151,21 @@
       "dependentActions": []
     },
     {
+      "name": "CreateNetworkAnalyzerConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_CreateNetworkAnalyzerConfiguration.html",
+      "description": "Grants permission to create a NetworkAnalyzerConfiguration resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "WirelessDevice*",
+        "WirelessGateway*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateServiceProfile",
       "documentationUrl": "https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_CreateServiceProfile.html",
       "description": "Grants permission to create a ServiceProfile resource",
@@ -249,6 +264,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "MulticastGroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteNetworkAnalyzerConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_DeleteNetworkAnalyzerConfiguration.html",
+      "description": "Grants permission to delete the NetworkAnalyzerConfiguration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "NetworkAnalyzerConfiguration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -427,6 +453,15 @@
       "dependentActions": []
     },
     {
+      "name": "GetEventConfigurationsByResourceTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetEventConfigurationsByResourceTypes.html",
+      "description": "Grants permission to get event configurations by resource types",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetFuotaTask",
       "documentationUrl": "https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetFuotaTask.html",
       "description": "Grants permission to get the FuotaTask",
@@ -473,7 +508,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetNetworkAnalyzerConfiguration.html",
       "description": "Grants permission to get the NetworkAnalyzerConfiguration",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "NetworkAnalyzerConfiguration*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -494,7 +531,9 @@
       "description": "Grants permission to get an event configuration for an identifier",
       "accessLevel": "Read",
       "resourceTypes": [
-        "SidewalkAccount"
+        "SidewalkAccount",
+        "WirelessDevice",
+        "WirelessGateway"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -638,6 +677,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListEventConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_ListEventConfigurations.html",
+      "description": "Grants permission to list information of available event configurations based on the AWS account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListFuotaTasks",
       "documentationUrl": "https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_ListFuotaTasks.html",
       "description": "Grants permission to list information of available FuotaTasks based on the AWS account",
@@ -663,6 +711,15 @@
       "resourceTypes": [
         "FuotaTask*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListNetworkAnalyzerConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_ListNetworkAnalyzerConfigurations.html",
+      "description": "Grants permission to list information of available NetworkAnalyzerConfigurations based on the AWS account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -701,6 +758,7 @@
       "resourceTypes": [
         "Destination",
         "DeviceProfile",
+        "NetworkAnalyzerConfiguration",
         "ServiceProfile",
         "SidewalkAccount",
         "WirelessDevice",
@@ -841,7 +899,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/developerguide/connect-iot-lorawan-network-analyzer-api.html",
       "description": "Grants permission to start NetworkAnalyzer stream",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "NetworkAnalyzerConfiguration*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -853,6 +913,7 @@
       "resourceTypes": [
         "Destination",
         "DeviceProfile",
+        "NetworkAnalyzerConfiguration",
         "ServiceProfile",
         "SidewalkAccount",
         "WirelessDevice",
@@ -884,6 +945,7 @@
       "resourceTypes": [
         "Destination",
         "DeviceProfile",
+        "NetworkAnalyzerConfiguration",
         "ServiceProfile",
         "SidewalkAccount",
         "WirelessDevice",
@@ -903,6 +965,15 @@
       "resourceTypes": [
         "Destination*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEventConfigurationsByResourceTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateEventConfigurationsByResourceTypes.html",
+      "description": "Grants permission to update event configurations by resource types",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -942,7 +1013,11 @@
       "documentationUrl": "https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateNetworkAnalyzerConfiguration.html",
       "description": "Grants permission to update the NetworkAnalyzerConfiguration",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "NetworkAnalyzerConfiguration*",
+        "WirelessDevice*",
+        "WirelessGateway*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -963,7 +1038,9 @@
       "description": "Grants permission to update an event configuration for an identifier",
       "accessLevel": "Write",
       "resourceTypes": [
-        "SidewalkAccount"
+        "SidewalkAccount",
+        "WirelessDevice",
+        "WirelessGateway"
       ],
       "conditionKeys": [],
       "dependentActions": []
