@@ -402,6 +402,17 @@
       "dependentActions": []
     },
     {
+      "name": "CreateTaskTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTaskTemplate.html",
+      "description": "Grants permission to create a task template in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "task-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateUseCase",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateUseCase.html",
       "description": "Grants permission to create a use case for an integration association",
@@ -571,6 +582,20 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "security-profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTaskTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTaskTemplate.html",
+      "description": "Grants permission to delete a task template in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "task-template*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -1092,6 +1117,20 @@
       "dependentActions": []
     },
     {
+      "name": "GetTaskTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_GetTaskTemplate.html",
+      "description": "Grants permission to get details about specified task template in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "task-template*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListAgentStatuses",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListAgentStatuses.html",
       "description": "Grants permission to list agent statuses in an Amazon Connect instance",
@@ -1444,6 +1483,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListTaskTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListTaskTemplates.html",
+      "description": "Grants permission to list task template resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListUseCases",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListUseCases.html",
       "description": "Grants permission to list the use cases of an integration association",
@@ -1692,6 +1742,21 @@
       "conditionKeys": [
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TransferContact",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_TransferContact.html",
+      "description": "Grants permission to transfer the contact to another queue or agent",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact*",
+        "contact-flow*",
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
       ],
       "dependentActions": []
     },
@@ -2086,6 +2151,20 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "security-profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTaskTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTaskTemplate.html",
+      "description": "Grants permission to update task template belonging to a Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "task-template*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
