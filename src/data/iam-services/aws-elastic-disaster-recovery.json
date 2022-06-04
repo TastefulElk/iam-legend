@@ -36,6 +36,32 @@
       "dependentActions": []
     },
     {
+      "name": "CreateConvertedSnapshotForDrs",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html",
+      "description": "Grants permission to create converted snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SourceServerResource*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateExtendedSourceServer",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_CreateExtendedSourceServer.html",
+      "description": "Grants permission to extend a source server",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateRecoveryInstanceForDrs",
       "documentationUrl": "https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html",
       "description": "Grants permission to create recovery instance",
@@ -397,6 +423,24 @@
       "dependentActions": []
     },
     {
+      "name": "ListExtensibleSourceServers",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_ListExtensibleSourceServers.html",
+      "description": "Grants permission to list extensible source servers",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStagingAccounts",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_ListStagingAccounts.html",
+      "description": "Grants permission to list staging accounts",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to list tags for a resource",
@@ -620,7 +664,8 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "drs:CreateAction"
       ],
       "dependentActions": []
     },
