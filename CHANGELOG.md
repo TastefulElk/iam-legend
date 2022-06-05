@@ -2,6 +2,10 @@
 
 All notable changes to the "iam-legend" extension will be documented in this file.
 
+## [1.1.1] - 2022-01-31
+
+- IAM service updates
+
 ## [1.1.0] - 2022-05-17
 
 - Typescript file support
