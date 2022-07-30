@@ -64,7 +64,9 @@
         "Application*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "cloudformation:DescribeStacks"
+      ]
     },
     {
       "name": "AssociateServiceActionWithProvisioningArtifact",
@@ -709,7 +711,7 @@
     {
       "name": "ListApplications",
       "documentationUrl": "https://docs.aws.amazon.com/servicecatalog/latest/dg/API_app-registry_ListApplications.html",
-      "description": "Grants permission to list the applications in your account",
+      "description": "Grants permission to list your applications",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -740,9 +742,20 @@
     {
       "name": "ListAttributeGroups",
       "documentationUrl": "https://docs.aws.amazon.com/servicecatalog/latest/dg/API_app-registry_ListAttributeGroups.html",
-      "description": "Grants permission to list the attribute groups in your account",
+      "description": "Grants permission to list your attribute groups",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAttributeGroupsForApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/servicecatalog/latest/dg/API_app-registry_ListAttributeGroupsForApplication.html",
+      "description": "Grants permission to list the associated attribute groups for a given application",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Application*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },

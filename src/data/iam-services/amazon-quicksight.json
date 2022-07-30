@@ -39,6 +39,15 @@
       "dependentActions": []
     },
     {
+      "name": "CreateAccountSubscription",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateAccountSubscription.html",
+      "description": "Grants permission to subscribe to QuickSight",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateAdmin",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html",
       "description": "Grants permission to provision Amazon QuickSight administrators, authors, and readers",
@@ -46,10 +55,7 @@
       "resourceTypes": [
         "user*"
       ],
-      "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
-      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -167,10 +173,7 @@
       "resourceTypes": [
         "group*"
       ],
-      "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
-      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -221,10 +224,7 @@
       "resourceTypes": [
         "namespace*"
       ],
-      "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
-      ],
+      "conditionKeys": [],
       "dependentActions": [
         "ds:CreateIdentityPoolDirectory"
       ]
@@ -237,10 +237,7 @@
       "resourceTypes": [
         "user*"
       ],
-      "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
-      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -307,10 +304,7 @@
       "resourceTypes": [
         "user*"
       ],
-      "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
-      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -568,6 +562,17 @@
       "description": "Grants permission to describe the administrative account settings for QuickSight account",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAccountSubscription",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAccountSubscription.html",
+      "description": "Grants permission to describe a QuickSight account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "account*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -898,7 +903,7 @@
     },
     {
       "name": "GetAnonymousUserEmbedUrl",
-      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GetDashboardEmbedUrl.html",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html",
       "description": "Grants permission to get a URL used to embed a QuickSight Dashboard for a user not registered with QuickSight",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -1343,9 +1348,13 @@
       "description": "Grants permission to add tags to a QuickSight resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "analysis",
         "customization",
         "dashboard",
+        "dataset",
+        "datasource",
         "folder",
+        "ingestion",
         "template",
         "theme"
       ],
@@ -1370,9 +1379,13 @@
       "description": "Grants permission to remove tags from a QuickSight resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "analysis",
         "customization",
         "dashboard",
+        "dataset",
+        "datasource",
         "folder",
+        "ingestion",
         "template",
         "theme"
       ],

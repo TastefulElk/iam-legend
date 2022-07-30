@@ -11,14 +11,19 @@
       "resourceTypes": [
         "automation-execution",
         "document",
+        "instance",
         "maintenancewindow",
         "managed-instance",
         "opsitem",
         "opsmetadata",
         "parameter",
-        "patchbaseline"
+        "patchbaseline",
+        "task"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -46,7 +51,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CancelMaintenanceWindowExecution.html",
       "description": "Grants permission to cancel an in-progress maintenance window execution",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "maintenancewindow*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -56,7 +63,10 @@
       "description": "Grants permission to create an activation that is used to register on-premises servers and virtual machines (VMs) with Systems Manager",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -281,7 +291,9 @@
       "resourceTypes": [
         "managed-instance*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:resourceTag/tag-key"
+      ],
       "dependentActions": []
     },
     {
@@ -345,7 +357,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutionTargets.html",
       "description": "Grants permission to view information about a specified association execution",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "association*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -354,7 +368,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutions.html",
       "description": "Grants permission to view all executions for a specified association",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "association*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -372,7 +388,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAutomationStepExecutions.html",
       "description": "Grants permission to view information about all active and terminated step executions in an Automation workflow",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "automation-execution*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -424,8 +442,8 @@
       "description": "Grants permission to view all current associations for a specified instance",
       "accessLevel": "Read",
       "resourceTypes": [
-        "instance",
-        "managed-instance"
+        "instance*",
+        "managed-instance*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -447,8 +465,8 @@
       "description": "Grants permission to view the status of the associations for a specified instance",
       "accessLevel": "Read",
       "resourceTypes": [
-        "instance",
-        "managed-instance"
+        "instance*",
+        "managed-instance*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -521,7 +539,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindowExecutionTasks.html",
       "description": "Grants permission to view details about the tasks that ran during a specified maintenance window execution",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "maintenancewindow*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -664,7 +684,19 @@
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AutomationExecution.html",
       "description": "Grants permission to view details of a specified Automation execution",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "automation-execution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCalendar",
+      "description": "Grants permission to view details of a specific calendar",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "document*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -693,8 +725,15 @@
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetConnectionStatus.html",
       "description": "Grants permission to view the Session Manager connection status for a specified managed instance",
       "accessLevel": "Read",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "instance",
+        "managed-instance",
+        "task"
+      ],
+      "conditionKeys": [
+        "ssm:resourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -933,7 +972,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListAssociationVersions.html",
       "description": "Grants permission to list versions of the specified association",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "association*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -950,7 +991,7 @@
       "name": "ListCommandInvocations",
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListCommandInvocations.html",
       "description": "Grants permission to list information about command invocations sent to a specified instance",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -959,7 +1000,7 @@
       "name": "ListCommands",
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListCommands.html",
       "description": "Grants permission to list the commands sent to a specified instance",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -1038,7 +1079,7 @@
       "name": "ListOpsItemEvents",
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListOpsItemEvents.html",
       "description": "Grants permission to view details about OpsItemEvents",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -1047,7 +1088,7 @@
       "name": "ListOpsItemRelatedItems",
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListOpsItemRelatedItems.html",
       "description": "Grants permission to view details about OpsItem RelatedItems",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -1085,7 +1126,7 @@
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to view a list of resource tags for a specified resource",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [
         "automation-execution",
         "document",
@@ -1104,6 +1145,16 @@
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ModifyDocumentPermission.html",
       "description": "Grants permission to share a custom SSM document publicly or privately with specified AWS accounts",
       "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "document*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutCalendar",
+      "description": "Grants permission to create/edit a specific calendar",
+      "accessLevel": "Write",
       "resourceTypes": [
         "document*"
       ],
@@ -1218,14 +1269,18 @@
       "resourceTypes": [
         "automation-execution",
         "document",
+        "instance",
         "maintenancewindow",
         "managed-instance",
         "opsitem",
         "opsmetadata",
         "parameter",
-        "patchbaseline"
+        "patchbaseline",
+        "task"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1255,7 +1310,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendAutomationSignal.html",
       "description": "Grants permission to send a signal to change the current behavior or status of a specified Automation execution",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "automation-execution*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1272,7 +1329,7 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "ssm:resourceTag/tag-key"
+        "ssm:resourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -1306,7 +1363,9 @@
       "resourceTypes": [
         "automation-definition*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:AutoApprove"
+      ],
       "dependentActions": []
     },
     {
@@ -1322,7 +1381,7 @@
       ],
       "conditionKeys": [
         "ssm:SessionDocumentAccessCheck",
-        "ssm:resourceTag/tag-key",
+        "ssm:resourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
@@ -1332,7 +1391,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StopAutomationExecution.html",
       "description": "Grants permission to stop a specified Automation execution that is already in progress",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "automation-execution*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1382,7 +1443,9 @@
         "instance",
         "managed-instance"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:SourceInstanceARN"
+      ],
       "dependentActions": []
     },
     {
@@ -1427,7 +1490,9 @@
         "instance",
         "managed-instance"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:SourceInstanceARN"
+      ],
       "dependentActions": []
     },
     {
@@ -1435,8 +1500,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html",
       "description": "Grants permission to SSM Agent to send a heartbeat signal to the Systems Manager service in the cloud",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "ssm:SourceInstanceARN"
+      ],
       "dependentActions": []
     },
     {
@@ -1480,7 +1549,9 @@
       "resourceTypes": [
         "managed-instance*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:resourceTag/tag-key"
+      ],
       "dependentActions": []
     },
     {

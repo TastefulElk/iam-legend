@@ -114,6 +114,20 @@
       "dependentActions": []
     },
     {
+      "name": "CreateMonitor",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_CreateMonitor.html",
+      "description": "Grants permission to create an monitor using a Predictor resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "predictor*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreatePredictor",
       "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_CreatePredictor.html",
       "description": "Grants permission to create a predictor",
@@ -219,6 +233,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteMonitor",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_DeleteMonitor.html",
+      "description": "Grants permission to delete a monitor resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "monitor*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeletePredictor",
       "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_DeletePredictor.html",
       "description": "Grants permission to delete a predictor",
@@ -253,6 +278,7 @@
         "explainabilityExport*",
         "forecast*",
         "forecastExport*",
+        "monitor*",
         "predictor*",
         "predictorBacktestExportJob*"
       ],
@@ -343,6 +369,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "forecastExport*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeMonitor",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeMonitor.html",
+      "description": "Grants permission to describe an monitor resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "monitor*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -444,6 +481,26 @@
       "dependentActions": []
     },
     {
+      "name": "ListMonitorEvaluations",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_ListMonitorEvaluations.html",
+      "description": "Grants permission to list all the monitor evaluation result for a monitor",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "monitor*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMonitors",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_ListMonitors.html",
+      "description": "Grants permission to list all the monitor resources",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListPredictorBacktestExportJobs",
       "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_ListPredictorBacktestExportJobs.html",
       "description": "Grants permission to list all the predictor backtest export jobs",
@@ -492,6 +549,20 @@
       "dependentActions": []
     },
     {
+      "name": "ResumeResource",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_ResumeResource.html",
+      "description": "Grants permission to resume Amazon Forecast resource jobs",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "monitor*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "StopResource",
       "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_StopResource.html",
       "description": "Grants permission to stop Amazon Forecast resource jobs",
@@ -502,6 +573,7 @@
         "explainabilityExport*",
         "forecast*",
         "forecastExport*",
+        "monitor*",
         "predictor*",
         "predictorBacktestExportJob*"
       ],

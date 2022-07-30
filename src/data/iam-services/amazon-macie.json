@@ -357,6 +357,33 @@
       "dependentActions": []
     },
     {
+      "name": "GetRevealConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/macie/latest/APIReference/reveal-configuration.html",
+      "description": "Grants permission to retrieve the status and configuration settings for retrieving occurrences of sensitive data reported by findings",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSensitiveDataOccurrences",
+      "documentationUrl": "https://docs.aws.amazon.com/macie/latest/APIReference/findings-findingid-reveal.html",
+      "description": "Grants permission to retrieve occurrences of sensitive data reported by a finding",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSensitiveDataOccurrencesAvailability",
+      "documentationUrl": "https://docs.aws.amazon.com/macie/latest/APIReference/findings-findingid-reveal-availability.html",
+      "description": "Grants permission to check whether occurrences of sensitive data can be retrieved for a finding",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetUsageStatistics",
       "documentationUrl": "https://docs.aws.amazon.com/macie/latest/APIReference/usage-statistics.html",
       "description": "Grants permission to retrieve quotas and aggregated usage data for one or more accounts",
@@ -451,7 +478,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/macie/latest/APIReference/tags-resourcearn.html",
       "description": "Grants permission to retrieve the tags for an Amazon Macie resource",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "ClassificationJob",
+        "CustomDataIdentifier",
+        "FindingsFilter",
+        "Member"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -487,7 +519,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/macie/latest/APIReference/tags-resourcearn.html",
       "description": "Grants permission to add or update the tags for an Amazon Macie resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "ClassificationJob",
+        "CustomDataIdentifier",
+        "FindingsFilter",
+        "Member"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -508,7 +545,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/macie/latest/APIReference/tags-resourcearn.html",
       "description": "Grants permission to remove tags from an Amazon Macie resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "ClassificationJob",
+        "CustomDataIdentifier",
+        "FindingsFilter",
+        "Member"
+      ],
       "conditionKeys": [
         "aws:TagKeys"
       ],
@@ -564,6 +606,15 @@
       "name": "UpdateOrganizationConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/macie/latest/APIReference/admin-configuration.html",
       "description": "Grants permission to update Amazon Macie configuration settings for an AWS organization",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRevealConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/macie/latest/APIReference/reveal-configuration.html",
+      "description": "Grants permission to update the status and configuration settings for retrieving occurrences of sensitive data reported by findings",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],

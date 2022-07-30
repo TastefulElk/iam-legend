@@ -520,6 +520,17 @@
       "dependentActions": []
     },
     {
+      "name": "NotifyVolumeEventForDrs",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html",
+      "description": "Grants permission to notify replicator volume events",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SourceServerResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "RetryDataReplication",
       "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_RetryDataReplication.html",
       "description": "Grants permission to retry data replication",
@@ -578,6 +589,17 @@
       "description": "Grants permission to send client metrics",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SendVolumeStatsForDrs",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html",
+      "description": "Grants permission to send volume throughput statistics",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SourceServerResource*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -661,7 +683,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_TagResource.html",
       "description": "Grants permission to assign a resource tag",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "JobResource",
+        "RecoveryInstanceResource",
+        "ReplicationConfigurationTemplateResource",
+        "SourceServerResource"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
@@ -693,7 +720,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_UntagResource.html",
       "description": "Grants permission to untag a resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "JobResource",
+        "RecoveryInstanceResource",
+        "ReplicationConfigurationTemplateResource",
+        "SourceServerResource"
+      ],
       "conditionKeys": [
         "aws:TagKeys"
       ],
