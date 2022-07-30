@@ -1,0 +1,1074 @@
+{
+  "serviceName": "AWS Storage Gateway",
+  "servicePrefix": "storagegateway",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsstoragegateway.html",
+  "actions": [
+    {
+      "name": "ActivateGateway",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ActivateGateway.html",
+      "description": "Grants permission to activate the gateway you previously deployed on your host",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AddCache",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddCache.html",
+      "description": "Grants permission to configure one or more gateway local disks as cache for a cached-volume gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AddTagsToResource",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddTagsToResource.html",
+      "description": "Grants permission to add one or more tags to the specified resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "gateway",
+        "share",
+        "tape",
+        "volume"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AddUploadBuffer",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddUploadBuffer.html",
+      "description": "Grants permission to configure one or more gateway local disks as upload buffer for a specified gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AddWorkingStorage",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddWorkingStorage.html",
+      "description": "Grants permission to configure one or more gateway local disks as working storage for a gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssignTapePool",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AssignTapePool.html",
+      "description": "Grants permission to move a tape to the target pool specified",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "tape*",
+        "tapepool*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateFileSystem",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AssociateFileSystem.html",
+      "description": "Grants permission to associate an Amazon FSx file system with the Amazon FSx file gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ds:DescribeDirectories",
+        "ec2:DescribeNetworkInterfaces",
+        "fsx:DescribeFileSystems",
+        "iam:CreateServiceLinkedRole",
+        "logs:CreateLogDelivery",
+        "logs:GetLogDelivery",
+        "logs:ListLogDeliveries",
+        "logs:UpdateLogDelivery"
+      ]
+    },
+    {
+      "name": "AttachVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AttachVolume.html",
+      "description": "Grants permission to connect a volume to an iSCSI connection and then attaches the volume to the specified gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*",
+        "volume*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BypassGovernanceRetention",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/userguide/CreatingCustomTapePool.html#TapeRetentionLock",
+      "description": "Grants permission to allow the governance retention lock on a pool to be bypassed",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "tapepool*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelArchival",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CancelArchival.html",
+      "description": "Grants permission to cancel archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*",
+        "tape*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelRetrieval",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CancelRetrieval.html",
+      "description": "Grants permission to cancel retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after the retrieval process is initiated",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*",
+        "tape*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCachediSCSIVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateCachediSCSIVolume.html",
+      "description": "Grants permission to create a cached volume on a specified cached gateway. This operation is supported only for the gateway-cached volume architecture",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*",
+        "volume*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateNFSFileShare",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html",
+      "description": "Grants permission to create a NFS file share on an existing file gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSMBFileShare",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSMBFileShare.html",
+      "description": "Grants permission to create a SMB file share on an existing file gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSnapshot.html",
+      "description": "Grants permission to initiate a snapshot of a volume",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "volume*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSnapshotFromVolumeRecoveryPoint",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSnapshotFromVolumeRecoveryPoint.html",
+      "description": "Grants permission to initiate a snapshot of a gateway from a volume recovery point",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "volume*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateStorediSCSIVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateStorediSCSIVolume.html",
+      "description": "Grants permission to create a volume on a specified gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTapePool",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateTapePool.html",
+      "description": "Grants permission to create a tape pool",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTapeWithBarcode",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateTapeWithBarcode.html",
+      "description": "Grants permission to create a virtual tape by using your own barcode",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*",
+        "tapepool*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTapes",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateTapes.html",
+      "description": "Grants permission to create one or more virtual tapes. You write data to the virtual tapes and then archive the tapes",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*",
+        "tapepool*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAutomaticTapeCreationPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteAutomaticTapeCreationPolicy.html",
+      "description": "Grants permission to delete the automatic tape creation policy configured on a gateway-VTL",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteBandwidthRateLimit",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteBandwidthRateLimit.html",
+      "description": "Grants permission to delete the bandwidth rate limits of a gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteChapCredentials",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteChapCredentials.html",
+      "description": "Grants permission to delete Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target and initiator pair",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "target*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteFileShare",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteFileShare.html",
+      "description": "Grants permission to delete a file share from a file gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "share*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteGateway",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteGateway.html",
+      "description": "Grants permission to delete a gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSnapshotSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteSnapshotSchedule.html",
+      "description": "Grants permission to delete a snapshot of a volume",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "volume*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTape",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteTape.html",
+      "description": "Grants permission to delete the specified virtual tape",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*",
+        "tape*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTapeArchive",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteTapeArchive.html",
+      "description": "Grants permission to delete the specified virtual tape from the virtual tape shelf (VTS)",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTapePool",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteTapePool.html",
+      "description": "Grants permission to delete the specified tape pool",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "tapepool*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteVolume.html",
+      "description": "Grants permission to delete the specified gateway volume that you previously created using the CreateCachediSCSIVolume or CreateStorediSCSIVolume API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "volume*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAvailabilityMonitorTest",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeAvailabilityMonitorTest.html",
+      "description": "Grants permission to get the information about the most recent high availability monitoring test that was performed on the gateway",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeBandwidthRateLimit",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeBandwidthRateLimit.html",
+      "description": "Grants permission to get the bandwidth rate limits of a gateway",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeBandwidthRateLimitSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeBandwidthRateLimitSchedule.html",
+      "description": "Grants permission to get the bandwidth rate limit schedule of a gateway",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCache",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeCache.html",
+      "description": "Grants permission to get information about the cache of a gateway. This operation is supported only for the gateway-cached volume architecture",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCachediSCSIVolumes",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeCachediSCSIVolumes.html",
+      "description": "Grants permission to get a description of the gateway volumes specified in the request. This operation is supported only for the gateway-cached volume architecture",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "volume*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeChapCredentials",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeChapCredentials.html",
+      "description": "Grants permission to get an array of Challenge-Handshake Authentication Protocol (CHAP) credentials information for a specified iSCSI target, one for each target-initiator pair",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "target*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeFileSystemAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeFileSystemAssociations.html",
+      "description": "Grants permission to get a description for one or more file system associations",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "fs-association*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeGatewayInformation",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeGatewayInformation.html",
+      "description": "Grants permission to get metadata about a gateway such as its name, network interfaces, configured time zone, and the state (whether the gateway is running or not)",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeMaintenanceStartTime",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeMaintenanceStartTime.html",
+      "description": "Grants permission to get your gateway's weekly maintenance start time including the day and time of the week",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeNFSFileShares",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeNFSFileShares.html",
+      "description": "Grants permission to get a description for one or more file shares from a file gateway",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "share*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSMBFileShares",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeSMBFileShares.html",
+      "description": "Grants permission to get a description for one or more file shares from a file gateway",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "share*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSMBSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeSMBSettings.html",
+      "description": "Grants permission to get a description of a Server Message Block (SMB) file share settings from a file gateway",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSnapshotSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeSnapshotSchedule.html",
+      "description": "Grants permission to describe the snapshot schedule for the specified gateway volume",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "volume*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStorediSCSIVolumes",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeStorediSCSIVolumes.html",
+      "description": "Grants permission to get the description of the gateway volumes specified in the request",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "volume*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTapeArchives",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeArchives.html",
+      "description": "Grants permission to get a description of specified virtual tapes in the virtual tape shelf (VTS)",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTapeRecoveryPoints",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeRecoveryPoints.html",
+      "description": "Grants permission to get a list of virtual tape recovery points that are available for the specified gateway-VTL",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTapes",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapes.html",
+      "description": "Grants permission to get a description of the specified Amazon Resource Name (ARN) of virtual tapes",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeUploadBuffer",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeUploadBuffer.html",
+      "description": "Grants permission to get information about the upload buffer of a gateway",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeVTLDevices",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeVTLDevices.html",
+      "description": "Grants permission to get a description of virtual tape library (VTL) devices for the specified gateway",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorkingStorage",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeWorkingStorage.html",
+      "description": "Grants permission to get information about the working storage of a gateway",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DetachVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DetachVolume.html",
+      "description": "Grants permission to disconnect a volume from an iSCSI connection and then detaches the volume from the specified gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "volume*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisableGateway",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DisableGateway.html",
+      "description": "Grants permission to disable a gateway when the gateway is no longer functioning",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateFileSystem",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DisassociateFileSystem.html",
+      "description": "Grants permission to disassociate an Amazon FSx file system from an Amazon FSx file gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "fs-association*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "JoinDomain",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_JoinDomain.html",
+      "description": "Grants permission to enable you to join an Active Directory Domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAutomaticTapeCreationPolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListAutomaticTapeCreationPolicies.html",
+      "description": "Grants permission to list the automatic tape creation policies configured on the specified gateway-VTL or all gateway-VTLs owned by your account",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFileShares",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListFileShares.html",
+      "description": "Grants permission to get a list of the file shares for a specific file gateway, or the list of file shares that belong to the calling user account",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFileSystemAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListFileSystemAssociations.html",
+      "description": "Grants permission to get a list of the file system associations for the specified gateway",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListGateways",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListGateways.html",
+      "description": "Grants permission to list gateways owned by an AWS account in a region specified in the request. The returned list is ordered by gateway Amazon Resource Name (ARN)",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLocalDisks",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListLocalDisks.html",
+      "description": "Grants permission to get a list of the gateway's local disks",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to get the tags that have been added to the specified resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "gateway",
+        "share",
+        "tape",
+        "volume"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTapePools",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListTapePools.html",
+      "description": "Grants permission to list tape pools owned by your AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "tapepool*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTapes",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListTapes.html",
+      "description": "Grants permission to list virtual tapes in your virtual tape library (VTL) and your virtual tape shelf (VTS)",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "tape*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListVolumeInitiators",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumeInitiators.html",
+      "description": "Grants permission to list iSCSI initiators that are connected to a volume",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "volume*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListVolumeRecoveryPoints",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumeRecoveryPoints.html",
+      "description": "Grants permission to list the recovery points for a specified gateway",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListVolumes",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumes.html",
+      "description": "Grants permission to list the iSCSI stored volumes of a gateway",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "NotifyWhenUploaded",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_NotifyWhenUploaded.html",
+      "description": "Grants permission to send you a notification through CloudWatch Events when all files written to your NFS file share have been uploaded to Amazon S3",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "share*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RefreshCache",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RefreshCache.html",
+      "description": "Grants permission to refresh the cache for the specified file share",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "share*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RemoveTagsFromResource",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RemoveTagsFromResource.html",
+      "description": "Grants permission to remove one or more tags from the specified resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "gateway",
+        "share",
+        "tape",
+        "volume"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ResetCache",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ResetCache.html",
+      "description": "Grants permission to reset all cache disks that have encountered a error and makes the disks available for reconfiguration as cache storage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RetrieveTapeArchive",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeArchive.html",
+      "description": "Grants permission to retrieve an archived virtual tape from the virtual tape shelf (VTS) to a gateway-VTL",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*",
+        "tape*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RetrieveTapeRecoveryPoint",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeRecoveryPoint.html",
+      "description": "Grants permission to retrieve the recovery point for the specified virtual tape",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*",
+        "tape*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SetLocalConsolePassword",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_SetLocalConsolePassword.html",
+      "description": "Grants permission to set the password for your VM local console",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SetSMBGuestPassword",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_SetSMBGuestPassword.html",
+      "description": "Grants permission to set the password for SMB Guest user",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ShutdownGateway",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ShutdownGateway.html",
+      "description": "Grants permission to shut down a gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartAvailabilityMonitorTest",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_StartAvailabilityMonitorTest.html",
+      "description": "Grants permission to start a test that verifies that the specified gateway is configured for High Availability monitoring in your host environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartGateway",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_StartGateway.html",
+      "description": "Grants permission to start a gateway that you previously shut down",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAutomaticTapeCreationPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateAutomaticTapeCreationPolicy.html",
+      "description": "Grants permission to update the automatic tape creation policy configured on a gateway-VTL",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*",
+        "tapepool*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateBandwidthRateLimit",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateBandwidthRateLimit.html",
+      "description": "Grants permission to update the bandwidth rate limits of a gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateBandwidthRateLimitSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateBandwidthRateLimitSchedule.html",
+      "description": "Grants permission to update the bandwidth rate limit schedule of a gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateChapCredentials",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateChapCredentials.html",
+      "description": "Grants permission to update the Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "target*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateFileSystemAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateFileSystemAssociation.html",
+      "description": "Grants permission to update a file system association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "fs-association*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "logs:CreateLogDelivery",
+        "logs:DeleteLogDelivery",
+        "logs:GetLogDelivery",
+        "logs:ListLogDeliveries",
+        "logs:UpdateLogDelivery"
+      ]
+    },
+    {
+      "name": "UpdateGatewayInformation",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateGatewayInformation.html",
+      "description": "Grants permission to update a gateway's metadata, which includes the gateway's name and time zone",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateGatewaySoftwareNow",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateGatewaySoftwareNow.html",
+      "description": "Grants permission to update the gateway virtual machine (VM) software",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateMaintenanceStartTime",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateMaintenanceStartTime.html",
+      "description": "Grants permission to update a gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateNFSFileShare",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateNFSFileShare.html",
+      "description": "Grants permission to update a NFS file share",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "share*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSMBFileShare",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateSMBFileShare.html",
+      "description": "Grants permission to update a SMB file share",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "share*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSMBFileShareVisibility",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateSMBFileShareVisibility.html",
+      "description": "Grants permission to update whether the shares on a gateway are visible in a net view or browse list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSMBLocalGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateSMBLocalGroups.html",
+      "description": "Grants permission to update the list of Active Directory users and groups that have special permissions for SMB file shares on the gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSMBSecurityStrategy",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateSMBSecurityStrategy.html",
+      "description": "Grants permission to update the SMB security strategy on a file gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSnapshotSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateSnapshotSchedule.html",
+      "description": "Grants permission to update a snapshot schedule configured for a gateway volume",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "volume*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateVTLDeviceType",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateVTLDeviceType.html",
+      "description": "Grants permission to update the type of medium changer in a gateway-VTL",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "device*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

@@ -94,6 +94,7 @@
         "type"
       ],
       "conditionKeys": [
+        "aws:TagKeys",
         "cloudformation:TargetRegion"
       ],
       "dependentActions": []
@@ -684,7 +685,10 @@
         "stack",
         "stackset"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -706,7 +710,9 @@
         "stack",
         "stackset"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

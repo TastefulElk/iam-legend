@@ -227,7 +227,7 @@
     },
     {
       "name": "ListEnvironments",
-      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_ListEnvironment.html",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_ListEnvironments.html",
       "description": "Grants permission to list all environments",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -316,6 +316,24 @@
         "refactor-spaces:SourcePath",
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRoute",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-refactor-spaces/latest/APIReference/API_UpdateRoute.html",
+      "description": "Grants permission to update a route from an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "route*"
+      ],
+      "conditionKeys": [
+        "refactor-spaces:ApplicationCreatedByAccount",
+        "refactor-spaces:ServiceCreatedByAccount",
+        "refactor-spaces:RouteCreatedByAccount",
+        "refactor-spaces:CreatedByAccountIds",
+        "refactor-spaces:SourcePath",
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []

@@ -8,9 +8,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_AllocateStaticIp.html",
       "description": "Grants permission to create a static IP address that can be attached to an instance",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "StaticIp*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -32,8 +30,7 @@
       "description": "Grants permission to attach a disk to an instance",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Disk*",
-        "Instance*"
+        "Disk*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -44,7 +41,6 @@
       "description": "Grants permission to attach one or more instances to a load balancer",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Instance*",
         "LoadBalancer*"
       ],
       "conditionKeys": [],
@@ -89,10 +85,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CopySnapshot.html",
       "description": "Grants permission to copy a snapshot from one AWS Region to another in Amazon Lightsail",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "DiskSnapshot",
-        "InstanceSnapshot"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -101,9 +94,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucket.html",
       "description": "Grants permission to create an Amazon Lightsail bucket",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "Bucket*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -126,10 +117,11 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateCertificate.html",
       "description": "Grants permission to create an SSL/TLS certificate",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "Certificate*"
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
-      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -137,9 +129,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateCloudFormationStack.html",
       "description": "Grants permission to create a new Amazon EC2 instance from an exported Amazon Lightsail snapshot",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "ExportSnapshotRecord*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -157,10 +147,11 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateContainerService.html",
       "description": "Grants permission to create an Amazon Lightsail container service",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "ContainerService*"
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
-      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -188,9 +179,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateDisk.html",
       "description": "Grants permission to create a disk",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "Disk*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -203,7 +192,7 @@
       "description": "Grants permission to create a disk from snapshot",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Disk*"
+        "DiskSnapshot*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -217,7 +206,8 @@
       "description": "Grants permission to create a disk snapshot",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Disk*"
+        "Disk",
+        "Instance"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -230,10 +220,11 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateDistribution.html",
       "description": "Grants permission to create an Amazon Lightsail content delivery network (CDN) distribution",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "Distribution*"
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
-      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -241,9 +232,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateDomain.html",
       "description": "Grants permission to create a domain resource for the specified domain name",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "Domain*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -267,8 +256,7 @@
       "description": "Grants permission to create an instance snapshot",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Instance*",
-        "InstanceSnapshot*"
+        "Instance*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -281,9 +269,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateInstances.html",
       "description": "Grants permission to create one or more instances",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "KeyPair*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -296,7 +282,6 @@
       "description": "Grants permission to create one or more instances based on an instance snapshot",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Instance*",
         "InstanceSnapshot*"
       ],
       "conditionKeys": [
@@ -310,9 +295,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateKeyPair.html",
       "description": "Grants permission to create a key pair used to authenticate and connect to an instance",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "KeyPair*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -324,9 +307,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateLoadBalancer.html",
       "description": "Grants permission to create a load balancer",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "LoadBalancer*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -349,9 +330,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateRelationalDatabase.html",
       "description": "Grants permission to create a new relational database",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "RelationalDatabase*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -364,7 +343,7 @@
       "description": "Grants permission to create a new relational database from a snapshot",
       "accessLevel": "Write",
       "resourceTypes": [
-        "RelationalDatabase*"
+        "RelationalDatabaseSnapshot*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -377,9 +356,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateRelationalDatabaseSnapshot.html",
       "description": "Grants permission to create a relational database snapshot",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "RelationalDatabaseSnapshot*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -402,10 +379,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteAutoSnapshot.html",
       "description": "Grants permission to delete an automatic snapshot of an instance or disk",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "Disk",
-        "Instance"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -447,9 +421,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DeleteContactMethod.html",
       "description": "Grants permission to delete a contact method",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "ContactMethod*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -492,7 +464,7 @@
       "description": "Grants permission to delete a disk snapshot",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Disk*"
+        "DiskSnapshot*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -646,7 +618,6 @@
       "description": "Grants permission to detach one or more instances from a load balancer",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Instance*",
         "LoadBalancer*"
       ],
       "conditionKeys": [],
@@ -658,7 +629,6 @@
       "description": "Grants permission to detach a static IP from an instance to which it is attached",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Instance*",
         "StaticIp*"
       ],
       "conditionKeys": [],
@@ -669,10 +639,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DisableAddOn.html",
       "description": "Grants permission to disable an add-on for an Amazon Lightsail resource",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "Disk",
-        "Instance"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -681,9 +648,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html",
       "description": "Grants permission to download the default key pair used to authenticate and connect to instances in a specific AWS Region",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "KeyPair*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -692,10 +657,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_EnableAddOn.html",
       "description": "Grants permission to enable or modify an add-on for an Amazon Lightsail resource",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "Disk",
-        "Instance"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -704,9 +666,15 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ExportSnapshot.html",
       "description": "Grants permission to export an Amazon Lightsail snapshot to Amazon EC2",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "DiskSnapshot",
+        "InstanceSnapshot"
+      ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole",
+        "iam:PutRolePolicy"
+      ]
     },
     {
       "name": "GetActiveNames",
@@ -803,9 +771,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetCloudFormationStackRecords.html",
       "description": "Grants permission to get information about all CloudFormation stacks used to create Amazon EC2 resources from exported Amazon Lightsail snapshots",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "CloudFormationStackRecord*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -886,9 +852,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetDisk.html",
       "description": "Grants permission to get information about a disk",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "Disk*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -897,9 +861,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetDiskSnapshot.html",
       "description": "Grants permission to get information about a disk snapshot",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "Disk*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -908,9 +870,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetDiskSnapshots.html",
       "description": "Grants permission to get information about all disk snapshots",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "Disk*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -964,9 +924,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetDomain.html",
       "description": "Grants permission to get DNS records for a domain resource",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "Domain*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -975,9 +933,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetDomains.html",
       "description": "Grants permission to get DNS records for all domain resources",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "Domain*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -986,9 +942,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetExportSnapshotRecords.html",
       "description": "Grants permission to get information about all records of exported Amazon Lightsail snapshots to Amazon EC2",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "ExportSnapshotRecord*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -997,9 +951,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetInstance.html",
       "description": "Grants permission to get information about an instance",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "Instance*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1019,9 +971,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetInstanceMetricData.html",
       "description": "Grants permission to get the data points for the specified metric of an instance",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "Instance*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1030,9 +980,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetInstancePortStates.html",
       "description": "Grants permission to get the port states of an instance",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "Instance*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1041,9 +989,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetInstanceSnapshot.html",
       "description": "Grants permission to get information about an instance snapshot",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "InstanceSnapshot*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1052,9 +998,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetInstanceSnapshots.html",
       "description": "Grants permission to get information about all instance snapshots",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "InstanceSnapshot*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1063,9 +1007,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetInstanceState.html",
       "description": "Grants permission to get the state of an instance",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "Instance*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1074,9 +1016,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetInstances.html",
       "description": "Grants permission to get information about all instances",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "Instance*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1085,9 +1025,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetKeyPair.html",
       "description": "Grants permission to get information about a key pair",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "KeyPair*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1096,20 +1034,16 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetKeyPairs.html",
       "description": "Grants permission to get information about all key pairs",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "KeyPair*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetLoadBalancer",
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancer.html",
-      "description": "Grants permision to get information about a load balancer",
+      "description": "Grants permission to get information about a load balancer",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "LoadBalancer*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1118,9 +1052,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerMetricData.html",
       "description": "Grants permission to get the data points for the specified metric of a load balancer",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "LoadBalancer*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1129,9 +1061,16 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsCertificates.html",
       "description": "Grants permission to get information about a load balancer's TLS certificates",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "LoadBalancer*"
-      ],
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetLoadBalancerTlsPolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancerTlsPolicies.html",
+      "description": "Grants permission to get a list of TLS security policies that you can apply to Lightsail load balancers",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1140,9 +1079,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetLoadBalancers.html",
       "description": "Grants permission to get information about load balancers",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "LoadBalancer*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1169,13 +1106,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetOperationsForResource.html",
       "description": "Grants permission to get operations for a resource",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "Domain",
-        "Instance",
-        "InstanceSnapshot",
-        "KeyPair",
-        "StaticIp"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1193,9 +1124,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabase.html",
       "description": "Grants permission to get information about a relational database",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "RelationalDatabase*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1249,7 +1178,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseMasterUserPassword.html",
       "description": "Grants permission to get the master user password of a relational database",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "RelationalDatabase*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1276,9 +1207,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseSnapshot.html",
       "description": "Grants permission to get information about a relational database snapshot",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "RelationalDatabase*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1287,9 +1216,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseSnapshots.html",
       "description": "Grants permission to get information about all relational database snapshots",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "RelationalDatabase*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1298,9 +1225,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabases.html",
       "description": "Grants permission to get information about all relational databases",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "RelationalDatabase*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1309,9 +1234,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetStaticIp.html",
       "description": "Grants permission to get information about a static IP",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "StaticIp*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1320,9 +1243,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetStaticIps.html",
       "description": "Grants permission to get information about all static IPs",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "StaticIp*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1331,9 +1252,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ImportKeyPair.html",
       "description": "Grants permission to import a public key from a key pair",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "KeyPair*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1448,9 +1367,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SendContactMethodVerification.html",
       "description": "Grants permission to send a verification request to an email contact method to ensure it's owned by the requester",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "ContactMethod*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1529,8 +1446,12 @@
       "description": "Grants permission to tag a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "Bucket",
+        "Certificate",
+        "ContainerService",
         "Disk",
         "DiskSnapshot",
+        "Distribution",
         "Domain",
         "Instance",
         "InstanceSnapshot",
@@ -1572,8 +1493,12 @@
       "description": "Grants permission to untag a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "Bucket",
+        "Certificate",
+        "ContainerService",
         "Disk",
         "DiskSnapshot",
+        "Distribution",
         "Domain",
         "Instance",
         "InstanceSnapshot",
@@ -1682,7 +1607,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateRelationalDatabaseParameters.html",
       "description": "Grants permission to update the parameters of a relational database",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "RelationalDatabase*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     }
