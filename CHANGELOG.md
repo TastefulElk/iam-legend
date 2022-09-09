@@ -2,7 +2,11 @@
 
 All notable changes to the "iam-legend" extension will be documented in this file.
 
-## [1.1.1] - 2022-01-31
+## [1.1.2] - 2022-09-09
+
+- IAM service updates
+
+## [1.1.1] - 2022-06-05
 
 - IAM service updates
 
