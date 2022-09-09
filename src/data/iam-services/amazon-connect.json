@@ -327,6 +327,9 @@
         "ds:DescribeDirectories",
         "events:PutRule",
         "events:PutTargets",
+        "iam:AttachRolePolicy",
+        "iam:CreateServiceLinkedRole",
+        "iam:PutRolePolicy",
         "mobiletargeting:GetApp",
         "voiceid:DescribeDomain",
         "wisdom:GetAssistant",
@@ -1076,6 +1079,19 @@
       "dependentActions": []
     },
     {
+      "name": "GetCurrentUserData",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_GetCurrentUserData.html",
+      "description": "Grants permission to retrieve current user data in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetFederationToken",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_GetFederationToken.html",
       "description": "Grants permission to federate into an Amazon Connect instance when using SAML-based authentication for identity management",
@@ -1587,6 +1603,54 @@
       "dependentActions": []
     },
     {
+      "name": "SearchQueues",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchQueues.html",
+      "description": "Grants permission to search queue resources in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "connect:SearchTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "connect:DescribeQueue"
+      ]
+    },
+    {
+      "name": "SearchRoutingProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html",
+      "description": "Grants permission to search routing profile resources in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "connect:SearchTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "connect:DescribeRoutingProfile"
+      ]
+    },
+    {
+      "name": "SearchSecurityProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchSecurityProfiles.html",
+      "description": "Grants permission to search security profile resources in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "connect:SearchTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "connect:DescribeSecurityProfile"
+      ]
+    },
+    {
       "name": "SearchUsers",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchUsers.html",
       "description": "Grants permission to search user resources in an Amazon Connect instance",
@@ -1729,14 +1793,17 @@
         "contact-flow-module",
         "hierarchy-group",
         "hours-of-operation",
+        "instance",
         "integration-association",
         "phone-number",
         "queue",
         "quick-connect",
         "routing-profile",
         "security-profile",
+        "task-template",
         "use-case",
         "user",
+        "vocabulary",
         "wildcard-phone-number"
       ],
       "conditionKeys": [
@@ -1771,14 +1838,17 @@
         "contact-flow-module",
         "hierarchy-group",
         "hours-of-operation",
+        "instance",
         "integration-association",
         "phone-number",
         "queue",
         "quick-connect",
         "routing-profile",
         "security-profile",
+        "task-template",
         "use-case",
         "user",
+        "vocabulary",
         "wildcard-phone-number"
       ],
       "conditionKeys": [

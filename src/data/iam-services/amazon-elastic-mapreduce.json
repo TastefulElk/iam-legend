@@ -33,7 +33,9 @@
       "resourceTypes": [
         "cluster*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "elasticmapreduce:ExecutionRoleArn"
+      ],
       "dependentActions": []
     },
     {
@@ -43,7 +45,9 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "cluster",
-        "editor"
+        "editor",
+        "notebook-execution",
+        "studio"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -679,7 +683,9 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "cluster",
-        "editor"
+        "editor",
+        "notebook-execution",
+        "studio"
       ],
       "conditionKeys": [
         "aws:TagKeys"

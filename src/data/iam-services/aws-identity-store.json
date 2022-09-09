@@ -4,38 +4,239 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsidentitystore.html",
   "actions": [
     {
+      "name": "CreateGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_CreateGroup.html",
+      "description": "Grants permission to create a group in the specified IdentityStore",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Identitystore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateGroupMembership",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_CreateGroupMembership.html",
+      "description": "Grants permission to create a member to a group in the specified IdentityStore",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Group*",
+        "Identitystore*",
+        "User*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateUser",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_CreateUser.html",
+      "description": "Grants permission to create a user in the specified IdentityStore",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Identitystore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DeleteGroup.html",
+      "description": "Grants permission to delete a group in the specified IdentityStore",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Group*",
+        "Identitystore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteGroupMembership",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DeleteGroupMembership.html",
+      "description": "Grants permission to remove a member that is part of a group in the specified IdentityStore",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Group*",
+        "GroupMembership*",
+        "Identitystore*",
+        "User*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteUser",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DeleteUser.html",
+      "description": "Grants permission to delete a user in the specified IdentityStore",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Identitystore*",
+        "User*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeGroup",
       "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DescribeGroup.html",
-      "description": "Grants permission to retrieves information about group from the directory that AWS Identity Store provides by default",
+      "description": "Grants permission to retrieve information about a group in the specified IdentityStore",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "Group*",
+        "Identitystore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeGroupMembership",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DescribeGroupMembership.html",
+      "description": "Grants permission to retrieve information about a member that is part of a group in the specified IdentityStore",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Group*",
+        "GroupMembership*",
+        "Identitystore*",
+        "User*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DescribeUser",
       "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DescribeUser.html",
-      "description": "Grants permission to retrieves information about user from the directory that AWS Identity Store provides by default",
+      "description": "Grants permission to retrieve information about user in the specified IdentityStore",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "Identitystore*",
+        "User*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetGroupId",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_GetGroupId.html",
+      "description": "Grants permission to retrieve ID information about group in the specified IdentityStore",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Group*",
+        "Identitystore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetGroupMembershipId",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_GetGroupMembershipId.html",
+      "description": "Grants permission to retrieve ID information of a member which is part of a group in the specified IdentityStore",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Group*",
+        "GroupMembership*",
+        "Identitystore*",
+        "User*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetUserId",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_GetUserId.html",
+      "description": "Grants permission to retrieves ID information about user in the specified IdentityStore",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Identitystore*",
+        "User*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "IsMemberInGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_IsMemberInGroups.html",
+      "description": "Grants permission to check if a member is a part of groups in the specified IdentityStore",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "AllGroupMemberships*",
+        "Group*",
+        "Identitystore*",
+        "User*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListGroupMemberships",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_ListGroupMemberships.html",
+      "description": "Grants permission to retrieve all members that are part of a group in the specified IdentityStore",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "AllGroupMemberships*",
+        "Group*",
+        "Identitystore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListGroupMembershipsForMember",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_ListGroupMembershipsForMember.html",
+      "description": "Grants permission to list groups of the target member in the specified IdentityStore",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "AllGroupMemberships*",
+        "Identitystore*",
+        "User*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "ListGroups",
       "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_ListGroups.html",
-      "description": "Grants permission to search for groups within the associated directory",
+      "description": "Grants permission to search for groups within the specified IdentityStore",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "AllGroups*",
+        "Identitystore*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "ListUsers",
       "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_ListUsers.html",
-      "description": "Grants permission to search for users within the associated directory",
+      "description": "Grants permission to search for users in the specified IdentityStore",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "AllUsers*",
+        "Identitystore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_UpdateGroup.html",
+      "description": "Grants permission to update information about a group in the specified IdentityStore",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Group*",
+        "Identitystore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateUser",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_UpdateUser.html",
+      "description": "Grants permission to update user information in the specified IdentityStore",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Identitystore*",
+        "User*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     }

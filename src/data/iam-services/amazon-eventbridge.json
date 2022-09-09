@@ -43,7 +43,8 @@
       "description": "Grants permission to create a new archive",
       "accessLevel": "Write",
       "resourceTypes": [
-        "archive*"
+        "archive*",
+        "event-bus*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -165,7 +166,7 @@
     },
     {
       "name": "DeleteEventBus",
-      "documentationUrl": "https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DeletePartnerEventSource",
+      "documentationUrl": "https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DeletePartnerEventSource.html",
       "description": "Grants permission to delete event buses",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -176,7 +177,7 @@
     },
     {
       "name": "DeletePartnerEventSource",
-      "documentationUrl": "https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DeletePartnerEventSource",
+      "documentationUrl": "https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DeletePartnerEventSource.html",
       "description": "Grants permission to delete partner event sources",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -191,7 +192,8 @@
       "description": "Grants permission to delete rules",
       "accessLevel": "Write",
       "resourceTypes": [
-        "rule*"
+        "rule-on-custom-event-bus",
+        "rule-on-default-event-bus"
       ],
       "conditionKeys": [
         "events:creatorAccount",
@@ -294,7 +296,8 @@
       "description": "Grants permission to retrieve details about rules",
       "accessLevel": "Read",
       "resourceTypes": [
-        "rule*"
+        "rule-on-custom-event-bus",
+        "rule-on-default-event-bus"
       ],
       "conditionKeys": [
         "events:creatorAccount"
@@ -307,7 +310,8 @@
       "description": "Grants permission to disable rules",
       "accessLevel": "Write",
       "resourceTypes": [
-        "rule*"
+        "rule-on-custom-event-bus",
+        "rule-on-default-event-bus"
       ],
       "conditionKeys": [
         "events:creatorAccount",
@@ -321,7 +325,8 @@
       "description": "Grants permission to enable rules",
       "accessLevel": "Write",
       "resourceTypes": [
-        "rule*"
+        "rule-on-custom-event-bus",
+        "rule-on-default-event-bus"
       ],
       "conditionKeys": [
         "events:creatorAccount",
@@ -448,7 +453,8 @@
       "accessLevel": "List",
       "resourceTypes": [
         "event-bus",
-        "rule"
+        "rule-on-custom-event-bus",
+        "rule-on-default-event-bus"
       ],
       "conditionKeys": [
         "events:creatorAccount"
@@ -461,7 +467,8 @@
       "description": "Grants permission to retrieve a list of targets defined for a rule",
       "accessLevel": "List",
       "resourceTypes": [
-        "rule*"
+        "rule-on-custom-event-bus",
+        "rule-on-default-event-bus"
       ],
       "conditionKeys": [
         "events:creatorAccount"
@@ -507,7 +514,8 @@
       "description": "Grants permission to create or updates rules",
       "accessLevel": "Write",
       "resourceTypes": [
-        "rule*"
+        "rule-on-custom-event-bus",
+        "rule-on-default-event-bus"
       ],
       "conditionKeys": [
         "events:detail.userIdentity.principalId",
@@ -528,7 +536,8 @@
       "description": "Grants permission to add targets to a rule",
       "accessLevel": "Write",
       "resourceTypes": [
-        "rule*"
+        "rule-on-custom-event-bus",
+        "rule-on-default-event-bus"
       ],
       "conditionKeys": [
         "events:TargetArn",
@@ -552,7 +561,8 @@
       "description": "Grants permission to removes targets from a rule",
       "accessLevel": "Write",
       "resourceTypes": [
-        "rule*"
+        "rule-on-custom-event-bus",
+        "rule-on-default-event-bus"
       ],
       "conditionKeys": [
         "events:creatorAccount",
@@ -578,7 +588,8 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "event-bus",
-        "rule"
+        "rule-on-custom-event-bus",
+        "rule-on-default-event-bus"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -603,7 +614,8 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "event-bus",
-        "rule"
+        "rule-on-custom-event-bus",
+        "rule-on-default-event-bus"
       ],
       "conditionKeys": [
         "aws:TagKeys",

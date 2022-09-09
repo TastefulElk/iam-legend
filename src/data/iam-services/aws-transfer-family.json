@@ -17,6 +17,48 @@
       ]
     },
     {
+      "name": "CreateAgreement",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_CreateAgreement.html",
+      "description": "Grants permission to add an agreement associated with a server",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "server*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_CreateConnector.html",
+      "description": "Grants permission to create a connector",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_CreateProfile.html",
+      "description": "Grants permission to create a profile",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateServer",
       "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_CreateServer.html",
       "description": "Grants permission to create a server",
@@ -65,6 +107,50 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "server*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAgreement",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DeleteAgreement.html",
+      "description": "Grants permission to delete agreement",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agreement*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DeleteCertificate.html",
+      "description": "Grants permission to delete certificate",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "certificate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DeleteConnector.html",
+      "description": "Grants permission to delete connector",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DeleteProfile.html",
+      "description": "Grants permission to delete profile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "profile*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -125,12 +211,56 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeAgreement",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeAgreement.html",
+      "description": "Grants permission to describe an agreement assigned to a server",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "agreement*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeCertificate.html",
+      "description": "Grants permission to describe a certificate",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "certificate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeConnector.html",
+      "description": "Grants permission to describe a connector",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "connector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeExecution",
       "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeExecution.html",
       "description": "Grants permission to describe an execution associated with a workflow",
       "accessLevel": "Read",
       "resourceTypes": [
         "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeProfile.html",
+      "description": "Grants permission to describe a profile",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "profile*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -178,6 +308,18 @@
       "dependentActions": []
     },
     {
+      "name": "ImportCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ImportCertificate.html",
+      "description": "Grants permission to add a certificate",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ImportSshPublicKey",
       "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ImportSshPublicKey.html",
       "description": "Grants permission to add an SSH public key to a user",
@@ -200,6 +342,35 @@
       "dependentActions": []
     },
     {
+      "name": "ListAgreements",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListAgreements.html",
+      "description": "Grants permission to list agreements",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "server*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCertificates",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListCertificates.html",
+      "description": "Grants permission to list certificates",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListConnectors",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListConnectors.html",
+      "description": "Grants permission to list connectors",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListExecutions",
       "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListExecutions.html",
       "description": "Grants permission to list executions associated with a workflow",
@@ -207,6 +378,15 @@
       "resourceTypes": [
         "workflow*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListProfiles.html",
+      "description": "Grants permission to list profiles",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -231,9 +411,13 @@
     {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListTagsForResource.html",
-      "description": "Grants permission to list tags for a server, a user, or a workflow",
+      "description": "Grants permission to list tags for an AWS Transfer Family resource",
       "accessLevel": "Read",
       "resourceTypes": [
+        "agreement",
+        "certificate",
+        "connector",
+        "profile",
         "server",
         "user",
         "workflow"
@@ -297,9 +481,13 @@
     {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_TagResource.html",
-      "description": "Grants permission to tag a server or a user",
+      "description": "Grants permission to tag an AWS Transfer Family resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "agreement",
+        "certificate",
+        "connector",
+        "profile",
         "server",
         "user",
         "workflow"
@@ -324,9 +512,13 @@
     {
       "name": "UntagResource",
       "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_UntagResource.html",
-      "description": "Grants permission to untag a server, a user, or a workflow",
+      "description": "Grants permission to untag an AWS Transfer Family resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "agreement",
+        "certificate",
+        "connector",
+        "profile",
         "server",
         "user",
         "workflow"
@@ -346,6 +538,54 @@
       "dependentActions": [
         "iam:PassRole"
       ]
+    },
+    {
+      "name": "UpdateAgreement",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateAgreement.html",
+      "description": "Grants permission to update an agreement",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agreement*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdateCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateCertificate.html",
+      "description": "Grants permission to update a certificate",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "certificate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateConnector.html",
+      "description": "Grants permission to update a connector",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdateProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateProfile.html",
+      "description": "Grants permission to update a profile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "UpdateServer",

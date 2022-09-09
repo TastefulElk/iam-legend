@@ -133,6 +133,20 @@
       ]
     },
     {
+      "name": "CreateWorkspaceImage",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_CreateWorkspaceImage.html",
+      "description": "Grants permission to create a new WorkSpace image",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceid*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateWorkspaces",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_CreateWorkspaces.html",
       "description": "Grants permission to create one or more WorkSpaces",
@@ -483,6 +497,17 @@
       "dependentActions": []
     },
     {
+      "name": "ModifySamlProperties",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ModifySamlProperties.html",
+      "description": "Grants permission to modify the SAML properties of a directory",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directoryid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ModifySelfservicePermissions",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ModifySelfservicePermissions.html",
       "description": "Grants permission to modify the self-service WorkSpace management capabilities for your users",
@@ -615,6 +640,19 @@
         "workspaceid*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "Stream",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_Stream.html",
+      "description": "Grants permission to federated users to sign in by using their existing credentials and stream their workspace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directoryid*"
+      ],
+      "conditionKeys": [
+        "workspaces:userId"
+      ],
       "dependentActions": []
     },
     {

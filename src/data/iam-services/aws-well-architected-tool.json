@@ -155,7 +155,9 @@
       "resourceTypes": [
         "lens*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -221,7 +223,10 @@
       "description": "Grants permission to import a new lens",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -312,7 +317,8 @@
       "description": "Grants permission to list tags for a Well-Architected resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "workload*"
+        "lens",
+        "workload"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
@@ -345,7 +351,8 @@
       "description": "Grants permission to tag a Well-Architected resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "workload*"
+        "lens",
+        "workload"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -359,7 +366,8 @@
       "description": "Grants permission to untag a Well-Architected resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "workload*"
+        "lens",
+        "workload"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -374,6 +382,15 @@
       "resourceTypes": [
         "workload*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateGlobalSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateGlobalSettings.html",
+      "description": "Grants permission to update settings to enable aws-organization support",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },

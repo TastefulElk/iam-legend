@@ -6,7 +6,7 @@
     {
       "name": "CreateManagedAccount",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html",
-      "description": "Grants permission to create an account managed by AWS Control Tower.",
+      "description": "Grants permission to create an account managed by AWS Control Tower",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -15,7 +15,7 @@
     {
       "name": "DeregisterManagedAccount",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html",
-      "description": "Grants permission to deregister an account created through the account factory from AWS Control Tower.",
+      "description": "Grants permission to deregister an account created through the account factory from AWS Control Tower",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -24,7 +24,7 @@
     {
       "name": "DeregisterOrganizationalUnit",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/organizations.html",
-      "description": "Grants permission to deregister an organizational unit from AWS Control Tower management.",
+      "description": "Grants permission to deregister an organizational unit from AWS Control Tower management",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -33,7 +33,7 @@
     {
       "name": "DescribeAccountFactoryConfig",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html",
-      "description": "Grants permission to describe the current account factory configuration.",
+      "description": "Grants permission to describe the current account factory configuration",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -42,7 +42,7 @@
     {
       "name": "DescribeCoreService",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html#what-shared",
-      "description": "Grants permission to describe resources managed by core accounts in AWS Control Tower.",
+      "description": "Grants permission to describe resources managed by core accounts in AWS Control Tower",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -51,7 +51,7 @@
     {
       "name": "DescribeGuardrail",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
-      "description": "Grants permission to describe a guardrail.",
+      "description": "Grants permission to describe a guardrail",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -60,7 +60,7 @@
     {
       "name": "DescribeGuardrailForTarget",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
-      "description": "Grants permission to describe a guardrail for a organizational unit.",
+      "description": "Grants permission to describe a guardrail for a organizational unit",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -69,7 +69,7 @@
     {
       "name": "DescribeManagedAccount",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html",
-      "description": "Grants permission to describe an account created through account factory.",
+      "description": "Grants permission to describe an account created through account factory",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -78,7 +78,7 @@
     {
       "name": "DescribeManagedOrganizationalUnit",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/organizations.html",
-      "description": "Grants permission to describe an AWS Organizations organizational unit managed by AWS Control Tower.",
+      "description": "Grants permission to describe an AWS Organizations organizational unit managed by AWS Control Tower",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -87,8 +87,17 @@
     {
       "name": "DescribeSingleSignOn",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/sso.html",
-      "description": "Grants permission to describe the current AWS Control Tower SSO configuration.",
+      "description": "Grants permission to describe the current AWS Control Tower SSO configuration",
       "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisableControl",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_DisableControl.html",
+      "description": "Grants permission to remove a control from an organizational unit",
+      "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -96,7 +105,16 @@
     {
       "name": "DisableGuardrail",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html#enable-guardrails",
-      "description": "Grants permission to disable a guardrail from an organizational unit.",
+      "description": "Grants permission to disable a guardrail from an organizational unit",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "EnableControl",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_EnableControl.html",
+      "description": "Grants permission to activate a control for an organizational unit",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -105,7 +123,7 @@
     {
       "name": "EnableGuardrail",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html#enable-guardrails",
-      "description": "Grants permission to enable a guardrail to an organizational unit.",
+      "description": "Grants permission to enable a guardrail to an organizational unit",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -114,7 +132,16 @@
     {
       "name": "GetAvailableUpdates",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/configuration-updates.html",
-      "description": "Grants permission to list available updates for the current AWS Control Tower deployment.",
+      "description": "Grants permission to list available updates for the current AWS Control Tower deployment",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetControlOperation",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetControlOperation.html",
+      "description": "Grants permission to get the current status of a particular EnabledControl or DisableControl operation",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -123,7 +150,7 @@
     {
       "name": "GetGuardrailComplianceStatus",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
-      "description": "Grants permission to get the current compliance status of a guardrail.",
+      "description": "Grants permission to get the current compliance status of a guardrail",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -132,7 +159,7 @@
     {
       "name": "GetHomeRegion",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html#region-how",
-      "description": "Grants permission to get the home region of the AWS Control Tower setup.",
+      "description": "Grants permission to get the home region of the AWS Control Tower setup",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -141,7 +168,7 @@
     {
       "name": "GetLandingZoneStatus",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-with-control-tower.html#step-two",
-      "description": "Grants permission to get the current status of the landing zone setup.",
+      "description": "Grants permission to get the current status of the landing zone setup",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -150,7 +177,16 @@
     {
       "name": "ListDirectoryGroups",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/sso.html",
-      "description": "Grants permission to list the current directory groups available through SSO.",
+      "description": "Grants permission to list the current directory groups available through SSO",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEnabledControls",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListEnabledControls.html",
+      "description": "Grants permission to list all enabled controls in a specified organizational unit",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -159,7 +195,7 @@
     {
       "name": "ListEnabledGuardrails",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
-      "description": "Grants permission to list currently enabled guardrails.",
+      "description": "Grants permission to list currently enabled guardrails",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -168,7 +204,7 @@
     {
       "name": "ListGuardrailViolations",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
-      "description": "Grants permission to list existing guardrail violations.",
+      "description": "Grants permission to list existing guardrail violations",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -177,7 +213,7 @@
     {
       "name": "ListGuardrails",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
-      "description": "Grants permission to list all available guardrails.",
+      "description": "Grants permission to list all available guardrails",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -186,7 +222,7 @@
     {
       "name": "ListGuardrailsForTarget",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
-      "description": "Grants permission to list guardrails and their current state for a organizational unit.",
+      "description": "Grants permission to list guardrails and their current state for a organizational unit",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -195,7 +231,7 @@
     {
       "name": "ListManagedAccounts",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html",
-      "description": "Grants permission to list accounts managed through AWS Control Tower.",
+      "description": "Grants permission to list accounts managed through AWS Control Tower",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -204,7 +240,7 @@
     {
       "name": "ListManagedAccountsForGuardrail",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html",
-      "description": "Grants permission to list managed accounts with a specified guardrail applied.",
+      "description": "Grants permission to list managed accounts with a specified guardrail applied",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -213,7 +249,7 @@
     {
       "name": "ListManagedAccountsForParent",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html",
-      "description": "Grants permission to list managed accounts under an organizational unit.",
+      "description": "Grants permission to list managed accounts under an organizational unit",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -222,7 +258,7 @@
     {
       "name": "ListManagedOrganizationalUnits",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/organizations.html",
-      "description": "Grants permission to list organizational units managed by AWS Control Tower.",
+      "description": "Grants permission to list organizational units managed by AWS Control Tower",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -231,7 +267,7 @@
     {
       "name": "ListManagedOrganizationalUnitsForGuardrail",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/organizations.html",
-      "description": "Grants permission to list managed organizational units that have a specified guardrail applied.",
+      "description": "Grants permission to list managed organizational units that have a specified guardrail applied",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -240,7 +276,7 @@
     {
       "name": "ManageOrganizationalUnit",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/organizations.html",
-      "description": "Grants permission to set up an organizational unit to be managed by AWS Control Tower.",
+      "description": "Grants permission to set up an organizational unit to be managed by AWS Control Tower",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -249,7 +285,7 @@
     {
       "name": "SetupLandingZone",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-with-control-tower.html#step-two",
-      "description": "Grants permission to set up or update AWS Control Tower landing zone.",
+      "description": "Grants permission to set up or update AWS Control Tower landing zone",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -258,7 +294,7 @@
     {
       "name": "UpdateAccountFactoryConfig",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html",
-      "description": "Grants permission to update the account factory configuration.",
+      "description": "Grants permission to update the account factory configuration",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
