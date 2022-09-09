@@ -47,6 +47,17 @@
       "dependentActions": []
     },
     {
+      "name": "BatchGetNotebookCell",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to get notebook cells content on your account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateAccount",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
       "description": "Grants permission to create SQLWorkbench account",
@@ -93,6 +104,62 @@
       "dependentActions": []
     },
     {
+      "name": "CreateNotebook",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to create a new notebook on your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateNotebookCell",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to create a notebook cell on your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateNotebookFromVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to create a new notebook from a notebook version on your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateNotebookVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to create a notebook version on your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateSavedQuery",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
       "description": "Grants permission to create a new saved query on your account",
@@ -129,6 +196,39 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteNotebook",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to remove notebooks on your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteNotebookCell",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to remove notebooks cells on your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteNotebookVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to remove notebooks cells on your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteSavedQuery",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
       "description": "Grants permission to remove saved queries on your account",
@@ -160,6 +260,31 @@
       "dependentActions": []
     },
     {
+      "name": "DuplicateNotebook",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to create a new notebook by duplicating an existing one on your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ExportNotebook",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to export a notebook on your account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GenerateSession",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
       "description": "Grants permission to generate a new session on your account",
@@ -172,6 +297,15 @@
       "name": "GetAccountInfo",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
       "description": "Grants permission to get account info",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccountSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to get account settings",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -196,6 +330,37 @@
       "resourceTypes": [
         "connection*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetNotebook",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to get notebook metadata on your account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetNotebookVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to get the content of a notebook version on your account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetQueryExecutionHistory",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to get the query execution history on your account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -229,6 +394,20 @@
       "dependentActions": []
     },
     {
+      "name": "ImportNotebook",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to import a notebook on your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListConnections",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
       "description": "Grants permission to list the connections on your account",
@@ -250,6 +429,35 @@
       "name": "ListFiles",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
       "description": "Grants permission to list files and folders",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListNotebookVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to get notebook versions metadata on your account",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListNotebooks",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to list the notebooks on your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListQueryExecutionHistory",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to list the query execution history on your account",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -310,6 +518,7 @@
       "resourceTypes": [
         "chart",
         "connection",
+        "notebook",
         "query"
       ],
       "conditionKeys": [],
@@ -334,6 +543,20 @@
       "dependentActions": []
     },
     {
+      "name": "RestoreNotebookVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to restore a notebook on your account to a version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
       "description": "Grants permission to tag an sqlworkbench resource",
@@ -341,6 +564,7 @@
       "resourceTypes": [
         "chart",
         "connection",
+        "notebook",
         "query"
       ],
       "conditionKeys": [
@@ -357,6 +581,7 @@
       "resourceTypes": [
         "chart",
         "connection",
+        "notebook",
         "query"
       ],
       "conditionKeys": [
@@ -366,9 +591,27 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateAccountConnectionSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to update account-wide connection settings",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateAccountExportSettings",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
       "description": "Grants permission to update account-wide export settings",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAccountGeneralSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to update account-wide general settings",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -421,6 +664,48 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateNotebook",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to update a notebook metadata on your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateNotebookCellContent",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to update a notebook cell content on your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateNotebookCellLayout",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
+      "description": "Grants permission to update a notebook cell layout on your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "notebook*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {

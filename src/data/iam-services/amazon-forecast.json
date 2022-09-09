@@ -100,12 +100,40 @@
       "dependentActions": []
     },
     {
+      "name": "CreateForecastEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/what-is-forecast.html",
+      "description": "Grants permission to create an endpoint using a Predictor resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "predictor*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateForecastExportJob",
       "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_CreateForecastExportJob.html",
       "description": "Grants permission to create a forecast export job using a forecast resource",
       "accessLevel": "Write",
       "resourceTypes": [
         "forecast*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateMonitor",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_CreateMonitor.html",
+      "description": "Grants permission to create an monitor using a Predictor resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "predictor*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -134,6 +162,48 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "predictor*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateWhatIfAnalysis",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_CreateWhatIfAnalysis.html",
+      "description": "Grants permission to create a what-if analysis",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "forecast*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateWhatIfForecast",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_CreateWhatIfForecast.html",
+      "description": "Grants permission to create a what-if forecast",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "whatIfAnalysis*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateWhatIfForecastExport",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_CreateWhatIfForecastExport.html",
+      "description": "Grants permission to create a what-if forecast export using what-if forecast resources",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "whatIfForecast*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -208,12 +278,34 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteForecastEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/what-is-forecast.html",
+      "description": "Grants permission to delete an endpoint resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteForecastExportJob",
       "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_DeleteForecastExportJob.html",
       "description": "Grants permission to delete a forecast export job",
       "accessLevel": "Write",
       "resourceTypes": [
         "forecastExport*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMonitor",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_DeleteMonitor.html",
+      "description": "Grants permission to delete a monitor resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "monitor*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -249,12 +341,50 @@
         "dataset*",
         "datasetGroup*",
         "datasetImportJob*",
+        "endpoint*",
         "explainability*",
         "explainabilityExport*",
         "forecast*",
         "forecastExport*",
+        "monitor*",
         "predictor*",
-        "predictorBacktestExportJob*"
+        "predictorBacktestExportJob*",
+        "whatIfAnalysis*",
+        "whatIfForecast*",
+        "whatIfForecastExport*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWhatIfAnalysis",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_DeleteWhatIfAnalysis.html",
+      "description": "Grants permission to delete a what-if analysis",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "whatIfAnalysis*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWhatIfForecast",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_DeleteWhatIfForecast.html",
+      "description": "Grants permission to delete a what-if forecast",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "whatIfForecast*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWhatIfForecastExport",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_DeleteWhatIfForecastExport.html",
+      "description": "Grants permission to delete a what-if forecast export",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "whatIfForecastExport*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -337,12 +467,34 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeForecastEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/what-is-forecast.html",
+      "description": "Grants permission to describe an endpoint resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeForecastExportJob",
       "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeForecastExportJob.html",
       "description": "Grants permission to describe a forecast export job",
       "accessLevel": "Read",
       "resourceTypes": [
         "forecastExport*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeMonitor",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeMonitor.html",
+      "description": "Grants permission to describe an monitor resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "monitor*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -370,12 +522,67 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeWhatIfAnalysis",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeWhatIfAnalysis.html",
+      "description": "Grants permission to describe a what-if analysis",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "whatIfAnalysis*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWhatIfForecast",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeWhatIfForecast.html",
+      "description": "Grants permission to describe a what-if forecast",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "whatIfForecast*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWhatIfForecastExport",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeWhatIfForecastExport.html",
+      "description": "Grants permission to describe a what-if forecast export",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "whatIfForecastExport*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetAccuracyMetrics",
       "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_GetAccuracyMetrics.html",
       "description": "Grants permission to get the Accuracy Metrics for a predictor",
       "accessLevel": "Read",
       "resourceTypes": [
         "predictor*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRecentForecastContext",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/what-is-forecast.html",
+      "description": "Grants permission to get the forecast context of a timeseries for an endpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "InvokeForecastEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/what-is-forecast.html",
+      "description": "Grants permission to invoke the endpoint to get forecast for a timeseries",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "endpoint*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -444,6 +651,26 @@
       "dependentActions": []
     },
     {
+      "name": "ListMonitorEvaluations",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_ListMonitorEvaluations.html",
+      "description": "Grants permission to list all the monitor evaluation result for a monitor",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "monitor*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMonitors",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_ListMonitors.html",
+      "description": "Grants permission to list all the monitor resources",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListPredictorBacktestExportJobs",
       "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_ListPredictorBacktestExportJobs.html",
       "description": "Grants permission to list all the predictor backtest export jobs",
@@ -470,13 +697,45 @@
         "dataset",
         "datasetGroup",
         "datasetImportJob",
+        "endpoint",
         "explainability",
         "explainabilityExport",
         "forecast",
         "forecastExport",
+        "monitor",
         "predictor",
-        "predictorBacktestExportJob"
+        "predictorBacktestExportJob",
+        "whatIfAnalysis",
+        "whatIfForecast",
+        "whatIfForecastExport"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWhatIfAnalyses",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_ListWhatIfAnalyses.html",
+      "description": "Grants permission to list all the what-if analyses",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWhatIfForecastExports",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_ListWhatIfForecastExports.html",
+      "description": "Grants permission to list all the what-if forecast exports",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWhatIfForecasts",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_ListWhatIfForecasts.html",
+      "description": "Grants permission to list all the what-if forecasts",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -492,18 +751,48 @@
       "dependentActions": []
     },
     {
+      "name": "QueryWhatIfForecast",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_forecastquery_QueryWhatIfForecast.html",
+      "description": "Grants permission to retrieve a what-if forecast for a single item",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "whatIfForecast*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ResumeResource",
+      "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_ResumeResource.html",
+      "description": "Grants permission to resume Amazon Forecast resource jobs",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "monitor*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "StopResource",
       "documentationUrl": "https://docs.aws.amazon.com/forecast/latest/dg/API_StopResource.html",
       "description": "Grants permission to stop Amazon Forecast resource jobs",
       "accessLevel": "Write",
       "resourceTypes": [
         "datasetImportJob*",
+        "endpoint*",
         "explainability*",
         "explainabilityExport*",
         "forecast*",
         "forecastExport*",
+        "monitor*",
         "predictor*",
-        "predictorBacktestExportJob*"
+        "predictorBacktestExportJob*",
+        "whatIfAnalysis*",
+        "whatIfForecast*",
+        "whatIfForecastExport*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -520,12 +809,17 @@
         "dataset",
         "datasetGroup",
         "datasetImportJob",
+        "endpoint",
         "explainability",
         "explainabilityExport",
         "forecast",
         "forecastExport",
+        "monitor",
         "predictor",
-        "predictorBacktestExportJob"
+        "predictorBacktestExportJob",
+        "whatIfAnalysis",
+        "whatIfForecast",
+        "whatIfForecastExport"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -542,12 +836,17 @@
         "dataset",
         "datasetGroup",
         "datasetImportJob",
+        "endpoint",
         "explainability",
         "explainabilityExport",
         "forecast",
         "forecastExport",
+        "monitor",
         "predictor",
-        "predictorBacktestExportJob"
+        "predictorBacktestExportJob",
+        "whatIfAnalysis",
+        "whatIfForecast",
+        "whatIfForecastExport"
       ],
       "conditionKeys": [
         "aws:TagKeys"

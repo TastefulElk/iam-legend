@@ -39,7 +39,9 @@
         "resolver-query-log-config*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
     },
     {
       "name": "AssociateResolverRule",
@@ -344,7 +346,9 @@
         "resolver-query-log-config*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
     },
     {
       "name": "GetResolverQueryLogConfigAssociation",
@@ -527,7 +531,9 @@
         "resolver-query-log-config*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
     },
     {
       "name": "ListResolverQueryLogConfigs",
@@ -538,7 +544,9 @@
         "resolver-query-log-config*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
     },
     {
       "name": "ListResolverRuleAssociations",
@@ -613,14 +621,19 @@
       "description": "Grants permission to add one or more tags to a specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "firewall-config",
         "firewall-domain-list",
         "firewall-rule-group",
         "firewall-rule-group-association",
+        "resolver-dnssec-config",
         "resolver-endpoint",
         "resolver-query-log-config",
         "resolver-rule"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -629,14 +642,18 @@
       "description": "Grants permission to remove one or more tags from a specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "firewall-config",
         "firewall-domain-list",
         "firewall-rule-group",
         "firewall-rule-group-association",
+        "resolver-dnssec-config",
         "resolver-endpoint",
         "resolver-query-log-config",
         "resolver-rule"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

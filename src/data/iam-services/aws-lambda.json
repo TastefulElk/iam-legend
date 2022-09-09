@@ -72,7 +72,9 @@
         "lambda:VpcIds",
         "lambda:SubnetIds",
         "lambda:SecurityGroupIds",
-        "lambda:CodeSigningConfigArn"
+        "lambda:CodeSigningConfigArn",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -647,7 +649,10 @@
       "resourceTypes": [
         "function*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -658,7 +663,9 @@
       "resourceTypes": [
         "function*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

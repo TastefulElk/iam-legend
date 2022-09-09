@@ -20,9 +20,13 @@
       "description": "Grants permission to create a response plan",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "ssm-incidents:TagResource"
       ]
     },
     {
@@ -194,7 +198,8 @@
       "description": "Grants permission to view a list of resource tags for a specified resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "response-plan*"
+        "incident-record",
+        "response-plan"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -239,9 +244,13 @@
       "description": "Grants permission to add tags to a response plan",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "response-plan*"
+        "incident-record",
+        "response-plan"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -250,9 +259,12 @@
       "description": "Grants permission to remove tags from a response plan",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "response-plan*"
+        "incident-record",
+        "response-plan"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -309,9 +321,13 @@
       "resourceTypes": [
         "response-plan*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "ssm-incidents:TagResource"
       ]
     },
     {

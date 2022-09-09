@@ -1,0 +1,120 @@
+{
+  "serviceName": "AWS Recycle Bin",
+  "servicePrefix": "rbin",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsrecyclebin.html",
+  "actions": [
+    {
+      "name": "CreateRule",
+      "documentationUrl": "https://docs.aws.amazon.com/recyclebin/latest/APIReference/API_CreateRule.html",
+      "description": "Grants permission to create a Recycle Bin retention rule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rule*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "rbin:Request/ResourceType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRule",
+      "documentationUrl": "https://docs.aws.amazon.com/recyclebin/latest/APIReference/API_DeleteRule.html",
+      "description": "Grants permission to delete a Recycle Bin retention rule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rule*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "rbin:Attribute/ResourceType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRule",
+      "documentationUrl": "https://docs.aws.amazon.com/recyclebin/latest/APIReference/API_GetRule.html",
+      "description": "Grants permission to get detailed information about a Recycle Bin retention rule",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "rule*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "rbin:Attribute/ResourceType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRules",
+      "documentationUrl": "https://docs.aws.amazon.com/recyclebin/latest/APIReference/API_ListRules.html",
+      "description": "Grants permission to list the Recycle Bin retention rules in the Region",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "rbin:Request/ResourceType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/recyclebin/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list the tags associated with a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "rule*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "rbin:Attribute/ResourceType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/recyclebin/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to add or update tags of a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "rule*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "rbin:Attribute/ResourceType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/recyclebin/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove tags associated with a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "rule*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "rbin:Attribute/ResourceType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRule",
+      "documentationUrl": "https://docs.aws.amazon.com/recyclebin/latest/APIReference/API_UpdateRule.html",
+      "description": "Grants permission to update an existing Recycle Bin retention rule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rule*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "rbin:Attribute/ResourceType"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

@@ -15,6 +15,17 @@
       "dependentActions": []
     },
     {
+      "name": "CancelComponentDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CancelComponentDeployment.html",
+      "description": "Grants permission to cancel component deployment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CancelEnvironmentDeployment",
       "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CancelEnvironmentDeployment.html",
       "description": "Grants permission to cancel an environment deployment",
@@ -50,6 +61,20 @@
       ],
       "conditionKeys": [
         "proton:ServiceTemplate"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_CreateComponent.html",
+      "description": "Grants permission to create component",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "component*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -244,6 +269,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteComponent.html",
+      "description": "Grants permission to delete component",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteEnvironment",
       "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteEnvironment.html",
       "description": "Grants permission to delete an environment",
@@ -403,6 +439,17 @@
       "description": "Grants permission to describe the account settings",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetComponent.html",
+      "description": "Grants permission to describe a component",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "component*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -573,6 +620,41 @@
       "description": "Grants permission to describe the sync status of a template",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListComponentOutputs",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListComponentOutputs.html",
+      "description": "Grants permission to list component outputs",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListComponentProvisionedResources",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListComponentProvisionedResources.html",
+      "description": "Grants permission to list component provisioned resources",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListComponents",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListComponents.html",
+      "description": "Grants permission to list components",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "environment",
+        "service",
+        "service-instance"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -790,7 +872,9 @@
       "description": "Grants permission to list tags of a resource",
       "accessLevel": "Read",
       "resourceTypes": [
+        "component",
         "environment",
+        "environment-account-connection",
         "environment-template",
         "environment-template-major-version",
         "environment-template-minor-version",
@@ -835,7 +919,9 @@
       "description": "Grants permission to add tags to a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "component",
         "environment",
+        "environment-account-connection",
         "environment-template",
         "environment-template-major-version",
         "environment-template-minor-version",
@@ -860,7 +946,9 @@
       "description": "Grants permission to remove tags from a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "component",
         "environment",
+        "environment-account-connection",
         "environment-template",
         "environment-template-major-version",
         "environment-template-minor-version",
@@ -899,6 +987,17 @@
       "dependentActions": [
         "iam:PassRole"
       ]
+    },
+    {
+      "name": "UpdateComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_UpdateComponent.html",
+      "description": "Grants permission to update component",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "UpdateEnvironment",

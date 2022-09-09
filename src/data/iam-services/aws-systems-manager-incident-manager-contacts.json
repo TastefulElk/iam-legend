@@ -44,7 +44,10 @@
       "resourceTypes": [
         "contact*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": [
         "ssm-contacts:AssociateContact"
       ]
@@ -89,17 +92,6 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "contactchannel*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "DeleteContactPolicy",
-      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_DeleteContactPolicy.html",
-      "description": "Grants permission to delete a contact's resource policy",
-      "accessLevel": "Write",
-      "resourceTypes": [
-        "contact*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -201,7 +193,7 @@
     },
     {
       "name": "ListPagesByContact",
-      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ListPagesByContacts.html",
+      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ListPagesByContact.html",
       "description": "Grants permission to list all pages sent to a contact",
       "accessLevel": "List",
       "resourceTypes": [
@@ -284,7 +276,10 @@
       "resourceTypes": [
         "contact*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -295,7 +290,9 @@
       "resourceTypes": [
         "contact*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -318,17 +315,6 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "contactchannel*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "UpdateContactPolicy",
-      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_UpdateContactPolicy.html",
-      "description": "Grants permission to update a contact's resource policy",
-      "accessLevel": "Write",
-      "resourceTypes": [
-        "contact*"
       ],
       "conditionKeys": [],
       "dependentActions": []

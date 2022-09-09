@@ -8,9 +8,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateApplication.html",
       "description": "Grants permission to create an application",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "application*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -23,8 +21,7 @@
       "description": "Grants permission to create a configuration profile",
       "accessLevel": "Write",
       "resourceTypes": [
-        "application*",
-        "configurationprofile*"
+        "application*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -37,9 +34,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateDeploymentStrategy.html",
       "description": "Grants permission to create a deployment strategy",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "deploymentstrategy*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -52,9 +47,32 @@
       "description": "Grants permission to create an environment",
       "accessLevel": "Write",
       "resourceTypes": [
-        "application*",
-        "environment*"
+        "application*"
       ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateExtension",
+      "documentationUrl": "https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateExtension.html",
+      "description": "Grants permission to create an extension",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateExtensionAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateExtensionAssociation.html",
+      "description": "Grants permission to create an extension association",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -68,8 +86,7 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "application*",
-        "configurationprofile*",
-        "hostedconfigurationversion*"
+        "configurationprofile*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -116,6 +133,28 @@
       "resourceTypes": [
         "application*",
         "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteExtension",
+      "documentationUrl": "https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteExtension.html",
+      "description": "Grants permission to delete an extension",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "extension*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteExtensionAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteExtensionAssociation.html",
+      "description": "Grants permission to delete an extension association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "extensionassociation*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -218,6 +257,32 @@
       "dependentActions": []
     },
     {
+      "name": "GetExtension",
+      "documentationUrl": "https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetExtension.html",
+      "description": "Grants permission to view details about an extension",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "extension*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetExtensionAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetExtensionAssociation.html",
+      "description": "Grants permission to view details about an extension association",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "extensionassociation*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetHostedConfigurationVersion",
       "documentationUrl": "https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetHostedConfigurationVersion.html",
       "description": "Grants permission to view details about a hosted configuration version",
@@ -296,6 +361,24 @@
       "dependentActions": []
     },
     {
+      "name": "ListExtensionAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListExtensionAssociations.html",
+      "description": "Grants permission to list the extension associations in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExtensions",
+      "documentationUrl": "https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListExtensions.html",
+      "description": "Grants permission to list the extensions in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListHostedConfigurationVersions",
       "documentationUrl": "https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListHostedConfigurationVersions.html",
       "description": "Grants permission to list the hosted configuration versions for a configuration profile",
@@ -345,7 +428,6 @@
       "resourceTypes": [
         "application*",
         "configurationprofile*",
-        "deployment*",
         "deploymentstrategy*",
         "environment*"
       ],
@@ -375,10 +457,13 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "application",
+        "configuration",
         "configurationprofile",
         "deployment",
         "deploymentstrategy",
-        "environment"
+        "environment",
+        "extension",
+        "extensionassociation"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -394,10 +479,13 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "application",
+        "configuration",
         "configurationprofile",
         "deployment",
         "deploymentstrategy",
-        "environment"
+        "environment",
+        "extension",
+        "extensionassociation"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -452,6 +540,32 @@
       "resourceTypes": [
         "application*",
         "environment*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateExtension",
+      "documentationUrl": "https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_UpdateExtension.html",
+      "description": "Grants permission to modify an extension",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "extension*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateExtensionAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_UpdateExtensionAssociation.html",
+      "description": "Grants permission to modify an extension association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "extensionassociation*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
