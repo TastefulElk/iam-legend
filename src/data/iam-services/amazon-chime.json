@@ -383,6 +383,32 @@
       ]
     },
     {
+      "name": "CreateMediaConcatenationPipeline",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaConcatenationPipeline.html",
+      "description": "Grants permission to create a media concatenation pipeline",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "s3:GetBucketPolicy"
+      ]
+    },
+    {
+      "name": "CreateMediaLiveConnectorPipeline",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaLiveConnectorPipeline.html",
+      "description": "Grants permission to create a media live connector pipeline",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateMeeting",
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeeting.html",
       "description": "Grants permission to create a new Amazon Chime SDK meeting in the specified media Region, with no initial attendees",
@@ -712,6 +738,17 @@
       "name": "DeleteMediaCapturePipeline",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaCapturePipeline.html",
       "description": "Grants permission to delete a media capture pipeline",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "media-pipeline*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMediaPipeline",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaPipeline.html",
+      "description": "Grants permission to delete a media pipeline",
       "accessLevel": "Write",
       "resourceTypes": [
         "media-pipeline*"
@@ -1226,6 +1263,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetMediaPipeline",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaPipeline.html",
+      "description": "Grants permission to get an existing media pipeline",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "media-pipeline*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetMeeting",
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_GetMeeting.html",
       "description": "Grants permission to get the meeting record for a specified meeting ID",
@@ -1696,7 +1744,7 @@
     {
       "name": "ListChannelsAssociatedWithChannelFlow",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelsAssociatedWithChannelFlow.html",
-      "description": "Grants permission to list all the Channel Flows created under a single Chime AppInstance",
+      "description": "Grants permission to list all the Channels associated with a single Chime Channel Flow",
       "accessLevel": "List",
       "resourceTypes": [
         "channel-flow*"
@@ -1755,6 +1803,15 @@
       "name": "ListMediaCapturePipelines",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaCapturePipelines.html",
       "description": "Grants permission to list media capture pipelines",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMediaPipelines",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaPipelines.html",
+      "description": "Grants permission to list media pipelines",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -1858,6 +1915,18 @@
       "description": "Grants permission to list all Amazon Chime SIP rules under the administrator's AWS account",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSubChannels",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListSubChannels.html",
+      "description": "Grants permission to list all the SubChannels under a single Channel",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "app-instance-user*",
+        "channel*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },

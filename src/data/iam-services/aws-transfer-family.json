@@ -145,6 +145,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteHostKey",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DeleteHostKey.html",
+      "description": "Grants permission to delete a host key associated with a server",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "host-key*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteProfile",
       "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DeleteProfile.html",
       "description": "Grants permission to delete profile",
@@ -255,6 +266,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeHostKey",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeHostKey.html",
+      "description": "Grants permission to describe a host key associated with a server",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "host-key*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeProfile",
       "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeProfile.html",
       "description": "Grants permission to describe a profile",
@@ -313,6 +335,20 @@
       "description": "Grants permission to add a certificate",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ImportHostKey",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ImportHostKey.html",
+      "description": "Grants permission to add a host key to a server",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "server*"
+      ],
       "conditionKeys": [
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
@@ -382,6 +418,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListHostKeys",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListHostKeys.html",
+      "description": "Grants permission to list host keys associated with a server",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "server*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListProfiles",
       "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListProfiles.html",
       "description": "Grants permission to list profiles",
@@ -417,6 +464,7 @@
         "agreement",
         "certificate",
         "connector",
+        "host-key",
         "profile",
         "server",
         "user",
@@ -457,6 +505,17 @@
       "dependentActions": []
     },
     {
+      "name": "StartFileTransfer",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_StartFileTransfer.html",
+      "description": "Grants permission to initiate a connector file transfer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartServer",
       "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_StartServer.html",
       "description": "Grants permission to start a server",
@@ -487,6 +546,7 @@
         "agreement",
         "certificate",
         "connector",
+        "host-key",
         "profile",
         "server",
         "user",
@@ -518,6 +578,7 @@
         "agreement",
         "certificate",
         "connector",
+        "host-key",
         "profile",
         "server",
         "user",
@@ -575,6 +636,17 @@
       "dependentActions": [
         "iam:PassRole"
       ]
+    },
+    {
+      "name": "UpdateHostKey",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateHostKey.html",
+      "description": "Grants permission to update a host key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "host-key*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "UpdateProfile",
