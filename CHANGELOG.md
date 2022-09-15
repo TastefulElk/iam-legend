@@ -1,4 +1,8 @@
 
+## [1.1.3] - 2022-09-15
+
+- IAM service updates
+
 ## [1.1.2] - 2022-09-09
 
 - IAM service updates
