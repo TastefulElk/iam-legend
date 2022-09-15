@@ -12,7 +12,10 @@
         "eventdatastore",
         "trail"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -39,6 +42,17 @@
       "dependentActions": []
     },
     {
+      "name": "CreateServiceLinkedChannel",
+      "documentationUrl": "API_CreateServiceLinkedChannel.html",
+      "description": "Grants permission to create a service-linked channel that specifies the settings for delivery of log data to an AWS service",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateTrail",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_CreateTrail.html",
       "description": "Grants permission to create a trail that specifies the settings for delivery of log data to an Amazon S3 bucket",
@@ -46,7 +60,10 @@
       "resourceTypes": [
         "trail*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": [
         "s3:PutObject"
       ]
@@ -58,6 +75,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "eventdatastore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteServiceLinkedChannel",
+      "documentationUrl": "API_DeleteServiceLinkedChannel.html",
+      "description": "Grants permission to delete a service-linked channel",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -132,6 +160,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetServiceLinkedChannel",
+      "documentationUrl": "API_GetServiceLinkedChannel.html",
+      "description": "Grants permission to list settings for the service-linked channel",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetTrail",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetTrail.html",
       "description": "Grants permission to list settings for the trail",
@@ -173,6 +212,15 @@
       "name": "ListQueries",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListQueries.html",
       "description": "Grants permission to list queries associated with an event data store",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListServiceLinkedChannels",
+      "documentationUrl": "API_ListServiceLinkedChannels.html",
+      "description": "Grants permission to list service-linked channels associated with the current region for a specified account",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -239,7 +287,9 @@
         "eventdatastore",
         "trail"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -291,6 +341,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "eventdatastore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateServiceLinkedChannel",
+      "documentationUrl": "API_UpdateServiceLinkedChannel.html",
+      "description": "Grants permission to update the settings that specify delivery of log files",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
