@@ -19,11 +19,10 @@ jobs:
     - name: Scrape
       run: node scraper/scraper.mjs
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v3
+      uses: peter-evans/create-pull-request@v4
       with:
         token: ${{ secrets.ACCESS_TOKEN }}
         commit-message: 'fix: update IAM service definitions'
         title: Update IAM service definitions
         body: This is an auto-generated PR with IAM service updates.
         branch: service-updates
-        author: service-bot <service-bot@users.noreply.github.com>
