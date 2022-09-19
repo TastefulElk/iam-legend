@@ -60,6 +60,21 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole",
+        "iam:GetRole"
+      ]
+    },
+    {
+      "name": "CreateSegment",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_CreateSegment.html",
+      "description": "Grants permission to create a segment",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -102,6 +117,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "Project*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSegment",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_DeleteSegment.html",
+      "description": "Grants permission to delete a segment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Segment*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -173,6 +199,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetSegment",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_GetSegment.html",
+      "description": "Grants permission to get segment details",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Segment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListExperiments",
       "documentationUrl": "https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListExperiments.html",
       "description": "Grants permission to list experiments",
@@ -203,6 +240,24 @@
       "name": "ListProjects",
       "documentationUrl": "https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListProjects.html",
       "description": "Grants permission to list projects",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSegmentReferences",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListSegmentReferences.html",
+      "description": "Grants permission to list resources referencing a segment",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSegments",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ListSegments.html",
+      "description": "Grants permission to list segments",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -277,7 +332,13 @@
       "documentationUrl": "https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TagResource.html",
       "description": "Grants permission to tag resources",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "Experiment",
+        "Feature",
+        "Launch",
+        "Project",
+        "Segment"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -285,11 +346,26 @@
       "dependentActions": []
     },
     {
+      "name": "TestSegmentPattern",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_TestSegmentPattern.html",
+      "description": "Grants permission to test a segment pattern",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UntagResource",
       "documentationUrl": "https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_UntagResource.html",
       "description": "Grants permission to untag resources",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "Experiment",
+        "Feature",
+        "Launch",
+        "Project",
+        "Segment"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -338,7 +414,10 @@
         "Project*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole",
+        "iam:GetRole"
+      ]
     },
     {
       "name": "UpdateProjectDataDelivery",
