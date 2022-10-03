@@ -4,8 +4,8 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsiotfleetwise.html",
   "actions": [
     {
-      "name": "AssociateVehicle",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_AssociateVehicle.html",
+      "name": "AssociateVehicleFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_AssociateVehicleFleet.html",
       "description": "Grants permission to associate the given vehicle to a fleet",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -17,7 +17,7 @@
     },
     {
       "name": "CreateCampaign",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_CreateCampaign.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateCampaign.html",
       "description": "Grants permission to create a campaign",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -25,61 +25,79 @@
         "signalcatalog*",
         "vehicle*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
       "name": "CreateDecoderManifest",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_CreateDecoderManifest.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateDecoderManifest.html",
       "description": "Grants permission to create a decoder manifest for an existing model",
       "accessLevel": "Write",
       "resourceTypes": [
         "modelmanifest*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
       "name": "CreateFleet",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_CreateFleet.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateFleet.html",
       "description": "Grants permission to create a fleet",
       "accessLevel": "Write",
       "resourceTypes": [
         "signalcatalog*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
       "name": "CreateModelManifest",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_CreateModelManifest.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateModelManifest.html",
       "description": "Grants permission to create a model manifest definition",
       "accessLevel": "Write",
       "resourceTypes": [
         "signalcatalog*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
       "name": "CreateSignalCatalog",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_CreateSignalCatalog.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateSignalCatalog.html",
       "description": "Grants permission to create a signal catalog",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
       "name": "CreateVehicle",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_CreateVehicle.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateVehicle.html",
       "description": "Grants permission to create a vehicle",
       "accessLevel": "Write",
       "resourceTypes": [
         "decodermanifest*",
         "modelmanifest*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": [
         "iot:CreateThing",
         "iot:DescribeThing"
@@ -87,7 +105,7 @@
     },
     {
       "name": "DeleteCampaign",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_DeleteCampaign.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_DeleteCampaign.html",
       "description": "Grants permission to delete a campaign",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -98,7 +116,7 @@
     },
     {
       "name": "DeleteDecoderManifest",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_DeleteDecoderManifest.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_DeleteDecoderManifest.html",
       "description": "Grants permission to delete the given decoder manifest",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -109,7 +127,7 @@
     },
     {
       "name": "DeleteFleet",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_DeleteFleet.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_DeleteFleet.html",
       "description": "Grants permission to delete a fleet",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -120,7 +138,7 @@
     },
     {
       "name": "DeleteModelManifest",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_DeleteModelManifest.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_DeleteModelManifest.html",
       "description": "Grants permission to delete the given model manifest",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -131,7 +149,7 @@
     },
     {
       "name": "DeleteSignalCatalog",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_DeleteSignalCatalog.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_DeleteSignalCatalog.html",
       "description": "Grants permission to delete a specific signal catalog",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -142,7 +160,7 @@
     },
     {
       "name": "DeleteVehicle",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_DeleteVehicle.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_DeleteVehicle.html",
       "description": "Grants permission to delete a vehicle",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -152,8 +170,8 @@
       "dependentActions": []
     },
     {
-      "name": "DisassociateVehicle",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_DisassociateVehicle.html",
+      "name": "DisassociateVehicleFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_DisassociateVehicleFleet.html",
       "description": "Grants permission to disassociate a vehicle from an existing fleet",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -165,7 +183,7 @@
     },
     {
       "name": "GetCampaign",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetCampaign.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_GetCampaign.html",
       "description": "Grants permission to get summary information for a given campaign",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -176,7 +194,7 @@
     },
     {
       "name": "GetDecoderManifest",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetDecoderManifest.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_GetDecoderManifest.html",
       "description": "Grants permission to get summary information for a given decoder manifest definition",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -187,7 +205,7 @@
     },
     {
       "name": "GetFleet",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetFleet.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_GetFleet.html",
       "description": "Grants permission to get summary information for a fleet",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -197,8 +215,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetLoggingOptions",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_GetLoggingOptions.html",
+      "description": "Grants permission to get the logging options for the AWS account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetModelManifest",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetModelManifest.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_GetModelManifest.html",
       "description": "Grants permission to get summary information for a given model manifest definition",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -209,7 +236,7 @@
     },
     {
       "name": "GetRegisterAccountStatus",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetRegisterAccountStatus.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_GetRegisterAccountStatus.html",
       "description": "Grants permission to get the account registration status with IoT FleetWise",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -218,7 +245,7 @@
     },
     {
       "name": "GetSignalCatalog",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetSignalCatalog.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_GetSignalCatalog.html",
       "description": "Grants permission to get summary information for a specific signal catalog",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -229,7 +256,7 @@
     },
     {
       "name": "GetVehicle",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetVehicle.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_GetVehicle.html",
       "description": "Grants permission to get summary information for a vehicle",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -240,7 +267,7 @@
     },
     {
       "name": "GetVehicleStatus",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_GetVehicleStatus.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_GetVehicleStatus.html",
       "description": "Grants permission to get the status of the campaigns running on a specific vehicle",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -251,25 +278,30 @@
     },
     {
       "name": "ImportDecoderManifest",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ImportDecoderManifest.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ImportDecoderManifest.html",
       "description": "Grants permission to import an existing decoder manifest",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "decodermanifest*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "ImportSignalCatalog",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ImportSignalCatalog.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ImportSignalCatalog.html",
       "description": "Grants permission to create a signal catalog by importing existing definitions",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
       "name": "ListCampaigns",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListCampaigns.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListCampaigns.html",
       "description": "Grants permission to list campaigns",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -278,7 +310,7 @@
     },
     {
       "name": "ListDecoderManifestNetworkInterfaces",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListDecoderManifestNetworkInterfaces.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListDecoderManifestNetworkInterfaces.html",
       "description": "Grants permission to list network interfaces associated to the existing decoder manifest",
       "accessLevel": "List",
       "resourceTypes": [
@@ -289,7 +321,7 @@
     },
     {
       "name": "ListDecoderManifestSignals",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListDecoderManifestSignals.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListDecoderManifestSignals.html",
       "description": "Grants permission to list decoder manifest signals",
       "accessLevel": "List",
       "resourceTypes": [
@@ -300,7 +332,7 @@
     },
     {
       "name": "ListDecoderManifests",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListDecoderManifests.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListDecoderManifests.html",
       "description": "Grants permission to list all decoder manifests, with an optional filter on model manifest",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -309,7 +341,7 @@
     },
     {
       "name": "ListFleets",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListFleets.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListFleets.html",
       "description": "Grants permission to list all fleets",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -318,7 +350,7 @@
     },
     {
       "name": "ListFleetsForVehicle",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListFleetsForVehicle.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListFleetsForVehicle.html",
       "description": "Grants permission to list all the fleets that the given vehicle is associated with",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -329,7 +361,7 @@
     },
     {
       "name": "ListModelManifestNodes",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListModelManifestNodes.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListModelManifestNodes.html",
       "description": "Grants permission to list all nodes for the given model manifest",
       "accessLevel": "List",
       "resourceTypes": [
@@ -340,7 +372,7 @@
     },
     {
       "name": "ListModelManifests",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListModelManifests.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListModelManifests.html",
       "description": "Grants permission to list all model manifests, with an optional filter on signal catalog",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -349,7 +381,7 @@
     },
     {
       "name": "ListSignalCatalogNodes",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListSignalCatalogNodes.html",
       "description": "Grants permission to list all nodes for a given signal catalog",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -360,7 +392,7 @@
     },
     {
       "name": "ListSignalCatalogs",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListSignalCatalogs.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListSignalCatalogs.html",
       "description": "Grants permission to list all signal catalogs",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -368,8 +400,24 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "campaign",
+        "decodermanifest",
+        "fleet",
+        "modelmanifest",
+        "signalcatalog",
+        "vehicle"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListVehicles",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListVehicles.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListVehicles.html",
       "description": "Grants permission to list all vehicles, with an optional filter on model manifest",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -378,7 +426,7 @@
     },
     {
       "name": "ListVehiclesInFleet",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_ListVehiclesInFleet.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListVehiclesInFleet.html",
       "description": "Grants permission to list vehicles in the given fleet",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -388,8 +436,17 @@
       "dependentActions": []
     },
     {
+      "name": "PutLoggingOptions",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_PutLoggingOptions.html",
+      "description": "Grants permission to put the logging options for the AWS account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "RegisterAccount",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_RegisterAccount.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_RegisterAccount.html",
       "description": "Grants permission to register an AWS account to IoT FleetWise",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -399,8 +456,45 @@
       ]
     },
     {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to add tags to a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "campaign",
+        "decodermanifest",
+        "fleet",
+        "modelmanifest",
+        "signalcatalog",
+        "vehicle"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove tags from a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "campaign",
+        "decodermanifest",
+        "fleet",
+        "modelmanifest",
+        "signalcatalog",
+        "vehicle"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateCampaign",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_UpdateCampaign.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_UpdateCampaign.html",
       "description": "Grants permission to update the given campaign",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -411,7 +505,7 @@
     },
     {
       "name": "UpdateDecoderManifest",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_UpdateDecoderManifest.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_UpdateDecoderManifest.html",
       "description": "Grants permission to update a decoder manifest defnition",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -422,7 +516,7 @@
     },
     {
       "name": "UpdateFleet",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_UpdateFleet.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_UpdateFleet.html",
       "description": "Grants permission to update the fleet",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -433,7 +527,7 @@
     },
     {
       "name": "UpdateModelManifest",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_UpdateModelManifest.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_UpdateModelManifest.html",
       "description": "Grants permission to update the given model manifest definition",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -444,7 +538,7 @@
     },
     {
       "name": "UpdateSignalCatalog",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_UpdateSignalCatalog.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_UpdateSignalCatalog.html",
       "description": "Grants permission to update a specific signal catalog definition",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -455,7 +549,7 @@
     },
     {
       "name": "UpdateVehicle",
-      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/apireference/API_UpdateVehicle.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_UpdateVehicle.html",
       "description": "Grants permission to update the vehicle",
       "accessLevel": "Write",
       "resourceTypes": [

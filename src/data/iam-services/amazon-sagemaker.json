@@ -15,7 +15,13 @@
         "experiment*",
         "experiment-trial-component*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -31,11 +37,13 @@
         "artifact",
         "automl-job",
         "code-repository",
+        "compilation-job",
         "context",
         "data-quality-job-definition",
         "device",
         "device-fleet",
         "domain",
+        "edge-deployment-plan",
         "edge-packaging-job",
         "endpoint",
         "endpoint-config",
@@ -49,7 +57,6 @@
         "image",
         "inference-recommendations-job",
         "labeling-job",
-        "lineage-group",
         "model",
         "model-bias-job-definition",
         "model-explainability-job-definition",
@@ -65,10 +72,52 @@
         "training-job",
         "transform-job",
         "user-profile",
-        "workforce",
         "workteam"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
@@ -83,7 +132,9 @@
         "experiment-trial*",
         "experiment-trial-component*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -94,11 +145,14 @@
       "resourceTypes": [
         "model-package*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "BatchGetMetrics",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/",
       "description": "Grants permission to retrieve metrics associated with SageMaker Resources such as Training Jobs. This API is not publicly exposed at this point, however admins can control this action",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -120,6 +174,7 @@
     },
     {
       "name": "BatchPutMetrics",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/",
       "description": "Grants permission to publish metrics associated with a SageMaker Resource such as a Training Job. This API is not publicly exposed at this point, however admins can control this action",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -137,10 +192,13 @@
         "action*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateAlgorithm",
@@ -151,10 +209,13 @@
         "algorithm*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateApp",
@@ -165,13 +226,16 @@
         "app*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:InstanceTypes",
         "sagemaker:ImageArns",
         "sagemaker:ImageVersionArns"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateAppImageConfig",
@@ -182,10 +246,13 @@
         "app-image-config*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateArtifact",
@@ -196,10 +263,13 @@
         "artifact*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateAutoMLJob",
@@ -210,6 +280,7 @@
         "automl-job*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:InterContainerTrafficEncryption",
@@ -219,7 +290,8 @@
         "sagemaker:VpcSubnets"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -231,10 +303,13 @@
         "code-repository*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateCompilationJob",
@@ -245,11 +320,13 @@
         "compilation-job*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -261,10 +338,13 @@
         "context*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateDataQualityJobDefinition",
@@ -275,6 +355,7 @@
         "data-quality-job-definition*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:InstanceTypes",
@@ -287,7 +368,8 @@
         "sagemaker:VpcSubnets"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -299,11 +381,13 @@
         "device-fleet*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -315,6 +399,7 @@
         "domain*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:AppNetworkAccessType",
@@ -328,7 +413,44 @@
       ],
       "dependentActions": [
         "iam:CreateServiceLinkedRole",
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
+      ]
+    },
+    {
+      "name": "CreateEdgeDeploymentPlan",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEdgeDeploymentPlan.html",
+      "description": "Grants permission to create an edge deployment plan",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "edge-deployment-plan*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PassRole",
+        "sagemaker:AddTags"
+      ]
+    },
+    {
+      "name": "CreateEdgeDeploymentStage",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEdgeDeploymentStage.html",
+      "description": "Grants permission to create an edge deployment stage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "edge-deployment-plan*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -340,11 +462,13 @@
         "edge-packaging-job*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -356,10 +480,13 @@
         "endpoint*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateEndpointConfig",
@@ -370,6 +497,7 @@
         "endpoint-config*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:AcceleratorTypes",
@@ -379,7 +507,9 @@
         "sagemaker:ServerlessMaxConcurrency",
         "sagemaker:ServerlessMemorySize"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateExperiment",
@@ -390,10 +520,13 @@
         "experiment*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateFeatureGroup",
@@ -404,6 +537,7 @@
         "feature-group*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:FeatureGroupOnlineStoreKmsKey",
@@ -411,7 +545,8 @@
         "sagemaker:FeatureGroupOfflineStoreS3Uri"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -423,13 +558,15 @@
         "flow-definition*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "sagemaker:WorkteamArn",
         "sagemaker:WorkteamType",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -441,10 +578,13 @@
         "human-task-ui*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateHyperParameterTuningJob",
@@ -455,6 +595,7 @@
         "hyper-parameter-tuning-job*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:FileSystemAccessMode",
@@ -471,7 +612,8 @@
         "sagemaker:VpcSubnets"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -483,11 +625,13 @@
         "image*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -498,7 +642,9 @@
       "resourceTypes": [
         "image*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -510,11 +656,13 @@
         "inference-recommendations-job*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -526,6 +674,7 @@
         "labeling-job*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "sagemaker:WorkteamArn",
         "sagemaker:WorkteamType",
         "sagemaker:VolumeKmsKey",
@@ -534,12 +683,13 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
       "name": "CreateLineageGroupPolicy",
-      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLineageGroupPolicy.html",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/Welcome.html",
       "description": "Grants permission to create a lineage group policy",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -555,6 +705,7 @@
         "model*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:NetworkIsolation",
@@ -562,7 +713,8 @@
         "sagemaker:VpcSubnets"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -574,6 +726,7 @@
         "model-bias-job-definition*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:InstanceTypes",
@@ -586,7 +739,8 @@
         "sagemaker:VpcSubnets"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -598,6 +752,7 @@
         "model-explainability-job-definition*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:InstanceTypes",
@@ -610,7 +765,8 @@
         "sagemaker:VpcSubnets"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -623,11 +779,16 @@
         "model-package-group"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
-        "sagemaker:ModelApprovalStatus"
+        "sagemaker:ModelApprovalStatus",
+        "sagemaker:CustomerMetadataProperties/${MetadataKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateModelPackageGroup",
@@ -638,10 +799,13 @@
         "model-package-group*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateModelQualityJobDefinition",
@@ -652,6 +816,7 @@
         "model-quality-job-definition*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:InstanceTypes",
@@ -664,7 +829,8 @@
         "sagemaker:VpcSubnets"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -676,6 +842,7 @@
         "monitoring-schedule*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:InstanceTypes",
@@ -688,7 +855,8 @@
         "sagemaker:VpcSubnets"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -700,6 +868,7 @@
         "notebook-instance*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:AcceleratorTypes",
@@ -712,7 +881,8 @@
         "sagemaker:VpcSubnets"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -735,11 +905,13 @@
         "pipeline*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -750,7 +922,9 @@
       "resourceTypes": [
         "user-profile*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -761,7 +935,9 @@
       "resourceTypes": [
         "notebook-instance*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -773,6 +949,7 @@
         "processing-job*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:InstanceTypes",
@@ -785,7 +962,8 @@
         "sagemaker:InterContainerTrafficEncryption"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -797,10 +975,13 @@
         "project*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateStudioLifecycleConfig",
@@ -810,8 +991,14 @@
       "resourceTypes": [
         "studio-lifecycle-config*"
       ],
-      "conditionKeys": [],
-      "dependentActions": []
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateTrainingJob",
@@ -822,6 +1009,7 @@
         "training-job*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:FileSystemAccessMode",
@@ -838,7 +1026,8 @@
         "sagemaker:VpcSubnets"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -850,6 +1039,7 @@
         "transform-job*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:InstanceTypes",
@@ -857,7 +1047,9 @@
         "sagemaker:OutputKmsKey",
         "sagemaker:VolumeKmsKey"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateTrial",
@@ -868,10 +1060,13 @@
         "experiment-trial*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateTrialComponent",
@@ -882,10 +1077,13 @@
         "experiment-trial-component*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateUserProfile",
@@ -896,6 +1094,7 @@
         "user-profile*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:VpcSecurityGroupIds",
@@ -905,7 +1104,8 @@
         "sagemaker:ImageVersionArns"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:AddTags"
       ]
     },
     {
@@ -917,10 +1117,13 @@
         "workforce*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateWorkteam",
@@ -931,10 +1134,13 @@
         "workteam*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "DeleteAction",
@@ -944,7 +1150,9 @@
       "resourceTypes": [
         "action*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -955,7 +1163,9 @@
       "resourceTypes": [
         "algorithm*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -966,7 +1176,9 @@
       "resourceTypes": [
         "app*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -977,7 +1189,9 @@
       "resourceTypes": [
         "app-image-config*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -988,7 +1202,9 @@
       "resourceTypes": [
         "artifact*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1003,7 +1219,13 @@
         "experiment*",
         "experiment-trial-component*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1014,7 +1236,9 @@
       "resourceTypes": [
         "code-repository*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1025,7 +1249,9 @@
       "resourceTypes": [
         "context*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1036,7 +1262,9 @@
       "resourceTypes": [
         "data-quality-job-definition*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1047,7 +1275,9 @@
       "resourceTypes": [
         "device-fleet*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1058,7 +1288,35 @@
       "resourceTypes": [
         "domain*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEdgeDeploymentPlan",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEdgeDeploymentPlan.html",
+      "description": "Grants permission to delete an edge deployment plan",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "edge-deployment-plan*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEdgeDeploymentStage",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteEdgeDeploymentStage.html",
+      "description": "Grants permission to delete an edge deployment stage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "edge-deployment-plan*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1069,7 +1327,9 @@
       "resourceTypes": [
         "endpoint*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1080,7 +1340,9 @@
       "resourceTypes": [
         "endpoint-config*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1091,7 +1353,9 @@
       "resourceTypes": [
         "experiment*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1103,6 +1367,7 @@
         "feature-group*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": []
@@ -1115,12 +1380,14 @@
       "resourceTypes": [
         "flow-definition*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "DeleteHumanLoop",
-      "documentationUrl": "https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/API_DeleteHumanLoop.html",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteHumanLoop.html",
       "description": "Grants permission to delete a specified human loop",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -1137,7 +1404,9 @@
       "resourceTypes": [
         "human-task-ui*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1148,7 +1417,9 @@
       "resourceTypes": [
         "image*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1164,7 +1435,7 @@
     },
     {
       "name": "DeleteLineageGroupPolicy",
-      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteLineageGroupPolicy.html",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/Welcome.html",
       "description": "Grants permission to delete a lineage group policy",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -1179,7 +1450,9 @@
       "resourceTypes": [
         "model*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1190,7 +1463,9 @@
       "resourceTypes": [
         "model-bias-job-definition*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1201,7 +1476,9 @@
       "resourceTypes": [
         "model-explainability-job-definition*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1212,7 +1489,9 @@
       "resourceTypes": [
         "model-package*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1223,7 +1502,9 @@
       "resourceTypes": [
         "model-package-group*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1234,7 +1515,9 @@
       "resourceTypes": [
         "model-package-group*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1245,7 +1528,9 @@
       "resourceTypes": [
         "model-quality-job-definition*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1256,7 +1541,9 @@
       "resourceTypes": [
         "monitoring-schedule*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1267,7 +1554,9 @@
       "resourceTypes": [
         "notebook-instance*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1289,7 +1578,9 @@
       "resourceTypes": [
         "pipeline*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1300,7 +1591,9 @@
       "resourceTypes": [
         "project*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1322,7 +1615,9 @@
       "resourceTypes": [
         "studio-lifecycle-config*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1344,6 +1639,7 @@
         "device",
         "device-fleet",
         "domain",
+        "edge-deployment-plan",
         "edge-packaging-job",
         "endpoint",
         "endpoint-config",
@@ -1357,7 +1653,6 @@
         "image",
         "inference-recommendations-job",
         "labeling-job",
-        "lineage-group",
         "model",
         "model-bias-job-definition",
         "model-explainability-job-definition",
@@ -1373,10 +1668,52 @@
         "training-job",
         "transform-job",
         "user-profile",
-        "workforce",
         "workteam"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": []
@@ -1389,7 +1726,9 @@
       "resourceTypes": [
         "experiment-trial*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1400,7 +1739,9 @@
       "resourceTypes": [
         "experiment-trial-component*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1411,7 +1752,9 @@
       "resourceTypes": [
         "user-profile*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1422,7 +1765,9 @@
       "resourceTypes": [
         "workforce*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1433,7 +1778,9 @@
       "resourceTypes": [
         "workteam*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1444,7 +1791,9 @@
       "resourceTypes": [
         "device*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1455,7 +1804,9 @@
       "resourceTypes": [
         "action*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1466,7 +1817,9 @@
       "resourceTypes": [
         "algorithm*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1477,7 +1830,9 @@
       "resourceTypes": [
         "app*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1488,7 +1843,9 @@
       "resourceTypes": [
         "app-image-config*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1499,7 +1856,9 @@
       "resourceTypes": [
         "artifact*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1510,7 +1869,9 @@
       "resourceTypes": [
         "automl-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1521,7 +1882,9 @@
       "resourceTypes": [
         "code-repository*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1532,7 +1895,9 @@
       "resourceTypes": [
         "compilation-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1543,7 +1908,9 @@
       "resourceTypes": [
         "context*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1554,7 +1921,9 @@
       "resourceTypes": [
         "data-quality-job-definition*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1565,7 +1934,9 @@
       "resourceTypes": [
         "device*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1576,7 +1947,9 @@
       "resourceTypes": [
         "device-fleet*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1587,7 +1960,22 @@
       "resourceTypes": [
         "domain*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEdgeDeploymentPlan",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEdgeDeploymentPlan.html",
+      "description": "Grants permission to access information about an edge deployment plan",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "edge-deployment-plan*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1598,7 +1986,9 @@
       "resourceTypes": [
         "edge-packaging-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1609,7 +1999,9 @@
       "resourceTypes": [
         "endpoint*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1620,7 +2012,9 @@
       "resourceTypes": [
         "endpoint-config*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1631,7 +2025,9 @@
       "resourceTypes": [
         "experiment*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1642,7 +2038,9 @@
       "resourceTypes": [
         "feature-group*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1653,7 +2051,9 @@
       "resourceTypes": [
         "feature-group*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1664,12 +2064,14 @@
       "resourceTypes": [
         "flow-definition*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "DescribeHumanLoop",
-      "documentationUrl": "https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/API_DescribeHumanLoop.html",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeHumanLoop.html",
       "description": "Grants permission to return information about the specified human loop",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -1686,7 +2088,9 @@
       "resourceTypes": [
         "human-task-ui*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1697,7 +2101,9 @@
       "resourceTypes": [
         "hyper-parameter-tuning-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1708,7 +2114,9 @@
       "resourceTypes": [
         "image*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1730,7 +2138,9 @@
       "resourceTypes": [
         "inference-recommendations-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1741,7 +2151,9 @@
       "resourceTypes": [
         "labeling-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1761,7 +2173,9 @@
       "resourceTypes": [
         "model*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1772,7 +2186,9 @@
       "resourceTypes": [
         "model-bias-job-definition*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1783,7 +2199,9 @@
       "resourceTypes": [
         "model-explainability-job-definition*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1794,7 +2212,9 @@
       "resourceTypes": [
         "model-package*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1805,7 +2225,9 @@
       "resourceTypes": [
         "model-package-group*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1816,7 +2238,9 @@
       "resourceTypes": [
         "model-quality-job-definition*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1827,7 +2251,9 @@
       "resourceTypes": [
         "monitoring-schedule*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1838,7 +2264,9 @@
       "resourceTypes": [
         "notebook-instance*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1860,7 +2288,9 @@
       "resourceTypes": [
         "pipeline*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1893,7 +2323,9 @@
       "resourceTypes": [
         "processing-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1904,7 +2336,9 @@
       "resourceTypes": [
         "project*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1915,7 +2349,9 @@
       "resourceTypes": [
         "studio-lifecycle-config*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1926,7 +2362,9 @@
       "resourceTypes": [
         "workteam*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1937,7 +2375,9 @@
       "resourceTypes": [
         "training-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1948,7 +2388,9 @@
       "resourceTypes": [
         "transform-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1959,7 +2401,9 @@
       "resourceTypes": [
         "experiment-trial*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1970,7 +2414,9 @@
       "resourceTypes": [
         "experiment-trial-component*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1981,7 +2427,9 @@
       "resourceTypes": [
         "user-profile*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1992,7 +2440,9 @@
       "resourceTypes": [
         "workforce*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2003,7 +2453,9 @@
       "resourceTypes": [
         "workteam*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2025,7 +2477,11 @@
         "experiment-trial-component*",
         "processing-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2076,7 +2532,9 @@
       "resourceTypes": [
         "model-package-group*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2268,6 +2726,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListEdgeDeploymentPlans",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListEdgeDeploymentPlans.html",
+      "description": "Grants permission to list edge deployment plans",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListEdgePackagingJobs",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListEdgePackagingJobs.html",
       "description": "Grants permission to list edge packaging jobs",
@@ -2323,7 +2790,7 @@
     },
     {
       "name": "ListHumanLoops",
-      "documentationUrl": "https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/API_ListHumanLoops.html",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHumanLoops.html",
       "description": "Grants permission to return summary information about human loops, given the specified parameters",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -2356,7 +2823,9 @@
       "resourceTypes": [
         "image*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2394,7 +2863,9 @@
       "resourceTypes": [
         "workteam*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2450,7 +2921,9 @@
       "resourceTypes": [
         "model-package-group"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2526,7 +2999,9 @@
       "resourceTypes": [
         "pipeline*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2568,6 +3043,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListStageDevices",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListStageDevices.html",
+      "description": "Grants permission to list stage devices",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListStudioLifecycleConfigs",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListStudioLifecycleConfigs.html",
       "description": "Grants permission to list the Studio Lifecycle Configurations that can be deployed using Amazon SageMaker",
@@ -2598,11 +3082,13 @@
         "artifact",
         "automl-job",
         "code-repository",
+        "compilation-job",
         "context",
         "data-quality-job-definition",
         "device",
         "device-fleet",
         "domain",
+        "edge-deployment-plan",
         "edge-packaging-job",
         "endpoint",
         "endpoint-config",
@@ -2614,6 +3100,7 @@
         "human-task-ui",
         "hyper-parameter-tuning-job",
         "image",
+        "inference-recommendations-job",
         "labeling-job",
         "model",
         "model-bias-job-definition",
@@ -2624,13 +3111,59 @@
         "monitoring-schedule",
         "notebook-instance",
         "pipeline",
+        "processing-job",
         "project",
+        "studio-lifecycle-config",
         "training-job",
         "transform-job",
         "user-profile",
         "workteam"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2650,7 +3183,9 @@
       "resourceTypes": [
         "hyper-parameter-tuning-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2709,7 +3244,7 @@
     },
     {
       "name": "PutLineageGroupPolicy",
-      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PutLineageGroupPolicy.html",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/Welcome.html",
       "description": "Grants permission to put a lineage group policy",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -2756,6 +3291,7 @@
         "device*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
@@ -2794,7 +3330,7 @@
     },
     {
       "name": "SendHeartbeat",
-      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SendHeartbeat.html",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_edge_SendHeartbeat.html",
       "description": "Grants permission to publish heartbeat data from devices. After you deploy a model onto edge devices this api is used to report device status",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -2826,8 +3362,21 @@
       "dependentActions": []
     },
     {
+      "name": "StartEdgeDeploymentStage",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartEdgeDeploymentStage.html",
+      "description": "Grants permission to start an edge deployment stage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "edge-deployment-plan*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "StartHumanLoop",
-      "documentationUrl": "https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/API_StartHumanLoop.html",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartHumanLoop.html",
       "description": "Grants permission to start a human loop",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -2844,7 +3393,9 @@
       "resourceTypes": [
         "monitoring-schedule*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2855,7 +3406,9 @@
       "resourceTypes": [
         "notebook-instance*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2866,7 +3419,9 @@
       "resourceTypes": [
         "pipeline*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2877,7 +3432,9 @@
       "resourceTypes": [
         "automl-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2888,7 +3445,22 @@
       "resourceTypes": [
         "compilation-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StopEdgeDeploymentStage",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopEdgeDeploymentStage.html",
+      "description": "Grants permission to stop an edge deployment stage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "edge-deployment-plan*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2899,12 +3471,14 @@
       "resourceTypes": [
         "edge-packaging-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "StopHumanLoop",
-      "documentationUrl": "https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/API_StopHumanLoop.html",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopHumanLoop.html",
       "description": "Grants permission to stop a specified human loop",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -2921,7 +3495,9 @@
       "resourceTypes": [
         "hyper-parameter-tuning-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2932,7 +3508,9 @@
       "resourceTypes": [
         "inference-recommendations-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2943,7 +3521,9 @@
       "resourceTypes": [
         "labeling-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2954,7 +3534,9 @@
       "resourceTypes": [
         "monitoring-schedule*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2965,7 +3547,9 @@
       "resourceTypes": [
         "notebook-instance*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2987,7 +3571,9 @@
       "resourceTypes": [
         "processing-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2998,7 +3584,9 @@
       "resourceTypes": [
         "training-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3009,7 +3597,9 @@
       "resourceTypes": [
         "transform-job*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3020,7 +3610,9 @@
       "resourceTypes": [
         "action*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3031,7 +3623,9 @@
       "resourceTypes": [
         "app-image-config*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3042,7 +3636,9 @@
       "resourceTypes": [
         "artifact*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3053,7 +3649,9 @@
       "resourceTypes": [
         "code-repository*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3064,7 +3662,9 @@
       "resourceTypes": [
         "context*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3075,7 +3675,9 @@
       "resourceTypes": [
         "device-fleet*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3086,7 +3688,9 @@
       "resourceTypes": [
         "device*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3098,6 +3702,7 @@
         "domain*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "sagemaker:VpcSecurityGroupIds",
         "sagemaker:InstanceTypes",
         "sagemaker:DomainSharingOutputKmsKey",
@@ -3114,7 +3719,9 @@
       "resourceTypes": [
         "endpoint*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3125,7 +3732,9 @@
       "resourceTypes": [
         "endpoint*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3136,7 +3745,9 @@
       "resourceTypes": [
         "experiment*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3147,7 +3758,9 @@
       "resourceTypes": [
         "feature-group*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3158,7 +3771,9 @@
       "resourceTypes": [
         "feature-group*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3169,7 +3784,9 @@
       "resourceTypes": [
         "image*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": [
         "iam:PassRole"
       ]
@@ -3183,7 +3800,10 @@
         "model-package*"
       ],
       "conditionKeys": [
-        "sagemaker:ModelApprovalStatus"
+        "aws:ResourceTag/${TagKey}",
+        "sagemaker:ModelApprovalStatus",
+        "sagemaker:CustomerMetadataProperties/${MetadataKey}",
+        "sagemaker:CustomerMetadataPropertiesToRemove"
       ],
       "dependentActions": []
     },
@@ -3196,6 +3816,7 @@
         "monitoring-schedule*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:InstanceTypes",
@@ -3214,12 +3835,13 @@
     {
       "name": "UpdateNotebookInstance",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateNotebookInstance.html",
-      "description": "Grants permission to update a notebook instance. Notebook instance updates include upgrading or downgrading the EC2 instance used for your notebook instance to accommodate changes in your workload requirements. You can also update the VPC security groups",
+      "description": "Grants permission to update a notebook instance. Notebook instance updates include upgrading or downgrading the EC2 instance used for your notebook instance to accommodate changes in your workload requirements",
       "accessLevel": "Write",
       "resourceTypes": [
         "notebook-instance*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "sagemaker:AcceleratorTypes",
         "sagemaker:InstanceTypes",
         "sagemaker:MinimumInstanceMetadataServiceVersion",
@@ -3246,7 +3868,9 @@
       "resourceTypes": [
         "pipeline*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": [
         "iam:PassRole"
       ]
@@ -3271,6 +3895,7 @@
         "project*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
@@ -3285,6 +3910,7 @@
         "training-job*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "sagemaker:InstanceTypes"
       ],
       "dependentActions": []
@@ -3297,7 +3923,9 @@
       "resourceTypes": [
         "experiment-trial*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3308,7 +3936,9 @@
       "resourceTypes": [
         "experiment-trial-component*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3320,6 +3950,7 @@
         "user-profile*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "sagemaker:InstanceTypes",
         "sagemaker:VpcSecurityGroupIds",
         "sagemaker:InstanceTypes",
@@ -3337,7 +3968,9 @@
       "resourceTypes": [
         "workforce*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3348,7 +3981,9 @@
       "resourceTypes": [
         "workteam*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     }
   ]

@@ -4650,7 +4650,7 @@
       "name": "DescribeElasticGpus",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeElasticGpus.html",
       "description": "Grants permission to describe an Elastic Graphics accelerator that is associated with an instance",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
         "ec2:Region"
@@ -4683,7 +4683,7 @@
       "name": "DescribeFastLaunchImages",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeFastLaunchImages.html",
       "description": "Grants permission to describe fast-launch enabled Windows AMIs",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [
         "image"
       ],
@@ -4703,7 +4703,7 @@
       "name": "DescribeFastSnapshotRestores",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeFastSnapshotRestores.html",
       "description": "Grants permission to describe the state of fast snapshot restores for snapshots",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
         "ec2:Region"
@@ -4745,12 +4745,8 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeFleets.html",
       "description": "Grants permission to describe one or more EC2 Fleets",
       "accessLevel": "List",
-      "resourceTypes": [
-        "fleet"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -5432,7 +5428,7 @@
       "name": "DescribeScheduledInstanceAvailability",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeScheduledInstanceAvailability.html",
       "description": "Grants permission to find available schedules for Scheduled Instances",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
         "ec2:Region"
@@ -5443,7 +5439,7 @@
       "name": "DescribeScheduledInstances",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeScheduledInstances.html",
       "description": "Grants permission to describe one or more Scheduled Instances in your account",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
         "ec2:Region"
@@ -5649,7 +5645,7 @@
       "name": "DescribeTags",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTags.html",
       "description": "Grants permission to describe one or more tags for an Amazon EC2 resource",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
         "ec2:Region"
@@ -5748,7 +5744,7 @@
       "name": "DescribeTransitGatewayPolicyTables",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPolicyTables.html",
       "description": "Grants permission to describe a transit gateway policy table",
-      "accessLevel": "Write",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
         "ec2:Region"
@@ -5759,7 +5755,7 @@
       "name": "DescribeTransitGatewayRouteTableAnnouncements",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTableAnnouncements.html",
       "description": "Grants permission to describe a transit gateway route table announcement",
-      "accessLevel": "Write",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
         "ec2:Region"
@@ -5860,7 +5856,7 @@
       "name": "DescribeVolumesModifications",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumesModifications.html",
       "description": "Grants permission to describe the current modification status of one or more EBS volumes",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
         "ec2:Region"
@@ -5998,7 +5994,7 @@
       "name": "DescribeVpnConnections",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html",
       "description": "Grants permission to describe one or more VPN connections",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
         "ec2:Region"
@@ -7040,7 +7036,7 @@
       "name": "GetInstanceTypesFromInstanceRequirements",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html",
       "description": "Grants permission to view a list of instance types with specified instance attributes",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
         "ec2:Region"
@@ -7097,7 +7093,7 @@
       "name": "GetIpamPoolAllocations",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolAllocations.html",
       "description": "Grants permission to get a list of all the CIDR allocations in an Amazon VPC IP Address Manager (IPAM) pool",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [
         "ipam-pool*"
       ],
@@ -8211,6 +8207,32 @@
         "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyLocalGatewayRoute",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyLocalGatewayRoute.html",
+      "description": "Grants permission to modify a local gateway route",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "local-gateway-route-table*",
+        "network-interface"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AssociatePublicIpAddress",
+        "ec2:AuthorizedService",
+        "ec2:AuthorizedUser",
+        "ec2:AvailabilityZone",
+        "ec2:NetworkInterfaceID",
+        "ec2:Permission",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Subnet",
+        "ec2:Vpc",
         "ec2:Region"
       ],
       "dependentActions": []
