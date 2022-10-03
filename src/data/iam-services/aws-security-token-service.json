@@ -13,14 +13,12 @@
       ],
       "conditionKeys": [
         "aws:TagKeys",
-        "aws:PrincipalTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "sts:TransitiveTagKeys",
         "sts:ExternalId",
         "sts:RoleSessionName",
         "iam:ResourceTag/${TagKey}",
-        "sts:SourceIdentity",
-        "aws:SourceIdentity"
+        "sts:SourceIdentity"
       ],
       "dependentActions": []
     },
@@ -66,7 +64,6 @@
         "saml:uid",
         "saml:x500UniqueIdentifier",
         "aws:TagKeys",
-        "aws:PrincipalTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "sts:TransitiveTagKeys",
         "sts:SourceIdentity",
@@ -94,7 +91,6 @@
         "accounts.google.com:oaud",
         "accounts.google.com:sub",
         "aws:TagKeys",
-        "aws:PrincipalTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "sts:TransitiveTagKeys",
         "sts:SourceIdentity",
@@ -139,7 +135,6 @@
       ],
       "conditionKeys": [
         "aws:TagKeys",
-        "aws:PrincipalTag/${TagKey}",
         "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": []
@@ -174,8 +169,7 @@
         "user"
       ],
       "conditionKeys": [
-        "sts:SourceIdentity",
-        "aws:SourceIdentity"
+        "sts:SourceIdentity"
       ],
       "dependentActions": []
     },
@@ -190,9 +184,9 @@
       ],
       "conditionKeys": [
         "aws:TagKeys",
-        "aws:PrincipalTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
-        "sts:TransitiveTagKeys"
+        "sts:TransitiveTagKeys",
+        "saml:aud"
       ],
       "dependentActions": []
     }

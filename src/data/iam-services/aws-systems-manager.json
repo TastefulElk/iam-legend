@@ -9,6 +9,7 @@
       "description": "Grants permission to add or overwrite one or more tags for a specified AWS resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "association",
         "automation-execution",
         "document",
         "instance",
@@ -79,7 +80,10 @@
         "instance",
         "managed-instance"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1128,6 +1132,7 @@
       "description": "Grants permission to view a list of resource tags for a specified resource",
       "accessLevel": "List",
       "resourceTypes": [
+        "association",
         "automation-execution",
         "document",
         "maintenancewindow",
@@ -1267,6 +1272,7 @@
       "description": "Grants permission to remove a specified tag key from a specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "association",
         "automation-execution",
         "document",
         "instance",
@@ -1501,7 +1507,8 @@
       "description": "Grants permission to SSM Agent to send a heartbeat signal to the Systems Manager service in the cloud",
       "accessLevel": "Write",
       "resourceTypes": [
-        "instance*"
+        "instance",
+        "managed-instance"
       ],
       "conditionKeys": [
         "ssm:SourceInstanceARN"
