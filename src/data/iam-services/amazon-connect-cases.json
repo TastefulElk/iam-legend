@@ -166,6 +166,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListDomains",
+      "documentationUrl": "https://docs.aws.amazon.com/cases/latest/APIReference/API_ListDomains.html",
+      "description": "Grants permission to list all domains in the aws account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListFieldOptions",
       "documentationUrl": "https://docs.aws.amazon.com/cases/latest/APIReference/API_ListFieldOptions.html",
       "description": "Grants permission to list field options for a single select field in the case domain",
@@ -181,6 +190,17 @@
       "name": "ListFields",
       "documentationUrl": "https://docs.aws.amazon.com/cases/latest/APIReference/API_ListFields.html",
       "description": "Grants permission to list fields in the case domain",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLayouts",
+      "documentationUrl": "https://docs.aws.amazon.com/cases/latest/APIReference/API_ListLayouts.html",
+      "description": "Grants permission to list layouts in the case domain",
       "accessLevel": "List",
       "resourceTypes": [
         "Domain*"
@@ -256,8 +276,8 @@
         "Template"
       ],
       "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },

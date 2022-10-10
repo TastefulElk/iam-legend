@@ -15,7 +15,12 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "appflow:CreateFlow",
+        "iam:AttachRolePolicy",
+        "iam:CreateServiceLinkedRole",
+        "iam:PutRolePolicy"
+      ]
     },
     {
       "name": "CreateDataIntegrationAssociation",
@@ -40,7 +45,11 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:AttachRolePolicy",
+        "iam:CreateServiceLinkedRole",
+        "iam:PutRolePolicy"
+      ]
     },
     {
       "name": "CreateEventIntegrationAssociation",

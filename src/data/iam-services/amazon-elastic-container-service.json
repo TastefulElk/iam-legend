@@ -56,7 +56,9 @@
         "ecs:cluster",
         "ecs:capacity-provider",
         "ecs:service",
-        "ecs:task-definition"
+        "ecs:task-definition",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -538,11 +540,13 @@
       "description": "Grants permission to tag the specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "capacity-provider",
         "cluster",
         "container-instance",
         "service",
         "task",
-        "task-definition"
+        "task-definition",
+        "task-set"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -556,11 +560,13 @@
       "description": "Grants permission to untag the specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "capacity-provider",
         "cluster",
         "container-instance",
         "service",
         "task",
-        "task-definition"
+        "task-definition",
+        "task-set"
       ],
       "conditionKeys": [
         "aws:TagKeys",

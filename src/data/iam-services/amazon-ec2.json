@@ -941,7 +941,6 @@
       "conditionKeys": [
         "ec2:OutpostArn",
         "ec2:SnapshotID",
-        "ec2:SourceOutpostArn",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "ec2:Region"
@@ -1064,9 +1063,41 @@
       "dependentActions": []
     },
     {
+      "name": "CreateCoipCidr",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateCoipCidr.html",
+      "description": "Grants permission to create a range of customer-owned IP (CoIP) addresses",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "coip-pool*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCoipPool",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateCoipPool.html",
+      "description": "Grants permission to create a pool of customer-owned IP (CoIP) addresses",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "local-gateway-route-table*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
+    },
+    {
       "name": "CreateCoipPoolPermission",
       "documentationUrl": "https://docs.aws.amazon.com/outposts/latest/userguide/identity-access-management.html",
-      "description": "Grants permission to allow a service to access a customer owned IP (CoIP) pool",
+      "description": "Grants permission to allow a service to access a customer-owned IP (CoIP) pool",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
@@ -1534,6 +1565,26 @@
       "dependentActions": []
     },
     {
+      "name": "CreateLocalGatewayRouteTable",
+      "documentationUrl": "API_CreateLocalGatewayRouteTable.html",
+      "description": "Grants permission to create a local gateway route table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "local-gateway*",
+        "local-gateway-route-table*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
+    },
+    {
       "name": "CreateLocalGatewayRouteTablePermission",
       "documentationUrl": "https://docs.aws.amazon.com/outposts/latest/userguide/identity-access-management.html",
       "description": "Grants permission to allow a service to access a local gateway route table",
@@ -1547,6 +1598,29 @@
         "ec2:Region"
       ],
       "dependentActions": []
+    },
+    {
+      "name": "CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation.html",
+      "description": "Grants permission to create a local gateway route table virtual interface group association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "local-gateway-route-table*",
+        "local-gateway-route-table-virtual-interface-group-association*",
+        "local-gateway-virtual-interface-group*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
     },
     {
       "name": "CreateLocalGatewayRouteTableVpcAssociation",
@@ -2105,6 +2179,7 @@
         "capacity-reservation-fleet",
         "carrier-gateway",
         "client-vpn-endpoint",
+        "coip-pool",
         "customer-gateway",
         "dedicated-host",
         "dhcp-options",
@@ -2167,7 +2242,9 @@
         "volume",
         "vpc",
         "vpc-endpoint",
+        "vpc-endpoint-connection",
         "vpc-endpoint-service",
+        "vpc-endpoint-service-permission",
         "vpc-flow-log",
         "vpc-peering-connection",
         "vpn-connection",
@@ -2190,6 +2267,8 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:SamlProviderArn",
         "ec2:ServerCertificateArn",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -2391,7 +2470,11 @@
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:VpceServicePrivateDnsName",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -3029,9 +3112,39 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteCoipCidr",
+      "documentationUrl": "API_DeleteCoipCidr.html",
+      "description": "Grants permission to delete a range of customer-owned IP (CoIP) addresses",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "coip-pool*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCoipPool",
+      "documentationUrl": "API_DeleteCoipPool.html",
+      "description": "Grants permission to delete a pool of customer-owned IP (CoIP) addresses",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "coip-pool*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteCoipPoolPermission",
       "documentationUrl": "https://docs.aws.amazon.com/outposts/latest/userguide/identity-access-management.html",
-      "description": "Grants permission to deny a service from accessing a customer owned IP (CoIP) pool",
+      "description": "Grants permission to deny a service from accessing a customer-owned IP (CoIP) pool",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
@@ -3271,12 +3384,42 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteLocalGatewayRouteTable",
+      "documentationUrl": "API_DeleteLocalGatewayRouteTable.html",
+      "description": "Grants permission to delete a local gateway route table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "local-gateway-route-table*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteLocalGatewayRouteTablePermission",
       "documentationUrl": "https://docs.aws.amazon.com/outposts/latest/userguide/identity-access-management.html",
       "description": "Grants permission to deny a service from accessing a local gateway route table",
       "accessLevel": "Write",
       "resourceTypes": [
         "local-gateway-route-table*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation.html",
+      "description": "Grants permission to delete a local gateway route table virtual interface group association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "local-gateway-route-table-virtual-interface-group-association*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -3645,6 +3788,7 @@
         "capacity-reservation-fleet",
         "carrier-gateway",
         "client-vpn-endpoint",
+        "coip-pool",
         "customer-gateway",
         "dedicated-host",
         "dhcp-options",
@@ -3707,13 +3851,21 @@
         "volume",
         "vpc",
         "vpc-endpoint",
+        "vpc-endpoint-connection",
         "vpc-endpoint-service",
+        "vpc-endpoint-service-permission",
         "vpc-flow-log",
         "vpc-peering-connection",
         "vpn-connection",
         "vpn-gateway"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -6444,10 +6596,16 @@
       "description": "Grants permission to disassociate a subnet from a route table",
       "accessLevel": "Write",
       "resourceTypes": [
+        "ipv4pool-ec2",
+        "ipv6pool-ec2",
         "route-table",
         "subnet"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:RouteTableID",
@@ -6890,8 +7048,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetCoipPoolUsage.html",
       "description": "Grants permission to describe the allocations from the specified customer-owned address pool",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "coip-pool"
+      ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -8218,9 +8380,12 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "local-gateway-route-table*",
+        "local-gateway-virtual-interface-group",
         "network-interface"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -9408,6 +9573,8 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "route-table*",
+        "ipv4pool-ec2",
+        "ipv6pool-ec2",
         "subnet"
       ],
       "conditionKeys": [
@@ -9415,6 +9582,10 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:RouteTableID",
         "ec2:Vpc",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:ResourceTag/${TagKey}",
