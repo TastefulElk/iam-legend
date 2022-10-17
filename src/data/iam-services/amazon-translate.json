@@ -5,18 +5,21 @@
   "actions": [
     {
       "name": "CreateParallelData",
-      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/dg/API_CreateParallelData.html",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_CreateParallelData.html",
       "description": "Grants permission to create a Parallel Data",
       "accessLevel": "Write",
       "resourceTypes": [
         "parallel-data"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
       "name": "DeleteParallelData",
-      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/dg/API_DeleteParallelData.html",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_DeleteParallelData.html",
       "description": "Grants permission to delete a Parallel Data",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -27,7 +30,7 @@
     },
     {
       "name": "DeleteTerminology",
-      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/dg/API_DeleteTerminology.html",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_DeleteTerminology.html",
       "description": "Grants permission to delete a terminology",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -38,7 +41,7 @@
     },
     {
       "name": "DescribeTextTranslationJob",
-      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/dg/API_DescribeTextTranslationJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_DescribeTextTranslationJob.html",
       "description": "Grants permission to get the properties associated with an asynchronous batch translation job",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -47,7 +50,7 @@
     },
     {
       "name": "GetParallelData",
-      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/dg/API_GetParallelData.html",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_GetParallelData.html",
       "description": "Grants permission to get a Parallel Data",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -58,7 +61,7 @@
     },
     {
       "name": "GetTerminology",
-      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/dg/API_GetTerminology.html",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_GetTerminology.html",
       "description": "Grants permission to retrieve a terminology",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -69,18 +72,21 @@
     },
     {
       "name": "ImportTerminology",
-      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/dg/API_ImportTerminology.html",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_ImportTerminology.html",
       "description": "Grants permission to create or update a terminology, depending on whether or not one already exists for the given terminology name",
       "accessLevel": "Write",
       "resourceTypes": [
         "terminology"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
       "name": "ListLanguages",
-      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/dg/API_ListLanguages.html",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_ListLanguages.html",
       "description": "Grants permission to list supported languages",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -89,7 +95,7 @@
     },
     {
       "name": "ListParallelData",
-      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/dg/API_ListParallelData.html",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_ListParallelData.html",
       "description": "Grants permission to list Parallel Data associated with your account",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -97,8 +103,20 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "parallel-data",
+        "terminology"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTerminologies",
-      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/dg/API_ListTerminologies.html",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_ListTerminologies.html",
       "description": "Grants permission to list terminologies associated with your account",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -107,7 +125,7 @@
     },
     {
       "name": "ListTextTranslationJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/dg/API_ListTextTranslationJobs.html",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_ListTextTranslationJobs.html",
       "description": "Grants permission to list batch translation jobs that you have submitted",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -116,7 +134,7 @@
     },
     {
       "name": "StartTextTranslationJob",
-      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/dg/API_StartTextTranslationJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_StartTextTranslationJob.html",
       "description": "Grants permission to start an asynchronous batch translation job. Batch translation jobs can be used to translate large volumes of text across multiple documents at once",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -128,7 +146,7 @@
     },
     {
       "name": "StopTextTranslationJob",
-      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/dg/API_StopTextTranslationJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_StopTextTranslationJob.html",
       "description": "Grants permission to stop an asynchronous batch translation job that is in progress",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -136,8 +154,23 @@
       "dependentActions": []
     },
     {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag a resource with given key value pairs",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "parallel-data",
+        "terminology"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "TranslateText",
-      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/dg/API_TranslateText.html",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_TranslateText.html",
       "description": "Grants permission to translate text from a source language to a target language",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -147,8 +180,22 @@
       "dependentActions": []
     },
     {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag a resource with given key",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "parallel-data",
+        "terminology"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateParallelData",
-      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/dg/API_UpdateParallelData.html",
+      "documentationUrl": "https://docs.aws.amazon.com/translate/latest/APIReference/API_UpdateParallelData.html",
       "description": "Grants permission to update an existing Parallel Data",
       "accessLevel": "Write",
       "resourceTypes": [
