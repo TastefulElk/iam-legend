@@ -125,7 +125,10 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole",
+        "iam:PassRole"
+      ]
     },
     {
       "name": "CreateLaunchConfiguration",
@@ -777,7 +780,9 @@
         "autoscaling:MinSize",
         "autoscaling:VPCZoneIdentifiers"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     }
   ]
 }
