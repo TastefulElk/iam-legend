@@ -85,11 +85,13 @@
       "description": "Grants permission to add a tag for an AWS Elemental Activations resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "activation*",
         "activation"
       ],
       "conditionKeys": [
         "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -99,10 +101,12 @@
       "description": "Grants permission to remove a tag from an AWS Elemental Activations resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "activation*",
         "activation"
       ],
       "conditionKeys": [
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     }

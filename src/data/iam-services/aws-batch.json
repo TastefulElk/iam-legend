@@ -197,6 +197,11 @@
         "batch:AWSLogsRegion",
         "batch:AWSLogsStreamPrefix",
         "batch:AWSLogsCreateGroup",
+        "batch:EKSServiceAccountName",
+        "batch:EKSImage",
+        "batch:EKSRunAsUser",
+        "batch:EKSRunAsGroup",
+        "batch:EKSPrivileged",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
@@ -214,7 +219,8 @@
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
-        "batch:ShareIdentifier"
+        "batch:ShareIdentifier",
+        "batch:EKSImage"
       ],
       "dependentActions": []
     },

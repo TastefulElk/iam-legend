@@ -9,9 +9,13 @@
       "description": "Grants permission to create a replication set",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": [
-        "iam:CreateServiceLinkedRole"
+        "iam:CreateServiceLinkedRole",
+        "ssm-incidents:TagResource"
       ]
     },
     {
@@ -199,6 +203,7 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "incident-record",
+        "replication-set",
         "response-plan"
       ],
       "conditionKeys": [],
@@ -245,6 +250,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "incident-record",
+        "replication-set",
         "response-plan"
       ],
       "conditionKeys": [
@@ -260,6 +266,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "incident-record",
+        "replication-set",
         "response-plan"
       ],
       "conditionKeys": [

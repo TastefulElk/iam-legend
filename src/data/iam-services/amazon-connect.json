@@ -211,10 +211,11 @@
     {
       "name": "ClaimPhoneNumber",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html",
-      "description": "Grants permission to claim phone number resources in an Amazon Connect instance",
+      "description": "Grants permission to claim phone number resources in an Amazon Connect instance or traffic distribution group",
       "accessLevel": "Write",
       "resourceTypes": [
         "instance*",
+        "traffic-distribution-group*",
         "wildcard-phone-number*"
       ],
       "conditionKeys": [
@@ -417,6 +418,22 @@
       "dependentActions": []
     },
     {
+      "name": "CreateTrafficDistributionGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateTrafficDistributionGroup.html",
+      "description": "Grants permission to create a traffic distribution group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*",
+        "traffic-distribution-group*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateUseCase",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateUseCase.html",
       "description": "Grants permission to create a use case for an integration association",
@@ -608,6 +625,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteTrafficDistributionGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteTrafficDistributionGroup.html",
+      "description": "Grants permission to delete a traffic distribution group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "traffic-distribution-group*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteUseCase",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUseCase.html",
       "description": "Grants permission to delete a use case from an integration association",
@@ -781,8 +811,8 @@
     {
       "name": "DescribePhoneNumber",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html",
-      "description": "Grants permission to describe phone number resources in an Amazon Connect instance",
-      "accessLevel": "List",
+      "description": "Grants permission to describe phone number resources in an Amazon Connect instance or traffic distribution group",
+      "accessLevel": "Read",
       "resourceTypes": [
         "phone-number*"
       ],
@@ -844,6 +874,19 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTrafficDistributionGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeTrafficDistributionGroup.html",
+      "description": "Grants permission to describe a traffic distribution group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "traffic-distribution-group*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -1144,6 +1187,19 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTrafficDistribution",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_GetTrafficDistribution.html",
+      "description": "Grants permission to read traffic distribution for a traffic distribution group",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "traffic-distribution-group*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -1490,6 +1546,7 @@
         "quick-connect",
         "routing-profile",
         "security-profile",
+        "traffic-distribution-group",
         "use-case",
         "user",
         "wildcard-phone-number"
@@ -1506,6 +1563,17 @@
       "accessLevel": "List",
       "resourceTypes": [
         "instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrafficDistributionGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListTrafficDistributionGroups.html",
+      "description": "Grants permission to list traffic distribution groups",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "traffic-distribution-group*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1582,6 +1650,30 @@
       "dependentActions": []
     },
     {
+      "name": "ReplicateInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
+      "description": "Grants permission to create a replica of an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ds:AuthorizeApplication",
+        "ds:CheckAlias",
+        "ds:CreateAlias",
+        "ds:CreateDirectory",
+        "ds:CreateIdentityPoolDirectory",
+        "ds:DeleteDirectory",
+        "ds:DescribeDirectories",
+        "ds:UnauthorizeApplication",
+        "iam:AttachRolePolicy",
+        "iam:CreateServiceLinkedRole",
+        "iam:PutRolePolicy"
+      ]
+    },
+    {
       "name": "ResumeContactRecording",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ResumeContactRecording.html",
       "description": "Grants permission to resume recording for the specified contact",
@@ -1595,7 +1687,7 @@
     {
       "name": "SearchAvailablePhoneNumbers",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html",
-      "description": "Grants permission to search phone number resources in an Amazon Connect instance",
+      "description": "Grants permission to search phone number resources in an Amazon Connect instance or traffic distribution group",
       "accessLevel": "List",
       "resourceTypes": [
         "wildcard-phone-number*"
@@ -1802,6 +1894,7 @@
         "routing-profile",
         "security-profile",
         "task-template",
+        "traffic-distribution-group",
         "use-case",
         "user",
         "vocabulary",
@@ -1847,6 +1940,7 @@
         "routing-profile",
         "security-profile",
         "task-template",
+        "traffic-distribution-group",
         "use-case",
         "user",
         "vocabulary",
@@ -2042,11 +2136,12 @@
     {
       "name": "UpdatePhoneNumber",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html",
-      "description": "Grants permission to update phone number resources in an Amazon Connect instance",
+      "description": "Grants permission to update phone number resources in an Amazon Connect instance or traffic distribution group",
       "accessLevel": "Write",
       "resourceTypes": [
         "instance*",
-        "phone-number*"
+        "phone-number*",
+        "traffic-distribution-group*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
@@ -2239,6 +2334,19 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTrafficDistribution",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateTrafficDistribution.html",
+      "description": "Grants permission to update traffic distribution for a traffic distribution group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "traffic-distribution-group*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },

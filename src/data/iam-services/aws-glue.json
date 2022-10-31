@@ -91,7 +91,7 @@
     },
     {
       "name": "BatchGetCustomEntityTypes",
-      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-sensitive-data-api.html#aws-glue-sensitive-data-api-BatchGetCustomEntityTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-sensitive-data-api.html#aws-glue-api-sensitive-data-api-BatchGetCustomEntityTypes",
       "description": "Grants permission to retrieve one or more Custom Entity Types",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -192,7 +192,7 @@
     },
     {
       "name": "CancelStatement",
-      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-CancelStatement",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-interactive-sessions.html#aws-glue-interactive-sessions-CancelStatement",
       "description": "Grants permission to cancel a statement in an interactive session",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -259,7 +259,7 @@
     },
     {
       "name": "CreateCustomEntityType",
-      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-sensitive-data-api.html#aws-glue-sensitive-data-api-CreateCustomEntityType",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-sensitive-data-api.html#aws-glue-api-sensitive-data-api-CreateCustomEntityType",
       "description": "Grants permission to create a Custom Entity Type",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -272,7 +272,8 @@
       "description": "Grants permission to create a database",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*"
+        "catalog*",
+        "database*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -391,7 +392,7 @@
     },
     {
       "name": "CreateSession",
-      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-api-session-CreateSession",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-interactive-sessions.html#aws-glue-api-interactive-sessions-CreateSession",
       "description": "Grants permission to create an interactive session",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -520,7 +521,7 @@
     },
     {
       "name": "DeleteCustomEntityType",
-      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-sensitive-data-api.html#aws-glue-sensitive-data-api-DeleteCustomEntityType",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-sensitive-data-api.html#aws-glue-api-sensitive-data-api-DeleteCustomEntityType",
       "description": "Grants permission to delete a Custom Entity Type",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -657,7 +658,7 @@
     },
     {
       "name": "DeleteSession",
-      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-DeleteSession",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-interactive-sessions.html#aws-glue-interactive-sessions-DeleteSession",
       "description": "Grants permission to delete an interactive session after stopping the session if not already stopped",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -870,7 +871,7 @@
     },
     {
       "name": "GetCustomEntityType",
-      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-sensitive-data-api.html#aws-glue-sensitive-data-api-GetCustomEntityType",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-sensitive-data-api.html#aws-glue-api-sensitive-data-api-GetCustomEntityType",
       "description": "Grants permission to read a Custom Entity Type",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -1194,7 +1195,7 @@
     },
     {
       "name": "GetSession",
-      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-GetSession",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-interactive-sessions.html#aws-glue-interactive-sessions-GetSession",
       "description": "Grants permission to retrieve an interactive session",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -1205,7 +1206,7 @@
     },
     {
       "name": "GetStatement",
-      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-GetStatement",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-interactive-sessions.html#aws-glue-interactive-sessions-GetStatement",
       "description": "Grants permission to retrieve result and information about a statement in an interactive session",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -1408,8 +1409,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListCrawls",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-ListCrawls",
+      "description": "Grants permission to retrieve crawl run history for a crawler",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListCustomEntityTypes",
-      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-sensitive-data-api.html#aws-glue-sensitive-data-api-ListGetCustomEntityTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-sensitive-data-api.html#aws-glue-api-sensitive-data-api-ListGetCustomEntityTypes",
       "description": "Grants permission to retrieve all Custom Entity Types",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -1491,7 +1501,7 @@
     },
     {
       "name": "ListSessions",
-      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-ListSessions",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-interactive-sessions.html#aws-glue-interactive-sessions-ListSessions",
       "description": "Grants permission to retrieve a list of interactive session",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -1500,7 +1510,7 @@
     },
     {
       "name": "ListStatements",
-      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-ListStatements",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-interactive-sessions.html#aws-glue-interactive-sessions-ListStatements",
       "description": "Grants permission to retrieve a list of statements in an interactive session",
       "accessLevel": "List",
       "resourceTypes": [
@@ -1644,7 +1654,7 @@
     },
     {
       "name": "RunStatement",
-      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-RunStatement",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-interactive-sessions.html#aws-glue-interactive-sessions-RunStatement",
       "description": "Grants permission to run a code or statement in an interactive session",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -1796,7 +1806,7 @@
     },
     {
       "name": "StopSession",
-      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-session.html#aws-glue-session-StopSession",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-interactive-sessions.html#aws-glue-interactive-sessions-StopSession",
       "description": "Grants permission to stop an interactive session",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -1834,9 +1844,14 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "blueprint",
+        "connection",
         "crawler",
         "devendpoint",
         "job",
+        "mlTransform",
+        "registry",
+        "schema",
+        "session",
         "trigger",
         "workflow"
       ],
@@ -1853,9 +1868,14 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "blueprint",
+        "connection",
         "crawler",
         "devendpoint",
         "job",
+        "mlTransform",
+        "registry",
+        "schema",
+        "session",
         "trigger",
         "workflow"
       ],
@@ -2073,6 +2093,15 @@
       "resourceTypes": [
         "workflow*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UseGlueStudio",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/ug/setting-up.html#getting-started-min-privs",
+      "description": "Grants permission to use Glue Studio and access its internal APIs",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
