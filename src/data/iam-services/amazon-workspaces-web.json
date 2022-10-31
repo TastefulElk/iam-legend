@@ -47,6 +47,21 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateUserAccessLoggingSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_AssociateUserAccessLoggingSettings.html",
+      "description": "Grants permission to associate user access logging settings with web portals",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "portal*",
+        "userAccessLoggingSettings*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "kinesis:PutRecord",
+        "kinesis:PutRecords"
+      ]
+    },
+    {
       "name": "AssociateUserSettings",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_AssociateUserSettings.html",
       "description": "Grants permission to associate user settings with web portals",
@@ -131,6 +146,18 @@
       "dependentActions": []
     },
     {
+      "name": "CreateUserAccessLoggingSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateUserAccessLoggingSettings.html",
+      "description": "Grants permission to create user access logging settings",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateUserSettings",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateUserSettings.html",
       "description": "Grants permission to create user settings",
@@ -196,6 +223,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteUserAccessLoggingSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeleteUserAccessLoggingSettings.html",
+      "description": "Grants permission to delete user access logging settings",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "userAccessLoggingSettings*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteUserSettings",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeleteUserSettings.html",
       "description": "Grants permission to delete user settings",
@@ -232,6 +270,17 @@
       "name": "DisassociateTrustStore",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DisassociateTrustStore.html",
       "description": "Grants permission to disassociate trust stores from web portals",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "portal*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateUserAccessLoggingSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DisassociateUserAccessLoggingSettings.html",
+      "description": "Grants permission to disassociate user access logging settings from web portals",
       "accessLevel": "Write",
       "resourceTypes": [
         "portal*"
@@ -326,6 +375,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetUserAccessLoggingSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetUserAccessLoggingSettings.html",
+      "description": "Grants permission to get details on user access logging settings",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "userAccessLoggingSettings*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetUserSettings",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetUserSettings.html",
       "description": "Grants permission to get details on user settings",
@@ -400,6 +460,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListUserAccessLoggingSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListUserAccessLoggingSettings.html",
+      "description": "Grants permission to list user access logging settings",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListUserSettings",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListUserSettings.html",
       "description": "Grants permission to list user settings",
@@ -413,7 +482,14 @@
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_TagResource.html",
       "description": "Grants permission to add one or more tags to a resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "browserSettings",
+        "networkSettings",
+        "portal",
+        "trustStore",
+        "userAccessLoggingSettings",
+        "userSettings"
+      ],
       "conditionKeys": [
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
@@ -425,7 +501,14 @@
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UntagResource.html",
       "description": "Grants permission to remove one or more tags from a resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "browserSettings",
+        "networkSettings",
+        "portal",
+        "trustStore",
+        "userAccessLoggingSettings",
+        "userSettings"
+      ],
       "conditionKeys": [
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
@@ -491,6 +574,20 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "UpdateUserAccessLoggingSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UpdateUserAccessLoggingSettings.html",
+      "description": "Grants permission to update user access logging settings",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "userAccessLoggingSettings*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "kinesis:PutRecord",
+        "kinesis:PutRecords"
+      ]
     },
     {
       "name": "UpdateUserSettings",

@@ -215,7 +215,7 @@
     },
     {
       "name": "ImportGameConfiguration",
-      "documentationUrl": "https://docs.aws.amazon.com/gamesparks/latest/api/svc/API_ImportGameDocument.html",
+      "documentationUrl": "https://docs.aws.amazon.com/gamesparks/latest/api/svc/API_ImportGameConfiguration.html",
       "description": "Grants permission to import a snapshot of a game configuration",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -383,7 +383,10 @@
         "game",
         "stage"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

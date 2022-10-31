@@ -4,8 +4,41 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awscloudwatchrum.html",
   "actions": [
     {
+      "name": "BatchCreateRumMetricDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchCreateRumMetricDefinitions.html",
+      "description": "Grants permission to create rum metric definitions",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AppMonitorResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchDeleteRumMetricDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchDeleteRumMetricDefinitions.html",
+      "description": "Grants permission to remove rum metric definitions",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AppMonitorResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchGetRumMetricDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_BatchGetRumMetricDefinitions.html",
+      "description": "Grants permission to get rum metric definitions",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "AppMonitorResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateAppMonitor",
-      "documentationUrl": "https://docs.aws.amazon.com/rum/latest/APIReference/API_CreateAppMonitor.html",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_CreateAppMonitor.html",
       "description": "Grants permission to create appMonitor metadata",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -22,7 +55,7 @@
     },
     {
       "name": "DeleteAppMonitor",
-      "documentationUrl": "https://docs.aws.amazon.com/rum/latest/APIReference/API_DeleteAppMonitor.html",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_DeleteAppMonitor.html",
       "description": "Grants permission to delete appMonitor metadata",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -32,8 +65,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteRumMetricsDestination",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_DeleteRumMetricsDestination.html",
+      "description": "Grants permission to delete rum metrics destinations",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AppMonitorResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetAppMonitor",
-      "documentationUrl": "https://docs.aws.amazon.com/rum/latest/APIReference/API_GetAppMonitor.html",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_GetAppMonitor.html",
       "description": "Grants permission to get appMonitor metadata",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -44,7 +88,7 @@
     },
     {
       "name": "GetAppMonitorData",
-      "documentationUrl": "https://docs.aws.amazon.com/rum/latest/APIReference/API_GetAppMonitorData.html",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_GetAppMonitorData.html",
       "description": "Grants permission to get appMonitor data",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -55,7 +99,7 @@
     },
     {
       "name": "ListAppMonitors",
-      "documentationUrl": "https://docs.aws.amazon.com/rum/latest/APIReference/API_ListAppMonitors.html",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListAppMonitors.html",
       "description": "Grants permission to list appMonitors metadata",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -63,8 +107,19 @@
       "dependentActions": []
     },
     {
+      "name": "ListRumMetricsDestinations",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListRumMetricsDestinations.html",
+      "description": "Grants permission to list rum metrics destinations",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "AppMonitorResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
-      "documentationUrl": "https://docs.aws.amazon.com/rum/latest/APIReference/API_ListTagsForResource.html",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to list tags for resources",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -73,7 +128,7 @@
     },
     {
       "name": "PutRumEvents",
-      "documentationUrl": "https://docs.aws.amazon.com/rum/latest/APIReference/API_PutRumEvents.html",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumEvents.html",
       "description": "Grants permission to put RUM events for appmonitor",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -83,11 +138,24 @@
       "dependentActions": []
     },
     {
+      "name": "PutRumMetricsDestination",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_PutRumMetricsDestination.html",
+      "description": "Grants permission to put rum metrics destinations",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AppMonitorResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/rum/latest/APIReference/API_TagResource.html",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_TagResource.html",
       "description": "Grants permission to tag resources",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "AppMonitorResource*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -96,10 +164,12 @@
     },
     {
       "name": "UntagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/rum/latest/APIReference/API_UntagResource.html",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_UntagResource.html",
       "description": "Grants permission to untag resources",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "AppMonitorResource*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -108,7 +178,7 @@
     },
     {
       "name": "UpdateAppMonitor",
-      "documentationUrl": "https://docs.aws.amazon.com/rum/latest/APIReference/API_UpdateAppMonitor.html",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_UpdateAppMonitor.html",
       "description": "Grants permission to update appmonitor metadata",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -119,6 +189,17 @@
         "iam:CreateServiceLinkedRole",
         "iam:GetRole"
       ]
+    },
+    {
+      "name": "UpdateRumMetricDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_UpdateRumMetricDefinition.html",
+      "description": "Grants permission to update rum metric definition",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AppMonitorResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     }
   ]
 }

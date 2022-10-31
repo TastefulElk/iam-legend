@@ -249,7 +249,7 @@
       "description": "Grants permission to list tags of an MSK resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "cluster"
+        "cluster*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -269,7 +269,7 @@
       "description": "Grants permission to tag an MSK resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "cluster"
+        "cluster*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -283,7 +283,7 @@
       "description": "Grants permission to remove tags from an MSK resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "cluster"
+        "cluster*"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -375,6 +375,15 @@
       "dependentActions": [
         "kms:RetireGrant"
       ]
+    },
+    {
+      "name": "UpdateStorage",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-storage.html#UpdateStorage",
+      "description": "Grants permission to update the EBS storage (size or provisioned throughput) associated with MSK brokers or set cluster storage mode to TIERED",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
     }
   ]
 }
