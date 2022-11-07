@@ -93,6 +93,23 @@
       "dependentActions": []
     },
     {
+      "name": "CreateVpcIngressConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_CreateVpcIngressConnection.html",
+      "description": "Grants permission to create an AWS App Runner VpcIngressConnection resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vpcingressconnection*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "apprunner:ServiceArn",
+        "apprunner:VpcId",
+        "apprunner:VpcEndpointId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteAutoScalingConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteAutoScalingConfiguration.html",
       "description": "Grants permission to delete an AWS App Runner automatic scaling configuration resource",
@@ -143,6 +160,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "vpcconnector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteVpcIngressConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteVpcIngressConnection.html",
+      "description": "Grants permission to delete an AWS App Runner VpcIngressConnection resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vpcingressconnection*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -209,6 +237,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "vpcconnector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeVpcIngressConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeVpcIngressConnection.html",
+      "description": "Grants permission to retrieve the description of an AWS App Runner VpcIngressConnection resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "vpcingressconnection*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -296,6 +335,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListVpcIngressConnections",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_ListVpcConnections.html",
+      "description": "Grants permission to retrieve a list of AWS App Runner VpcIngressConnections in your AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "PauseService",
       "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_PauseService.html",
       "description": "Grants permission to pause an active AWS App Runner service",
@@ -338,7 +386,8 @@
         "connection",
         "observabilityconfiguration",
         "service",
-        "vpcconnector"
+        "vpcconnector",
+        "vpcingressconnection"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -356,7 +405,8 @@
         "connection",
         "observabilityconfiguration",
         "service",
-        "vpcconnector"
+        "vpcconnector",
+        "vpcingressconnection"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -380,6 +430,20 @@
         "apprunner:AutoScalingConfigurationArn",
         "apprunner:ObservabilityConfigurationArn",
         "apprunner:VpcConnectorArn"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateVpcIngressConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/apprunner/latest/api/API_UpdateVpcIngressConnection.html",
+      "description": "Grants permission to update an AWS App Runner VpcIngressConnection resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vpcingressconnection*"
+      ],
+      "conditionKeys": [
+        "apprunner:VpcId",
+        "apprunner:VpcEndpointId"
       ],
       "dependentActions": []
     }
