@@ -4,6 +4,21 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonsimpleemailservicev2.html",
   "actions": [
     {
+      "name": "BatchGetMetricData",
+      "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_BatchGetMetricData.html",
+      "description": "Grants permission to get metric data on your activity",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "configuration-set",
+        "identity"
+      ],
+      "conditionKeys": [
+        "ses:ApiVersion",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateConfigurationSet",
       "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_CreateConfigurationSet.html",
       "description": "Grants permission to create a new configuration set",
@@ -649,6 +664,20 @@
       "dependentActions": []
     },
     {
+      "name": "ListRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_ListRecommendations.html",
+      "description": "Grants permission to list recommendations for your account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "identity"
+      ],
+      "conditionKeys": [
+        "ses:ApiVersion",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListSuppressedDestinations",
       "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_ListSuppressedDestinations.html",
       "description": "Grants permission to list email addresses that are on the suppression list for your account",
@@ -721,6 +750,17 @@
       "dependentActions": []
     },
     {
+      "name": "PutAccountVdmAttributes",
+      "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_PutAccountVdmAttributes.html",
+      "description": "Grants permission to change the settings for VDM for your account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ses:ApiVersion"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "PutConfigurationSetDeliveryOptions",
       "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_PutConfigurationSetDeliveryOptions.html",
       "description": "Grants permission to associate a configuration set with a dedicated IP pool",
@@ -780,6 +820,20 @@
       "name": "PutConfigurationSetTrackingOptions",
       "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_PutConfigurationSetTrackingOptions.html",
       "description": "Grants permission to specify a custom domain to use for open and click tracking elements in email that you send for a particular configuration set",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configuration-set*"
+      ],
+      "conditionKeys": [
+        "ses:ApiVersion",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutConfigurationSetVdmOptions",
+      "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_PutConfigurationSetVdmOptions.html",
+      "description": "Grants permission to override account-level VDM settings for a particular configuration set",
       "accessLevel": "Write",
       "resourceTypes": [
         "configuration-set*"

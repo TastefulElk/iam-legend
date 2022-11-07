@@ -1,0 +1,266 @@
+{
+  "serviceName": "AWS Private Certificate Authority",
+  "servicePrefix": "acm-pca",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsprivatecertificateauthority.html",
+  "actions": [
+    {
+      "name": "CreateCertificateAuthority",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthority.html",
+      "description": "Grants permission to create an AWS Private CA and its associated private key and configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCertificateAuthorityAuditReport",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html",
+      "description": "Grants permission to create an audit report for an AWS Private CA",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreatePermission",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_CreatePermission.html",
+      "description": "Grants permission to create a permission for an AWS Private CA",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCertificateAuthority",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeleteCertificateAuthority.html",
+      "description": "Grants permission to delete an AWS Private CA and its associated private key and configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePermission",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePermission.html",
+      "description": "Grants permission to delete a permission for an AWS Private CA",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePolicy.html",
+      "description": "Grants permission to delete the policy for an AWS Private CA",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCertificateAuthority",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_DescribeCertificateAuthority.html",
+      "description": "Grants permission to return a list of the configuration and status fields contained in the specified AWS Private CA",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCertificateAuthorityAuditReport",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_DescribeCertificateAuthorityAuditReport.html",
+      "description": "Grants permission to return the status and information about an AWS Private CA audit report",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html",
+      "description": "Grants permission to retrieve an AWS Private CA certificate and certificate chain for the certificate authority specified by an ARN",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCertificateAuthorityCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCertificate.html",
+      "description": "Grants permission to retrieve an AWS Private CA certificate and certificate chain for the certificate authority specified by an ARN",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCertificateAuthorityCsr",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificateAuthorityCsr.html",
+      "description": "Grants permission to retrieve an AWS Private CA certificate signing request (CSR) for the certificate-authority specified by an ARN",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetPolicy.html",
+      "description": "Grants permission to retrieve the policy on an AWS Private CA",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ImportCertificateAuthorityCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html",
+      "description": "Grants permission to import an SSL/TLS certificate into AWS Private CA for use as the CA certificate of an AWS Private CA",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "IssueCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html",
+      "description": "Grants permission to issue an AWS Private CA certificate",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [
+        "acm-pca:TemplateArn"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCertificateAuthorities",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html",
+      "description": "Grants permission to retrieve a list of the AWS Private CA certificate authority ARNs, and a summary of the status of each CA in the calling account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPermissions",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListPermissions.html",
+      "description": "Grants permission to list the permissions that have been applied to the AWS Private CA certificate authority",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTags",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListTags.html",
+      "description": "Grants permission to list the tags that have been applied to the AWS Private CA certificate authority",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_PutPolicy.html",
+      "description": "Grants permission to put a policy on an AWS Private CA",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RestoreCertificateAuthority",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_RestoreCertificateAuthority.html",
+      "description": "Grants permission to restore an AWS Private CA from the deleted state to the state it was in when deleted",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RevokeCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html",
+      "description": "Grants permission to revoke a certificate issued by an AWS Private CA",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagCertificateAuthority",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_TagCertificateAuthority.html",
+      "description": "Grants permission to add one or more tags to an AWS Private CA",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagCertificateAuthority",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_UntagCertificateAuthority.html",
+      "description": "Grants permission to remove one or more tags from an AWS Private CA",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCertificateAuthority",
+      "documentationUrl": "https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html",
+      "description": "Grants permission to update the configuration of an AWS Private CA",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "certificate-authority*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}
