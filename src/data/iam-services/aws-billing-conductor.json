@@ -193,6 +193,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListCustomLineItemVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_ListCustomLineItemVersions.html",
+      "description": "Grants permission to view custom line item versions",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "customlineitem*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListCustomLineItems",
       "documentationUrl": "https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_ListCustomLineItems.html",
       "description": "Grants permission to view custom line item details",
@@ -259,7 +270,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to list tags of a resource",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "billinggroup",
+        "customlineitem",
+        "pricingplan",
+        "pricingrule"
+      ],
       "conditionKeys": [
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
@@ -271,7 +287,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_TagResource.html",
       "description": "Grants permission to tag a resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "billinggroup",
+        "customlineitem",
+        "pricingplan",
+        "pricingrule"
+      ],
       "conditionKeys": [
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
@@ -283,7 +304,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_UntagResource.html",
       "description": "Grants permission to untag a resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "billinggroup",
+        "customlineitem",
+        "pricingplan",
+        "pricingrule"
+      ],
       "conditionKeys": [
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"

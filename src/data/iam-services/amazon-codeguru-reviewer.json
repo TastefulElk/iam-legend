@@ -8,18 +8,16 @@
       "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_AssociateRepository.html",
       "description": "Grants permission to associates a repository with Amazon CodeGuru Reviewer",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "association*",
-        "connection",
-        "repository"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": [
+        "codecommit:GetRepository",
         "codecommit:ListRepositories",
         "codecommit:TagResource",
+        "codestar-connections:PassConnection",
         "events:PutRule",
         "events:PutTargets",
         "iam:CreateServiceLinkedRole",
@@ -46,6 +44,7 @@
     },
     {
       "name": "CreateConnectionToken",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/Welcome.html",
       "description": "Grants permission to perform webbased oauth handshake for 3rd party providers",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -110,6 +109,7 @@
     },
     {
       "name": "GetMetricsData",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/Welcome.html",
       "description": "Grants permission to view pull request metrics in console",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -175,6 +175,7 @@
     },
     {
       "name": "ListThirdPartyRepositories",
+      "documentationUrl": "https://docs.aws.amazon.com/codeguru/latest/reviewer-api/Welcome.html",
       "description": "Grants permission to list 3rd party providers repositories in console",
       "accessLevel": "Read",
       "resourceTypes": [],
