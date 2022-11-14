@@ -15,6 +15,18 @@
       "dependentActions": []
     },
     {
+      "name": "CreateJobTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_CreateJobTemplate.html",
+      "description": "Grants permission to create a job template",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateManagedEndpoint",
       "documentationUrl": "https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.html",
       "description": "Grants permission to create a managed endpoint",
@@ -39,6 +51,17 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteJobTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_DeleteJobTemplate.html",
+      "description": "Grants permission to delete a job template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "jobTemplate*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -70,6 +93,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "jobRun*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeJobTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_DescribeJobTemplate.html",
+      "description": "Grants permission to describe a job template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "jobTemplate*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -108,6 +142,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListJobTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_ListJobTemplates.html",
+      "description": "Grants permission to list job templates",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListManagedEndpoints",
       "documentationUrl": "https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_ListManagedEndpoints.html",
       "description": "Grants permission to list managed endpoints associated with a virtual cluster",
@@ -125,6 +168,7 @@
       "accessLevel": "List",
       "resourceTypes": [
         "jobRun",
+        "jobTemplate",
         "managedEndpoint",
         "virtualCluster"
       ],
@@ -151,7 +195,8 @@
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
-        "emr-containers:ExecutionRoleArn"
+        "emr-containers:ExecutionRoleArn",
+        "emr-containers:JobTemplateArn"
       ],
       "dependentActions": []
     },
@@ -162,6 +207,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "jobRun",
+        "jobTemplate",
         "managedEndpoint",
         "virtualCluster"
       ],
@@ -178,6 +224,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "jobRun",
+        "jobTemplate",
         "managedEndpoint",
         "virtualCluster"
       ],

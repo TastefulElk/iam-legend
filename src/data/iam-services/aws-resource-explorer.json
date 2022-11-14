@@ -1,0 +1,215 @@
+{
+  "serviceName": "AWS Resource Explorer",
+  "servicePrefix": "resource-explorer-2",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsresourceexplorer.html",
+  "actions": [
+    {
+      "name": "AssociateDefaultView",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_AssociateDefaultView.html",
+      "description": "Grants permission to set the specified view as the default for this AWS Region in this AWS account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "view*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchGetView",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_BatchGetView.html",
+      "description": "Grants permission to retrieve details about views that you specify by a list of ARNs",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "resource-explorer-2:GetView"
+      ]
+    },
+    {
+      "name": "CreateIndex",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_CreateIndex.html",
+      "description": "Grants permission to turn on Resource Explorer in the AWS Region in which you called this operation by creating an index",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateView",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_CreateView.html",
+      "description": "Grants permission to create a view that users can query",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteIndex",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_DeleteIndex.html",
+      "description": "Grants permission to turn off Resource Explorer in the specified AWS Region by deleting the index",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteView",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_DeleteView.html",
+      "description": "Grants permission to delete a view",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "view*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateDefaultView",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_DisassociateDefaultView.html",
+      "description": "Grants permission to remove the default view for the AWS Region in which you call this operation",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDefaultView",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_GetDefaultView.html",
+      "description": "Grants permission to retrieve the Amazon resource name (ARN) of the view that is the default for the AWS Region in which you call this operation",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetIndex",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_GetIndex.html",
+      "description": "Grants permission to retrieve information about the index in the AWS Region in which you call this operation",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetView",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_GetView.html",
+      "description": "Grants permission to retrieve information about the specified view",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "view*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListIndexes",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_ListIndexes.html",
+      "description": "Grants permission to list the indexes in all AWS Regions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSupportedResourceTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_ListSupportedResourceTypes.html",
+      "description": "Grants permission to retrieve a list of all resource types currently supported by Resource Explorer",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_ListTagsForResource.html",
+      "description": "Grants permission to list the tags that are attached to the specified resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "index",
+        "view"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListViews",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_ListViews.html",
+      "description": "Grants permission to list the Amazon resource names (ARNs) of all of the views available in the AWS Region in which you call this operation",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "Search",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html",
+      "description": "Grants permission to search for resources and display details about all resources that match the specified criteria",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "view*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_TagResource.html",
+      "description": "Grants permission to add one or more tag key and value pairs to the specified resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "index",
+        "view"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_UntagResource.html",
+      "description": "Grants permission to remove one or more tag key and value pairs from the specified resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "index",
+        "view"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateIndexType",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_UpdateIndexType.html",
+      "description": "Grants permission to change the type of the index from LOCAL to AGGREGATOR or back",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateView",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_UpdateView.html",
+      "description": "Grants permission to modify some of the details of a view",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "view*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}
