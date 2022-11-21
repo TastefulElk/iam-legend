@@ -73,6 +73,18 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags on an existing entity or a change set",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ChangeSet",
+        "Entity"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTasks",
       "documentationUrl": "https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/",
       "description": "Grants permission to list existing tasks",
@@ -84,13 +96,44 @@
     {
       "name": "StartChangeSet",
       "documentationUrl": "https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_StartChangeSet.html",
-      "description": "Grants permission to request a new change set. (Note: resource-level permissions for this action and condition context keys for this action are only supported when used with Catalog API and are not supported when used with AWS Marketplace Management Portal)",
+      "description": "Grants permission to request a new change set (Note: resource-level permissions for this action and condition context keys for this action are only supported when used with Catalog API and are not supported when used with AWS Marketplace Management Portal)",
       "accessLevel": "Write",
       "resourceTypes": [
         "Entity*"
       ],
       "conditionKeys": [
-        "catalog:ChangeType"
+        "catalog:ChangeType",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_TagResource.html",
+      "description": "Grants permission to tag an existing entity or a change set",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "ChangeSet",
+        "Entity"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_UntagResource.html",
+      "description": "Grants permission to untag an existing entity or a change set",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "ChangeSet",
+        "Entity"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },

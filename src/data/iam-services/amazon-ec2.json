@@ -4,6 +4,26 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonec2.html",
   "actions": [
     {
+      "name": "AcceptAddressTransfer",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AcceptAddressTransfer.html",
+      "description": "Grants permission to accept an Elastic IP address transfer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "elastic-ip*"
+      ],
+      "conditionKeys": [
+        "ec2:AllocationId",
+        "ec2:Domain",
+        "ec2:PublicIpAddress",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
+    },
+    {
       "name": "AcceptReservedInstancesExchangeQuote",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AcceptReservedInstancesExchangeQuote.html",
       "description": "Grants permission to accept a Convertible Reserved Instance exchange quote",
@@ -832,6 +852,26 @@
       "dependentActions": []
     },
     {
+      "name": "CancelImageLaunchPermission",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelImageLaunchPermission.html",
+      "description": "Grants permission to remove your AWS account from the launch permissions for the specified AMI",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "image*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ImageID",
+        "ec2:ImageType",
+        "ec2:Owner",
+        "ec2:Public",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:RootDeviceType",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CancelImportTask",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelImportTask.html",
       "description": "Grants permission to cancel an in-process import virtual machine or import snapshot task",
@@ -1099,8 +1139,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/outposts/latest/userguide/identity-access-management.html",
       "description": "Grants permission to allow a service to access a customer-owned IP (CoIP) pool",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "coip-pool*"
+      ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -1902,6 +1946,7 @@
         "instance*",
         "replace-root-volume-task*",
         "volume*",
+        "image",
         "snapshot"
       ],
       "conditionKeys": [
@@ -1923,6 +1968,13 @@
         "ec2:RootDeviceType",
         "ec2:Tenancy",
         "ec2:VolumeID",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ImageID",
+        "ec2:ImageType",
+        "ec2:Owner",
+        "ec2:Public",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:RootDeviceType",
         "aws:ResourceTag/${TagKey}",
         "ec2:Owner",
         "ec2:ParentVolume",
@@ -2797,23 +2849,23 @@
       "description": "Grants permission to attach a VPC to a transit gateway",
       "accessLevel": "Write",
       "resourceTypes": [
+        "subnet*",
         "transit-gateway*",
         "transit-gateway-attachment*",
-        "vpc*",
-        "subnet"
+        "vpc*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:SubnetID",
+        "ec2:Vpc",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
         "ec2:VpcID",
-        "aws:ResourceTag/${TagKey}",
-        "ec2:AvailabilityZone",
-        "ec2:ResourceTag/${TagKey}",
-        "ec2:SubnetID",
-        "ec2:Vpc",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "ec2:Region"
@@ -3146,8 +3198,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/outposts/latest/userguide/identity-access-management.html",
       "description": "Grants permission to deny a service from accessing a customer-owned IP (CoIP) pool",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "coip-pool*"
+      ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -3656,10 +3712,15 @@
       "description": "Grants permission to remove an IAM policy that enables cross-account sharing from a resource",
       "accessLevel": "Write",
       "resourceTypes": [
-        "ipam-pool"
+        "ipam-pool",
+        "placement-group"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:PlacementGroupName",
+        "ec2:PlacementGroupStrategy",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
@@ -4514,6 +4575,17 @@
       "name": "DescribeAccountAttributes",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAccountAttributes.html",
       "description": "Grants permission to describe the attributes of the AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAddressTransfers",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddressTransfers.html",
+      "description": "Grants permission to describe an Elastic IP address transfer",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
@@ -6305,6 +6377,24 @@
       "dependentActions": []
     },
     {
+      "name": "DisableAddressTransfer",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableAddressTransfer.html",
+      "description": "Grants permission to disable Elastic IP address transfer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "elastic-ip"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AllocationId",
+        "ec2:Domain",
+        "ec2:PublicIpAddress",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DisableEbsEncryptionByDefault",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableEbsEncryptionByDefault.html",
       "description": "Grants permission to disable EBS encryption by default for your account",
@@ -6587,12 +6677,17 @@
       "description": "Grants permission to disassociate a subnet from a route table",
       "accessLevel": "Write",
       "resourceTypes": [
+        "internet-gateway",
         "ipv4pool-ec2",
         "ipv6pool-ec2",
         "route-table",
-        "subnet"
+        "subnet",
+        "vpn-gateway"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:InternetGatewayID",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -6606,6 +6701,8 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:SubnetID",
         "ec2:Vpc",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -6712,6 +6809,24 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
         "ec2:VpcID",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "EnableAddressTransfer",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableAddressTransfer.html",
+      "description": "Grants permission to enable Elastic IP address transfer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "elastic-ip"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AllocationId",
+        "ec2:Domain",
+        "ec2:PublicIpAddress",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -7419,10 +7534,15 @@
       "description": "Grants permission to describe an IAM policy that enables cross-account sharing",
       "accessLevel": "Read",
       "resourceTypes": [
-        "ipam-pool"
+        "ipam-pool",
+        "placement-group"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:PlacementGroupName",
+        "ec2:PlacementGroupStrategy",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
@@ -9217,10 +9337,15 @@
       "description": "Grants permission to attach an IAM policy that enables cross-account sharing to a resource",
       "accessLevel": "Write",
       "resourceTypes": [
-        "ipam-pool"
+        "ipam-pool",
+        "placement-group"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:PlacementGroupName",
+        "ec2:PlacementGroupStrategy",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
