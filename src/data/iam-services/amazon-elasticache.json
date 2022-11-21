@@ -91,6 +91,20 @@
       "dependentActions": []
     },
     {
+      "name": "Connect",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth-iam.html",
+      "description": "Allows an IAM user or role to connect as a specified EliastCache user to a node in a replication group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "replicationgroup*",
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CopySnapshot",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CopySnapshot.html",
       "description": "Grants permission to make a copy of an existing snapshot",
@@ -303,7 +317,7 @@
     {
       "name": "CreateUser",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateUser.html",
-      "description": "Grants permission to create a Redis user for Redis engine version 6.x and onwards",
+      "description": "Grants permission to create a user for Redis. Users are supported from Redis 6.0 onwards.",
       "accessLevel": "Write",
       "resourceTypes": [
         "user*"
@@ -311,7 +325,8 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "elasticache:UserAuthenticationMode"
       ],
       "dependentActions": [
         "elasticache:AddTagsToResource"
@@ -320,7 +335,7 @@
     {
       "name": "CreateUserGroup",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateUserGroup.html",
-      "description": "Grants permission to create a Redis user group for Redis engine version 6.x and onwards",
+      "description": "Grants permission to create a user group for Redis. Groups are supported from Redis 6.0 onwards.",
       "accessLevel": "Write",
       "resourceTypes": [
         "user*",
@@ -915,7 +930,8 @@
         "user*"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}"
+        "aws:ResourceTag/${TagKey}",
+        "elasticache:UserAuthenticationMode"
       ],
       "dependentActions": []
     },

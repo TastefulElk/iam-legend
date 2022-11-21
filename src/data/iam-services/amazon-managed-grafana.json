@@ -27,6 +27,9 @@
         "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": [
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "iam:CreateServiceLinkedRole",
         "organizations:DescribeOrganization",
         "sso:CreateManagedApplicationInstance",
         "sso:DescribeRegisteredRegions",
@@ -138,7 +141,7 @@
       "description": "Grants permission to add tags to, or update tag values of, a workspace",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "workspace"
+        "workspace*"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -152,7 +155,7 @@
       "description": "Grants permission to remove tags from a workspace",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "workspace"
+        "workspace*"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -180,7 +183,11 @@
         "workspace*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "iam:CreateServiceLinkedRole"
+      ]
     },
     {
       "name": "UpdateWorkspaceAuthentication",

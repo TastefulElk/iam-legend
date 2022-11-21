@@ -18,6 +18,20 @@
       "dependentActions": []
     },
     {
+      "name": "CreateLoggingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/ChatAPIReference/API_CreateLoggingConfiguration.html",
+      "description": "Grants permission to create a logging configuration that allows clients to record room messages",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Logging-Configuration*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateRoom",
       "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/ChatAPIReference/API_CreateRoom.html",
       "description": "Grants permission to create a room that allows clients to connect and pass messages",
@@ -29,6 +43,17 @@
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteLoggingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/ChatAPIReference/API_DeleteLoggingConfiguration.html",
+      "description": "Grants permission to delete the logging configuration for a specified logging configuration ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Logging-Configuration*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -65,12 +90,34 @@
       "dependentActions": []
     },
     {
+      "name": "GetLoggingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/ChatAPIReference/API_GetLoggingConfiguration.html",
+      "description": "Grants permission to get the logging configuration for a specified logging configuration ARN",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Logging-Configuration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetRoom",
       "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/ChatAPIReference/API_GetRoom.html",
       "description": "Grants permission to get the room configuration for a specified room ARN",
       "accessLevel": "Read",
       "resourceTypes": [
         "Room*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLoggingConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/ChatAPIReference/API_ListLoggingConfigurations.html",
+      "description": "Grants permission to get summary information about logging configurations",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Logging-Configuration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -136,6 +183,17 @@
       "conditionKeys": [
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateLoggingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/ChatAPIReference/API_UpdateLoggingConfiguration.html",
+      "description": "Grants permission to update the logging configuration for a specified logging configuration ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Logging-Configuration*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
