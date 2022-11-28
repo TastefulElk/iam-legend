@@ -1648,6 +1648,23 @@
       "dependentActions": []
     },
     {
+      "name": "MonitorContact",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_MonitorContact.html",
+      "description": "Grants permission to monitor an ongoing contact",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact*",
+        "instance*",
+        "user*"
+      ],
+      "conditionKeys": [
+        "connect:MonitorCapabilities",
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "PutUserStatus",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_PutUserStatus.html",
       "description": "Grants permission to switch User Status in an Amazon Connect instance",
