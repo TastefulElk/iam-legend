@@ -328,6 +328,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteAccountSubscription",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteAccountSubscription.html",
+      "description": "Grants permission to delete a QuickSight account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "account*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteAnalysis",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteAnalysis.html",
       "description": "Grants permission to delete an analysis",
@@ -878,11 +889,12 @@
     {
       "name": "GenerateEmbedUrlForAnonymousUser",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForAnonymousUser.html",
-      "description": "Grants permission to generate a URL used to embed a QuickSight Dashboard for a user not registered with QuickSight",
+      "description": "Grants permission to generate a URL used to embed a QuickSight Dashboard or Q Topic for a user not registered with QuickSight",
       "accessLevel": "Write",
       "resourceTypes": [
-        "dashboard*",
-        "namespace*"
+        "namespace*",
+        "dashboard",
+        "topic"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -1289,6 +1301,28 @@
       "accessLevel": "List",
       "resourceTypes": [
         "dashboard*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SearchDataSets",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_SearchDataSets.html",
+      "description": "Grants permission to search for a sub-set of QuickSight DatSets",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "dataset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SearchDataSources",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_SearchDataSources.html",
+      "description": "Grants permission to search for a sub-set of QuickSight Data Sources",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "datasource*"
       ],
       "conditionKeys": [],
       "dependentActions": []
