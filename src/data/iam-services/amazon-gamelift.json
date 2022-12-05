@@ -104,6 +104,18 @@
       "dependentActions": []
     },
     {
+      "name": "CreateLocation",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateLocation.html",
+      "description": "Grants permission to define a new location for a fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateMatchmakingConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateMatchmakingConfiguration.html",
       "description": "Grants permission to create a new FlexMatch matchmaker",
@@ -242,6 +254,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteLocation",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteLocation.html",
+      "description": "Grants permission to delete a location",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "location*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteMatchmakingConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteMatchmakingConfiguration.html",
       "description": "Grants permission to delete an existing FlexMatch matchmaker",
@@ -304,6 +327,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeregisterCompute",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeregisterCompute.html",
+      "description": "Grants permission to deregister a compute against a fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeregisterGameServer",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeregisterGameServer.html",
       "description": "Grants permission to remove a game server from a game server group",
@@ -332,6 +366,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "build*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCompute",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeCompute.html",
+      "description": "Grants permission to retrieve general properties of the compute such as ARN, fleet details, SDK endpoints, and location",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "fleet*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -595,6 +640,28 @@
       "dependentActions": []
     },
     {
+      "name": "GetComputeAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess.html",
+      "description": "Grants permission to retrieve access credentials of the compute",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetComputeAuthToken",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAuthToken.html",
+      "description": "Grants permission to retrieve an authorization token for a compute and fleet to use in game server processes",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetGameSessionLogUrl",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetGameSessionLogUrl.html",
       "description": "Grants permission to retrieve the location of stored logs for a game session",
@@ -617,7 +684,7 @@
     {
       "name": "ListAliases",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListAliases.html",
-      "description": "Grants permission to retrieve all aliases that are defined in the current region",
+      "description": "Grants permission to retrieve all aliases that are defined in the current Region",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -626,16 +693,27 @@
     {
       "name": "ListBuilds",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListBuilds.html",
-      "description": "Grants permission to retrieve all game build in the current region",
+      "description": "Grants permission to retrieve all game build in the current Region",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
+      "name": "ListCompute",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListCompute.html",
+      "description": "Grants permission to retrieve all compute resources in the current Region",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListFleets",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListFleets.html",
-      "description": "Grants permission to retrieve a list of fleet IDs for all fleets in the current region",
+      "description": "Grants permission to retrieve a list of fleet IDs for all fleets in the current Region",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -644,7 +722,7 @@
     {
       "name": "ListGameServerGroups",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListGameServerGroups.html",
-      "description": "Grants permission to retrieve all game server groups that are defined in the current region",
+      "description": "Grants permission to retrieve all game server groups that are defined in the current Region",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -658,6 +736,15 @@
       "resourceTypes": [
         "gameServerGroup*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLocations",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListLocations.html",
+      "description": "Grants permission to retrieve all locations in this account",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -681,6 +768,7 @@
         "fleet",
         "gameServerGroup",
         "gameSessionQueue",
+        "location",
         "matchmakingConfiguration",
         "matchmakingRuleSet",
         "script"
@@ -692,6 +780,17 @@
       "name": "PutScalingPolicy",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_PutScalingPolicy.html",
       "description": "Grants permission to create or update a fleet auto-scaling policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RegisterCompute",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_RegisterCompute.html",
+      "description": "Grants permission to register a compute against a fleet",
       "accessLevel": "Write",
       "resourceTypes": [
         "fleet*"
@@ -843,6 +942,7 @@
         "fleet",
         "gameServerGroup",
         "gameSessionQueue",
+        "location",
         "matchmakingConfiguration",
         "matchmakingRuleSet",
         "script"
@@ -864,6 +964,7 @@
         "fleet",
         "gameServerGroup",
         "gameSessionQueue",
+        "location",
         "matchmakingConfiguration",
         "matchmakingRuleSet",
         "script"

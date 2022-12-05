@@ -10,8 +10,11 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "Certificate",
+        "DataProvider",
         "Endpoint",
         "EventSubscription",
+        "InstanceProfile",
+        "MigrationProject",
         "ReplicationInstance",
         "ReplicationSubnetGroup",
         "ReplicationTask"
@@ -35,6 +38,50 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateExtensionPack",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to associate a extension pack",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelMetadataModelAssessment",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to cancel a single metadata model assessment run",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelMetadataModelConversion",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to cancel a single metadata model conversion run",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelMetadataModelExport",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to cancel a single metadata model export run",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CancelReplicationTaskAssessmentRun",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_CancelReplicationTaskAssessmentRun.html",
       "description": "Grants permission to cancel a single premigration assessment run",
@@ -43,6 +90,19 @@
         "ReplicationTaskAssessmentRun*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateDataProvider",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to create an data provider using the provided settings",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "dms:req-tag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -64,6 +124,35 @@
       "description": "Grants permission to create an AWS DMS event notification subscription",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "dms:req-tag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateInstanceProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to create an instance profile using the provided settings",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "dms:req-tag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateMigrationProject",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to create an migration project using the provided settings",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "DataProvider*",
+        "InstanceProfile*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
@@ -137,6 +226,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteDataProvider",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to delete the specified data provider",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "DataProvider*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteEndpoint",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DeleteEndpoint.html",
       "description": "Grants permission to delete the specified endpoint",
@@ -154,6 +254,28 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "EventSubscription*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteInstanceProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to delete the specified instance profile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "InstanceProfile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMigrationProject",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to delete the specified migration project",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -424,6 +546,39 @@
       "dependentActions": []
     },
     {
+      "name": "DisassociateExtensionPack",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to disassociate a extension pack",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ExportMetadataModelAssessment",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to export the specified metadata model assessment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetMetadataModel",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to list all of the AWS DMS attributes for a metadata model",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "MigrationProject"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ImportCertificate",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_ImportCertificate.html",
       "description": "Grants permission to upload the specified certificate",
@@ -433,6 +588,96 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDataProviders",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for a data providers",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "DataProvider"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExtensionPacks",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for a extension packs",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "MigrationProject"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListInstanceProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for a instance profiles",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "InstanceProfile"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMetadataModelAssessmentActionItems",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for a metadata model assessment action items",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "MigrationProject"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMetadataModelAssessments",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for a metadata model assessments",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "MigrationProject"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMetadataModelConversions",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for a metadata model conversions",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "MigrationProject"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMetadataModelExports",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for a metadata model exports",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "MigrationProject"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMigrationProjects",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for a migration projects",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "DataProvider",
+        "InstanceProfile",
+        "MigrationProject"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -556,8 +801,11 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "Certificate",
+        "DataProvider",
         "Endpoint",
         "EventSubscription",
+        "InstanceProfile",
+        "MigrationProject",
         "ReplicationInstance",
         "ReplicationSubnetGroup",
         "ReplicationTask"
@@ -565,6 +813,61 @@
       "conditionKeys": [
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "StartMetadataModelAssessment",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to start a new assessment of metadata model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartMetadataModelConversion",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to start a new conversion of metadata model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartMetadataModelExportAsScripts",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to start a new export of metadata model as script",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartMetadataModelExportToTarget",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to start a new export of metadata model to target",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartMetadataModelImport",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to start a new import of metadata model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -619,6 +922,50 @@
       "resourceTypes": [
         "Endpoint*",
         "ReplicationInstance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateConversionConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to update a conversion configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDataProvider",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to update the specified data provider",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "DataProvider*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateInstanceProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to update the specified instance profile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "InstanceProfile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateMigrationProject",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to update the specified migration project",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
       ],
       "conditionKeys": [],
       "dependentActions": []

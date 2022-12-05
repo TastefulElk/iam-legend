@@ -159,7 +159,7 @@
     {
       "name": "CreateMultiRegionAccessPoint",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateMultiRegionAccessPoint.html",
-      "description": "Grants permission to create a new multi region access point",
+      "description": "Grants permission to create a new Multi-Region Access Point",
       "accessLevel": "Write",
       "resourceTypes": [
         "multiregionaccesspoint*"
@@ -337,7 +337,7 @@
     {
       "name": "DeleteMultiRegionAccessPoint",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteMultiRegionAccessPoint.html",
-      "description": "Grants permission to delete the multi region access point named in the URI",
+      "description": "Grants permission to delete the Multi-Region Access Point named in the URI",
       "accessLevel": "Write",
       "resourceTypes": [
         "multiregionaccesspoint*"
@@ -499,7 +499,7 @@
     {
       "name": "DescribeMultiRegionAccessPointOperation",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html",
-      "description": "Grants permission to retrieve the configurations for a multi region access point",
+      "description": "Grants permission to retrieve the configurations for a Multi-Region Access Point",
       "accessLevel": "Read",
       "resourceTypes": [
         "multiregionaccesspointrequestarn*"
@@ -1073,7 +1073,7 @@
     {
       "name": "GetMultiRegionAccessPoint",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPoint.html",
-      "description": "Grants permission to return configuration information about the specified multi region access point",
+      "description": "Grants permission to return configuration information about the specified Multi-Region Access Point",
       "accessLevel": "Read",
       "resourceTypes": [
         "multiregionaccesspoint*"
@@ -1093,7 +1093,7 @@
     {
       "name": "GetMultiRegionAccessPointPolicy",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPointPolicy.html",
-      "description": "Grants permission to returns the access point policy associated with the specified multi region access point",
+      "description": "Grants permission to returns the access point policy associated with the specified Multi-Region Access Point",
       "accessLevel": "Read",
       "resourceTypes": [
         "multiregionaccesspoint*"
@@ -1113,7 +1113,27 @@
     {
       "name": "GetMultiRegionAccessPointPolicyStatus",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPointPolicyStatus.html",
-      "description": "Grants permission to return the policy status for a specific multi region access point policy",
+      "description": "Grants permission to return the policy status for a specific Multi-Region Access Point policy",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "multiregionaccesspoint*"
+      ],
+      "conditionKeys": [
+        "s3:DataAccessPointAccount",
+        "s3:DataAccessPointArn",
+        "s3:AccessPointNetworkOrigin",
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureversion",
+        "s3:signatureAge",
+        "s3:TlsVersion"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetMultiRegionAccessPointRoutes",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPointRoutes.html",
+      "description": "Grants permission to return the route configuration for a Multi-Region Access Point",
       "accessLevel": "Read",
       "resourceTypes": [
         "multiregionaccesspoint*"
@@ -1628,7 +1648,7 @@
     {
       "name": "ListMultiRegionAccessPoints",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListMultiRegionAccessPoints.html",
-      "description": "Grants permission to list multi region access points",
+      "description": "Grants permission to list Multi-Region Access Points",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
@@ -2155,7 +2175,7 @@
     {
       "name": "PutMultiRegionAccessPointPolicy",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutMultiRegionAccessPointPolicy.html",
-      "description": "Grants permission to associate an access policy with a specified multi region access point",
+      "description": "Grants permission to associate an access policy with a specified Multi-Region Access Point",
       "accessLevel": "Permissions management",
       "resourceTypes": [
         "multiregionaccesspoint*"
@@ -2499,6 +2519,26 @@
         "s3:signatureversion",
         "s3:TlsVersion",
         "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "SubmitMultiRegionAccessPointRoutes",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_SubmitMultiRegionAccessPointRoutes.html",
+      "description": "Grants permission to submit a route configuration update for a Multi-Region Access Point",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "multiregionaccesspoint*"
+      ],
+      "conditionKeys": [
+        "s3:DataAccessPointAccount",
+        "s3:DataAccessPointArn",
+        "s3:AccessPointNetworkOrigin",
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureversion",
+        "s3:signatureAge",
+        "s3:TlsVersion"
       ],
       "dependentActions": []
     },

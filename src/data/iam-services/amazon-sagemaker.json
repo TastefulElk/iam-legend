@@ -59,6 +59,7 @@
         "labeling-job",
         "model",
         "model-bias-job-definition",
+        "model-card",
         "model-explainability-job-definition",
         "model-package",
         "model-package-group",
@@ -75,6 +76,7 @@
         "workteam"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -220,7 +222,7 @@
     {
       "name": "CreateApp",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateApp.html",
-      "description": "Grants permission to create an App for a SageMaker Studio UserProfile",
+      "description": "Grants permission to create an App for a SageMaker UserProfile or Space",
       "accessLevel": "Write",
       "resourceTypes": [
         "app*"
@@ -570,6 +572,23 @@
       ]
     },
     {
+      "name": "CreateHub",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHub.html",
+      "description": "Grants permission to create a hub",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hub*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
+    },
+    {
       "name": "CreateHumanTaskUi",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateHumanTaskUi.html",
       "description": "Grants permission to define the settings you will use for the human review workflow user interface",
@@ -646,6 +665,24 @@
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
+    },
+    {
+      "name": "CreateInferenceExperiment",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceExperiment.html",
+      "description": "Grants permission to create an inference experiment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "inference-experiment*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PassRole",
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateInferenceRecommendationsJob",
@@ -742,6 +779,36 @@
         "iam:PassRole",
         "sagemaker:AddTags"
       ]
+    },
+    {
+      "name": "CreateModelCard",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModelCard.html",
+      "description": "Grants permission to create a model card",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-card*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
+    },
+    {
+      "name": "CreateModelCardExportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModelCardExportJob.html",
+      "description": "Grants permission to create an export job for a model card",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-card*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
     },
     {
       "name": "CreateModelExplainabilityJobDefinition",
@@ -984,6 +1051,26 @@
       ]
     },
     {
+      "name": "CreateSpace",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateSpace.html",
+      "description": "Grants permission to create a Space for a SageMaker Domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "space*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:InstanceTypes",
+        "sagemaker:ImageArns",
+        "sagemaker:ImageVersionArns"
+      ],
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
+    },
+    {
       "name": "CreateStudioLifecycleConfig",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateStudioLifecycleConfig.html",
       "description": "Grants permission to create a Studio Lifecycle Configuration that can be deployed using Amazon SageMaker",
@@ -1089,7 +1176,7 @@
     {
       "name": "CreateUserProfile",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateUserProfile.html",
-      "description": "Grants permission to create a UserProfile for a SageMaker Studio Domain",
+      "description": "Grants permission to create a UserProfile for a SageMaker Domain",
       "accessLevel": "Write",
       "resourceTypes": [
         "user-profile*"
@@ -1387,6 +1474,34 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteHub",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteHub.html",
+      "description": "Grants permission to delete hubs",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hub*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteHubContent",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteHubContent.html",
+      "description": "Grants permission to delete hub content",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hub*",
+        "hub-content*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteHumanLoop",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteHumanLoop.html",
       "description": "Grants permission to delete a specified human loop",
@@ -1435,6 +1550,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteInferenceExperiment",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteInferenceExperiment.html",
+      "description": "Grants permission to delete an inference experiment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "inference-experiment*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteLineageGroupPolicy",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/Welcome.html",
       "description": "Grants permission to delete a lineage group policy",
@@ -1463,6 +1591,19 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "model-bias-job-definition*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteModelCard",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteModelCard.html",
+      "description": "Grants permission to delete a model card",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-card*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
@@ -1609,6 +1750,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteSpace",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteSpace.html",
+      "description": "Grants permission to delete a Space",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "space*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteStudioLifecycleConfig",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteStudioLifecycleConfig.html",
       "description": "Grants permission to delete a Studio Lifecycle Configuration",
@@ -1656,6 +1810,7 @@
         "labeling-job",
         "model",
         "model-bias-job-definition",
+        "model-card",
         "model-explainability-job-definition",
         "model-package",
         "model-package-group",
@@ -1672,6 +1827,7 @@
         "workteam"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -2071,6 +2227,34 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeHub",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeHub.html",
+      "description": "Grants permission to describe hubs",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "hub*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeHubContent",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeHubContent.html",
+      "description": "Grants permission to describe hub content",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "hub*",
+        "hub-content*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeHumanLoop",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeHumanLoop.html",
       "description": "Grants permission to return information about the specified human loop",
@@ -2132,6 +2316,19 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeInferenceExperiment",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceExperiment.html",
+      "description": "Grants permission to get information about an inference experiment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "inference-experiment*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeInferenceRecommendationsJob",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceRecommendationsJob.html",
       "description": "Grants permission to get information about an inference recommendations job",
@@ -2190,6 +2387,30 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeModelCard",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeModelCard.html",
+      "description": "Grants permission to get information about a model card",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model-card*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeModelCardExportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeModelCardExportJob.html",
+      "description": "Grants permission to get information about a model card export job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model-card-export-job*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -2336,6 +2557,19 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "project*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSpace",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeSpace.html",
+      "description": "Grants permission to describe a Space",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "space*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
@@ -2568,6 +2802,25 @@
       "dependentActions": []
     },
     {
+      "name": "ImportHubContent",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ImportHubContent.html",
+      "description": "Grants permission to import hub content",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hub*",
+        "hub-content*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
+    },
+    {
       "name": "InvokeEndpoint",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html",
       "description": "Grants permission to invoke an endpoint. After you deploy a model into production using Amazon SageMaker hosting services, your client applications use this API to get inferences from the model hosted at the specified endpoint",
@@ -2790,6 +3043,42 @@
       "dependentActions": []
     },
     {
+      "name": "ListHubContentVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHubContentVersions.html",
+      "description": "Grants permission to list all versions of hub content",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "hub*",
+        "hub-content*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHubContents",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHubContents.html",
+      "description": "Grants permission to list newest versions of hub content",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "hub*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHubs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHubs.html",
+      "description": "Grants permission to list hubs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListHumanLoops",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHumanLoops.html",
       "description": "Grants permission to return summary information about human loops, given the specified parameters",
@@ -2833,6 +3122,15 @@
       "name": "ListImages",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListImages.html",
       "description": "Grants permission to list SageMaker Images in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListInferenceExperiments",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceExperiments.html",
+      "description": "Grants permission to list inference experiments",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -2897,6 +3195,41 @@
       "dependentActions": []
     },
     {
+      "name": "ListModelCardExportJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListModelCardExportJobs.html",
+      "description": "Grants permission to list export jobs for a model card",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "model-card*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListModelCardVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListModelCardVersions.html",
+      "description": "Grants permission to list versions of a model card",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "model-card*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListModelCards",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListModelCards.html",
+      "description": "Grants permission to list model cards",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListModelExplainabilityJobDefinitions",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListModelExplainabilityJobDefinitions.html",
       "description": "Grants permission to list model explainability job definitions",
@@ -2949,6 +3282,24 @@
       "name": "ListModels",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListModels.html",
       "description": "Grants permission to list the models created with the CreateModel API",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMonitoringAlertHistory",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListMonitoringHistory.html",
+      "description": "Grants permission to list the history of a monitoring alert",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMonitoringAlerts",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListMonitoringAlerts.html",
+      "description": "Grants permission to list monitoring alerts",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -3053,6 +3404,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListSpaces",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListSpaces.html",
+      "description": "Grants permission to list the Spaces in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListStageDevices",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListStageDevices.html",
       "description": "Grants permission to list stage devices",
@@ -3114,6 +3474,7 @@
         "labeling-job",
         "model",
         "model-bias-job-definition",
+        "model-card",
         "model-explainability-job-definition",
         "model-package",
         "model-package-group",
@@ -3130,6 +3491,7 @@
         "workteam"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -3396,6 +3758,19 @@
       "dependentActions": []
     },
     {
+      "name": "StartInferenceExperiment",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartInferenceExperiment.html",
+      "description": "Grants permission to start an inference experiment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "inference-experiment*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "StartMonitoringSchedule",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartMonitoringSchedule.html",
       "description": "Grants permission to start a monitoring schedule",
@@ -3504,6 +3879,19 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "hyper-parameter-tuning-job*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StopInferenceExperiment",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopInferenceExperiment.html",
+      "description": "Grants permission to stop an inference experiment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "inference-experiment*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
@@ -3787,6 +4175,19 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateHub",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateHub.html",
+      "description": "Grants permission to update hubs",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hub*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateImage",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateImage.html",
       "description": "Grants permission to update the properties of a SageMaker Image",
@@ -3802,6 +4203,32 @@
       ]
     },
     {
+      "name": "UpdateInferenceExperiment",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateInferenceExperiment.html",
+      "description": "Grants permission to update an inference experiment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "inference-experiment*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateModelCard",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateModelCard.html",
+      "description": "Grants permission to update a model card",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-card*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateModelPackage",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateModelPackage.html",
       "description": "Grants permission to update a ModelPackage",
@@ -3814,6 +4241,20 @@
         "sagemaker:ModelApprovalStatus",
         "sagemaker:CustomerMetadataProperties/${MetadataKey}",
         "sagemaker:CustomerMetadataPropertiesToRemove"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateMonitoringAlert",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateMonitoringAlert.html",
+      "description": "Grants permission to update a monitoring alert",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "monitoring-schedule*",
+        "monitoring-schedule-alert*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -3908,6 +4349,22 @@
         "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSpace",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateSpace.html",
+      "description": "Grants permission to update a Space",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "space*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "sagemaker:InstanceTypes",
+        "sagemaker:ImageArns",
+        "sagemaker:ImageVersionArns"
       ],
       "dependentActions": []
     },

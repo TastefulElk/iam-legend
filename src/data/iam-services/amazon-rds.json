@@ -52,6 +52,7 @@
         "cluster-pg",
         "cluster-snapshot",
         "db",
+        "deployment",
         "es",
         "og",
         "pg",
@@ -191,6 +192,44 @@
       ],
       "dependentActions": [
         "rds:AddTagsToResource"
+      ]
+    },
+    {
+      "name": "CreateBlueGreenDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateBlueGreenDeployment.html",
+      "description": "Grants permission to create a blue-green deployment for a given source cluster or instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "deployment*",
+        "cluster",
+        "cluster-pg",
+        "db",
+        "pg"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "rds:cluster-tag/${TagKey}",
+        "rds:cluster-pg-tag/${TagKey}",
+        "rds:db-tag/${TagKey}",
+        "rds:pg-tag/${TagKey}",
+        "rds:req-tag/${TagKey}",
+        "rds:DatabaseEngine",
+        "rds:DatabaseName",
+        "rds:StorageEncrypted",
+        "rds:DatabaseClass",
+        "rds:StorageSize",
+        "rds:MultiAz",
+        "rds:Piops",
+        "rds:Vpc"
+      ],
+      "dependentActions": [
+        "rds:AddTagsToResource",
+        "rds:CreateDBCluster",
+        "rds:CreateDBClusterEndpoint",
+        "rds:CreateDBInstance",
+        "rds:CreateDBInstanceReadReplica"
       ]
     },
     {
@@ -493,6 +532,26 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteBlueGreenDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteBlueGreenDeployment.html",
+      "description": "Grants permission to delete blue green deployments",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "deployment*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "rds:req-tag/${TagKey}"
+      ],
+      "dependentActions": [
+        "rds:DeleteDBCluster",
+        "rds:DeleteDBClusterEndpoint",
+        "rds:DeleteDBInstance"
+      ]
+    },
+    {
       "name": "DeleteCustomDBEngineVersion",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteCustomDBEngineVersion.html",
       "description": "Grants permission to delete an existing custom engine version",
@@ -689,6 +748,17 @@
       "description": "Grants permission to list all of the attributes for a customer account",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeBlueGreenDeployments",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeBlueGreenDeployments.html",
+      "description": "Grants permission to describe blue green deployments",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "deployment"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1541,6 +1611,7 @@
         "cluster-pg",
         "cluster-snapshot",
         "db",
+        "deployment",
         "es",
         "og",
         "pg",
@@ -1833,6 +1904,27 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "SwitchoverBlueGreenDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_SwitchoverBlueGreenDeployment.html",
+      "description": "Grants permission to switch a blue-green deployment from source instance or cluster to target",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "deployment*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "rds:req-tag/${TagKey}"
+      ],
+      "dependentActions": [
+        "rds:ModifyDBCluster",
+        "rds:ModifyDBInstance",
+        "rds:PromoteReadReplica",
+        "rds:PromoteReadReplicaDBCluster"
+      ]
     },
     {
       "name": "SwitchoverReadReplica",
