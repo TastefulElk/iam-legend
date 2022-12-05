@@ -4,6 +4,52 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsapplicationmigrationservice.html",
   "actions": [
     {
+      "name": "ArchiveApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_ArchiveApplication.html",
+      "description": "Grants permission to archive an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ApplicationResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ArchiveWave",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_ArchiveWave.html",
+      "description": "Grants permission to archive a wave",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "WaveResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_AssociateApplications.html",
+      "description": "Grants permission to associate applications to a wave",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ApplicationResource*",
+        "WaveResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateSourceServers",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_AssociateSourceServers.html",
+      "description": "Grants permission to associate source servers to an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ApplicationResource*",
+        "SourceServerResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "BatchCreateVolumeSnapshotGroupForMgn",
       "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html",
       "description": "Grants permission to create volume snapshot group",
@@ -32,6 +78,18 @@
         "SourceServerResource*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_CreateApplication.html",
+      "description": "Grants permission to create an application",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -68,6 +126,29 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateWave",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_CreateWave.html",
+      "description": "Grants permission to create a wave",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_DeleteApplication.html",
+      "description": "Grants permission to delete an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ApplicationResource*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -121,6 +202,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "VcenterClientResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWave",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_DeleteWave.html",
+      "description": "Grants permission to delete a wave",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "WaveResource*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -196,6 +288,30 @@
       "description": "Grants permission to describe vcenter clients",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_DisassociateApplications.html",
+      "description": "Grants permission to disassociate applications from a wave",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ApplicationResource*",
+        "WaveResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateSourceServers",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_DisassociateSourceServers.html",
+      "description": "Grants permission to disassociate source servers from an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ApplicationResource*",
+        "SourceServerResource*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -353,10 +469,50 @@
       "dependentActions": []
     },
     {
+      "name": "ListApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListApplications.html",
+      "description": "Grants permission to list application summaries",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSourceServerActions",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListSourceServerActions.html",
+      "description": "Grants permission to list source server action documents",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "SourceServerResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to list tags for a resource",
       "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTemplateActions",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListTemplateActions.html",
+      "description": "Grants permission to list launch configuration template action documents",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "LaunchConfigurationTemplateResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWaves",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListWaves.html",
+      "description": "Grants permission to list wave summaries",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -428,6 +584,28 @@
       "dependentActions": []
     },
     {
+      "name": "PutSourceServerAction",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_PutSourceServerAction.html",
+      "description": "Grants permission to put source server action document",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SourceServerResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutTemplateAction",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_PutTemplateAction.html",
+      "description": "Grants permission to put launch configuration template action document",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "LaunchConfigurationTemplateResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "RegisterAgentForMgn",
       "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/ug/mgn-apis.html",
       "description": "Grants permission to register agent",
@@ -437,6 +615,28 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "RemoveSourceServerAction",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_RemoveSourceServerAction.html",
+      "description": "Grants permission to remove source server action document",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SourceServerResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RemoveTemplateAction",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_RemoveTemplateAction.html",
+      "description": "Grants permission to remove launch configuration template action document",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "LaunchConfigurationTemplateResource*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -651,11 +851,13 @@
       "description": "Grants permission to assign a resource tag",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "ApplicationResource",
         "JobResource",
         "LaunchConfigurationTemplateResource",
         "ReplicationConfigurationTemplateResource",
         "SourceServerResource",
-        "VcenterClientResource"
+        "VcenterClientResource",
+        "WaveResource"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -684,16 +886,40 @@
       ]
     },
     {
+      "name": "UnarchiveApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_UnarchiveApplication.html",
+      "description": "Grants permission to unarchive an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ApplicationResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UnarchiveWave",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_UnarchiveWave.html",
+      "description": "Grants permission to unarchive a wave",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "WaveResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UntagResource",
       "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_UntagResource.html",
       "description": "Grants permission to untag a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "ApplicationResource",
         "JobResource",
         "LaunchConfigurationTemplateResource",
         "ReplicationConfigurationTemplateResource",
         "SourceServerResource",
-        "VcenterClientResource"
+        "VcenterClientResource",
+        "WaveResource"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -756,6 +982,17 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateApplication.html",
+      "description": "Grants permission to update an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ApplicationResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateLaunchConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateLaunchConfiguration.html",
       "description": "Grants permission to update launch configuration",
@@ -806,6 +1043,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "SourceServerResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateWave",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateWave.html",
+      "description": "Grants permission to update a wave",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "WaveResource*"
       ],
       "conditionKeys": [],
       "dependentActions": []

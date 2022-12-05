@@ -72,6 +72,20 @@
       "dependentActions": []
     },
     {
+      "name": "LockRule",
+      "documentationUrl": "https://docs.aws.amazon.com/recyclebin/latest/APIReference/API_LockRule.html",
+      "description": "Grants permission to lock an existing Recycle Bin retention rule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rule*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "rbin:Attribute/ResourceType"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/recyclebin/latest/APIReference/API_TagResource.html",
       "description": "Grants permission to add or update tags of a resource",
@@ -83,6 +97,20 @@
         "aws:RequestTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:TagKeys",
+        "rbin:Attribute/ResourceType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UnlockRule",
+      "documentationUrl": "https://docs.aws.amazon.com/recyclebin/latest/APIReference/API_UnlockRule.html",
+      "description": "Grants permission to unlock an existing Recycle Bin retention rule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rule*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "rbin:Attribute/ResourceType"
       ],
       "dependentActions": []

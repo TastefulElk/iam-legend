@@ -1,0 +1,273 @@
+{
+  "serviceName": "Amazon DocumentDB Elastic Clusters",
+  "servicePrefix": "docdb-elastic",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazondocumentdbelasticclusters.html",
+  "actions": [
+    {
+      "name": "CreateCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-elastic-usingcreate_cluster.html",
+      "description": "Grants permission to create a new Amazon DocDB-Elastic cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ec2:CreateVpcEndpoint",
+        "ec2:DeleteVpcEndpoints",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcAttribute",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeVpcs",
+        "ec2:ModifyVpcEndpoint",
+        "iam:CreateServiceLinkedRole",
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetResourcePolicy",
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:ListSecretVersionIds",
+        "secretsmanager:ListSecrets"
+      ]
+    },
+    {
+      "name": "CreateClusterSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-elastic-usingcreate_cluster_snapshot.html",
+      "description": "Grants permission to create a new Amazon DocDB-Elastic cluster snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateVpcEndpoint",
+        "ec2:DeleteVpcEndpoints",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcAttribute",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeVpcs",
+        "ec2:ModifyVpcEndpoint",
+        "iam:CreateServiceLinkedRole",
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetResourcePolicy",
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:ListSecretVersionIds",
+        "secretsmanager:ListSecrets"
+      ]
+    },
+    {
+      "name": "DeleteCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-elastic-usingdelete_cluster.html",
+      "description": "Grants permission to delete a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:DeleteVpcEndpoints",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcAttribute",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeVpcs",
+        "ec2:ModifyVpcEndpoint"
+      ]
+    },
+    {
+      "name": "DeleteClusterSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-elastic-usingdelete_cluster_snapshot.html",
+      "description": "Grants permission to delete a cluster snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster-snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:DeleteVpcEndpoints",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcAttribute",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeVpcs",
+        "ec2:ModifyVpcEndpoint"
+      ]
+    },
+    {
+      "name": "GetCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-elastic-usingget_cluster.html",
+      "description": "Grants permission to view details about a cluster",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetClusterSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-elastic-usingget_cluster_snapshot.html",
+      "description": "Grants permission to view details about a cluster snapshot",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster-snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListClusterSnapshots",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-elastic-usinglist_cluster_snapshots.html",
+      "description": "Grants permission to list the cluster snapshots in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListClusters",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-elastic-usinglist_clusters.html",
+      "description": "Grants permission to list the clusters in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-elastic-usingAPI_ListTagsForResource.html",
+      "description": "Grants permission to lists tag for an DocumentDB Elastic resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "cluster",
+        "cluster-snapshot"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RestoreClusterFromSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-elastic-usingrestore_cluster_from_snapshot.html",
+      "description": "Grants permission to restore cluster from a Amazon DocDB-Elastic cluster snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster-snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateVpcEndpoint",
+        "ec2:DeleteVpcEndpoints",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcAttribute",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeVpcs",
+        "ec2:ModifyVpcEndpoint",
+        "iam:CreateServiceLinkedRole",
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetResourcePolicy",
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:ListSecretVersionIds",
+        "secretsmanager:ListSecrets"
+      ]
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-elastic-usingAPI_TagResource.html",
+      "description": "Grants permission to tag an DocumentDB Elastic resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "cluster",
+        "cluster-snapshot"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-elastic-usingAPI_UntagResource.html",
+      "description": "Grants permission to untag a DocumentDB Elastic resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "cluster",
+        "cluster-snapshot"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-elastic-usingupdate_cluster.html",
+      "description": "Grants permission to modify a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateVpcEndpoint",
+        "ec2:DeleteVpcEndpoints",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcAttribute",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeVpcs",
+        "ec2:ModifyVpcEndpoint",
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetResourcePolicy",
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:ListSecretVersionIds",
+        "secretsmanager:ListSecrets"
+      ]
+    }
+  ]
+}

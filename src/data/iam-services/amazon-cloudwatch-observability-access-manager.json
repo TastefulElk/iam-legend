@@ -1,0 +1,202 @@
+{
+  "serviceName": "Amazon CloudWatch Observability Access Manager",
+  "servicePrefix": "oam",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazoncloudwatchobservabilityaccessmanager.html",
+  "actions": [
+    {
+      "name": "CreateLink",
+      "documentationUrl": "https://docs.aws.amazon.com/oam/latest/APIReference/API_CreateLink.html",
+      "description": "Grants permission to create a link between a monitoring account and a source account for cross-account monitoring",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Sink*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "oam:ResourceTypes"
+      ],
+      "dependentActions": [
+        "oam:TagResource"
+      ]
+    },
+    {
+      "name": "CreateSink",
+      "documentationUrl": "https://docs.aws.amazon.com/oam/latest/APIReference/API_CreateSink.html",
+      "description": "Grants permission to create a sink in an account so that it can be used as a monitoring account for cross-account monitoring",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "oam:TagResource"
+      ]
+    },
+    {
+      "name": "DeleteLink",
+      "documentationUrl": "https://docs.aws.amazon.com/oam/latest/APIReference/API_DeleteLink.html",
+      "description": "Grants permission to delete a link between a monitoring account and a source account for cross-account monitoring",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Link*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSink",
+      "documentationUrl": "https://docs.aws.amazon.com/oam/latest/APIReference/API_DeleteSink.html",
+      "description": "Grants permission to delete a cross-account monitoring sink in a monitoring account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Sink*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetLink",
+      "documentationUrl": "https://docs.aws.amazon.com/oam/latest/APIReference/API_GetLink.html",
+      "description": "Grants permission to retrieve complete information about one cross-account monitoring link",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Link*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSink",
+      "documentationUrl": "https://docs.aws.amazon.com/oam/latest/APIReference/API_GetSink.html",
+      "description": "Grants permission to retrieve complete information about one cross-account monitoring sink",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Sink*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSinkPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/oam/latest/APIReference/API_GetSinkPolicy.html",
+      "description": "Grants permission to retrieve information for the IAM policy for a cross-account monitoring sink",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Sink*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAttachedLinks",
+      "documentationUrl": "https://docs.aws.amazon.com/oam/latest/APIReference/API_ListAttachedLinks.html",
+      "description": "Grants permission to retrieve a list of links that are linked for a cross-account monitoring sink",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Sink*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLinks",
+      "documentationUrl": "https://docs.aws.amazon.com/oam/latest/APIReference/API_ListLinks.html",
+      "description": "Grants permission to retrieve the ARNs of cross-account monitoring links in this account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSinks",
+      "documentationUrl": "https://docs.aws.amazon.com/oam/latest/APIReference/API_ListSinks.html",
+      "description": "Grants permission to retrieve the ARNs of cross-account monitoring sinks in this account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/oam/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list the tags for a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Link",
+        "Sink"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutSinkPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/oam/latest/APIReference/API_PutSinkPolicy.html",
+      "description": "Grants permission to create or update the IAM policy for a cross-account monitoring sink",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Sink*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/oam/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "Link",
+        "Sink"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/oam/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "Link",
+        "Sink"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateLink",
+      "documentationUrl": "https://docs.aws.amazon.com/oam/latest/APIReference/API_UpdateLink.html",
+      "description": "Grants permission to update an existing link between a monitoring account and a source account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Link*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "oam:ResourceTypes"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

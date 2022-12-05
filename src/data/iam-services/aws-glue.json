@@ -180,6 +180,28 @@
       "dependentActions": []
     },
     {
+      "name": "CancelDataQualityRuleRecommendationRun",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html#aws-glue-api-data-quality-api-CancelDataQualityRuleRecommendationRun",
+      "description": "Grants permission to stop a running Data Quality rule recommendation run",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dataQualityRuleset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelDataQualityRulesetEvaluationRun",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html#aws-glue-api-data-quality-api-CancelDataQualityRulesetEvaluationRun",
+      "description": "Grants permission to stop a running Data Quality ruleset evaluation run",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dataQualityRuleset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CancelMLTaskRun",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-machine-learning-api.html#aws-glue-api-machine-learning-api-CancelMLTaskRun",
       "description": "Grants permission to stop a running ML Task Run",
@@ -264,6 +286,18 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateDataQualityRuleset",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html#aws-glue-api-data-quality-api-CreateDataQualityRuleset",
+      "description": "Grants permission to create a Data Quality ruleset",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -529,6 +563,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteDataQualityRuleset",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html#aws-glue-api-data-quality-api-DeleteDataQualityRuleset",
+      "description": "Grants permission to delete a Data Quality ruleset",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dataQualityRuleset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteDatabase",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-databases.html#aws-glue-api-catalog-databases-DeleteDatabase",
       "description": "Grants permission to delete a database",
@@ -729,6 +774,15 @@
       "dependentActions": []
     },
     {
+      "name": "DeregisterDataPreview",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/ug/notebook-getting-started.html#create-notebook-permissions-operations",
+      "description": "Grants permission to terminate Glue Studio Notebook session",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetBlueprint",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-GetBlueprint",
       "description": "Grants permission to retrieve a blueprint",
@@ -890,6 +944,50 @@
       "dependentActions": []
     },
     {
+      "name": "GetDataQualityResult",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html#aws-glue-api-data-quality-api-GetDataQualityResult",
+      "description": "Grants permission to retrieve a Data Quality result",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dataQualityRuleset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDataQualityRuleRecommendationRun",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html#aws-glue-api-data-quality-api-GetDataQualityRuleRecommendationRun",
+      "description": "Grants permission to retrieve a Data Quality rule recommendation run",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dataQualityRuleset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDataQualityRuleset",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html#aws-glue-api-data-quality-api-GetDataQualityRuleset",
+      "description": "Grants permission to retrieve a Data Quality ruleset",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dataQualityRuleset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDataQualityRulesetEvaluationRun",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html#aws-glue-api-data-quality-api-GetDataQualityRulesetEvaluationRun",
+      "description": "Grants permission to retrieve a Data Quality rule recommendation run",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dataQualityRuleset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetDatabase",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-databases.html#aws-glue-api-catalog-databases-GetDatabase",
       "description": "Grants permission to retrieve a database",
@@ -1042,6 +1140,15 @@
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-etl-script-generation.html#aws-glue-api-etl-script-generation-GetMapping",
       "description": "Grants permission to create a mapping",
       "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetNotebookInstanceStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/ug/notebook-getting-started.html#create-notebook-permissions-operations",
+      "description": "Grants permission to retrieve Glue Studio Notebooks session status",
+      "accessLevel": "Permissions management",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -1374,6 +1481,24 @@
       "dependentActions": []
     },
     {
+      "name": "GlueNotebookAuthorize",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/ug/notebook-getting-started.html#create-notebook-permissions-operations",
+      "description": "Grants permission to access Glue Studio Notebooks",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GlueNotebookRefreshCredentials",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/ug/notebook-getting-started.html#create-notebook-permissions-operations",
+      "description": "Grants permission to refresh Glue Studio Notebooks credentials",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ImportCatalogToGlue",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-migration.html#aws-glue-api-catalog-migration-ImportCatalogToGlue",
       "description": "Grants permission to import an Athena data catalog into AWS Glue",
@@ -1423,6 +1548,53 @@
       "description": "Grants permission to retrieve all Custom Entity Types",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDataQualityResults",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html#aws-glue-api-data-quality-api-ListDataQualityResults",
+      "description": "Grants permission to retrieve all Data Quality results",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "dataQualityRuleset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDataQualityRuleRecommendationRuns",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html#aws-glue-api-data-quality-api-ListDataQualityRuleRecommendationRuns",
+      "description": "Grants permission to retrieve all Data Quality rule recommendation runs",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "dataQualityRuleset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDataQualityRulesetEvaluationRuns",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html#aws-glue-api-data-quality-api-ListDataQualityRulesetEvaluationRuns",
+      "description": "Grants permission to retrieve all Data Quality rule recommendation runs",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "dataQualityRuleset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDataQualityRulesets",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html#aws-glue-api-data-quality-api-ListDataQualityRulesets",
+      "description": "Grants permission to retrieve a list of Data Quality rulesets",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "dataQualityRuleset*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -1547,6 +1719,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PublishDataQuality",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html",
+      "description": "Grants permission to publish Data Quality results",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dataQualityRuleset*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1708,6 +1891,28 @@
       "dependentActions": []
     },
     {
+      "name": "StartDataQualityRuleRecommendationRun",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html#aws-glue-api-data-quality-api-StartDataQualityRuleRecommendationRun",
+      "description": "Grants permission to start a Data Quality rule recommendation run",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dataQualityRuleset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartDataQualityRulesetEvaluationRun",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html#aws-glue-api-data-quality-api-StartDataQualityRulesetEvaluationRun",
+      "description": "Grants permission to start a Data Quality rule recommendation run",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dataQualityRuleset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartExportLabelsTaskRun",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-machine-learning-api.html#aws-glue-api-machine-learning-api-StartExportLabelsTaskRun",
       "description": "Grants permission to start an Export Labels ML Task Run",
@@ -1759,6 +1964,15 @@
       "resourceTypes": [
         "mlTransform*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartNotebook",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/ug/notebook-getting-started.html#create-notebook-permissions-operations",
+      "description": "Grants permission to start Glue Studio Notebooks",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1846,6 +2060,7 @@
         "blueprint",
         "connection",
         "crawler",
+        "dataQualityRuleset",
         "devendpoint",
         "job",
         "mlTransform",
@@ -1862,6 +2077,15 @@
       "dependentActions": []
     },
     {
+      "name": "TerminateNotebook",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/ug/notebook-getting-started.html#create-notebook-permissions-operations",
+      "description": "Grants permission to terminate Glue Studio Notebooks",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UntagResource",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-tags.html#aws-glue-api-tags-UntagResource",
       "description": "Grants permission to remove tags associated with a resource",
@@ -1870,6 +2094,7 @@
         "blueprint",
         "connection",
         "crawler",
+        "dataQualityRuleset",
         "devendpoint",
         "job",
         "mlTransform",
@@ -1960,6 +2185,17 @@
       "description": "Grants permission to update the schedule of a crawler",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDataQualityRuleset",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-data-quality-api.html#aws-glue-api-data-quality-api-UpdateDataQualityRuleset",
+      "description": "Grants permission to update a Data Quality ruleset",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dataQualityRuleset*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },

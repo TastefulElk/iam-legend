@@ -1,0 +1,26 @@
+{
+  "serviceName": "Amazon VPC Lattice Services",
+  "servicePrefix": "vpc-lattice-svcs",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonvpclatticeservices.html",
+  "actions": [
+    {
+      "name": "Invoke",
+      "documentationUrl": "https://aws.amazon.com/vpc/lattice",
+      "description": "Grants permission to invoke a VPC Lattice service",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Service*"
+      ],
+      "conditionKeys": [
+        "vpc-lattice-svcs:Port",
+        "vpc-lattice-svcs:ServiceNetworkArn",
+        "vpc-lattice-svcs:ServiceArn",
+        "vpc-lattice-svcs:SourceVpc",
+        "vpc-lattice-svcs:SourceVpcOwnerAccount",
+        "vpc-lattice-svcs:RequestHeader/${HeaderName}",
+        "vpc-lattice-svcs:RequestQueryString/${QueryStringKey}"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

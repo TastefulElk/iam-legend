@@ -4,6 +4,17 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsbackup.html",
   "actions": [
     {
+      "name": "CancelLegalHold",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CancelLegalHold.html",
+      "description": "Grants permission to cancel a legal hold",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "legalHold*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CopyFromBackupVault",
       "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_StartCopyJob.html",
       "description": "Grants permission to copy from a backup vault",
@@ -74,6 +85,20 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "framework*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateLegalHold",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateLegalHold.html",
+      "description": "Grants permission to create a new legal hold",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "legalHold*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -314,6 +339,17 @@
       "dependentActions": []
     },
     {
+      "name": "DisassociateRecoveryPointFromParent",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DisassociateRecoveryPointFromParent.html",
+      "description": "Grants permission to disassociate a recovery point from its parent",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "recoveryPoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ExportBackupPlanTemplate",
       "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ExportBackupPlanTemplate.html",
       "description": "Grants permission to export a backup plan as a JSON",
@@ -380,6 +416,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "backupVault*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetLegalHold",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_GetLegalHold.html",
+      "description": "Grants permission to get a legal hold",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "legalHold*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -481,6 +528,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListLegalHolds",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListLegalHolds.html",
+      "description": "Grants permission to list legal holds",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListProtectedResources",
       "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListProtectedResources.html",
       "description": "Grants permission to list protected resources by AWS Backup",
@@ -496,6 +552,17 @@
       "accessLevel": "List",
       "resourceTypes": [
         "backupVault*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRecoveryPointsByLegalHold",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListRecoveryPointsByLegalHold.html",
+      "description": "Grants permission to list recovery points by legal hold",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "legalHold*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -570,7 +637,9 @@
       "resourceTypes": [
         "backupVault*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "backup:ChangeableForDays"
+      ],
       "dependentActions": []
     },
     {
@@ -655,6 +724,7 @@
         "backupPlan",
         "backupVault",
         "framework",
+        "legalHold",
         "recoveryPoint",
         "reportPlan"
       ],
@@ -673,6 +743,7 @@
         "backupPlan",
         "backupVault",
         "framework",
+        "legalHold",
         "recoveryPoint",
         "reportPlan"
       ],

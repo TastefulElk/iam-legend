@@ -180,6 +180,7 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": [
+        "drs:DescribeSourceServers",
         "ec2:DescribeInstances"
       ]
     },
@@ -542,6 +543,24 @@
       "dependentActions": []
     },
     {
+      "name": "ReverseReplication",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_ReverseReplication.html",
+      "description": "Grants permission to reverse replication",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "RecoveryInstanceResource*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "drs:DescribeReplicationConfigurationTemplates",
+        "drs:DescribeSourceServers",
+        "ec2:DescribeInstances"
+      ]
+    },
+    {
       "name": "SendAgentLogsForDrs",
       "documentationUrl": "https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html",
       "description": "Grants permission to send agent logs",
@@ -668,12 +687,34 @@
       ]
     },
     {
+      "name": "StartReplication",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_StartReplication.html",
+      "description": "Grants permission to start replication",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SourceServerResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StopFailback",
       "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_StopFailback.html",
       "description": "Grants permission to stop failback",
       "accessLevel": "Write",
       "resourceTypes": [
         "RecoveryInstanceResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopReplication",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_StopReplication.html",
+      "description": "Grants permission to stop replication",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SourceServerResource*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -709,6 +750,7 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
+        "drs:DescribeSourceServers",
         "ec2:DeleteVolume",
         "ec2:DescribeInstances",
         "ec2:DescribeVolumes",
