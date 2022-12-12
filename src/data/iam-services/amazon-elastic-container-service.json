@@ -41,6 +41,8 @@
         "ecs:capacity-provider",
         "ecs:task-definition",
         "ecs:enable-execute-command",
+        "ecs:enable-service-connect",
+        "ecs:namespace",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
@@ -310,6 +312,17 @@
       "resourceTypes": [],
       "conditionKeys": [
         "ecs:cluster"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListServicesByNamespace",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServicesByNamespace.html",
+      "description": "Grants permission to get a list of services that are running in a specified AWS Cloud Map Namespace",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ecs:namespace"
       ],
       "dependentActions": []
     },
@@ -645,6 +658,8 @@
         "ecs:cluster",
         "ecs:capacity-provider",
         "ecs:enable-execute-command",
+        "ecs:enable-service-connect",
+        "ecs:namespace",
         "ecs:task-definition"
       ],
       "dependentActions": []

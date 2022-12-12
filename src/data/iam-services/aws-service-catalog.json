@@ -68,7 +68,10 @@
         "servicecatalog:Resource"
       ],
       "dependentActions": [
-        "cloudformation:DescribeStacks"
+        "cloudformation:DescribeStacks",
+        "resource-groups:CreateGroup",
+        "resource-groups:GetGroup",
+        "resource-groups:Tag"
       ]
     },
     {
@@ -583,7 +586,9 @@
         "servicecatalog:ResourceType",
         "servicecatalog:Resource"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "resource-groups:DeleteGroup"
+      ]
     },
     {
       "name": "DisassociateServiceActionFromProvisioningArtifact",

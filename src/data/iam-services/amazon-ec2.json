@@ -646,6 +646,24 @@
       "dependentActions": []
     },
     {
+      "name": "AttachVerifiedAccessTrustProvider",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachVerifiedAccessTrustProvider.html",
+      "description": "Grants permission to attach a trust provider to a Verified Access instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-instance*",
+        "verified-access-trust-provider*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "AttachVolume",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AttachVolume.html",
       "description": "Grants permission to attach an EBS volume to a running or stopped instance and expose it to the instance with the specified device name",
@@ -1597,13 +1615,20 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "local-gateway-route-table*",
-        "local-gateway-virtual-interface-group*"
+        "local-gateway-virtual-interface-group*",
+        "network-interface"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:NetworkInterfaceID",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Subnet",
+        "ec2:Vpc",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -1926,7 +1951,7 @@
       "description": "Grants permission to create a public IPv4 address pool for public IPv4 CIDRs that you own and bring to Amazon to manage with Amazon VPC IP Address Manager (IPAM)",
       "accessLevel": "Write",
       "resourceTypes": [
-        "network-insights-access-scope*"
+        "ipv4pool-ec2*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -2291,6 +2316,11 @@
         "transit-gateway-policy-table",
         "transit-gateway-route-table",
         "transit-gateway-route-table-announcement",
+        "verified-access-endpoint",
+        "verified-access-group",
+        "verified-access-instance",
+        "verified-access-policy",
+        "verified-access-trust-provider",
         "volume",
         "vpc",
         "vpc-endpoint",
@@ -2495,6 +2525,18 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:DomainCertificateArn",
+        "ec2:LoadBalancerArn",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
@@ -2866,6 +2908,104 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
         "ec2:VpcID",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
+    },
+    {
+      "name": "CreateVerifiedAccessEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVerifiedAccessEndpoint.html",
+      "description": "Grants permission to create a Verified Access endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-endpoint*",
+        "verified-access-group*",
+        "network-interface",
+        "security-group",
+        "subnet"
+      ],
+      "conditionKeys": [
+        "ec2:DomainCertificateArn",
+        "ec2:LoadBalancerArn",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AssociatePublicIpAddress",
+        "ec2:AuthorizedService",
+        "ec2:AuthorizedUser",
+        "ec2:AvailabilityZone",
+        "ec2:NetworkInterfaceID",
+        "ec2:Permission",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Subnet",
+        "ec2:Vpc",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:SecurityGroupID",
+        "ec2:Vpc",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:SubnetID",
+        "ec2:Vpc",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
+    },
+    {
+      "name": "CreateVerifiedAccessGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVerifiedAccessGroup.html",
+      "description": "Grants permission to create a Verified Access group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-group*",
+        "verified-access-instance*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
+    },
+    {
+      "name": "CreateVerifiedAccessInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVerifiedAccessInstance.html",
+      "description": "Grants permission to create a Verified Access instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-instance*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
+    },
+    {
+      "name": "CreateVerifiedAccessTrustProvider",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVerifiedAccessTrustProvider.html",
+      "description": "Grants permission to create a verified trust provider",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-trust-provider*"
+      ],
+      "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "ec2:Region"
@@ -3713,7 +3853,8 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "ipam-pool",
-        "placement-group"
+        "placement-group",
+        "verified-access-group"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -3721,6 +3862,8 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:PlacementGroupName",
         "ec2:PlacementGroupStrategy",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
@@ -3909,6 +4052,11 @@
         "transit-gateway-policy-table",
         "transit-gateway-route-table",
         "transit-gateway-route-table-announcement",
+        "verified-access-endpoint",
+        "verified-access-group",
+        "verified-access-instance",
+        "verified-access-policy",
+        "verified-access-trust-provider",
         "volume",
         "vpc",
         "vpc-endpoint",
@@ -3921,6 +4069,16 @@
         "vpn-gateway"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -4304,6 +4462,68 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteVerifiedAccessEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVerifiedAccessEndpoint.html",
+      "description": "Grants permission to delete a Verified Access endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-endpoint*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:DomainCertificateArn",
+        "ec2:LoadBalancerArn",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteVerifiedAccessGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVerifiedAccessGroup.html",
+      "description": "Grants permission to delete a Verified Access group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-group*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteVerifiedAccessInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVerifiedAccessInstance.html",
+      "description": "Grants permission to delete a Verified Access instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-instance*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteVerifiedAccessTrustProvider",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVerifiedAccessTrustProvider.html",
+      "description": "Grants permission to delete a verified trust provider",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-trust-provider*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteVolume",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVolume.html",
       "description": "Grants permission to delete an EBS volume",
@@ -4637,6 +4857,17 @@
       "name": "DescribeAvailabilityZones",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html",
       "description": "Grants permission to describe one or more of the Availability Zones that are available to you",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAwsNetworkPerformanceMetricSubscriptions",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAwsNetworkPerformanceMetricSubscriptions.html",
+      "description": "Grants permission to describe the current infrastructure performance metric subscriptions",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
@@ -6023,6 +6254,61 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeVerifiedAccessEndpoints",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVerifiedAccessEndpoints.html",
+      "description": "Grants permission to describe the specified Verified Access endpoints or all Verified Access endpoints",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeVerifiedAccessGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVerifiedAccessGroups.html",
+      "description": "Grants permission to describe the specified Verified Access groups or all Verified Access groups",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeVerifiedAccessInstanceLoggingConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVerifiedAccessInstanceLoggingConfigurations.html",
+      "description": "Grants permission to describe the current logging configuration for the Verified Access instances",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeVerifiedAccessInstances",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVerifiedAccessInstances.html",
+      "description": "Grants permission to describe the specified Verified Access instances or all Verified Access instances",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeVerifiedAccessTrustProviders",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVerifiedAccessTrustProviders.html",
+      "description": "Grants permission to describe details of existing Verified Access trust providers",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeVolumeAttribute",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumeAttribute.html",
       "description": "Grants permission to describe an attribute of an EBS volume",
@@ -6318,6 +6604,24 @@
       "dependentActions": []
     },
     {
+      "name": "DetachVerifiedAccessTrustProvider",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachVerifiedAccessTrustProvider.html",
+      "description": "Grants permission to detach a trust provider from a Verified Access instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-instance*",
+        "verified-access-trust-provider*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DetachVolume",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DetachVolume.html",
       "description": "Grants permission to detach an EBS volume from an instance",
@@ -6390,6 +6694,17 @@
         "ec2:Domain",
         "ec2:PublicIpAddress",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisableAwsNetworkPerformanceMetricSubscription",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableAwsNetworkPerformanceMetricSubscription.html",
+      "description": "Grants permission to disable infrastructure performance metric subscriptions",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
         "ec2:Region"
       ],
       "dependentActions": []
@@ -6832,6 +7147,17 @@
       "dependentActions": []
     },
     {
+      "name": "EnableAwsNetworkPerformanceMetricSubscription",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableAwsNetworkPerformanceMetricSubscription.html",
+      "description": "Grants permission to enable infrastructure performance subscriptions",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "EnableEbsEncryptionByDefault",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableEbsEncryptionByDefault.html",
       "description": "Grants permission to enable EBS encryption by default for your account",
@@ -6921,6 +7247,17 @@
         "organizations:EnableAWSServiceAccess",
         "organizations:RegisterDelegatedAdministrator"
       ]
+    },
+    {
+      "name": "EnableReachabilityAnalyzerOrganizationSharing",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableReachabilityAnalyzerOrganizationSharing.html",
+      "description": "Grants permission to enable organization sharing of reachability analyzer",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
     },
     {
       "name": "EnableSerialConsoleAccess",
@@ -7126,6 +7463,17 @@
       "name": "GetAssociatedIpv6PoolCidrs",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetAssociatedIpv6PoolCidrs.html",
       "description": "Grants permission to get information about the IPv6 CIDR block associations for a specified IPv6 address pool",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAwsNetworkPerformanceData",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetAwsNetworkPerformanceData.html",
+      "description": "Grants permission to get network performance data",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [
@@ -7535,7 +7883,8 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "ipam-pool",
-        "placement-group"
+        "placement-group",
+        "verified-access-group"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -7543,6 +7892,8 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:PlacementGroupName",
         "ec2:PlacementGroupStrategy",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
@@ -7597,8 +7948,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayMulticastDomainAssociations.html",
       "description": "Grants permission to get information about the associations for a transit gateway multicast domain",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "transit-gateway-multicast-domain*"
+      ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -7662,6 +8017,38 @@
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetVerifiedAccessEndpointPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetVerifiedAccessEndpointPolicy.html",
+      "description": "Grants permission to show the Verified Access policy associated with the endpoint",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "verified-access-endpoint*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:DomainCertificateArn",
+        "ec2:LoadBalancerArn",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetVerifiedAccessGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetVerifiedAccessGroupPolicy.html",
+      "description": "Grants permission to show the contents of the Verified Access policy associated with the group",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "verified-access-group*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -8876,6 +9263,127 @@
       "dependentActions": []
     },
     {
+      "name": "ModifyVerifiedAccessEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVerifiedAccessEndpoint.html",
+      "description": "Grants permission to modify the configuration of a Verified Access endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-endpoint*",
+        "subnet",
+        "verified-access-group"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:DomainCertificateArn",
+        "ec2:LoadBalancerArn",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:SubnetID",
+        "ec2:Vpc",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyVerifiedAccessEndpointPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVerifiedAccessEndpointPolicy.html",
+      "description": "Grants permission to modify the specified Verified Access endpoint policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-endpoint*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:DomainCertificateArn",
+        "ec2:LoadBalancerArn",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyVerifiedAccessGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVerifiedAccessGroup.html",
+      "description": "Grants permission to modify the specified Verified Access Group configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-group*",
+        "verified-access-instance"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyVerifiedAccessGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVerifiedAccessGroupPolicy.html",
+      "description": "Grants permission to modify the specified Verified Access group policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-group*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyVerifiedAccessInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVerifiedAccessInstance.html",
+      "description": "Grants permission to modify the configuration of the specified Verified Access instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-instance*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyVerifiedAccessInstanceLoggingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVerifiedAccessInstanceLoggingConfiguration.html",
+      "description": "Grants permission to modify the logging configuration for the specified Verified Access instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-instance*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyVerifiedAccessTrustProvider",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVerifiedAccessTrustProvider.html",
+      "description": "Grants permission to modify the configuration of the specified Verified Access trust provider",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-trust-provider*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ModifyVolume",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVolume.html",
       "description": "Grants permission to modify the parameters of an EBS volume",
@@ -9338,7 +9846,8 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "ipam-pool",
-        "placement-group"
+        "placement-group",
+        "verified-access-group"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -9346,6 +9855,8 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:PlacementGroupName",
         "ec2:PlacementGroupStrategy",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
@@ -10406,8 +10917,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html",
       "description": "Grants permission to search for groups, sources, and members in a transit gateway multicast domain",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "transit-gateway-multicast-domain*"
+      ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []

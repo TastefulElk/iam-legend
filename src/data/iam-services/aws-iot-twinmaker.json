@@ -62,6 +62,20 @@
       "dependentActions": []
     },
     {
+      "name": "CreateSyncJob",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_CreateSyncJob.html",
+      "description": "Grants permission to create a sync job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspace*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateWorkspace",
       "documentationUrl": "https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_CreateWorkspace.html",
       "description": "Grants permission to create a workspace",
@@ -104,6 +118,18 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "scene*",
+        "workspace*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSyncJob",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_DeleteSyncJob.html",
+      "description": "Grants permission to delete a sync job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "syncJob*",
         "workspace*"
       ],
       "conditionKeys": [],
@@ -211,6 +237,18 @@
       "dependentActions": []
     },
     {
+      "name": "GetSyncJob",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetSyncJob.html",
+      "description": "Grants permission to get a sync job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "syncJob*",
+        "workspace*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetWorkspace",
       "documentationUrl": "https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetWorkspace.html",
       "description": "Grants permission to get a workspace",
@@ -255,6 +293,29 @@
       "dependentActions": []
     },
     {
+      "name": "ListSyncJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ListSyncJobs.html",
+      "description": "Grants permission to list all sync jobs in a workspace",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "workspace*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSyncResources",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ListSyncResources.html",
+      "description": "Grants permission to list all sync resources for a sync job",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "syncJob*",
+        "workspace*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ListTagsForResource.html",
       "description": "Grants permission to list all tags for a resource",
@@ -263,6 +324,7 @@
         "componentType",
         "entity",
         "scene",
+        "syncJob",
         "workspace"
       ],
       "conditionKeys": [
@@ -288,6 +350,7 @@
         "componentType",
         "entity",
         "scene",
+        "syncJob",
         "workspace"
       ],
       "conditionKeys": [
@@ -305,6 +368,7 @@
         "componentType",
         "entity",
         "scene",
+        "syncJob",
         "workspace"
       ],
       "conditionKeys": [

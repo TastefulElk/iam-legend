@@ -13,7 +13,23 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
+    },
+    {
+      "name": "CreateForm",
+      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_CreateForm.html",
+      "description": "Grants permission to create a form",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
     },
     {
       "name": "CreateTheme",
@@ -25,7 +41,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
     },
     {
       "name": "DeleteComponent",
@@ -36,7 +54,22 @@
         "ComponentResource*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
+    },
+    {
+      "name": "DeleteForm",
+      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_DeleteForm.html",
+      "description": "Grants permission to delete a form",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "FormResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
     },
     {
       "name": "DeleteTheme",
@@ -47,21 +80,23 @@
         "ThemeResource*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "ExchangeCodeForToken",
-      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_ExchangeCodeForToken.html",
-      "description": "Grants permission to exchange a code for a token",
-      "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
     },
     {
       "name": "ExportComponents",
       "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_ExportComponents.html",
       "description": "Grants permission to export components",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ExportForms",
+      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_ExportForms.html",
+      "description": "Grants permission to export forms",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -85,6 +120,30 @@
         "ComponentResource*"
       ],
       "conditionKeys": [],
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
+    },
+    {
+      "name": "GetForm",
+      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_GetForm.html",
+      "description": "Grants permission to get an existing form",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "FormResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
+    },
+    {
+      "name": "GetMetadata",
+      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_GetMetadata.html",
+      "description": "Grants permission to get an existing metadata",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -96,74 +155,59 @@
         "ThemeResource*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
     },
     {
       "name": "ListComponents",
       "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_ListComponents.html",
-      "description": "Grants permission to list the components for an app",
+      "description": "Grants permission to list components",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
     },
     {
-      "name": "ListTagsForResource",
-      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/welcome.html",
-      "description": "Grants permission to list the tags for a resource",
-      "accessLevel": "Read",
-      "resourceTypes": [
-        "ComponentResource",
-        "ThemeResource"
-      ],
+      "name": "ListForms",
+      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_ListForms.html",
+      "description": "Grants permission to list forms",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
     },
     {
       "name": "ListThemes",
       "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_ListThemes.html",
-      "description": "Grants permission to list the themes for an app",
+      "description": "Grants permission to list themes",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
     },
     {
-      "name": "RefreshToken",
-      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_RefreshToken.html",
-      "description": "Grants permission to refresh an access token",
+      "name": "PutMetadataFlag",
+      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_PutMetadataFlag.html",
+      "description": "Grants permission to put an existing metadata",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
-      "name": "TagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/welcome.html",
-      "description": "Grants permission to tag a resource",
-      "accessLevel": "Tagging",
-      "resourceTypes": [
-        "ComponentResource",
-        "ThemeResource"
-      ],
-      "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
-      ],
-      "dependentActions": []
-    },
-    {
-      "name": "UntagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/welcome.html",
-      "description": "Grants permission to untag a resource",
-      "accessLevel": "Tagging",
-      "resourceTypes": [
-        "ComponentResource",
-        "ThemeResource"
-      ],
-      "conditionKeys": [
-        "aws:TagKeys"
-      ],
+      "name": "ResetMetadataFlag",
+      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_ResetMetadataFlag.html",
+      "description": "Grants permission to reset an existing metadata",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -175,7 +219,22 @@
         "ComponentResource*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
+    },
+    {
+      "name": "UpdateForm",
+      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_UpdateForm.html",
+      "description": "Grants permission to update a form",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "FormResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
     },
     {
       "name": "UpdateTheme",
@@ -186,7 +245,9 @@
         "ThemeResource*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
     }
   ]
 }

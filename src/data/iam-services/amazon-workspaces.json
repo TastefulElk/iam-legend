@@ -90,6 +90,21 @@
       "dependentActions": []
     },
     {
+      "name": "CreateStandbyWorkspaces",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_CreateStandbyWorkspaces.html",
+      "description": "Grants permission to create one or more Standby WorkSpaces",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directoryid*",
+        "workspaceid*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateTags",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_CreateTags.html",
       "description": "Grants permission to create tags for WorkSpaces resources",
@@ -482,6 +497,17 @@
       "description": "Grants permission to modify the configuration of Bring Your Own License (BYOL) for WorkSpaces accounts",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyCertificateBasedAuthProperties",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ModifyCertificateBasedAuthProperties.html",
+      "description": "Grants permission to modify the certificate-based authorization properties of a directory",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directoryid*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },

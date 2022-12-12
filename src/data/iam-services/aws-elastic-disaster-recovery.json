@@ -59,7 +59,10 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "drs:DescribeSourceServers",
+        "drs:GetReplicationConfiguration"
+      ]
     },
     {
       "name": "CreateRecoveryInstanceForDrs",
@@ -85,16 +88,15 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
-    },
-    {
-      "name": "CreateSessionForDrs",
-      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html",
-      "description": "Grants permission to create a session",
-      "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:CreateSecurityGroup",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:GetEbsDefaultKmsKeyId",
+        "ec2:GetEbsEncryptionByDefault",
+        "kms:CreateGrant",
+        "kms:DescribeKey"
+      ]
     },
     {
       "name": "CreateSourceServerForDrs",
@@ -430,7 +432,9 @@
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "drs:DescribeSourceServers"
+      ]
     },
     {
       "name": "ListStagingAccounts",
@@ -897,7 +901,15 @@
         "SourceServerResource*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:CreateSecurityGroup",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:GetEbsDefaultKmsKeyId",
+        "ec2:GetEbsEncryptionByDefault",
+        "kms:CreateGrant",
+        "kms:DescribeKey"
+      ]
     },
     {
       "name": "UpdateReplicationConfigurationTemplate",
@@ -908,7 +920,15 @@
         "ReplicationConfigurationTemplateResource*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:CreateSecurityGroup",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:GetEbsDefaultKmsKeyId",
+        "ec2:GetEbsEncryptionByDefault",
+        "kms:CreateGrant",
+        "kms:DescribeKey"
+      ]
     }
   ]
 }

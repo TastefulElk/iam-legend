@@ -70,7 +70,19 @@
       "description": "Grants permission to describe an execution",
       "accessLevel": "Read",
       "resourceTypes": [
-        "execution*"
+        "execution*",
+        "express*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeMapRun",
+      "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_DescribeMapRun.html",
+      "description": "Grants permission to describe a map run",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "maprun*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -134,7 +146,19 @@
       "description": "Grants permission to list the executions of a state machine",
       "accessLevel": "Read",
       "resourceTypes": [
+        "maprun*",
         "statemachine*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMapRuns",
+      "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_ListMapRuns.html",
+      "description": "Grants permission to list the map runs of an execution",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "execution*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -247,6 +271,17 @@
       "conditionKeys": [
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateMapRun",
+      "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_UpdateMapRun.html",
+      "description": "Grants permission to update a map run",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "maprun*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
