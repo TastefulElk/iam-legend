@@ -162,6 +162,28 @@
       ]
     },
     {
+      "name": "GetAwsBackupStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/backups.html",
+      "description": "Grants permission to get Status of a Timestream Table Backup",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
+    },
+    {
+      "name": "GetAwsRestoreStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/backups.html",
+      "description": "Grants permission to get Status of a Timestream Table Restore",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
+    },
+    {
       "name": "ListDatabases",
       "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListDatabases.html",
       "description": "Grants permission to list databases in your account",
@@ -257,6 +279,32 @@
       "description": "Grants permission to issue 'select 1' queries",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
+    },
+    {
+      "name": "StartAwsBackupJob",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/backups.html",
+      "description": "Grants permission to start a Backup Job for a Timestream Table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "timestream:DescribeEndpoints"
+      ]
+    },
+    {
+      "name": "StartAwsRestoreJob",
+      "documentationUrl": "https://docs.aws.amazon.com/timestream/latest/developerguide/backups.html",
+      "description": "Grants permission to start Restore Job for a Backup of Timestream Table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
       "conditionKeys": [],
       "dependentActions": [
         "timestream:DescribeEndpoints"
