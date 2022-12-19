@@ -22,7 +22,9 @@
       "resourceTypes": [
         "device-identifier*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -34,7 +36,10 @@
         "network-site*",
         "order*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -56,7 +61,10 @@
       "resourceTypes": [
         "network*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -67,7 +75,10 @@
       "resourceTypes": [
         "network*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -111,7 +122,9 @@
       "resourceTypes": [
         "device-identifier*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -122,7 +135,9 @@
       "resourceTypes": [
         "network*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -133,7 +148,9 @@
       "resourceTypes": [
         "network-resource*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -144,7 +161,9 @@
       "resourceTypes": [
         "network-site*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -155,7 +174,9 @@
       "resourceTypes": [
         "order*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -209,6 +230,59 @@
         "network*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/private-networks/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to return a list of tags for a resource",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "Ping",
+      "documentationUrl": "https://docs.aws.amazon.com/private-networks/latest/APIReference/API_Ping.html",
+      "description": "Grants permission to check the health of the service",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/private-networks/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to adds tags to the specified resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "device-identifier",
+        "network",
+        "network-resource",
+        "network-site",
+        "order"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/private-networks/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to removes tags from the specified resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "device-identifier",
+        "network",
+        "network-resource",
+        "network-site",
+        "order"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

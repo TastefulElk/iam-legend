@@ -22,6 +22,28 @@
       "dependentActions": []
     },
     {
+      "name": "BatchAssociateResource",
+      "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_BatchAssociateResource.html",
+      "description": "Grants permission to associate resources to an AWS Firewall Manager resource set",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resource-set*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchDisassociateResource",
+      "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_BatchDisassociateResource.html",
+      "description": "Grants permission to disassociate resources from an AWS Firewall Manager resource set",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resource-set*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteAppsList",
       "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeleteAppsList.html",
       "description": "Grants permission to permanently deletes an AWS Firewall Manager applications list",
@@ -63,6 +85,19 @@
         "protocols-list*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteResourceSet",
+      "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeleteResourceSet.html",
+      "description": "Grants permission to permanently delete an AWS Firewall Manager resource set",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resource-set*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -157,6 +192,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetResourceSet",
+      "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_GetResourceSet.html",
+      "description": "Grants permission to retrieve information about the specified AWS Firewall Manager resource set",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "resource-set*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetThirdPartyFirewallAssociationStatus",
       "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_GetThirdPartyFirewallAssociationStatus.html",
       "description": "Grants permission to retrieve the onboarding status of a Firewall Manager administrator account to third-party firewall vendor tenant",
@@ -197,6 +243,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListDiscoveredResources",
+      "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_ListDiscoveredResources.html",
+      "description": "Grants permission to retrieve an array of resources in the organization's accounts that are available to be associated with a resource set",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListMemberAccounts",
       "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_ListMemberAccounts.html",
       "description": "Grants permission to retrieve an array of member account ids if the caller is FMS admin account",
@@ -218,6 +273,26 @@
       "name": "ListProtocolsLists",
       "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_ListProtocolsLists.html",
       "description": "Grants permission to return an array of ProtocolsListDataSummary objects",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResourceSetResources",
+      "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_ListResourceSetResources.html",
+      "description": "Grants permission to retrieve an array of resources that are currently associated to a resource set",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "resource-set*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResourceSets",
+      "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_ListResourceSets.html",
+      "description": "Grants permission to retrieve an array of ResourceSetSummary objects",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -295,12 +370,29 @@
       "dependentActions": []
     },
     {
+      "name": "PutResourceSet",
+      "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_PutResourceSet.html",
+      "description": "Grants permission to create an AWS Firewall Manager resource set",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resource-set*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_TagResource.html",
       "description": "Grants permission to add a Tag to a given resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "policy*"
+        "applications-list",
+        "policy",
+        "protocols-list",
+        "resource-set"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -314,7 +406,10 @@
       "description": "Grants permission to remove a Tag from a given resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "policy*"
+        "applications-list",
+        "policy",
+        "protocols-list",
+        "resource-set"
       ],
       "conditionKeys": [
         "aws:TagKeys"
