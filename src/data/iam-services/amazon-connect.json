@@ -392,6 +392,19 @@
       "dependentActions": []
     },
     {
+      "name": "CreateRule",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateRule.html",
+      "description": "Grants permission to create a rule in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rule*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateSecurityProfile",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateSecurityProfile.html",
       "description": "Grants permission to create a security profile for the specified Amazon Connect instance",
@@ -589,6 +602,20 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "quick-connect*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRule",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteRule.html",
+      "description": "Grants permission to delete a rule in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rule*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -877,6 +904,20 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeRule",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRule.html",
+      "description": "Grants permission to describe a rule in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "rule*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeSecurityProfile",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeSecurityProfile.html",
       "description": "Grants permission to describe a security profile in an Amazon Connect instance",
@@ -1139,10 +1180,11 @@
     {
       "name": "GetCurrentMetricData",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_GetCurrentMetricData.html",
-      "description": "Grants permission to retrieve current metric data for the queues in an Amazon Connect instance",
+      "description": "Grants permission to retrieve current metric data for queues and routing profiles in an Amazon Connect instance",
       "accessLevel": "Read",
       "resourceTypes": [
-        "queue*"
+        "queue*",
+        "routing-profile*"
       ],
       "conditionKeys": [
         "connect:InstanceId"
@@ -1155,7 +1197,10 @@
       "description": "Grants permission to retrieve current user data in an Amazon Connect instance",
       "accessLevel": "Read",
       "resourceTypes": [
-        "queue*"
+        "hierarchy-group*",
+        "queue*",
+        "routing-profile*",
+        "user*"
       ],
       "conditionKeys": [
         "connect:InstanceId"
@@ -1517,6 +1562,19 @@
       "dependentActions": []
     },
     {
+      "name": "ListRule",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListRules.html",
+      "description": "Grants permission to list rules associated with a Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListSecurityKeys",
       "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
       "description": "Grants permission to view the security keys of an existing Amazon Connect instance",
@@ -1572,6 +1630,7 @@
         "queue",
         "quick-connect",
         "routing-profile",
+        "rule",
         "security-profile",
         "traffic-distribution-group",
         "use-case",
@@ -1962,6 +2021,7 @@
         "queue",
         "quick-connect",
         "routing-profile",
+        "rule",
         "security-profile",
         "task-template",
         "traffic-distribution-group",
@@ -2008,6 +2068,7 @@
         "queue",
         "quick-connect",
         "routing-profile",
+        "rule",
         "security-profile",
         "task-template",
         "traffic-distribution-group",
@@ -2204,6 +2265,20 @@
       ]
     },
     {
+      "name": "UpdateParticipantRoleConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateParticipantRoleConfig.html",
+      "description": "Grants permission to update participant role configurations associated with a contact",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact*",
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdatePhoneNumber",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumber.html",
       "description": "Grants permission to update phone number resources in an Amazon Connect instance or traffic distribution group",
@@ -2375,6 +2450,19 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRule",
+      "documentationUrl": "API_UpdateRule.html",
+      "description": "Grants permission to update a rule for an existing Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
         "connect:InstanceId"
       ],
       "dependentActions": []

@@ -63,6 +63,19 @@
       ]
     },
     {
+      "name": "ExportECSServiceRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_ExportECSServiceRecommendations.html",
+      "description": "Grants permission to export ECS service recommendations to S3 for the provided accounts",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "compute-optimizer:GetECSServiceRecommendations",
+        "ecs:ListClusters",
+        "ecs:ListServices"
+      ]
+    },
+    {
       "name": "ExportLambdaFunctionRecommendations",
       "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_ExportLambdaFunctionRecommendations.html",
       "description": "Grants permission to export Lambda function recommendations to S3 for the provided accounts",
@@ -117,6 +130,27 @@
       "conditionKeys": [],
       "dependentActions": [
         "ec2:DescribeInstances"
+      ]
+    },
+    {
+      "name": "GetECSServiceRecommendationProjectedMetrics",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetECSServiceRecommendationProjectedMetrics.html",
+      "description": "Grants permission to get the recommendation projected metrics of the specified ECS service",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetECSServiceRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetECSServiceRecommendations.html",
+      "description": "Grants permission to get recommendations for the provided ECS services",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ecs:ListClusters",
+        "ecs:ListServices"
       ]
     },
     {

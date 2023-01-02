@@ -11,7 +11,9 @@
       "resourceTypes": [
         "taskexecution*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -151,7 +153,10 @@
       "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html",
       "description": "Grants permission to create a sync task",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "location*",
+        "agent"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -331,7 +336,9 @@
       "resourceTypes": [
         "taskexecution*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -360,7 +367,8 @@
       "resourceTypes": [
         "agent",
         "location",
-        "task"
+        "task",
+        "taskexecution"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -370,8 +378,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTaskExecutions.html",
       "description": "Grants permission to list executed sync tasks",
       "accessLevel": "List",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "task*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -391,7 +403,11 @@
       "resourceTypes": [
         "task*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -402,7 +418,8 @@
       "resourceTypes": [
         "agent",
         "location",
-        "task"
+        "task",
+        "taskexecution"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -418,7 +435,8 @@
       "resourceTypes": [
         "agent",
         "location",
-        "task"
+        "task",
+        "taskexecution"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -499,7 +517,9 @@
       "resourceTypes": [
         "taskexecution*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     }
   ]
