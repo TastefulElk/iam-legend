@@ -310,6 +310,28 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeReservedNodes",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeReservedNodes.html",
+      "description": "Grants permissions to retrieve reserved nodes",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "reservednode*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReservedNodesOfferings",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeReservedNodesOfferings.html",
+      "description": "Grants permissions to retrieve reserved nodes offerings",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeServiceUpdates",
       "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeServiceUpdates.html",
       "description": "Grants permissions to retrieve details of the service updates",
@@ -408,6 +430,23 @@
       "dependentActions": []
     },
     {
+      "name": "PurchaseReservedNodesOffering",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_PurchaseReservedNodesOffering.html",
+      "description": "Grants permissions to purchase a new reserved node",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "reservednode*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "memorydb:TagResource"
+      ]
+    },
+    {
       "name": "ResetParameterGroup",
       "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_ResetParameterGroup.html",
       "description": "Grants permissions to modify the parameters of a parameter group to the engine or system default value",
@@ -429,6 +468,7 @@
         "acl",
         "cluster",
         "parametergroup",
+        "reservednode",
         "snapshot",
         "subnetgroup",
         "user"
