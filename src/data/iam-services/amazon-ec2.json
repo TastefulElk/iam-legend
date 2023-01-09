@@ -746,11 +746,11 @@
     {
       "name": "AuthorizeSecurityGroupEgress",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupEgress.html",
-      "description": "Grants permission to add one or more outbound rules to a VPC security group",
+      "description": "Grants permission to add one or more outbound rules to a VPC security group. Policies using the security-group-rule resource-level permission are only enforced when the API request includes TagSpecifications",
       "accessLevel": "Write",
       "resourceTypes": [
         "security-group*",
-        "security-group-rule*"
+        "security-group-rule"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -768,11 +768,11 @@
     {
       "name": "AuthorizeSecurityGroupIngress",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html",
-      "description": "Grants permission to add one or more inbound rules to a security group",
+      "description": "Grants permission to add one or more inbound rules to a VPC security group. Policies using the security-group-rule resource-level permission are only enforced when the API request includes TagSpecifications",
       "accessLevel": "Write",
       "resourceTypes": [
         "security-group*",
-        "security-group-rule*"
+        "security-group-rule"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -4947,7 +4947,7 @@
       "description": "Grants permission to describe the authorization rules for a Client VPN endpoint",
       "accessLevel": "List",
       "resourceTypes": [
-        "client-vpn-endpoint"
+        "client-vpn-endpoint*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -4962,7 +4962,7 @@
       "description": "Grants permission to describe active client connections and connections that have been terminated within the last 60 minutes for a Client VPN endpoint",
       "accessLevel": "List",
       "resourceTypes": [
-        "client-vpn-endpoint"
+        "client-vpn-endpoint*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -5004,7 +5004,7 @@
       "description": "Grants permission to describe the routes for a Client VPN endpoint",
       "accessLevel": "List",
       "resourceTypes": [
-        "client-vpn-endpoint"
+        "client-vpn-endpoint*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -5025,7 +5025,7 @@
       "description": "Grants permission to describe the target networks that are associated with a Client VPN endpoint",
       "accessLevel": "List",
       "resourceTypes": [
-        "client-vpn-endpoint"
+        "client-vpn-endpoint*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -5165,7 +5165,7 @@
       "description": "Grants permission to describe the events for an EC2 Fleet during a specified time",
       "accessLevel": "List",
       "resourceTypes": [
-        "fleet"
+        "fleet*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -5180,7 +5180,7 @@
       "description": "Grants permission to describe the running instances for an EC2 Fleet",
       "accessLevel": "List",
       "resourceTypes": [
-        "fleet"
+        "fleet*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -5310,7 +5310,7 @@
       "description": "Grants permission to describe an attribute of an Amazon Machine Image (AMI)",
       "accessLevel": "List",
       "resourceTypes": [
-        "image"
+        "image*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -5363,7 +5363,7 @@
       "description": "Grants permission to describe the attributes of an instance",
       "accessLevel": "List",
       "resourceTypes": [
-        "instance"
+        "instance*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -5932,7 +5932,7 @@
       "description": "Grants permission to describe an attribute of a snapshot",
       "accessLevel": "List",
       "resourceTypes": [
-        "snapshot"
+        "snapshot*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -5989,7 +5989,7 @@
       "description": "Grants permission to describe the running instances for a Spot Fleet",
       "accessLevel": "List",
       "resourceTypes": [
-        "spot-fleet-request"
+        "spot-fleet-request*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -6004,7 +6004,7 @@
       "description": "Grants permission to describe the events for a Spot Fleet request during a specified time",
       "accessLevel": "List",
       "resourceTypes": [
-        "spot-fleet-request"
+        "spot-fleet-request*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -6314,7 +6314,7 @@
       "description": "Grants permission to describe an attribute of an EBS volume",
       "accessLevel": "List",
       "resourceTypes": [
-        "volume"
+        "volume*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -6686,7 +6686,7 @@
       "description": "Grants permission to disable Elastic IP address transfer",
       "accessLevel": "Write",
       "resourceTypes": [
-        "elastic-ip"
+        "elastic-ip*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -6726,7 +6726,7 @@
       "description": "Grants permission to disable faster launching for Windows AMIs",
       "accessLevel": "Write",
       "resourceTypes": [
-        "image"
+        "image*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -7134,7 +7134,7 @@
       "description": "Grants permission to enable Elastic IP address transfer",
       "accessLevel": "Write",
       "resourceTypes": [
-        "elastic-ip"
+        "elastic-ip*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -7174,7 +7174,7 @@
       "description": "Grants permission to enable faster launching for Windows AMIs",
       "accessLevel": "Write",
       "resourceTypes": [
-        "image",
+        "image*",
         "launch-template"
       ],
       "conditionKeys": [
@@ -7257,7 +7257,10 @@
       "conditionKeys": [
         "ec2:Region"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole",
+        "organizations:EnableAWSServiceAccess"
+      ]
     },
     {
       "name": "EnableSerialConsoleAccess",
@@ -7503,7 +7506,7 @@
       "description": "Grants permission to describe the allocations from the specified customer-owned address pool",
       "accessLevel": "Read",
       "resourceTypes": [
-        "coip-pool"
+        "coip-pool*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -7548,7 +7551,7 @@
       "description": "Grants permission to retrieve a JPG-format screenshot of a running instance",
       "accessLevel": "Read",
       "resourceTypes": [
-        "instance"
+        "instance*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -8060,7 +8063,7 @@
       "accessLevel": "List",
       "resourceTypes": [
         "vpn-connection*",
-        "vpn-connection-device-type"
+        "vpn-connection-device-type*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -8589,10 +8592,14 @@
       "description": "Grants permission to modify the Capacity Reservation settings for a stopped instance",
       "accessLevel": "Write",
       "resourceTypes": [
-        "instance*",
-        "capacity-reservation"
+        "capacity-reservation*",
+        "instance*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:Attribute",
+        "ec2:Attribute/${AttributeName}",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
@@ -8612,8 +8619,6 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
         "ec2:Tenancy",
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -9022,8 +9027,8 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "security-group*",
-        "prefix-list",
-        "security-group-rule"
+        "security-group-rule*",
+        "prefix-list"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -9747,7 +9752,7 @@
       "description": "Grants permission to move a BYOIP IPv4 CIDR to Amazon VPC IP Address Manager (IPAM) from a public IPv4 pool",
       "accessLevel": "Write",
       "resourceTypes": [
-        "ipam-pool"
+        "ipam-pool*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -9789,7 +9794,7 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "ipam-pool*",
-        "ipv4pool-ec2"
+        "ipv4pool-ec2*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -10846,12 +10851,12 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "image*",
+        "subnet*",
         "key-pair",
         "network-interface",
         "placement-group",
         "security-group",
-        "snapshot",
-        "subnet"
+        "snapshot"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -10861,6 +10866,11 @@
         "ec2:Public",
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:SubnetID",
+        "ec2:Vpc",
         "aws:ResourceTag/${TagKey}",
         "ec2:KeyPairName",
         "ec2:KeyPairType",
@@ -10888,11 +10898,6 @@
         "ec2:SnapshotID",
         "ec2:SnapshotTime",
         "ec2:VolumeSize",
-        "aws:ResourceTag/${TagKey}",
-        "ec2:AvailabilityZone",
-        "ec2:ResourceTag/${TagKey}",
-        "ec2:SubnetID",
-        "ec2:Vpc",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -10903,7 +10908,7 @@
       "description": "Grants permission to search for routes in a local gateway route table",
       "accessLevel": "List",
       "resourceTypes": [
-        "local-gateway-route-table"
+        "local-gateway-route-table*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -11029,8 +11034,8 @@
       "description": "Grants permission to start a Network Access Scope analysis",
       "accessLevel": "Write",
       "resourceTypes": [
-        "network-insights-access-scope-analysis*",
-        "network-insights-access-scope"
+        "network-insights-access-scope*",
+        "network-insights-access-scope-analysis*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
