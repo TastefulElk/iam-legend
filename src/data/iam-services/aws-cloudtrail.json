@@ -6,7 +6,7 @@
     {
       "name": "AddTags",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AddTags.html",
-      "description": "Grants permission to add one or more tags to a trail, up to a limit of 10",
+      "description": "Grants permission to add one or more tags to a trail or event data store, up to a limit of 50",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "eventdatastore",
@@ -23,7 +23,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_CancelQuery.html",
       "description": "Grants permission to cancel a running query",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "eventdatastore*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -39,7 +41,14 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "cloudtrail:AddTags",
+        "iam:CreateServiceLinkedRole",
+        "iam:GetRole",
+        "kms:Decrypt",
+        "kms:GenerateDataKey",
+        "organizations:ListAWSServiceAccessForOrganization"
+      ]
     },
     {
       "name": "CreateServiceLinkedChannel",
@@ -65,7 +74,10 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "s3:PutObject"
+        "cloudtrail:AddTags",
+        "iam:CreateServiceLinkedRole",
+        "iam:GetRole",
+        "organizations:ListAWSServiceAccessForOrganization"
       ]
     },
     {
@@ -108,14 +120,19 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "organizations:DeregisterDelegatedAdministrator",
+        "organizations:ListAWSServiceAccessForOrganization"
+      ]
     },
     {
       "name": "DescribeQuery",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DescribeQuery.html",
       "description": "Grants permission to list details for the query",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "eventdatastore*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -129,11 +146,24 @@
       "dependentActions": []
     },
     {
+      "name": "GetChannel",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetChannel.html",
+      "description": "Grants permission to return information about a specific channel",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetEventDataStore",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetEventDataStore.html",
       "description": "Grants permission to list settings for the event data store",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "eventdatastore*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -145,6 +175,15 @@
       "resourceTypes": [
         "trail*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetImport",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetImport.html",
+      "description": "Grants permission to return information about a specific import",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -164,9 +203,14 @@
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetQueryResults.html",
       "description": "Grants permission to fetch results of a complete query",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "eventdatastore*"
+      ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ]
     },
     {
       "name": "GetServiceLinkedChannel",
@@ -184,7 +228,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetTrail.html",
       "description": "Grants permission to list settings for the trail",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "trail*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -200,9 +246,36 @@
       "dependentActions": []
     },
     {
+      "name": "ListChannels",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListChannels.html",
+      "description": "Grants permission to list the channels in the current account, and their source names",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListEventDataStores",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListEventDataStores.html",
       "description": "Grants permission to list event data stores associated with the current region for your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListImportFailures",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListImportFailures.html",
+      "description": "Grants permission to return a list of failures for the specified import",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListImports",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListImports.html",
+      "description": "Grants permission to return information on all imports, or a select set of imports by ImportStatus or Destination",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -222,7 +295,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListQueries.html",
       "description": "Grants permission to list queries associated with an event data store",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "eventdatastore*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -294,7 +369,12 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole",
+        "iam:GetRole",
+        "organizations:ListAWSServiceAccessForOrganization",
+        "organizations:RegisterDelegatedAdministrator"
+      ]
     },
     {
       "name": "RemoveTags",
@@ -322,6 +402,15 @@
       "dependentActions": []
     },
     {
+      "name": "StartImport",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartImport.html",
+      "description": "Grants permission to start an import of logged trail events from a source S3 bucket to a destination event data store",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartLogging",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html",
       "description": "Grants permission to start the recording of AWS API calls and log file delivery for a trail",
@@ -336,6 +425,20 @@
       "name": "StartQuery",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartQuery.html",
       "description": "Grants permission to start a new query on a specified event data store",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "eventdatastore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ]
+    },
+    {
+      "name": "StopImport",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StopImport.html",
+      "description": "Grants permission to stop a specified import",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -361,7 +464,13 @@
         "eventdatastore*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole",
+        "iam:GetRole",
+        "kms:Decrypt",
+        "kms:GenerateDataKey",
+        "organizations:ListAWSServiceAccessForOrganization"
+      ]
     },
     {
       "name": "UpdateServiceLinkedChannel",
@@ -383,7 +492,11 @@
         "trail*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole",
+        "iam:GetRole",
+        "organizations:ListAWSServiceAccessForOrganization"
+      ]
     }
   ]
 }

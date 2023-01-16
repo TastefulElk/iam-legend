@@ -1,0 +1,414 @@
+{
+  "serviceName": "AWS Clean Rooms",
+  "servicePrefix": "cleanrooms",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awscleanrooms.html",
+  "actions": [
+    {
+      "name": "BatchGetSchema",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_BatchGetSchema.html",
+      "description": "Grants permission to view details for schemas",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Collaboration*",
+        "ConfiguredTableAssociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "cleanrooms:GetSchema"
+      ]
+    },
+    {
+      "name": "CreateCollaboration",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html",
+      "description": "Grants permission to create a new collaboration, a shared data collaboration environment",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateConfiguredTable",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateConfiguredTable.html",
+      "description": "Grants permission to create a new configured table",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "glue:BatchGetPartition",
+        "glue:GetDatabase",
+        "glue:GetDatabases",
+        "glue:GetPartition",
+        "glue:GetPartitions",
+        "glue:GetSchemaVersion",
+        "glue:GetTable",
+        "glue:GetTables"
+      ]
+    },
+    {
+      "name": "CreateConfiguredTableAnalysisRule",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateConfiguredTableAnalysisRule.html",
+      "description": "Grants permission to create a analysis rule for a configured table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfiguredTable*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateConfiguredTableAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateConfiguredTableAssociation.html",
+      "description": "Grants permission to link a configured table with a collaboration by creating a new association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfiguredTable*",
+        "Membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateMembership",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateMembership.html",
+      "description": "Grants permission to join collaborations by creating a membership",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "logs:CreateLogDelivery",
+        "logs:CreateLogGroup",
+        "logs:DeleteLogDelivery",
+        "logs:DescribeLogGroups",
+        "logs:DescribeResourcePolicies",
+        "logs:GetLogDelivery",
+        "logs:ListLogDeliveries",
+        "logs:PutResourcePolicy",
+        "logs:UpdateLogDelivery"
+      ]
+    },
+    {
+      "name": "DeleteCollaboration",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_DeleteCollaboration.html",
+      "description": "Grants permission to delete an existing collaboration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConfiguredTable",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_DeleteConfiguredTable.html",
+      "description": "Grants permission to delete a configured table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfiguredTable*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConfiguredTableAnalysisRule",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_DeleteConfiguredTableAnalysisRule.html",
+      "description": "Grants permission to delete an existing analysis rule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfiguredTable*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConfiguredTableAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_DeleteConfiguredTableAssociation.html",
+      "description": "Grants permission to remove a configured table association from a collaboration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfiguredTableAssociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMember",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_DeleteMember.html",
+      "description": "Grants permission to delete members from a collaboration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMembership",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_DeleteMembership.html",
+      "description": "Grants permission to leave collaborations by deleting a membership",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCollaboration",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetCollaboration.html",
+      "description": "Grants permission to view details for a collaboration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetConfiguredTable",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetConfiguredTable.html",
+      "description": "Grants permission to view details for a configured table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ConfiguredTable*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetConfiguredTableAnalysisRule",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetConfiguredTableAnalysisRule.html",
+      "description": "Grants permission to view analysis rules for a configured table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ConfiguredTable*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetConfiguredTableAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetConfiguredTableAssociation.html",
+      "description": "Grants permission to view details for a configured table association",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ConfiguredTableAssociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetMembership",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetMembership.html",
+      "description": "Grants permission to view details about a membership",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetProtectedQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetProtectedQuery.html",
+      "description": "Grants permission to view a protected query",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSchema",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetSchema.html",
+      "description": "Grants permission to view details for a schema",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Collaboration*",
+        "ConfiguredTableAssociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSchemaAnalysisRule",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetSchemaAnalysisRule.html",
+      "description": "Grants permission to view analysis rules associated with a schema",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCollaborations",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListCollaborations.html",
+      "description": "Grants permission to list available collaborations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListConfiguredTableAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListConfiguredTableAssociations.html",
+      "description": "Grants permission to list available configured table associations for a membership",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListConfiguredTables",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListConfiguredTables.html",
+      "description": "Grants permission to list available configured tables",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMembers",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListMembers.html",
+      "description": "Grants permission to list the members of a collaboration",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMemberships",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListMemberships.html",
+      "description": "Grants permission to list available memberships",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListProtectedQueries",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListProtectedQueries.html",
+      "description": "Grants permission to list protected queries",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSchemas",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListSchemas.html",
+      "description": "Grants permission to view available schemas for a collaboration",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartProtectedQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_StartProtectedQuery.html",
+      "description": "Grants permission to start protected queries",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "cleanrooms:GetSchema",
+        "s3:GetBucketLocation",
+        "s3:ListBucket",
+        "s3:PutObject"
+      ]
+    },
+    {
+      "name": "UpdateCollaboration",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_UpdateCollaboration.html",
+      "description": "Grants permission to update details of the collaboration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateConfiguredTable",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_UpdateConfiguredTable.html",
+      "description": "Grants permission to update an existing configured table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfiguredTable*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateConfiguredTableAnalysisRule",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_UpdateConfiguredTableAnalysisRule.html",
+      "description": "Grants permission to update analysis rules for a configured table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfiguredTable*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateConfiguredTableAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_UpdateConfiguredTableAssociation.html",
+      "description": "Grants permission to update a configured table association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfiguredTableAssociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdateMembership",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_UpdateMembership.html",
+      "description": "Grants permission to update details of a membership",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "logs:CreateLogDelivery",
+        "logs:CreateLogGroup",
+        "logs:DeleteLogDelivery",
+        "logs:DescribeLogGroups",
+        "logs:DescribeResourcePolicies",
+        "logs:GetLogDelivery",
+        "logs:ListLogDeliveries",
+        "logs:PutResourcePolicy",
+        "logs:UpdateLogDelivery"
+      ]
+    },
+    {
+      "name": "UpdateProtectedQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_UpdateProtectedQuery.html",
+      "description": "Grants permission to update protected queries",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

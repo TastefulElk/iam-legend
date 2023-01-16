@@ -355,6 +355,18 @@
       "dependentActions": []
     },
     {
+      "name": "GetClusterSessionCredentials",
+      "description": "Grants permission to retrieve HTTP basic credentials associated with a given execution IAM Role for a fine-grained access control enabled EMR Cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "elasticmapreduce:ExecutionRoleArn"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetManagedScalingPolicy",
       "documentationUrl": "https://docs.aws.amazon.com/emr/latest/APIReference/API_GetManagedScalingPolicy.html",
       "description": "Grants permission to retrieve the managed scaling policy associated with a cluster",
@@ -830,6 +842,7 @@
     },
     {
       "name": "ViewEventsFromAllClustersInConsole",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelasticmapreduce.html",
       "description": "Grants permission to use the EMR console to view events from all clusters",
       "accessLevel": "List",
       "resourceTypes": [],
