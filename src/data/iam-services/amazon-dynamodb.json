@@ -36,7 +36,7 @@
     },
     {
       "name": "ConditionCheckItem",
-      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ConditionCheckItem.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ConditionCheck.html",
       "description": "Grants permission to the ConditionCheckItem operation checks the existence of a set of attributes for the item with the given primary key",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -86,7 +86,7 @@
     },
     {
       "name": "CreateTableReplica",
-      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/V2gt_IAM.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2gt_IAM.html",
       "description": "Grants permission to add a new replica table",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -136,7 +136,7 @@
     },
     {
       "name": "DeleteTableReplica",
-      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/V2gt_IAM.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2gt_IAM.html",
       "description": "Grants permission to delete a replica table and all of its items",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -176,6 +176,15 @@
         "table*",
         "index"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEndpoints",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeEndpoints.html",
+      "description": "Grants permission to return the regional endpoint information",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -245,6 +254,7 @@
     },
     {
       "name": "DescribeReservedCapacity",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/iam-policy-prevent-purchase-reserved-capacity.html",
       "description": "Grants permission to describe one or more of the Reserved Capacity purchased",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -253,6 +263,7 @@
     },
     {
       "name": "DescribeReservedCapacityOfferings",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/iam-policy-prevent-purchase-reserved-capacity.html",
       "description": "Grants permission to describe Reserved Capacity offerings that are available for purchase",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -261,7 +272,7 @@
     },
     {
       "name": "DescribeStream",
-      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeStream.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_DescribeStream.html",
       "description": "Grants permission to return information about a stream, including the current status of the stream, its Amazon Resource Name (ARN), the composition of its shards, and its corresponding DynamoDB table",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -355,7 +366,7 @@
     },
     {
       "name": "GetRecords",
-      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetRecords.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetRecords.html",
       "description": "Grants permission to retrieve the stream records from a given shard",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -366,7 +377,7 @@
     },
     {
       "name": "GetShardIterator",
-      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetShardIterator.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_GetShardIterator.html",
       "description": "Grants permission to return a shard iterator",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -433,7 +444,7 @@
     },
     {
       "name": "ListStreams",
-      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListStreams.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_streams_ListStreams.html",
       "description": "Grants permission to return an array of stream ARNs associated with the current account and endpoint",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -527,6 +538,7 @@
     },
     {
       "name": "PurchaseReservedCapacityOfferings",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/iam-policy-prevent-purchase-reserved-capacity.html",
       "description": "Grants permission to purchases reserved capacity for use with your account",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -570,7 +582,7 @@
     },
     {
       "name": "RestoreTableFromAwsBackup",
-      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_RestoreTableFromAwsBackup.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsageNotesAWS.html",
       "description": "Grants permission to create a new table from recovery point on AWS Backup",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -621,7 +633,7 @@
     },
     {
       "name": "StartAwsBackupJob",
-      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_StartAwsBackupJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/UsageNotesAWS.html",
       "description": "Grants permission to create a backup on AWS Backup with advanced features enabled",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -638,7 +650,9 @@
       "resourceTypes": [
         "table*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -649,7 +663,9 @@
       "resourceTypes": [
         "table*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -695,6 +711,18 @@
       "resourceTypes": [
         "global-table*",
         "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateGlobalTableVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html",
+      "description": "Grants permission to update version of the specified global table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "global-table*",
+        "table"
       ],
       "conditionKeys": [],
       "dependentActions": []

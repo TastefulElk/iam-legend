@@ -162,6 +162,15 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeleteResourcePolicy.html",
+      "description": "Grants permission to delete a resource policy from your organization",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeregisterDelegatedAdministrator",
       "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DeregisterDelegatedAdministrator.html",
       "description": "Grants permission to deregister the specified member AWS account as a delegated administrator for the AWS service that is specified by ServicePrincipal",
@@ -249,6 +258,15 @@
       "conditionKeys": [
         "organizations:PolicyType"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeResourcePolicy.html",
+      "description": "Grants permission to retrieve information about a resource policy",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -506,6 +524,7 @@
         "account",
         "organizationalunit",
         "policy",
+        "resourcepolicy",
         "root"
       ],
       "conditionKeys": [],
@@ -535,6 +554,20 @@
         "root"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_PutResourcePolicy.html",
+      "description": "Grants permission to create or update a resource policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "resourcepolicy*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -570,6 +603,7 @@
         "account",
         "organizationalunit",
         "policy",
+        "resourcepolicy",
         "root"
       ],
       "conditionKeys": [
@@ -587,6 +621,7 @@
         "account",
         "organizationalunit",
         "policy",
+        "resourcepolicy",
         "root"
       ],
       "conditionKeys": [
