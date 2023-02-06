@@ -6,9 +6,10 @@
     {
       "name": "AddTags",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AddTags.html",
-      "description": "Grants permission to add one or more tags to a trail or event data store, up to a limit of 50",
+      "description": "Grants permission to add one or more tags to a trail, event data store, or channel, up to a limit of 50",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "channel",
         "eventdatastore",
         "trail"
       ],
@@ -28,6 +29,22 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "CreateChannel",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_CreateChannel.html",
+      "description": "Grants permission to create a channel",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channel*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "cloudtrail:AddTags"
+      ]
     },
     {
       "name": "CreateEventDataStore",
@@ -81,12 +98,34 @@
       ]
     },
     {
+      "name": "DeleteChannel",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteChannel.html",
+      "description": "Grants permission to delete a channel",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteEventDataStore",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteEventDataStore.html",
       "description": "Grants permission to delete an event data store",
       "accessLevel": "Write",
       "resourceTypes": [
         "eventdatastore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteResourcePolicy.html",
+      "description": "Grants permission to delete a resource policy from the provided resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -213,6 +252,17 @@
       ]
     },
     {
+      "name": "GetResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetResourcePolicy.html",
+      "description": "Grants permission to get the resource policy attached to the provided resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetServiceLinkedChannel",
       "documentationUrl": "API_GetServiceLinkedChannel.html",
       "description": "Grants permission to list settings for the service-linked channel",
@@ -313,9 +363,10 @@
     {
       "name": "ListTags",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListTags.html",
-      "description": "Grants permission to list the tags for trails or event data stores in the current region",
+      "description": "Grants permission to list the tags for trails, event data stores, or channels in the current region",
       "accessLevel": "Read",
       "resourceTypes": [
+        "channel",
         "eventdatastore",
         "trail"
       ],
@@ -363,6 +414,17 @@
       "dependentActions": []
     },
     {
+      "name": "PutResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_PutResourcePolicy.html",
+      "description": "Grants permission to attach a resource policy to the provided resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "RegisterOrganizationDelegatedAdmin",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_RegisterOrganizationDelegatedAdmin.html",
       "description": "Grants permission to register an AWS Organizations member account as a delegated administrator",
@@ -379,9 +441,10 @@
     {
       "name": "RemoveTags",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_RemoveTags.html",
-      "description": "Grants permission to remove tags from a trail",
+      "description": "Grants permission to remove tags from a trail, event data store, or channel",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "channel",
         "eventdatastore",
         "trail"
       ],
@@ -451,6 +514,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "trail*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateChannel",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_UpdateChannel.html",
+      "description": "Grants permission to update a channel",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
