@@ -15,6 +15,20 @@
       "dependentActions": []
     },
     {
+      "name": "CopyDistribution",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CopyDistribution.html",
+      "description": "Grants permission to copy an existing distribution and create a new web distribution",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "distribution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "cloudfront:CreateDistribution",
+        "cloudfront:GetDistribution"
+      ]
+    },
+    {
       "name": "CreateCachePolicy",
       "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateCachePolicy.html",
       "description": "Grants permission to add a new cache policy to CloudFront",
@@ -32,6 +46,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "origin-access-identity*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateContinuousDeploymentPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateContinuousDeploymentPolicy.html",
+      "description": "Grants permission to add a new continuous-deployment policy to CloudFront",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "continuous-deployment-policy*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -213,6 +238,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteContinuousDeploymentPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_DeleteContinuousDeploymentPolicy.html",
+      "description": "Grants permission to delete a continuous-deployment policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "continuous-deployment-policy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteDistribution",
       "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_DeleteDistribution.html",
       "description": "Grants permission to delete a web distribution",
@@ -389,6 +425,28 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "origin-access-identity*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetContinuousDeploymentPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetContinuousDeploymentPolicy.html",
+      "description": "Grants permission to get the continuous-deployment policy",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "continuous-deployment-policy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetContinuousDeploymentPolicyConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetContinuousDeploymentPolicyConfig.html",
+      "description": "Grants permission to get the continuous-deployment policy configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "continuous-deployment-policy*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -660,6 +718,15 @@
       "resourceTypes": [
         "distribution*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListContinuousDeploymentPolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListContinuousDeploymentPolicies.html",
+      "description": "Grants permission to list all continuous-deployment policies in the account",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -948,6 +1015,17 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateContinuousDeploymentPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateContinuousDeploymentPolicy.html",
+      "description": "Grants permission to update a continuous-deployment policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "continuous-deployment-policy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateDistribution",
       "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html",
       "description": "Grants permission to update the configuration for a web distribution",
@@ -957,6 +1035,20 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "UpdateDistributionWithStagingConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistributionWithStagingConfig.html",
+      "description": "Grants permission to copy the staging distribution's configuration to its corresponding primary distribution",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "distribution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "cloudfront:GetDistribution",
+        "cloudfront:UpdateDistribution"
+      ]
     },
     {
       "name": "UpdateFieldLevelEncryptionConfig",
