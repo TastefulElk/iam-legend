@@ -16,6 +16,40 @@
       "dependentActions": []
     },
     {
+      "name": "BatchCreateVehicle",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_BatchCreateVehicle.html",
+      "description": "Grants permission to create a batch of vehicles",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "decodermanifest*",
+        "modelmanifest*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iot:CreateThing",
+        "iot:DescribeThing"
+      ]
+    },
+    {
+      "name": "BatchUpdateVehicle",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_BatchUpdateVehicle.html",
+      "description": "Grants permission to update a batch of vehicles",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vehicle*",
+        "decodermanifest",
+        "modelmanifest"
+      ],
+      "conditionKeys": [
+        "iotfleetwise:UpdateToModelManifestArn",
+        "iotfleetwise:UpdateToDecoderManifestArn"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateCampaign",
       "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateCampaign.html",
       "description": "Grants permission to create a campaign",
