@@ -4,6 +4,18 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonmanagedblockchain.html",
   "actions": [
     {
+      "name": "CreateAccessor",
+      "documentationUrl": "https://docs.aws.amazon.com/managed-blockchain/latest/APIReference/API_CreateAccessor.html",
+      "description": "Grants permission to create an Amazon Managed Blockchain accessor",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateMember",
       "documentationUrl": "https://docs.aws.amazon.com/managed-blockchain/latest/APIReference/API_CreateMember.html",
       "description": "Grants permission to create a member of an Amazon Managed Blockchain network",
@@ -65,6 +77,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteAccessor",
+      "documentationUrl": "https://docs.aws.amazon.com/managed-blockchain/latest/APIReference/API_DeleteAccessor.html",
+      "description": "Grants permission to delete an Amazon Managed Blockchain accessor owned by the current AWS account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "accessor*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteMember",
       "documentationUrl": "https://docs.aws.amazon.com/managed-blockchain/latest/APIReference/API_DeleteMember.html",
       "description": "Grants permission to delete a member and all associated resources from an Amazon Managed Blockchain network",
@@ -82,6 +105,26 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "node*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GET",
+      "documentationUrl": "https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/security_iam_id-based-policy-examples.html",
+      "description": "Grants permission to send HTTP GET requests to an Ethereum node",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccessor",
+      "documentationUrl": "https://docs.aws.amazon.com/managed-blockchain/latest/APIReference/API_GetAccessor.html",
+      "description": "Grants permission to return detailed information about an Amazon Managed Blockchain accessor owned by the current AWS account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "accessor*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -127,6 +170,24 @@
       "resourceTypes": [
         "proposal*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "Invoke",
+      "documentationUrl": "https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/security_iam_id-based-policy-examples.html",
+      "description": "Grants permission to create WebSocket connections to an Ethereum node",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAccessors",
+      "documentationUrl": "https://docs.aws.amazon.com/managed-blockchain/latest/APIReference/API_ListAccessors.html",
+      "description": "Grants permission to list the Amazon Managed Blockchain accessors owned by the current AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -199,12 +260,22 @@
       "description": "Grants permission to view tags associated with an Amazon Managed Blockchain resource",
       "accessLevel": "Read",
       "resourceTypes": [
+        "accessor",
         "invitation",
         "member",
         "network",
         "node",
         "proposal"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "POST",
+      "documentationUrl": "https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/security_iam_id-based-policy-examples.html",
+      "description": "Grants permission to send HTTP POST requests to an Ethereum node",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -225,6 +296,7 @@
       "description": "Grants permission to add tags to an Amazon Managed Blockchain resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "accessor",
         "invitation",
         "member",
         "network",
@@ -243,6 +315,7 @@
       "description": "Grants permission to remove tags from an Amazon Managed Blockchain resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "accessor",
         "invitation",
         "member",
         "network",
