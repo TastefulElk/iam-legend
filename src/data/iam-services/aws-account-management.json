@@ -30,10 +30,13 @@
     },
     {
       "name": "DisableRegion",
-      "documentationUrl": "https://docs.aws.amazon.com/general/latest/gr/rande-manage.html",
+      "documentationUrl": "https://docs.aws.amazon.com/accounts/latest/reference/API_DisableRegion.html",
       "description": "Grants permission to disable use of a Region",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "account",
+        "accountInOrganization"
+      ],
       "conditionKeys": [
         "account:TargetRegion"
       ],
@@ -41,10 +44,13 @@
     },
     {
       "name": "EnableRegion",
-      "documentationUrl": "https://docs.aws.amazon.com/general/latest/gr/rande-manage.html",
+      "documentationUrl": "https://docs.aws.amazon.com/accounts/latest/reference/API_EnableRegion.html",
       "description": "Grants permission to enable use of a Region",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "account",
+        "accountInOrganization"
+      ],
       "conditionKeys": [
         "account:TargetRegion"
       ],
@@ -99,11 +105,28 @@
       "dependentActions": []
     },
     {
+      "name": "GetRegionOptStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/accounts/latest/reference/API_GetRegionOptStatus.html",
+      "description": "Grants permission to get the opt-in status of a Region",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "account",
+        "accountInOrganization"
+      ],
+      "conditionKeys": [
+        "account:TargetRegion"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListRegions",
-      "documentationUrl": "https://docs.aws.amazon.com/general/latest/gr/rande-manage.html",
+      "documentationUrl": "https://docs.aws.amazon.com/accounts/latest/reference/API_ListRegions.html",
       "description": "Grants permission to list the available Regions",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "account",
+        "accountInOrganization"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },

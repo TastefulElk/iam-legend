@@ -4,6 +4,17 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awselementalmediatailor.html",
   "actions": [
     {
+      "name": "ConfigureLogsForChannel",
+      "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/configurelogs-channel.html",
+      "description": "Grants permission to configure logs on the channel with the specified channel name",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ConfigureLogsForPlaybackConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/configurelogs-playbackconfiguration.html",
       "description": "Grants permission to configure logs for a playback configuration",
@@ -33,9 +44,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/sourcelocation-sourcelocationname-livesource-livesourcename.html",
       "description": "Grants permission to create a new live source on the source location with the specified source location name",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "sourceLocation*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -58,9 +67,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/channel-channelname-program-programname.html",
       "description": "Grants permission to create a new program on the channel with the specified channel name",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "channel*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -81,9 +88,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/sourcelocation-sourcelocationname-vodsource-vodsourcename.html",
       "description": "Grants permission to create a new VOD source on the source location with the specified source location name",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "sourceLocation*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -118,8 +123,7 @@
       "description": "Grants permission to delete the live source with the specified live source name on the source location with the specified source location name",
       "accessLevel": "Write",
       "resourceTypes": [
-        "liveSource*",
-        "sourceLocation*"
+        "liveSource*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -153,7 +157,6 @@
       "description": "Grants permission to delete the program with the specified program name on the channel with the specified channel name",
       "accessLevel": "Write",
       "resourceTypes": [
-        "channel*",
         "program*"
       ],
       "conditionKeys": [],
@@ -176,7 +179,6 @@
       "description": "Grants permission to delete the VOD source with the specified VOD source name on the source location with the specified source location name",
       "accessLevel": "Write",
       "resourceTypes": [
-        "sourceLocation*",
         "vodSource*"
       ],
       "conditionKeys": [],
@@ -199,8 +201,7 @@
       "description": "Grants permission to retrieve the live source with the specified live source name on the source location with the specified source location name",
       "accessLevel": "Read",
       "resourceTypes": [
-        "liveSource*",
-        "sourceLocation*"
+        "liveSource*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -211,7 +212,6 @@
       "description": "Grants permission to retrieve the program with the specified program name on the channel with the specified channel name",
       "accessLevel": "Read",
       "resourceTypes": [
-        "channel*",
         "program*"
       ],
       "conditionKeys": [],
@@ -234,7 +234,6 @@
       "description": "Grants permission to retrieve the VOD source with the specified VOD source name on the source location with the specified source location name",
       "accessLevel": "Read",
       "resourceTypes": [
-        "sourceLocation*",
         "vodSource*"
       ],
       "conditionKeys": [],
@@ -308,9 +307,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/sourcelocation-sourcelocationname-livesources.html",
       "description": "Grants permission to retrieve the list of existing live sources on the source location with the specified source location name",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "sourceLocation*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -363,9 +360,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/sourcelocation-sourcelocationname-vodsources.html",
       "description": "Grants permission to retrieve the list of existing VOD sources on the source location with the specified source location name",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "sourceLocation*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -467,8 +462,18 @@
       "description": "Grants permission to update the live source with the specified live source name on the source location with the specified source location name",
       "accessLevel": "Write",
       "resourceTypes": [
-        "liveSource*",
-        "sourceLocation*"
+        "liveSource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateProgram",
+      "documentationUrl": "https://docs.aws.amazon.com/mediatailor/latest/apireference/channel-channelname-program-programname.html",
+      "description": "Grants permission to update the program with the specified program name on the channel with the specified channel name",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "program*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -490,7 +495,6 @@
       "description": "Grants permission to update the VOD source with the specified VOD source name on the source location with the specified source location name",
       "accessLevel": "Write",
       "resourceTypes": [
-        "sourceLocation*",
         "vodSource*"
       ],
       "conditionKeys": [],

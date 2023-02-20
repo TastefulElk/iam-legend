@@ -97,6 +97,18 @@
       "dependentActions": []
     },
     {
+      "name": "CreateList",
+      "documentationUrl": "https://docs.aws.amazon.com/frauddetector/latest/api/API_CreateList.html",
+      "description": "Grants permission to create a list",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateModel",
       "documentationUrl": "https://docs.aws.amazon.com/frauddetector/latest/api/API_CreateModel.html",
       "description": "Grants permission to create a model using the specified model type",
@@ -259,6 +271,19 @@
         "label*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteList",
+      "documentationUrl": "https://docs.aws.amazon.com/frauddetector/latest/api/API_DeleteList.html",
+      "description": "Grants permission to delete a list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "list*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -481,6 +506,32 @@
         "label"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetListElements",
+      "documentationUrl": "https://docs.aws.amazon.com/frauddetector/latest/api/API_GetListElements.html",
+      "description": "Grants permission to get elements of a list",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "list*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetListsMetadata",
+      "documentationUrl": "https://docs.aws.amazon.com/frauddetector/latest/api/API_GetListsMetadata.html",
+      "description": "Grants permission to get metadata about lists",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "list"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -781,6 +832,19 @@
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateList",
+      "documentationUrl": "https://docs.aws.amazon.com/frauddetector/latest/api/API_UpdateList.html",
+      "description": "Grants permission to update a list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "list*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
