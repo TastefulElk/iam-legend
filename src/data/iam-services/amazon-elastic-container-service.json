@@ -122,6 +122,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteTaskDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskDefinitions.html",
+      "description": "Grants permission to delete the specified task definitions by family and revision",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "task-definition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteTaskSet",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskSet.html",
       "description": "Grants permission to delete the specified task set",
@@ -261,6 +272,19 @@
         "ecs:cluster",
         "ecs:container-name",
         "ecs:task"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTaskProtection",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_GetTaskProtection.html",
+      "description": "Grants permission to retrieve the protection status of tasks in an Amazon ECS service",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "task*"
+      ],
+      "conditionKeys": [
+        "ecs:cluster"
       ],
       "dependentActions": []
     },
@@ -563,7 +587,8 @@
       ],
       "conditionKeys": [
         "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:RequestTag/${TagKey}",
+        "ecs:CreateAction"
       ],
       "dependentActions": []
     },
@@ -671,6 +696,19 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "service*"
+      ],
+      "conditionKeys": [
+        "ecs:cluster"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTaskProtection",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateTaskProtection.html",
+      "description": "Grants permission to modify the protection status of a task",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "task*"
       ],
       "conditionKeys": [
         "ecs:cluster"
