@@ -48,13 +48,26 @@
       "dependentActions": []
     },
     {
-      "name": "BatchGetStandardsControlAssociations",
-      "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html",
-      "description": "Grants permission to get the association between a list of security controls and standards in batches",
+      "name": "BatchGetSecurityControls",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchGetSecurityControls.html",
+      "description": "Grants permission to get details about specific security controls identified by ID or ARN",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "securityhub:DescribeStandardsControls"
+      ]
+    },
+    {
+      "name": "BatchGetStandardsControlAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchGetStandardsControlAssociations.html",
+      "description": "Grants permission to get the enablement status of a batch of security controls in standards",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "securityhub:DescribeStandardsControls"
+      ]
     },
     {
       "name": "BatchImportFindings",
@@ -84,12 +97,14 @@
     },
     {
       "name": "BatchUpdateStandardsControlAssociations",
-      "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html",
-      "description": "Grants permission to update the association between a list of security controls and standards in batches",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html",
+      "description": "Grants permission to update the enablement status of a batch of security controls in standards",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "securityhub:UpdateStandardsControl"
+      ]
     },
     {
       "name": "CreateActionTarget",
@@ -617,12 +632,23 @@
     },
     {
       "name": "ListSecurityControlDefinitions",
-      "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html",
-      "description": "Grants permission to retrieve a list of security control definitions, which contain cross-Region control details for security controls",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListSecurityControlDefinitions.html",
+      "description": "Grants permission to retrieve a list of security control definitions, which contain details for security controls in the current region",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "ListStandardsControlAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListStandardsControlAssociations.html",
+      "description": "Grants permission to list the enablement status of a security control in standards",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "securityhub:DescribeStandardsControls"
+      ]
     },
     {
       "name": "ListTagsForResource",

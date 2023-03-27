@@ -8,8 +8,13 @@
       "documentationUrl": "https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DeleteScalingPolicy.html",
       "description": "Grants permission to delete a scaling policy",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "ScalableTarget*"
+      ],
+      "conditionKeys": [
+        "application-autoscaling:service-namespace",
+        "application-autoscaling:scalable-dimension"
+      ],
       "dependentActions": []
     },
     {
@@ -17,8 +22,13 @@
       "documentationUrl": "https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DeleteScheduledAction.html",
       "description": "Grants permission to delete a scheduled action",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "ScalableTarget*"
+      ],
+      "conditionKeys": [
+        "application-autoscaling:service-namespace",
+        "application-autoscaling:scalable-dimension"
+      ],
       "dependentActions": []
     },
     {
@@ -26,8 +36,13 @@
       "documentationUrl": "https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DeregisterScalableTarget.html",
       "description": "Grants permission to deregister a scalable target",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "ScalableTarget*"
+      ],
+      "conditionKeys": [
+        "application-autoscaling:service-namespace",
+        "application-autoscaling:scalable-dimension"
+      ],
       "dependentActions": []
     },
     {
@@ -67,12 +82,28 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/autoscaling/application/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a scalable target",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "ScalableTarget*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "PutScalingPolicy",
       "documentationUrl": "https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScalingPolicy.html",
       "description": "Grants permission to create and update a scaling policy for a scalable target",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "ScalableTarget*"
+      ],
+      "conditionKeys": [
+        "application-autoscaling:service-namespace",
+        "application-autoscaling:scalable-dimension"
+      ],
       "dependentActions": []
     },
     {
@@ -80,8 +111,13 @@
       "documentationUrl": "https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html",
       "description": "Grants permission to create and update a scheduled action for a scalable target",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "ScalableTarget*"
+      ],
+      "conditionKeys": [
+        "application-autoscaling:service-namespace",
+        "application-autoscaling:scalable-dimension"
+      ],
       "dependentActions": []
     },
     {
@@ -89,8 +125,44 @@
       "documentationUrl": "https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html",
       "description": "Grants permission to register AWS or custom resources as scalable targets with Application Auto Scaling and to update configuration parameters used to manage a scalable target",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "ScalableTarget*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "application-autoscaling:service-namespace",
+        "application-autoscaling:scalable-dimension"
+      ],
+      "dependentActions": [
+        "application-autoscaling:TagResource"
+      ]
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/autoscaling/application/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag a scalable target",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "ScalableTarget*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/autoscaling/application/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove tags from a scalable target",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "ScalableTarget*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     }
   ]

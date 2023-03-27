@@ -1249,6 +1249,20 @@
       "dependentActions": []
     },
     {
+      "name": "GetMetricDataV2",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html",
+      "description": "Grants permission to retrieve metric data in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "hierarchy-group*",
+        "queue*",
+        "routing-profile*",
+        "user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetTaskTemplate",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_GetTaskTemplate.html",
       "description": "Grants permission to get details about specified task template in an Amazon Connect instance",
@@ -1941,9 +1955,13 @@
       "description": "Grants permission to initiate a task using the Amazon Connect API",
       "accessLevel": "Write",
       "resourceTypes": [
-        "contact-flow*"
+        "contact-flow*",
+        "contact",
+        "quick-connect",
+        "task-template"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "connect:InstanceId"
       ],
       "dependentActions": []

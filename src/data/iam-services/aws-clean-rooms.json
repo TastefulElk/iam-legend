@@ -22,8 +22,14 @@
       "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html",
       "description": "Grants permission to create a new collaboration, a shared data collaboration environment",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "Collaboration*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -31,8 +37,14 @@
       "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateConfiguredTable.html",
       "description": "Grants permission to create a new configured table",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "ConfiguredTable*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": [
         "glue:BatchGetPartition",
         "glue:GetDatabase",
@@ -62,9 +74,20 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "ConfiguredTable*",
+        "ConfiguredTableAssociation*",
         "Membership*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": [
         "iam:PassRole"
       ]
@@ -75,9 +98,17 @@
       "description": "Grants permission to join collaborations by creating a membership",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Collaboration*"
+        "Collaboration*",
+        "Membership*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": [
         "logs:CreateLogDelivery",
         "logs:CreateLogGroup",
@@ -317,6 +348,20 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Collaboration",
+        "ConfiguredTable",
+        "ConfiguredTableAssociation",
+        "Membership"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartProtectedQuery",
       "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_StartProtectedQuery.html",
       "description": "Grants permission to start protected queries",
@@ -331,6 +376,39 @@
         "s3:ListBucket",
         "s3:PutObject"
       ]
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_TagResource.html",
+      "description": "Grants permission to tag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "Collaboration",
+        "ConfiguredTable",
+        "ConfiguredTableAssociation",
+        "Membership"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_UntagResource.html",
+      "description": "Grants permission to untag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "Collaboration",
+        "ConfiguredTable",
+        "ConfiguredTableAssociation",
+        "Membership"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
     },
     {
       "name": "UpdateCollaboration",

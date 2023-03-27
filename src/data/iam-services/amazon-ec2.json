@@ -256,6 +256,21 @@
       "dependentActions": []
     },
     {
+      "name": "AssignPrivateNatGatewayAddress",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssignPrivateNatGatewayAddress.html",
+      "description": "Grants permission to assign one or more secondary private IP addresses to a private NAT gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "natgateway*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateAddress",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html",
       "description": "Grants permission to associate an Elastic IP address (EIP) with an instance or a network interface",
@@ -428,6 +443,27 @@
       "dependentActions": [
         "ec2:CreateTags"
       ]
+    },
+    {
+      "name": "AssociateNatGatewayAddress",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateNatGatewayAddress.html",
+      "description": "Grants permission to associate an Elastic IP address and private IP address with a public Nat gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "elastic-ip*",
+        "natgateway*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AllocationId",
+        "ec2:Domain",
+        "ec2:PublicIpAddress",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
     },
     {
       "name": "AssociateRouteTable",
@@ -1657,7 +1693,8 @@
       "resourceTypes": [
         "local-gateway-route-table*",
         "local-gateway-virtual-interface-group",
-        "network-interface"
+        "network-interface",
+        "prefix-list"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -1670,6 +1707,8 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:Subnet",
         "ec2:Vpc",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -3632,9 +3671,12 @@
       "description": "Grants permission to delete a route from a local gateway route table",
       "accessLevel": "Write",
       "resourceTypes": [
-        "local-gateway-route-table*"
+        "local-gateway-route-table*",
+        "prefix-list"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
@@ -7083,6 +7125,38 @@
       "dependentActions": []
     },
     {
+      "name": "DisassociateNatGatewayAddress",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateNatGatewayAddress.html",
+      "description": "Grants permission to disassociate a secondary Elastic IP address from a public NAT gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "elastic-ip*",
+        "natgateway*",
+        "network-interface*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AllocationId",
+        "ec2:Domain",
+        "ec2:PublicIpAddress",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AssociatePublicIpAddress",
+        "ec2:AuthorizedService",
+        "ec2:AuthorizedUser",
+        "ec2:AvailabilityZone",
+        "ec2:NetworkInterfaceID",
+        "ec2:Permission",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Subnet",
+        "ec2:Vpc",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DisassociateRouteTable",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateRouteTable.html",
       "description": "Grants permission to disassociate a subnet from a route table",
@@ -9023,7 +9097,8 @@
       "resourceTypes": [
         "local-gateway-route-table*",
         "local-gateway-virtual-interface-group",
-        "network-interface"
+        "network-interface",
+        "prefix-list"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -9040,6 +9115,8 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:Subnet",
         "ec2:Vpc",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -11316,6 +11393,21 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:Subnet",
         "ec2:Vpc",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UnassignPrivateNatGatewayAddress",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnassignPrivateNatGatewayAddress.html",
+      "description": "Grants permission to unassign secondary private IPv4 addresses from a private NAT gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "natgateway*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []

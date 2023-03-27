@@ -13,6 +13,15 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteLandingZone",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/decommission-landing-zone.html",
+      "description": "Grants permission to delete AWS Control Tower landing zone",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeregisterManagedAccount",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html",
       "description": "Grants permission to deregister an account created through the account factory from AWS Control Tower",
@@ -50,7 +59,7 @@
     },
     {
       "name": "DescribeGuardrail",
-      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/controls.html",
       "description": "Grants permission to describe a guardrail",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -59,8 +68,17 @@
     },
     {
       "name": "DescribeGuardrailForTarget",
-      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/controls.html",
       "description": "Grants permission to describe a guardrail for a organizational unit",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeLandingZoneConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/step-two.html",
+      "description": "Grants permission to describe the current Landing Zone configuration",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -79,6 +97,15 @@
       "name": "DescribeManagedOrganizationalUnit",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/organizations.html",
       "description": "Grants permission to describe an AWS Organizations organizational unit managed by AWS Control Tower",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRegisterOrganizationalUnitOperation",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/about-extending-governance.html",
+      "description": "Grants permission to describe a Register Organizational Unit Operation",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -104,7 +131,7 @@
     },
     {
       "name": "DisableGuardrail",
-      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html#enable-guardrails",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/enable-controls-on-ou.html",
       "description": "Grants permission to disable a guardrail from an organizational unit",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -122,9 +149,18 @@
     },
     {
       "name": "EnableGuardrail",
-      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html#enable-guardrails",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/enable-controls-on-ou.html",
       "description": "Grants permission to enable a guardrail to an organizational unit",
       "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccountInfo",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/accounts.html",
+      "description": "Grants permission to describe an account email and validate that it exists",
+      "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -149,7 +185,7 @@
     },
     {
       "name": "GetGuardrailComplianceStatus",
-      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/controls.html",
       "description": "Grants permission to get the current compliance status of a guardrail",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -160,6 +196,15 @@
       "name": "GetHomeRegion",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html#region-how",
       "description": "Grants permission to get the home region of the AWS Control Tower setup",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetLandingZoneDriftStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/drift.html",
+      "description": "Grants permission to get the current landing zone drift status",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -184,6 +229,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListDriftDetails",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/drift.html",
+      "description": "Grants permission to list occurrences of drift in AWS Control Tower",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListEnabledControls",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListEnabledControls.html",
       "description": "Grants permission to list all enabled controls in a specified organizational unit",
@@ -194,7 +248,7 @@
     },
     {
       "name": "ListEnabledGuardrails",
-      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/controls.html",
       "description": "Grants permission to list currently enabled guardrails",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -202,8 +256,26 @@
       "dependentActions": []
     },
     {
+      "name": "ListExtendGovernancePrecheckDetails",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/about-extending-governance.html",
+      "description": "Grants permission to list Precheck details for an Organizational Unit",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExternalConfigRuleCompliance",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/review-compliance.html",
+      "description": "Grants permission to list the compliance of external AWS Config rules",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListGuardrailViolations",
-      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/controls.html",
       "description": "Grants permission to list existing guardrail violations",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -212,7 +284,7 @@
     },
     {
       "name": "ListGuardrails",
-      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/controls.html",
       "description": "Grants permission to list all available guardrails",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -221,7 +293,7 @@
     },
     {
       "name": "ListGuardrailsForTarget",
-      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/guardrails.html",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/controls.html",
       "description": "Grants permission to list guardrails and their current state for a organizational unit",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -278,6 +350,15 @@
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/organizations.html",
       "description": "Grants permission to set up an organizational unit to be managed by AWS Control Tower",
       "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PerformPreLaunchChecks",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-prereqs.html",
+      "description": "Grants permission to perform validations in an account",
+      "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []

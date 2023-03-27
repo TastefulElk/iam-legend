@@ -125,6 +125,18 @@
       "dependentActions": []
     },
     {
+      "name": "CreateKey",
+      "documentationUrl": "https://docs.aws.amazon.com/location/latest/APIReference/API_CreateKey.html",
+      "description": "Grants permission to create an API key resource",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateMap",
       "documentationUrl": "https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html",
       "description": "Grants permission to create a map resource",
@@ -184,6 +196,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteKey",
+      "documentationUrl": "https://docs.aws.amazon.com/location/latest/APIReference/API_DeleteKey.html",
+      "description": "Grants permission to delete an API key resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "api-key*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteMap",
       "documentationUrl": "https://docs.aws.amazon.com/location/latest/APIReference/API_DeleteMap.html",
       "description": "Grants permission to delete a map resource",
@@ -234,6 +257,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "geofence-collection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeKey",
+      "documentationUrl": "https://docs.aws.amazon.com/location/latest/APIReference/API_DescribeKey.html",
+      "description": "Grants permission to retrieve API key resource details and secret",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "api-key*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -419,6 +453,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListKeys",
+      "documentationUrl": "https://docs.aws.amazon.com/location/latest/APIReference/API_ListKeys.html",
+      "description": "Grants permission to list API key resources",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListMaps",
       "documentationUrl": "https://docs.aws.amazon.com/location/latest/APIReference/API_ListMaps.html",
       "description": "Grants permission to list map resources",
@@ -451,6 +494,7 @@
       "description": "Grants permission to list the tags (metadata) which you have assigned to the resource",
       "accessLevel": "Read",
       "resourceTypes": [
+        "api-key",
         "geofence-collection",
         "map",
         "place-index",
@@ -532,6 +576,7 @@
       "description": "Grants permission to adds to or modifies the tags of the given resource. Tags are metadata which can be used to manage a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "api-key",
         "geofence-collection",
         "map",
         "place-index",
@@ -550,6 +595,7 @@
       "description": "Grants permission to remove the given tags (metadata) from the resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "api-key",
         "geofence-collection",
         "map",
         "place-index",
@@ -569,6 +615,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "geofence-collection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateKey",
+      "documentationUrl": "https://docs.aws.amazon.com/location/latest/APIReference/API_UpdateKey.html",
+      "description": "Grants permission to update an API key resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "api-key*"
       ],
       "conditionKeys": [],
       "dependentActions": []

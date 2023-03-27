@@ -8,6 +8,17 @@
       "documentationUrl": "https://docs.aws.amazon.com/wickr/latest/adminguide/security-iam.html",
       "description": "Grants permission to create and manage Wickr networks",
       "accessLevel": "Write",
+      "resourceTypes": [
+        "network*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateNetwork",
+      "documentationUrl": "https://docs.aws.amazon.com/wickr/latest/adminguide/security-iam.html",
+      "description": "Grants permission to create a new wickr network",
+      "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -18,6 +29,54 @@
       "description": "Grants permission to view Wickr networks",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/wickr/latest/adminguide/security-iam.html",
+      "description": "Grants permission to list the tags applied to a Wickr resource",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/wickr/latest/adminguide/security-iam.html",
+      "description": "Grants permission to add tags to a specified wickr resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "network*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/wickr/latest/adminguide/security-iam.html",
+      "description": "Grants permission to untag the specified tags from the specified wickr resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "network*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateNetworkDetails",
+      "documentationUrl": "https://docs.aws.amazon.com/wickr/latest/adminguide/security-iam.html",
+      "description": "Grants permission to update Wickr network details",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "network*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     }
