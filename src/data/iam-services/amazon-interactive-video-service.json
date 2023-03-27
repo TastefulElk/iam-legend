@@ -41,12 +41,40 @@
       "dependentActions": []
     },
     {
+      "name": "CreateParticipantToken",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_CreateParticipantToken.html",
+      "description": "Grants permission to create a participant token",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Stage*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateRecordingConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/APIReference/API_CreateRecordingConfiguration.html",
       "description": "Grants permission to create a a new recording configuration",
       "accessLevel": "Write",
       "resourceTypes": [
         "Recording-Configuration*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateStage",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_CreateStage.html",
+      "description": "Grants permission to create a stage",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Stage*"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -103,12 +131,34 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteStage",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_DeleteStage.html",
+      "description": "Grants permission to delete the stage for a specified ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Stage*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteStreamKey",
       "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/APIReference/API_DeleteStreamKey.html",
       "description": "Grants permission to delete the stream key for a specified ARN",
       "accessLevel": "Write",
       "resourceTypes": [
         "Stream-Key*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisconnectParticipant",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_DisconnectParticipant.html",
+      "description": "Grants permission to disconnect a participant from for the specified stage ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Stage*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -142,6 +192,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "Recording-Configuration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetStage",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_GetStage.html",
+      "description": "Grants permission to get stage information for a specified ARN",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Stage*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -227,6 +288,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListStages",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_ListStages.html",
+      "description": "Grants permission to get summary information about stages",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Stage*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListStreamKeys",
       "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/APIReference/API_ListStreamKeys.html",
       "description": "Grants permission to get summary information about stream keys",
@@ -269,6 +341,7 @@
         "Channel",
         "Playback-Key-Pair",
         "Recording-Configuration",
+        "Stage",
         "Stream-Key"
       ],
       "conditionKeys": [
@@ -308,6 +381,7 @@
         "Channel",
         "Playback-Key-Pair",
         "Recording-Configuration",
+        "Stage",
         "Stream-Key"
       ],
       "conditionKeys": [
@@ -325,6 +399,7 @@
         "Channel",
         "Playback-Key-Pair",
         "Recording-Configuration",
+        "Stage",
         "Stream-Key"
       ],
       "conditionKeys": [
@@ -339,6 +414,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "Channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateStage",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_UpdateStage.html",
+      "description": "Grants permission to update a stage's configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Stage*"
       ],
       "conditionKeys": [],
       "dependentActions": []

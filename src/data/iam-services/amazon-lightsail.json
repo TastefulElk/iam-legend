@@ -122,7 +122,10 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "lightsail:CreateDomainEntry",
+        "lightsail:GetDomains"
+      ]
     },
     {
       "name": "CreateCloudFormationStack",
@@ -237,7 +240,16 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "route53:DeleteHostedZone",
+        "route53:GetHostedZone",
+        "route53:ListHostedZonesByName",
+        "route53domains:GetDomainDetail",
+        "route53domains:GetOperationDetail",
+        "route53domains:ListDomains",
+        "route53domains:ListOperations",
+        "route53domains:UpdateDomainNameservers"
+      ]
     },
     {
       "name": "CreateDomainEntry",
@@ -246,6 +258,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "Domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateGUISessionAccessDetails",
+      "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateGUISessionAccessDetails.html",
+      "description": "Grants permission to create URLs that are used to access an instance's graphical user interface (GUI) session",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Instance*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -312,7 +335,10 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "lightsail:CreateDomainEntry",
+        "lightsail:GetDomains"
+      ]
     },
     {
       "name": "CreateLoadBalancerTlsCertificate",
@@ -323,7 +349,10 @@
         "LoadBalancer*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "lightsail:CreateDomainEntry",
+        "lightsail:GetDomains"
+      ]
     },
     {
       "name": "CreateRelationalDatabase",
@@ -844,6 +873,18 @@
       "description": "Grants permission to view information about one or more of your Amazon Lightsail container services",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCostEstimate",
+      "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetCostEstimate.html",
+      "description": "Grants permission to get the information about the cost estimate for a specified resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Disk",
+        "Instance"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1397,6 +1438,17 @@
       "dependentActions": []
     },
     {
+      "name": "StartGUISession",
+      "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_StartGUISession.html",
+      "description": "Grants permission to initiate a graphical user interface (GUI) session used to access an instance's operating system or application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartInstance",
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_StartInstance.html",
       "description": "Grants permission to start an instance that is in a stopped state",
@@ -1414,6 +1466,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "RelationalDatabase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopGUISession",
+      "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_StopGUISession.html",
+      "description": "Grants permission to terminate a graphical user interface (GUI) session used to access an instance's operating system or application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Instance*"
       ],
       "conditionKeys": [],
       "dependentActions": []

@@ -478,6 +478,46 @@
       "dependentActions": []
     },
     {
+      "name": "ListExportErrors",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListExportErrors.html",
+      "description": "Grants permission to list the errors of an export task",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "ExportResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExports",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListExports.html",
+      "description": "Grants permission to list export tasks",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListImportErrors",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListImportErrors.html",
+      "description": "Grants permission to list the errors of an import task",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "ImportResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListImports",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListImports.html",
+      "description": "Grants permission to list the import tasks",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListSourceServerActions",
       "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListSourceServerActions.html",
       "description": "Grants permission to list source server action documents",
@@ -781,6 +821,42 @@
         "ec2:TerminateInstances",
         "iam:PassRole",
         "mgn:ListTagsForResource"
+      ]
+    },
+    {
+      "name": "StartExport",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartExport.html",
+      "description": "Grants permission to start an export task",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeLaunchTemplateVersions",
+        "mgn:DescribeSourceServers",
+        "mgn:GetLaunchConfiguration",
+        "mgn:ListApplications",
+        "mgn:ListWaves",
+        "s3:PutObject"
+      ]
+    },
+    {
+      "name": "StartImport",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_StartImport.html",
+      "description": "Grants permission to create an import task",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:CreateLaunchTemplateVersion",
+        "ec2:DescribeLaunchTemplateVersions",
+        "ec2:ModifyLaunchTemplate",
+        "mgn:DescribeSourceServers",
+        "mgn:GetLaunchConfiguration",
+        "mgn:ListApplications",
+        "mgn:ListWaves",
+        "mgn:TagResource",
+        "mgn:UpdateLaunchConfiguration",
+        "s3:PutObject"
       ]
     },
     {

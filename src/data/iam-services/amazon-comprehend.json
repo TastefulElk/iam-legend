@@ -5,7 +5,7 @@
   "actions": [
     {
       "name": "BatchDetectDominantLanguage",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_BatchDetectDominantLanguage.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_BatchDetectDominantLanguage.html",
       "description": "Grants permission to detect the language or languages present in the list of text documents",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -14,7 +14,7 @@
     },
     {
       "name": "BatchDetectEntities",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_BatchDetectEntities.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_BatchDetectEntities.html",
       "description": "Grants permission to detect the named entities (\"People\", \"Places\", \"Locations\", etc) within the given list of text documents",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -23,7 +23,7 @@
     },
     {
       "name": "BatchDetectKeyPhrases",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_BatchDetectKeyPhrases.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_BatchDetectKeyPhrases.html",
       "description": "Grants permission to detect the phrases in the list of text documents that are most indicative of the content",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -32,7 +32,7 @@
     },
     {
       "name": "BatchDetectSentiment",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_BatchDetectSentiment.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_BatchDetectSentiment.html",
       "description": "Grants permission to detect the sentiment of a text in the list of documents (Positive, Negative, Neutral, or Mixed)",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -41,7 +41,7 @@
     },
     {
       "name": "BatchDetectSyntax",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_BatchDetectSyntax.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_BatchDetectSyntax.html",
       "description": "Grants permission to detect syntactic information (like Part of Speech, Tokens) in a list of text documents",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -50,7 +50,7 @@
     },
     {
       "name": "BatchDetectTargetedSentiment",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_BatchDetectTargetedSentiment.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_BatchDetectTargetedSentiment.html",
       "description": "Grants permission to detect the sentiments associated with specific entities (such as brands or products) within the given list of text documents",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -59,7 +59,7 @@
     },
     {
       "name": "ClassifyDocument",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ClassifyDocument.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ClassifyDocument.html",
       "description": "Grants permission to create a new document classification request to analyze a single document in real-time, using a previously created and trained custom model and an endpoint",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -70,7 +70,7 @@
     },
     {
       "name": "ContainsPiiEntities",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ContainsPiiEntities.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ContainsPiiEntities.html",
       "description": "Grants permission to classify the personally identifiable information within given documents in real-time",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -78,8 +78,22 @@
       "dependentActions": []
     },
     {
+      "name": "CreateDataset",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_CreateDataset.html",
+      "description": "Grants permission to create a new dataset within a flywheel",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "flywheel*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateDocumentClassifier",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_CreateDocumentClassifier.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_CreateDocumentClassifier.html",
       "description": "Grants permission to create a new document classifier that you can use to categorize documents",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -98,14 +112,15 @@
     },
     {
       "name": "CreateEndpoint",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_CreateEndpoint.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_CreateEndpoint.html",
       "description": "Grants permission to create a model-specific endpoint for synchronous inference for a previously trained custom model",
       "accessLevel": "Write",
       "resourceTypes": [
         "document-classifier*",
         "document-classifier-endpoint*",
         "entity-recognizer*",
-        "entity-recognizer-endpoint*"
+        "entity-recognizer-endpoint*",
+        "flywheel"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -115,7 +130,7 @@
     },
     {
       "name": "CreateEntityRecognizer",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_CreateEntityRecognizer.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_CreateEntityRecognizer.html",
       "description": "Grants permission to create an entity recognizer using submitted files",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -132,8 +147,29 @@
       "dependentActions": []
     },
     {
+      "name": "CreateFlywheel",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_CreateFlywheel.html",
+      "description": "Grants permission to create a new flywheel that you can use to train model versions",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "flywheel*",
+        "document-classifier",
+        "entity-recognizer"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "comprehend:VolumeKmsKey",
+        "comprehend:ModelKmsKey",
+        "comprehend:DataLakeKmsKey",
+        "comprehend:VpcSecurityGroupIds",
+        "comprehend:VpcSubnets"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteDocumentClassifier",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DeleteDocumentClassifier.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DeleteDocumentClassifier.html",
       "description": "Grants permission to delete a previously created document classifier",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -144,7 +180,7 @@
     },
     {
       "name": "DeleteEndpoint",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DeleteEndpoint.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DeleteEndpoint.html",
       "description": "Grants permission to delete a model-specific endpoint for a previously-trained custom model. All endpoints must be deleted in order for the model to be deleted",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -156,7 +192,7 @@
     },
     {
       "name": "DeleteEntityRecognizer",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DeleteEntityRecognizer.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DeleteEntityRecognizer.html",
       "description": "Grants permission to delete a submitted entity recognizer",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -166,8 +202,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteFlywheel",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DeleteFlywheel.html",
+      "description": "Grants permission to Delete a flywheel",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "flywheel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteResourcePolicy",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DeleteResourcePolicy.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DeleteResourcePolicy.html",
       "description": "Grants permission to remove policy on resource",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -178,8 +225,19 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeDataset",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribeDataset.html",
+      "description": "Grants permission to get the properties associated with a dataset",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "flywheel-dataset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeDocumentClassificationJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeDocumentClassificationJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribeDocumentClassificationJob.html",
       "description": "Grants permission to get the properties associated with a document classification job",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -190,7 +248,7 @@
     },
     {
       "name": "DescribeDocumentClassifier",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeDocumentClassifier.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribeDocumentClassifier.html",
       "description": "Grants permission to get the properties associated with a document classifier",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -201,7 +259,7 @@
     },
     {
       "name": "DescribeDominantLanguageDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeDominantLanguageDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribeDominantLanguageDetectionJob.html",
       "description": "Grants permission to get the properties associated with a dominant language detection job",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -212,7 +270,7 @@
     },
     {
       "name": "DescribeEndpoint",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeEndpoint.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribeEndpoint.html",
       "description": "Grants permission to get the properties associated with a specific endpoint. Use this operation to get the status of an endpoint",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -224,7 +282,7 @@
     },
     {
       "name": "DescribeEntitiesDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeEntitiesDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribeEntitiesDetectionJob.html",
       "description": "Grants permission to get the properties associated with an entities detection job",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -235,7 +293,7 @@
     },
     {
       "name": "DescribeEntityRecognizer",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeEntityRecognizer.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribeEntityRecognizer.html",
       "description": "Grants permission to provide details about an entity recognizer including status, S3 buckets containing training data, recognizer metadata, metrics, and so on",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -246,7 +304,7 @@
     },
     {
       "name": "DescribeEventsDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeEventsDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribeEventsDetectionJob.html",
       "description": "Grants permission to get the properties associated with an Events detection job",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -256,8 +314,32 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeFlywheel",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribeFlywheel.html",
+      "description": "Grants permission to get the properties associated with a flywheel",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "flywheel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeFlywheelIteration",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribeFlywheelIteration.html",
+      "description": "Grants permission to get the properties associated with a flywheel iteration for a flywheel",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "flywheel*"
+      ],
+      "conditionKeys": [
+        "comprehend:FlywheelIterationId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeKeyPhrasesDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeKeyPhrasesDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribeKeyPhrasesDetectionJob.html",
       "description": "Grants permission to get the properties associated with a key phrases detection job",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -268,7 +350,7 @@
     },
     {
       "name": "DescribePiiEntitiesDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribePiiEntitiesDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribePiiEntitiesDetectionJob.html",
       "description": "Grants permission to get the properties associated with a PII entities detection job",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -279,7 +361,7 @@
     },
     {
       "name": "DescribeResourcePolicy",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeResourcePolicy.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribeResourcePolicy.html",
       "description": "Grants permission to read attached policy on resource",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -291,7 +373,7 @@
     },
     {
       "name": "DescribeSentimentDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeSentimentDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribeSentimentDetectionJob.html",
       "description": "Grants permission to get the properties associated with a sentiment detection job",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -302,7 +384,7 @@
     },
     {
       "name": "DescribeTargetedSentimentDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeTargetedSentimentDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribeTargetedSentimentDetectionJob.html",
       "description": "Grants permission to get the properties associated with a targeted sentiment detection job",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -313,7 +395,7 @@
     },
     {
       "name": "DescribeTopicsDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DescribeTopicsDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DescribeTopicsDetectionJob.html",
       "description": "Grants permission to get the properties associated with a topic detection job",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -324,7 +406,7 @@
     },
     {
       "name": "DetectDominantLanguage",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectDominantLanguage.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectDominantLanguage.html",
       "description": "Grants permission to detect the language or languages present in the text",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -333,7 +415,7 @@
     },
     {
       "name": "DetectEntities",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectEntities.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectEntities.html",
       "description": "Grants permission to detect the named entities (\"People\", \"Places\", \"Locations\", etc) within the given text document",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -344,7 +426,7 @@
     },
     {
       "name": "DetectKeyPhrases",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectKeyPhrases.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectKeyPhrases.html",
       "description": "Grants permission to detect the phrases in the text that are most indicative of the content",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -353,7 +435,7 @@
     },
     {
       "name": "DetectPiiEntities",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectPiiEntities.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectPiiEntities.html",
       "description": "Grants permission to detect the personally identifiable information entities (\"Name\", \"SSN\", \"PIN\", etc) within the given text document",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -362,7 +444,7 @@
     },
     {
       "name": "DetectSentiment",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectSentiment.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectSentiment.html",
       "description": "Grants permission to detect the sentiment of a text in a document (Positive, Negative, Neutral, or Mixed)",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -371,7 +453,7 @@
     },
     {
       "name": "DetectSyntax",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectSyntax.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectSyntax.html",
       "description": "Grants permission to detect syntactic information (like Part of Speech, Tokens) in a text document",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -380,7 +462,7 @@
     },
     {
       "name": "DetectTargetedSentiment",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_DetectTargetedSentiment.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_DetectTargetedSentiment.html",
       "description": "Grants permission to detect the sentiments associated with specific entities (such as brands or products) in a document",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -389,7 +471,7 @@
     },
     {
       "name": "ImportModel",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ImportModel.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ImportModel.html",
       "description": "Grants permission to import a trained Comprehend model",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -404,8 +486,19 @@
       "dependentActions": []
     },
     {
+      "name": "ListDatasets",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListDatasets.html",
+      "description": "Grants permission to get a list of the Datasets associated with a flywheel",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "flywheel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListDocumentClassificationJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListDocumentClassificationJobs.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListDocumentClassificationJobs.html",
       "description": "Grants permission to get a list of the document classification jobs that you have submitted",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -414,7 +507,7 @@
     },
     {
       "name": "ListDocumentClassifierSummaries",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListDocumentClassifierSummaries.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListDocumentClassifierSummaries.html",
       "description": "Grants permission to get a list of summaries of the document classifiers that you have created",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -423,7 +516,7 @@
     },
     {
       "name": "ListDocumentClassifiers",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListDocumentClassifiers.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListDocumentClassifiers.html",
       "description": "Grants permission to get a list of the document classifiers that you have created",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -432,7 +525,7 @@
     },
     {
       "name": "ListDominantLanguageDetectionJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListDominantLanguageDetectionJobs.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListDominantLanguageDetectionJobs.html",
       "description": "Grants permission to get a list of the dominant language detection jobs that you have submitted",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -441,7 +534,7 @@
     },
     {
       "name": "ListEndpoints",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListEndpoints.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListEndpoints.html",
       "description": "Grants permission to get a list of all existing endpoints that you've created",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -450,7 +543,7 @@
     },
     {
       "name": "ListEntitiesDetectionJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListEntitiesDetectionJobs.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListEntitiesDetectionJobs.html",
       "description": "Grants permission to get a list of the entity detection jobs that you have submitted",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -459,7 +552,7 @@
     },
     {
       "name": "ListEntityRecognizerSummaries",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListEntityRecognizerSummaries.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListEntityRecognizerSummaries.html",
       "description": "Grants permission to get a list of summaries for the entity recognizers that you have created",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -468,7 +561,7 @@
     },
     {
       "name": "ListEntityRecognizers",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListEntityRecognizers.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListEntityRecognizers.html",
       "description": "Grants permission to get a list of the properties of all entity recognizers that you created, including recognizers currently in training",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -477,7 +570,7 @@
     },
     {
       "name": "ListEventsDetectionJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListEventsDetectionJobs.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListEventsDetectionJobs.html",
       "description": "Grants permission to get a list of Events detection jobs that you have submitted",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -485,8 +578,28 @@
       "dependentActions": []
     },
     {
+      "name": "ListFlywheelIterationHistory",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListFlywheelIterationHistory.html",
+      "description": "Grants permission to get a list of iterations associated for a flywheel",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "flywheel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFlywheels",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListFlywheels.html",
+      "description": "Grants permission to get a list of the flywheels that you have created",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListKeyPhrasesDetectionJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListKeyPhrasesDetectionJobs.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListKeyPhrasesDetectionJobs.html",
       "description": "Grants permission to get a list of key phrase detection jobs that you have submitted",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -495,7 +608,7 @@
     },
     {
       "name": "ListPiiEntitiesDetectionJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListPiiEntitiesDetectionJobs.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListPiiEntitiesDetectionJobs.html",
       "description": "Grants permission to get a list of PII entities detection jobs that you have submitted",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -504,7 +617,7 @@
     },
     {
       "name": "ListSentimentDetectionJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListSentimentDetectionJobs.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListSentimentDetectionJobs.html",
       "description": "Grants permission to get a list of sentiment detection jobs that you have submitted",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -513,7 +626,7 @@
     },
     {
       "name": "ListTagsForResource",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListTagsForResource.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to list tags for a resource",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -525,6 +638,8 @@
         "entity-recognizer",
         "entity-recognizer-endpoint",
         "events-detection-job",
+        "flywheel",
+        "flywheel-dataset",
         "key-phrases-detection-job",
         "pii-entities-detection-job",
         "sentiment-detection-job",
@@ -536,7 +651,7 @@
     },
     {
       "name": "ListTargetedSentimentDetectionJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListTargetedSentimentDetectionJobs.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListTargetedSentimentDetectionJobs.html",
       "description": "Grants permission to get a list of targeted sentiment detection jobs that you have submitted",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -545,7 +660,7 @@
     },
     {
       "name": "ListTopicsDetectionJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_ListTopicsDetectionJobs.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_ListTopicsDetectionJobs.html",
       "description": "Grants permission to get a list of the topic detection jobs that you have submitted",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -554,7 +669,7 @@
     },
     {
       "name": "PutResourcePolicy",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_PutResourcePolicy.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_PutResourcePolicy.html",
       "description": "Grants permission to attach policy to resource",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -566,12 +681,13 @@
     },
     {
       "name": "StartDocumentClassificationJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StartDocumentClassificationJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StartDocumentClassificationJob.html",
       "description": "Grants permission to start an asynchronous document classification job",
       "accessLevel": "Write",
       "resourceTypes": [
         "document-classification-job*",
-        "document-classifier*"
+        "document-classifier",
+        "flywheel"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -585,7 +701,7 @@
     },
     {
       "name": "StartDominantLanguageDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StartDominantLanguageDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StartDominantLanguageDetectionJob.html",
       "description": "Grants permission to start an asynchronous dominant language detection job for a collection of documents",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -603,12 +719,13 @@
     },
     {
       "name": "StartEntitiesDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StartEntitiesDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StartEntitiesDetectionJob.html",
       "description": "Grants permission to start an asynchronous entity detection job for a collection of documents",
       "accessLevel": "Write",
       "resourceTypes": [
         "entities-detection-job*",
-        "entity-recognizer"
+        "entity-recognizer",
+        "flywheel"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -622,7 +739,7 @@
     },
     {
       "name": "StartEventsDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StartEventsDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StartEventsDetectionJob.html",
       "description": "Grants permission to start an asynchronous Events detection job for a collection of documents",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -636,8 +753,19 @@
       "dependentActions": []
     },
     {
+      "name": "StartFlywheelIteration",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StartFlywheelIteration.html",
+      "description": "Grants permission to start a flywheel iteration for a flywheel",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "flywheel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartKeyPhrasesDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StartKeyPhrasesDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StartKeyPhrasesDetectionJob.html",
       "description": "Grants permission to start an asynchronous key phrase detection job for a collection of documents",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -655,7 +783,7 @@
     },
     {
       "name": "StartPiiEntitiesDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StartPiiEntitiesDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StartPiiEntitiesDetectionJob.html",
       "description": "Grants permission to start an asynchronous PII entities detection job for a collection of documents",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -670,7 +798,7 @@
     },
     {
       "name": "StartSentimentDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StartSentimentDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StartSentimentDetectionJob.html",
       "description": "Grants permission to start an asynchronous sentiment detection job for a collection of documents",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -688,7 +816,7 @@
     },
     {
       "name": "StartTargetedSentimentDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StartTargetedSentimentDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StartTargetedSentimentDetectionJob.html",
       "description": "Grants permission to start an asynchronous targeted sentiment detection job for a collection of documents",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -706,7 +834,7 @@
     },
     {
       "name": "StartTopicsDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StartTopicsDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StartTopicsDetectionJob.html",
       "description": "Grants permission to start an asynchronous job to detect the most common topics in the collection of documents and the phrases associated with each topic",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -724,7 +852,7 @@
     },
     {
       "name": "StopDominantLanguageDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StopDominantLanguageDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StopDominantLanguageDetectionJob.html",
       "description": "Grants permission to stop a dominant language detection job",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -735,7 +863,7 @@
     },
     {
       "name": "StopEntitiesDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StopEntitiesDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StopEntitiesDetectionJob.html",
       "description": "Grants permission to stop an entity detection job",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -746,7 +874,7 @@
     },
     {
       "name": "StopEventsDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StopEventsDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StopEventsDetectionJob.html",
       "description": "Grants permission to stop an Events detection job",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -757,7 +885,7 @@
     },
     {
       "name": "StopKeyPhrasesDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StopKeyPhrasesDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StopKeyPhrasesDetectionJob.html",
       "description": "Grants permission to stop a key phrase detection job",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -768,7 +896,7 @@
     },
     {
       "name": "StopPiiEntitiesDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StopPiiEntitiesDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StopPiiEntitiesDetectionJob.html",
       "description": "Grants permission to stop a PII entities detection job",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -779,7 +907,7 @@
     },
     {
       "name": "StopSentimentDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StopSentimentDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StopSentimentDetectionJob.html",
       "description": "Grants permission to stop a sentiment detection job",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -790,7 +918,7 @@
     },
     {
       "name": "StopTargetedSentimentDetectionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StopTargetedSentimentDetectionJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StopTargetedSentimentDetectionJob.html",
       "description": "Grants permission to stop a targeted sentiment detection job",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -801,7 +929,7 @@
     },
     {
       "name": "StopTrainingDocumentClassifier",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StopTrainingDocumentClassifier.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StopTrainingDocumentClassifier.html",
       "description": "Grants permission to stop a previously created document classifier training job",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -812,7 +940,7 @@
     },
     {
       "name": "StopTrainingEntityRecognizer",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_StopTrainingEntityRecognizer.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_StopTrainingEntityRecognizer.html",
       "description": "Grants permission to stop a previously created entity recognizer training job",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -823,7 +951,7 @@
     },
     {
       "name": "TagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_TagResource.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_TagResource.html",
       "description": "Grants permission to tag a resource with given key value pairs",
       "accessLevel": "Tagging",
       "resourceTypes": [
@@ -835,6 +963,8 @@
         "entity-recognizer",
         "entity-recognizer-endpoint",
         "events-detection-job",
+        "flywheel",
+        "flywheel-dataset",
         "key-phrases-detection-job",
         "pii-entities-detection-job",
         "sentiment-detection-job",
@@ -849,7 +979,7 @@
     },
     {
       "name": "UntagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_UntagResource.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_UntagResource.html",
       "description": "Grants permission to untag a resource with given key",
       "accessLevel": "Tagging",
       "resourceTypes": [
@@ -861,6 +991,8 @@
         "entity-recognizer",
         "entity-recognizer-endpoint",
         "events-detection-job",
+        "flywheel",
+        "flywheel-dataset",
         "key-phrases-detection-job",
         "pii-entities-detection-job",
         "sentiment-detection-job",
@@ -874,14 +1006,33 @@
     },
     {
       "name": "UpdateEndpoint",
-      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/dg/API_UpdateEndpoint.html",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_UpdateEndpoint.html",
       "description": "Grants permission to update information about the specified endpoint",
       "accessLevel": "Write",
       "resourceTypes": [
         "document-classifier-endpoint*",
-        "entity-recognizer-endpoint*"
+        "entity-recognizer-endpoint*",
+        "flywheel"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateFlywheel",
+      "documentationUrl": "https://docs.aws.amazon.com/comprehend/latest/APIReference/API_UpdateFlywheel.html",
+      "description": "Grants permission to Update a flywheel's configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "flywheel*",
+        "document-classifier",
+        "entity-recognizer"
+      ],
+      "conditionKeys": [
+        "comprehend:VolumeKmsKey",
+        "comprehend:ModelKmsKey",
+        "comprehend:VpcSecurityGroupIds",
+        "comprehend:VpcSubnets"
+      ],
       "dependentActions": []
     }
   ]

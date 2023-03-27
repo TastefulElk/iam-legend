@@ -2756,6 +2756,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetDeployments",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_edge_GetDeployments.html",
+      "description": "Grants permission to get deployment plan for device",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "device*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetDeviceFleetReport",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetDeviceFleetReport.html",
       "description": "Grants permission to access a summary of the devices in a device fleet",
@@ -2887,6 +2898,20 @@
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAliases",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListAliases.html",
+      "description": "Grants permission to list Aliases that belong to a SageMaker Image or Sagemaker ImageVersion",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "image*",
+        "image-version*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -4268,6 +4293,17 @@
       "dependentActions": [
         "iam:PassRole"
       ]
+    },
+    {
+      "name": "UpdateImageVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateImageVersion.html",
+      "description": "Grants permission to update the properties of a SageMaker ImageVersion",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "image-version*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "UpdateInferenceExperiment",

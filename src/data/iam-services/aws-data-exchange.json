@@ -5,7 +5,7 @@
   "actions": [
     {
       "name": "CancelJob",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-jobs.html#CancelJob",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_CancelJob.html",
       "description": "Grants permission to cancel a job",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -16,64 +16,62 @@
     },
     {
       "name": "CreateAsset",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets-datasetid-revisions.html#CreateAsset",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/userguide/api-permissions-ref.html",
       "description": "Grants permission to create an asset (for example, in a Job)",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "revisions*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "CreateDataSet",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets.html#CreateDataSet",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_CreateDataSet.html",
       "description": "Grants permission to create a data set",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:ResourceTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": []
     },
     {
       "name": "CreateEventAction",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/userguide/api-permission-ref.html",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_CreateEventAction.html",
       "description": "Grants permission to create an event action",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "event-actions*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "CreateJob",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-jobs.html#CreateJob",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_CreateJob.html",
       "description": "Grants permission to create a job to import or export assets",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "jobs*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "CreateRevision",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets-datasetid-revisions.html#CreateRevision",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_CreateRevision.html",
       "description": "Grants permission to create a revision",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "data-sets*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:ResourceTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": []
     },
     {
       "name": "DeleteAsset",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets-datasetid-revisions-revisionid-assets-assetid.html#DeleteAsset",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_DeleteAsset.html",
       "description": "Grants permission to delete an asset",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -84,7 +82,7 @@
     },
     {
       "name": "DeleteDataSet",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets-datasetid.html#DeleteDataSet",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_DeleteDataSet.html",
       "description": "Grants permission to delete a data set",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -95,7 +93,7 @@
     },
     {
       "name": "DeleteEventAction",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/userguide/api-permission-ref.html",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_DeleteEventAction.html",
       "description": "Grants permission to delete an event action",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -106,7 +104,7 @@
     },
     {
       "name": "DeleteRevision",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets-datasetid-revisions-revisionid.html#DeleteRevision",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_DeleteRevision.html",
       "description": "Grants permission to delete a revision",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -117,29 +115,31 @@
     },
     {
       "name": "GetAsset",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets-datasetid-revisions-revisionid-assets-assetid.html#GetAsset",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetAsset.html",
       "description": "Grants permission to get information about an asset and to export it (for example, in a Job)",
       "accessLevel": "Read",
       "resourceTypes": [
-        "assets*"
+        "assets*",
+        "entitled-assets*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetDataSet",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets-datasetid.html#GetDataSet",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetDataSet.html",
       "description": "Grants permission to get information about a data set",
       "accessLevel": "Read",
       "resourceTypes": [
-        "data-sets*"
+        "data-sets*",
+        "entitled-data-sets*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetEventAction",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/userguide/api-permission-ref.html",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetEventAction.html",
       "description": "Grants permission to get an event action",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -150,7 +150,7 @@
     },
     {
       "name": "GetJob",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-jobs.html#GetJob",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetJob.html",
       "description": "Grants permission to get information about a job",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -161,10 +161,11 @@
     },
     {
       "name": "GetRevision",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets-datasetid-revisions-revisionid.html#GetRevision",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetRevision.html",
       "description": "Grants permission to get information about a revision",
       "accessLevel": "Read",
       "resourceTypes": [
+        "entitled-revisions*",
         "revisions*"
       ],
       "conditionKeys": [],
@@ -172,64 +173,60 @@
     },
     {
       "name": "ListDataSetRevisions",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets-datasetid-revisions.html#ListDataSetRevisions",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListDataSetRevisions.html",
       "description": "Grants permission to list the revisions of a data set",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [
-        "revisions*"
+        "data-sets*",
+        "entitled-data-sets*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "ListDataSets",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets.html#ListDataSets",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListDataSets.html",
       "description": "Grants permission to list data sets for the account",
-      "accessLevel": "Read",
-      "resourceTypes": [
-        "data-sets*"
-      ],
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "ListEventActions",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/userguide/api-permission-ref.html",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListEventActions.html",
       "description": "Grants permission to list event actions for the account",
-      "accessLevel": "Read",
-      "resourceTypes": [
-        "event-actions*"
-      ],
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "ListJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-jobs.html#ListJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListJobs.html",
       "description": "Grants permission to list jobs for the account",
-      "accessLevel": "Read",
-      "resourceTypes": [
-        "jobs*"
-      ],
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "ListRevisionAssets",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets-datasetid-revisions-revisionid-assets.html#ListRevisionAssets",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListRevisionAssets.html",
       "description": "Grants permission to get list the assets of a revision",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [
-        "assets*"
+        "entitled-revisions*",
+        "revisions*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "ListTagsForResource",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/tags-resource-arn.html#ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListTagsForResource.html",
       "description": "Grants permission to list the tags that you associated with the specified resource",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [
         "data-sets",
         "revisions"
@@ -239,7 +236,7 @@
     },
     {
       "name": "PublishDataSet",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/userguide/api-permission-ref.html",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/userguide/api-permissions-ref.html",
       "description": "Grants permission to publish a data set",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -250,7 +247,7 @@
     },
     {
       "name": "RevokeRevision",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets-datasetid-revisions-revisionid.html#DeleteRevision",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_RevokeRevision.html",
       "description": "Grants permission to revoke subscriber access to a revision",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -261,29 +258,32 @@
     },
     {
       "name": "SendApiAsset",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/userguide/api-permission-ref.html",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_SendApiAsset.html",
       "description": "Grants permission to send a request to an API asset",
       "accessLevel": "Write",
       "resourceTypes": [
-        "assets*"
+        "assets*",
+        "entitled-assets*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "StartJob",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-jobs.html#StartJob",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_StartJob.html",
       "description": "Grants permission to start a job",
       "accessLevel": "Write",
       "resourceTypes": [
         "jobs*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dataexchange:CreateAsset"
+      ]
     },
     {
       "name": "TagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/tags-resource-arn.html#TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_TagResource.html",
       "description": "Grants permission to add one or more tags to a specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
@@ -298,7 +298,7 @@
     },
     {
       "name": "UntagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/tags-resource-arn.html#UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_UntagResource.html",
       "description": "Grants permission to remove one or more tags from a specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
@@ -312,7 +312,7 @@
     },
     {
       "name": "UpdateAsset",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets-datasetid-revisions-revisionid-assets-assetid.html#UpdateAsset",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_UpdateAsset.html",
       "description": "Grants permission to get update information about an asset",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -323,7 +323,7 @@
     },
     {
       "name": "UpdateDataSet",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets-datasetid.html#UpdateDataSet",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_UpdateDataSet.html",
       "description": "Grants permission to update information about a data set",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -334,7 +334,7 @@
     },
     {
       "name": "UpdateEventAction",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/userguide/api-permission-ref.html",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_UpdateEventAction.html",
       "description": "Grants permission to update information for an event action",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -345,14 +345,16 @@
     },
     {
       "name": "UpdateRevision",
-      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/v1-data-sets-datasetid-revisions-revisionid.html#UpdateRevision",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_UpdateRevision.html",
       "description": "Grants permission to update information about a revision",
       "accessLevel": "Write",
       "resourceTypes": [
         "revisions*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dataexchange:PublishDataSet"
+      ]
     }
   ]
 }

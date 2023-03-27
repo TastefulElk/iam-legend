@@ -45,6 +45,7 @@
       "description": "Grants permission to associate a flow with a channel",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*",
         "channel-flow*"
@@ -111,9 +112,10 @@
     {
       "name": "BatchCreateChannelMembership",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_BatchCreateChannelMembership.html",
-      "description": "Grants permission to add multiple users to a channel",
+      "description": "Grants permission to add multiple users and bots to a channel",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -251,13 +253,26 @@
     {
       "name": "CreateAppInstanceAdmin",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceAdmin.html",
-      "description": "Grants permission to promote an AppInstanceUser to an AppInstanceAdmin",
+      "description": "Grants permission to promote a user or bot to an AppInstanceAdmin",
       "accessLevel": "Write",
       "resourceTypes": [
         "app-instance*",
+        "app-instance-bot*",
         "app-instance-user*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAppInstanceBot",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_CreateAppInstanceBot.html",
+      "description": "Grants permission to create a bot under an Amazon Chime AppInstance",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -310,6 +325,7 @@
       "description": "Grants permission to create a channel for an app instance under the AWS account",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*"
       ],
       "conditionKeys": [
@@ -321,9 +337,10 @@
     {
       "name": "CreateChannelBan",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelBan.html",
-      "description": "Grants permission to ban a user from a channel",
+      "description": "Grants permission to ban a user or bot from a channel",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -347,9 +364,10 @@
     {
       "name": "CreateChannelMembership",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_CreateChannelMembership.html",
-      "description": "Grants permission to add a user to a channel",
+      "description": "Grants permission to add a user or bot to a channel",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -362,6 +380,7 @@
       "description": "Grants permission to create a channel moderator",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -394,6 +413,40 @@
       ],
       "dependentActions": [
         "s3:GetBucketPolicy"
+      ]
+    },
+    {
+      "name": "CreateMediaInsightsPipeline",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaInsightsPipeline.html",
+      "description": "Grants permission to create a media insights pipeline",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "media-insights-pipeline-configuration*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "chime:TagResource",
+        "kinesisvideo:DescribeStream"
+      ]
+    },
+    {
+      "name": "CreateMediaInsightsPipelineConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaInsightsPipelineConfiguration.html",
+      "description": "Grants permission to create a media insights pipeline configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "chime:TagResource",
+        "iam:PassRole",
+        "kinesis:DescribeStream",
+        "s3:ListBucket"
       ]
     },
     {
@@ -534,6 +587,31 @@
       "dependentActions": []
     },
     {
+      "name": "CreateVoiceProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceProfile.html",
+      "description": "Grants permission to create a voice profile",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateVoiceProfileDomain",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceProfileDomain.html",
+      "description": "Grants permission to create a voice profile domain",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "chime:TagResource",
+        "kms:CreateGrant",
+        "kms:DescribeKey"
+      ]
+    },
+    {
       "name": "DeleteAccount",
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteAccount.html",
       "description": "Grants permission to delete the specified Amazon Chime account",
@@ -574,11 +652,23 @@
     {
       "name": "DeleteAppInstanceAdmin",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceAdmin.html",
-      "description": "Grants permission to demote an AppInstanceAdmin to an AppInstanceUser",
+      "description": "Grants permission to demote an AppInstanceAdmin to a user or bot",
       "accessLevel": "Write",
       "resourceTypes": [
         "app-instance*",
+        "app-instance-bot*",
         "app-instance-user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAppInstanceBot",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeleteAppInstanceBot.html",
+      "description": "Grants permission to delete an AppInstanceBot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-instance-bot*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -633,6 +723,7 @@
       "description": "Grants permission to delete a channel",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -642,9 +733,10 @@
     {
       "name": "DeleteChannelBan",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteChannelBan.html",
-      "description": "Grants permission to remove a user from a channel's ban list",
+      "description": "Grants permission to remove a user or bot from a channel's ban list",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -668,6 +760,7 @@
       "description": "Grants permission to remove a member from a channel",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -680,6 +773,7 @@
       "description": "Grants permission to delete a channel message",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -692,6 +786,7 @@
       "description": "Grants permission to delete a channel moderator",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -746,6 +841,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteMediaInsightsPipelineConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaInsightsPipelineConfiguration.html",
+      "description": "Grants permission to delete a media insights pipeline configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "media-insights-pipeline-configuration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "chime:ListVoiceConnectors"
+      ]
+    },
+    {
       "name": "DeleteMediaPipeline",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaPipeline.html",
       "description": "Grants permission to delete a media pipeline",
@@ -763,6 +871,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "meeting*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMessagingStreamingConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DeleteMessagingStreamingConfigurations.html",
+      "description": "Grants permission to delete the data streaming configurations of an AppInstance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-instance*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -899,6 +1018,28 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteVoiceProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceProfile.html",
+      "description": "Grants permission to delete a voice profile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "voice-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteVoiceProfileDomain",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceProfileDomain.html",
+      "description": "Grants permission to delete a voice profile domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "voice-profile-domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeregisterAppInstanceUserEndpoint",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DeregisterAppInstanceUserEndpoint.html",
       "description": "Grants permission to deregister an endpoint for an app instance user",
@@ -927,7 +1068,19 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "app-instance*",
+        "app-instance-bot*",
         "app-instance-user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAppInstanceBot",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_DescribeAppInstanceBot.html",
+      "description": "Grants permission to get the full details of an AppInstanceBot",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "app-instance-bot*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -960,6 +1113,7 @@
       "description": "Grants permission to get the full details of a channel",
       "accessLevel": "Read",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -972,6 +1126,7 @@
       "description": "Grants permission to get the full details of a channel ban",
       "accessLevel": "Read",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -995,6 +1150,7 @@
       "description": "Grants permission to get the full details of a channel membership",
       "accessLevel": "Read",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -1004,9 +1160,10 @@
     {
       "name": "DescribeChannelMembershipForAppInstanceUser",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelMembershipForAppInstanceUser.html",
-      "description": "Grants permission to get the details of a channel based on the membership of the specified AppInstanceUser",
+      "description": "Grants permission to get the details of a channel based on the membership of the specified user or bot",
       "accessLevel": "Read",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -1016,9 +1173,10 @@
     {
       "name": "DescribeChannelModeratedByAppInstanceUser",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_DescribeChannelModeratedByAppInstanceUser.html",
-      "description": "Grants permission to get the full details of a channel moderated by the specified AppInstanceUser",
+      "description": "Grants permission to get the full details of a channel moderated by the specified user or bot",
       "accessLevel": "Read",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -1031,6 +1189,7 @@
       "description": "Grants permission to get the full details of a single ChannelModerator",
       "accessLevel": "Read",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -1043,6 +1202,7 @@
       "description": "Grants permission to disassociate a flow from a channel",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*",
         "channel-flow*"
@@ -1194,6 +1354,7 @@
       "description": "Grants permission to get the preferences for a channel membership",
       "accessLevel": "Read",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -1206,6 +1367,7 @@
       "description": "Grants permission to get the full details of a channel message",
       "accessLevel": "Read",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -1218,6 +1380,7 @@
       "description": "Grants permission to get the status of a channel message",
       "accessLevel": "Read",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -1263,6 +1426,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetMediaInsightsPipelineConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaInsightsPipelineConfiguration.html",
+      "description": "Grants permission to get a media insights pipeline configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "media-insights-pipeline-configuration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetMediaPipeline",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaPipeline.html",
       "description": "Grants permission to get an existing media pipeline",
@@ -1299,6 +1473,17 @@
       "description": "Grants permission to get the endpoint for the messaging session",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetMessagingStreamingConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_GetMessagingStreamingConfigurations.html",
+      "description": "Grants permission to get the data streaming configurations of an AppInstance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "app-instance*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1387,6 +1572,15 @@
       "name": "GetSipRule",
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_GetSipRule.html",
       "description": "Grants permission to get details of Amazon Chime SIP rule under the administrator's AWS account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSpeakerSearchTask",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSpeakerSearchTask.html",
+      "description": "Grants permission to get a speaker search task",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -1519,6 +1713,37 @@
       "dependentActions": []
     },
     {
+      "name": "GetVoiceProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceProfile.html",
+      "description": "Grants permission to get a voice profile",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "voice-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetVoiceProfileDomain",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceProfileDomain.html",
+      "description": "Grants permission to get a voice profile domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "voice-profile-domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetVoiceToneAnalysisTask",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceToneAnalysisTask.html",
+      "description": "Grants permission to get a voice tone analysis task",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "InviteDelegate",
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/ag/control-access.html",
       "description": "Grants permission to send an invitation to accept a request for AWS account delegation for an Amazon Chime account",
@@ -1579,7 +1804,19 @@
       "accessLevel": "List",
       "resourceTypes": [
         "app-instance*",
+        "app-instance-bot*",
         "app-instance-user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAppInstanceBots",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_ListAppInstanceBots.html",
+      "description": "Grants permission to list all AppInstanceBots created under a single app instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "app-instance-bot*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1681,9 +1918,10 @@
     {
       "name": "ListChannelBans",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelBans.html",
-      "description": "Grants permission to list all the users banned from a particular channel",
+      "description": "Grants permission to list all the users and bots banned from a particular channel",
       "accessLevel": "List",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -1707,6 +1945,7 @@
       "description": "Grants permission to list all channel memberships in a channel",
       "accessLevel": "List",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -1716,9 +1955,10 @@
     {
       "name": "ListChannelMembershipsForAppInstanceUser",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html",
-      "description": "Grants permission to list all channels that a particular AppInstanceUser is a part of",
+      "description": "Grants permission to list all channels that a particular user or bot is a part of",
       "accessLevel": "List",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*"
       ],
       "conditionKeys": [],
@@ -1730,6 +1970,7 @@
       "description": "Grants permission to list all the messages in a channel",
       "accessLevel": "Read",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -1742,6 +1983,7 @@
       "description": "Grants permission to list all the moderators for a channel",
       "accessLevel": "List",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -1754,6 +1996,7 @@
       "description": "Grants permission to list all the Channels created under a single Chime AppInstance",
       "accessLevel": "List",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*"
       ],
       "conditionKeys": [],
@@ -1773,9 +2016,10 @@
     {
       "name": "ListChannelsModeratedByAppInstanceUser",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_ListChannelsModeratedByAppInstanceUser.html",
-      "description": "Grants permission to list all channels moderated by an app instance user",
+      "description": "Grants permission to list all channels moderated by a user or bot",
       "accessLevel": "List",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*"
       ],
       "conditionKeys": [],
@@ -1821,6 +2065,15 @@
       "name": "ListMediaCapturePipelines",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaCapturePipelines.html",
       "description": "Grants permission to list media capture pipelines",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMediaInsightsPipelineConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaInsightsPipelineConfigurations.html",
+      "description": "Grants permission to list all media insights pipeline configurations",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -1942,6 +2195,7 @@
       "description": "Grants permission to list all the SubChannels under a single Channel",
       "accessLevel": "List",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -1963,7 +2217,11 @@
       "description": "Grants permission to list the tags applied to an Amazon Chime resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "channel"
+        "app-instance-bot",
+        "channel",
+        "media-insights-pipeline-configuration",
+        "media-pipeline",
+        "voice-profile-domain"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2005,6 +2263,26 @@
       "dependentActions": []
     },
     {
+      "name": "ListVoiceProfileDomains",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceProfileDomains.html",
+      "description": "Grants permission to list voice profile domains",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListVoiceProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListVoiceProfiles.html",
+      "description": "Grants permission to list voice profiles",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "voice-profile-domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "LogoutUser",
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_LogoutUser.html",
       "description": "Grants permission to log out the specified user from all of the devices they are currently logged into",
@@ -2036,11 +2314,35 @@
       "dependentActions": []
     },
     {
+      "name": "PutAppInstanceUserExpirationSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_PutAppInstanceUserExpirationSettings.html",
+      "description": "Grants permission to put expiration settings for an AppInstanceUser",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-instance-user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutChannelExpirationSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_PutChannelExpirationSettings.html",
+      "description": "Grants permission to put expiration settings for a channel",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-instance-user*",
+        "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "PutChannelMembershipPreferences",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_PutChannelMembershipPreferences.html",
       "description": "Grants permission to put the preferences for a channel membership",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -2053,6 +2355,17 @@
       "description": "Grants permission to update details for an events configuration for a bot to receive outgoing events",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutMessagingStreamingConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_messaging-chime_PutMessagingStreamingConfigurations.html",
+      "description": "Grants permission to put the data streaming configurations of an AppInstance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-instance*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -2131,9 +2444,13 @@
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_PutVoiceConnectorStreamingConfiguration.html",
       "description": "Grants permission to add streaming configuration for the specified Amazon Chime Voice Connector",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "media-insights-pipeline-configuration"
+      ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "chime:GetMediaInsightsPipelineConfiguration"
+      ]
     },
     {
       "name": "PutVoiceConnectorTermination",
@@ -2159,6 +2476,7 @@
       "description": "Grants permission to redact message content",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -2274,6 +2592,7 @@
       "description": "Grants permission to search channels that an AppInstanceUser belongs to, or search channels across the AppInstance for an AppInstaceAdmin",
       "accessLevel": "List",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*"
       ],
       "conditionKeys": [],
@@ -2285,6 +2604,7 @@
       "description": "Grants permission to send a message to a particular channel that the member is a part of",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -2310,9 +2630,45 @@
       "dependentActions": []
     },
     {
+      "name": "StartSpeakerSearchTask",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_StartSpeakerSearchTask.html",
+      "description": "Grants permission to start a speaker search task",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartVoiceToneAnalysisTask",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_StartVoiceToneAnalysisTask.html",
+      "description": "Grants permission to start a voice tone analysis task",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StopMeetingTranscription",
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_StopMeetingTranscription.html",
       "description": "Grants permission to stop transcription for a meeting",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopSpeakerSearchTask",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_StopSpeakerSearchTask.html",
+      "description": "Grants permission to stop a speaker search task",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopVoiceToneAnalysisTask",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_StopVoiceToneAnalysisTask.html",
+      "description": "Grants permission to stop a voice tone analysis task",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -2369,11 +2725,14 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "app-instance",
+        "app-instance-bot",
         "app-instance-user",
         "channel",
         "channel-flow",
+        "media-insights-pipeline-configuration",
         "media-pipeline",
-        "meeting"
+        "meeting",
+        "voice-profile-domain"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -2420,11 +2779,14 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "app-instance",
+        "app-instance-bot",
         "app-instance-user",
         "channel",
         "channel-flow",
+        "media-insights-pipeline-configuration",
         "media-pipeline",
-        "meeting"
+        "meeting",
+        "voice-profile-domain"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -2474,6 +2836,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "app-instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAppInstanceBot",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_identity-chime_UpdateAppInstanceBot.html",
+      "description": "Grants permission to update the details for an AppInstanceBot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-instance-bot*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2539,6 +2912,7 @@
       "description": "Grants permission to update a channel's attributes",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -2562,6 +2936,7 @@
       "description": "Grants permission to update the content of a message",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -2574,6 +2949,7 @@
       "description": "Grants permission to set the timestamp to the point when a user last read messages in a channel",
       "accessLevel": "Write",
       "resourceTypes": [
+        "app-instance-bot*",
         "app-instance-user*",
         "channel*"
       ],
@@ -2586,6 +2962,33 @@
       "description": "Grants permission to update the global settings related to Amazon Chime for the AWS account",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateMediaInsightsPipelineConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_UpdateMediaInsightsPipelineConfiguration.html",
+      "description": "Grants permission to update the status of a media insights pipeline configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "media-insights-pipeline-configuration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "chime:ListVoiceConnectors",
+        "iam:PassRole",
+        "kinesis:DescribeStream",
+        "s3:ListBucket"
+      ]
+    },
+    {
+      "name": "UpdateMediaInsightsPipelineStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_UpdateMediaInsightsPipelineStatus.html",
+      "description": "Grants permission to update the status of a media insights pipeline",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "media-pipeline*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -2712,6 +3115,28 @@
       "description": "Grants permission to update Amazon Chime Voice Connector Group details for the specified Amazon Chime Voice Connector Group",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateVoiceProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceProfile.html",
+      "description": "Grants permission to update a voice profile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "voice-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateVoiceProfileDomain",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_UpdateVoiceProfileDomain.html",
+      "description": "Grants permission to update a voice profile domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "voice-profile-domain*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
