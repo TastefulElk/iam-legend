@@ -51,7 +51,8 @@
       "resourceTypes": [
         "FirewallPolicy*",
         "StatefulRuleGroup",
-        "StatelessRuleGroup"
+        "StatelessRuleGroup",
+        "TLSInspectionConfiguration"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -73,6 +74,22 @@
         "aws:TagKeys"
       ],
       "dependentActions": []
+    },
+    {
+      "name": "CreateTLSInspectionConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_CreateTLSInspectionConfiguration.html",
+      "description": "Grants permission to create an AWS Network Firewall tls inspection configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TLSInspectionConfiguration*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
     },
     {
       "name": "DeleteFirewall",
@@ -122,6 +139,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteTLSInspectionConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DeleteTLSInspectionConfiguration.html",
+      "description": "Grants permission to delete a tls inspection configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TLSInspectionConfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeFirewall",
       "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeFirewall.html",
       "description": "Grants permission to retrieve the data objects that define a firewall",
@@ -140,7 +168,8 @@
       "resourceTypes": [
         "FirewallPolicy*",
         "StatefulRuleGroup",
-        "StatelessRuleGroup"
+        "StatelessRuleGroup",
+        "TLSInspectionConfiguration"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -194,6 +223,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeTLSInspectionConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeTLSInspectionConfiguration.html",
+      "description": "Grants permission to retrieve the data objects that define a tls inspection configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "TLSInspectionConfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DisassociateSubnets",
       "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DisassociateSubnets.html",
       "description": "Grants permission to disassociate VPC subnets from a firewall",
@@ -236,6 +276,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListTLSInspectionConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ListTLSInspectionConfigurations.html",
+      "description": "Grants permission to retrieve the metadata for tls inspection configurations",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "TLSInspectionConfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to retrieve the tags for a resource",
@@ -244,7 +295,8 @@
         "Firewall*",
         "FirewallPolicy*",
         "StatefulRuleGroup",
-        "StatelessRuleGroup"
+        "StatelessRuleGroup",
+        "TLSInspectionConfiguration"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -271,7 +323,8 @@
         "Firewall",
         "FirewallPolicy",
         "StatefulRuleGroup",
-        "StatelessRuleGroup"
+        "StatelessRuleGroup",
+        "TLSInspectionConfiguration"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -288,7 +341,8 @@
         "Firewall",
         "FirewallPolicy",
         "StatefulRuleGroup",
-        "StatelessRuleGroup"
+        "StatelessRuleGroup",
+        "TLSInspectionConfiguration"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -336,7 +390,8 @@
       "resourceTypes": [
         "FirewallPolicy*",
         "StatefulRuleGroup",
-        "StatelessRuleGroup"
+        "StatelessRuleGroup",
+        "TLSInspectionConfiguration"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -382,6 +437,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTLSInspectionConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_UpdateTLSInspectionConfiguration.html",
+      "description": "Grants permission to modify a tls inspection configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TLSInspectionConfiguration*"
       ],
       "conditionKeys": [],
       "dependentActions": []

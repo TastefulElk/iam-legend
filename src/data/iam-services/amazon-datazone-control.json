@@ -1,0 +1,300 @@
+{
+  "serviceName": "Amazon DataZone Control",
+  "servicePrefix": "datazonecontrol",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazondatazonecontrol.html",
+  "actions": [
+    {
+      "name": "CreateAccountAssociationInvitation",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to request association of an account with a given domain",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateDataSource",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to create Amazon DataZone data sources used for publishing and subscribing to data",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to provision a root-domain which is a top level entity that contains other Amazon DataZone resources",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDataSource",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to delete a data source",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "data-source*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to delete a provisioned root-domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DissociateAccount",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to disassociate an account with a given domain",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAssociatedDomain",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to retrieve information about any associated domain in the associated account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDataSourceByEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to retrieve any data source under any domain for a given root-domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "data-source*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDomain",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to retrieve information about any domain in the account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to retrieve information about a root-domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetMetadataCollector",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to retrieve a publishing job",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetUserPortalLoginAuthCode",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to retrieve credentials to log into Amazon DataZone data portal from AWS management console",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAccountAssociationInvitations",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to retrieve all account-association invitations for a given associated account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAllAssociatedAccountsForEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to list all associated accounts under the given root-domain, including accounts associated to its sub-domains",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAssociatedEnvironments",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to lists all the associated domains for a given associated account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDataSources",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to retrieve all data sources under any domain in the associated account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDataSourcesByEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to retrieve all data sources under any domain for a given root-domain",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDomains",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to list all the sub-domains for a given domain or a root-domain",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to retrieve all root-domains",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMetadataCollectorRuns",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to list all runs for a given publishing job through Amazon DataZone console for a data source",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMetadataCollectors",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to retrieve all publishing jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListProjects",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to retrieve all Amazon DataZone projects",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to retrieve all tags associated with a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "data-source",
+        "environment"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ReviewAccountAssociationInvitation",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to accept or reject the pending association requests for the given account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to add or update tags to a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "data-source",
+        "environment"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to remove tags associated with a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "data-source",
+        "environment"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAccountAssociationDescription",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to update the description of the account association of the given associated account and given domain",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDataSource",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to update a data source",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "data-source*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/datazone/latest/userguide/what-is-datazone.html#accessing-datazone",
+      "description": "Grants permission to update information for a root-domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

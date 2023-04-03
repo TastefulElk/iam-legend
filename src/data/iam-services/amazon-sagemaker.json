@@ -299,6 +299,29 @@
       ]
     },
     {
+      "name": "CreateAutoMLJobV2",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html",
+      "description": "Grants permission to create a V2 AutoML job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "automl-job*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:InterContainerTrafficEncryption",
+        "sagemaker:OutputKmsKey",
+        "sagemaker:VolumeKmsKey",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets"
+      ],
+      "dependentActions": [
+        "iam:PassRole",
+        "sagemaker:AddTags"
+      ]
+    },
+    {
       "name": "CreateCodeRepository",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCodeRepository.html",
       "description": "Grants permission to create a CodeRepository",
@@ -2038,6 +2061,19 @@
       "name": "DescribeAutoMLJob",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html",
       "description": "Grants permission to describe an AutoML job that was created via the CreateAutoMLJob API",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "automl-job*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAutoMLJobV2",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html",
+      "description": "Grants permission to describe an AutoML job that was created via the CreateAutoMLJobV2 API",
       "accessLevel": "Read",
       "resourceTypes": [
         "automl-job*"

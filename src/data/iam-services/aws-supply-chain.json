@@ -92,6 +92,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssupplychain.html",
+      "description": "Grants permission to list tags for an AWS Supply Chain instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "RemoveAdminPermissionsForUser",
       "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssupplychain.html",
       "description": "Grants permission to remove AWS Supply Chain administrator permission from federated user",
@@ -100,6 +111,34 @@
         "instance*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssupplychain.html",
+      "description": "Grants permission to tag an AWS Supply Chain instance",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssupplychain.html",
+      "description": "Grants permission to remove tag from an AWS Supply Chain instance",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
