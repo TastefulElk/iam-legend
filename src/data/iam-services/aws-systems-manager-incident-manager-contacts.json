@@ -27,7 +27,7 @@
     },
     {
       "name": "AssociateContact",
-      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_AssociateContact.html",
+      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/userguide/contacts.html",
       "description": "Grants permission to use a contact in an escalation plan",
       "accessLevel": "Permissions management",
       "resourceTypes": [
@@ -64,6 +64,31 @@
       "dependentActions": []
     },
     {
+      "name": "CreateRotation",
+      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_CreateRotation.html",
+      "description": "Grants permission to create a rotation in an on-call schedule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rotation*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateRotationOverride",
+      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_CreateRotationOverride.html",
+      "description": "Grants permission to create an override for a rotation in an on-call schedule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rotation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeactivateContactChannel",
       "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_DeactivateContactChannel.html",
       "description": "Grants permission to deactivate a contact's contact channel",
@@ -92,6 +117,28 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "contactchannel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRotation",
+      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_DeleteRotation.html",
+      "description": "Grants permission to delete a rotation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rotation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRotationOverride",
+      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_DeleteRotationOverride.html",
+      "description": "Grants permission to delete a rotation's rotation override",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rotation*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -147,6 +194,28 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "contact*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRotation",
+      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_GetRotation.html",
+      "description": "Grants permission to retrieve information about an on-call rotation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "rotation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRotationOverride",
+      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_GetRotationOverride.html",
+      "description": "Grants permission to retrieve information about an override in an on-call rotation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "rotation*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -214,12 +283,55 @@
       "dependentActions": []
     },
     {
+      "name": "ListPreviewRotationShifts",
+      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ListPreviewRotationShifts.html",
+      "description": "Grants permission to retrieve a list of shifts based on rotation configuration parameters",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "rotation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRotationOverrides",
+      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ListRotationOverrides.html",
+      "description": "Grants permission to retrieve a list of overrides currently specified for an on-call rotation",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "rotation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRotationShifts",
+      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ListRotationShifts.html",
+      "description": "Grants permission to retrieve a list of rotation shifts in an on-call schedule",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "rotation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRotations",
+      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ListRotations.html",
+      "description": "Grants permission to retrieve a list of on-call rotations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ListTagsForResource.html",
       "description": "Grants permission to view a list of resource tags for a specified resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "contact*"
+        "contact",
+        "rotation"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -271,10 +383,11 @@
     {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_TagResource.html",
-      "description": "Grants permission to add tags to a response plan",
+      "description": "Grants permission to add tags to the specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "contact*"
+        "contact",
+        "rotation"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -285,10 +398,11 @@
     {
       "name": "UntagResource",
       "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_UntagResource.html",
-      "description": "Grants permission to remove tags from a response plan",
+      "description": "Grants permission to remove tags from the specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "contact*"
+        "contact",
+        "rotation"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -315,6 +429,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "contactchannel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRotation",
+      "documentationUrl": "https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_UpdateRotation.html",
+      "description": "Grants permission to update the information specified for an on-call rotation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rotation*"
       ],
       "conditionKeys": [],
       "dependentActions": []

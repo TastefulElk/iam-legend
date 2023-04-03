@@ -39,6 +39,18 @@
       "dependentActions": []
     },
     {
+      "name": "BatchDeleteFeaturedResultsSet",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_DeleteFeaturedResults.html",
+      "description": "Grants permission to delete a featured results set",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "featured-results-set*",
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "BatchGetDocumentStatus",
       "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_BatchGetDocumentStatus.html",
       "description": "Grants permission to do batch get document status",
@@ -64,6 +76,17 @@
       "name": "ClearQuerySuggestions",
       "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_ClearQuerySuggestions.html",
       "description": "Grants permission to clear out the suggestions for a given index, generated so far",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAccessControlConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_CreateAccessControlConfiguration.html",
+      "description": "Grants permission to create an access control configuration",
       "accessLevel": "Write",
       "resourceTypes": [
         "index*"
@@ -100,6 +123,20 @@
       "name": "CreateFaq",
       "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_CreateFaq.html",
       "description": "Grants permission to create an Faq",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "index*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateFeaturedResultsSet",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_CreateFeaturedResults.html",
+      "description": "Grants permission to create a featured results set",
       "accessLevel": "Write",
       "resourceTypes": [
         "index*"
@@ -148,6 +185,18 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAccessControlConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_DeleteAccessControlConfiguration.html",
+      "description": "Grants permission to delete an access control configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "access-control-configuration*",
+        "index*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -234,6 +283,18 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeAccessControlConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_DescribeAccessControlConfiguration.html",
+      "description": "Grants permission to describe an access control configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "access-control-configuration*",
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeDataSource",
       "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_DescribeDataSource.html",
       "description": "Grants permission to describe a data source",
@@ -264,6 +325,18 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "faq*",
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeFeaturedResultsSet",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_DescribeThesaurus.html",
+      "description": "Grants permission to describe a featured results set",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "featured-results-set*",
         "index*"
       ],
       "conditionKeys": [],
@@ -374,6 +447,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListAccessControlConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_ListAccessControlConfigurations.html",
+      "description": "Grants permission to list the access control configurations",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListDataSourceSyncJobs",
       "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_ListDataSourceSyncJobs.html",
       "description": "Grants permission to get Data Source sync job history",
@@ -443,6 +527,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListFeaturedResultsSets",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_ListFeaturedResults.html",
+      "description": "Grants permission to list the featured results sets",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListGroupsOlderThanOrderingId",
       "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_ListGroupsOlderThanOrderingId.html",
       "description": "Grants permission to list groups that are older than an ordering id",
@@ -482,6 +577,7 @@
       "resourceTypes": [
         "data-source",
         "faq",
+        "featured-results-set",
         "index",
         "query-suggestions-block-list",
         "thesaurus"
@@ -566,6 +662,7 @@
       "resourceTypes": [
         "data-source",
         "faq",
+        "featured-results-set",
         "index",
         "query-suggestions-block-list",
         "thesaurus"
@@ -584,6 +681,7 @@
       "resourceTypes": [
         "data-source",
         "faq",
+        "featured-results-set",
         "index",
         "query-suggestions-block-list",
         "thesaurus"
@@ -591,6 +689,18 @@
       "conditionKeys": [
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAccessControlConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateAccessControlConfiguration.html",
+      "description": "Grants permission to update an access control configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "access-control-configuration*",
+        "index*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -611,6 +721,18 @@
       "description": "Updates your Amazon Kendra experience such as a search application",
       "accessLevel": "Write",
       "resourceTypes": [
+        "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateFeaturedResultsSet",
+      "documentationUrl": "https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateFeaturedResults.html",
+      "description": "Grants permission to update a featured results set",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "featured-results-set*",
         "index*"
       ],
       "conditionKeys": [],

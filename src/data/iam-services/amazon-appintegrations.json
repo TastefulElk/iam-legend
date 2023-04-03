@@ -16,10 +16,12 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "appflow:CreateFlow",
+        "appflow:DeleteFlow",
+        "appflow:DescribeConnectorProfiles",
         "iam:AttachRolePolicy",
         "iam:CreateServiceLinkedRole",
-        "iam:PutRolePolicy"
+        "iam:PutRolePolicy",
+        "kms:CreateGrant"
       ]
     },
     {
@@ -31,7 +33,14 @@
         "data-integration*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "appflow:CreateFlow",
+        "appflow:DeleteFlow",
+        "appflow:DescribeConnectorEntity",
+        "appflow:DescribeConnectorProfiles",
+        "appflow:TagResource",
+        "appflow:UseConnectorProfile"
+      ]
     },
     {
       "name": "CreateEventIntegration",
@@ -87,7 +96,15 @@
         "data-integration-association*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "appflow:CreateFlow",
+        "appflow:DeleteFlow",
+        "appflow:DescribeConnectorEntity",
+        "appflow:DescribeConnectorProfiles",
+        "appflow:StopFlow",
+        "appflow:TagResource",
+        "appflow:UseConnectorProfile"
+      ]
     },
     {
       "name": "DeleteEventIntegration",
@@ -145,7 +162,7 @@
     },
     {
       "name": "ListDataIntegrationAssociations",
-      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListDataIntegrationAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListDataIntegrationAssociations.html",
       "description": "Grants permission to list DataIntegrationAssociations",
       "accessLevel": "List",
       "resourceTypes": [],
