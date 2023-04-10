@@ -6,7 +6,7 @@
     {
       "name": "CreateSoftwareConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-ocw.html",
-      "description": "Creates a software configuration",
+      "description": "Grants permission to create a software configuration",
       "accessLevel": "Write",
       "resourceTypes": [
         "configuration*"
@@ -18,9 +18,21 @@
       "dependentActions": []
     },
     {
+      "name": "CreateSubscription",
+      "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-getting-started-emp.html",
+      "description": "Grants permission to create a subscription for FreeRTOS extended maintenance plan (EMP)",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteSoftwareConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-ocw.html",
-      "description": "Deletes the software configuration",
+      "description": "Grants permission to delete the software configuration",
       "accessLevel": "Write",
       "resourceTypes": [
         "configuration*"
@@ -31,7 +43,7 @@
     {
       "name": "DescribeHardwarePlatform",
       "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-ocw.html",
-      "description": "Describes the hardware platform",
+      "description": "Grants permission to describe the hardware platform",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -40,7 +52,7 @@
     {
       "name": "DescribeSoftwareConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-ocw.html",
-      "description": "Describes the software configuration",
+      "description": "Grants permission to describe the software configuration",
       "accessLevel": "Read",
       "resourceTypes": [
         "configuration*"
@@ -49,9 +61,29 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeSubscription",
+      "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-getting-started-emp.html",
+      "description": "Grants permission to describes the subscription for FreeRTOS extended maintenance plan (EMP)",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "subscription*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEmpPatchUrl",
+      "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-getting-started-emp.html",
+      "description": "Grants permission to get URL for sotware patch-release, patch-diff and release notes under FreeRTOS extended maintenance plan (EMP)",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetSoftwareURL",
       "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-ocw.html",
-      "description": "Get the URL for Amazon FreeRTOS software download",
+      "description": "Grants permission to get the URL for Amazon FreeRTOS software download",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -60,7 +92,16 @@
     {
       "name": "GetSoftwareURLForConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-ocw.html",
-      "description": "Get the URL for Amazon FreeRTOS software download based on the configuration",
+      "description": "Grants permission to get the URL for Amazon FreeRTOS software download based on the configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSubscriptionBillingAmount",
+      "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-getting-started-emp.html",
+      "description": "Grants permission to fetch the subscription billing amount for FreeRTOS extended maintenance plan (EMP)",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -69,7 +110,7 @@
     {
       "name": "ListFreeRTOSVersions",
       "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-ocw.html",
-      "description": "Lists versions of AmazonFreeRTOS",
+      "description": "Grants permission to lists versions of AmazonFreeRTOS",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -78,7 +119,7 @@
     {
       "name": "ListHardwarePlatforms",
       "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-ocw.html",
-      "description": "Lists the hardware platforms",
+      "description": "Grants permission to list the hardware platforms",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -87,7 +128,7 @@
     {
       "name": "ListHardwareVendors",
       "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-ocw.html",
-      "description": "Lists the hardware vendors",
+      "description": "Grants permission to list the hardware vendors",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -96,8 +137,44 @@
     {
       "name": "ListSoftwareConfigurations",
       "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-ocw.html",
-      "description": "Lists the software configurations",
+      "description": "Grants permission to lists the software configurations",
       "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSoftwarePatches",
+      "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-getting-started-emp.html",
+      "description": "Grants permission to list software patches of subscription for FreeRTOS extended maintenance plan (EMP)",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSubscriptionEmails",
+      "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-getting-started-emp.html",
+      "description": "Grants permission to list the subscription emails for FreeRTOS extended maintenance plan (EMP)",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSubscriptions",
+      "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-getting-started-emp.html",
+      "description": "Grants permission to list the subscriptions for FreeRTOS extended maintenance plan (EMP)",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEmailRecipients",
+      "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-getting-started-emp.html",
+      "description": "Grants permission to update list of subscription email address for FreeRTOS extended maintenance plan (EMP)",
+      "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -105,11 +182,20 @@
     {
       "name": "UpdateSoftwareConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-ocw.html",
-      "description": "Updates the software configuration",
+      "description": "Grants permission to update the software configuration",
       "accessLevel": "Write",
       "resourceTypes": [
         "configuration*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "VerifyEmail",
+      "documentationUrl": "https://docs.aws.amazon.com/freertos/latest/userguide/freertos-getting-started-emp.html",
+      "description": "Grants permission to verify the email for FreeRTOS extended maintenance plan (EMP)",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     }
