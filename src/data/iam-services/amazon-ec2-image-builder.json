@@ -362,6 +362,28 @@
       "dependentActions": []
     },
     {
+      "name": "GetWorkflowExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetWorkflowExecution.html",
+      "description": "Grants permission to view details about a workflow execution",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "workflowExecution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetWorkflowStepExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetWorkflowStepExecution.html",
+      "description": "Grants permission to view details about a workflow step execution",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "workflowStepExecution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ImportComponent",
       "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ImportComponent.html",
       "description": "Grants permission to import a new component",
@@ -451,7 +473,7 @@
     {
       "name": "ListImagePackages",
       "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePackages.html",
-      "description": "Grants permission to returns a list of packages installed on the specified image",
+      "description": "Grants permission to return a list of packages installed on the specified image",
       "accessLevel": "List",
       "resourceTypes": [
         "image*"
@@ -464,7 +486,7 @@
     {
       "name": "ListImagePipelineImages",
       "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelineImages.html",
-      "description": "Grants permission to returns a list of images created by the specified pipeline",
+      "description": "Grants permission to return a list of images created by the specified pipeline",
       "accessLevel": "List",
       "resourceTypes": [
         "imagePipeline*"
@@ -491,6 +513,32 @@
       "dependentActions": []
     },
     {
+      "name": "ListImageScanFindingAggregations",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageScanFindingAggregations.html",
+      "description": "Grants permission to list aggregations on the image scan findings in your account",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "image",
+        "imagePipeline"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListImageScanFindings",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageScanFindings.html",
+      "description": "Grants permission to list the image scan findings for the images in your account",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "image",
+        "imagePipeline"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "inspector2:ListFindings"
+      ]
+    },
+    {
       "name": "ListImages",
       "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImages.html",
       "description": "Grants permission to list the image versions owned by or shared with your account",
@@ -511,7 +559,7 @@
     {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListTagsForResource.html",
-      "description": "Grants permission to list tag for an Image Builder resource",
+      "description": "Grants permission to list tags for an Image Builder resource",
       "accessLevel": "Read",
       "resourceTypes": [
         "component",
@@ -524,6 +572,28 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWorkflowExecutions",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListWorkflowExecutions.html",
+      "description": "Grants permission to list workflow executions for the specified image",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "image*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWorkflowStepExecutions",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListWorkflowStepExecutions.html",
+      "description": "Grants permission to list workflow step executions for the specified workflow",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "workflowExecution*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {

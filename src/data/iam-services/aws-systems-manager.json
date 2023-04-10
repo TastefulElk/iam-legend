@@ -12,14 +12,12 @@
         "association",
         "automation-execution",
         "document",
-        "instance",
         "maintenancewindow",
         "managed-instance",
         "opsitem",
         "opsmetadata",
         "parameter",
-        "patchbaseline",
-        "task"
+        "patchbaseline"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -285,6 +283,17 @@
       "conditionKeys": [
         "ssm:SyncType"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteResourcePolicy.html",
+      "description": "Grants permission to delete a Systems Manager resource policy",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "resourcearn*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -696,6 +705,7 @@
     },
     {
       "name": "GetCalendar",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar-prereqs.html",
       "description": "Grants permission to view details of a specific calendar",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -842,6 +852,7 @@
     },
     {
       "name": "GetManifest",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html",
       "description": "Grants permission to Systems Manager and SSM Agent to determine package installation requirements for an instance (internal Systems Manager call)",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -945,6 +956,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "patchbaseline*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResourcePolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetResourcePolicies.html",
+      "description": "Grants permission to retrieve lists of Systems Manager resource policies",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "resourcearn*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1158,6 +1180,7 @@
     },
     {
       "name": "PutCalendar",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar-prereqs.html",
       "description": "Grants permission to create/edit a specific calendar",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -1180,6 +1203,7 @@
     },
     {
       "name": "PutConfigurePackageResult",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html",
       "description": "Grants permission to SSM Agent to generate a report of the results of specific agent requests (internal Systems Manager call)",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -1208,6 +1232,17 @@
         "aws:TagKeys",
         "ssm:Overwrite"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PutResourcePolicy.html",
+      "description": "Grants permission to create or update a Systems Manager resource policy",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "resourcearn*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -1275,14 +1310,12 @@
         "association",
         "automation-execution",
         "document",
-        "instance",
         "maintenancewindow",
         "managed-instance",
         "opsitem",
         "opsmetadata",
         "parameter",
-        "patchbaseline",
-        "task"
+        "patchbaseline"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -1449,9 +1482,7 @@
         "instance",
         "managed-instance"
       ],
-      "conditionKeys": [
-        "ssm:SourceInstanceARN"
-      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -1489,6 +1520,7 @@
     },
     {
       "name": "UpdateInstanceAssociationStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html",
       "description": "Grants permission to SSM Agent to update the status of the association that it is currently running (internal Systems Manager call)",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -1496,9 +1528,7 @@
         "instance",
         "managed-instance"
       ],
-      "conditionKeys": [
-        "ssm:SourceInstanceARN"
-      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -1510,9 +1540,7 @@
         "instance",
         "managed-instance"
       ],
-      "conditionKeys": [
-        "ssm:SourceInstanceARN"
-      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {

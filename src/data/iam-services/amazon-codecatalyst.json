@@ -5,74 +5,87 @@
   "actions": [
     {
       "name": "AcceptConnection",
-      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/#",
-      "description": "Grants permission to accept a request to connect this account to a CodeCatalyst space",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
+      "description": "Grants permission to accept a request to connect this account to an Amazon CodeCatalyst space",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
       "name": "AssociateIamRoleToConnection",
-      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/#",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
       "description": "Grants permission to associate an IAM role to a connection",
       "accessLevel": "Write",
       "resourceTypes": [
         "connections*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": [
         "iam:PassRole"
       ]
     },
     {
       "name": "DeleteConnection",
-      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/#",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
       "description": "Grants permission to delete a connection",
       "accessLevel": "Write",
       "resourceTypes": [
         "connections*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "DisassociateIamRoleFromConnection",
-      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/#",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
       "description": "Grants permission to disassociate an IAM role from a connection",
       "accessLevel": "Write",
       "resourceTypes": [
         "connections*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "GetBillingAuthorization",
-      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/#",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
       "description": "Grants permission to describe the billing authorization for a connection",
       "accessLevel": "Read",
       "resourceTypes": [
         "connections*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "GetConnection",
-      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/#",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
       "description": "Grants permission to get a connection",
       "accessLevel": "Read",
       "resourceTypes": [
         "connections*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "GetPendingConnection",
-      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/#",
-      "description": "Grants permission to get a pending request to connect this account to a CodeCatalyst space",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
+      "description": "Grants permission to get a pending request to connect this account to an Amazon CodeCatalyst space",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -80,8 +93,8 @@
     },
     {
       "name": "ListConnections",
-      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/#",
-      "description": "Grants permission to list connections which are not pending",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
+      "description": "Grants permission to list connections that are not pending",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -89,33 +102,80 @@
     },
     {
       "name": "ListIamRolesForConnection",
-      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/#",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
       "description": "Grants permission to list IAM roles associated with a connection",
       "accessLevel": "List",
       "resourceTypes": [
         "connections*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
+      "description": "Grants permission to list tags for an Amazon CodeCatalyst resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "connections*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "PutBillingAuthorization",
-      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/#",
-      "description": "Grants permission to creates or update the billing authorization for a connection",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
+      "description": "Grants permission to create or update the billing authorization for a connection",
       "accessLevel": "Write",
       "resourceTypes": [
         "connections*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "RejectConnection",
-      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/#",
-      "description": "Grants permission to reject a request to connect this account to a CodeCatalyst space",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
+      "description": "Grants permission to reject a request to connect this account to an Amazon CodeCatalyst space",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
+      "description": "Grants permission to tag an Amazon CodeCatalyst resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "connections*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
+      "description": "Grants permission to untag an Amazon CodeCatalyst resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "connections*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     }
   ]
