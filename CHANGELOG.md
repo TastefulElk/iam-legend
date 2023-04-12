@@ -1,3 +1,10 @@
+## [1.1.27](https://github.com/TastefulElk/iam-legend/compare/v1.1.26...v1.1.27) (2023-04-12)
+
+
+### Bug Fixes
+
+* update IAM service definitions ([d9fd052](https://github.com/TastefulElk/iam-legend/commit/d9fd052e17e87ca5bde0e4ab228dc1b8a25bd54f))
+
 ## [1.1.26](https://github.com/TastefulElk/iam-legend/compare/v1.1.25...v1.1.26) (2023-04-03)
 
 
