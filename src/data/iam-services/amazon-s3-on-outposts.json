@@ -407,6 +407,22 @@
       "dependentActions": []
     },
     {
+      "name": "GetObjectVersionForReplication",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html",
+      "description": "Grants permission to replicate both unencrypted objects and objects encrypted with SSE-KMS",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "object*"
+      ],
+      "conditionKeys": [
+        "s3-outposts:authType",
+        "s3-outposts:signatureAge",
+        "s3-outposts:signatureversion",
+        "s3-outposts:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetObjectVersionTagging",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html",
       "description": "Grants permission to return the tag set for a specific version of the object",
@@ -423,6 +439,22 @@
         "s3-outposts:signatureAge",
         "s3-outposts:signatureversion",
         "s3-outposts:versionid",
+        "s3-outposts:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetReplicationConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketReplication.html",
+      "description": "Grants permission to get the replication configuration information set on an Amazon S3 bucket",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "bucket*"
+      ],
+      "conditionKeys": [
+        "s3-outposts:authType",
+        "s3-outposts:signatureAge",
+        "s3-outposts:signatureversion",
         "s3-outposts:x-amz-content-sha256"
       ],
       "dependentActions": []
@@ -738,6 +770,73 @@
         "s3-outposts:signatureAge",
         "s3-outposts:signatureversion",
         "s3-outposts:versionid",
+        "s3-outposts:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutReplicationConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketReplication.html",
+      "description": "Grants permission to create a new replication configuration or replace an existing one",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "bucket*"
+      ],
+      "conditionKeys": [
+        "s3-outposts:authType",
+        "s3-outposts:signatureAge",
+        "s3-outposts:signatureversion",
+        "s3-outposts:x-amz-content-sha256"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "ReplicateDelete",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html",
+      "description": "Grants permission to replicate delete markers to the destination bucket",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "object*"
+      ],
+      "conditionKeys": [
+        "s3-outposts:authType",
+        "s3-outposts:signatureAge",
+        "s3-outposts:signatureversion",
+        "s3-outposts:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ReplicateObject",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html",
+      "description": "Grants permission to replicate objects and object tags to the destination bucket",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "object*"
+      ],
+      "conditionKeys": [
+        "s3-outposts:authType",
+        "s3-outposts:signatureAge",
+        "s3-outposts:signatureversion",
+        "s3-outposts:x-amz-content-sha256",
+        "s3-outposts:x-amz-server-side-encryption"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ReplicateTags",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectTagging.html",
+      "description": "Grants permission to replicate object tags to the destination bucket",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "object*"
+      ],
+      "conditionKeys": [
+        "s3-outposts:authType",
+        "s3-outposts:signatureAge",
+        "s3-outposts:signatureversion",
         "s3-outposts:x-amz-content-sha256"
       ],
       "dependentActions": []
