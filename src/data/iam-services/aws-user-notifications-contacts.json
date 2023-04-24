@@ -1,0 +1,108 @@
+{
+  "serviceName": "AWS User Notifications Contacts",
+  "servicePrefix": "notifications-contacts",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsusernotificationscontacts.html",
+  "actions": [
+    {
+      "name": "ActivateEmailContact",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "description": "Grants permission to activate the email contact associated with the given ARN if the provided code is valid",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "EmailContactResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEmailContact",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "description": "Grants permission to create an email contact",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEmailContact",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "description": "Grants permission to delete an email contact associated with the given ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "EmailContactResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEmailContact",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "description": "Grants permission to get an email contact associated with the given ARN",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "EmailContactResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEmailContacts",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "description": "Grants permission to list email contacts",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "description": "Grants permission to get tags for a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SendActivationCode",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "description": "Grants permission to send an activation link to the email associated with the given ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "EmailContactResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "description": "Grants permission to tag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "EmailContactResource*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "description": "Grants permission to remove tags from a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "EmailContactResource*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

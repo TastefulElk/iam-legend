@@ -5,18 +5,34 @@
   "actions": [
     {
       "name": "CreateProfile",
-      "documentationUrl": "https://docs.aws.amazon.com/codewhisperer/latest/dg/API_CreateProfile.html",
+      "documentationUrl": "https://docs.aws.amazon.com/codewhisperer/latest/userguide/security_iam_service-with-iam.html",
       "description": "Grants permission to invoke CreateProfile on CodeWhisperer",
       "accessLevel": "Write",
       "resourceTypes": [
         "profile*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/codewhisperer/latest/userguide/security_iam_service-with-iam.html",
+      "description": "Grants permission to invoke DeleteProfile on CodeWhisperer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "GenerateRecommendations",
-      "documentationUrl": "https://docs.aws.amazon.com/codewhisperer/latest/dg/API_GenerateRecommendations.html",
+      "documentationUrl": "https://docs.aws.amazon.com/codewhisperer/latest/userguide/security_iam_service-with-iam.html",
       "description": "Grants permission to invoke GenerateRecommendations on CodeWhisperer",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -25,7 +41,7 @@
     },
     {
       "name": "ListProfiles",
-      "documentationUrl": "https://docs.aws.amazon.com/codewhisperer/latest/dg/API_ListProfiles.html",
+      "documentationUrl": "https://docs.aws.amazon.com/codewhisperer/latest/userguide/security_iam_service-with-iam.html",
       "description": "Grants permission to invoke ListProfiles on CodeWhisperer",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -33,14 +49,59 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/codewhisperer/latest/userguide/security_iam_service-with-iam.html",
+      "description": "Grants permission to invoke ListTagsForResource on CodeWhisperer",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/codewhisperer/latest/userguide/security_iam_service-with-iam.html",
+      "description": "Grants permission to invoke TagResource on CodeWhisperer",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/codewhisperer/latest/userguide/security_iam_service-with-iam.html",
+      "description": "Grants permission to invoke UntagResource on CodeWhisperer",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateProfile",
-      "documentationUrl": "https://docs.aws.amazon.com/codewhisperer/latest/dg/API_UpdateProfile.html",
+      "documentationUrl": "https://docs.aws.amazon.com/codewhisperer/latest/userguide/security_iam_service-with-iam.html",
       "description": "Grants permission to invoke UpdateProfile on CodeWhisperer",
       "accessLevel": "Write",
       "resourceTypes": [
         "profile*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     }
   ]
