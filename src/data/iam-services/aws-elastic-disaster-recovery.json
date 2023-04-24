@@ -65,6 +65,18 @@
       ]
     },
     {
+      "name": "CreateLaunchConfigurationTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_CreateLaunchConfigurationTemplate.html",
+      "description": "Grants permission to create launch configuration template",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateRecoveryInstanceForDrs",
       "documentationUrl": "https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html",
       "description": "Grants permission to create recovery instance",
@@ -122,6 +134,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteLaunchConfigurationTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_DeleteLaunchConfigurationTemplate.html",
+      "description": "Grants permission to delete launch configuration template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "LaunchConfigurationTemplateResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteRecoveryInstance",
       "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_DeleteRecoveryInstance.html",
       "description": "Grants permission to delete recovery instance",
@@ -169,6 +192,15 @@
       "name": "DescribeJobs",
       "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_DescribeJobs.html",
       "description": "Grants permission to describe jobs",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeLaunchConfigurationTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_DescribeLaunchConfigurationTemplates.html",
+      "description": "Grants permission to describe launch configuration template",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -730,6 +762,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "JobResource",
+        "LaunchConfigurationTemplateResource",
         "RecoveryInstanceResource",
         "ReplicationConfigurationTemplateResource",
         "SourceServerResource"
@@ -768,6 +801,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "JobResource",
+        "LaunchConfigurationTemplateResource",
         "RecoveryInstanceResource",
         "ReplicationConfigurationTemplateResource",
         "SourceServerResource"
@@ -877,6 +911,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "SourceServerResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateLaunchConfigurationTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_UpdateLaunchConfigurationTemplate.html",
+      "description": "Grants permission to update launch configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "LaunchConfigurationTemplateResource*"
       ],
       "conditionKeys": [],
       "dependentActions": []
