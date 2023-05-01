@@ -5,10 +5,12 @@
   "actions": [
     {
       "name": "CreateApp",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-app.html#rest-api-app-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps.html#CreateApp",
       "description": "Grants permission to create an app",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "apps*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
@@ -18,11 +20,11 @@
     },
     {
       "name": "CreateCampaign",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-campaigns.html#rest-api-campaigns-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-campaigns.html#CreateCampaign",
       "description": "Grants permission to create a campaign for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "app*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -33,10 +35,12 @@
     },
     {
       "name": "CreateEmailTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#CreateEmailTemplate",
       "description": "Grants permission to create an email template",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "template*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
@@ -46,32 +50,34 @@
     },
     {
       "name": "CreateExportJob",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-export-jobs.html#rest-api-export-jobs-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-export.html#CreateExportJob",
       "description": "Grants permission to create an export job that exports endpoint definitions to Amazon S3",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "app*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "CreateImportJob",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-import-jobs.html#rest-api-import-jobs-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-import.html#CreateImportJob",
       "description": "Grants permission to import endpoint definitions from to create a segment",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "app*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "CreateInAppTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-inapp.html#templates-template-name-inapp-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-inapp.html#CreateInAppTemplate",
       "description": "Grants permission to create an in-app message template",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "template*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
@@ -81,11 +87,11 @@
     },
     {
       "name": "CreateJourney",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys-journey-id.html#apps-application-id-journeys-journey-id-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys.html#CreateJourney",
       "description": "Grants permission to create a Journey for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "journeys*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -96,10 +102,12 @@
     },
     {
       "name": "CreatePushTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-push.html#templates-template-name-push-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-push.html#CreatePushTemplate",
       "description": "Grants permission to create a push notification template",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "template*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
@@ -112,17 +120,19 @@
       "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/recommenders.html#CreateRecommenderConfiguration",
       "description": "Grants permission to create an Amazon Pinpoint configuration for a recommender model",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "recommenders*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "CreateSegment",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-segments.html#rest-api-segments-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-segments.html#CreateSegment",
       "description": "Grants permission to create a segment that is based on endpoint data reported to Pinpoint by your app. To allow a user to create a segment by importing endpoint data from outside of Pinpoint, allow the mobiletargeting:CreateImportJob action",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "app*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -133,10 +143,12 @@
     },
     {
       "name": "CreateSmsTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-sms.html#templates-template-name-sms-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-sms.html#CreateSmsTemplate",
       "description": "Grants permission to create an sms message template",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "template*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
@@ -146,10 +158,12 @@
     },
     {
       "name": "CreateVoiceTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-voice.html#templates-template-name-voice-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-voice.html#CreateVoiceTemplate",
       "description": "Grants permission to create a voice message template",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "template*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
@@ -159,178 +173,176 @@
     },
     {
       "name": "DeleteAdmChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-adm-channel.html#rest-api-adm-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-adm.html#DeleteAdmChannel",
       "description": "Grants permission to delete the ADM channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteApnsChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-apns-channel.html#rest-api-apns-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-apns.html#DeleteApnsChannel",
       "description": "Grants permission to delete the APNs channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteApnsSandboxChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-apns-sandbox-channel.html#rest-api-apns-sandbox-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-apns_sandbox.html#DeleteApnsSandboxChannel",
       "description": "Grants permission to delete the APNs sandbox channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteApnsVoipChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-apns-voip-channel.html#rest-api-apns-voip-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-apns_voip.html#DeleteApnsVoipChannel",
       "description": "Grants permission to delete the APNs VoIP channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteApnsVoipSandboxChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-apns-voip-sandbox-channel.html#rest-api-apns-voip-sandbox-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-apns_voip_sandbox.html#DeleteApnsVoipSandboxChannel",
       "description": "Grants permission to delete the APNs VoIP sandbox channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteApp",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-app.html#rest-api-app-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id.html#DeleteApp",
       "description": "Grants permission to delete a specific campaign",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "app*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteBaiduChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-baidu-channel.html#rest-api-baidu-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-baidu.html#DeleteBaiduChannel",
       "description": "Grants permission to delete the Baidu channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteCampaign",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-campaign.html#rest-api-campaign-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-campaigns-campaign-id.html#DeleteCampaign",
       "description": "Grants permission to delete a specific campaign",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*",
-        "campaigns*"
+        "campaign*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteEmailChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-email-channel.html#rest-api-email-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-email.html#DeleteEmailChannel",
       "description": "Grants permission to delete the email channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteEmailTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#DeleteEmailTemplate",
       "description": "Grants permission to delete an email template or an email template version",
       "accessLevel": "Write",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteEndpoint",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-endpoint.html#rest-api-endpoint-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html#DeleteEndpoint",
       "description": "Grants permission to delete an endpoint",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "endpoint*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteEventStream",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-event-stream.html#rest-api-event-stream-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-eventstream.html#DeleteEventStream",
       "description": "Grants permission to delete the event stream for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "event-stream*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteGcmChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-gcm-channel.html#rest-api-gcm-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-gcm.html#DeleteGcmChannel",
       "description": "Grants permission to delete the GCM channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteInAppTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-inapp.html#templates-template-name-inapp-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-inapp.html#DeleteInAppTemplate",
       "description": "Grants permission to delete an in-app message template or an in-app message template version",
       "accessLevel": "Write",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteJourney",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys-journey-id.html#apps-application-id-journeys-journey-id-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys-journey-id.html#DeleteJourney",
       "description": "Grants permission to delete a specific journey",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*",
-        "journeys*"
+        "journey*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeletePushTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-push.html#templates-template-name-push-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-push.html#DeletePushTemplate",
       "description": "Grants permission to delete a push notification template or a push notification template version",
       "accessLevel": "Write",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -341,140 +353,139 @@
       "description": "Grants permission to delete an Amazon Pinpoint configuration for a recommender model",
       "accessLevel": "Write",
       "resourceTypes": [
-        "recommenders*"
+        "recommender*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteSegment",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-segment.html#rest-api-segment-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-segments-segment-id.html#DeleteSegment",
       "description": "Grants permission to delete a specific segment",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*",
-        "segments*"
+        "segment*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteSmsChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-sms-channel.html#rest-api-sms-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-sms.html#DeleteSmsChannel",
       "description": "Grants permission to delete the SMS channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteSmsTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-sms.html#templates-template-name-sms-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-sms.html#DeleteSmsTemplate",
       "description": "Grants permission to delete an sms message template or an sms message template version",
       "accessLevel": "Write",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteUserEndpoints",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-user.html#rest-api-user-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-users-user-id.html#DeleteUserEndpoints",
       "description": "Grants permission to delete all of the endpoints that are associated with a user ID",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "user*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteVoiceChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-voice-channel.html#rest-api-voice-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-voice.html#DeleteVoiceChannel",
       "description": "Grants permission to delete the Voice channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "DeleteVoiceTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-voice.html#templates-template-name-voice-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-voice.html#DeleteVoiceTemplate",
       "description": "Grants permission to delete a voice message template or a voice message template version",
       "accessLevel": "Write",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetAdmChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-adm-channel.html#rest-api-adm-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-adm.html#GetAdmChannel",
       "description": "Grants permission to retrieve information about the Amazon Device Messaging (ADM) channel for an app",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetApnsChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-apns-channel.html#rest-api-apns-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-apns.html#GetApnsChannel",
       "description": "Grants permission to retrieve information about the APNs channel for an app",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetApnsSandboxChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-apns-sandbox-channel.html#rest-api-apns-sandbox-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-apns_sandbox.html#GetApnsSandboxChannel",
       "description": "Grants permission to retrieve information about the APNs sandbox channel for an app",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetApnsVoipChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-apns-voip-channel.html#rest-api-apns-voip-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-apns_voip.html#GetApnsVoipChannel",
       "description": "Grants permission to retrieve information about the APNs VoIP channel for an app",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetApnsVoipSandboxChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-apns-voip-sandbox-channel.html#rest-api-apns-voip-sandbox-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-apns_voip_sandbox.html#GetApnsVoipSandboxChannel",
       "description": "Grants permission to retrieve information about the APNs VoIP sandbox channel for an app",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetApp",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-app.html#rest-api-app-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id.html#GetApp",
       "description": "Grants permission to retrieve information about a specific app in your Amazon Pinpoint account",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "app*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -485,25 +496,25 @@
       "description": "Grants permission to retrieve (queries) pre-aggregated data for a standard metric that applies to an application",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "application-metrics*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetApplicationSettings",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-settings.html#rest-api-settings-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-settings.html#GetApplicationSettings",
       "description": "Grants permission to retrieve the default settings for an app",
       "accessLevel": "List",
       "resourceTypes": [
-        "apps*"
+        "app*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetApps",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-apps.html#rest-api-apps-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps.html#GetApps",
       "description": "Grants permission to retrieve a list of apps in your Amazon Pinpoint account",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -514,35 +525,33 @@
     },
     {
       "name": "GetBaiduChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-baidu-channel.html#rest-api-baidu-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-baidu.html#GetBaiduChannel",
       "description": "Grants permission to retrieve information about the Baidu channel for an app",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetCampaign",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-campaign.html#rest-api-campaign-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-campaigns-campaign-id.html#GetCampaign",
       "description": "Grants permission to retrieve information about a specific campaign",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*",
-        "campaigns*"
+        "campaign*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetCampaignActivities",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-campaign-activities.html#rest-api-campaign-activities-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-campaigns-campaign-id-activities.html#GetCampaignActivities",
       "description": "Grants permission to retrieve information about the activities performed by a campaign",
       "accessLevel": "List",
       "resourceTypes": [
-        "apps*",
-        "campaigns*"
+        "campaign*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -553,187 +562,183 @@
       "description": "Grants permission to retrieve (queries) pre-aggregated data for a standard metric that applies to a campaign",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*",
-        "campaigns*"
+        "campaign-metrics*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetCampaignVersion",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-campaign-version.html#rest-api-campaign-version-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-campaigns-campaign-id-versions-version.html#GetCampaignVersion",
       "description": "Grants permission to retrieve information about a specific campaign version",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*",
-        "campaigns*"
+        "campaign*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetCampaignVersions",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-campaign-versions.html#rest-api-campaign-versions-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-campaigns-campaign-id-versions.html#GetCampaignVersions",
       "description": "Grants permission to retrieve information about the current and prior versions of a campaign",
       "accessLevel": "List",
       "resourceTypes": [
-        "apps*",
-        "campaigns*"
+        "campaign*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetCampaigns",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-campaigns.html#rest-api-campaigns-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-campaigns.html#GetCampaigns",
       "description": "Grants permission to retrieve information about all campaigns for an app",
       "accessLevel": "List",
       "resourceTypes": [
-        "apps*"
+        "app*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetChannels",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-channels.html#rest-api-channels-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels.html#GetChannels",
       "description": "Grants permission to get all channels information for your app",
       "accessLevel": "List",
       "resourceTypes": [
-        "apps*"
+        "channels*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetEmailChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-email-channel.html#rest-api-email-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-email.html#GetEmailChannel",
       "description": "Grants permission to obtain information about the email channel in an app",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetEmailTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#GetEmailTemplate",
       "description": "Grants permission to retrieve information about a specific or the active version of an email template",
       "accessLevel": "Read",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetEndpoint",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-endpoint.html#rest-api-endpoint-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html#GetEndpoint",
       "description": "Grants permission to retrieve information about a specific endpoint",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "endpoint*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetEventStream",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-event-stream.html#rest-api-event-stream-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-eventstream.html#GetEventStream",
       "description": "Grants permission to retrieve information about the event stream for an app",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "event-stream*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetExportJob",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-export-jobs.html#rest-api-export-jobs-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-export-job-id.html#GetExportJob",
       "description": "Grants permission to obtain information about a specific export job",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "export-job*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetExportJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-export-jobs.html#rest-api-export-jobs-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-export.html#GetExportJobs",
       "description": "Grants permission to retrieve a list of all of the export jobs for an app",
       "accessLevel": "List",
       "resourceTypes": [
-        "apps*"
+        "app*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetGcmChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-gcm-channel.html#rest-api-gcm-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-gcm.html#GetGcmChannel",
       "description": "Grants permission to retrieve information about the GCM channel for an app",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetImportJob",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-import-job.html#rest-api-import-job-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-import-job-id.html#GetImportJob",
       "description": "Grants permission to retrieve information about a specific import job",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "import-job*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetImportJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-import-jobs.html#rest-api-import-jobs-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-jobs-import.html#GetImportJobs",
       "description": "Grants permission to retrieve information about all import jobs for an app",
       "accessLevel": "List",
       "resourceTypes": [
-        "apps*"
+        "app*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetInAppMessages",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id-inappmessages.html",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id-inappmessages.html#GetInAppMessages",
       "description": "Grants permission to retrive in-app messages for the given endpoint id",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "app*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetInAppTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-inapp.html#templates-template-name-inapp-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-inapp.html#GetInAppTemplate",
       "description": "Grants permission to retrieve information about a specific or the active version of an in-app message template",
       "accessLevel": "Read",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetJourney",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys-journey-id.html#apps-application-id-journeys-journey-id-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys-journey-id.html#GetJourney",
       "description": "Grants permission to retrieve information about a specific journey",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*",
-        "journeys*"
+        "journey*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -744,8 +749,7 @@
       "description": "Grants permission to retrieve (queries) pre-aggregated data for a standard engagement metric that applies to a journey",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*",
-        "journeys*"
+        "journey-metrics*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -756,8 +760,7 @@
       "description": "Grants permission to retrieve (queries) pre-aggregated data for a standard execution metric that applies to a journey activity",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*",
-        "journeys*"
+        "journey-execution-activity-metrics*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -768,8 +771,7 @@
       "description": "Grants permission to retrieve (queries) pre-aggregated data for a standard execution metric that applies to a journey",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*",
-        "journeys*"
+        "journey-execution-metrics*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -780,7 +782,7 @@
       "description": "Grants permission to retrieve (queries) pre-aggregated data for a standard execution metric that applies to a journey activity for a single journey run",
       "accessLevel": "Read",
       "resourceTypes": [
-        "journeys*"
+        "journey*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -791,7 +793,7 @@
       "description": "Grants permission to retrieve (queries) pre-aggregated data for a standard execution metric that applies to a journey for a single journey run",
       "accessLevel": "Read",
       "resourceTypes": [
-        "journeys*"
+        "journey*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -802,18 +804,18 @@
       "description": "Grants permission to retrieve information about all journey runs for a journey",
       "accessLevel": "List",
       "resourceTypes": [
-        "journeys*"
+        "journey*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetPushTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-push.html#templates-template-name-push-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-push.html#GetPushTemplate",
       "description": "Grants permission to retrieve information about a specific or the active version of an push notification template",
       "accessLevel": "Read",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -824,7 +826,7 @@
       "description": "Grants permission to retrieve information about an Amazon Pinpoint configuration for a recommender model",
       "accessLevel": "Read",
       "resourceTypes": [
-        "recommenders*"
+        "recommender*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -834,7 +836,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/recommenders.html#GetRecommenderConfigurations",
       "description": "Grants permission to retrieve information about all the recommender model configurations that are associated with an Amazon Pinpoint account",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "recommenders*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -843,174 +847,173 @@
       "documentationUrl": "${UserGuideDocPage}/permissions-actions.html",
       "description": "Grants permission to mobiletargeting:GetReports",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "reports*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetSegment",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-segment.html#rest-api-segment-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-segments-segment-id.html#GetSegment",
       "description": "Grants permission to retrieve information about a specific segment",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*",
-        "segments*"
+        "segment*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetSegmentExportJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-export-jobs.html#rest-api-export-jobs-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-segments-segment-id-jobs-export.html#GetSegmentExportJobs",
       "description": "Grants permission to retrieve information about jobs that export endpoint definitions from segments to Amazon S3",
       "accessLevel": "List",
       "resourceTypes": [
-        "apps*",
-        "segments*"
+        "segment*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetSegmentImportJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-import-jobs.html#rest-api-import-jobs-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-segments-segment-id-jobs-import.html#GetSegmentImportJobs",
       "description": "Grants permission to retrieve information about jobs that create segments by importing endpoint definitions from",
       "accessLevel": "List",
       "resourceTypes": [
-        "apps*",
-        "segments*"
+        "segment*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetSegmentVersion",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-segment-version.html#rest-api-segment-version-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-segments-segment-id-versions-version.html#GetSegmentVersion",
       "description": "Grants permission to retrieve information about a specific segment version",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*",
-        "segments*"
+        "segment*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetSegmentVersions",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-segment-versions.html#rest-api-segment-versions-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-segments-segment-id-versions.html#GetSegmentVersions",
       "description": "Grants permission to retrieve information about the current and prior versions of a segment",
       "accessLevel": "List",
       "resourceTypes": [
-        "apps*",
-        "segments*"
+        "segment*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetSegments",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-segments.html#rest-api-segments-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-segments.html#GetSegments",
       "description": "Grants permission to retrieve information about the segments for an app",
       "accessLevel": "List",
       "resourceTypes": [
-        "apps*"
+        "app*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetSmsChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-sms-channel.html#rest-api-sms-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-sms.html#GetSmsChannel",
       "description": "Grants permission to obtain information about the SMS channel in an app",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetSmsTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-sms.html#templates-template-name-sms-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-sms.html#GetSmsTemplate",
       "description": "Grants permission to retrieve information about a specific or the active version of an sms message template",
       "accessLevel": "Read",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetUserEndpoints",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-user.html#rest-api-user-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-users-user-id.html#GetUserEndpoints",
       "description": "Grants permission to retrieve information about the endpoints that are associated with a user ID",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "user*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetVoiceChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-voice-channel.html#rest-api-voice-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-voice.html#GetVoiceChannel",
       "description": "Grants permission to obtain information about the Voice channel in an app",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "GetVoiceTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-voice.html#templates-template-name-voice-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-voice.html#GetVoiceTemplate",
       "description": "Grants permission to retrieve information about a specific or the active version of a voice message template",
       "accessLevel": "Read",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "ListJourneys",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys.html#apps-application-id-journeys-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys.html#ListJourneys",
       "description": "Grants permission to retrieve information about all journeys for an app",
       "accessLevel": "List",
       "resourceTypes": [
-        "apps*"
+        "app*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "ListTagsForResource",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-tags.html#rest-api-tags-methods-get",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html#ListTagsForResource",
       "description": "Grants permission to list tags for a resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "apps",
-        "campaigns",
-        "segments"
+        "app",
+        "campaign",
+        "journey",
+        "segment",
+        "template"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "ListTemplateVersions",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-template-type-versions.html#templates-template-name-template-type-versions-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-template-type-versions.html#ListTemplateVersions",
       "description": "Grants permission to retrieve all versions about a specific template",
       "accessLevel": "List",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "ListTemplates",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates.html#templates-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates.html#ListTemplates",
       "description": "Grants permission to retrieve metadata about the queried templates",
       "accessLevel": "List",
       "resourceTypes": [
@@ -1021,7 +1024,7 @@
     },
     {
       "name": "PhoneNumberValidate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-phone-number-validate.html#rest-api-phone-number-validate-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/phone-number-validate.html#PhoneNumberValidate",
       "description": "Grants permission to obtain metadata for a phone number, such as the number type (mobile, landline, or VoIP), location, and provider",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -1032,79 +1035,81 @@
     },
     {
       "name": "PutEventStream",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-event-stream.html#rest-api-event-stream-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-eventstream.html#PutEventStream",
       "description": "Grants permission to create or update an event stream for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "event-stream*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "PutEvents",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-events.html#rest-api-events-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-events.html#PutEvents",
       "description": "Grants permission to create or update events for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "events*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "RemoveAttributes",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-app.html#rest-api-app-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-attributes-attribute-type.html#RemoveAttributes",
       "description": "Grants permission to remove the attributes for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "attribute*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "SendMessages",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-messages.html#rest-api-messages-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#SendMessages",
       "description": "Grants permission to send an SMS message or push notification to specific endpoints",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "messages*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "SendOTPMessage",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-otp.html",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-otp.html#SendOTPMessage",
       "description": "Grants permission to send an OTP code to a user of your application",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "otp*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "SendUsersMessages",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-users-messages.html#rest-api-users-messages-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-users-messages.html#SendUsersMessages",
       "description": "Grants permission to send an SMS message or push notification to all endpoints that are associated with a specific user ID",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "messages*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "TagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-tags.html#rest-api-tags-methods-post",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html#TagResource",
       "description": "Grants permission to add tags to a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "apps",
-        "campaigns",
-        "segments"
+        "app",
+        "campaign",
+        "journey",
+        "segment",
+        "template"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1114,13 +1119,15 @@
     },
     {
       "name": "UntagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-tags.html#rest-api-tags-methods-delete",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/tags-resource-arn.html#UntagResource",
       "description": "Grants permission to remove tags from a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "apps",
-        "campaigns",
-        "segments"
+        "app",
+        "campaign",
+        "journey",
+        "segment",
+        "template"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1130,89 +1137,88 @@
     },
     {
       "name": "UpdateAdmChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-adm-channel.html#rest-api-adm-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-adm.html#UpdateAdmChannel",
       "description": "Grants permission to update the Amazon Device Messaging (ADM) channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "UpdateApnsChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-apns-channel.html#rest-api-apns-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-apns.html#UpdateApnsChannel",
       "description": "Grants permission to update the Apple Push Notification service (APNs) channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "UpdateApnsSandboxChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-apns-sandbox-channel.html#rest-api-apns-sandbox-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-apns_sandbox.html#UpdateApnsSandboxChannel",
       "description": "Grants permission to update the Apple Push Notification service (APNs) sandbox channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "UpdateApnsVoipChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-apns-voip-channel.html#rest-api-apns-voip-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-apns_voip.html#UpdateApnsVoipChannel",
       "description": "Grants permission to update the Apple Push Notification service (APNs) VoIP channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "UpdateApnsVoipSandboxChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-apns-voip-sandbox-channel.html#rest-api-apns-voip-sandbox-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-apns_voip_sandbox.html#UpdateApnsVoipSandboxChannel",
       "description": "Grants permission to update the Apple Push Notification service (APNs) VoIP sandbox channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "UpdateApplicationSettings",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-settings.html#rest-api-settings-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-settings.html#UpdateApplicationSettings",
       "description": "Grants permission to update the default settings for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "app*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "UpdateBaiduChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-baidu-channel.html#rest-api-baidu-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-baidu.html#UpdateBaiduChannel",
       "description": "Grants permission to update the Baidu channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "UpdateCampaign",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-campaign.html#rest-api-campaign-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-campaigns-campaign-id.html#UpdateCampaign",
       "description": "Grants permission to update a specific campaign",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*",
-        "campaigns*"
+        "campaign*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1222,22 +1228,22 @@
     },
     {
       "name": "UpdateEmailChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-email-channel.html#rest-api-email-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-email.html#UpdateEmailChannel",
       "description": "Grants permission to update the email channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "UpdateEmailTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#UpdateEmailTemplate",
       "description": "Grants permission to update a specific email template under the same version or generate a new version",
       "accessLevel": "Write",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1247,44 +1253,44 @@
     },
     {
       "name": "UpdateEndpoint",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-endpoint.html#rest-api-endpoint-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints-endpoint-id.html#UpdateEndpoint",
       "description": "Grants permission to create an endpoint or update the information for an endpoint",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "endpoint*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "UpdateEndpointsBatch",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-endpoints.html#rest-api-endpoints-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-endpoints.html#UpdateEndpointsBatch",
       "description": "Grants permission to create or update endpoints as a batch operation",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "app*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "UpdateGcmChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-gcm-channel.html#rest-api-gcm-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-gcm.html#UpdateGcmChannel",
       "description": "Grants permission to update the Firebase Cloud Messaging (FCM) or Google Cloud Messaging (GCM) API key that allows to send push notifications to your Android app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "UpdateInAppTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-inapp.html#templates-template-name-inapp-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-inapp.html#UpdateInAppTemplate",
       "description": "Grants permission to update a specific in-app message template under the same version or generate a new version",
       "accessLevel": "Write",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1294,12 +1300,11 @@
     },
     {
       "name": "UpdateJourney",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys-journey-id.html#apps-application-id-journeys-journey-id-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys-journey-id.html#UpdateJourney",
       "description": "Grants permission to update a specific journey",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*",
-        "journeys*"
+        "journey*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1309,12 +1314,11 @@
     },
     {
       "name": "UpdateJourneyState",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys-journey-id-state.html#apps-application-id-journeys-journey-id-state-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-journeys-journey-id-state.html#UpdateJourneyState",
       "description": "Grants permission to update a specific journey state",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*",
-        "journeys*"
+        "journey*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1324,11 +1328,11 @@
     },
     {
       "name": "UpdatePushTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-push.html#templates-template-name-push-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-push.html#UpdatePushTemplate",
       "description": "Grants permission to update a specific push notification template under the same version or generate a new version",
       "accessLevel": "Write",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1342,19 +1346,18 @@
       "description": "Grants permission to update an Amazon Pinpoint configuration for a recommender model",
       "accessLevel": "Write",
       "resourceTypes": [
-        "recommenders*"
+        "recommender*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "UpdateSegment",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-segment.html#rest-api-segment-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-segments-segment-id.html#UpdateSegment",
       "description": "Grants permission to update a specific segment",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*",
-        "segments*"
+        "segment*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1364,22 +1367,22 @@
     },
     {
       "name": "UpdateSmsChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-sms-channel.html#rest-api-sms-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-sms.html#UpdateSmsChannel",
       "description": "Grants permission to update the SMS channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "UpdateSmsTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-sms.html#templates-template-name-sms-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-sms.html#UpdateSmsTemplate",
       "description": "Grants permission to update a specific sms message template under the same version or generate a new version",
       "accessLevel": "Write",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1389,33 +1392,33 @@
     },
     {
       "name": "UpdateTemplateActiveVersion",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-template-type-versions.html#templates-template-name-template-type-versions-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-template-type-active-version.html#UpdateTemplateActiveVersion",
       "description": "Grants permission to update the active version parameter of a specific template",
       "accessLevel": "Write",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "UpdateVoiceChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/rest-api-voice-channel.html#rest-api-voice-channel-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-channels-voice.html#UpdateVoiceChannel",
       "description": "Grants permission to update the Voice channel for an app",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "channel*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "UpdateVoiceTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-voice.html#templates-template-name-voice-http-methods",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-voice.html#UpdateVoiceTemplate",
       "description": "Grants permission to update a specific voice message template under the same version or generate a new version",
       "accessLevel": "Write",
       "resourceTypes": [
-        "templates*"
+        "template*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1425,11 +1428,11 @@
     },
     {
       "name": "VerifyOTPMessage",
-      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-verify-otp.html",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-verify-otp.html#VerifyOTPMessage",
       "description": "Grants permission to check the validity of One-Time Passwords (OTPs)",
       "accessLevel": "Write",
       "resourceTypes": [
-        "apps*"
+        "verify-otp*"
       ],
       "conditionKeys": [],
       "dependentActions": []

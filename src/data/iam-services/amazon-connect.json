@@ -4,6 +4,19 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonconnect.html",
   "actions": [
     {
+      "name": "ActivateEvaluationForm",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ActivateEvaluationForm.html",
+      "description": "Grants permission to activate an evaluation form in the specified Amazon Connect instance. After the evaluation form is activated, it is available to start new evaluations based on the form",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "evaluation-form*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateApprovedOrigin",
       "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
       "description": "Grants permission to associate approved origin for an existing Amazon Connect instance",
@@ -270,6 +283,19 @@
       "dependentActions": []
     },
     {
+      "name": "CreateEvaluationForm",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateEvaluationForm.html",
+      "description": "Grants permission to create an evaluation form in the specified Amazon Connect instance. The form can be used to define questions related to agent performance, and create sections to organize such questions. Question and section identifiers cannot be duplicated within the same evaluation form",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "evaluation-form*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateHoursOfOperation",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateHoursOfOperation.html",
       "description": "Grants permission to create hours of operation in an Amazon Connect instance",
@@ -337,6 +363,20 @@
         "wisdom:GetAssistant",
         "wisdom:GetKnowledgeBase"
       ]
+    },
+    {
+      "name": "CreateParticipant",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateParticipant.html",
+      "description": "Grants permission to add a participant to an ongoing contact",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact*",
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
     },
     {
       "name": "CreateQueue",
@@ -515,6 +555,33 @@
       "dependentActions": []
     },
     {
+      "name": "DeactivateEvaluationForm",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeactivateEvaluationForm.html",
+      "description": "Grants permission to deactivate an evaluation form in the specified Amazon Connect instance. After a form is deactivated, it is no longer available for users to start new evaluations based on the form",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "evaluation-form*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteContactEvaluation",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteContactEvaluation.html",
+      "description": "Grants permission to delete a contact evaluation in the specified Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-evaluation*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteContactFlow",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteContactFlow.html",
       "description": "Grants permission to delete a contact flow in an Amazon Connect instance",
@@ -535,6 +602,20 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "contact-flow-module*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEvaluationForm",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteEvaluationForm.html",
+      "description": "Grants permission to delete an evaluation form in the specified Amazon Connect instance. If the version property is provided, only the specified version of the evaluation form is deleted",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "evaluation-form*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -750,6 +831,20 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeContactEvaluation",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeContactEvaluation.html",
+      "description": "Grants permission to describe a contact evaluation in the specified Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "contact-evaluation*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeContactFlow",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeContactFlow.html",
       "description": "Grants permission to describe a contact flow in an Amazon Connect instance",
@@ -770,6 +865,20 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "contact-flow-module*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEvaluationForm",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEvaluationForm.html",
+      "description": "Grants permission to describe an evaluation form in the specified Amazon Connect instance. If the version property is not provided, the latest version of the evaluation form is described",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "evaluation-form*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -1327,6 +1436,19 @@
       "dependentActions": []
     },
     {
+      "name": "ListContactEvaluations",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListContactEvaluations.html",
+      "description": "Grants permission to list contact evaluations in the specified Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListContactFlowModules",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListContactFlowModules.html",
       "description": "Grants permission to list contact flow module resources in an Amazon Connect instance",
@@ -1365,6 +1487,32 @@
       "name": "ListDefaultVocabularies",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListDefaultVocabularies.html",
       "description": "Grants permission to list default vocabularies associated with a Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEvaluationFormVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListEvaluationFormVersions.html",
+      "description": "Grants permission to list versions of an evaluation form in the specified Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "evaluation-form*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEvaluationForms",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListEvaluationForms.html",
+      "description": "Grants permission to list evaluation forms in the specified Amazon Connect instance",
       "accessLevel": "List",
       "resourceTypes": [
         "instance*"
@@ -1635,8 +1783,10 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "agent-status",
+        "contact-evaluation",
         "contact-flow",
         "contact-flow-module",
+        "evaluation-form",
         "hierarchy-group",
         "hours-of-operation",
         "integration-association",
@@ -1904,6 +2054,19 @@
       "dependentActions": []
     },
     {
+      "name": "StartContactEvaluation",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactEvaluation.html",
+      "description": "Grants permission to start an empty evaluation in the specified Amazon Connect instance, using the given evaluation form for the particular contact. The evaluation form version used for the contact evaluation corresponds to the currently activated version. If no version is activated for the evaluation form, the contact evaluation cannot be started",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-evaluation*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "StartContactRecording",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactRecording.html",
       "description": "Grants permission to start recording for the specified contact",
@@ -2015,6 +2178,19 @@
       "dependentActions": []
     },
     {
+      "name": "SubmitContactEvaluation",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SubmitContactEvaluation.html",
+      "description": "Grants permission to submit a contact evaluation in the specified Amazon Connect instance. Answers included in the request are merged with existing answers for the given evaluation. If no answers or notes are passed, the evaluation is submitted with the existing answers and notes. You can delete an answer or note by passing an empty object ({}) to the question identifier",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-evaluation*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "SuspendContactRecording",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SuspendContactRecording.html",
       "description": "Grants permission to suspend recording for the specified contact",
@@ -2032,8 +2208,10 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "agent-status",
+        "contact-evaluation",
         "contact-flow",
         "contact-flow-module",
+        "evaluation-form",
         "hierarchy-group",
         "hours-of-operation",
         "instance",
@@ -2079,8 +2257,10 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "agent-status",
+        "contact-evaluation",
         "contact-flow",
         "contact-flow-module",
+        "evaluation-form",
         "hierarchy-group",
         "hours-of-operation",
         "instance",
@@ -2137,6 +2317,19 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "contact*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateContactEvaluation",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContactEvaluation.html",
+      "description": "Grants permission to update details about a contact evaluation in the specified Amazon Connect instance. A contact evaluation must be in the draft state. Answers included in the request are merged with existing answers for the given evaluation. An answer or note can be deleted by passing an empty object ({}) to the question identifier",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-evaluation*"
       ],
       "conditionKeys": [
         "connect:InstanceId"
@@ -2220,6 +2413,19 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "contact*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEvaluationForm",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateEvaluationForm.html",
+      "description": "Grants permission to update details about a specific evaluation form version in the specified Amazon Connect instance. Question and section identifiers cannot be duplicated within the same evaluation form",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "evaluation-form*"
       ],
       "conditionKeys": [
         "connect:InstanceId"

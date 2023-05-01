@@ -83,6 +83,29 @@
       "dependentActions": []
     },
     {
+      "name": "CreateVpcConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connections.html#CreateVpcConnection",
+      "description": "Grants permission to create a MSK VPC connection",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags",
+        "ec2:CreateVpcEndpoint",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcAttribute",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeVpcs",
+        "iam:AttachRolePolicy",
+        "iam:CreateServiceLinkedRole",
+        "iam:PutRolePolicy"
+      ]
+    },
+    {
       "name": "DeleteCluster",
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn.html#DeleteCluster",
       "description": "Grants permission to delete an MSK cluster",
@@ -96,6 +119,17 @@
       ]
     },
     {
+      "name": "DeleteClusterPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/cluster-policy.html#DeleteClusterPolicy",
+      "description": "Grants permission to delete a cluster resource-based policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/configurations-arn.html#DeleteConfiguration",
       "description": "Grants permission to delete the specified MSK configuration",
@@ -103,6 +137,20 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "DeleteVpcConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connections.html#DeleteVpcConnection",
+      "description": "Grants permission to delete a MSK VPC connection",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vpc-connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DeleteVpcEndpoints",
+        "ec2:DescribeVpcEndpoints"
+      ]
     },
     {
       "name": "DescribeCluster",
@@ -154,6 +202,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeVpcConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connections.html#DescribeVpcConnection",
+      "description": "Grants permission to describe a MSK VPC connection",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "vpc-connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetBootstrapBrokers",
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-bootstrap-brokers.html#GetBootstrapBrokers",
       "description": "Grants permission to get connection details for the brokers in an MSK cluster",
@@ -163,11 +222,33 @@
       "dependentActions": []
     },
     {
+      "name": "GetClusterPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/cluster-policy.html#GetClusterPolicy",
+      "description": "Grants permission to describe a cluster resource-based policy",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetCompatibleKafkaVersions",
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/compatible-kafka-versions.html#GetCompatibleKafkaVersions",
       "description": "Grants permission to get a list of the Apache Kafka versions to which you can update an MSK cluster",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListClientVpcConnections",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connections.html#ListClientVpcConnections",
+      "description": "Grants permission to list all MSK VPC connections created for a cluster",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -255,6 +336,26 @@
       "dependentActions": []
     },
     {
+      "name": "ListVpcConnections",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connections.html#ListVpcConnections",
+      "description": "Grants permission to list all MSK VPC connections that this account uses",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutClusterPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/cluster-policy.html#PutClusterPolicy",
+      "description": "Grants permission to create or update the resource-based policy for a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "RebootBroker",
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-reboot-broker.html#RebootBroker",
       "description": "Grants permission to reboot broker",
@@ -264,12 +365,24 @@
       "dependentActions": []
     },
     {
+      "name": "RejectClientVpcConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connections.html#RejectClientVpcConnection",
+      "description": "Grants permission to reject a MSK VPC connection",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/tags-resourcearn.html#TagResource",
       "description": "Grants permission to tag an MSK resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "cluster*"
+        "cluster",
+        "vpc-connection"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -283,7 +396,8 @@
       "description": "Grants permission to remove tags from an MSK resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "cluster*"
+        "cluster",
+        "vpc-connection"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -350,7 +464,9 @@
       "description": "Grants permission to update the connectivity settings for the MSK cluster",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "kafka:publicAccessEnabled"
+      ],
       "dependentActions": [
         "ec2:DescribeRouteTables",
         "ec2:DescribeSubnets"
