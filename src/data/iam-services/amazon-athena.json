@@ -37,6 +37,31 @@
       "dependentActions": []
     },
     {
+      "name": "CancelCapacityReservation",
+      "documentationUrl": "https://docs.aws.amazon.com/athena/latest/APIReference/API_CancelCapacityReservation.html",
+      "description": "Grants permission to cancel a capacity reservation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "capacity-reservation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCapacityReservation",
+      "documentationUrl": "https://docs.aws.amazon.com/athena/latest/APIReference/API_CreateCapacityReservation.html",
+      "description": "Grants permission to create a capacity reservation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "capacity-reservation*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateDataCatalog",
       "documentationUrl": "https://docs.aws.amazon.com/athena/latest/APIReference/API_CreateDataCatalog.html",
       "description": "Grants permission to create a datacatalog",
@@ -203,6 +228,28 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "workgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCapacityAssignmentConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/athena/latest/APIReference/API_GetCapacityAssignmentConfiguration.html",
+      "description": "Grants permission to get capacity assignment information for a capacity reservation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "capacity-reservation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCapacityReservation",
+      "documentationUrl": "https://docs.aws.amazon.com/athena/latest/APIReference/API_GetCapacityReservation.html",
+      "description": "Grants permission to get a capacity reservation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "capacity-reservation*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -382,6 +429,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListCapacityReservations",
+      "documentationUrl": "https://docs.aws.amazon.com/athena/latest/APIReference/API_ListCapacityReservations.html",
+      "description": "Grants permission to return a list of capacity reservations for the specified AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListDataCatalogs",
       "documentationUrl": "https://docs.aws.amazon.com/athena/latest/APIReference/API_ListDataCatalogs.html",
       "description": "Grants permission to return a list of datacatalogs for the specified AWS account",
@@ -502,6 +558,7 @@
       "description": "Grants permission to return a list of tags for a resource",
       "accessLevel": "Read",
       "resourceTypes": [
+        "capacity-reservation*",
         "datacatalog*",
         "workgroup*"
       ],
@@ -514,6 +571,18 @@
       "description": "Grants permission to return a list of workgroups for the specified AWS account",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutCapacityAssignmentConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/athena/latest/APIReference/API_PutCapacityAssignmentConfiguration.html",
+      "description": "Grants permission to assign capacity from a capacity reservation to queries",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "capacity-reservation*",
+        "workgroup*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -578,6 +647,7 @@
       "description": "Grants permission to add a tag to a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "capacity-reservation*",
         "datacatalog*",
         "workgroup*"
       ],
@@ -604,12 +674,24 @@
       "description": "Grants permission to remove a tag from a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "capacity-reservation*",
         "datacatalog*",
         "workgroup*"
       ],
       "conditionKeys": [
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCapacityReservation",
+      "documentationUrl": "https://docs.aws.amazon.com/athena/latest/APIReference/API_UpdateCapacityReservation.html",
+      "description": "Grants permission to update a capacity reservation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "capacity-reservation*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {

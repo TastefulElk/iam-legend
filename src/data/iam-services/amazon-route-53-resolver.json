@@ -28,7 +28,11 @@
         "resolver-endpoint*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:CreateNetworkInterface",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeSubnets"
+      ]
     },
     {
       "name": "AssociateResolverQueryLogConfig",
@@ -52,7 +56,9 @@
         "resolver-rule*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
     },
     {
       "name": "CreateFirewallDomainList",
@@ -105,7 +111,13 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:CreateNetworkInterface",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs"
+      ]
     },
     {
       "name": "CreateResolverQueryLogConfig",
@@ -175,7 +187,10 @@
         "resolver-endpoint*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DeleteNetworkInterface",
+        "ec2:DescribeNetworkInterfaces"
+      ]
     },
     {
       "name": "DeleteResolverQueryLogConfig",
@@ -219,7 +234,10 @@
         "resolver-endpoint*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DeleteNetworkInterface",
+        "ec2:DescribeNetworkInterfaces"
+      ]
     },
     {
       "name": "DisassociateResolverQueryLogConfig",
@@ -547,7 +565,9 @@
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
     },
     {
       "name": "ListResolverRules",
@@ -727,7 +747,13 @@
         "resolver-endpoint*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:AssignIpv6Addresses",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeSubnets",
+        "ec2:ModifyNetworkInterfaceAttribute",
+        "ec2:UnassignIpv6Addresses"
+      ]
     },
     {
       "name": "UpdateResolverRule",
