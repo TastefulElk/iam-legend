@@ -1391,7 +1391,10 @@
       "resourceTypes": [
         "automation-definition*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1403,6 +1406,8 @@
         "automation-definition*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ssm:AutoApprove"
       ],
       "dependentActions": []

@@ -24,6 +24,20 @@
       ]
     },
     {
+      "name": "Connect",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/devguide/auth-iam.html",
+      "description": "Allows an IAM user or role to connect as a specified MemoryDB user to a node in a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CopySnapshot",
       "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_CopySnapshot.html",
       "description": "Grants permissions to make a copy of an existing snapshot",

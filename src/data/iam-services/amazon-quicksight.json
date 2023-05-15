@@ -308,6 +308,33 @@
       "dependentActions": []
     },
     {
+      "name": "CreateTopic",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTopic.html",
+      "description": "Grants permission to create a topic",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dataset*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "quicksight:PassDataSet"
+      ]
+    },
+    {
+      "name": "CreateTopicRefreshSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTopicRefreshSchedule.html",
+      "description": "Grants permission to create a refresh schedule for a topic",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "topic*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateUser",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html",
       "description": "Grants permission to provision Amazon QuickSight authors and readers",
@@ -320,11 +347,14 @@
     },
     {
       "name": "CreateVPCConnection",
-      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/vpc-creating-a-connection-in-quicksight.html",
-      "description": "Grants permission to create a VPC connection",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateVPCConnection.html",
+      "description": "Grants permission to create a vpc connection",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -559,6 +589,31 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteTopic",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteTopic.html",
+      "description": "Grants permission to delete a topic",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "topic*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTopicRefreshSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteTopicRefreshSchedule.html",
+      "description": "Grants permission to delete a refresh schedule for a topic",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "topic*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteUser",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteUser.html",
       "description": "Grants permission to delete a QuickSight user, given the user name",
@@ -582,11 +637,16 @@
     },
     {
       "name": "DeleteVPCConnection",
-      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/vpc-creating-a-connection-in-quicksight.html",
-      "description": "Grants permission to delete a VPC connection",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteVPCConnection.html",
+      "description": "Grants permission to delete a vpc connection",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "vpcconnection*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -931,6 +991,59 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeTopic",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeTopic.html",
+      "description": "Grants permission to describe a topic",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "topic*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTopicPermissions",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeTopicPermissions.html",
+      "description": "Grants permission to describe the resource policy of a topic",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "topic*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTopicRefresh",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeTopicRefresh.html",
+      "description": "Grants permission to describe the refresh status of a topic",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "topic*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTopicRefreshSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeTopicRefreshSchedule.html",
+      "description": "Grants permission to describe a refresh schedule for a topic",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "topic*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeUser",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeUser.html",
       "description": "Grants permission to describe a QuickSight user given the user name",
@@ -939,6 +1052,20 @@
         "user*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeVPCConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeVPCConnection.html",
+      "description": "Grants permission to describe a vpc connection",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "vpcconnection*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1192,7 +1319,8 @@
         "dashboard",
         "folder",
         "template",
-        "theme"
+        "theme",
+        "topic"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1264,6 +1392,27 @@
       "dependentActions": []
     },
     {
+      "name": "ListTopicRefreshSchedules",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListTopicRefreshSchedules.html",
+      "description": "Grants permission to list all refresh schedules on a topic",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTopics",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListTopics.html",
+      "description": "Grants permission to list all topics",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListUserGroups",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListUserGroups.html",
       "description": "Grants permission to list groups that a given user is a member of",
@@ -1283,6 +1432,18 @@
         "user*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListVPCConnections",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListVPCConnections.html",
+      "description": "Grants permission to list all vpc connections",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1468,7 +1629,9 @@
         "folder",
         "ingestion",
         "template",
-        "theme"
+        "theme",
+        "topic",
+        "vpcconnection"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -1499,7 +1662,9 @@
         "folder",
         "ingestion",
         "template",
-        "theme"
+        "theme",
+        "topic",
+        "vpcconnection"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -1809,6 +1974,48 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateTopic",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateTopic.html",
+      "description": "Grants permission to update a topic",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "topic*",
+        "dataset"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "quicksight:PassDataSet"
+      ]
+    },
+    {
+      "name": "UpdateTopicPermissions",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateTopicPermissions.html",
+      "description": "Grants permission to update the resource policy of a topic",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "topic*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTopicRefreshSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateTopicRefreshSchedule.html",
+      "description": "Grants permission to update a refresh schedule for a topic",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "topic*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateUser",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html",
       "description": "Grants permission to update an Amazon QuickSight user",
@@ -1817,6 +2024,20 @@
         "user*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateVPCConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateVPCConnection.html",
+      "description": "Grants permission to update a vpc connection",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vpcconnection*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     }
   ]
