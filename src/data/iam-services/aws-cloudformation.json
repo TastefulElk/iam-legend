@@ -325,13 +325,15 @@
     {
       "name": "DescribeStacks",
       "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStacks.html",
-      "description": "Grants permission to return the description for the specified stack",
+      "description": "Grants permission to return the description for the specified stack, and to all stacks when used in combination with the ListStacks action",
       "accessLevel": "List",
       "resourceTypes": [
-        "stack*"
+        "stack"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "cloudformation:ListStacks"
+      ]
     },
     {
       "name": "DescribeType",
@@ -538,7 +540,7 @@
     {
       "name": "ListStacks",
       "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStacks.html",
-      "description": "Grants permission to return the summary information for stacks whose status matches the specified StackStatusFilter",
+      "description": "Grants permission to return the summary information for stacks whose status matches the specified StackStatusFilter. In combination with the DescribeStacks action, grants permission to list descriptions for stacks",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],

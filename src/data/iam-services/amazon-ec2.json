@@ -585,6 +585,21 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateVerifiedAccessInstanceWebAcl",
+      "documentationUrl": "https://docs.aws.amazon.com/verified-access/latest/ug/waf-integration.html",
+      "description": "Grants permission to associate an AWS Web Application Firewall (WAF) web access control list (ACL) with a Verified Access instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-instance*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateVpcCidrBlock",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateVpcCidrBlock.html",
       "description": "Grants permission to associate a CIDR block with a VPC",
@@ -1200,11 +1215,14 @@
       "description": "Grants permission to create a pool of customer-owned IP (CoIP) addresses",
       "accessLevel": "Write",
       "resourceTypes": [
+        "coip-pool*",
         "local-gateway-route-table*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1346,8 +1364,6 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
-        "ec2:AssociatePublicIpAddress",
-        "ec2:AuthorizedService",
         "ec2:AvailabilityZone",
         "ec2:NetworkInterfaceID",
         "ec2:ResourceTag/${TagKey}",
@@ -1911,6 +1927,7 @@
         "network-interface",
         "transit-gateway",
         "vpc-endpoint",
+        "vpc-endpoint-service",
         "vpc-peering-connection",
         "vpn-gateway"
       ],
@@ -1929,13 +1946,13 @@
         "ec2:InternetGatewayID",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
-        "ec2:AssociatePublicIpAddress",
-        "ec2:AuthorizedService",
         "ec2:AvailabilityZone",
         "ec2:NetworkInterfaceID",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Subnet",
         "ec2:Vpc",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -2547,8 +2564,6 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
-        "ec2:AssociatePublicIpAddress",
-        "ec2:AuthorizedService",
         "ec2:AuthorizedUser",
         "ec2:AvailabilityZone",
         "ec2:NetworkInterfaceID",
@@ -2581,7 +2596,6 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
-        "ec2:AvailabilityZone",
         "ec2:Encrypted",
         "ec2:Owner",
         "ec2:ParentVolume",
@@ -2621,8 +2635,6 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
-        "ec2:DomainCertificateArn",
-        "ec2:LoadBalancerArn",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
@@ -2652,7 +2664,6 @@
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
-        "ec2:VpceServicePrivateDnsName",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -3015,13 +3026,9 @@
         "subnet"
       ],
       "conditionKeys": [
-        "ec2:DomainCertificateArn",
-        "ec2:LoadBalancerArn",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
-        "ec2:AssociatePublicIpAddress",
-        "ec2:AuthorizedService",
         "ec2:AuthorizedUser",
         "ec2:AvailabilityZone",
         "ec2:NetworkInterfaceID",
@@ -3194,9 +3201,12 @@
       "description": "Grants permission to create a connection notification for a VPC endpoint or VPC endpoint service",
       "accessLevel": "Write",
       "resourceTypes": [
-        "vpc-endpoint"
+        "vpc-endpoint",
+        "vpc-endpoint-service"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
@@ -3896,8 +3906,6 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "ec2:AssociatePublicIpAddress",
-        "ec2:AuthorizedService",
         "ec2:AvailabilityZone",
         "ec2:NetworkInterfaceID",
         "ec2:ResourceTag/${TagKey}",
@@ -4040,7 +4048,6 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:SnapshotID",
         "ec2:SnapshotTime",
-        "ec2:SourceOutpostArn",
         "ec2:VolumeSize",
         "ec2:Region"
       ],
@@ -4581,8 +4588,6 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "ec2:DomainCertificateArn",
-        "ec2:LoadBalancerArn",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
@@ -6068,7 +6073,6 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "ec2:AvailabilityZone",
         "ec2:Encrypted",
         "ec2:OutpostArn",
         "ec2:Owner",
@@ -6410,6 +6414,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeVerifiedAccessInstanceWebAclAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/verified-access/latest/ug/waf-integration.html",
+      "description": "Grants permission to describe the AWS Web Application Firewall (WAF) web access control list (ACL) associations for a Verified Access instance",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeVerifiedAccessInstances",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVerifiedAccessInstances.html",
       "description": "Grants permission to describe the specified Verified Access instances or all Verified Access instances",
@@ -6564,8 +6579,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServicePermissions.html",
       "description": "Grants permission to describe the principals (service consumers) that are permitted to discover your VPC endpoint service",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "vpc-endpoint-service*"
+      ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -7143,8 +7162,6 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
-        "ec2:AssociatePublicIpAddress",
-        "ec2:AuthorizedService",
         "ec2:AuthorizedUser",
         "ec2:AvailabilityZone",
         "ec2:NetworkInterfaceID",
@@ -7277,6 +7294,21 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateVerifiedAccessInstanceWebAcl",
+      "documentationUrl": "https://docs.aws.amazon.com/verified-access/latest/ug/waf-integration.html",
+      "description": "Grants permission to disassociate an AWS Web Application Firewall (WAF) web access control list (ACL) from a Verified Access instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "verified-access-instance*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -8234,8 +8266,6 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "ec2:DomainCertificateArn",
-        "ec2:LoadBalancerArn",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
@@ -8248,6 +8278,21 @@
       "accessLevel": "List",
       "resourceTypes": [
         "verified-access-group*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetVerifiedAccessInstanceWebAcl",
+      "documentationUrl": "https://docs.aws.amazon.com/verified-access/latest/ug/waf-integration.html",
+      "description": "Grants permission to show the AWS Web Application Firewall (WAF) web access control list (ACL) for a Verified Access instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "verified-access-instance*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -8279,6 +8324,36 @@
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetVpnTunnelReplacementStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetVpnTunnelReplacementStatus.html",
+      "description": "Grants permission to view available tunnel endpoint maintenance events",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "vpn-connection*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ImportByoipCidrToIpam",
+      "documentationUrl": "https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-byoip-ipam-transfer-ipv4.html",
+      "description": "Grants permission to transfer existing BYOIP IPv4 CIDRs to IPAM",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ipam-pool*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -8467,7 +8542,6 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "ec2:AvailabilityZone",
         "ec2:Encrypted",
         "ec2:Owner",
         "ec2:ParentVolume",
@@ -8631,8 +8705,6 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
-        "ec2:AssociatePublicIpAddress",
-        "ec2:AuthorizedService",
         "ec2:AvailabilityZone",
         "ec2:NetworkInterfaceID",
         "ec2:ResourceTag/${TagKey}",
@@ -9106,8 +9178,6 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
-        "ec2:AssociatePublicIpAddress",
-        "ec2:AuthorizedService",
         "ec2:AuthorizedUser",
         "ec2:AvailabilityZone",
         "ec2:NetworkInterfaceID",
@@ -9299,7 +9369,6 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
-        "ec2:AvailabilityZone",
         "ec2:Encrypted",
         "ec2:Owner",
         "ec2:ParentVolume",
@@ -9495,8 +9564,6 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "ec2:DomainCertificateArn",
-        "ec2:LoadBalancerArn",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
@@ -9519,8 +9586,6 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "ec2:DomainCertificateArn",
-        "ec2:LoadBalancerArn",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
@@ -10456,6 +10521,7 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "route-table*",
+        "internet-gateway",
         "ipv4pool-ec2",
         "ipv6pool-ec2",
         "subnet"
@@ -10465,6 +10531,9 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:RouteTableID",
         "ec2:Vpc",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:InternetGatewayID",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -10490,6 +10559,21 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ReplaceVpnTunnel",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReplaceVpnTunnel.html",
+      "description": "Grants permission to replace a VPN tunnel",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vpn-connection*"
+      ],
+      "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
@@ -10592,8 +10676,6 @@
         "ec2:KeyPairType",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
-        "ec2:AssociatePublicIpAddress",
-        "ec2:AuthorizedService",
         "ec2:AuthorizedUser",
         "ec2:AvailabilityZone",
         "ec2:NetworkInterfaceID",
@@ -10827,7 +10909,6 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "ec2:AvailabilityZone",
         "ec2:Encrypted",
         "ec2:Owner",
         "ec2:ParentVolume",
@@ -10849,7 +10930,6 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "ec2:AvailabilityZone",
         "ec2:Encrypted",
         "ec2:Owner",
         "ec2:ParentVolume",

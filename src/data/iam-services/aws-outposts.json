@@ -31,7 +31,10 @@
       "resourceTypes": [
         "site*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -49,7 +52,10 @@
       "description": "Grants permission to create a site",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -222,8 +228,14 @@
       "documentationUrl": "https://docs.aws.amazon.com/outposts/latest/APIReference/API_TagResource.html",
       "description": "Grants permission to tag a resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "outpost",
+        "site"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -231,8 +243,13 @@
       "documentationUrl": "https://docs.aws.amazon.com/outposts/latest/APIReference/API_UntagResource.html",
       "description": "Grants permission to untag a resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "outpost",
+        "site"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

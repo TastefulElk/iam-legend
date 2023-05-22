@@ -94,7 +94,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-sensitive-data-api.html#aws-glue-api-sensitive-data-api-BatchGetCustomEntityTypes",
       "description": "Grants permission to retrieve one or more Custom Entity Types",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "customEntityType*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -287,7 +289,10 @@
       "description": "Grants permission to create a Custom Entity Type",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -566,7 +571,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-sensitive-data-api.html#aws-glue-api-sensitive-data-api-DeleteCustomEntityType",
       "description": "Grants permission to delete a Custom Entity Type",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "customEntityType*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -936,7 +943,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-sensitive-data-api.html#aws-glue-api-sensitive-data-api-GetCustomEntityType",
       "description": "Grants permission to read a Custom Entity Type",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "customEntityType*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1399,6 +1408,7 @@
       "resourceTypes": [
         "blueprint",
         "crawler",
+        "customEntityType",
         "devendpoint",
         "job",
         "trigger",
@@ -1559,7 +1569,10 @@
       "description": "Grants permission to retrieve all Custom Entity Types",
       "accessLevel": "List",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -2068,6 +2081,7 @@
         "blueprint",
         "connection",
         "crawler",
+        "customEntityType",
         "dataQualityRuleset",
         "devendpoint",
         "job",
@@ -2102,6 +2116,7 @@
         "blueprint",
         "connection",
         "crawler",
+        "customEntityType",
         "dataQualityRuleset",
         "devendpoint",
         "job",

@@ -379,6 +379,25 @@
       "dependentActions": []
     },
     {
+      "name": "CreatePrompt",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreatePrompt.html",
+      "description": "Grants permission to create a prompt in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "prompt*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "connect:InstanceId"
+      ],
+      "dependentActions": [
+        "kms:Decrypt",
+        "s3:GetObject",
+        "s3:GetObjectAcl"
+      ]
+    },
+    {
       "name": "CreateQueue",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateQueue.html",
       "description": "Grants permission to create a queue in an Amazon Connect instance",
@@ -677,6 +696,20 @@
       ]
     },
     {
+      "name": "DeletePrompt",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeletePrompt.html",
+      "description": "Grants permission to delete a prompt in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "prompt*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteQuickConnect",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html",
       "description": "Grants permission to delete a quick connect in an Amazon Connect instance",
@@ -967,6 +1000,20 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribePrompt",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePrompt.html",
+      "description": "Grants permission to describe a prompt in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "prompt*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
       ],
       "dependentActions": []
     },
@@ -1369,6 +1416,20 @@
         "user*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPromptFile",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_GetPromptFile.html",
+      "description": "Grants permission to get details about a prompt's presigned Amazon S3 URL in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "prompt*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
       "dependentActions": []
     },
     {
@@ -1791,6 +1852,7 @@
         "hours-of-operation",
         "integration-association",
         "phone-number",
+        "prompt",
         "queue",
         "quick-connect",
         "routing-profile",
@@ -2217,6 +2279,7 @@
         "instance",
         "integration-association",
         "phone-number",
+        "prompt",
         "queue",
         "quick-connect",
         "routing-profile",
@@ -2266,6 +2329,7 @@
         "instance",
         "integration-association",
         "phone-number",
+        "prompt",
         "queue",
         "quick-connect",
         "routing-profile",
@@ -2519,6 +2583,24 @@
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
+    },
+    {
+      "name": "UpdatePrompt",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePrompt.html",
+      "description": "Grants permission to update a prompt's name, description, and Amazon S3 URI in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "prompt*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": [
+        "kms:Decrypt",
+        "s3:GetObject",
+        "s3:GetObjectAcl"
+      ]
     },
     {
       "name": "UpdateQueueHoursOfOperation",
