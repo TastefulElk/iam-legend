@@ -15,6 +15,28 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateMergedGraphqlApi",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_AssociateMergedGraphqlApi.html",
+      "description": "Grants permission to associate a merged API to a source API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "graphqlapi*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateSourceGraphqlApi",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_AssociateSourceGraphqlApi.html",
+      "description": "Grants permission to associate a source API to a merged API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "graphqlapi*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateApiCache",
       "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateApiCache.html",
       "description": "Grants permission to create an API cache in AppSync",
@@ -162,6 +184,15 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/devguide/merge-api.html",
+      "description": "Grants permission to remove a resource policy",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteType",
       "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteType.html",
       "description": "Grants permission to delete a type",
@@ -177,6 +208,28 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateMergedGraphqlApi",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_DisassociateMergedGraphqlApi.html",
+      "description": "Grants permission to remove an associated source API from a merged API identified by the source API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "mergedApiAssociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateSourceGraphqlApi",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_DisassociateSourceGraphqlApi.html",
+      "description": "Grants permission to remove an associated source API from a merged API identified by the merged API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "sourceApiAssociation*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -289,11 +342,31 @@
       "dependentActions": []
     },
     {
+      "name": "GetResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/devguide/merge-api.html",
+      "description": "Grants permission to read a resource policy",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetSchemaCreationStatus",
       "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetSchemaCreationStatus.html",
       "description": "Grants permission to retrieve the current status of a schema creation operation",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSourceApiAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetSourceApiAssociation.html",
+      "description": "Grants permission to read information about a merged API associated source API",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "sourceApiAssociation*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -382,6 +455,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListSourceApiAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListSourceApiAssociations.html",
+      "description": "Grants permission to list source APIs associated to a given merged API",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to list the tags for a resource",
@@ -404,6 +486,24 @@
       "dependentActions": []
     },
     {
+      "name": "ListTypesByAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListTypesByAssociation.html",
+      "description": "Grants permission to list the types for a given merged API and source API association",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/devguide/merge-api.html",
+      "description": "Grants permission to set a resource policy",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "SetWebACL",
       "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_SetWebACL.html",
       "description": "Grants permission to set a web ACL",
@@ -413,11 +513,34 @@
       "dependentActions": []
     },
     {
+      "name": "SourceGraphQL",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/devguide/using-your-api.html",
+      "description": "Grants permission to send a GraphQL query to a source API of a merged API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "field*",
+        "graphqlapi*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartSchemaCreation",
       "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_StartSchemaCreation.html",
       "description": "Grants permission to add a new schema to your GraphQL API. This operation is asynchronous - GetSchemaCreationStatus can show when it has completed",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartSchemaMerge",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_StartSchemaMerge.html",
+      "description": "Grants permission to initiate a schema merge for a given merged API and associated source API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "sourceApiAssociation*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -519,6 +642,17 @@
       "description": "Grants permission to update a resolver",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSourceApiAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_UpdateSourceApiAssociation.html",
+      "description": "Grants permission to update a merged API source API association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "sourceApiAssociation*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },

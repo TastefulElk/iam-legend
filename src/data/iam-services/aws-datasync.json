@@ -4,6 +4,21 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsdatasync.html",
   "actions": [
     {
+      "name": "AddStorageSystem",
+      "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_AddStorageSystem.html",
+      "description": "Grants permission to create a storage system",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CancelTaskExecution",
       "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_CancelTaskExecution.html",
       "description": "Grants permission to cancel execution of a sync task",
@@ -208,6 +223,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeDiscoveryJob",
+      "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeDiscoveryJob.html",
+      "description": "Grants permission to describe metadata about a discovery job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "discoveryjob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeLocationEfs",
       "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeLocationEfs.html",
       "description": "Grants permission to view metadata, such as the path information about an Amazon EFS sync location",
@@ -318,6 +344,39 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeStorageSystem",
+      "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeStorageSystem.html",
+      "description": "Grants permission to view metadata about a storage system",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "storagesystem*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStorageSystemResourceMetrics",
+      "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeStorageSystemResourceMetrics.html",
+      "description": "Grants permission to describe resource metrics collected by a discovery job",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "discoveryjob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStorageSystemResources",
+      "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeStorageSystemResources.html",
+      "description": "Grants permission to describe resources identified by a discovery job",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "discoveryjob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeTask",
       "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeTask.html",
       "description": "Grants permission to view metadata about a sync task",
@@ -342,9 +401,29 @@
       "dependentActions": []
     },
     {
+      "name": "GenerateRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_GenerateRecommendations.html",
+      "description": "Grants permission to generate recommendations for a resource identified by a discovery job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "discoveryjob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListAgents",
       "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_ListAgents.html",
       "description": "Grants permission to list agents owned by an AWS account in a region specified in the request",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDiscoveryJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_ListDiscoveryJobs.html",
+      "description": "Grants permission to list discovery jobs",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -360,13 +439,24 @@
       "dependentActions": []
     },
     {
+      "name": "ListStorageSystems",
+      "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_ListStorageSystems.html",
+      "description": "Grants permission to list storage systems",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTagsForResource.html",
       "description": "Grants permission to list tags that have been added to the specified resource",
       "accessLevel": "Read",
       "resourceTypes": [
         "agent",
+        "discoveryjob",
         "location",
+        "storagesystem",
         "task",
         "taskexecution"
       ],
@@ -396,6 +486,28 @@
       "dependentActions": []
     },
     {
+      "name": "RemoveStorageSystem",
+      "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_RemoveStorageSystem.html",
+      "description": "Grants permission to delete a storage system",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "storagesystem*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartDiscoveryJob",
+      "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_StartDiscoveryJob.html",
+      "description": "Grants permission to start a discovery job for a storage system",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "storagesystem*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartTaskExecution",
       "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html",
       "description": "Grants permission to start a specific invocation of a sync task",
@@ -411,13 +523,26 @@
       "dependentActions": []
     },
     {
+      "name": "StopDiscoveryJob",
+      "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_StopDiscoveryJob.html",
+      "description": "Grants permission to stop a discovery job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "discoveryjob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_TagResource.html",
       "description": "Grants permission to apply a key-value pair to an AWS resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "agent",
+        "discoveryjob",
         "location",
+        "storagesystem",
         "task",
         "taskexecution"
       ],
@@ -434,7 +559,9 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "agent",
+        "discoveryjob",
         "location",
+        "storagesystem",
         "task",
         "taskexecution"
       ],
@@ -494,6 +621,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "location*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateStorageSystem",
+      "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateStorageSystem.html",
+      "description": "Grants permission to update a storage system",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "storagesystem*"
       ],
       "conditionKeys": [],
       "dependentActions": []
