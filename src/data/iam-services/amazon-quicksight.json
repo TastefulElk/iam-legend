@@ -124,7 +124,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "CreateEmailCustomizationTemplate",
@@ -355,7 +357,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "DeleteAccountCustomization",
@@ -698,6 +702,28 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "analysis*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAssetBundleExportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAssetBundleExportJob.html",
+      "description": "Grants permission to describe an asset bundle export job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "assetBundleExportJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAssetBundleImportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAssetBundleImportJob.html",
+      "description": "Grants permission to describe an asset bundle import job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "assetBundleImportJob*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1159,6 +1185,28 @@
       "dependentActions": []
     },
     {
+      "name": "ListAssetBundleExportJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListAssetBundleExportJobs.html",
+      "description": "Grants permission to list all asset bundle export jobs",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "assetBundleExportJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAssetBundleImportJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListAssetBundleImportJobs.html",
+      "description": "Grants permission to list all asset bundle import jobs",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "assetBundleImportJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListCustomPermissions",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html",
       "description": "Grants permission to list custom permissions resources in QuickSight account",
@@ -1604,6 +1652,28 @@
       "dependentActions": []
     },
     {
+      "name": "StartAssetBundleExportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StartAssetBundleExportJob.html",
+      "description": "Grants permission to start an asset bundle export job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "assetBundleExportJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartAssetBundleImportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StartAssetBundleImportJob.html",
+      "description": "Grants permission to start an asset bundle import job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "assetBundleImportJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "Subscribe",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html",
       "description": "Grants permission to subscribe to Amazon QuickSight, and also to allow the user to upgrade the subscription to Enterprise edition",
@@ -1798,7 +1868,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "UpdateDataSourcePermissions",
@@ -2038,7 +2110,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     }
   ]
 }

@@ -10,11 +10,13 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "Certificate",
+        "DataMigration",
         "DataProvider",
         "Endpoint",
         "EventSubscription",
         "InstanceProfile",
         "MigrationProject",
+        "ReplicationConfig",
         "ReplicationInstance",
         "ReplicationSubnetGroup",
         "ReplicationTask"
@@ -102,6 +104,21 @@
       "dependentActions": []
     },
     {
+      "name": "CreateDataMigration",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to create a database migration using the provided settings",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "dms:req-tag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateDataProvider",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
       "description": "Grants permission to create an data provider using the provided settings",
@@ -179,6 +196,21 @@
       "dependentActions": []
     },
     {
+      "name": "CreateReplicationConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to create a replication config using the provided settings",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Endpoint*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "dms:req-tag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateReplicationInstance",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationInstance.html",
       "description": "Grants permission to create a replication instance using the specified parameters",
@@ -239,6 +271,17 @@
       "resourceTypes": [
         "Endpoint*",
         "ReplicationInstance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDataMigration",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to delete the specified database migration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "DataMigration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -312,6 +355,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteReplicationConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to delete the specified replication config",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationConfig*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -394,6 +448,15 @@
       "name": "DescribeConnections",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeConnections.html",
       "description": "Grants permission to describe the status of the connections that have been made between the replication instance and an endpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDataMigrations",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to return information about database migrations for your account in the specified region",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -546,6 +609,15 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeReplicationConfigs",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to describe replication configs",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeReplicationInstanceTaskLogs",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeReplicationInstanceTaskLogs.html",
       "description": "Grants permission to return information about the task logs for the specified task",
@@ -574,6 +646,17 @@
       "description": "Grants permission to return information about the replication subnet groups",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReplicationTableStatistics",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to describe replication table statistics",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ReplicationConfig*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -617,6 +700,15 @@
       "name": "DescribeReplicationTasks",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeReplicationTasks.html",
       "description": "Grants permission to return information about replication tasks for your account in the current region",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReplications",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to describe replications",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -786,11 +878,27 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "Certificate",
+        "DataMigration",
+        "DataProvider",
         "Endpoint",
         "EventSubscription",
+        "InstanceProfile",
+        "MigrationProject",
+        "ReplicationConfig",
         "ReplicationInstance",
         "ReplicationSubnetGroup",
         "ReplicationTask"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyDataMigration",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to modify the specified database migration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "DataMigration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -831,6 +939,17 @@
       "description": "Grants permission to modify the status of the specified Fleet Advisor collector",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyReplicationConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to modify the specified replication config",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationConfig*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -901,6 +1020,17 @@
       "dependentActions": []
     },
     {
+      "name": "ReloadReplicationTables",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to reload the target database table with the source for a replication",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationConfig*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ReloadTables",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_ReloadTables.html",
       "description": "Grants permission to reload the target database table with the source data",
@@ -918,11 +1048,13 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "Certificate",
+        "DataMigration",
         "DataProvider",
         "Endpoint",
         "EventSubscription",
         "InstanceProfile",
         "MigrationProject",
+        "ReplicationConfig",
         "ReplicationInstance",
         "ReplicationSubnetGroup",
         "ReplicationTask"
@@ -938,6 +1070,17 @@
       "description": "Grants permission to run a large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartDataMigration",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to start the database migration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "DataMigration*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1006,6 +1149,17 @@
       "dependentActions": []
     },
     {
+      "name": "StartReplication",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to start a replication",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationConfig*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartReplicationTask",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html",
       "description": "Grants permission to start the replication task",
@@ -1034,6 +1188,28 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "ReplicationTask*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopDataMigration",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to stop the database migration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "DataMigration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopReplication",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to stop a replication",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ReplicationConfig*"
       ],
       "conditionKeys": [],
       "dependentActions": []
