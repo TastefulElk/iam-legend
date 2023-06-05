@@ -16,6 +16,18 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateIpAccessSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_AssociateIpAccessSettings.html",
+      "description": "Grants permission to associate ip access settings with web portals",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ipAccessSettings*",
+        "portal*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateNetworkSettings",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_AssociateNetworkSettings.html",
       "description": "Grants permission to associate network settings to web portals",
@@ -96,9 +108,22 @@
       "description": "Grants permission to create identity providers",
       "accessLevel": "Write",
       "resourceTypes": [
+        "identityProvider*",
         "portal*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateIpAccessSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateIpAccessSettings.html",
+      "description": "Grants permission to create ip access settings",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -185,7 +210,21 @@
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeleteIdentityProvider.html",
       "description": "Grants permission to delete identity providers",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "identityProvider*",
+        "portal*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteIpAccessSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeleteIpAccessSettings.html",
+      "description": "Grants permission to delete ip access settings",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ipAccessSettings*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -256,6 +295,17 @@
       "dependentActions": []
     },
     {
+      "name": "DisassociateIpAccessSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DisassociateIpAccessSettings.html",
+      "description": "Grants permission to disassociate ip access logging from web portals",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "portal*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DisassociateNetworkSettings",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DisassociateNetworkSettings.html",
       "description": "Grants permission to disassociate network settings from web portals",
@@ -315,7 +365,20 @@
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetIdentityProvider.html",
       "description": "Grants permission to get details on identity providers",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "identityProvider*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetIpAccessSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetIpAccessSettings.html",
+      "description": "Grants permission to get details on ip access settings",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ipAccessSettings*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -410,6 +473,17 @@
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListIdentityProviders.html",
       "description": "Grants permission to list identity providers",
       "accessLevel": "Read",
+      "resourceTypes": [
+        "identityProvider*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListIpAccessSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListIpAccessSettings.html",
+      "description": "Grants permission to list ip access settings",
+      "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -484,6 +558,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "browserSettings",
+        "ipAccessSettings",
         "networkSettings",
         "portal",
         "trustStore",
@@ -503,6 +578,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "browserSettings",
+        "ipAccessSettings",
         "networkSettings",
         "portal",
         "trustStore",
@@ -531,7 +607,21 @@
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UpdateIdentityProvider.html",
       "description": "Grants permission to update identity provider",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "identityProvider*",
+        "portal*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateIpAccessSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UpdateIpAccessSettings.html",
+      "description": "Grants permission to update ip access settings",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ipAccessSettings*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
