@@ -307,7 +307,7 @@
     },
     {
       "name": "CreateFleetMetric",
-      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/iot-indexing.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_CreateFleetMetric.html",
       "description": "Grants permission to create a fleet metric",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -388,6 +388,39 @@
         "aws:TagKeys"
       ],
       "dependentActions": []
+    },
+    {
+      "name": "CreatePackage",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_CreatePackage.html",
+      "description": "Grants permission to create a software package that you can deploy to your devices",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "package*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iot:GetIndexingConfiguration"
+      ]
+    },
+    {
+      "name": "CreatePackageVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_CreatePackageVersion.html",
+      "description": "Grants permission to create a version under the specified package",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "package*",
+        "packageversion*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iot:GetIndexingConfiguration"
+      ]
     },
     {
       "name": "CreatePolicy",
@@ -685,7 +718,7 @@
     },
     {
       "name": "DeleteFleetMetric",
-      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/iot-indexing.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteFleetMetric.html",
       "description": "Grants permission to delete the specified fleet metric",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -746,6 +779,29 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "otaupdate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePackage",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_DeletePackage.html",
+      "description": "Grants permission to delete a package",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "package*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePackageVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_DeletePackageVersion.html",
+      "description": "Grants permission to delete a version of the specified package",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "package*",
+        "packageversion*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1095,7 +1151,7 @@
     },
     {
       "name": "DescribeFleetMetric",
-      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/iot-indexing.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeFleetMetric.html",
       "description": "Grants permission to get information about the specified fleet metric",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -1371,7 +1427,7 @@
     },
     {
       "name": "GetBucketsAggregation",
-      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/iot-indexing.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_GetBucketsAggregation.html",
       "description": "Grants permission to get buckets aggregation for IoT fleet index",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -1438,6 +1494,38 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "otaupdate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPackage",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_GetPackage.html",
+      "description": "Grants permission to get the information about the package",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "package*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPackageConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_GetPackageConfiguration.html",
+      "description": "Grants permission to get the package configuration of the account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPackageVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_GetPackageVersion.html",
+      "description": "Grants permission to get the version of the package",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "package*",
+        "packageversion*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1708,7 +1796,7 @@
     },
     {
       "name": "ListFleetMetrics",
-      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/iot-indexing.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_ListFleetMetrics.html",
       "description": "Grants permission to list the fleet metrics in your account",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -1776,7 +1864,7 @@
     {
       "name": "ListMetricValues",
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_ListMetricValues.html",
-      "description": "Adds support to list metric datapoints collected for IoT devices",
+      "description": "Grants permissions to list the metric values for a thing based on the metricName, and dimension if specified",
       "accessLevel": "List",
       "resourceTypes": [
         "thing*"
@@ -1817,6 +1905,24 @@
       "name": "ListOutgoingCertificates",
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_ListOutgoingCertificates.html",
       "description": "Grants permission to list certificates that are being transfered but not yet accepted",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPackageVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_ListPackageVersions.html",
+      "description": "Grants permission to list versions for a package in the account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPackages",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_ListPackages.html",
+      "description": "Grants permission to list packages in the account",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -2439,6 +2545,8 @@
         "jobtemplate",
         "mitigationaction",
         "otaupdate",
+        "package",
+        "packageversion",
         "policy",
         "provisioningtemplate",
         "rolealias",
@@ -2506,6 +2614,8 @@
         "jobtemplate",
         "mitigationaction",
         "otaupdate",
+        "package",
+        "packageversion",
         "policy",
         "provisioningtemplate",
         "rolealias",
@@ -2640,7 +2750,7 @@
     },
     {
       "name": "UpdateFleetMetric",
-      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/iot-indexing.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateFleetMetric.html",
       "description": "Grants permission to update a fleet metric",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -2680,6 +2790,44 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "UpdatePackage",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_UpdatePackage.html",
+      "description": "Grants permission to update a package",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "package*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iot:GetIndexingConfiguration"
+      ]
+    },
+    {
+      "name": "UpdatePackageConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_UpdatePackageConfiguration.html",
+      "description": "Grants permission to update the package configuration of the account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdatePackageVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_UpdatePackageVersion.html",
+      "description": "Grants permission to update the version of the specified package",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "package*",
+        "packageversion*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iot:GetIndexingConfiguration"
+      ]
     },
     {
       "name": "UpdateProvisioningTemplate",

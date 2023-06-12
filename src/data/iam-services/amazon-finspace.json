@@ -4,12 +4,91 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonfinspace.html",
   "actions": [
     {
+      "name": "ConnectKxCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/userguide/interacting-with-kdb-clusters.html",
+      "description": "Grants permission to connect to a kdb cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxCluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateEnvironment",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_CreateEnvironment.html",
       "description": "Grants permission to create a FinSpace environment",
       "accessLevel": "Write",
       "resourceTypes": [
         "environment*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateKxChangeset",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_CreateKxChangeset.html",
+      "description": "Grants permission to create a changeset for a kdb database",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxDatabase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateKxCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_CreateKxCluster.html",
+      "description": "Grants permission to create a cluster in a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxCluster*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:DescribeSubnets",
+        "finspace:MountKxDatabase"
+      ]
+    },
+    {
+      "name": "CreateKxDatabase",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_CreateKxDatabase.html",
+      "description": "Grants permission to create a kdb database in a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxDatabase*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateKxEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_CreateKxEnvironment.html",
+      "description": "Grants permission to create a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateKxUser",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_CreateKxUser.html",
+      "description": "Grants permission to create a user in a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxEnvironment*"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -44,12 +123,124 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteKxCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_DeleteKxCluster.html",
+      "description": "Grants permission to delete a kdb cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxCluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteKxDatabase",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_DeleteKxDatabase.html",
+      "description": "Grants permission to delete a kdb database",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxDatabase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteKxEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_DeleteKxEnvironment.html",
+      "description": "Grants permission to delete a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxEnvironment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteKxUser",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_DeleteKxUser.html",
+      "description": "Grants permission to delete a kdb user",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxUser*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetEnvironment",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_GetEnvironment.html",
       "description": "Grants permission to describe a FinSpace environment",
       "accessLevel": "Read",
       "resourceTypes": [
         "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetKxChangeset",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_GetKxChangeset.html",
+      "description": "Grants permission to describe a changeset for a kdb database",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "kxDatabase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetKxCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_GetKxCluster.html",
+      "description": "Grants permission to describe a cluster in a managed kdb environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "kxCluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetKxConnectionString",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_GetKxConnectionString.html",
+      "description": "Grants permission to retrieve a connection string for kdb clusters",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "kxCluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "finspace:ConnectKxCluster"
+      ]
+    },
+    {
+      "name": "GetKxDatabase",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_GetKxDatabase.html",
+      "description": "Grants permission to describe a kdb database",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "kxDatabase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetKxEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_GetKxEnvironment.html",
+      "description": "Grants permission to describe a managed kdb environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "kxEnvironment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetKxUser",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_GetKxUser.html",
+      "description": "Grants permission to describe a kdb user",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "kxUser*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -89,12 +280,80 @@
       "dependentActions": []
     },
     {
+      "name": "ListKxChangesets",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_ListKxChangesets.html",
+      "description": "Grants permission to list changesets for a kdb database",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "kxDatabase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListKxClusterNodes",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_ListKxClusterNodes.html",
+      "description": "Grants permission to list cluster nodes in a managed kdb environment",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "kxCluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListKxClusters",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_ListKxClusters.html",
+      "description": "Grants permission to list clusters in a managed kdb environment",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "kxEnvironment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListKxDatabases",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_ListKxDatabases.html",
+      "description": "Grants permission to list kdb databases in a managed kdb environment",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "kxEnvironment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListKxEnvironments",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_ListKxEnvironments.html",
+      "description": "Grants permission to list managed kdb environments",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListKxUsers",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_ListKxUsers.html",
+      "description": "Grants permission to list users in a managed kdb environment",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "kxEnvironment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_ListTagsForResource.html",
       "description": "Grants permission to return a list of tags for a resource",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [
-        "environment*"
+        "environment*",
+        "kxCluster*",
+        "kxDatabase*",
+        "kxEnvironment*",
+        "kxUser*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -123,6 +382,17 @@
       "dependentActions": []
     },
     {
+      "name": "MountKxDatabase",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/userguide/finspace-managed-kdb-db.html",
+      "description": "Grants permission to mount a database to a kdb cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxDatabase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ResetUserPassword",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/userguide/finspace-what-is.html",
       "description": "Grants permission to reset the password for a FinSpace user",
@@ -140,9 +410,16 @@
       "description": "Grants permission to tag a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "environment*"
+        "environment",
+        "kxCluster",
+        "kxDatabase",
+        "kxEnvironment",
+        "kxUser"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -151,9 +428,15 @@
       "description": "Grants permission to untag a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "environment*"
+        "environment",
+        "kxCluster",
+        "kxDatabase",
+        "kxEnvironment",
+        "kxUser"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -163,6 +446,61 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateKxClusterDatabases",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_UpdateKxClusterDatabases.html",
+      "description": "Grants permission to update databases for a cluster in a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxCluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateKxDatabase",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_UpdateKxDatabase.html",
+      "description": "Grants permission to update a kdb database",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxDatabase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateKxEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_UpdateKxEnvironment.html",
+      "description": "Grants permission to update a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxEnvironment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateKxEnvironmentNetwork",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_UpdateKxEnvironmentNetwork.html",
+      "description": "Grants permission to update the network for a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxEnvironment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateKxUser",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_UpdateKxUser.html",
+      "description": "Grants permission to update a kdb user",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxUser*"
       ],
       "conditionKeys": [],
       "dependentActions": []

@@ -15,6 +15,21 @@
       "dependentActions": []
     },
     {
+      "name": "CreateCalculatedAttributeDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateCalculatedAttributeDefinition.html",
+      "description": "Grants permission to create a calculated attribute definition in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "calculated-attributes*",
+        "domains*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateDomain",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html",
       "description": "Grants permission to create a Domain",
@@ -26,7 +41,27 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
+      "name": "CreateEventStream",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateEventStream.html",
+      "description": "Grants permission to put an event stream in a domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*",
+        "event-streams*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PutRolePolicy",
+        "kinesis:DescribeStreamSummary"
+      ]
     },
     {
       "name": "CreateIntegrationWorkflow",
@@ -54,6 +89,18 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteCalculatedAttributeDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteCalculatedAttributeDefinition.html",
+      "description": "Grants permission to delete a calculated attribute definition in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "calculated-attributes*",
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteDomain",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteDomain.html",
       "description": "Grants permission to delete a Domain",
@@ -63,6 +110,20 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "DeleteEventStream",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteEventStream.html",
+      "description": "Grants permission to delete an event stream in a domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*",
+        "event-streams*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:DeleteRolePolicy"
+      ]
     },
     {
       "name": "DeleteIntegration",
@@ -145,6 +206,30 @@
       "dependentActions": []
     },
     {
+      "name": "GetCalculatedAttributeDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetCalculatedAttributeDefinition.html",
+      "description": "Grants permission to get a calculated attribute definition in the domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "calculated-attributes*",
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCalculatedAttributeForProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetCalculatedAttributeForProfile.html",
+      "description": "Grants permission to retrieve a calculated attribute for a specific profile in the domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "calculated-attributes*",
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetDomain",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetDomain.html",
       "description": "Grants permission to get a specific domain in an account",
@@ -154,6 +239,20 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "GetEventStream",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetEventStream.html",
+      "description": "Grants permission to get a specific event stream in a domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "domains*",
+        "event-streams*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "kinesis:DescribeStreamSummary"
+      ]
     },
     {
       "name": "GetIdentityResolutionJob",
@@ -242,11 +341,44 @@
       "dependentActions": []
     },
     {
+      "name": "ListCalculatedAttributeDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListCalculatedAttributeDefinitions.html",
+      "description": "Grants permission to list all the calculated attribute definitions in the domain",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCalculatedAttributesForProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListCalculatedAttributesForProfile.html",
+      "description": "Grants permission to list all calculated attributes for a specific profile in the domain",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListDomains",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListDomains.html",
       "description": "Grants permission to list all the domains in an account",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEventStreams",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListEventStreams.html",
+      "description": "Grants permission to list all the event streams in a specific domain",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "domains*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -309,7 +441,13 @@
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to list tags for a resource",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "calculated-attributes",
+        "domains",
+        "event-streams",
+        "integrations",
+        "object-types"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -393,7 +531,13 @@
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html",
       "description": "Grants permission to adds tags to a resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "calculated-attributes",
+        "domains",
+        "event-streams",
+        "integrations",
+        "object-types"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -405,11 +549,29 @@
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html",
       "description": "Grants permission to remove tags from a resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "calculated-attributes",
+        "domains",
+        "event-streams",
+        "integrations",
+        "object-types"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCalculatedAttributeDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateCalculatedAttributeDefinition.html",
+      "description": "Grants permission to update a calculated attribute definition in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "calculated-attributes*",
+        "domains*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -421,7 +583,9 @@
         "domains*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
     },
     {
       "name": "UpdateProfile",
