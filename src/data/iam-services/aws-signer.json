@@ -41,6 +41,18 @@
       "dependentActions": []
     },
     {
+      "name": "GetRevocationStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/signer/latest/api/API_GetRevocationStatus.html",
+      "description": "Grants permission to query revocation info of signing resources",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "signing-job*",
+        "signing-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetSigningPlatform",
       "documentationUrl": "https://docs.aws.amazon.com/signer/latest/api/API_GetSigningPlatform.html",
       "description": "Grants permission to return information about a specific Signing Platform",
@@ -153,6 +165,19 @@
       "name": "RevokeSigningProfile",
       "documentationUrl": "https://docs.aws.amazon.com/signer/latest/api/API_RevokeSigningProfile.html",
       "description": "Grants permission to change the state of a Signing Profile to REVOKED",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "signing-profile*"
+      ],
+      "conditionKeys": [
+        "signer:ProfileVersion"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "SignPayload",
+      "documentationUrl": "https://docs.aws.amazon.com/signer/latest/api/API_SignPayload.html",
+      "description": "Grants permission to initiate a Signing Job on the provided payload",
       "accessLevel": "Write",
       "resourceTypes": [
         "signing-profile*"
