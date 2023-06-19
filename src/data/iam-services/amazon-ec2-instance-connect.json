@@ -4,6 +4,24 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonec2instanceconnect.html",
   "actions": [
     {
+      "name": "OpenTunnel",
+      "documentationUrl": "https://docs.aws.amazon.com/ec2-instance-connect/latest/APIReference/API_OpenTunnel.html",
+      "description": "Grants permission to establish SSH connection to an EC2 instance using EC2 Instance Connect Endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance-connect-endpoint*",
+        "instance-connect-endpoint"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2-instance-connect:remotePort",
+        "ec2-instance-connect:privateIpAddress",
+        "ec2-instance-connect:MaxTunnelDuration"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "SendSSHPublicKey",
       "documentationUrl": "https://docs.aws.amazon.com/ec2-instance-connect/latest/APIReference/API_SendSSHPublicKey.html",
       "description": "Grants permission to push an SSH public key to the specified EC2 instance to be used for standard SSH",

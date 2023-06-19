@@ -2025,6 +2025,38 @@
       "dependentActions": []
     },
     {
+      "name": "SearchHoursOfOperations",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchHoursOfOperations.html",
+      "description": "Grants permission to search hours of opeartion resources in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "connect:SearchTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "connect:DescribeHoursOfOperation"
+      ]
+    },
+    {
+      "name": "SearchPrompts",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchPrompts.html",
+      "description": "Grants permission to search prompt resources in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "connect:SearchTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "connect:DescribePrompt"
+      ]
+    },
+    {
       "name": "SearchQueues",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchQueues.html",
       "description": "Grants permission to search queue resources in an Amazon Connect instance",
@@ -2038,6 +2070,22 @@
       ],
       "dependentActions": [
         "connect:DescribeQueue"
+      ]
+    },
+    {
+      "name": "SearchQuickConnects",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchQuickConnects.html",
+      "description": "Grants permission to search quick connect resources in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "connect:SearchTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "connect:DescribeQuickConnect"
       ]
     },
     {

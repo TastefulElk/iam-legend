@@ -15,6 +15,17 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_AssociateProfiles.html",
+      "description": "Grants permission to associate a profile to the specified workload",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workload*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateLensShare",
       "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateLensShare.html",
       "description": "Grants permission to an owner of a lens to share with other AWS accounts and IAM Users",
@@ -43,6 +54,29 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "workload*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateProfile.html",
+      "description": "Grants permission to create a new profile",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateProfileShare",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateProfileShare.html",
+      "description": "Grants permission to an owner of a profile to share with other AWS accounts and IAM Users",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "profile*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -93,6 +127,28 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteProfile.html",
+      "description": "Grants permission to delete a profile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteProfileShare",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteProfileShare.html",
+      "description": "Grants permission to delete an existing profile share",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteWorkload",
       "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteWorkload.html",
       "description": "Grants permission to delete an existing workload",
@@ -118,6 +174,17 @@
       "name": "DisassociateLenses",
       "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DisassociateLenses.html",
       "description": "Grants permission to disassociate a lens from the specified workload",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workload*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DisassociateProfiles.html",
+      "description": "Grants permission to disassociate a profile from the specified workload",
       "accessLevel": "Write",
       "resourceTypes": [
         "workload*"
@@ -210,6 +277,28 @@
       "resourceTypes": [
         "workload*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetProfile.html",
+      "description": "Grants permission to retrieve the specified profile",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetProfileTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetProfileTemplate.html",
+      "description": "Grants permission to retrieve the specified profile template",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -334,6 +423,35 @@
       "dependentActions": []
     },
     {
+      "name": "ListProfileNotifications",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListProfileNotifications.html",
+      "description": "Grants permission to list profile notifications related to specified resource",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListProfileShares",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListProfileShares.html",
+      "description": "Grants permission to list all shares created for a profile",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListProfiles.html",
+      "description": "Grants permission to list the profiles available to this account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListShareInvitations",
       "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListShareInvitations.html",
       "description": "Grants permission to list the workload share invitations of the specified account or user",
@@ -349,6 +467,7 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "lens",
+        "profile",
         "workload"
       ],
       "conditionKeys": [
@@ -383,6 +502,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "lens",
+        "profile",
         "workload"
       ],
       "conditionKeys": [
@@ -398,6 +518,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "lens",
+        "profile",
         "workload"
       ],
       "conditionKeys": [
@@ -432,6 +553,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "workload*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateProfile.html",
+      "description": "Grants permission to update properties of the specified profile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "profile*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -473,6 +605,18 @@
       "description": "Grants permission to upgrade the specified lens review to use the latest version of the associated lens",
       "accessLevel": "Write",
       "resourceTypes": [
+        "workload*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpgradeProfileVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpgradeProfileVersion.html",
+      "description": "Grants permission to upgrade the specified workload to use the latest version of the associated profile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "profile*",
         "workload*"
       ],
       "conditionKeys": [],

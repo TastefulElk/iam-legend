@@ -26,6 +26,17 @@
       "dependentActions": []
     },
     {
+      "name": "BatchDeleteAutomationRules",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules",
+      "description": "Grants permission to delete one or more automation rules in Security Hub",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "automation-rule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "BatchDisableStandards",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchDisableStandards.html",
       "description": "Grants permission to disable standards in Security Hub",
@@ -43,6 +54,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "hub"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchGetAutomationRules",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules",
+      "description": "Grants permission to retrieve a list of details for automation rules from Security Hub based on rule Amazon Resource Names (ARNs)",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "automation-rule*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -94,6 +116,17 @@
       "dependentActions": []
     },
     {
+      "name": "BatchUpdateAutomationRules",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules",
+      "description": "Grants permission to update one or more automation rules from Security Hub based on rule Amazon Resource Names (ARNs) and input parameters",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "automation-rule*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "BatchUpdateFindings",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html",
       "description": "Grants permission to update customer-controlled fields for a selected set of Security Hub findings",
@@ -126,6 +159,18 @@
         "hub"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAutomationRule",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules",
+      "description": "Grants permission to create an automation rule based on input parameters",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -587,6 +632,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListAutomationRules",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules",
+      "description": "Grants permission to retrieve a list of automation rules and their metadata for the calling account from Security Hub",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListControlEvaluationSummaries",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListControlEvaluationSummaries.html",
       "description": "Grants permission to retrieve a list of controls for a standard, including the control IDs, statuses and finding counts",
@@ -678,7 +732,8 @@
       "description": "Grants permission to list of tags associated with a resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "hub*"
+        "automation-rule",
+        "hub"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -711,7 +766,8 @@
       "description": "Grants permission to add tags to a Security Hub resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "hub*"
+        "automation-rule",
+        "hub"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -722,7 +778,8 @@
       "description": "Grants permission to remove tags from a Security Hub resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "hub*"
+        "automation-rule",
+        "hub"
       ],
       "conditionKeys": [],
       "dependentActions": []
