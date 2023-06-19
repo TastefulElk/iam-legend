@@ -15,6 +15,31 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateSourceNetworkStack",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_AssociateSourceNetworkStack.html",
+      "description": "Grants permission to associate CloudFormation stack with source network",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SourceNetworkResource*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "cloudformation:DescribeStackResource",
+        "cloudformation:DescribeStacks",
+        "drs:GetLaunchConfiguration",
+        "ec2:CreateLaunchTemplateVersion",
+        "ec2:DescribeLaunchTemplateVersions",
+        "ec2:DescribeLaunchTemplates",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs",
+        "ec2:ModifyLaunchTemplate"
+      ]
+    },
+    {
       "name": "BatchCreateVolumeSnapshotGroupForDrs",
       "documentationUrl": "https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html",
       "description": "Grants permission to batch create volume snapshot group",
@@ -111,6 +136,21 @@
       ]
     },
     {
+      "name": "CreateSourceNetwork",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_CreateSourceNetwork.html",
+      "description": "Grants permission to create a source network",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ec2:DescribeInstances",
+        "ec2:DescribeVpcs"
+      ]
+    },
+    {
       "name": "CreateSourceServerForDrs",
       "documentationUrl": "https://docs.aws.amazon.com/drs/latest/userguide/drs-apis.html",
       "description": "Grants permission to create a source server",
@@ -162,6 +202,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "ReplicationConfigurationTemplateResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSourceNetwork",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_DeleteSourceNetwork.html",
+      "description": "Grants permission to delete source network",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SourceNetworkResource*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -257,6 +308,15 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeSourceNetworks",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_DescribeSourceNetworks.html",
+      "description": "Grants permission to describe source networks",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeSourceServers",
       "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_DescribeSourceServers.html",
       "description": "Grants permission to describe source servers",
@@ -286,6 +346,24 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "ExportSourceNetworkCfnTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_ExportSourceNetworkCfnTemplate.html",
+      "description": "Grants permission to export CloudFormation template which contains source network resources",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SourceNetworkResource*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "s3:GetBucketLocation",
+        "s3:GetObject",
+        "s3:PutObject"
+      ]
     },
     {
       "name": "GetAgentCommandForDrs",
@@ -734,6 +812,46 @@
       "dependentActions": []
     },
     {
+      "name": "StartSourceNetworkRecovery",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_StartSourceNetworkRecovery.html",
+      "description": "Grants permission to start network recovery",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SourceNetworkResource*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "cloudformation:CreateStack",
+        "cloudformation:DescribeStackResource",
+        "cloudformation:DescribeStacks",
+        "cloudformation:UpdateStack",
+        "drs:GetLaunchConfiguration",
+        "ec2:CreateLaunchTemplateVersion",
+        "ec2:DescribeLaunchTemplateVersions",
+        "ec2:DescribeLaunchTemplates",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs",
+        "ec2:ModifyLaunchTemplate",
+        "s3:GetObject",
+        "s3:PutObject"
+      ]
+    },
+    {
+      "name": "StartSourceNetworkReplication",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_StartSourceNetworkReplication.html",
+      "description": "Grants permission to start network replication",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SourceNetworkResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StopFailback",
       "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_StopFailback.html",
       "description": "Grants permission to stop failback",
@@ -756,6 +874,17 @@
       "dependentActions": []
     },
     {
+      "name": "StopSourceNetworkReplication",
+      "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_StopSourceNetworkReplication.html",
+      "description": "Grants permission to stop network replication",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SourceNetworkResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/drs/latest/APIReference/API_TagResource.html",
       "description": "Grants permission to assign a resource tag",
@@ -765,6 +894,7 @@
         "LaunchConfigurationTemplateResource",
         "RecoveryInstanceResource",
         "ReplicationConfigurationTemplateResource",
+        "SourceNetworkResource",
         "SourceServerResource"
       ],
       "conditionKeys": [
@@ -804,6 +934,7 @@
         "LaunchConfigurationTemplateResource",
         "RecoveryInstanceResource",
         "ReplicationConfigurationTemplateResource",
+        "SourceNetworkResource",
         "SourceServerResource"
       ],
       "conditionKeys": [
