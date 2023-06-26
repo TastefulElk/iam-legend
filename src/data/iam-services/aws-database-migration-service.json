@@ -48,7 +48,9 @@
         "MigrationProject*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dms:StartExtensionPackAssociation"
+      ]
     },
     {
       "name": "BatchStartRecommendations",
@@ -454,6 +456,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeConversionConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to return information about DMS Schema Conversion project configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeDataMigrations",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
       "description": "Grants permission to return information about database migrations for your account in the specified region",
@@ -461,6 +474,19 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "DescribeDataProviders",
+      "documentationUrl": "Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for a data providers. Note. This action should be added along with ListDataProviders, but does not currently authorize the described Schema Conversion operation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "DataProvider"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dms:ListDataProviders"
+      ]
     },
     {
       "name": "DescribeEndpointSettings",
@@ -517,6 +543,19 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeExtensionPackAssociations",
+      "documentationUrl": "Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for extension packs. Note. This action should be added along with ListExtensionPacks, but does not currently authorize the described Schema Conversion operation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dms:ListExtensionPacks"
+      ]
+    },
+    {
       "name": "DescribeFleetAdvisorCollectors",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeFleetAdvisorCollectors.html",
       "description": "Grants permission to return a paginated list of Fleet Advisor collectors in your account based on filter settings",
@@ -560,6 +599,97 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "DescribeInstanceProfiles",
+      "documentationUrl": "Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for a instance profiles. Note. This action should be added along with ListInstanceProfiles, but does not currently authorize the described Schema Conversion operation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "InstanceProfile"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dms:ListInstanceProfiles"
+      ]
+    },
+    {
+      "name": "DescribeMetadataModelAssessments",
+      "documentationUrl": "Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for metadata model assessments. Note. This action should be added along with ListMetadataModelAssessments, but does not currently authorize the described Schema Conversion operation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dms:ListMetadataModelAssessments"
+      ]
+    },
+    {
+      "name": "DescribeMetadataModelConversions",
+      "documentationUrl": "Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for a metadata model conversions. Note. This action should be added along with ListMetadataModelConversions, but does not currently authorize the described Schema Conversion operation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dms:ListMetadataModelConversions"
+      ]
+    },
+    {
+      "name": "DescribeMetadataModelExportsAsScript",
+      "documentationUrl": "Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for a metadata model exports. Note. This action should be added along with ListMetadataModelExports, but does not currently authorize the described Schema Conversion operation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dms:ListMetadataModelExports"
+      ]
+    },
+    {
+      "name": "DescribeMetadataModelExportsToTarget",
+      "documentationUrl": "Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for a metadata model exports. Note. This action should be added along with ListMetadataModelExports, but does not currently authorize the described Schema Conversion operation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dms:ListMetadataModelExports"
+      ]
+    },
+    {
+      "name": "DescribeMetadataModelImports",
+      "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
+      "description": "Grants permission to return information about start metadata model import operations for a migration project",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeMigrationProjects",
+      "documentationUrl": "Welcome.html",
+      "description": "Grants permission to list the AWS DMS attributes for a migration projects. Note. This action should be added along with ListMigrationProjects, but does not currently authorize the described Schema Conversion operation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "DataProvider",
+        "InstanceProfile",
+        "MigrationProject"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dms:ListMigrationProjects"
+      ]
     },
     {
       "name": "DescribeOrderableReplicationInstances",
@@ -790,7 +920,9 @@
         "DataProvider"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dms:DescribeDataProviders"
+      ]
     },
     {
       "name": "ListExtensionPacks",
@@ -801,7 +933,9 @@
         "MigrationProject"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dms:DescribeExtensionPackAssociations"
+      ]
     },
     {
       "name": "ListInstanceProfiles",
@@ -812,7 +946,9 @@
         "InstanceProfile"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dms:DescribeInstanceProfiles"
+      ]
     },
     {
       "name": "ListMetadataModelAssessmentActionItems",
@@ -834,7 +970,9 @@
         "MigrationProject"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dms:DescribeMetadataModelAssessments"
+      ]
     },
     {
       "name": "ListMetadataModelConversions",
@@ -845,7 +983,9 @@
         "MigrationProject"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dms:DescribeMetadataModelConversions"
+      ]
     },
     {
       "name": "ListMetadataModelExports",
@@ -856,7 +996,10 @@
         "MigrationProject"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dms:DescribeMetadataModelExportsAsScript",
+        "dms:DescribeMetadataModelExportsToTarget"
+      ]
     },
     {
       "name": "ListMigrationProjects",
@@ -869,7 +1012,9 @@
         "MigrationProject"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dms:DescribeMigrationProjects"
+      ]
     },
     {
       "name": "ListTagsForResource",
@@ -893,6 +1038,19 @@
       "dependentActions": []
     },
     {
+      "name": "ModifyConversionConfiguration",
+      "documentationUrl": "Welcome.html",
+      "description": "Grants permission to update a conversion configuration. Note. This action should be added along with UpdateConversionConfiguration, but does not currently authorize the described Schema Conversion operation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dms:UpdateConversionConfiguration"
+      ]
+    },
+    {
       "name": "ModifyDataMigration",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
       "description": "Grants permission to modify the specified database migration",
@@ -902,6 +1060,19 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "ModifyDataProvider",
+      "documentationUrl": "Welcome.html",
+      "description": "Grants permission to modify the specified data provider. Note. This action should be added along with UpdateDataProvider, but does not currently authorize the described Schema Conversion operation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "DataProvider*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dms:UpdateDataProvider"
+      ]
     },
     {
       "name": "ModifyEndpoint",
@@ -941,6 +1112,32 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "ModifyInstanceProfile",
+      "documentationUrl": "Welcome.html",
+      "description": "Grants permission to modify the specified instance profile. Note. This action should be added along with UpdateInstanceProfile, but does not currently authorize the described Schema Conversion operation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "InstanceProfile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dms:UpdateInstanceProfile"
+      ]
+    },
+    {
+      "name": "ModifyMigrationProject",
+      "documentationUrl": "Welcome.html",
+      "description": "Grants permission to modify the specified migration project. Note. This action should be added along with UpdateMigrationProject, but does not currently authorize the described Schema Conversion operation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dms:UpdateMigrationProject"
+      ]
     },
     {
       "name": "ModifyReplicationConfig",
@@ -1085,6 +1282,19 @@
       "dependentActions": []
     },
     {
+      "name": "StartExtensionPackAssociation",
+      "documentationUrl": "Welcome.html",
+      "description": "Grants permission to associate an extension pack. Note. This action should be added along with AssociateExtensionPack, but does not currently authorize the described Schema Conversion operation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dms:AssociateExtensionPack"
+      ]
+    },
+    {
       "name": "StartMetadataModelAssessment",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
       "description": "Grants permission to start a new assessment of metadata model",
@@ -1107,6 +1317,19 @@
       "dependentActions": []
     },
     {
+      "name": "StartMetadataModelExportAsScript",
+      "documentationUrl": "Welcome.html",
+      "description": "Grants permission to start a new export of metadata model as script. Note. This action should be added along with StartMetadataModelExportAsScripts, but does not currently authorize the described Schema Conversion operation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MigrationProject*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dms:StartMetadataModelExportAsScripts"
+      ]
+    },
+    {
       "name": "StartMetadataModelExportAsScripts",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
       "description": "Grants permission to start a new export of metadata model as script",
@@ -1115,7 +1338,9 @@
         "MigrationProject*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dms:StartMetadataModelExportAsScript"
+      ]
     },
     {
       "name": "StartMetadataModelExportToTarget",
@@ -1246,7 +1471,9 @@
         "MigrationProject*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dms:ModifyConversionConfiguration"
+      ]
     },
     {
       "name": "UpdateDataProvider",
@@ -1257,7 +1484,9 @@
         "DataProvider*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dms:ModifyDataProvider"
+      ]
     },
     {
       "name": "UpdateInstanceProfile",
@@ -1268,7 +1497,9 @@
         "InstanceProfile*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dms:ModifyInstanceProfile"
+      ]
     },
     {
       "name": "UpdateMigrationProject",
@@ -1279,7 +1510,9 @@
         "MigrationProject*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dms:ModifyMigrationProject"
+      ]
     },
     {
       "name": "UpdateSubscriptionsToEventBridge",

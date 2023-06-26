@@ -8,8 +8,13 @@
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
       "description": "Grants permission to add a new purchase order",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "purchase-order*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -17,8 +22,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
       "description": "Grants permission to delete a purchase order",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "purchase-order*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -35,8 +44,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
       "description": "Grants permission to get a purchase order",
       "accessLevel": "Read",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "purchase-order*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -44,17 +57,34 @@
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
       "description": "Grants permission to list purchase order invoices",
       "accessLevel": "List",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "purchase-order*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "ListPurchaseOrders",
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
-      "description": "Grants permission to get all available purchase orders",
+      "description": "Grants permission to list all purchase orders for an account",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
+      "description": "Grants permission to list tags for a purchase order",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "purchase-order"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -62,8 +92,43 @@
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
       "description": "Grants permission to modify purchase orders and details",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "purchase-order*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
+      "description": "Grants permission to tag purchase orders with given key value pairs",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "purchase-order*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
+      "description": "Grants permission to remove tags from a purchase order",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "purchase-order*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -80,8 +145,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
       "description": "Grants permission to update an existing purchase order",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "purchase-order*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -89,8 +158,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
       "description": "Grants permission to set purchase order status",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "purchase-order*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -98,8 +171,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
       "description": "Grants permission to view purchase orders and details",
       "accessLevel": "Read",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "purchase-order"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     }
   ]
