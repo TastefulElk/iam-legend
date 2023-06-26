@@ -29,6 +29,21 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": [
+        "states:PublishStateMachineVersion"
+      ]
+    },
+    {
+      "name": "CreateStateMachineAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachineAlias.html",
+      "description": "Grants permission to create a state machine alias",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "statemachine*"
+      ],
+      "conditionKeys": [
+        "states:StateMachineQualifier"
+      ],
       "dependentActions": []
     },
     {
@@ -51,6 +66,32 @@
         "statemachine*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteStateMachineAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_DeleteStateMachineAlias.html",
+      "description": "Grants permission to delete a state machine alias",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "statemachine*"
+      ],
+      "conditionKeys": [
+        "states:StateMachineQualifier"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteStateMachineVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_DeleteStateMachineVersion.html",
+      "description": "Grants permission to delete a state machine version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "statemachine*"
+      ],
+      "conditionKeys": [
+        "states:StateMachineQualifier"
+      ],
       "dependentActions": []
     },
     {
@@ -95,7 +136,22 @@
       "resourceTypes": [
         "statemachine*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "states:StateMachineQualifier"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeStateMachineAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_DescribeStateMachineAlias.html",
+      "description": "Grants permission to describe a state machine alias",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "statemachine*"
+      ],
+      "conditionKeys": [
+        "states:StateMachineQualifier"
+      ],
       "dependentActions": []
     },
     {
@@ -144,12 +200,14 @@
       "name": "ListExecutions",
       "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_ListExecutions.html",
       "description": "Grants permission to list the executions of a state machine",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [
         "maprun*",
         "statemachine*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "states:StateMachineQualifier"
+      ],
       "dependentActions": []
     },
     {
@@ -159,6 +217,30 @@
       "accessLevel": "List",
       "resourceTypes": [
         "execution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStateMachineAliases",
+      "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_ListStateMachineAliases.html",
+      "description": "Grants permission to list the aliases of a state machine",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "statemachine*"
+      ],
+      "conditionKeys": [
+        "states:StateMachineQualifier"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStateMachineVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_ListStateMachineVersions.html",
+      "description": "Grants permission to list the versions of a state machine",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "statemachine*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -176,10 +258,21 @@
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_ListTagsForResource.html",
       "description": "Grants permission to list tags for an AWS Step Functions resource",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [
         "activity",
         "statemachine"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PublishStateMachineVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_PublishStateMachineVersion.html",
+      "description": "Grants permission to publish a state machine version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "statemachine*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -219,7 +312,9 @@
       "resourceTypes": [
         "statemachine*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "states:StateMachineQualifier"
+      ],
       "dependentActions": []
     },
     {
@@ -230,7 +325,9 @@
       "resourceTypes": [
         "statemachine*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "states:StateMachineQualifier"
+      ],
       "dependentActions": []
     },
     {
@@ -295,6 +392,21 @@
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "states:PublishStateMachineVersion"
+      ]
+    },
+    {
+      "name": "UpdateStateMachineAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_UpdateStateMachineAlias.html",
+      "description": "Grants permission to update a state machine alias",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "statemachine*"
+      ],
+      "conditionKeys": [
+        "states:StateMachineQualifier"
       ],
       "dependentActions": []
     }

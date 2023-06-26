@@ -54,13 +54,15 @@
       "description": "Grants permission to DeleteTags API. DeleteTags deletes the association between configuration items and one or more tags. This API accepts a list of multiple configuration items",
       "accessLevel": "Tagging",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
       "name": "DescribeAgents",
       "documentationUrl": "https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeAgents.html",
-      "description": "Grants permission to DescribeAgents API. DescribeAgents lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an ID",
+      "description": "Grants permission to DescribeAgents API. DescribeAgents lists agents or the Connector by ID or lists all agents/Connectors associated with your user if you did not specify an ID",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -78,7 +80,7 @@
     {
       "name": "DescribeContinuousExports",
       "documentationUrl": "https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeContinuousExports.html",
-      "description": "Grants permission to DescribeContinuousExports API. DescribeContinuousExports lists exports as specified by ID. All continuous exports associated with your user account can be listed if you call DescribeContinuousExports as is without passing any parameters",
+      "description": "Grants permission to DescribeContinuousExports API. DescribeContinuousExports lists exports as specified by ID. All continuous exports associated with your user can be listed if you call DescribeContinuousExports as is without passing any parameters",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -105,7 +107,7 @@
     {
       "name": "DescribeImportTasks",
       "documentationUrl": "https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeImportTasks.html",
-      "description": "Grants permission to DescribeImportTasks API. DescribeImportTasks returns an array of import tasks for your account, including status information, times, IDs, the Amazon S3 Object URL for the import file, and more",
+      "description": "Grants permission to DescribeImportTasks API. DescribeImportTasks returns an array of import tasks for your user, including status information, times, IDs, the Amazon S3 Object URL for the import file, and more",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -217,7 +219,9 @@
         "discovery:AssociateConfigurationItemsToApplication",
         "discovery:CreateApplication",
         "discovery:CreateTags",
-        "discovery:ListConfigurations"
+        "discovery:GetDiscoverySummary",
+        "discovery:ListConfigurations",
+        "s3:GetObject"
       ]
     },
     {
