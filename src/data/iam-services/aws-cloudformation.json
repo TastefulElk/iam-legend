@@ -4,6 +4,15 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awscloudformation.html",
   "actions": [
     {
+      "name": "ActivateOrganizationsAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateOrganizationsAccess.html",
+      "description": "Grants permission to activate trusted access between StackSets and Organizations. With trusted access between StackSets and Organizations activated, the management account has permissions to create and manage StackSets for your organization",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ActivateType",
       "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html",
       "description": "Grants permission to activate a public third-party extension, making it available for use in stack templates",
@@ -123,6 +132,15 @@
       "dependentActions": []
     },
     {
+      "name": "DeactivateOrganizationsAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeactivateOrganizationsAccess.html",
+      "description": "Grants permission to deactivate trusted access between StackSets and Organizations. If trusted access is deactivated, the management account does not have permissions to create and manage service-managed StackSets for your organization",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeactivateType",
       "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeactivateType.html",
       "description": "Grants permission to deactivate a public extension that was previously activated in this account and region",
@@ -225,6 +243,15 @@
       "conditionKeys": [
         "cloudformation:ChangeSetName"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeOrganizationsAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeOrganizationsAccess.html",
+      "description": "Grants permission to return information about the account's OrganizationAccess status",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -392,7 +419,9 @@
       "description": "Grants permission to return the estimated monthly cost of a template",
       "accessLevel": "Read",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "cloudformation:TemplateUrl"
+      ],
       "dependentActions": []
     },
     {
@@ -439,7 +468,9 @@
         "stack",
         "stackset"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "cloudformation:TemplateUrl"
+      ],
       "dependentActions": []
     },
     {
@@ -479,6 +510,17 @@
       "description": "Grants permission to list all stacks that are importing an exported output value",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStackInstanceResourceDrifts",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackInstanceResourceDrifts.html",
+      "description": "Grants permission to return drift information for the resources that have been checked for drift in the specified stack instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "stackset*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -531,9 +573,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackSets.html",
       "description": "Grants permission to return summary information about stack sets that are associated with the user",
       "accessLevel": "List",
-      "resourceTypes": [
-        "stackset*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -786,7 +826,9 @@
       "description": "Grants permission to validate a specified template",
       "accessLevel": "Read",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "cloudformation:TemplateUrl"
+      ],
       "dependentActions": []
     }
   ]

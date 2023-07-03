@@ -4,6 +4,20 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonappstream2.0.html",
   "actions": [
     {
+      "name": "AssociateAppBlockBuilderAppBlock",
+      "documentationUrl": "https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AssociateAppBlockBuilderAppBlock.html",
+      "description": "Grants permission to associate the specified app block builder with the app block",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-block*",
+        "app-block-builder*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateApplicationFleet",
       "documentationUrl": "https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AssociateApplicationFleet.html",
       "description": "Grants permission to associate the specified application with the fleet",
@@ -91,6 +105,33 @@
         "aws:RequestTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAppBlockBuilder",
+      "documentationUrl": "https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateAppBlockBuilder.html",
+      "description": "Grants permission to create an app block builder. An app block builder is a virtual machine that is used to create an app block",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-block-builder*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAppBlockBuilderStreamingURL",
+      "documentationUrl": "https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateAppBlockBuilderStreamingURL.html",
+      "description": "Grants permission to create a URL to start an app block builder streaming session",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-block-builder*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -247,6 +288,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteAppBlockBuilder",
+      "documentationUrl": "https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DeleteAppBlockBuilder.html",
+      "description": "Grants permission to delete the specified app block builder and release capacity",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-block-builder*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteApplication",
       "documentationUrl": "https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DeleteApplication.html",
       "description": "Grants permission to delete the specified application",
@@ -359,6 +413,29 @@
       "description": "Grants permission to delete a user from the user pool",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAppBlockBuilderAppBlockAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DescribeAppBlockBuilderAppBlockAssociations.html",
+      "description": "Grants permission to retrieve the associations that are associated with the specified app block builder or app block",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "app-block",
+        "app-block-builder"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAppBlockBuilders",
+      "documentationUrl": "https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DescribeAppBlockBuilders.html",
+      "description": "Grants permission to retrieve a list that describes one or more specified app block builders, if the app block builder names are provided. Otherwise, all app block builders in the account are described",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "app-block-builder"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -522,6 +599,20 @@
       "dependentActions": []
     },
     {
+      "name": "DisassociateAppBlockBuilderAppBlock",
+      "documentationUrl": "https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DisassociateAppBlockBuilderAppBlock.html",
+      "description": "Grants permission to disassociate the specified app block builder with the app block",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-block*",
+        "app-block-builder*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DisassociateApplicationFleet",
       "documentationUrl": "https://docs.aws.amazon.com/appstream2/latest/APIReference/API_DisassociateApplicationFleet.html",
       "description": "Grants permission to disassociate the specified application from the specified fleet",
@@ -621,6 +712,19 @@
       "dependentActions": []
     },
     {
+      "name": "StartAppBlockBuilder",
+      "documentationUrl": "https://docs.aws.amazon.com/appstream2/latest/APIReference/API_StartAppBlockBuilder.html",
+      "description": "Grants permission to start the specified app block builder",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-block-builder*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "StartFleet",
       "documentationUrl": "https://docs.aws.amazon.com/appstream2/latest/APIReference/API_StartFleet.html",
       "description": "Grants permission to start the specified fleet",
@@ -640,6 +744,19 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "image-builder*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StopAppBlockBuilder",
+      "documentationUrl": "https://docs.aws.amazon.com/appstream2/latest/APIReference/API_StopAppBlockBuilder.html",
+      "description": "Grants permission to stop the specified app block builder",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-block-builder*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
@@ -692,6 +809,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "app-block",
+        "app-block-builder",
         "application",
         "fleet",
         "image",
@@ -712,6 +830,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "app-block",
+        "app-block-builder",
         "application",
         "fleet",
         "image",
@@ -720,6 +839,19 @@
       ],
       "conditionKeys": [
         "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAppBlockBuilder",
+      "documentationUrl": "https://docs.aws.amazon.com/appstream2/latest/APIReference/API_UpdateAppBlockBuilder.html",
+      "description": "Grants permission to update a specific app block builder. An app block builder is a virtual machine that is used to create an app block",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "app-block-builder*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },

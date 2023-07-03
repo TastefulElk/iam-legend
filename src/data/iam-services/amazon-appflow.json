@@ -221,6 +221,17 @@
       "dependentActions": []
     },
     {
+      "name": "ResetConnectorMetadataCache",
+      "documentationUrl": "https://docs.aws.amazon.com/appflow/1.0/APIReference/API_ResetConnectorMetadataCache.html",
+      "description": "Grants permission to resets metadata of connector entities that Amazon AppFlow stored in its cache",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connectorprofile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "RunFlow",
       "documentationUrl": "https://docs.aws.amazon.com/appflow/latest/userguide/identity-access-management.html#appflow-api-actions",
       "description": "Grants permission to run a flow configured in Amazon AppFlow (Console Only)",
@@ -256,10 +267,11 @@
     {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/appflow/1.0/APIReference/API_TagResource.html",
-      "description": "Grants permission to tag a flow",
+      "description": "Grants permission to tag a flow or a connector",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "flow*"
+        "connector",
+        "flow"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -284,10 +296,11 @@
     {
       "name": "UntagResource",
       "documentationUrl": "https://docs.aws.amazon.com/appflow/1.0/APIReference/API_UntagResource.html",
-      "description": "Grants permission to untag a flow",
+      "description": "Grants permission to untag a flow or a connector",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "flow*"
+        "connector",
+        "flow"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -329,7 +342,7 @@
     },
     {
       "name": "UseConnectorProfile",
-      "documentationUrl": "https://docs.aws.amazon.com/appflow/1.0/APIReference/API_UseConnectorProfile.html",
+      "documentationUrl": "API_CreateFlow.html",
       "description": "Grants permission to use a connector profile while creating a flow in Amazon AppFlow",
       "accessLevel": "Write",
       "resourceTypes": [
