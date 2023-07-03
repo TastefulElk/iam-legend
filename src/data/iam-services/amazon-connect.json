@@ -2027,7 +2027,7 @@
     {
       "name": "SearchHoursOfOperations",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchHoursOfOperations.html",
-      "description": "Grants permission to search hours of opeartion resources in an Amazon Connect instance",
+      "description": "Grants permission to search hours of operation resources in an Amazon Connect instance",
       "accessLevel": "Read",
       "resourceTypes": [
         "instance*"
@@ -2087,6 +2087,20 @@
       "dependentActions": [
         "connect:DescribeQuickConnect"
       ]
+    },
+    {
+      "name": "SearchResourceTags",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchResourceTags.html",
+      "description": "Grants permission to search tags used in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
     },
     {
       "name": "SearchRoutingProfiles",
