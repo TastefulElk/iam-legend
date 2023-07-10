@@ -8,7 +8,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-scram-secrets.html#BatchAssociateScramSecret",
       "description": "Grants permission to associate one or more Scram Secrets with an Amazon MSK cluster",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": [
         "kms:CreateGrant",
@@ -20,7 +22,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-scram-secrets.html#BatchDisassociateScramSecret",
       "description": "Grants permission to disassociate one or more Scram Secrets from an Amazon MSK cluster",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": [
         "kms:RetireGrant"
@@ -31,7 +35,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#CreateCluster",
       "description": "Grants permission to create an MSK cluster",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -52,7 +58,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/MSK/2.0/APIReference/v2-clusters.html#CreateClusterV2",
       "description": "Grants permission to create an MSK cluster",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -78,7 +86,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/configurations.html#CreateConfiguration",
       "description": "Grants permission to create an MSK configuration",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "configuration*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -87,7 +97,10 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connections.html#CreateVpcConnection",
       "description": "Grants permission to create a MSK VPC connection",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*",
+        "vpc-connection*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -110,7 +123,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn.html#DeleteCluster",
       "description": "Grants permission to delete an MSK cluster",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": [
         "ec2:DeleteVpcEndpoints",
@@ -120,7 +135,7 @@
     },
     {
       "name": "DeleteClusterPolicy",
-      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/cluster-policy.html#DeleteClusterPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-policy.html#DeleteClusterPolicy",
       "description": "Grants permission to delete a cluster resource-based policy",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -134,7 +149,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/configurations-arn.html#DeleteConfiguration",
       "description": "Grants permission to delete the specified MSK configuration",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "configuration*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -157,7 +174,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn.html#DescribeCluster",
       "description": "Grants permission to describe an MSK cluster",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -175,7 +194,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/MSK/2.0/APIReference/v2-clusters-clusterarn.html#DescribeClusterV2",
       "description": "Grants permission to describe an MSK cluster",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -223,7 +244,7 @@
     },
     {
       "name": "GetClusterPolicy",
-      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/cluster-policy.html#GetClusterPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-policy.html#GetClusterPolicy",
       "description": "Grants permission to describe a cluster resource-based policy",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -257,7 +278,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-operations.html#ListClusterOperations",
       "description": "Grants permission to return a list of all the operations that have been performed on the specified MSK cluster",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -284,7 +307,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/configurations-arn-revisions.html#ListConfigurationRevisions",
       "description": "Grants permission to list all revisions for an MSK configuration in this account",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "configuration*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -311,7 +336,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-nodes.html#ListNodes",
       "description": "Grants permission to list brokers in an MSK cluster",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -320,7 +347,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-scram-secrets.html#ListScramSecrets",
       "description": "Grants permission to list the Scram Secrets associated with an Amazon MSK cluster",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -346,7 +375,7 @@
     },
     {
       "name": "PutClusterPolicy",
-      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/cluster-policy.html#PutClusterPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-policy.html#PutClusterPolicy",
       "description": "Grants permission to create or update the resource-based policy for a cluster",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -360,7 +389,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-reboot-broker.html#RebootBroker",
       "description": "Grants permission to reboot broker",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -370,7 +401,8 @@
       "description": "Grants permission to reject a MSK VPC connection",
       "accessLevel": "Write",
       "resourceTypes": [
-        "cluster*"
+        "cluster*",
+        "vpc-connection*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -409,7 +441,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-nodes-count.html#UpdateBrokerCount",
       "description": "Grants permission to update the number of brokers of the MSK cluster",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -418,7 +452,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-nodes-storage.html#UpdateBrokerStorage",
       "description": "Grants permission to update the storage size of the brokers of the MSK cluster",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -427,7 +463,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-nodes-type.html#UpdateBrokerType",
       "description": "Grants permission to update the broker type of an Amazon MSK cluster",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -436,7 +474,10 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-configuration.html#UpdateClusterConfiguration",
       "description": "Grants permission to update the configuration of the MSK cluster",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*",
+        "configuration*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -445,7 +486,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-version.html#UpdateClusterKafkaVersion",
       "description": "Grants permission to update the MSK cluster to the specified Apache Kafka version",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -454,7 +497,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/configurations-arn.html#UpdateConfiguration",
       "description": "Grants permission to create a new revision of the MSK configuration",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "configuration*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -463,7 +508,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-connectivity.html#UpdateConnectivity",
       "description": "Grants permission to update the connectivity settings for the MSK cluster",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [
         "kafka:publicAccessEnabled"
       ],
@@ -477,7 +524,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-monitoring.html#UpdateMonitoring",
       "description": "Grants permission to update the monitoring settings for the MSK cluster",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -486,7 +535,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-security.html#UpdateSecurity",
       "description": "Grants permission to update the security settings for the MSK cluster",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": [
         "kms:RetireGrant"
@@ -497,7 +548,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/clusters-clusterarn-storage.html#UpdateStorage",
       "description": "Grants permission to update the EBS storage (size or provisioned throughput) associated with MSK brokers or set cluster storage mode to TIERED",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     }

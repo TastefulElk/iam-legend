@@ -237,6 +237,19 @@
       "dependentActions": []
     },
     {
+      "name": "CreateCustomDomainAssociation",
+      "documentationUrl": "API_CreateCustomDomainAssociation.html",
+      "description": "Grants permission to create a custom domain name for a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "acm:DescribeCertificate"
+      ]
+    },
+    {
       "name": "CreateEndpointAccess",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateEndpointAccess.html",
       "description": "Grants permission to create a redshift-managed vpc endpoint",
@@ -449,6 +462,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "subnetgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCustomDomainAssociation",
+      "documentationUrl": "API_DeleteCustomDomainAssociation.html",
+      "description": "Grants permission to delete a custom domain name for a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -679,6 +703,15 @@
       "name": "DescribeClusters",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusters.html",
       "description": "Grants permission to describe properties of provisioned clusters",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCustomDomainAssociations",
+      "documentationUrl": "API_DescribeCustomDomainAssociations.html",
+      "description": "Grants permission to describe custom domain names for a cluster",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -1170,7 +1203,9 @@
         "cluster*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "acm:DescribeCertificate"
+      ]
     },
     {
       "name": "ModifyClusterDbRevision",
@@ -1246,6 +1281,19 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "ModifyCustomDomainAssociation",
+      "documentationUrl": "API_ModifiyCustomDomainAssociation.html",
+      "description": "Grants permission to modify a custom domain name for a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "acm:DescribeCertificate"
+      ]
     },
     {
       "name": "ModifyEndpointAccess",
