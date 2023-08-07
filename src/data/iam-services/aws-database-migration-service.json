@@ -891,13 +891,15 @@
     {
       "name": "GetMetadataModel",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
-      "description": "Grants permission to list all of the AWS DMS attributes for a metadata model",
+      "description": "Grants permission to list all of the AWS DMS attributes for a metadata model. Note. Despite this action requires StartMetadataModelImport, the latter does not currently authorize the described Schema Conversion operation",
       "accessLevel": "Read",
       "resourceTypes": [
         "MigrationProject"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dms:StartMetadataModelImport"
+      ]
     },
     {
       "name": "ImportCertificate",
@@ -953,13 +955,15 @@
     {
       "name": "ListMetadataModelAssessmentActionItems",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
-      "description": "Grants permission to list the AWS DMS attributes for a metadata model assessment action items",
+      "description": "Grants permission to list the AWS DMS attributes for a metadata model assessment action items. Note. Despite this action requires StartMetadataModelImport, the latter does not currently authorize the described Schema Conversion operation",
       "accessLevel": "Read",
       "resourceTypes": [
         "MigrationProject"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "dms:StartMetadataModelImport"
+      ]
     },
     {
       "name": "ListMetadataModelAssessments",
@@ -1004,7 +1008,7 @@
     {
       "name": "ListMigrationProjects",
       "documentationUrl": "https://docs.aws.amazon.com/dms/latest/APIReference/Welcome.html",
-      "description": "Grants permission to list the AWS DMS attributes for a migration projects",
+      "description": "Grants permission to list the AWS DMS attributes for a migration projects. Note. Despite this action requires DescribeMigrationProjects and DescribeConversionConfiguration, both required actions do not currently authorize the described Schema Conversion operation",
       "accessLevel": "Read",
       "resourceTypes": [
         "DataProvider",
@@ -1013,6 +1017,7 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
+        "dms:DescribeConversionConfiguration",
         "dms:DescribeMigrationProjects"
       ]
     },

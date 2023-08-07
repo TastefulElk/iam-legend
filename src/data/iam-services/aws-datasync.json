@@ -44,6 +44,18 @@
       "dependentActions": []
     },
     {
+      "name": "CreateLocationAzureBlob",
+      "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationAzureBlob.html",
+      "description": "Grants permission to create an endpoint for a Microsoft Azure Blob Storage container",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateLocationEfs",
       "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationEfs.html",
       "description": "Grants permission to create an endpoint for an Amazon EFS file system",
@@ -229,6 +241,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "discoveryjob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeLocationAzureBlob",
+      "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeLocationAzureBlob.html",
+      "description": "Grants permission to view metadata, such as the path information about an Azure Blob Storage sync location",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "location*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -468,9 +491,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTaskExecutions.html",
       "description": "Grants permission to list executed sync tasks",
       "accessLevel": "List",
-      "resourceTypes": [
-        "task*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
@@ -588,6 +609,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "discoveryjob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateLocationAzureBlob",
+      "documentationUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/API_UpdateLocationAzureBlob.html",
+      "description": "Grants permission to update an Azure Blob Storage sync location",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "location*"
       ],
       "conditionKeys": [],
       "dependentActions": []

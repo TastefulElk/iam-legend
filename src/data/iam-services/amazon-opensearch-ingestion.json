@@ -5,7 +5,7 @@
   "actions": [
     {
       "name": "CreatePipeline",
-      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreatePipeline.html",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_CreatePipeline.html",
       "description": "Grants permission to create an OpenSearch Ingestion pipeline",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -13,11 +13,13 @@
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "DeletePipeline",
-      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeletePipeline.html",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_DeletePipeline.html",
       "description": "Grants permission to delete an OpenSearch Ingestion pipeline",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -28,7 +30,7 @@
     },
     {
       "name": "GetPipeline",
-      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetPipeline.html",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_GetPipeline.html",
       "description": "Grants permission to retrieve configuration information for an OpenSearch Ingestion pipeline",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -39,7 +41,7 @@
     },
     {
       "name": "GetPipelineBlueprint",
-      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetPipelineBlueprint.html",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_GetPipelineBlueprint.html",
       "description": "Grants permission to get the contents of an OpenSearch Ingestion pipeline blueprint",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -50,7 +52,7 @@
     },
     {
       "name": "GetPipelineChangeProgress",
-      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetPipelineChangeProgress.html",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_GetPipelineChangeProgress.html",
       "description": "Grants permission to get granular information about the status of an OpenSearch Ingestion pipeline",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -72,7 +74,7 @@
     },
     {
       "name": "ListPipelineBlueprints",
-      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListPipelineBlueprints.html",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_ListPipelineBlueprints.html",
       "description": "Grants permission to list the names of available blueprints for an OpenSearch Ingestion pipeline configuration",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -81,7 +83,7 @@
     },
     {
       "name": "ListPipelines",
-      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListPipelines.html",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_ListPipelines.html",
       "description": "Grants permission to list basic configuration for each OpenSearch Ingestion pipeline in the current account and Region",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -90,7 +92,7 @@
     },
     {
       "name": "ListTagsForResource",
-      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListTagsForResource.html",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_ListTagsForResource.html",
       "description": "Grants permission to list all resource tags associated with an OpenSearch Ingestion pipeline",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -101,7 +103,7 @@
     },
     {
       "name": "StartPipeline",
-      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_StartPipeline.html",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_StartPipeline.html",
       "description": "Grants permission to start an OpenSearch Ingestion pipeline",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -112,7 +114,7 @@
     },
     {
       "name": "StopPipeline",
-      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_StopPipeline.html",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_StopPipeline.html",
       "description": "Grants permission to stop an OpenSearch Ingestion pipeline",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -123,7 +125,7 @@
     },
     {
       "name": "TagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_TagResource.html",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_TagResource.html",
       "description": "Grants permission to attach resource tags to an OpenSearch Ingestion pipeline",
       "accessLevel": "Tagging",
       "resourceTypes": [
@@ -137,7 +139,7 @@
     },
     {
       "name": "UntagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UntagResource.html",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_UntagResource.html",
       "description": "Grants permission to remove resource tags from an OpenSearch Ingestion Service pipeline",
       "accessLevel": "Tagging",
       "resourceTypes": [
@@ -151,18 +153,20 @@
     },
     {
       "name": "UpdatePipeline",
-      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdatePipeline.html",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_UpdatePipeline.html",
       "description": "Grants permission to modify the configuration of an OpenSearch Ingestion pipeline",
       "accessLevel": "Write",
       "resourceTypes": [
         "pipeline*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "ValidatePipeline",
-      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ValidatePipeline.html",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_osis_ValidatePipeline.html",
       "description": "Grants permission to validate the configuration of an OpenSearch Ingestion pipeline",
       "accessLevel": "Read",
       "resourceTypes": [],

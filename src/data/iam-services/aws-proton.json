@@ -304,6 +304,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteDeployment.html",
+      "description": "Grants permission to delete a deployment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "deployment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteEnvironment",
       "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_DeleteEnvironment.html",
       "description": "Grants permission to delete an environment",
@@ -482,6 +493,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "component*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_GetDeployment.html",
+      "description": "Grants permission to describe a deployment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "deployment*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -707,7 +729,8 @@
       "description": "Grants permission to list component outputs",
       "accessLevel": "List",
       "resourceTypes": [
-        "component*"
+        "component*",
+        "deployment"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -737,6 +760,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListDeployments",
+      "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListDeployments.html",
+      "description": "Grants permission to list deployments",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListEnvironmentAccountConnections",
       "documentationUrl": "https://docs.aws.amazon.com/proton/latest/APIReference/API_ListEnvironmentAccountConnections.html",
       "description": "Grants permission to list environment account connections",
@@ -751,7 +783,8 @@
       "description": "Grants permission to list environment outputs",
       "accessLevel": "List",
       "resourceTypes": [
-        "environment*"
+        "environment*",
+        "deployment"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -843,7 +876,8 @@
       "accessLevel": "List",
       "resourceTypes": [
         "service*",
-        "service-instance*"
+        "service-instance*",
+        "deployment"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -875,7 +909,8 @@
       "description": "Grants permission to list service pipeline outputs",
       "accessLevel": "List",
       "resourceTypes": [
-        "service*"
+        "service*",
+        "deployment"
       ],
       "conditionKeys": [],
       "dependentActions": []

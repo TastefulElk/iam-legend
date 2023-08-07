@@ -64,7 +64,8 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "dataset*",
-        "model*"
+        "model*",
+        "label-group"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -128,6 +129,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_DeleteResourcePolicy.html",
+      "description": "Grants permission to delete a resource policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dataset",
+        "model",
+        "model-version"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeDataIngestionJob",
       "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_DescribeDataIngestionJob",
       "description": "Grants permission to describe a data ingestion job",
@@ -181,6 +195,30 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeModelVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_DescribeModelVersion.html",
+      "description": "Grants permission to describe a model version",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model-version*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_DescribeResourcePolicy.html",
+      "description": "Grants permission to describe a resource policy",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dataset",
+        "model",
+        "model-version"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "Describelabel",
       "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_DescribeLabel.html",
       "description": "Grants permission to describe a label",
@@ -189,6 +227,36 @@
         "label-group*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ImportDataset",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_ImportDataset.html",
+      "description": "Grants permission to import a dataset",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dataset*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ImportModelVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_ImportModelVersion.html",
+      "description": "Grants permission to import a model version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dataset*",
+        "model*",
+        "label-group"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -265,6 +333,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListModelVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_ListModelVersions.html",
+      "description": "Grants permission to list the model versions in your account",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListModels",
       "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_ListModels.html",
       "description": "Grants permission to list the models in your account",
@@ -293,7 +372,21 @@
         "dataset",
         "inference-scheduler",
         "label-group",
-        "model"
+        "model",
+        "model-version"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_PutResourcePolicy.html",
+      "description": "Grants permission to put a resource policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dataset",
+        "model",
+        "model-version"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -340,7 +433,8 @@
         "dataset",
         "inference-scheduler",
         "label-group",
-        "model"
+        "model",
+        "model-version"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -357,11 +451,24 @@
         "dataset",
         "inference-scheduler",
         "label-group",
-        "model"
+        "model",
+        "model-version"
       ],
       "conditionKeys": [
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateActiveModelVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_UpdateActiveModelVersion.html",
+      "description": "Grants permission to set the active model version for a given machine learning model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model*",
+        "model-version*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {

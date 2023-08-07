@@ -361,7 +361,8 @@
         "mobiletargeting:GetApp",
         "voiceid:DescribeDomain",
         "wisdom:GetAssistant",
-        "wisdom:GetKnowledgeBase"
+        "wisdom:GetKnowledgeBase",
+        "wisdom:TagResource"
       ]
     },
     {
@@ -710,12 +711,40 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQueue.html",
+      "description": "Grants permission to delete a queue in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteQuickConnect",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html",
       "description": "Grants permission to delete a quick connect in an Amazon Connect instance",
       "accessLevel": "Write",
       "resourceTypes": [
         "quick-connect*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRoutingProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteRoutingProfile.html",
+      "description": "Grants permission to delete routing profiles in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "routing-profile*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -2091,7 +2120,7 @@
     {
       "name": "SearchResourceTags",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchResourceTags.html",
-      "description": "Grants permission to search tags used in an Amazon Connect instance",
+      "description": "Grants permission to search tags that are used in an Amazon Connect instance",
       "accessLevel": "List",
       "resourceTypes": [
         "instance*"

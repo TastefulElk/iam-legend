@@ -38,7 +38,16 @@
         "directory*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:CreateNetworkInterface",
+        "ec2:CreateSecurityGroup",
+        "ec2:CreateTags",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs"
+      ]
     },
     {
       "name": "AddTagsToResource",
@@ -58,6 +67,7 @@
     },
     {
       "name": "AuthorizeApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html",
       "description": "Grants permission to authorize an application for your AWS Directory",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -79,6 +89,7 @@
     },
     {
       "name": "CheckAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html",
       "description": "Grants permission to verify that the alias is available for use",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -162,6 +173,7 @@
     },
     {
       "name": "CreateIdentityPoolDirectory",
+      "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html",
       "description": "Grants permission to create an IdentityPool Directory in the AWS cloud",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -277,7 +289,7 @@
     },
     {
       "name": "DeleteTrust",
-      "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/devguide/DeleteTrust.html",
+      "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteTrust.html",
       "description": "Grants permission to delete an existing trust relationship between your Microsoft AD in the AWS cloud and an external domain",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -535,7 +547,7 @@
     },
     {
       "name": "GetAuthorizedApplicationDetails",
-      "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/devguide/API_GetAuthorizedApplicationDetails.html",
+      "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html",
       "description": "Grants permission to retrieve the details of the authorized applications on a directory",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -566,6 +578,7 @@
     },
     {
       "name": "ListAuthorizedApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html",
       "description": "Grants permission to obtain the AWS applications authorized for a directory",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -746,6 +759,7 @@
     },
     {
       "name": "UnauthorizeApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html",
       "description": "Grants permission to unauthorize an application from your AWS Directory",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -758,6 +772,17 @@
       "name": "UnshareDirectory",
       "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/devguide/API_UnshareDirectory.html",
       "description": "Grants permission to stop the directory sharing between the directory owner and consumer accounts",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directory*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAuthorizedApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html",
+      "description": "Grants permission to update an authorized application for your AWS Directory",
       "accessLevel": "Write",
       "resourceTypes": [
         "directory*"

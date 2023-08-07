@@ -592,6 +592,17 @@
       ]
     },
     {
+      "name": "DeleteDBClusterAutomatedBackup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBClusterAutomatedBackup.html",
+      "description": "Grants permission to delete cluster automated backups based on the source cluster's DbClusterResourceId value or the restorable cluster's resource ID",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster-auto-backup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteDBClusterEndpoint",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBClusterEndpoint.html",
       "description": "Grants permission to delete a custom endpoint and removes it from an Amazon Aurora DB cluster",
@@ -638,7 +649,7 @@
     {
       "name": "DeleteDBInstanceAutomatedBackup",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBInstanceAutomatedBackup.html",
-      "description": "Grants permission to deletes automated backups based on the source instance's DbiResourceId value or the restorable instance's resource ID",
+      "description": "Grants permission to delete automated backups based on the source instance's DbiResourceId value or the restorable instance's resource ID",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -783,6 +794,18 @@
       "description": "Grants permission to list the set of CA certificates provided by Amazon RDS for this AWS account",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDBClusterAutomatedBackups",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusterAutomatedBackups.html",
+      "description": "Grants permission to return a list of cluster automated backups for both current and deleted clusters",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "cluster-auto-backup*",
+        "cluster"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1751,7 +1774,8 @@
         "cluster*",
         "cluster-pg*",
         "og*",
-        "subgrp*"
+        "subgrp*",
+        "cluster-auto-backup"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
