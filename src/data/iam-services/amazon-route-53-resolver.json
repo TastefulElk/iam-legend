@@ -80,6 +80,7 @@
       "description": "Grants permission to create a Firewall rule within a Firewall rule group",
       "accessLevel": "Write",
       "resourceTypes": [
+        "firewall-domain-list*",
         "firewall-rule-group*"
       ],
       "conditionKeys": [],
@@ -98,6 +99,22 @@
         "aws:TagKeys"
       ],
       "dependentActions": []
+    },
+    {
+      "name": "CreateOutpostResolver",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_CreateOutpostResolver.html",
+      "description": "Grants permission to create a Route 53 Resolver on Outposts",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "outpost-resolver*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "outposts:GetOutpost"
+      ]
     },
     {
       "name": "CreateResolverEndpoint",
@@ -162,6 +179,7 @@
       "description": "Grants permission to delete a Firewall rule within a Firewall rule group",
       "accessLevel": "Write",
       "resourceTypes": [
+        "firewall-domain-list*",
         "firewall-rule-group*"
       ],
       "conditionKeys": [],
@@ -174,6 +192,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "firewall-rule-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteOutpostResolver",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DeleteOutpostResolver.html",
+      "description": "Grants permission to delete a Route 53 Resolver on Outposts",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "outpost-resolver*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -319,6 +348,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetOutpostResolver",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetOutpostResolver.html",
+      "description": "Grants permission to get information about a specified Route 53 Resolver on Outposts",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "outpost-resolver*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetResolverConfig",
       "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverConfig.html",
       "description": "Grants permission to get the Resolver Config status within the specified resource",
@@ -435,9 +475,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListFirewallConfigs.html",
       "description": "Grants permission to list all the Firewall config that current AWS account is able to check",
       "accessLevel": "List",
-      "resourceTypes": [
-        "firewall-config*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": [
         "ec2:DescribeVpcs"
@@ -489,6 +527,15 @@
       "resourceTypes": [
         "firewall-rule-group*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListOutpostResolvers",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListOutpostResolvers.html",
+      "description": "Grants permission to list all instances of Route 53 Resolver on Outposts that were created using the current AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -587,6 +634,7 @@
         "firewall-domain-list",
         "firewall-rule-group",
         "firewall-rule-group-association",
+        "outpost-resolver",
         "resolver-endpoint",
         "resolver-query-log-config",
         "resolver-rule"
@@ -637,6 +685,7 @@
         "firewall-domain-list",
         "firewall-rule-group",
         "firewall-rule-group-association",
+        "outpost-resolver",
         "resolver-dnssec-config",
         "resolver-endpoint",
         "resolver-query-log-config",
@@ -658,6 +707,7 @@
         "firewall-domain-list",
         "firewall-rule-group",
         "firewall-rule-group-association",
+        "outpost-resolver",
         "resolver-dnssec-config",
         "resolver-endpoint",
         "resolver-query-log-config",
@@ -698,6 +748,7 @@
       "description": "Grants permission to update selected settings for an Firewall rule in a Firewall rule group",
       "accessLevel": "Write",
       "resourceTypes": [
+        "firewall-domain-list*",
         "firewall-rule-group*"
       ],
       "conditionKeys": [],
@@ -710,6 +761,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "firewall-rule-group-association*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateOutpostResolver",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_UpdateOutpostResolver.html",
+      "description": "Grants permission to update seletected settings for a specified Route 53 Resolver on Outposts",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "outpost-resolver*"
       ],
       "conditionKeys": [],
       "dependentActions": []

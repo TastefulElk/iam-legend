@@ -1,0 +1,195 @@
+{
+  "serviceName": "Amazon Bedrock",
+  "servicePrefix": "bedrock",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonbedrock.html",
+  "actions": [
+    {
+      "name": "CreateModelCustomizationJob",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelCustomizationJob.html",
+      "description": "Grants permission to create a job for customizing the model with your custom training data",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "custom-model*",
+        "foundation-model*",
+        "model-customization-job*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCustomModel",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModel.html",
+      "description": "Grants permission to delete a custom model that you created earlier",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "custom-model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePrompt",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeletePrompt.html",
+      "description": "Grants permission to delete a saved prompt",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCustomModel",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModel.html",
+      "description": "Grants permission to get the properties associated with a Bedrock custom model that you have created",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "custom-model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetModelCustomizationJob",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetModelCustomizationJob.html",
+      "description": "Grants permission to get the properties associated with a model-customization job. Use this operation to get the status of a model-customization job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model-customization-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPrompt",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetPrompt.html",
+      "description": "Grants permission to get a saved prompt",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "InvokeModel",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_InvokeModel.html",
+      "description": "Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "custom-model*",
+        "foundation-model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "InvokeModelWithResponseStream",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_InvokeModelWithResponseStream.html",
+      "description": "Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body with streaming response",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "custom-model*",
+        "foundation-model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCustomModels",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModels.html",
+      "description": "Grants permission to get a list of Bedrock custom models that you have created",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFoundationModels",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html",
+      "description": "Grants permission to list Bedrock foundation models that you can use",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListModelCustomizationJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListModelCustomizationJobs.html",
+      "description": "Grants permission to get the list of model customization jobs that you have submitted",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPrompts",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListPrompts.html",
+      "description": "Grants permission to lists all prompts saved to a playground",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a Bedrock resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "custom-model*",
+        "model-customization-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopModelCustomizationJob",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_StopModelCustomizationJob.html",
+      "description": "Grants permission to stop a Bedrock model customization job while in progress",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model-customization-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to Tag a Bedrock resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "custom-model",
+        "model-customization-job"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to Untag a Bedrock resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "custom-model",
+        "model-customization-job"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePrompt",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_UpdatePrompt.html",
+      "description": "Grants permission to updates a saved prompt",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

@@ -57,7 +57,10 @@
       "resourceTypes": [
         "data-lake*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": [
         "events:PutRule",
         "events:PutTargets",
@@ -111,7 +114,10 @@
       "description": "Grants permission to create a subscriber",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": [
         "iam:CreateRole",
         "iam:DeleteRolePolicy",
@@ -362,6 +368,18 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/security-lake/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list all tags for the resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "data-lake",
+        "subscriber"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "RegisterDataLakeDelegatedAdministrator",
       "documentationUrl": "https://docs.aws.amazon.com/security-lake/latest/APIReference/API_RegisterDataLakeDelegatedAdministrator.html",
       "description": "Grants permission to designate an account as the Amazon Security Lake administrator account for the organization",
@@ -376,6 +394,35 @@
         "organizations:ListDelegatedServicesForAccount",
         "organizations:RegisterDelegatedAdministrator"
       ]
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/security-lake/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to add tags to the resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "data-lake",
+        "subscriber"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/security-lake/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove tags from the resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "data-lake",
+        "subscriber"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
     },
     {
       "name": "UpdateDataLake",

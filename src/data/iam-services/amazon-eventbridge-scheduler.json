@@ -14,7 +14,9 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "CreateScheduleGroup",
@@ -54,7 +56,9 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "scheduler:DeleteSchedule"
+      ]
     },
     {
       "name": "GetSchedule",
@@ -153,7 +157,9 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     }
   ]
 }

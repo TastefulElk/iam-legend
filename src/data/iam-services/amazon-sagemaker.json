@@ -505,9 +505,11 @@
       "description": "Grants permission to create an endpoint using the endpoint configuration specified in the request",
       "accessLevel": "Write",
       "resourceTypes": [
-        "endpoint*"
+        "endpoint*",
+        "endpoint-config*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -1185,9 +1187,11 @@
       "description": "Grants permission to create a trial",
       "accessLevel": "Write",
       "resourceTypes": [
+        "experiment*",
         "experiment-trial*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -2865,6 +2869,19 @@
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetScalingPolicyConfigurationRecommendation",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetScalingPolicyConfigurationRecommendation.html",
+      "description": "Grants permission to get a scaling policy configuration recommendation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "inference-recommendations-job*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {

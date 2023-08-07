@@ -4,13 +4,27 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awscleanrooms.html",
   "actions": [
     {
+      "name": "BatchGetCollaborationAnalysisTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_BatchGetCollaborationAnalysisTemplate.html",
+      "description": "Grants permission to view details of analysisTemplates associated to the collaboration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "analysistemplate*",
+        "collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "cleanrooms:GetCollaborationAnalysisTemplate"
+      ]
+    },
+    {
       "name": "BatchGetSchema",
       "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_BatchGetSchema.html",
       "description": "Grants permission to view details for schemas",
       "accessLevel": "Read",
       "resourceTypes": [
-        "Collaboration*",
-        "ConfiguredTableAssociation*"
+        "collaboration*",
+        "configuredtableassociation*"
       ],
       "conditionKeys": [],
       "dependentActions": [
@@ -18,12 +32,31 @@
       ]
     },
     {
+      "name": "CreateAnalysisTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateAnalysisTemplate.html",
+      "description": "Grants permission to create a new analysis template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "analysistemplate*",
+        "membership*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateCollaboration",
       "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html",
       "description": "Grants permission to create a new collaboration, a shared data collaboration environment",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Collaboration*"
+        "collaboration*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -38,7 +71,7 @@
       "description": "Grants permission to create a new configured table",
       "accessLevel": "Write",
       "resourceTypes": [
-        "ConfiguredTable*"
+        "configuredtable*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -62,7 +95,7 @@
       "description": "Grants permission to create a analysis rule for a configured table",
       "accessLevel": "Write",
       "resourceTypes": [
-        "ConfiguredTable*"
+        "configuredtable*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -73,9 +106,9 @@
       "description": "Grants permission to link a configured table with a collaboration by creating a new association",
       "accessLevel": "Write",
       "resourceTypes": [
-        "ConfiguredTable*",
-        "ConfiguredTableAssociation*",
-        "Membership*"
+        "configuredtable*",
+        "configuredtableassociation*",
+        "membership*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -98,8 +131,8 @@
       "description": "Grants permission to join collaborations by creating a membership",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Collaboration*",
-        "Membership*"
+        "collaboration*",
+        "membership*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -122,12 +155,23 @@
       ]
     },
     {
+      "name": "DeleteAnalysisTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_DeleteAnalysisTemplate.html",
+      "description": "Grants permission to delete an existing analysis template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "analysistemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteCollaboration",
       "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_DeleteCollaboration.html",
       "description": "Grants permission to delete an existing collaboration",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Collaboration*"
+        "collaboration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -138,7 +182,7 @@
       "description": "Grants permission to delete a configured table",
       "accessLevel": "Write",
       "resourceTypes": [
-        "ConfiguredTable*"
+        "configuredtable*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -149,7 +193,7 @@
       "description": "Grants permission to delete an existing analysis rule",
       "accessLevel": "Write",
       "resourceTypes": [
-        "ConfiguredTable*"
+        "configuredtable*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -160,7 +204,7 @@
       "description": "Grants permission to remove a configured table association from a collaboration",
       "accessLevel": "Write",
       "resourceTypes": [
-        "ConfiguredTableAssociation*"
+        "configuredtableassociation*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -171,7 +215,7 @@
       "description": "Grants permission to delete members from a collaboration",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Collaboration*"
+        "collaboration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -182,7 +226,18 @@
       "description": "Grants permission to leave collaborations by deleting a membership",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Membership*"
+        "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAnalysisTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetAnalysisTemplate.html",
+      "description": "Grants permission to view details for an analysis template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "analysistemplate*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -193,7 +248,19 @@
       "description": "Grants permission to view details for a collaboration",
       "accessLevel": "Read",
       "resourceTypes": [
-        "Collaboration*"
+        "collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCollaborationAnalysisTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetCollaborationAnalysisTemplate.html",
+      "description": "Grants permission to view details for an analysis template within a collaboration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "analysistemplate*",
+        "collaboration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -204,7 +271,7 @@
       "description": "Grants permission to view details for a configured table",
       "accessLevel": "Read",
       "resourceTypes": [
-        "ConfiguredTable*"
+        "configuredtable*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -215,7 +282,7 @@
       "description": "Grants permission to view analysis rules for a configured table",
       "accessLevel": "Read",
       "resourceTypes": [
-        "ConfiguredTable*"
+        "configuredtable*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -226,7 +293,7 @@
       "description": "Grants permission to view details for a configured table association",
       "accessLevel": "Read",
       "resourceTypes": [
-        "ConfiguredTableAssociation*"
+        "configuredtableassociation*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -237,7 +304,7 @@
       "description": "Grants permission to view details about a membership",
       "accessLevel": "Read",
       "resourceTypes": [
-        "Membership*"
+        "membership*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -248,7 +315,7 @@
       "description": "Grants permission to view a protected query",
       "accessLevel": "Read",
       "resourceTypes": [
-        "Membership*"
+        "membership*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -259,8 +326,8 @@
       "description": "Grants permission to view details for a schema",
       "accessLevel": "Read",
       "resourceTypes": [
-        "Collaboration*",
-        "ConfiguredTableAssociation*"
+        "collaboration*",
+        "configuredtableassociation*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -271,13 +338,35 @@
       "description": "Grants permission to view analysis rules associated with a schema",
       "accessLevel": "Read",
       "resourceTypes": [
-        "Collaboration*",
-        "ConfiguredTableAssociation*"
+        "collaboration*",
+        "configuredtableassociation*"
       ],
       "conditionKeys": [],
       "dependentActions": [
         "cleanrooms:GetSchema"
       ]
+    },
+    {
+      "name": "ListAnalysisTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListAnalysisTemplates.html",
+      "description": "Grants permission to list available analysis templates",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCollaborationAnalysisTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListCollaborationAnalysisTemplates.html",
+      "description": "Grants permission to list available analysis templates within a collaboration",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "ListCollaborations",
@@ -294,7 +383,7 @@
       "description": "Grants permission to list available configured table associations for a membership",
       "accessLevel": "List",
       "resourceTypes": [
-        "Membership*"
+        "membership*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -314,7 +403,7 @@
       "description": "Grants permission to list the members of a collaboration",
       "accessLevel": "List",
       "resourceTypes": [
-        "Collaboration*"
+        "collaboration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -334,7 +423,7 @@
       "description": "Grants permission to list protected queries",
       "accessLevel": "List",
       "resourceTypes": [
-        "Membership*"
+        "membership*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -345,7 +434,7 @@
       "description": "Grants permission to view available schemas for a collaboration",
       "accessLevel": "List",
       "resourceTypes": [
-        "Collaboration*"
+        "collaboration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -356,10 +445,11 @@
       "description": "Grants permission to list tags for a resource",
       "accessLevel": "List",
       "resourceTypes": [
-        "Collaboration",
-        "ConfiguredTable",
-        "ConfiguredTableAssociation",
-        "Membership"
+        "analysistemplate",
+        "collaboration",
+        "configuredtable",
+        "configuredtableassociation",
+        "membership"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -370,10 +460,13 @@
       "description": "Grants permission to start protected queries",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Membership*"
+        "configuredtableassociation*",
+        "membership*",
+        "analysistemplate"
       ],
       "conditionKeys": [],
       "dependentActions": [
+        "cleanrooms:GetCollaborationAnalysisTemplate",
         "cleanrooms:GetSchema",
         "s3:GetBucketLocation",
         "s3:ListBucket",
@@ -386,10 +479,11 @@
       "description": "Grants permission to tag a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "Collaboration",
-        "ConfiguredTable",
-        "ConfiguredTableAssociation",
-        "Membership"
+        "analysistemplate",
+        "collaboration",
+        "configuredtable",
+        "configuredtableassociation",
+        "membership"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -403,14 +497,26 @@
       "description": "Grants permission to untag a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "Collaboration",
-        "ConfiguredTable",
-        "ConfiguredTableAssociation",
-        "Membership"
+        "analysistemplate",
+        "collaboration",
+        "configuredtable",
+        "configuredtableassociation",
+        "membership"
       ],
       "conditionKeys": [
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAnalysisTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_UpdateAnalysisTemplate.html",
+      "description": "Grants permission to update details of the analysis template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "analysistemplate*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -419,7 +525,7 @@
       "description": "Grants permission to update details of the collaboration",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Collaboration*"
+        "collaboration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -430,7 +536,7 @@
       "description": "Grants permission to update an existing configured table",
       "accessLevel": "Write",
       "resourceTypes": [
-        "ConfiguredTable*"
+        "configuredtable*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -441,7 +547,7 @@
       "description": "Grants permission to update analysis rules for a configured table",
       "accessLevel": "Write",
       "resourceTypes": [
-        "ConfiguredTable*"
+        "configuredtable*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -452,7 +558,7 @@
       "description": "Grants permission to update a configured table association",
       "accessLevel": "Write",
       "resourceTypes": [
-        "ConfiguredTableAssociation*"
+        "configuredtableassociation*"
       ],
       "conditionKeys": [],
       "dependentActions": [
@@ -465,7 +571,7 @@
       "description": "Grants permission to update details of a membership",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Membership*"
+        "membership*"
       ],
       "conditionKeys": [],
       "dependentActions": [
@@ -486,7 +592,7 @@
       "description": "Grants permission to update protected queries",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Membership*"
+        "membership*"
       ],
       "conditionKeys": [],
       "dependentActions": []
