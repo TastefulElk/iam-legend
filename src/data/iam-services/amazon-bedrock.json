@@ -4,6 +4,51 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonbedrock.html",
   "actions": [
     {
+      "name": "CreateAgent",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to create a new agent and a test agent alias pointing to the DRAFT agent version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent*",
+        "agent-alias*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAgentActionGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to create a new action group in an existing agent",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAgentAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to create a new alias for an agent",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent-alias*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAgentDraftSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to create a draft version snapshot for an agent",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateModelCustomizationJob",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelCustomizationJob.html",
       "description": "Grants permission to create a job for customizing the model with your custom training data",
@@ -40,6 +85,50 @@
       "dependentActions": []
     },
     {
+      "name": "GetAgent",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to retrieve an existing agent",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAgentActionGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to retrieve an existing action group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAgentAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to retrieve an existing alias",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "agent-alias*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAgentVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to retrieve an existing version of an agent",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetCustomModel",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModel.html",
       "description": "Grants permission to get the properties associated with a Bedrock custom model that you have created",
@@ -71,6 +160,17 @@
       "dependentActions": []
     },
     {
+      "name": "InvokeAgent",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to send user input (text-only) to the alias of an agent for Bedrock",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent-alias*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "InvokeModel",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_InvokeModel.html",
       "description": "Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body",
@@ -91,6 +191,48 @@
         "custom-model*",
         "foundation-model*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAgentActionGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to list action groups in an agent",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAgentAliases",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to list aliases for an agent",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAgentVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to list existing versions of an agent",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAgents",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to list existing agents",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -180,6 +322,39 @@
       "conditionKeys": [
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAgent",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to update an existing agent",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAgentActionGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to update an existing action group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAgentAlias",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to update an existing alias",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent-alias*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {

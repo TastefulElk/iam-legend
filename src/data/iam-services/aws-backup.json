@@ -107,6 +107,22 @@
       "dependentActions": []
     },
     {
+      "name": "CreateLogicallyAirGappedBackupVault",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateLogicallyAirGappedBackupVault.html",
+      "description": "This request grants permission to create a new logically air-gapped backup vault, a logical container where backups are stored",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "backupVault*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "backup:MinRetentionDays",
+        "backup:MaxRetentionDays"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateReportPlan",
       "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateReportPlan.html",
       "description": "Grants permission to create a new report plan",
@@ -181,6 +197,17 @@
       "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DeleteBackupVaultNotifications.html",
       "description": "Grants permission to remove the notifications from a backup vault",
       "accessLevel": "Write",
+      "resourceTypes": [
+        "backupVault*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteBackupVaultSharingPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateFortressVault.html",
+      "description": "Grants permission to delete backup vault sharing policy",
+      "accessLevel": "Permissions management",
       "resourceTypes": [
         "backupVault*"
       ],
@@ -421,6 +448,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetBackupVaultSharingPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateFortressVault.html",
+      "description": "Grants permission to get backup vault sharing policy",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "backupVault*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetLegalHold",
       "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_GetLegalHold.html",
       "description": "Grants permission to get a legal hold",
@@ -546,6 +584,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListProtectedResourcesByBackupVault",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListProtectedResourcesByBackupVault.html",
+      "description": "Grants permission to list protected resources inside a backup vault",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "backupVault*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListRecoveryPointsByBackupVault",
       "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListRecoveryPointsByBackupVault.html",
       "description": "Grants permission to list recovery points inside a backup vault",
@@ -639,7 +688,9 @@
         "backupVault*"
       ],
       "conditionKeys": [
-        "backup:ChangeableForDays"
+        "backup:ChangeableForDays",
+        "backup:MinRetentionDays",
+        "backup:MaxRetentionDays"
       ],
       "dependentActions": []
     },
@@ -648,6 +699,17 @@
       "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_PutBackupVaultNotifications.html",
       "description": "Grants permission to add an SNS topic to the backup vault",
       "accessLevel": "Write",
+      "resourceTypes": [
+        "backupVault*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutBackupVaultSharingPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateFortressVault.html",
+      "description": "Grants permission to add a sharing policy to the backup vault",
+      "accessLevel": "Permissions management",
       "resourceTypes": [
         "backupVault*"
       ],
