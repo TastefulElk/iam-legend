@@ -4,6 +4,31 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsperformanceinsights.html",
   "actions": [
     {
+      "name": "CreatePerformanceAnalysisReport",
+      "documentationUrl": "https://docs.aws.amazon.com/performance-insights/latest/APIReference/API_CreatePerformanceAnalysisReport.html",
+      "description": "Grants permission to call CreatePerformanceAnalysisReport API to create a Performance Analysis Report for a specified DB instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "perf-reports-resource*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePerformanceAnalysisReport",
+      "documentationUrl": "https://docs.aws.amazon.com/performance-insights/latest/APIReference/API_DeletePerformanceAnalysisReport.html",
+      "description": "Grants permission to call DeletePerformanceAnalysisReport API to delete a Performance Analysis Report for a specified DB instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "perf-reports-resource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeDimensionKeys",
       "documentationUrl": "https://docs.aws.amazon.com/performance-insights/latest/APIReference/API_DescribeDimensionKeys.html",
       "description": "Grants permission to call DescribeDimensionKeys API to retrieve the top N dimension keys for a metric for a specific time period",
@@ -21,6 +46,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "metric-resource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPerformanceAnalysisReport",
+      "documentationUrl": "https://docs.aws.amazon.com/performance-insights/latest/APIReference/API_GetPerformanceAnalysisReport.html",
+      "description": "Grants permission to call GetPerformanceAnalysisReport API to retrieve a Performance Analysis Report for a specified DB instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "perf-reports-resource*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -67,6 +103,55 @@
         "metric-resource*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPerformanceAnalysisReports",
+      "documentationUrl": "https://docs.aws.amazon.com/performance-insights/latest/APIReference/API_ListPerformanceAnalysisReports.html",
+      "description": "Grants permission to call ListPerformanceAnalysisReports API to list Performance Analysis Reports for a specified DB instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "perf-reports-resource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/performance-insights/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to call ListTagsForResource API to list tags for a resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "perf-reports-resource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/performance-insights/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to call TagResource API to tag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "perf-reports-resource*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/performance-insights/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to call UntagResource API to untag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "perf-reports-resource*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     }
   ]

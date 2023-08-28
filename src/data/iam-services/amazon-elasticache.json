@@ -1072,6 +1072,19 @@
         "ec2:DescribeSubnets",
         "ec2:DescribeVpcs"
       ]
+    },
+    {
+      "name": "TestMigration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_TestMigration.html",
+      "description": "Grants permission to test a migration of data from hosted Redis on Amazon EC2 to ElastiCache for Redis",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "replicationgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
     }
   ]
 }

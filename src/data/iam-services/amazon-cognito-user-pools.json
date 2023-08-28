@@ -303,7 +303,7 @@
     {
       "name": "AssociateSoftwareToken",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html",
-      "description": "Returns a unique generated shared secret key code for the user account",
+      "description": "Grants permission to return a unique generated shared secret key code for the user",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -324,7 +324,7 @@
     {
       "name": "ChangePassword",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ChangePassword.html",
-      "description": "Changes the password for a specified user in a user pool",
+      "description": "Grants permission to change the password for a specified user in a user pool",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -333,7 +333,7 @@
     {
       "name": "ConfirmDevice",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html",
-      "description": "Confirms tracking of the device. This API call is the call that begins device tracking",
+      "description": "Grants permission to confirm tracking of the device. This API call is the call that begins device tracking",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -342,7 +342,7 @@
     {
       "name": "ConfirmForgotPassword",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html",
-      "description": "Allows a user to enter a confirmation code to reset a forgotten password",
+      "description": "Grants permission to allow a user to enter a confirmation code to reset a forgotten password",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -351,7 +351,7 @@
     {
       "name": "ConfirmSignUp",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.html",
-      "description": "Confirms registration of a user and handles the existing alias from a previous user",
+      "description": "Grants permission to confirm registration of a user and handles the existing alias from a previous user",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -472,7 +472,7 @@
     {
       "name": "DeleteUser",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DeleteUser.html",
-      "description": "Allows a user to delete one's self",
+      "description": "Grants permission to allow a user to delete one's self",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -481,7 +481,7 @@
     {
       "name": "DeleteUserAttributes",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DeleteUserAttributes.html",
-      "description": "Deletes the attributes for a user",
+      "description": "Grants permission to delete the attributes for a user",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -609,7 +609,7 @@
     {
       "name": "ForgetDevice",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgetDevice.html",
-      "description": "Forgets the specified device",
+      "description": "Grants permission to forget the specified device",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -618,7 +618,7 @@
     {
       "name": "ForgotPassword",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html",
-      "description": "Calling this API causes a message to be sent to the end user with a confirmation code that is required to change the user's password",
+      "description": "Grants permission to send a message to the end user with a confirmation code that is required to change the user's password",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -638,7 +638,7 @@
     {
       "name": "GetDevice",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetDevice.html",
-      "description": "Gets the device",
+      "description": "Grants permission to get the device",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -659,6 +659,17 @@
       "name": "GetIdentityProviderByIdentifier",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetIdentityProviderByIdentifier.html",
       "description": "Grants permission to correlate a user pool IdP identifier to the IdP Name",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "userpool*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetLogDeliveryConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetLogDeliveryConfiguration.html",
+      "description": "Grants permission to get the detailed activity logging configuration for a user pool",
       "accessLevel": "Read",
       "resourceTypes": [
         "userpool*"
@@ -691,7 +702,7 @@
     {
       "name": "GetUser",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html",
-      "description": "Gets the user attributes and metadata for a user",
+      "description": "Grants permission to get the user attributes and metadata for a user",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -700,7 +711,7 @@
     {
       "name": "GetUserAttributeVerificationCode",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUserAttributeVerificationCode.html",
-      "description": "Gets the user attribute verification code for the specified attribute name",
+      "description": "Grants permission to get the user attribute verification code for the specified attribute name",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -731,7 +742,7 @@
     {
       "name": "GlobalSignOut",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GlobalSignOut.html",
-      "description": "Signs out users from all devices",
+      "description": "Grants permission to sign out users from all devices",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -740,7 +751,7 @@
     {
       "name": "InitiateAuth",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html",
-      "description": "Initiates the authentication flow",
+      "description": "Grants permission to initiate the authentication flow",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -749,7 +760,7 @@
     {
       "name": "ListDevices",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListDevices.html",
-      "description": "Lists the devices",
+      "description": "Grants permission to list the devices",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -866,7 +877,7 @@
     {
       "name": "ResendConfirmationCode",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ResendConfirmationCode.html",
-      "description": "Resends the confirmation (for confirmation of registration) to a specific user in the user pool",
+      "description": "Grants permission to resend the confirmation (for confirmation of registration) to a specific user in the user pool",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -875,7 +886,7 @@
     {
       "name": "RespondToAuthChallenge",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.html",
-      "description": "Responds to the authentication challenge",
+      "description": "Grants permission to respond to the authentication challenge",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -884,9 +895,20 @@
     {
       "name": "RevokeToken",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html",
-      "description": "Revokes all of the access tokens generated by the specified refresh token",
+      "description": "Grants permission to revoke all of the access tokens generated by the specified refresh token",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SetLogDeliveryConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetLogDeliveryConfiguration.html",
+      "description": "Grants permission to set up or modify the detailed activity logging configuration of a user pool",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "userpool*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -915,7 +937,7 @@
     {
       "name": "SetUserMFAPreference",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html",
-      "description": "Sets MFA preference for the user in the userpool",
+      "description": "Grants permission to set MFA preference for the user in the userpool",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -935,7 +957,7 @@
     {
       "name": "SetUserSettings",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserSettings.html",
-      "description": "Sets the user settings like multi-factor authentication (MFA)",
+      "description": "Grants permission to set the user settings like multi-factor authentication (MFA)",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -944,7 +966,7 @@
     {
       "name": "SignUp",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html",
-      "description": "Registers the user in the specified user pool and creates a user name, password, and user attributes",
+      "description": "Grants permission to register the user in the specified user pool and creates a user name, password, and user attributes",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -1002,7 +1024,7 @@
     {
       "name": "UpdateAuthEventFeedback",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateAuthEventFeedback.html",
-      "description": "Updates the feedback for the user authentication event",
+      "description": "Grants permission to update the feedback for the user authentication event",
       "accessLevel": "Write",
       "resourceTypes": [
         "userpool*"
@@ -1013,7 +1035,7 @@
     {
       "name": "UpdateDeviceStatus",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html",
-      "description": "Updates the device status",
+      "description": "Grants permission to update the device status",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -1055,7 +1077,7 @@
     {
       "name": "UpdateUserAttributes",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html",
-      "description": "Allows a user to update a specific attribute (one at a time)",
+      "description": "Grants permission to allow a user to update a specific attribute (one at a time)",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -1100,7 +1122,7 @@
     {
       "name": "VerifySoftwareToken",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifySoftwareToken.html",
-      "description": "Registers a user's entered TOTP code and mark the user's software token MFA status as verified if successful",
+      "description": "Grants permission to register a user's entered TOTP code and mark the user's software token MFA status as verified if successful",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -1109,7 +1131,7 @@
     {
       "name": "VerifyUserAttribute",
       "documentationUrl": "https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html",
-      "description": "Verifies a user attribute using a one time verification code",
+      "description": "Grants permission to verify a user attribute using a one time verification code",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
