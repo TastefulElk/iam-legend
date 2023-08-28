@@ -112,6 +112,19 @@
       "dependentActions": []
     },
     {
+      "name": "GetCodegenJob",
+      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_GetCodegenJob.html",
+      "description": "Grants permission to get an existing codegen job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "CodegenJobResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
+    },
+    {
       "name": "GetComponent",
       "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_GetComponent.html",
       "description": "Grants permission to get an existing component",
@@ -154,6 +167,17 @@
       "resourceTypes": [
         "ThemeResource*"
       ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
+    },
+    {
+      "name": "ListCodegenJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_ListCodegenJobs.html",
+      "description": "Grants permission to list codegen jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": [
         "amplify:GetApp"
@@ -209,6 +233,20 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "StartCodegenJob",
+      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_StartCodegenJob.html",
+      "description": "Grants permission to start a codegen job",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "amplify:GetApp"
+      ]
     },
     {
       "name": "UpdateComponent",

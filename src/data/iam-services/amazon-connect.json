@@ -196,6 +196,26 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateTrafficDistributionGroupUser",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateTrafficDistributionGroupUser.html",
+      "description": "Grants permission to associate a user to a traffic distribution group in the specified Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*",
+        "traffic-distribution-group*",
+        "user*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "aws:ResourceTag/${TagKey}",
+        "connect:SearchTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "connect:DescribeUser",
+        "connect:SearchUsers"
+      ]
+    },
+    {
       "name": "BatchAssociateAnalyticsDataSet",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/adminguide/optimization-apis.html",
       "description": "Grants permission to grant access and to associate the datasets with the specified AWS account",
@@ -1336,6 +1356,22 @@
       "dependentActions": []
     },
     {
+      "name": "DisassociateTrafficDistributionGroupUser",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DisassociateTrafficDistributionGroupUser.html",
+      "description": "Grants permission to disassociate a user from a traffic distribution group in the specified Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*",
+        "traffic-distribution-group*",
+        "user*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DismissUserContact",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DismissUserContact.html",
       "description": "Grants permission to dismiss terminated Contact from Agent CCP",
@@ -1909,6 +1945,19 @@
       "dependentActions": []
     },
     {
+      "name": "ListTrafficDistributionGroupUsers",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListTrafficDistributionGroupUsers.html",
+      "description": "Grants permission to list the active user associations for a traffic distribution group",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "traffic-distribution-group*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListTrafficDistributionGroups",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListTrafficDistributionGroups.html",
       "description": "Grants permission to list traffic distribution groups",
@@ -2012,10 +2061,13 @@
       "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
       "description": "Grants permission to create a replica of an Amazon Connect instance",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "instance*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "connect:InstanceId"
       ],
       "dependentActions": [
         "ds:AuthorizeApplication",
