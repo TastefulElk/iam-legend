@@ -89,6 +89,18 @@
       ]
     },
     {
+      "name": "ExportLicenseRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_ExportLicenseRecommendations.html",
+      "description": "Grants permission to export license recommendations to S3 for the provided account(s)",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "compute-optimizer:GetLicenseRecommendations",
+        "ec2:DescribeInstances"
+      ]
+    },
+    {
       "name": "GetAutoScalingGroupRecommendations",
       "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetAutoScalingGroupRecommendations.html",
       "description": "Grants permission to get recommendations for the provided AutoScaling groups",
@@ -196,6 +208,17 @@
       "dependentActions": [
         "lambda:ListFunctions",
         "lambda:ListProvisionedConcurrencyConfigs"
+      ]
+    },
+    {
+      "name": "GetLicenseRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetLicenseRecommendations.html",
+      "description": "Grants permission to get license recommendations for the specified account(s)",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeInstances"
       ]
     },
     {
