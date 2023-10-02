@@ -33,7 +33,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "gamelift:TagResource"
+      ]
     },
     {
       "name": "CreateBuild",
@@ -45,7 +47,11 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "gamelift:TagResource",
+        "iam:PassRole",
+        "s3:GetObject"
+      ]
     },
     {
       "name": "CreateFleet",
@@ -57,7 +63,11 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions",
+        "gamelift:TagResource",
+        "iam:PassRole"
+      ]
     },
     {
       "name": "CreateFleetLocations",
@@ -68,7 +78,9 @@
         "fleet*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions"
+      ]
     },
     {
       "name": "CreateGameServerGroup",
@@ -80,7 +92,18 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "autoscaling:CreateAutoScalingGroup",
+        "autoscaling:DescribeAutoScalingGroups",
+        "autoscaling:PutLifecycleHook",
+        "autoscaling:PutScalingPolicy",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeSubnets",
+        "events:PutRule",
+        "events:PutTargets",
+        "gamelift:TagResource",
+        "iam:PassRole"
+      ]
     },
     {
       "name": "CreateGameSession",
@@ -101,7 +124,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "gamelift:TagResource"
+      ]
     },
     {
       "name": "CreateLocation",
@@ -113,7 +138,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "gamelift:TagResource"
+      ]
     },
     {
       "name": "CreateMatchmakingConfiguration",
@@ -125,7 +152,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "gamelift:TagResource"
+      ]
     },
     {
       "name": "CreateMatchmakingRuleSet",
@@ -137,7 +166,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "gamelift:TagResource"
+      ]
     },
     {
       "name": "CreatePlayerSession",
@@ -167,7 +198,11 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "gamelift:TagResource",
+        "iam:PassRole",
+        "s3:GetObject"
+      ]
     },
     {
       "name": "CreateVpcPeeringAuthorization",
@@ -176,7 +211,17 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:AcceptVpcPeeringConnection",
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:CreateRoute",
+        "ec2:DeleteRoute",
+        "ec2:DescribeRouteTables",
+        "ec2:DescribeSecurityGroups",
+        "ec2:RevokeSecurityGroupEgress",
+        "ec2:RevokeSecurityGroupIngress"
+      ]
     },
     {
       "name": "CreateVpcPeeringConnection",
@@ -240,7 +285,14 @@
         "gameServerGroup*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "autoscaling:DeleteAutoScalingGroup",
+        "autoscaling:DescribeAutoScalingGroups",
+        "autoscaling:ExitStandby",
+        "autoscaling:ResumeProcesses",
+        "autoscaling:SetInstanceProtection",
+        "autoscaling:UpdateAutoScalingGroup"
+      ]
     },
     {
       "name": "DeleteGameSessionQueue",
@@ -1049,7 +1101,9 @@
         "gameServerGroup*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "UpdateGameSession",
@@ -1102,7 +1156,10 @@
         "script*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole",
+        "s3:GetObject"
+      ]
     },
     {
       "name": "ValidateMatchmakingRuleSet",

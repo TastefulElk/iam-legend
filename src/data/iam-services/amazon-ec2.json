@@ -12,11 +12,11 @@
         "elastic-ip*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:AllocationId",
         "ec2:Domain",
         "ec2:PublicIpAddress",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -141,10 +141,10 @@
         "ipv4pool-ec2"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -160,13 +160,13 @@
         "dedicated-host*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:AutoPlacement",
         "ec2:AvailabilityZone",
         "ec2:HostRecovery",
         "ec2:InstanceType",
         "ec2:Quantity",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1071,10 +1071,10 @@
         "snapshot*"
       ],
       "conditionKeys": [
-        "ec2:OutpostArn",
-        "ec2:SnapshotID",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "ec2:OutpostArn",
+        "ec2:SnapshotID",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1090,9 +1090,9 @@
         "capacity-reservation*"
       ],
       "conditionKeys": [
-        "ec2:CapacityReservationFleet",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "ec2:CapacityReservationFleet",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1126,12 +1126,12 @@
         "vpc*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
         "ec2:VpcID",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1149,6 +1149,8 @@
         "vpc"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:ClientRootCertificateChainArn",
         "ec2:CloudwatchLogGroupArn",
         "ec2:CloudwatchLogStreamArn",
@@ -1161,8 +1163,6 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:VpcID",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1219,10 +1219,10 @@
         "local-gateway-route-table*"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1292,9 +1292,9 @@
         "dhcp-options*"
       ],
       "conditionKeys": [
-        "ec2:DhcpOptionsID",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "ec2:DhcpOptionsID",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1311,12 +1311,12 @@
         "vpc*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
         "ec2:VpcID",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1342,6 +1342,10 @@
         "volume"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
         "ec2:InstanceID",
@@ -1389,6 +1393,8 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:SubnetID",
         "ec2:Vpc",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:AvailabilityZone",
         "ec2:Encrypted",
         "ec2:KmsKeyId",
@@ -1398,8 +1404,6 @@
         "ec2:VolumeSize",
         "ec2:VolumeThroughput",
         "ec2:VolumeType",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1418,6 +1422,8 @@
         "vpc"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:NetworkInterfaceID",
@@ -1433,8 +1439,6 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
         "ec2:VpcID",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1451,10 +1455,10 @@
         "fpga-image*"
       ],
       "conditionKeys": [
-        "ec2:Owner",
-        "ec2:Public",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "ec2:Owner",
+        "ec2:Public",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1472,6 +1476,8 @@
         "snapshot*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:ImageID",
         "ec2:Owner",
         "aws:ResourceTag/${TagKey}",
@@ -1491,6 +1497,8 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
         "ec2:Tenancy",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:OutpostArn",
         "ec2:Owner",
         "ec2:ParentVolume",
@@ -1498,8 +1506,6 @@
         "ec2:SnapshotTime",
         "ec2:SourceOutpostArn",
         "ec2:VolumeSize",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1517,6 +1523,8 @@
         "security-group"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:SubnetID",
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
@@ -1527,8 +1535,6 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:SecurityGroupID",
         "ec2:Vpc",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1562,6 +1568,8 @@
         "instance*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
@@ -1578,8 +1586,6 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
         "ec2:Tenancy",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1595,9 +1601,9 @@
         "internet-gateway*"
       ],
       "conditionKeys": [
-        "ec2:InternetGatewayID",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "ec2:InternetGatewayID",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1632,10 +1638,10 @@
         "ipam-scope*"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1689,9 +1695,9 @@
         "key-pair*"
       ],
       "conditionKeys": [
-        "ec2:KeyPairType",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "ec2:KeyPairType",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1806,10 +1812,10 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1829,12 +1835,12 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
         "ec2:VpcID",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1869,6 +1875,8 @@
         "elastic-ip"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:ResourceTag/${TagKey}",
@@ -1879,8 +1887,6 @@
         "ec2:Domain",
         "ec2:PublicIpAddress",
         "ec2:ResourceTag/${TagKey}",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1897,13 +1903,13 @@
         "vpc*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:NetworkAclID",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
         "ec2:VpcID",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1961,6 +1967,8 @@
         "vpn-gateway"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
@@ -1993,8 +2001,6 @@
         "ec2:VpcPeeringConnectionID",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -2012,6 +2018,8 @@
         "security-group"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:NetworkInterfaceID",
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
@@ -2022,8 +2030,6 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:SecurityGroupID",
         "ec2:Vpc",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -2061,10 +2067,10 @@
         "placement-group*"
       ],
       "conditionKeys": [
-        "ec2:PlacementGroupName",
-        "ec2:PlacementGroupStrategy",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "ec2:PlacementGroupName",
+        "ec2:PlacementGroupStrategy",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -2118,6 +2124,10 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
         "ec2:Tenancy",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:VolumeID",
         "aws:ResourceTag/${TagKey}",
         "ec2:ImageID",
@@ -2133,8 +2143,6 @@
         "ec2:SnapshotID",
         "ec2:SnapshotTime",
         "ec2:VolumeSize",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -2161,10 +2169,10 @@
         "image*"
       ],
       "conditionKeys": [
-        "ec2:ImageID",
-        "ec2:Owner",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "ec2:ImageID",
+        "ec2:Owner",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -2198,13 +2206,13 @@
         "vpc*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:RouteTableID",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
         "ec2:VpcID",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -2221,13 +2229,13 @@
         "vpc"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:SecurityGroupID",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
         "ec2:VpcID",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -2244,6 +2252,8 @@
         "volume*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:OutpostArn",
         "ec2:ParentVolume",
         "ec2:SnapshotID",
@@ -2257,8 +2267,6 @@
         "ec2:VolumeSize",
         "ec2:VolumeThroughput",
         "ec2:VolumeType",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -2286,6 +2294,8 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
         "ec2:Tenancy",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:OutpostArn",
         "ec2:ParentVolume",
         "ec2:SnapshotID",
@@ -2299,8 +2309,6 @@
         "ec2:VolumeSize",
         "ec2:VolumeThroughput",
         "ec2:VolumeType",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -2348,13 +2356,13 @@
         "vpc*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:SubnetID",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
         "ec2:VpcID",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -2783,10 +2791,10 @@
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -2804,6 +2812,8 @@
         "vpc-endpoint"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
         "ec2:NetworkInterfaceID",
         "ec2:ResourceTag/${TagKey}",
@@ -2811,8 +2821,6 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:VpceServiceName",
         "ec2:VpceServiceOwner",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -3034,12 +3042,12 @@
         "ec2:Vpc",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
         "ec2:VpcID",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -3059,6 +3067,8 @@
         "subnet"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -3078,8 +3088,6 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:SubnetID",
         "ec2:Vpc",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -3096,10 +3104,10 @@
         "verified-access-instance*"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -3149,6 +3157,8 @@
         "volume*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:AvailabilityZone",
         "ec2:Encrypted",
         "ec2:KmsKeyId",
@@ -3158,8 +3168,6 @@
         "ec2:VolumeSize",
         "ec2:VolumeThroughput",
         "ec2:VolumeType",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -3177,6 +3185,8 @@
         "ipv6pool-ec2"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:Ipv4IpamPoolId",
         "ec2:Ipv6IpamPoolId",
         "ec2:VpcID",
@@ -3184,8 +3194,6 @@
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -3208,6 +3216,8 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:VpcID",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:VpceServiceName",
         "ec2:VpceServiceOwner",
         "aws:ResourceTag/${TagKey}",
@@ -3219,8 +3229,6 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:SubnetID",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -3255,9 +3263,9 @@
         "vpc-endpoint-service*"
       ],
       "conditionKeys": [
-        "ec2:VpceServicePrivateDnsName",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "ec2:VpceServicePrivateDnsName",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -3278,11 +3286,11 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
         "ec2:VpcID",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:AccepterVpc",
         "ec2:RequesterVpc",
         "ec2:VpcPeeringConnectionID",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -3304,6 +3312,8 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:AuthenticationType",
         "ec2:DPDTimeoutSeconds",
         "ec2:GatewayType",
@@ -3329,8 +3339,6 @@
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -6968,6 +6976,17 @@
       "dependentActions": []
     },
     {
+      "name": "DisableImageBlockPublicAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableImageBlockPublicAccess.html",
+      "description": "Grants permission to disable block public access for AMIs at the account level in the specified AWS Region",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DisableImageDeprecation",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableImageDeprecation.html",
       "description": "Grants permission to cancel the deprecation of the specified AMI",
@@ -7479,6 +7498,17 @@
       "dependentActions": []
     },
     {
+      "name": "EnableImageBlockPublicAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableImageBlockPublicAccess.html",
+      "description": "Grants permission to enable block public access for AMIs at the account level in the specified AWS Region",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "EnableImageDeprecation",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableImageDeprecation.html",
       "description": "Grants permission to enable deprecation of the specified AMI at the specified date and time",
@@ -7688,6 +7718,8 @@
         "image*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
         "ec2:ImageID",
         "ec2:ImageType",
@@ -7695,8 +7727,6 @@
         "ec2:Public",
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -7910,6 +7940,17 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetHostReservationPurchasePreview.html",
       "description": "Grants permission to preview a reservation purchase with configurations that match those of a Dedicated Host",
       "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetImageBlockPublicAccessState",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html",
+      "description": "Grants permission to get the current state of block public access for AMIs at the account level in the specified AWS Region",
+      "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
         "ec2:Region"
@@ -8453,11 +8494,15 @@
         "snapshot"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:ImageID",
         "ec2:ImageType",
         "ec2:Owner",
         "ec2:Public",
         "ec2:RootDeviceType",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
         "ec2:Owner",
         "ec2:ParentVolume",
@@ -8465,8 +8510,6 @@
         "ec2:SnapshotID",
         "ec2:SnapshotTime",
         "ec2:VolumeSize",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -8539,13 +8582,15 @@
         "snapshot*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:Owner",
         "ec2:ParentVolume",
         "ec2:SnapshotID",
         "ec2:SnapshotTime",
         "ec2:VolumeSize",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -10708,6 +10753,8 @@
         "subnet"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
         "ec2:ImageID",
         "ec2:ImageType",
@@ -10749,8 +10796,6 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:SubnetID",
         "ec2:Vpc",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -11084,6 +11129,8 @@
         "ec2:Public",
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
         "ec2:InstanceAutoRecovery",
@@ -11101,6 +11148,8 @@
         "ec2:ProductCode",
         "ec2:RootDeviceType",
         "ec2:Tenancy",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:AssociatePublicIpAddress",
         "ec2:AuthorizedService",
         "ec2:AvailabilityZone",
@@ -11122,6 +11171,8 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:SubnetID",
         "ec2:Vpc",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:AvailabilityZone",
         "ec2:Encrypted",
         "ec2:IsLaunchTemplateResource",
@@ -11166,8 +11217,6 @@
         "ec2:SnapshotID",
         "ec2:SnapshotTime",
         "ec2:VolumeSize",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -11386,10 +11435,10 @@
         "network-insights-path*"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": [

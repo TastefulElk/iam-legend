@@ -15,7 +15,7 @@
     {
       "name": "CopyBackupToRegion",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CopyBackupToRegion.html",
-      "description": "Creates a copy of a backup in the specified region",
+      "description": "Grants permission to create a copy of a backup in the specified region",
       "accessLevel": "Write",
       "resourceTypes": [
         "backup*"
@@ -24,12 +24,16 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "cloudhsm:CopyBackupToRegion",
+        "cloudhsm:TagResource",
+        "cloudhsm:UntagResource"
+      ]
     },
     {
       "name": "CreateCluster",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateCluster.html",
-      "description": "Creates a new AWS CloudHSM cluster",
+      "description": "Grants permission to create a new AWS CloudHSM cluster",
       "accessLevel": "Write",
       "resourceTypes": [
         "backup"
@@ -38,7 +42,16 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "cloudhsm:TagResource",
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:CreateSecurityGroup",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:RevokeSecurityGroupEgress",
+        "iam:CreateServiceLinkedRole"
+      ]
     },
     {
       "name": "CreateHapg",
@@ -52,13 +65,23 @@
     {
       "name": "CreateHsm",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html",
-      "description": "Creates a new hardware security module (HSM) in the specified AWS CloudHSM cluster",
+      "description": "Grants permission to create a new hardware security module (HSM) in the specified AWS CloudHSM cluster",
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:CreateNetworkInterface",
+        "ec2:CreateSecurityGroup",
+        "ec2:DeleteNetworkInterface",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:RevokeSecurityGroupEgress"
+      ]
     },
     {
       "name": "CreateLunaClient",
@@ -72,7 +95,7 @@
     {
       "name": "DeleteBackup",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DeleteBackup.html",
-      "description": "Deletes the specified CloudHSM backup",
+      "description": "Grants permission to delete the specified CloudHSM backup",
       "accessLevel": "Write",
       "resourceTypes": [
         "backup*"
@@ -83,13 +106,16 @@
     {
       "name": "DeleteCluster",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DeleteCluster.html",
-      "description": "Deletes the specified AWS CloudHSM cluster",
+      "description": "Grants permission to delete the specified AWS CloudHSM cluster",
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DeleteNetworkInterface",
+        "ec2:DeleteSecurityGroup"
+      ]
     },
     {
       "name": "DeleteHapg",
@@ -103,11 +129,13 @@
     {
       "name": "DeleteHsm",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DeleteHsm.html",
-      "description": "Deletes the specified HSM",
+      "description": "Grants permission to delete the specified HSM",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DeleteNetworkInterface"
+      ]
     },
     {
       "name": "DeleteLunaClient",
@@ -121,7 +149,7 @@
     {
       "name": "DescribeBackups",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeBackups.html",
-      "description": "Gets information about backups of AWS CloudHSM clusters",
+      "description": "Grants permission to get information about backups of AWS CloudHSM clusters",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -130,7 +158,7 @@
     {
       "name": "DescribeClusters",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html",
-      "description": "Gets information about AWS CloudHSM clusters",
+      "description": "Grants permission to get information about AWS CloudHSM clusters",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -175,7 +203,7 @@
     {
       "name": "InitializeCluster",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_InitializeCluster.html",
-      "description": "Claims an AWS CloudHSM cluster",
+      "description": "Grants permission to claim an AWS CloudHSM cluster",
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*"
@@ -222,7 +250,7 @@
     {
       "name": "ListTags",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_ListTags.html",
-      "description": "Gets a list of tags for the specified AWS CloudHSM cluster",
+      "description": "Grants permission to get a list of tags for the specified AWS CloudHSM cluster",
       "accessLevel": "Read",
       "resourceTypes": [
         "backup",
@@ -243,7 +271,7 @@
     {
       "name": "ModifyBackupAttributes",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_ModifyBackupAttributes.html",
-      "description": "Modifies attributes for AWS CloudHSM backup",
+      "description": "Grants permission to modify attributes for an AWS CloudHSM backup",
       "accessLevel": "Write",
       "resourceTypes": [
         "backup*"
@@ -254,7 +282,7 @@
     {
       "name": "ModifyCluster",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_ModifyCluster.html",
-      "description": "Modifies AWS CloudHSM cluster",
+      "description": "Grants permission to modify AWS CloudHSM cluster",
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*"
@@ -301,7 +329,7 @@
     {
       "name": "RestoreBackup",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_RestoreBackup.html",
-      "description": "Restores the specified CloudHSM backup",
+      "description": "Grants permission to restore the specified CloudHSM backup",
       "accessLevel": "Write",
       "resourceTypes": [
         "backup*"
@@ -312,7 +340,7 @@
     {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_TagResource.html",
-      "description": "Adds or overwrites one or more tags for the specified AWS CloudHSM cluster",
+      "description": "Grants permission to add or overwrite one or more tags for the specified AWS CloudHSM cluster",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "backup",
@@ -327,7 +355,7 @@
     {
       "name": "UntagResource",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_UntagResource.html",
-      "description": "Removes the specified tag or tags from the specified AWS CloudHSM cluster",
+      "description": "Grants permission to remove the specified tag or tags from the specified AWS CloudHSM cluster",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "backup",
