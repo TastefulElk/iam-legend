@@ -22,9 +22,9 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "ecs:capacity-provider",
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "ecs:capacity-provider"
       ],
       "dependentActions": []
     },
@@ -37,14 +37,15 @@
         "service*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
         "ecs:cluster",
         "ecs:capacity-provider",
         "ecs:task-definition",
         "ecs:enable-execute-command",
         "ecs:enable-service-connect",
-        "ecs:namespace",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "ecs:namespace"
       ],
       "dependentActions": []
     },
@@ -55,12 +56,12 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ecs:cluster",
         "ecs:capacity-provider",
         "ecs:service",
-        "ecs:task-definition",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "ecs:task-definition"
       ],
       "dependentActions": []
     },
@@ -70,7 +71,9 @@
       "description": "Grants permission to modify the ARN and resource ID format of a resource for a specified IAM user, IAM role, or the root user for an account. You can specify whether the new ARN and resource ID format are disabled for new resources that are created",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ecs:account-setting"
+      ],
       "dependentActions": []
     },
     {
@@ -82,6 +85,7 @@
         "container-instance*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster"
       ],
       "dependentActions": []
@@ -94,7 +98,9 @@
       "resourceTypes": [
         "capacity-provider*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -105,7 +111,9 @@
       "resourceTypes": [
         "cluster*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -117,6 +125,7 @@
         "service*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster"
       ],
       "dependentActions": []
@@ -129,7 +138,9 @@
       "resourceTypes": [
         "task-definition*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -141,6 +152,7 @@
         "task-set*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster",
         "ecs:service"
       ],
@@ -154,7 +166,9 @@
       "resourceTypes": [
         "cluster*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -174,7 +188,9 @@
       "resourceTypes": [
         "capacity-provider*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -185,7 +201,9 @@
       "resourceTypes": [
         "cluster*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -197,6 +215,7 @@
         "container-instance*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster"
       ],
       "dependentActions": []
@@ -210,6 +229,7 @@
         "service*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster"
       ],
       "dependentActions": []
@@ -232,6 +252,7 @@
         "task-set*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster",
         "ecs:service"
       ],
@@ -246,6 +267,7 @@
         "task*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster"
       ],
       "dependentActions": []
@@ -269,6 +291,7 @@
         "task"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster",
         "ecs:container-name",
         "ecs:task"
@@ -284,6 +307,7 @@
         "task*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster"
       ],
       "dependentActions": []
@@ -305,7 +329,9 @@
       "resourceTypes": [
         "cluster*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -325,7 +351,9 @@
       "resourceTypes": [
         "cluster*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -361,7 +389,9 @@
         "task",
         "task-definition"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -391,6 +421,7 @@
         "container-instance*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster"
       ],
       "dependentActions": []
@@ -414,7 +445,9 @@
       "description": "Grants permission to modify the ARN and resource ID format of a resource for a specified IAM user, IAM role, or the root user for an account. You can specify whether the new ARN and resource ID format are enabled for new resources that are created. Enabling this setting is required to use new Amazon ECS features such as resource tagging",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ecs:account-setting"
+      ],
       "dependentActions": []
     },
     {
@@ -423,7 +456,9 @@
       "description": "Grants permission to modify the ARN and resource ID format of a resource type for all IAM users on an account for which no individual account setting has been set. Enabling this setting is required to use new Amazon ECS features such as resource tagging",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ecs:account-setting"
+      ],
       "dependentActions": []
     },
     {
@@ -435,6 +470,7 @@
         "container-instance*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster"
       ],
       "dependentActions": []
@@ -448,6 +484,7 @@
         "cluster*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:capacity-provider"
       ],
       "dependentActions": []
@@ -462,6 +499,7 @@
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": []
@@ -487,11 +525,12 @@
         "task-definition*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ecs:cluster",
         "ecs:capacity-provider",
-        "ecs:enable-execute-command",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "ecs:enable-execute-command"
       ],
       "dependentActions": []
     },
@@ -504,11 +543,12 @@
         "task-definition*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ecs:cluster",
         "ecs:container-instances",
-        "ecs:enable-execute-command",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "ecs:enable-execute-command"
       ],
       "dependentActions": []
     },
@@ -534,6 +574,7 @@
         "task*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster"
       ],
       "dependentActions": []
@@ -546,7 +587,9 @@
       "resourceTypes": [
         "cluster*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -557,7 +600,9 @@
       "resourceTypes": [
         "cluster*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -568,7 +613,9 @@
       "resourceTypes": [
         "cluster*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -587,6 +634,7 @@
       ],
       "conditionKeys": [
         "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "ecs:CreateAction"
       ],
@@ -607,8 +655,8 @@
         "task-set"
       ],
       "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -620,7 +668,9 @@
       "resourceTypes": [
         "capacity-provider*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -631,7 +681,9 @@
       "resourceTypes": [
         "cluster*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -642,7 +694,9 @@
       "resourceTypes": [
         "cluster*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -654,6 +708,7 @@
         "container-instance*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster"
       ],
       "dependentActions": []
@@ -667,6 +722,7 @@
         "container-instance*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster"
       ],
       "dependentActions": []
@@ -680,6 +736,7 @@
         "service*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster",
         "ecs:capacity-provider",
         "ecs:enable-execute-command",
@@ -698,6 +755,7 @@
         "service*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster"
       ],
       "dependentActions": []
@@ -711,6 +769,7 @@
         "task*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster"
       ],
       "dependentActions": []
@@ -724,6 +783,7 @@
         "task-set*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "ecs:cluster",
         "ecs:service"
       ],

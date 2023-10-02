@@ -93,6 +93,18 @@
       "dependentActions": []
     },
     {
+      "name": "CreateConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_CreateConnector.html",
+      "description": "Grants permission to create connector",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateLaunchConfigurationTemplate",
       "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_CreateLaunchConfigurationTemplate.html",
       "description": "Grants permission to create launch configuration template",
@@ -147,6 +159,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "ApplicationResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_DeleteConnector.html",
+      "description": "Grants permission to delete connector",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConnectorResource*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -473,6 +496,15 @@
       "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListApplications.html",
       "description": "Grants permission to list application summaries",
       "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListConnectors",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_ListConnectors.html",
+      "description": "Grants permission to list connectors",
+      "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -970,6 +1002,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "ApplicationResource",
+        "ConnectorResource",
         "JobResource",
         "LaunchConfigurationTemplateResource",
         "ReplicationConfigurationTemplateResource",
@@ -1032,6 +1065,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "ApplicationResource",
+        "ConnectorResource",
         "JobResource",
         "LaunchConfigurationTemplateResource",
         "ReplicationConfigurationTemplateResource",
@@ -1111,6 +1145,17 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateConnector.html",
+      "description": "Grants permission to update connector",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConnectorResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateLaunchConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateLaunchConfiguration.html",
       "description": "Grants permission to update launch configuration",
@@ -1150,6 +1195,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "ReplicationConfigurationTemplateResource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSourceServer",
+      "documentationUrl": "https://docs.aws.amazon.com/mgn/latest/APIReference/API_UpdateSourceServer.html",
+      "description": "Grants permission to update source server",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SourceServerResource*"
       ],
       "conditionKeys": [],
       "dependentActions": []

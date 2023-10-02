@@ -12,7 +12,10 @@
         "recoveryPoint*",
         "snapshot*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -48,7 +51,10 @@
       "resourceTypes": [
         "snapshot*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -362,6 +368,8 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "namespace",
+        "recoveryPoint",
+        "snapshot",
         "workgroup"
       ],
       "conditionKeys": [
@@ -378,6 +386,8 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "namespace",
+        "recoveryPoint",
+        "snapshot",
         "workgroup"
       ],
       "conditionKeys": [

@@ -74,6 +74,17 @@
       "dependentActions": []
     },
     {
+      "name": "CreateRetrainingScheduler",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_CreateRetrainingScheduler.html",
+      "description": "Grants permission to create a retraining scheduler for a trained model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteDataset",
       "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_DeleteDataset.html",
       "description": "Grants permission to delete a dataset",
@@ -142,8 +153,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteRetrainingScheduler",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_DeleteRetrainingScheduler.html",
+      "description": "Grants permission to delete a retraining scheduler of a trained model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeDataIngestionJob",
-      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_DescribeDataIngestionJob",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_DescribeDataIngestionJob.html",
       "description": "Grants permission to describe a data ingestion job",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -219,6 +241,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeRetrainingScheduler",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_DescribeRetrainingScheduler.html",
+      "description": "Grants permission to describe a retraining scheduler of a trained model",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "Describelabel",
       "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_DescribeLabel.html",
       "description": "Grants permission to describe a label",
@@ -255,7 +288,8 @@
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "lookoutequipment:IsImportingData"
       ],
       "dependentActions": []
     },
@@ -353,6 +387,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListRetrainingSchedulers",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_ListRetrainingSchedulers.html",
+      "description": "Grants permission to list the retraining schedulers in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListSensorStatistics",
       "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_ListSensorStatistics.html",
       "description": "Grants permission to list the sensor statistics for a particular dataset or an ingestion job",
@@ -414,12 +457,34 @@
       "dependentActions": []
     },
     {
+      "name": "StartRetrainingScheduler",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_StartRetrainingScheduler.html",
+      "description": "Grants permission to start a retraining scheduler of a trained model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StopInferenceScheduler",
       "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_StopInferenceScheduler.html",
       "description": "Grants permission to stop an inference scheduler",
       "accessLevel": "Write",
       "resourceTypes": [
         "inference-scheduler*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopRetrainingScheduler",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_StopRetrainingScheduler.html",
+      "description": "Grants permission to stop a retraining scheduler of a trained model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -489,6 +554,28 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "label-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateModel",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_UpdateModel.html",
+      "description": "Grants permission to update a trained model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRetrainingScheduler",
+      "documentationUrl": "https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/API_UpdateRetrainingScheduler.html",
+      "description": "Grants permission to update a retraining scheduler of a trained model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "model*"
       ],
       "conditionKeys": [],
       "dependentActions": []

@@ -580,6 +580,35 @@
       "dependentActions": []
     },
     {
+      "name": "CreateView",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateView.html",
+      "description": "Grants permission to create a view in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "customer-managed-view*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateViewVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateViewVersion.html",
+      "description": "Grants permission to create a view version in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "customer-managed-view*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateVocabulary",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateVocabulary.html",
       "description": "Grants permission to create a vocabulary in an Amazon Connect instance",
@@ -867,6 +896,34 @@
         "hierarchy-group*"
       ],
       "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteView",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteView.html",
+      "description": "Grants permission to delete a view in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "customer-managed-view*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteViewVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteViewVersion.html",
+      "description": "Grants permission to delete a view version in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "customer-managed-view-version*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "connect:InstanceId"
       ],
       "dependentActions": []
@@ -1190,6 +1247,23 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeView",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeView.html",
+      "description": "Grants permission to describe a view in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "aws-managed-view*",
+        "customer-managed-view*",
+        "qualified-aws-managed-view*",
+        "qualified-customer-managed-view*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeVocabulary",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeVocabulary.html",
       "description": "Grants permission to describe a vocabulary in an Amazon Connect instance",
@@ -1408,6 +1482,7 @@
         "routing-profile*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "connect:InstanceId"
       ],
       "dependentActions": []
@@ -1424,6 +1499,7 @@
         "user*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "connect:InstanceId"
       ],
       "dependentActions": []
@@ -1465,6 +1541,7 @@
         "queue*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "connect:InstanceId"
       ],
       "dependentActions": []
@@ -1480,7 +1557,10 @@
         "routing-profile*",
         "user*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
       "dependentActions": []
     },
     {
@@ -2011,6 +2091,34 @@
       "dependentActions": []
     },
     {
+      "name": "ListViewVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListViewVersions.html",
+      "description": "Grants permission to list the view versions in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "aws-managed-view*",
+        "customer-managed-view*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListViews",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListViews.html",
+      "description": "Grants permission to list the views in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "MonitorContact",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_MonitorContact.html",
       "description": "Grants permission to monitor an ongoing contact",
@@ -2416,6 +2524,7 @@
         "contact-evaluation",
         "contact-flow",
         "contact-flow-module",
+        "customer-managed-view",
         "evaluation-form",
         "hierarchy-group",
         "hours-of-operation",
@@ -2466,6 +2575,7 @@
         "contact-evaluation",
         "contact-flow",
         "contact-flow-module",
+        "customer-managed-view",
         "evaluation-form",
         "hierarchy-group",
         "hours-of-operation",
@@ -3066,6 +3176,34 @@
       "resourceTypes": [
         "security-profile*",
         "user*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateViewContent",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateViewContent.html",
+      "description": "Grants permission to update a view's content in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "customer-managed-view*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateViewMetadata",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateViewMetadata.html",
+      "description": "Grants permission to update a view's metadata in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "customer-managed-view*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",

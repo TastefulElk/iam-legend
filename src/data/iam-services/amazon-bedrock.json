@@ -4,6 +4,28 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonbedrock.html",
   "actions": [
     {
+      "name": "AssociateAgentKnowledgeBase",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to associate a knowledge base with an agent",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateThirdPartyKnowledgeBase",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to use 3rd party platform to store knowledge data",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "bedrock:ThirdPartyKnowledgeBaseCredentialsSecretArn"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateAgent",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
       "description": "Grants permission to create a new agent and a test agent alias pointing to the DRAFT agent version",
@@ -49,6 +71,28 @@
       "dependentActions": []
     },
     {
+      "name": "CreateDataSource",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to create a data source",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateKnowledgeBase",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to create a knowledge base",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateModelCustomizationJob",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelCustomizationJob.html",
       "description": "Grants permission to create a job for customizing the model with your custom training data",
@@ -71,6 +115,39 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "custom-model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDataSource",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to delete a data source",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteKnowledgeBase",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to delete a knowledge base",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateAgentKnowledgeBase",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to disassociate a knowledge base from the agent",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -109,6 +186,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetAgentKnowledgeBase",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to describe a knowledge base associated with an agent",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetAgentVersion",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
       "description": "Grants permission to retrieve an existing version of an agent",
@@ -126,6 +214,50 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "custom-model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDataSource",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to retrieve an existing data source",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetFoundationModel",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html",
+      "description": "Grants permission to get the properties associated with a Bedrock foundation model",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "foundation-model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetIngestionJob",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to retrieve an existing ingestion job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetKnowledgeBase",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to retrieve an existing knowledge base",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "knowledge-base*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -199,6 +331,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListAgentKnowledgeBases",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to list knowledge bases associated with an agent",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListAgentVersions",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
       "description": "Grants permission to list existing versions of an agent",
@@ -228,9 +371,40 @@
       "dependentActions": []
     },
     {
+      "name": "ListDataSources",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to list existing data sources in an knowledge base",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListFoundationModels",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html",
       "description": "Grants permission to list Bedrock foundation models that you can use",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListIngestionJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to list ingestion jobs in a data source",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListKnowledgeBases",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to list existing knowledge bases",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -253,6 +427,28 @@
       "resourceTypes": [
         "custom-model*",
         "model-customization-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "QueryKnowledgeBase",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to retrieve ingested data from a knowledge base.",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartIngestionJob",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to start an ingestion job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "knowledge-base*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -326,6 +522,39 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "agent-alias*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAgentKnowledgeBase",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to update a knowledge base associated with an agent",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDataSource",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to update a data source",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateKnowledgeBase",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to update a knowledge base",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "knowledge-base*"
       ],
       "conditionKeys": [],
       "dependentActions": []

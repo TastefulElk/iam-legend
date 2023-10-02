@@ -16,10 +16,12 @@
     },
     {
       "name": "CopyFromBackupVault",
-      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_StartCopyJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/vaults.html.html",
       "description": "Grants permission to copy from a backup vault",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "recoveryPoint*"
+      ],
       "conditionKeys": [
         "backup:CopyTargets",
         "backup:CopyTargetOrgPaths"
@@ -28,10 +30,12 @@
     },
     {
       "name": "CopyIntoBackupVault",
-      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_StartCopyJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/vaults.html",
       "description": "Grants permission to copy into a backup vault",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "backupVault*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}"
       ],
@@ -109,7 +113,7 @@
     {
       "name": "CreateLogicallyAirGappedBackupVault",
       "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateLogicallyAirGappedBackupVault.html",
-      "description": "This request grants permission to create a new logically air-gapped backup vault, a logical container where backups are stored",
+      "description": "Grants permission to create a new logically air-gapped backup vault, a logical container where backups are stored",
       "accessLevel": "Write",
       "resourceTypes": [
         "backupVault*"
@@ -205,7 +209,7 @@
     },
     {
       "name": "DeleteBackupVaultSharingPolicy",
-      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateFortressVault.html",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/logicallyairgappedvault.html",
       "description": "Grants permission to delete backup vault sharing policy",
       "accessLevel": "Permissions management",
       "resourceTypes": [
@@ -449,7 +453,7 @@
     },
     {
       "name": "GetBackupVaultSharingPolicy",
-      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateFortressVault.html",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/logicallyairgappedvault.html",
       "description": "Grants permission to get backup vault sharing policy",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -707,7 +711,7 @@
     },
     {
       "name": "PutBackupVaultSharingPolicy",
-      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateFortressVault.html",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/logicallyairgappedvault.html",
       "description": "Grants permission to add a sharing policy to the backup vault",
       "accessLevel": "Permissions management",
       "resourceTypes": [

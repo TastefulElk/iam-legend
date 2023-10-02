@@ -40,7 +40,9 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "ExportVectorEnrichmentJob",
@@ -53,7 +55,9 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "GetEarthObservationJob",
@@ -90,7 +94,9 @@
         "EarthObservationJob*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "GetVectorEnrichmentJob",
@@ -168,7 +174,10 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole",
+        "sagemaker-geospatial:TagResource"
+      ]
     },
     {
       "name": "StartVectorEnrichmentJob",
@@ -182,7 +191,10 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole",
+        "sagemaker-geospatial:TagResource"
+      ]
     },
     {
       "name": "StopEarthObservationJob",

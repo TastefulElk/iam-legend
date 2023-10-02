@@ -12,12 +12,14 @@
         "association",
         "automation-execution",
         "document",
+        "instance",
         "maintenancewindow",
         "managed-instance",
         "opsitem",
         "opsmetadata",
         "parameter",
-        "patchbaseline"
+        "patchbaseline",
+        "task"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -79,6 +81,7 @@
         "managed-instance"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
@@ -94,7 +97,11 @@
         "instance",
         "managed-instance"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1198,7 +1205,10 @@
         "instance",
         "managed-instance"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:SourceInstanceARN",
+        "ec2:SourceInstanceARN"
+      ],
       "dependentActions": []
     },
     {
@@ -1310,12 +1320,14 @@
         "association",
         "automation-execution",
         "document",
+        "instance",
         "maintenancewindow",
         "managed-instance",
         "opsitem",
         "opsmetadata",
         "parameter",
-        "patchbaseline"
+        "patchbaseline",
+        "task"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -1493,7 +1505,10 @@
         "instance",
         "managed-instance"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:SourceInstanceARN",
+        "ec2:SourceInstanceARN"
+      ],
       "dependentActions": []
     },
     {
@@ -1539,7 +1554,10 @@
         "instance",
         "managed-instance"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:SourceInstanceARN",
+        "ec2:SourceInstanceARN"
+      ],
       "dependentActions": []
     },
     {
@@ -1551,7 +1569,10 @@
         "instance",
         "managed-instance"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:SourceInstanceARN",
+        "ec2:SourceInstanceARN"
+      ],
       "dependentActions": []
     },
     {
