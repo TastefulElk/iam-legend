@@ -19,6 +19,19 @@
       "dependentActions": []
     },
     {
+      "name": "CreateCustomDomainAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateCustomDomainAssociation.html",
+      "description": "Grants permission to create a custom domain association in Amazon Redshift Serverless",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "acm:DescribeCertificate"
+      ]
+    },
+    {
       "name": "CreateEndpointAccess",
       "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateEndpointAccess.html",
       "description": "Grants permission to create an Amazon Redshift Serverless managed VPC endpoint",
@@ -78,6 +91,17 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCustomDomainAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_DeleteCustomDomainAssociation.html",
+      "description": "Grants permission to delete a custom domain association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workgroup*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -143,10 +167,30 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeOneTimeCredit",
+      "documentationUrl": "https://aws.amazon.com/redshift/free-trial/",
+      "description": "Grants permission to see on the Amazon Redshift Serverless console the remaining number of free trial credits and their expiration date",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetCredentials",
       "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_GetCredentials.html",
       "description": "Grants permission to get a database user name and temporary password with temporary authorization to log on to Amazon Redshift Serverless",
       "accessLevel": "Write",
+      "resourceTypes": [
+        "workgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCustomDomainAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_GetCustomDomainAssociation.html",
+      "description": "Grants permission to get information about a specific custom domain association",
+      "accessLevel": "Read",
       "resourceTypes": [
         "workgroup*"
       ],
@@ -232,6 +276,15 @@
       "resourceTypes": [
         "workgroup*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCustomDomainAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_ListCustomDomainAssociations.html",
+      "description": "Grants permission to list custom domain associations in Amazon Redshift Serverless",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -394,6 +447,19 @@
         "aws:TagKeys"
       ],
       "dependentActions": []
+    },
+    {
+      "name": "UpdateCustomDomainAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_UpdateCustomDomainAssociation.html",
+      "description": "Grants permission to update a certificate associated with a custom domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workgroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "acm:DescribeCertificate"
+      ]
     },
     {
       "name": "UpdateEndpointAccess",

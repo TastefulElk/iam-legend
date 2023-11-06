@@ -20,7 +20,7 @@
     {
       "name": "ConnectCustomKeyStore",
       "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ConnectCustomKeyStore.html",
-      "description": "Controls permission to connect or reconnect a custom key store to its associated AWS CloudHSM cluster",
+      "description": "Controls permission to connect or reconnect a custom key store to its associated AWS CloudHSM cluster or external key manager outside of AWS",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
@@ -46,7 +46,7 @@
     {
       "name": "CreateCustomKeyStore",
       "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateCustomKeyStore.html",
-      "description": "Controls permission to create a custom key store that is associated with an AWS CloudHSM cluster that you own and manage",
+      "description": "Controls permission to create a custom key store that is backed by an AWS CloudHSM cluster or an external key manager outside of AWS",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
@@ -219,7 +219,7 @@
     {
       "name": "DisconnectCustomKeyStore",
       "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_DisconnectCustomKeyStore.html",
-      "description": "Controls permission to disconnect the custom key store from its associated AWS CloudHSM cluster",
+      "description": "Controls permission to disconnect the custom key store from its associated AWS CloudHSM cluster or external key manager outside of AWS",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
@@ -516,9 +516,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ListRetirableGrants.html",
       "description": "Controls permission to view grants in which the specified principal is the retiring principal. Other principals might be able to retire the grant and this principal might be able to retire other grants",
       "accessLevel": "List",
-      "resourceTypes": [
-        "key*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },

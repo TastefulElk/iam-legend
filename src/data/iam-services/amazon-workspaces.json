@@ -28,6 +28,20 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateWorkspaceApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_AssociateWorkspaceApplication.html",
+      "description": "Grants permission to associate a workspace application with a WorkSpace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceapplication*",
+        "workspaceid*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "AuthorizeIpRules",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_AuthorizeIpRules.html",
       "description": "Grants permission to add rules to IP access control groups",
@@ -36,7 +50,9 @@
         "workspaceipgroup*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "workspaces:UpdateRulesOfIpGroup"
+      ]
     },
     {
       "name": "CopyWorkspaceImage",
@@ -256,6 +272,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeployWorkspaceApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DeployWorkspaceApplications.html",
+      "description": "Grants permission to deploy all pending workspace applications on a WorkSpace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceid*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeregisterWorkspaceDirectory",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DeregisterWorkspaceDirectory.html",
       "description": "Grants permission to deregister directories from use with Amazon WorkSpaces",
@@ -282,6 +311,41 @@
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeApplicationAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeApplicationAssociations.html",
+      "description": "Grants permission to retrieve information about resources associated with a WorkSpace application",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "workspaceapplication*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeApplications.html",
+      "description": "Grants permission to obtain information about WorkSpace applications",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeBundleAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeBundleAssociations.html",
+      "description": "Grants permission to retrieve information about resources associated with a WorkSpace bundle",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "workspacebundle*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -338,6 +402,19 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeImageAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeImageAssociations.html",
+      "description": "Grants permission to retrieve information about resources associated with a WorkSpace image",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "workspaceimage*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeIpGroups",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeIpGroups.html",
       "description": "Grants permission to retrieve information about IP access control groups",
@@ -355,6 +432,19 @@
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorkspaceAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceAssociations.html",
+      "description": "Grants permission to retrieve information about resources associated with a WorkSpace",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "workspaceid*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -445,6 +535,20 @@
         "workspaceipgroup*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateWorkspaceApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DisassociateWorkspaceApplication.html",
+      "description": "Grants permission to disassociate a workspace application from a WorkSpace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspaceapplication*",
+        "workspaceid*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -644,7 +748,9 @@
         "workspaceipgroup*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "workspaces:UpdateRulesOfIpGroup"
+      ]
     },
     {
       "name": "StartWorkspaces",
@@ -723,7 +829,10 @@
         "workspaceipgroup*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "workspaces:AuthorizeIpRules",
+        "workspaces:RevokeIpRules"
+      ]
     },
     {
       "name": "UpdateWorkspaceBundle",

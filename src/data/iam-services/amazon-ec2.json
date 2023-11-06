@@ -210,8 +210,10 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:SecurityGroupID",
+        "ec2:Vpc",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:Tenancy",
         "ec2:VpcID",
         "ec2:Region"
       ],
@@ -638,8 +640,10 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceID",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -750,8 +754,10 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceID",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -1419,6 +1425,8 @@
         "vpc-flow-log*",
         "network-interface",
         "subnet",
+        "transit-gateway",
+        "transit-gateway-attachment",
         "vpc"
       ],
       "conditionKeys": [
@@ -1435,6 +1443,10 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:SubnetID",
         "ec2:Vpc",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
@@ -1972,10 +1984,17 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceID",
+        "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
+        "ec2:MetadataHttpEndpoint",
+        "ec2:MetadataHttpPutResponseHopLimit",
+        "ec2:MetadataHttpTokens",
         "ec2:PlacementGroup",
+        "ec2:ProductCode",
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
         "ec2:Tenancy",
@@ -2765,7 +2784,8 @@
       "description": "Grants permission to create a traffic mirror filter rule",
       "accessLevel": "Write",
       "resourceTypes": [
-        "traffic-mirror-filter*"
+        "traffic-mirror-filter*",
+        "traffic-mirror-filter-rule*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -2787,8 +2807,11 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
         "ec2:NetworkInterfaceID",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:Subnet",
+        "ec2:Vpc",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
@@ -5308,17 +5331,8 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeFastLaunchImages.html",
       "description": "Grants permission to describe fast-launch enabled Windows AMIs",
       "accessLevel": "List",
-      "resourceTypes": [
-        "image"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ImageID",
-        "ec2:ImageType",
-        "ec2:Owner",
-        "ec2:Public",
-        "ec2:ResourceTag/${TagKey}",
-        "ec2:RootDeviceType",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -6857,8 +6871,10 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceID",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -6971,6 +6987,26 @@
         "ec2:SnapshotID",
         "ec2:SnapshotTime",
         "ec2:VolumeSize",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisableImage",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableImage.html",
+      "description": "Grants permission to disable an AMI",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "image*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ImageID",
+        "ec2:ImageType",
+        "ec2:Owner",
+        "ec2:Public",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:RootDeviceType",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -7498,6 +7534,26 @@
       "dependentActions": []
     },
     {
+      "name": "EnableImage",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableImage.html",
+      "description": "Grants permission to re-enable a disabled AMI",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "image*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ImageID",
+        "ec2:ImageType",
+        "ec2:Owner",
+        "ec2:Public",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:RootDeviceType",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "EnableImageBlockPublicAccess",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableImageBlockPublicAccess.html",
       "description": "Grants permission to enable block public access for AMIs at the account level in the specified AWS Region",
@@ -7950,7 +8006,7 @@
       "name": "GetImageBlockPublicAccessState",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetImageBlockPublicAccessState.html",
       "description": "Grants permission to get the current state of block public access for AMIs at the account level in the specified AWS Region",
-      "accessLevel": "Write",
+      "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [
         "ec2:Region"
@@ -8157,8 +8213,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetNetworkInsightsAccessScopeAnalysisFindings.html",
       "description": "Grants permission to get the findings for one or more Network Access Scope analyses",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "network-insights-access-scope-analysis*"
+      ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -8168,8 +8228,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetNetworkInsightsAccessScopeContent.html",
       "description": "Grants permission to get the content for a specified Network Access Scope",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "network-insights-access-scope*"
+      ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -8732,8 +8796,10 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:SecurityGroupID",
+        "ec2:Vpc",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:Tenancy",
         "ec2:VpcID",
         "ec2:Region"
       ],
@@ -9025,8 +9091,22 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:Attribute/${AttributeName}",
+        "ec2:AvailabilityZone",
+        "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceID",
+        "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
+        "ec2:InstanceProfile",
+        "ec2:InstanceType",
+        "ec2:MetadataHttpEndpoint",
+        "ec2:MetadataHttpPutResponseHopLimit",
+        "ec2:MetadataHttpTokens",
+        "ec2:PlacementGroup",
+        "ec2:ProductCode",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:RootDeviceType",
+        "ec2:Tenancy",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -9635,8 +9715,10 @@
         "ec2:Attribute/${AttributeName}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
         "ec2:ResourceTag/${TagKey}",
         "ec2:SubnetID",
+        "ec2:Vpc",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -9849,9 +9931,12 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:SecurityGroupID",
+        "ec2:Vpc",
         "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
         "ec2:ResourceTag/${TagKey}",
         "ec2:SubnetID",
+        "ec2:Vpc",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -10613,7 +10698,8 @@
         "internet-gateway",
         "ipv4pool-ec2",
         "ipv6pool-ec2",
-        "subnet"
+        "subnet",
+        "vpn-gateway"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -10632,6 +10718,8 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:SubnetID",
         "ec2:Vpc",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -10886,8 +10974,10 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceID",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
@@ -11397,6 +11487,9 @@
         "ec2:InstanceMarketType",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
+        "ec2:MetadataHttpEndpoint",
+        "ec2:MetadataHttpPutResponseHopLimit",
+        "ec2:MetadataHttpTokens",
         "ec2:PlacementGroup",
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
@@ -11472,10 +11565,15 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceID",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
+        "ec2:MetadataHttpEndpoint",
+        "ec2:MetadataHttpPutResponseHopLimit",
+        "ec2:MetadataHttpTokens",
         "ec2:PlacementGroup",
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
@@ -11517,14 +11615,17 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:EbsOptimized",
+        "ec2:InstanceAutoRecovery",
         "ec2:InstanceID",
         "ec2:InstanceMarketType",
+        "ec2:InstanceMetadataTags",
         "ec2:InstanceProfile",
         "ec2:InstanceType",
         "ec2:MetadataHttpEndpoint",
         "ec2:MetadataHttpPutResponseHopLimit",
         "ec2:MetadataHttpTokens",
         "ec2:PlacementGroup",
+        "ec2:ProductCode",
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
         "ec2:Tenancy",

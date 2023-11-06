@@ -67,7 +67,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_CreateCustomLineItem.html",
       "description": "Grants permission to create a custom line item",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "billinggroup*"
+      ],
       "conditionKeys": [
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
@@ -79,7 +81,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_CreatePricingPlan.html",
       "description": "Grants permission to create a pricing plan",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "pricingrule*"
+      ],
       "conditionKeys": [
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
@@ -227,7 +231,6 @@
       "description": "Grants permission to list pricing plans associated with a pricing rule",
       "accessLevel": "List",
       "resourceTypes": [
-        "pricingplan*",
         "pricingrule*"
       ],
       "conditionKeys": [],
@@ -248,8 +251,7 @@
       "description": "Grants permission to list pricing rules associated to a pricing plan",
       "accessLevel": "List",
       "resourceTypes": [
-        "pricingplan*",
-        "pricingrule*"
+        "pricingplan*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -311,8 +313,7 @@
         "pricingrule"
       ],
       "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },

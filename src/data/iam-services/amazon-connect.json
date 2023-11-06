@@ -242,6 +242,20 @@
       "dependentActions": []
     },
     {
+      "name": "BatchGetFlowAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_BatchGetFlowAssociation.html",
+      "description": "Grants permission to get summary information about the flow associations for the specified Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ClaimPhoneNumber",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html",
       "description": "Grants permission to claim phone number resources in an Amazon Connect instance or traffic distribution group",
@@ -253,7 +267,8 @@
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "connect:InstanceId"
       ],
       "dependentActions": []
     },
@@ -370,6 +385,7 @@
       ],
       "dependentActions": [
         "app-integrations:CreateEventIntegrationAssociation",
+        "app-integrations:GetApplication",
         "cases:GetDomain",
         "connect:DescribeInstance",
         "ds:DescribeDirectories",
@@ -392,6 +408,19 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "contact*",
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreatePredefinedAttribute",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreatePredefinedAttribute.html",
+      "description": "Grants permission to create a predefined attribute in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
         "instance*"
       ],
       "conditionKeys": [
@@ -744,6 +773,19 @@
         "events:ListTargetsByRule",
         "events:RemoveTargets"
       ]
+    },
+    {
+      "name": "DeletePredefinedAttribute",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeletePredefinedAttribute.html",
+      "description": "Grants permission to delete a predefined attribute in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
     },
     {
       "name": "DeletePrompt",
@@ -1106,6 +1148,19 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribePredefinedAttribute",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePredefinedAttribute.html",
+      "description": "Grants permission to describe a predefined attribute in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
       ],
       "dependentActions": []
     },
@@ -1843,6 +1898,19 @@
       "dependentActions": []
     },
     {
+      "name": "ListPredefinedAttributes",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPredefinedAttributes.html",
+      "description": "Grants permission to list predefined attributes in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListPrompts",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPrompts.html",
       "description": "Grants permission to list prompt resources in an Amazon Connect instance",
@@ -1951,6 +2019,20 @@
         "instance*"
       ],
       "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSecurityProfileApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListSecurityProfileApplications.html",
+      "description": "Grants permission to list applications associated with a specific security profile in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "security-profile*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "connect:InstanceId"
       ],
       "dependentActions": []
@@ -2833,7 +2915,34 @@
         "traffic-distribution-group*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePhoneNumberMetadata",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePhoneNumberMetadata.html",
+      "description": "Grants permission to update the metadata of a phone number resource in an Amazon Connect instance or traffic distribution group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "phone-number*"
+      ],
+      "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePredefinedAttribute",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdatePredefinedAttribute.html",
+      "description": "Grants permission to update a predefined attribute in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
       ],
       "dependentActions": []
     },

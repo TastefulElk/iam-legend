@@ -28,7 +28,7 @@
     {
       "name": "CreateLensShare",
       "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateLensShare.html",
-      "description": "Grants permission to an owner of a lens to share with other AWS accounts and IAM Users",
+      "description": "Grants permission to an owner of a lens to share with other AWS accounts and IAM users",
       "accessLevel": "Write",
       "resourceTypes": [
         "lens*"
@@ -73,10 +73,33 @@
     {
       "name": "CreateProfileShare",
       "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateProfileShare.html",
-      "description": "Grants permission to an owner of a profile to share with other AWS accounts and IAM Users",
+      "description": "Grants permission to an owner of a profile to share with other AWS accounts and IAM users",
       "accessLevel": "Write",
       "resourceTypes": [
         "profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateReviewTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateReviewTemplate.html",
+      "description": "Grants permission to create a new review template",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTemplateShare",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_CreateTemplateShare.html",
+      "description": "Grants permission to an owner of a review template to share with other AWS accounts and IAM users",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "review-template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -144,6 +167,28 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteReviewTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteReviewTemplate.html",
+      "description": "Grants permission to delete an existing review template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "review-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTemplateShare",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_DeleteTemplateShare.html",
+      "description": "Grants permission to delete an existing review template share",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "review-template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -303,6 +348,41 @@
       "dependentActions": []
     },
     {
+      "name": "GetReviewTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetReviewTemplate.html",
+      "description": "Grants permission to retrieve the specified review template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "review-template*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetReviewTemplateAnswer",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetReviewTemplateAnswer.html",
+      "description": "Grants permission to retrieve the specified answer from the specified review template lens review",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "review-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetReviewTemplateLensReview",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetReviewTemplateLensReview.html",
+      "description": "Grants permission to retrieve the specified lens review of the specified review template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "review-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetWorkload",
       "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetWorkload.html",
       "description": "Grants permission to retrieve the specified workload",
@@ -452,6 +532,26 @@
       "dependentActions": []
     },
     {
+      "name": "ListReviewTemplateAnswers",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListReviewTemplateAnswers.html",
+      "description": "Grants permission to list the answers from the specified review template lens review",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "review-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListReviewTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListReviewTemplates.html",
+      "description": "Grants permission to list the review templates available to this account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListShareInvitations",
       "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListShareInvitations.html",
       "description": "Grants permission to list the workload share invitations of the specified account or user",
@@ -468,11 +568,23 @@
       "resourceTypes": [
         "lens",
         "profile",
+        "review-template",
         "workload"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTemplateShares",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_ListTemplateShares.html",
+      "description": "Grants permission to list all shares created for a review template",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "review-template*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -503,6 +615,7 @@
       "resourceTypes": [
         "lens",
         "profile",
+        "review-template",
         "workload"
       ],
       "conditionKeys": [
@@ -519,6 +632,7 @@
       "resourceTypes": [
         "lens",
         "profile",
+        "review-template",
         "workload"
       ],
       "conditionKeys": [
@@ -564,6 +678,39 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateReviewTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateReviewTemplate.html",
+      "description": "Grants permission to update properties of the specified review template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "review-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateReviewTemplateAnswer",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateReviewTemplateAnswer.html",
+      "description": "Grants permission to update properties of the specified review template answer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "review-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateReviewTemplateLensReview",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateReviewTemplateLensReview.html",
+      "description": "Grants permission to update properties of the specified review template lens review",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "review-template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -618,6 +765,17 @@
       "resourceTypes": [
         "profile*",
         "workload*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpgradeReviewTemplateLensReview",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpgradeReviewTemplateLensReview.html",
+      "description": "Grants permission to upgrade the specified lens review of the specified review template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "review-template*"
       ],
       "conditionKeys": [],
       "dependentActions": []

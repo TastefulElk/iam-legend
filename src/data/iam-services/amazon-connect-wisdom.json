@@ -56,6 +56,20 @@
       "dependentActions": []
     },
     {
+      "name": "CreateQuickResponse",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateQuickResponse.html",
+      "description": "Grants permission to create quick response",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "KnowledgeBase*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateSession",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateSession.html",
       "description": "Grants permission to create a session",
@@ -105,12 +119,35 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteImportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteImportJob.html",
+      "description": "Grants permission to delete a import job of a knowledge base",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "KnowledgeBase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteKnowledgeBase",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteKnowledgeBase.html",
       "description": "Grants permission to delete a knowledge base",
       "accessLevel": "Write",
       "resourceTypes": [
         "KnowledgeBase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteQuickResponse",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteQuickResponse.html",
+      "description": "Grants permission to delete quick response",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "KnowledgeBase*",
+        "QuickResponse*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -163,12 +200,35 @@
       "dependentActions": []
     },
     {
+      "name": "GetImportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetImportJob.html",
+      "description": "Grants permission to retrieve information about the import job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "KnowledgeBase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetKnowledgeBase",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetKnowledgeBase.html",
       "description": "Grants permission to retrieve information about the knowledge base",
       "accessLevel": "Read",
       "resourceTypes": [
         "KnowledgeBase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetQuickResponse",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetQuickResponse.html",
+      "description": "Grants permission to retrieve content",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "KnowledgeBase*",
+        "QuickResponse*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -228,11 +288,33 @@
       "dependentActions": []
     },
     {
+      "name": "ListImportJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListImportJobs.html",
+      "description": "Grants permission to list information about knowledge bases",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "KnowledgeBase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListKnowledgeBases",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListKnowledgeBases.html",
       "description": "Grants permission to list information about knowledge bases",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListQuickResponses",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListQuickResponses.html",
+      "description": "Grants permission to list the quick response with a knowledge base",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "KnowledgeBase*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -290,6 +372,21 @@
       "dependentActions": []
     },
     {
+      "name": "SearchQuickResponses",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_SearchQuickResponses.html",
+      "description": "Grants permission to search for quick response referencing a specified knowledge base",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "KnowledgeBase*"
+      ],
+      "conditionKeys": [
+        "wisdom:SearchFilter/RoutingProfileArn"
+      ],
+      "dependentActions": [
+        "wisdom:GetQuickResponse"
+      ]
+    },
+    {
       "name": "SearchSessions",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_SearchSessions.html",
       "description": "Grants permission to search for sessions referencing a specified assistant. Can be used to et a specific session resource by its name",
@@ -312,14 +409,36 @@
       "dependentActions": []
     },
     {
+      "name": "StartImportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartImportJob.html",
+      "description": "Grants permission to create multiple quick responses",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "KnowledgeBase*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_TagResource.html",
       "description": "Grants permission to add the specified tags to the specified resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "Assistant",
+        "AssistantAssociation",
+        "Content",
+        "KnowledgeBase",
+        "QuickResponse",
+        "Session"
+      ],
       "conditionKeys": [
         "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -328,9 +447,17 @@
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UntagResource.html",
       "description": "Grants permission to remove the specified tags from the specified resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "Assistant",
+        "AssistantAssociation",
+        "Content",
+        "KnowledgeBase",
+        "QuickResponse",
+        "Session"
+      ],
       "conditionKeys": [
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -353,6 +480,18 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "KnowledgeBase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateQuickResponse",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateQuickResponse.html",
+      "description": "Grants permission to update information or content of the quick response",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "KnowledgeBase*",
+        "QuickResponse*"
       ],
       "conditionKeys": [],
       "dependentActions": []

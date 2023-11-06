@@ -9,7 +9,8 @@
       "description": "Grants permission to associate a knowledge base with an agent",
       "accessLevel": "Write",
       "resourceTypes": [
-        "agent*"
+        "agent*",
+        "knowledge-base*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -30,10 +31,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
       "description": "Grants permission to create a new agent and a test agent alias pointing to the DRAFT agent version",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "agent*",
-        "agent-alias*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -54,7 +52,7 @@
       "description": "Grants permission to create a new alias for an agent",
       "accessLevel": "Write",
       "resourceTypes": [
-        "agent-alias*"
+        "agent*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -82,13 +80,20 @@
       "dependentActions": []
     },
     {
+      "name": "CreateFoundationModelAgreement",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html",
+      "description": "Grants permission to create a new foundation model agreement",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateKnowledgeBase",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
       "description": "Grants permission to create a knowledge base",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "knowledge-base*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -99,8 +104,22 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "custom-model*",
-        "foundation-model*",
-        "model-customization-job*"
+        "foundation-model*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateProvisionedModelThroughput",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateProvisionedModelThroughput.html",
+      "description": "Grants permission to create a new provisioned model throughput",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "custom-model*",
+        "foundation-model*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -131,6 +150,15 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteFoundationModelAgreement",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html",
+      "description": "Grants permission to delete a foundation model agreement that you created earlier",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteKnowledgeBase",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
       "description": "Grants permission to delete a knowledge base",
@@ -142,12 +170,33 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteModelInvocationLoggingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteModelInvocationLoggingConfiguration.html",
+      "description": "Grants permission to delete an existing Invocation logging configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteProvisionedModelThroughput",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteProvisionedModelThroughput.html",
+      "description": "Grants permission to delete a provisioned model throughput that you created earlier",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "provisioned-model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DisassociateAgentKnowledgeBase",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
       "description": "Grants permission to disassociate a knowledge base from the agent",
       "accessLevel": "Write",
       "resourceTypes": [
-        "agent*"
+        "agent*",
+        "knowledge-base*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -191,7 +240,8 @@
       "description": "Grants permission to describe a knowledge base associated with an agent",
       "accessLevel": "Read",
       "resourceTypes": [
-        "agent*"
+        "agent*",
+        "knowledge-base*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -241,6 +291,15 @@
       "dependentActions": []
     },
     {
+      "name": "GetFoundationModelAvailability",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html",
+      "description": "Grants permission to get the availability of a foundation model",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetIngestionJob",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
       "description": "Grants permission to retrieve an existing ingestion job",
@@ -274,10 +333,39 @@
       "dependentActions": []
     },
     {
+      "name": "GetModelInvocationLoggingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetModelInvocationLoggingConfiguration.html",
+      "description": "Grants permission to retrieve an existing Invocation logging configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetProvisionedModelThroughput",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetProvisionedModelThroughput.html",
+      "description": "Grants permission to retrieve a provisioned model throughput",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "provisioned-model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetUseCaseForModelAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html",
+      "description": "Grants permission to retrieve a use case for model access",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "InvokeAgent",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
       "description": "Grants permission to send user input (text-only) to the alias of an agent for Bedrock",
-      "accessLevel": "Write",
+      "accessLevel": "Read",
       "resourceTypes": [
         "agent-alias*"
       ],
@@ -286,24 +374,24 @@
     },
     {
       "name": "InvokeModel",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_InvokeModel.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html",
       "description": "Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body",
-      "accessLevel": "Write",
+      "accessLevel": "Read",
       "resourceTypes": [
-        "custom-model*",
-        "foundation-model*"
+        "foundation-model*",
+        "provisioned-model*"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "InvokeModelWithResponseStream",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_InvokeModelWithResponseStream.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html",
       "description": "Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body with streaming response",
-      "accessLevel": "Write",
+      "accessLevel": "Read",
       "resourceTypes": [
-        "custom-model*",
-        "foundation-model*"
+        "foundation-model*",
+        "provisioned-model*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -382,6 +470,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListFoundationModelAgreementOffers",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html",
+      "description": "Grants permission to get a list of foundation model agreement offers",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListFoundationModels",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html",
       "description": "Grants permission to list Bedrock foundation models that you can use",
@@ -420,14 +517,51 @@
       "dependentActions": []
     },
     {
+      "name": "ListProvisionedModelThroughputs",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListProvisionedModelThroughputs.html",
+      "description": "Grants permission to list provisioned model throughputs that you created earlier",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to list tags for a Bedrock resource",
       "accessLevel": "Read",
       "resourceTypes": [
         "custom-model*",
-        "model-customization-job*"
+        "model-customization-job*",
+        "provisioned-model*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutFoundationModelEntitlement",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html",
+      "description": "Grants permission to put entitlement to access a foundation model",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutModelInvocationLoggingConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutModelInvocationLoggingConfiguration.html",
+      "description": "Grants permission to create an existing Invocation logging configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutUseCaseForModelAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html",
+      "description": "Grants permission to put a use case for model access",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -471,7 +605,8 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "custom-model",
-        "model-customization-job"
+        "model-customization-job",
+        "provisioned-model"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -486,7 +621,8 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "custom-model",
-        "model-customization-job"
+        "model-customization-job",
+        "provisioned-model"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -532,7 +668,8 @@
       "description": "Grants permission to update a knowledge base associated with an agent",
       "accessLevel": "Write",
       "resourceTypes": [
-        "agent*"
+        "agent*",
+        "knowledge-base*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -555,6 +692,19 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateProvisionedModelThroughput",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_UpdateProvisionedModelThroughput.html",
+      "description": "Grants permission to update a provisioned model throughput that you created earlier",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "custom-model*",
+        "foundation-model*",
+        "provisioned-model*"
       ],
       "conditionKeys": [],
       "dependentActions": []
