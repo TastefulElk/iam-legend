@@ -464,6 +464,41 @@
       "dependentActions": []
     },
     {
+      "name": "CreateMediaPipelineKinesisVideoStreamPool",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaPipelineKinesisVideoStreamPool.html",
+      "description": "Grants permission to create kinesis video stream pool",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "kinesis:DescribeStream",
+        "kinesisvideo:CreateStream",
+        "kinesisvideo:GetDataEndpoint",
+        "kinesisvideo:ListStreams"
+      ]
+    },
+    {
+      "name": "CreateMediaStreamPipeline",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaStreamPipeline.html",
+      "description": "Grants permission to create a media stream pipeline",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "media-pipeline-kinesis-video-stream-pool*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "kinesisvideo:DescribeStream",
+        "kinesisvideo:GetDataEndpoint",
+        "kinesisvideo:PutMedia"
+      ]
+    },
+    {
       "name": "CreateMeeting",
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateMeeting.html",
       "description": "Grants permission to create a new Amazon Chime SDK meeting in the specified media Region, with no initial attendees",
@@ -876,6 +911,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "media-pipeline*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMediaPipelineKinesisVideoStreamPool",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_DeleteMediaPipelineKinesisVideoStreamPool.html",
+      "description": "Grants permission to delete kinesis video stream pool",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "media-pipeline-kinesis-video-stream-pool*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1484,6 +1530,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetMediaPipelineKinesisVideoStreamPool",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetMediaPipelineKinesisVideoStreamPool.html",
+      "description": "Grants permission to get an existing media pipeline",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "media-pipeline-kinesis-video-stream-pool*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetMeeting",
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_GetMeeting.html",
       "description": "Grants permission to get the meeting record for a specified meeting ID",
@@ -1623,11 +1680,12 @@
     },
     {
       "name": "GetSpeakerSearchTask",
-      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetSpeakerSearchTask.html",
-      "description": "Grants permission to get a speaker search task",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetSpeakerSearchTask.html",
+      "description": "Grants permission to get a speaker search task on the specified Amazon Chime resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "voice-connector*"
+        "media-pipeline",
+        "voice-connector"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1798,11 +1856,12 @@
     },
     {
       "name": "GetVoiceToneAnalysisTask",
-      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceToneAnalysisTask.html",
-      "description": "Grants permission to get a voice tone analysis task",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_GetVoiceToneAnalysisTask.html",
+      "description": "Grants permission to get a voice tone analysis task on the specified Amazon Chime resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "voice-connector*"
+        "media-pipeline",
+        "voice-connector"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2144,6 +2203,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListMediaPipelineKinesisVideoStreamPools",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaPipelineKinesisVideoStreamPools.html",
+      "description": "Grants permission to list media pipelines",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListMediaPipelines",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_ListMediaPipelines.html",
       "description": "Grants permission to list media pipelines",
@@ -2292,6 +2360,7 @@
         "channel-flow",
         "media-insights-pipeline-configuration",
         "media-pipeline",
+        "media-pipeline-kinesis-video-stream-pool",
         "meeting",
         "sip-media-application",
         "voice-connector",
@@ -2724,22 +2793,24 @@
     },
     {
       "name": "StartSpeakerSearchTask",
-      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_StartSpeakerSearchTask.html",
-      "description": "Grants permission to start a speaker search task",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_StartSpeakerSearchTask.html",
+      "description": "Grants permission to start a speaker search task on the specified Amazon Chime resource",
       "accessLevel": "Write",
       "resourceTypes": [
-        "voice-connector*"
+        "media-pipeline",
+        "voice-connector"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "StartVoiceToneAnalysisTask",
-      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_StartVoiceToneAnalysisTask.html",
-      "description": "Grants permission to start a voice tone analysis task",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_StartVoiceToneAnalysisTask.html",
+      "description": "Grants permission to start a voice tone analysis task on the specified Amazon Chime resource",
       "accessLevel": "Write",
       "resourceTypes": [
-        "voice-connector*"
+        "media-pipeline",
+        "voice-connector"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2755,22 +2826,24 @@
     },
     {
       "name": "StopSpeakerSearchTask",
-      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_StopSpeakerSearchTask.html",
-      "description": "Grants permission to stop a speaker search task",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_StopSpeakerSearchTask.html",
+      "description": "Grants permission to stop a speaker search task on the specified Amazon Chime resource",
       "accessLevel": "Write",
       "resourceTypes": [
-        "voice-connector*"
+        "media-pipeline",
+        "voice-connector"
       ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "StopVoiceToneAnalysisTask",
-      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_StopVoiceToneAnalysisTask.html",
-      "description": "Grants permission to stop a voice tone analysis task",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_StopVoiceToneAnalysisTask.html",
+      "description": "Grants permission to stop a voice tone analysis task on the specified Amazon Chime resource",
       "accessLevel": "Write",
       "resourceTypes": [
-        "voice-connector*"
+        "media-pipeline",
+        "voice-connector"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2832,6 +2905,7 @@
         "channel-flow",
         "media-insights-pipeline-configuration",
         "media-pipeline",
+        "media-pipeline-kinesis-video-stream-pool",
         "meeting",
         "sip-media-application",
         "voice-connector",
@@ -2888,6 +2962,7 @@
         "channel-flow",
         "media-insights-pipeline-configuration",
         "media-pipeline",
+        "media-pipeline-kinesis-video-stream-pool",
         "meeting",
         "sip-media-application",
         "voice-connector",
@@ -3093,6 +3168,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "media-pipeline*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateMediaPipelineKinesisVideoStreamPool",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_UpdateMediaPipelineKinesisVideoStreamPool.html",
+      "description": "Grants permission to update kinesis video stream pool",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "media-pipeline-kinesis-video-stream-pool*"
       ],
       "conditionKeys": [],
       "dependentActions": []

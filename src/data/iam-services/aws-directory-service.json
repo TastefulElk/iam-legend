@@ -491,6 +491,17 @@
       "dependentActions": []
     },
     {
+      "name": "DisableRoleAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html",
+      "description": "Grants permission to disable AWS Management Console access for identity in your AWS Directory",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directory*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DisableSso",
       "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/devguide/API_DisableSso.html",
       "description": "Grants permission to disable single-sign on for a directory",
@@ -533,6 +544,19 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "EnableRoleAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html",
+      "description": "Grants permission to enable AWS Management Console access for identity in your AWS Directory",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directory*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "EnableSso",
@@ -794,6 +818,17 @@
       "name": "UpdateConditionalForwarder",
       "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/devguide/API_UpdateConditionalForwarder.html",
       "description": "Grants permission to update a conditional forwarder that has been set up for your AWS directory",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directory*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDirectory",
+      "documentationUrl": "https://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html",
+      "description": "Grants permission to update the configurations like service account credentials or DNS server IP addresses for the specified directory",
       "accessLevel": "Write",
       "resourceTypes": [
         "directory*"

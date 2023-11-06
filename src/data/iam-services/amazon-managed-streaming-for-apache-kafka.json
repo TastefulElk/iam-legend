@@ -93,6 +93,30 @@
       "dependentActions": []
     },
     {
+      "name": "CreateReplicator",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/latest/developerguide/v1-replicators.html#CreateReplicator",
+      "description": "Grants permission to create a MSK replicator",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "replicator*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs",
+        "iam:AttachRolePolicy",
+        "iam:CreateServiceLinkedRole",
+        "iam:PassRole",
+        "iam:PutRolePolicy",
+        "kafka:DescribeClusterV2",
+        "kafka:GetBootstrapBrokers"
+      ]
+    },
+    {
       "name": "CreateVpcConnection",
       "documentationUrl": "https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connection.html#CreateVpcConnection",
       "description": "Grants permission to create a MSK VPC connection",
@@ -151,6 +175,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "configuration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteReplicator",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/latest/developerguide/v1-replicators.html#DeleteReplicator",
+      "description": "Grants permission to delete a MSK replicator",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "replicator*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -227,6 +262,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "configuration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeReplicator",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/latest/developerguide/v1-replicators.html#DescribeReplicator",
+      "description": "Grants permission to describe a MSK replicator",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "replicator*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -359,6 +405,15 @@
       "resourceTypes": [
         "cluster*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListReplicators",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/latest/developerguide/v1-replicators.html#ListReplicators",
+      "description": "Grants permission to list all MSK replicators in this account",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -546,6 +601,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateReplicationInfo",
+      "documentationUrl": "https://docs.aws.amazon.com/msk/latest/developerguide/v1-replicators.html#UpdateReplicationInfo",
+      "description": "Grants permission to update the replication info of the MSK replicator",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "replicator*"
       ],
       "conditionKeys": [],
       "dependentActions": []

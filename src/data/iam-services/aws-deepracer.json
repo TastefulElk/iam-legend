@@ -396,6 +396,20 @@
       "dependentActions": []
     },
     {
+      "name": "ListLeaderboardEvaluations",
+      "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html",
+      "description": "Grants permission to list all the user's leaderboard evaluation jobs for a leaderboard",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "leaderboard*"
+      ],
+      "conditionKeys": [
+        "deepracer:UserToken",
+        "deepracer:MultiUser"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListLeaderboardSubmissions",
       "documentationUrl": "https://docs.aws.amazon.com/deepracer/latest/developerguide/deepracer-submit-model-to-leaderboard.html",
       "description": "Grants permission to list all the DeepRacer model submissions of a user on a leaderboard",
@@ -654,8 +668,6 @@
       ],
       "conditionKeys": [
         "aws:TagKeys",
-        "aws:RequestTag/${TagKey}",
-        "aws:ResourceTag/${TagKey}",
         "deepracer:UserToken",
         "deepracer:MultiUser"
       ],

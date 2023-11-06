@@ -23,7 +23,9 @@
         "endpointgroup*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "globalaccelerator:UpdateEndpointGroup"
+      ]
     },
     {
       "name": "AdvertiseByoipCidr",
@@ -49,6 +51,18 @@
       "name": "CreateAccelerator",
       "documentationUrl": "https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateAccelerator.html",
       "description": "Grants permission to create a standard accelerator",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCrossAccountAttachment",
+      "documentationUrl": "https://docs.aws.amazon.com/global-accelerator/latest/api/API_CreateCrossAccountAttachment.html",
+      "description": "Grants permission to create a CrossAccountAttachment",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
@@ -120,6 +134,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "accelerator*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCrossAccountAttachment",
+      "documentationUrl": "https://docs.aws.amazon.com/global-accelerator/latest/api/API_DeleteCrossAccountAttachment.html",
+      "description": "Grants permission to delete a CrossAccountAttachment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "attachment*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -222,6 +247,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeCrossAccountAttachment",
+      "documentationUrl": "https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeCrossAccountAttachment.html",
+      "description": "Grants permissions to describe a CrossAccountAttachment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "attachment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeCustomRoutingAccelerator",
       "documentationUrl": "https://docs.aws.amazon.com/global-accelerator/latest/api/API_DescribeCustomRoutingAccelerator.html",
       "description": "Grants permission to describe a custom routing accelerator",
@@ -306,6 +342,33 @@
       "dependentActions": []
     },
     {
+      "name": "ListCrossAccountAttachments",
+      "documentationUrl": "https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListCrossAccountAttachments.html",
+      "description": "Grants permission to list all CrossAccountAttachments",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCrossAccountResourceAccounts",
+      "documentationUrl": "https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListCrossAccountResourceAccounts.html",
+      "description": "Grants permission to list accounts with CrossAccountAttachments listing caller as a principal",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCrossAccountResources",
+      "documentationUrl": "https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListCrossAccountResources.html",
+      "description": "Grants permission to list all CrossAccountAttachment resources usable by caller",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListCustomRoutingAccelerators",
       "documentationUrl": "https://docs.aws.amazon.com/global-accelerator/latest/api/API_ListCustomRoutingAccelerators.html",
       "description": "Grants permission to list the custom routing accelerators for an AWS account",
@@ -384,7 +447,8 @@
       "description": "Grants permission to list tags for a globalaccelerator resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "accelerator"
+        "accelerator",
+        "attachment"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -418,7 +482,9 @@
         "endpointgroup*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "globalaccelerator:UpdateEndpointGroup"
+      ]
     },
     {
       "name": "TagResource",
@@ -426,7 +492,8 @@
       "description": "Grants permission to add tags to a globalaccelerator resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "accelerator"
+        "accelerator",
+        "attachment"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -440,7 +507,8 @@
       "description": "Grants permission to remove tags from a globalaccelerator resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "accelerator"
+        "accelerator",
+        "attachment"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -465,6 +533,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "accelerator*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCrossAccountAttachment",
+      "documentationUrl": "https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateCrossAccountAttachment.html",
+      "description": "Grants permission to update a CrossAccountAttachment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "attachment*"
       ],
       "conditionKeys": [],
       "dependentActions": []

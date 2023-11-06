@@ -317,7 +317,7 @@
       "description": "Grants permission to delete the wireless device import task",
       "accessLevel": "Write",
       "resourceTypes": [
-        "WirelessDeviceImportTask*"
+        "ImportTask*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -655,7 +655,7 @@
       "description": "Grants permission to get the wireless device import task",
       "accessLevel": "Read",
       "resourceTypes": [
-        "WirelessDeviceImportTask*"
+        "ImportTask*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -761,7 +761,7 @@
       "description": "Grants permission to list information of devices by wireless device import task based on the AWS account",
       "accessLevel": "Read",
       "resourceTypes": [
-        "WirelessDeviceImportTask*"
+        "ImportTask*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -858,6 +858,7 @@
         "Destination",
         "DeviceProfile",
         "FuotaTask",
+        "ImportTask",
         "MulticastGroup",
         "NetworkAnalyzerConfiguration",
         "ServiceProfile",
@@ -1032,10 +1033,11 @@
       "documentationUrl": "https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_StartSingleWirelessDeviceImportTask.html",
       "description": "Grants permission to start the single wireless device import task",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "WirelessDeviceImportTask*"
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
-      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -1043,8 +1045,13 @@
       "documentationUrl": "https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_StartWirelessDeviceImportTask.html",
       "description": "Grants permission to start the wireless device import task",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "ImportTask*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1056,12 +1063,12 @@
         "Destination",
         "DeviceProfile",
         "FuotaTask",
+        "ImportTask",
         "MulticastGroup",
         "NetworkAnalyzerConfiguration",
         "ServiceProfile",
         "SidewalkAccount",
         "WirelessDevice",
-        "WirelessDeviceImportTask",
         "WirelessGateway",
         "WirelessGatewayTaskDefinition"
       ],
@@ -1091,12 +1098,12 @@
         "Destination",
         "DeviceProfile",
         "FuotaTask",
+        "ImportTask",
         "MulticastGroup",
         "NetworkAnalyzerConfiguration",
         "ServiceProfile",
         "SidewalkAccount",
         "WirelessDevice",
-        "WirelessDeviceImportTask",
         "WirelessGateway",
         "WirelessGatewayTaskDefinition"
       ],
@@ -1235,7 +1242,7 @@
       "description": "Grants permission to update a wireless device import task",
       "accessLevel": "Write",
       "resourceTypes": [
-        "WirelessDeviceImportTask*"
+        "ImportTask*"
       ],
       "conditionKeys": [],
       "dependentActions": []

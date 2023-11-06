@@ -37,6 +37,54 @@
       ]
     },
     {
+      "name": "CreateAdapter",
+      "documentationUrl": "https://docs.aws.amazon.com/textract/latest/dg/API_CreateAdapter.html",
+      "description": "Grants permission to create an Amazon Textract adapter",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAdapterVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/textract/latest/dg/API_CreateAdapterVersion.html",
+      "description": "Grants permission to create an Amazon Textract adapter version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "adapter*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAdapter",
+      "documentationUrl": "https://docs.aws.amazon.com/textract/latest/dg/API_DeleteAdapter.html",
+      "description": "Grants permission to delete an Amazon Textract adapter",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "adapter*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAdapterVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/textract/latest/dg/API_DeleteAdapterVersion.html",
+      "description": "Grants permission to delete an Amazon Textract adapter version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "adapterversion*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DetectDocumentText",
       "documentationUrl": "https://docs.aws.amazon.com/textract/latest/dg/API_DetectDocumentText.html",
       "description": "Grants permission to detect text in document images",
@@ -46,6 +94,28 @@
       "dependentActions": [
         "s3:GetObject"
       ]
+    },
+    {
+      "name": "GetAdapter",
+      "documentationUrl": "https://docs.aws.amazon.com/textract/latest/dg/API_GetAdapter.html",
+      "description": "Grants permission to get an Amazon Textract adapter",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "adapter*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAdapterVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/textract/latest/dg/API_GetAdapterVersion.html",
+      "description": "Grants permission to get an Amazon Textract adapter version",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "adapterversion*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "GetDocumentAnalysis",
@@ -93,6 +163,36 @@
       "dependentActions": []
     },
     {
+      "name": "ListAdapterVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/textract/latest/dg/API_ListAdapterVersions.html",
+      "description": "Grants permission to list Amazon Textract adapter versions",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAdapters",
+      "documentationUrl": "https://docs.aws.amazon.com/textract/latest/dg/API_ListAdapters.html",
+      "description": "Grants permission to list Amazon Textract adapters",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/textract/latest/dg/API_ListTagsForResource.html",
+      "description": "Grants permission to return a list of tags associated with a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "adapter",
+        "adapterversion"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartDocumentAnalysis",
       "documentationUrl": "https://docs.aws.amazon.com/textract/latest/dg/API_StartDocumentAnalysis.html",
       "description": "Grants permission to start an asynchronous job to detect instances of real-world document entities within an image or pdf provided as input",
@@ -135,6 +235,46 @@
       "dependentActions": [
         "s3:GetObject"
       ]
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/textract/latest/dg/API_TagResource.html",
+      "description": "Grants permission to add one or more tags to a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "adapter",
+        "adapterversion"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/textract/latest/dg/API_UntagResource.html",
+      "description": "Grants permission to remove one or more tags from a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "adapter",
+        "adapterversion"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAdapter",
+      "documentationUrl": "https://docs.aws.amazon.com/textract/latest/dg/API_UpdateAdapter.html",
+      "description": "Grants permission to update Amazon Textract adapter",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "adapter*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     }
   ]
 }
