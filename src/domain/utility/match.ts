@@ -7,8 +7,8 @@
   * @return {boolean} True if the pattern matches the string 
   */
 export const match = (pattern: string, str: string): boolean => {
-  const regexPattern = '^' + pattern.replace(/\*/g, '.*') + '$';
-  const regex = new RegExp(regexPattern);
+  const regexPattern = "^" + pattern.replace(/\*/g, ".*") + "$";
+  const regex = new RegExp(regexPattern, "i");
 
   return regex.test(str);
 };
