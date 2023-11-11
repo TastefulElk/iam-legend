@@ -29,4 +29,8 @@ describe("[match]", () => {
   it("should respect multiple * wildcards", () => {
     expect(match("a*c*ef", "abcdef")).toBe(true);
   });
+
+  it("should be case insensitive", () => {
+    expect(match("ABC", "abc")).toBe(true);
+  });
 });
