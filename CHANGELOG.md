@@ -1,3 +1,10 @@
+## [1.1.47](https://github.com/TastefulElk/iam-legend/compare/v1.1.46...v1.1.47) (2023-11-11)
+
+
+### Bug Fixes
+
+* case-insensitive matches ([56d2b57](https://github.com/TastefulElk/iam-legend/commit/56d2b5763dfeaec3ed01be01d41dcb5540e374a3))
+
 ## [1.1.46](https://github.com/TastefulElk/iam-legend/compare/v1.1.45...v1.1.46) (2023-11-11)
 
 
