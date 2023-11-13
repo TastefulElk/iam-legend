@@ -54,6 +54,7 @@
         "db",
         "deployment",
         "es",
+        "integration",
         "og",
         "pg",
         "proxy",
@@ -61,8 +62,10 @@
         "ri",
         "secgrp",
         "snapshot",
+        "snapshot-tenant-database",
         "subgrp",
-        "target-group"
+        "target-group",
+        "tenant-database"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -359,7 +362,8 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "rds:req-tag/${TagKey}",
-        "rds:ManageMasterUserPassword"
+        "rds:ManageMasterUserPassword",
+        "rds:MultiTenant"
       ],
       "dependentActions": [
         "iam:PassRole",
@@ -368,6 +372,7 @@
         "kms:DescribeKey",
         "kms:GenerateDataKey",
         "rds:AddTagsToResource",
+        "rds:CreateTenantDatabase",
         "secretsmanager:CreateSecret",
         "secretsmanager:TagResource"
       ]
@@ -378,8 +383,10 @@
       "description": "Grants permission to create a DB instance that acts as a Read Replica of a source DB instance",
       "accessLevel": "Write",
       "resourceTypes": [
+        "cluster*",
         "db*",
         "og*",
+        "pg*",
         "subgrp*"
       ],
       "conditionKeys": [
@@ -462,7 +469,8 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "db*",
-        "snapshot*"
+        "snapshot*",
+        "snapshot-tenant-database*"
       ],
       "conditionKeys": [
         "rds:BackupTarget",
@@ -521,6 +529,26 @@
       "dependentActions": []
     },
     {
+      "name": "CreateIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateIntegration.html",
+      "description": "Grants permission to create an Aurora zero-ETL integration with Redshift",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "integration*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "rds:req-tag/${TagKey}"
+      ],
+      "dependentActions": [
+        "kms:CreateGrant",
+        "kms:DescribeKey",
+        "rds:AddTagsToResource"
+      ]
+    },
+    {
       "name": "CreateOptionGroup",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateOptionGroup.html",
       "description": "Grants permission to create a new option group",
@@ -532,6 +560,24 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "rds:req-tag/${TagKey}"
+      ],
+      "dependentActions": [
+        "rds:AddTagsToResource"
+      ]
+    },
+    {
+      "name": "CreateTenantDatabase",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateTenantDatabase.html",
+      "description": "Grants permission to create a new tenant database",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "db*",
+        "tenant-database*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "rds:TenantDatabaseName"
       ],
       "dependentActions": [
         "rds:AddTagsToResource"
@@ -644,14 +690,18 @@
         "db*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "rds:DeleteTenantDatabase"
+      ]
     },
     {
       "name": "DeleteDBInstanceAutomatedBackup",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBInstanceAutomatedBackup.html",
       "description": "Grants permission to delete automated backups based on the source instance's DbiResourceId value or the restorable instance's resource ID",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "auto-backup*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -744,12 +794,37 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteIntegration.html",
+      "description": "Grants permission to delete an Aurora zero-ETL integration with Redshift",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "integration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteOptionGroup",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteOptionGroup.html",
       "description": "Grants permission to delete an existing option group",
       "accessLevel": "Write",
       "resourceTypes": [
         "og*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTenantDatabase",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteTenantDatabase.html",
+      "description": "Grants permission to delete a tenant database",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "db*",
+        "tenant-database*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -902,6 +977,7 @@
       "description": "Grants permission to return a list of automated backups for both current and deleted instances",
       "accessLevel": "List",
       "resourceTypes": [
+        "auto-backup",
         "db"
       ],
       "conditionKeys": [],
@@ -1045,6 +1121,19 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeDbSnapshotTenantDatabases",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSnapshotTenantDatabases.html",
+      "description": "Grants permission to return information about tenant databases in DB snapshots. You can filter by Region or snapshot",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "snapshot-tenant-database*",
+        "db",
+        "snapshot"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeEngineDefaultClusterParameters",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEngineDefaultClusterParameters.html",
       "description": "Grants permission to return the default engine and system parameter information for the cluster database engine",
@@ -1109,6 +1198,19 @@
         "global-cluster*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeIntegrations",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeIntegrations.html",
+      "description": "Grants permission to describe an Aurora zero-ETL integration with Redshift",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "integration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1202,6 +1304,18 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeTenantDatabases",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeTenantDatabases.html",
+      "description": "Grants permission to return information about provisioned tenant databases. You can filter by Region or snapshot",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "tenant-database*",
+        "db"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeValidDBInstanceModifications",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeValidDBInstanceModifications.html",
       "description": "Grants permission to list available modifications you can make to your DB instance",
@@ -1270,6 +1384,7 @@
         "cluster-snapshot",
         "db",
         "es",
+        "integration",
         "og",
         "pg",
         "proxy",
@@ -1277,8 +1392,10 @@
         "ri",
         "secgrp",
         "snapshot",
+        "snapshot-tenant-database",
         "subgrp",
-        "target-group"
+        "target-group",
+        "tenant-database"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1398,7 +1515,8 @@
         "secgrp*"
       ],
       "conditionKeys": [
-        "rds:ManageMasterUserPassword"
+        "rds:ManageMasterUserPassword",
+        "rds:MultiTenant"
       ],
       "dependentActions": [
         "iam:PassRole",
@@ -1406,6 +1524,8 @@
         "kms:Decrypt",
         "kms:DescribeKey",
         "kms:GenerateDataKey",
+        "rds:AddTagsToResource",
+        "rds:CreateTenantDatabase",
         "secretsmanager:CreateSecret",
         "secretsmanager:RotateSecret",
         "secretsmanager:TagResource"
@@ -1533,6 +1653,20 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyTenantDatabase",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyTenantDatabase.html",
+      "description": "Grants permission to modify a tenant database",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "db*",
+        "tenant-database*"
+      ],
+      "conditionKeys": [
+        "rds:TenantDatabaseName"
+      ],
       "dependentActions": []
     },
     {
@@ -1669,6 +1803,7 @@
         "db",
         "deployment",
         "es",
+        "integration",
         "og",
         "pg",
         "proxy",
@@ -1676,8 +1811,10 @@
         "ri",
         "secgrp",
         "snapshot",
+        "snapshot-tenant-database",
         "subgrp",
-        "target-group"
+        "target-group",
+        "tenant-database"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1811,7 +1948,8 @@
       ],
       "dependentActions": [
         "iam:PassRole",
-        "rds:AddTagsToResource"
+        "rds:AddTagsToResource",
+        "rds:CreateTenantDatabase"
       ]
     },
     {
@@ -1851,7 +1989,8 @@
         "db*",
         "og*",
         "pg*",
-        "subgrp*"
+        "subgrp*",
+        "auto-backup"
       ],
       "conditionKeys": [
         "rds:BackupTarget",
@@ -1861,7 +2000,8 @@
       ],
       "dependentActions": [
         "iam:PassRole",
-        "rds:AddTagsToResource"
+        "rds:AddTagsToResource",
+        "rds:CreateTenantDatabase"
       ]
     },
     {
@@ -1915,6 +2055,7 @@
       "description": "Grants permission to start replication of automated backups to a different AWS Region",
       "accessLevel": "Write",
       "resourceTypes": [
+        "auto-backup*",
         "db*"
       ],
       "conditionKeys": [],
