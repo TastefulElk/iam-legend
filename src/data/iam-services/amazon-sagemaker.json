@@ -55,6 +55,7 @@
         "human-task-ui",
         "hyper-parameter-tuning-job",
         "image",
+        "inference-component",
         "inference-recommendations-job",
         "labeling-job",
         "model",
@@ -76,6 +77,7 @@
         "workteam"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -535,9 +537,13 @@
         "sagemaker:ModelArn",
         "sagemaker:VolumeKmsKey",
         "sagemaker:ServerlessMaxConcurrency",
-        "sagemaker:ServerlessMemorySize"
+        "sagemaker:ServerlessMemorySize",
+        "sagemaker:NetworkIsolation",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets"
       ],
       "dependentActions": [
+        "iam:PassRole",
         "sagemaker:AddTags"
       ]
     },
@@ -696,6 +702,26 @@
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
+    },
+    {
+      "name": "CreateInferenceComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateInferenceComponent.html",
+      "description": "Grants permission to create an inference component on an endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "endpoint*",
+        "inference-component*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "sagemaker:ModelArn"
+      ],
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
     },
     {
       "name": "CreateInferenceExperiment",
@@ -1594,6 +1620,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteInferenceComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteInferenceComponent.html",
+      "description": "Grants permission to delete an inference component. Amazon SageMaker frees up the resources that were reserved when the inference component was created",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "inference-component*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteInferenceExperiment",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteInferenceExperiment.html",
       "description": "Grants permission to delete an inference experiment",
@@ -1850,6 +1889,7 @@
         "human-task-ui",
         "hyper-parameter-tuning-job",
         "image",
+        "inference-component",
         "inference-recommendations-job",
         "labeling-job",
         "model",
@@ -1871,6 +1911,7 @@
         "workteam"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -2370,6 +2411,19 @@
         "image-version*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeInferenceComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceComponent.html",
+      "description": "Grants permission to return the description of an inference component",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "inference-component*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2918,9 +2972,12 @@
       "description": "Grants permission to invoke an endpoint. After you deploy a model into production using Amazon SageMaker hosting services, your client applications use this API to get inferences from the model hosted at the specified endpoint",
       "accessLevel": "Read",
       "resourceTypes": [
-        "endpoint*"
+        "endpoint*",
+        "inference-component"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
         "sagemaker:TargetModel"
       ],
       "dependentActions": []
@@ -2933,7 +2990,24 @@
       "resourceTypes": [
         "endpoint*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "InvokeEndpointWithResponseStream",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.html",
+      "description": "Grants permission to get the inference response as a stream from the specified endpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "endpoint*",
+        "inference-component"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -3228,6 +3302,15 @@
       "name": "ListImages",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListImages.html",
       "description": "Grants permission to list SageMaker Images in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListInferenceComponents",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListInferenceComponents.html",
+      "description": "Grants permission to list inference components",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -3614,6 +3697,7 @@
         "human-task-ui",
         "hyper-parameter-tuning-job",
         "image",
+        "inference-component",
         "inference-recommendations-job",
         "labeling-job",
         "model",
@@ -3635,6 +3719,7 @@
         "workteam"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -4366,6 +4451,32 @@
         "image-version*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateInferenceComponent",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateInferenceComponent.html",
+      "description": "Grants permission to update an inference component to use the specification and configurations specified in the request",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "inference-component*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateInferenceComponentRuntimeConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateInferenceComponentRuntimeConfig.html",
+      "description": "Grants permission to update the runtime config of a given inference component",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "inference-component*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {

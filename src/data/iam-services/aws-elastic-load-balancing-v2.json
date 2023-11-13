@@ -54,7 +54,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
-        "elasticloadbalancing:ResourceTag/${TagKey}"
+        "elasticloadbalancing:ResourceTag/${TagKey}",
+        "elasticloadbalancing:SecurityPolicy",
+        "elasticloadbalancing:ListenerProtocol"
       ],
       "dependentActions": [
         "elasticloadbalancing:AddTags"
@@ -73,7 +75,10 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
-        "elasticloadbalancing:ResourceTag/${TagKey}"
+        "elasticloadbalancing:ResourceTag/${TagKey}",
+        "elasticloadbalancing:SecurityGroup",
+        "elasticloadbalancing:Subnet",
+        "elasticloadbalancing:Scheme"
       ],
       "dependentActions": [
         "elasticloadbalancing:AddTags"
@@ -299,7 +304,9 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "elasticloadbalancing:ResourceTag/${TagKey}"
+        "elasticloadbalancing:ResourceTag/${TagKey}",
+        "elasticloadbalancing:SecurityPolicy",
+        "elasticloadbalancing:ListenerProtocol"
       ],
       "dependentActions": []
     },
@@ -450,7 +457,8 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "elasticloadbalancing:ResourceTag/${TagKey}"
+        "elasticloadbalancing:ResourceTag/${TagKey}",
+        "elasticloadbalancing:SecurityGroup"
       ],
       "dependentActions": []
     },
@@ -465,7 +473,8 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "elasticloadbalancing:ResourceTag/${TagKey}"
+        "elasticloadbalancing:ResourceTag/${TagKey}",
+        "elasticloadbalancing:Subnet"
       ],
       "dependentActions": []
     },

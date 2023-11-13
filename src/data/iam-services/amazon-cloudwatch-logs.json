@@ -24,6 +24,22 @@
       "dependentActions": []
     },
     {
+      "name": "CreateDelivery",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html",
+      "description": "Grants permission to create a delivery connecting a delivery source to a delivery destination",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "delivery*",
+        "delivery-destination*",
+        "delivery-source*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateExportTask",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateExportTask.html",
       "description": "Grants permission to create an ExportTask which allows you to efficiently export data from a Log Group to your Amazon S3 bucket",
@@ -84,6 +100,50 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "log-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDelivery",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteDelivery.html",
+      "description": "Grants permission to delete a delivery",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "delivery*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDeliveryDestination",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteDeliveryDestination.html",
+      "description": "Grants permission to delete a delivery destination after all associated deliveries are deleted",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "delivery-destination*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDeliveryDestinationPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteDeliveryDestinationPolicy.html",
+      "description": "Grants permission to delete a delivery destination policy associated with a delivery destination",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "delivery-destination*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDeliverySource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteDeliverySource.html",
+      "description": "Grants permission to delete a delivery source after all associated deliveries are deleted",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "delivery-destination*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -185,6 +245,33 @@
       "name": "DescribeAccountPolicies",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeAccountPolicies.html",
       "description": "Grants permission to retrieve a data protection policy attached to an account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDeliveries",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html",
+      "description": "Grants permission to retrieve a list of deliveries an account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDeliveryDestinations",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveryDestinations.html",
+      "description": "Grants permission to retrieve a list of delivery destinations an account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDeliverySources",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliverySources.html",
+      "description": "Grants permission to retrieve a list of delivery sources in an account",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -311,6 +398,50 @@
       "dependentActions": []
     },
     {
+      "name": "GetDelivery",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetDelivery.html",
+      "description": "Grants permission to retrieve a single delivery",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "delivery*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDeliveryDestination",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetDeliveryDestination.html",
+      "description": "Grants permission to retrieve a single delivery destination",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "delivery-destination*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDeliveryDestinationPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetDeliveryDestinationPolicy.html",
+      "description": "Grants permission to retrieve a delivery destination policy attached to a delivery destination",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "delivery-destination*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDeliverySource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetDeliverySource.html",
+      "description": "Grants permission to retrieve a single delivery source",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "delivery-source*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetLogDelivery",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html",
       "description": "Grants permission to get the log delivery information for specified log delivery",
@@ -387,6 +518,9 @@
       "description": "Grants permission to list the tags for the specified resource",
       "accessLevel": "List",
       "resourceTypes": [
+        "delivery",
+        "delivery-destination",
+        "delivery-source",
         "destination",
         "log-group"
       ],
@@ -422,6 +556,47 @@
         "log-group*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutDeliveryDestination",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html",
+      "description": "Grants permission to create/update a delivery destination",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "delivery-destination*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "logs:DeliveryDestinationResourceArn"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutDeliveryDestinationPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html",
+      "description": "Grants permission to attach a delivery destination policy to a delivery destination",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "delivery-destination*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutDeliverySource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html",
+      "description": "Grants permission to create/update a delivery source",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "delivery-source*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "logs:LogGeneratingResourceArns"
+      ],
       "dependentActions": []
     },
     {
@@ -574,6 +749,9 @@
       "description": "Grants permission to add or update the specified tags for the specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "delivery",
+        "delivery-destination",
+        "delivery-source",
         "destination",
         "log-group"
       ],
@@ -622,6 +800,9 @@
       "description": "Grants permission to remove the specified tags from the specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "delivery",
+        "delivery-destination",
+        "delivery-source",
         "destination",
         "log-group"
       ],

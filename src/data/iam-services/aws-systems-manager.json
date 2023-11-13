@@ -201,7 +201,9 @@
         "instance",
         "managed-instance"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -231,6 +233,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "maintenancewindow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteOpsItem",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteOpsItem.html",
+      "description": "Grants permission to delete an OpsItem",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "opsitem*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -369,7 +382,9 @@
         "instance",
         "managed-instance"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -380,7 +395,9 @@
       "resourceTypes": [
         "association*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -391,7 +408,9 @@
       "resourceTypes": [
         "association*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -465,7 +484,9 @@
         "instance*",
         "managed-instance*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -488,7 +509,9 @@
         "instance*",
         "managed-instance*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1008,7 +1031,9 @@
       "resourceTypes": [
         "association*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1096,7 +1121,9 @@
         "instance",
         "managed-instance"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1395,7 +1422,9 @@
       "resourceTypes": [
         "association*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1492,7 +1521,9 @@
         "instance",
         "managed-instance"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1507,7 +1538,8 @@
       ],
       "conditionKeys": [
         "ssm:SourceInstanceARN",
-        "ec2:SourceInstanceARN"
+        "ec2:SourceInstanceARN",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -1556,7 +1588,8 @@
       ],
       "conditionKeys": [
         "ssm:SourceInstanceARN",
-        "ec2:SourceInstanceARN"
+        "ec2:SourceInstanceARN",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },

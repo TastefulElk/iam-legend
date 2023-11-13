@@ -18,7 +18,14 @@
         "verified-access-instance"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "apigateway:SetWebACL",
+        "apprunner:AssociateWebAcl",
+        "appsync:SetWebACL",
+        "cognito-idp:AssociateWebACL",
+        "ec2:AssociateVerifiedAccessInstanceWebAcl",
+        "elasticloadbalancing:SetWebAcl"
+      ]
     },
     {
       "name": "CheckCapacity",
@@ -229,7 +236,14 @@
         "verified-access-instance"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "apigateway:SetWebACL",
+        "apprunner:DisassociateWebAcl",
+        "appsync:SetWebACL",
+        "cognito-idp:DisassociateWebACL",
+        "ec2:DisassociateVerifiedAccessInstanceWebAcl",
+        "elasticloadbalancing:SetWebAcl"
+      ]
     },
     {
       "name": "GenerateMobileSdkReleaseUrl",
@@ -375,6 +389,7 @@
       "description": "Grants permission to retrieve the WebACL that's associated with a resource",
       "accessLevel": "Read",
       "resourceTypes": [
+        "webacl*",
         "apigateway",
         "apprunner",
         "appsync",
@@ -383,7 +398,12 @@
         "verified-access-instance"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "apprunner:DescribeWebAclForService",
+        "cognito-idp:GetWebACLForResource",
+        "ec2:GetVerifiedAccessInstanceWebAcl",
+        "wafv2:GetWebACL"
+      ]
     },
     {
       "name": "ListAPIKeys",
@@ -463,10 +483,17 @@
       "description": "Grants permission to retrieve an array of the Amazon Resource Names (ARNs) for the resources that are associated with a web ACL",
       "accessLevel": "List",
       "resourceTypes": [
-        "webacl*"
+        "webacl*",
+        "apprunner",
+        "userpool",
+        "verified-access-instance"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "apprunner:ListAssociatedServicesForWebAcl",
+        "cognito-idp:ListResourcesForWebACL",
+        "ec2:DescribeVerifiedAccessInstanceWebAclAssociations"
+      ]
     },
     {
       "name": "ListRuleGroups",

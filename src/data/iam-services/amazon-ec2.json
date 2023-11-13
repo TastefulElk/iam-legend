@@ -8303,6 +8303,23 @@
       "dependentActions": []
     },
     {
+      "name": "GetSecurityGroupsForVpc",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSecurityGroupsForVpc.html",
+      "description": "Grants permission to retrieve a list of security groups for a specified VPC",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "vpc*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Tenancy",
+        "ec2:VpcID",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetSerialConsoleAccessStatus",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSerialConsoleAccessStatus.html",
       "description": "Grants permission to retrieve the access status of your account to the EC2 serial console of all instances",
@@ -8680,6 +8697,19 @@
         "ec2:VolumeSize",
         "ec2:VolumeThroughput",
         "ec2:VolumeType",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "InjectApiError",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html",
+      "description": "Grants permission to temporarily inject errors for target API requests",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:FisActionId",
+        "ec2:FisTargetArns",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -9487,8 +9517,6 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "ec2:Attribute",
-        "ec2:Attribute/${AttributeName}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:SecurityGroupID",
         "ec2:Vpc",
