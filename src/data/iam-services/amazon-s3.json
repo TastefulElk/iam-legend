@@ -177,6 +177,24 @@
       "dependentActions": []
     },
     {
+      "name": "CreateStorageLensGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateStorageLensGroup.html",
+      "description": "Grants permission to create an Amazon S3 Storage Lens group",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteAccessPoint",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html",
       "description": "Grants permission to delete the access point named in the URI",
@@ -467,6 +485,24 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "storagelensconfiguration*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteStorageLensGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteStorageLensGroup.html",
+      "description": "Grants permission to delete an existing S3 Storage Lens group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "storagelensgroup*"
       ],
       "conditionKeys": [
         "s3:authType",
@@ -1500,6 +1536,24 @@
       "dependentActions": []
     },
     {
+      "name": "GetStorageLensGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetStorageLensGroup.html",
+      "description": "Grants permission to get an Amazon S3 Storage Lens group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "storagelensgroup*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "InitiateReplication",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/setting-repl-config-perm-overview.html",
       "description": "Grants permission to initiate the replication process by setting replication status of an object to pending",
@@ -1687,6 +1741,40 @@
       "description": "Grants permission to list Amazon S3 Storage Lens configurations",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStorageLensGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListStorageLensGroups.html",
+      "description": "Grants permission to list S3 Storage Lens groups",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListTagsForResource.html",
+      "description": "Grants permission to list the tags attached to the specified resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "storagelensgroup"
+      ],
       "conditionKeys": [
         "s3:authType",
         "s3:ResourceAccount",
@@ -2543,6 +2631,45 @@
       "dependentActions": []
     },
     {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_TagResource.html",
+      "description": "Grants permission to add tags to the specified resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "storagelensgroup"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UntagResource.html",
+      "description": "Grants permission to remove tags from the specified resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "storagelensgroup"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateJobPriority",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateJobPriority.html",
       "description": "Grants permission to update the priority of an existing job",
@@ -2581,6 +2708,24 @@
         "s3:ExistingJobPriority",
         "s3:ExistingJobOperation",
         "s3:JobSuspendedCause"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateStorageLensGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateStorageLensGroup.html",
+      "description": "Grants permission to update an existing S3 Storage Lens group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "storagelensgroup*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256"
       ],
       "dependentActions": []
     }
