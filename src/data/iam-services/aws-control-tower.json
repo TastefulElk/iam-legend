@@ -114,7 +114,7 @@
     {
       "name": "DescribeSingleSignOn",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/sso.html",
-      "description": "Grants permission to describe the current AWS Control Tower SSO configuration",
+      "description": "Grants permission to describe the current AWS Control Tower &SSO; configuration",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -148,8 +148,13 @@
       "resourceTypes": [
         "EnabledControl"
       ],
-      "conditionKeys": [],
-      "dependentActions": []
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "controltower:TagResource"
+      ]
     },
     {
       "name": "EnableGuardrail",
@@ -237,7 +242,7 @@
     {
       "name": "ListDirectoryGroups",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/sso.html",
-      "description": "Grants permission to list the current directory groups available through SSO",
+      "description": "Grants permission to list the current directory groups available through &SSO;",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -361,6 +366,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list the tags for a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "EnabledControl"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ManageOrganizationalUnit",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/organizations.html",
       "description": "Grants permission to set up an organizational unit to be managed by AWS Control Tower",
@@ -385,6 +401,33 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to add tags to a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "EnabledControl*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove tags from a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "EnabledControl*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
