@@ -14,6 +14,8 @@
         "replicationgroup",
         "reserved-instance",
         "securitygroup",
+        "serverlesscache",
+        "serverlesscachesnapshot",
         "snapshot",
         "subnetgroup",
         "user",
@@ -93,16 +95,35 @@
     {
       "name": "Connect",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth-iam.html",
-      "description": "Allows an IAM user or role to connect as a specified ElastiCache user to a node in a replication group",
+      "description": "Grants permission to connect as a specified ElastiCache user to an ElastiCache Replication Group or ElastiCache serverless cache",
       "accessLevel": "Write",
       "resourceTypes": [
-        "replicationgroup*",
-        "user*"
+        "user*",
+        "replicationgroup",
+        "serverlesscache"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
+    },
+    {
+      "name": "CopyServerlessCacheSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CopyServerlessCacheSnapshot.html",
+      "description": "Grants permission to make a copy of an existing serverless cache snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "serverlesscachesnapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticache:KmsKeyId",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "elasticache:AddTagsToResource"
+      ]
     },
     {
       "name": "CopySnapshot",
@@ -289,6 +310,65 @@
         "ec2:DescribeVpcs",
         "elasticache:AddTagsToResource",
         "s3:GetObject"
+      ]
+    },
+    {
+      "name": "CreateServerlessCache",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateServerlessCache.html",
+      "description": "Grants permission to create a serverless cache",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "serverlesscache*",
+        "serverlesscachesnapshot",
+        "snapshot",
+        "usergroup"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticache:EngineType",
+        "elasticache:EngineVersion",
+        "elasticache:SnapshotRetentionLimit",
+        "elasticache:KmsKeyId",
+        "elasticache:MaximumDataStorage",
+        "elasticache:DataStorageUnit",
+        "elasticache:MaximumECPUPerSecond",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags",
+        "ec2:CreateVpcEndpoint",
+        "ec2:DeleteVpcEndpoints",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeTags",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeVpcs",
+        "elasticache:AddTagsToResource",
+        "s3:GetObject"
+      ]
+    },
+    {
+      "name": "CreateServerlessCacheSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateServerlessCacheSnapshot.html",
+      "description": "Grants permission to create a copy of a serverless cache at a specific moment in time",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "serverlesscache*",
+        "serverlesscachesnapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "elasticache:KmsKeyId",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "elasticache:AddTagsToResource"
       ]
     },
     {
@@ -481,6 +561,35 @@
       ]
     },
     {
+      "name": "DeleteServerlessCache",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteServerlessCache.html",
+      "description": "Grants permission to delete a serverless cache",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "serverlesscache*",
+        "serverlesscachesnapshot"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:DescribeTags"
+      ]
+    },
+    {
+      "name": "DeleteServerlessCacheSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteServerlessCacheSnapshot.html",
+      "description": "Grants permission to delete a serverless cache snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "serverlesscachesnapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteSnapshot",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteSnapshot.html",
       "description": "Grants permission to delete an existing snapshot",
@@ -658,6 +767,34 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeServerlessCacheSnapshots",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeServerlessCacheSnapshots.html",
+      "description": "Grants permission to list information about serverless cache snapshots",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "serverlesscachesnapshot*",
+        "serverlesscache"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeServerlessCaches",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeServerlessCaches.html",
+      "description": "Grants permission to list serverless caches",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "serverlesscache*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeServiceUpdates",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeServiceUpdates.html",
       "description": "Grants permission to list details of the service updates",
@@ -731,6 +868,23 @@
       "dependentActions": []
     },
     {
+      "name": "ExportServerlessCacheSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ExportServerlessCacheSnapshot.html",
+      "description": "Grants permission to export a copy of a serverless cache at a specific moment in time to s3 bucket",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "serverlesscachesnapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "s3:DeleteObject",
+        "s3:ListAllMyBuckets",
+        "s3:PutObject"
+      ]
+    },
+    {
       "name": "FailoverGlobalReplicationGroup",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_FailoverGlobalReplicationGroup.html",
       "description": "Grants permission to failover the primary region to a selected secondary region of a global replication group",
@@ -775,6 +929,19 @@
       ]
     },
     {
+      "name": "InterruptClusterAzPower",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#elasticache-actions-reference",
+      "description": "Grants permission to test an AZ power interruption for an ElastiCache resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "replicationgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListAllowedNodeTypeModifications",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ListAllowedNodeTypeModifications.html",
       "description": "Grants permission to list available node type that can be used to scale a particular Redis cluster or replication group",
@@ -799,6 +966,8 @@
         "replicationgroup",
         "reserved-instance",
         "securitygroup",
+        "serverlesscache",
+        "serverlesscachesnapshot",
         "snapshot",
         "subnetgroup",
         "user",
@@ -924,6 +1093,29 @@
       ]
     },
     {
+      "name": "ModifyServerlessCache",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyServerlessCache.html",
+      "description": "Grants permission to modify parameters for a serverless cache",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "serverlesscache*",
+        "usergroup"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticache:EngineVersion",
+        "elasticache:SnapshotRetentionLimit",
+        "elasticache:MaximumDataStorage",
+        "elasticache:DataStorageUnit",
+        "elasticache:MaximumECPUPerSecond",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeTags"
+      ]
+    },
+    {
       "name": "ModifyUser",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyUser.html",
       "description": "Grants permission to change Redis user password(s) and/or access string",
@@ -1003,6 +1195,8 @@
         "replicationgroup",
         "reserved-instance",
         "securitygroup",
+        "serverlesscache",
+        "serverlesscachesnapshot",
         "snapshot",
         "subnetgroup",
         "user",

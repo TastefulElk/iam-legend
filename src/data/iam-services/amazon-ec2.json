@@ -424,6 +424,17 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateIpamByoasn",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIpamByoasn.html",
+      "description": "Grants permission to associate an Autonomous System Number (ASN) with a BYOIP CIDR",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateIpamResourceDiscovery",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIpamResourceDiscovery.html",
       "description": "Grants permission to associate an IPAM resource discovery with an Amazon VPC IPAM",
@@ -503,7 +514,8 @@
       "description": "Grants permission to associate a CIDR block with a subnet",
       "accessLevel": "Write",
       "resourceTypes": [
-        "subnet*"
+        "subnet*",
+        "ipam-pool"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -511,6 +523,8 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:SubnetID",
         "ec2:Vpc",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -918,7 +932,9 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:CancelCapacityReservation"
+      ]
     },
     {
       "name": "CancelConversionTask",
@@ -1062,11 +1078,15 @@
         "image*"
       ],
       "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:ImageID",
         "ec2:Owner",
         "ec2:Region"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
     },
     {
       "name": "CopySnapshot",
@@ -1119,7 +1139,10 @@
         "ec2:Region"
       ],
       "dependentActions": [
-        "ec2:CreateTags"
+        "ec2:CreateCapacityReservation",
+        "ec2:CreateTags",
+        "ec2:DescribeCapacityReservations",
+        "ec2:DescribeInstances"
       ]
     },
     {
@@ -1338,12 +1361,8 @@
         "fleet*",
         "instance*",
         "image",
-        "key-pair",
         "launch-template",
-        "network-interface",
         "placement-group",
-        "security-group",
-        "snapshot",
         "subnet",
         "volume"
       ],
@@ -1368,32 +1387,11 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
         "aws:ResourceTag/${TagKey}",
-        "ec2:KeyPairName",
-        "ec2:KeyPairType",
         "ec2:ResourceTag/${TagKey}",
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
-        "aws:ResourceTag/${TagKey}",
-        "ec2:AvailabilityZone",
-        "ec2:NetworkInterfaceID",
-        "ec2:ResourceTag/${TagKey}",
-        "ec2:Subnet",
-        "ec2:Vpc",
         "aws:ResourceTag/${TagKey}",
         "ec2:PlacementGroupName",
         "ec2:PlacementGroupStrategy",
         "ec2:ResourceTag/${TagKey}",
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
-        "ec2:SecurityGroupID",
-        "ec2:Vpc",
-        "aws:ResourceTag/${TagKey}",
-        "ec2:Owner",
-        "ec2:ParentVolume",
-        "ec2:ResourceTag/${TagKey}",
-        "ec2:SnapshotID",
-        "ec2:SnapshotTime",
-        "ec2:VolumeSize",
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:ResourceTag/${TagKey}",
@@ -1730,7 +1728,8 @@
         "ec2:Region"
       ],
       "dependentActions": [
-        "ec2:CreateTags"
+        "ec2:CreateTags",
+        "ssm:GetParameters"
       ]
     },
     {
@@ -1746,7 +1745,9 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ssm:GetParameters"
+      ]
     },
     {
       "name": "CreateLocalGatewayRoute",
@@ -2372,7 +2373,8 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "subnet*",
-        "vpc*"
+        "vpc*",
+        "ipam-pool"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -2382,6 +2384,8 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
         "ec2:VpcID",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -2748,7 +2752,6 @@
         "ec2:Phase2EncryptionAlgorithms",
         "ec2:Phase2IntegrityAlgorithms",
         "ec2:Phase2LifetimeSeconds",
-        "ec2:PreSharedKeys",
         "ec2:RekeyFuzzPercentage",
         "ec2:RekeyMarginTimeSeconds",
         "ec2:ReplayWindowSizePackets",
@@ -3351,7 +3354,6 @@
         "ec2:Phase2EncryptionAlgorithms",
         "ec2:Phase2IntegrityAlgorithms",
         "ec2:Phase2LifetimeSeconds",
-        "ec2:PreSharedKeys",
         "ec2:RekeyFuzzPercentage",
         "ec2:RekeyMarginTimeSeconds",
         "ec2:ReplayWindowSizePackets",
@@ -4885,6 +4887,21 @@
       "dependentActions": []
     },
     {
+      "name": "DeprovisionIpamByoasn",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamByoasn.html",
+      "description": "Grants permission to deprovision an Autonomous System Number (ASN) from an Amazon Web Services account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ipam*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeprovisionIpamPoolCidr",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html",
       "description": "Grants permission to deprovision a CIDR provisioned from an Amazon VPC IP Address Manager (IPAM) pool",
@@ -5088,6 +5105,17 @@
       "name": "DescribeByoipCidrs",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeByoipCidrs.html",
       "description": "Grants permission to describe the IP address ranges that were provisioned through bring your own IP addresses (BYOIP)",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCapacityBlockOfferings",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityBlockOfferings.html",
+      "description": "Grants permission to describe Capacity Block offerings available for purchase",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
@@ -5632,6 +5660,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeInstanceTopology",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTopology.html",
+      "description": "Grants permission to describe a tree-based hierarchy that represents the physical host placement of EC2 instances",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeInstanceTypeOfferings",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html",
       "description": "Grants permission to describe the set of instance types that are offered in a location",
@@ -5668,6 +5707,17 @@
       "name": "DescribeInternetGateways",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html",
       "description": "Grants permission to describe one or more internet gateways",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeIpamByoasn",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpamByoasn.html",
+      "description": "Grants permission to describe a bring your own Autonomous System Number (BYOASN) that you've brought to IPAM",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
@@ -5761,7 +5811,9 @@
       "conditionKeys": [
         "ec2:Region"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ssm:GetParameters"
+      ]
     },
     {
       "name": "DescribeLaunchTemplates",
@@ -5844,6 +5896,17 @@
       "name": "DescribeLocalGateways",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html",
       "description": "Grants permission to describe one or more local gateways",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeLockedSnapshots",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLockedSnapshots.html",
+      "description": "Grants permission to describe the lock status for a snapshot",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
@@ -7067,6 +7130,17 @@
       "dependentActions": []
     },
     {
+      "name": "DisableSnapshotBlockPublicAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableSnapshotBlockPublicAccess.html",
+      "description": "Grants permission to disable the block public access for snapshots setting for a Region",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DisableTransitGatewayRouteTablePropagation",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableTransitGatewayRouteTablePropagation.html",
       "description": "Grants permission to disable a resource attachment from propagating routes to the specified propagation route table",
@@ -7242,6 +7316,17 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateIpamByoasn",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIpamByoasn.html",
+      "description": "Grants permission to disassociate an Autonomous System Number (ASN) from a BYOIP CIDR",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
         "ec2:Region"
       ],
       "dependentActions": []
@@ -7617,6 +7702,17 @@
       "name": "EnableSerialConsoleAccess",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableSerialConsoleAccess.html",
       "description": "Grants permission to enable access to the EC2 serial console of all instances for your account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "EnableSnapshotBlockPublicAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableSnapshotBlockPublicAccess.html",
+      "description": "Grants permission to enable or modify the block public access for snapshots setting for a Region",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
@@ -8086,6 +8182,21 @@
       "dependentActions": []
     },
     {
+      "name": "GetIpamDiscoveredPublicAddresses",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamDiscoveredPublicAddresses.html",
+      "description": "Grants permission to retrieve the public IP addresses that have been discovered by IPAM",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ipam-resource-discovery*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetIpamDiscoveredResourceCidrs",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamDiscoveredResourceCidrs.html",
       "description": "Grants permission to retrieve the resource CIDRs that are monitored as part of a resource discovery",
@@ -8323,6 +8434,17 @@
       "name": "GetSerialConsoleAccessStatus",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSerialConsoleAccessStatus.html",
       "description": "Grants permission to retrieve the access status of your account to the EC2 serial console of all instances",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSnapshotBlockPublicAccessState",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSnapshotBlockPublicAccessState.html",
+      "description": "Grants permission to retrieve the current state of the block public access for snapshots setting for a Region",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [
@@ -8737,6 +8859,29 @@
       "dependentActions": []
     },
     {
+      "name": "LockSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LockSnapshot.html",
+      "description": "Grants permission to lock an Amazon EBS snapshot in either governance or compliance mode to protect it against accidental or malicious deletions",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:Encrypted",
+        "ec2:Owner",
+        "ec2:ParentVolume",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:SnapshotCoolOffPeriod",
+        "ec2:SnapshotID",
+        "ec2:SnapshotLockDuration",
+        "ec2:SnapshotTime",
+        "ec2:VolumeSize",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ModifyAddressAttribute",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyAddressAttribute.html",
       "description": "Grants permission to modify an attribute of the specified Elastic IP address",
@@ -8759,7 +8904,7 @@
     {
       "name": "ModifyAvailabilityZoneGroup",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyAvailabilityZoneGroup.html",
-      "description": "Grants permission to modify  the opt-in status of the Local Zone and Wavelength Zone group for your account",
+      "description": "Grants permission to modify the opt-in status of the Local Zone and Wavelength Zone group for your account",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
@@ -8800,7 +8945,9 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:ModifyCapacityReservation"
+      ]
     },
     {
       "name": "ModifyClientVpnEndpoint",
@@ -8865,11 +9012,7 @@
       "resourceTypes": [
         "fleet*",
         "image",
-        "key-pair",
         "launch-template",
-        "network-interface",
-        "security-group",
-        "snapshot",
         "subnet"
       ],
       "conditionKeys": [
@@ -8885,27 +9028,7 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
         "aws:ResourceTag/${TagKey}",
-        "ec2:KeyPairName",
         "ec2:ResourceTag/${TagKey}",
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
-        "aws:ResourceTag/${TagKey}",
-        "ec2:AvailabilityZone",
-        "ec2:NetworkInterfaceID",
-        "ec2:ResourceTag/${TagKey}",
-        "ec2:Subnet",
-        "ec2:Vpc",
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
-        "ec2:SecurityGroupID",
-        "ec2:Vpc",
-        "aws:ResourceTag/${TagKey}",
-        "ec2:Owner",
-        "ec2:ParentVolume",
-        "ec2:ResourceTag/${TagKey}",
-        "ec2:SnapshotID",
-        "ec2:SnapshotTime",
-        "ec2:VolumeSize",
         "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:ResourceTag/${TagKey}",
@@ -10104,7 +10227,6 @@
         "ec2:Phase2EncryptionAlgorithms",
         "ec2:Phase2IntegrityAlgorithms",
         "ec2:Phase2LifetimeSeconds",
-        "ec2:PreSharedKeys",
         "ec2:RekeyFuzzPercentage",
         "ec2:RekeyMarginTimeSeconds",
         "ec2:ReplayWindowSizePackets",
@@ -10174,7 +10296,6 @@
         "ec2:Phase2EncryptionAlgorithms",
         "ec2:Phase2IntegrityAlgorithms",
         "ec2:Phase2LifetimeSeconds",
-        "ec2:PreSharedKeys",
         "ec2:RekeyFuzzPercentage",
         "ec2:RekeyMarginTimeSeconds",
         "ec2:ReplayWindowSizePackets",
@@ -10291,6 +10412,21 @@
       "dependentActions": []
     },
     {
+      "name": "ProvisionIpamByoasn",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ProvisionIpamByoasn.html",
+      "description": "Grants permission to provision an Autonomous System Number (ASN) for use in an Amazon Web Services account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ipam*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ProvisionIpamPoolCidr",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ProvisionIpamPoolCidr.html",
       "description": "Grants permission to provision a CIDR to an Amazon VPC IP Address Manager (IPAM) pool",
@@ -10322,6 +10458,24 @@
         "ec2:Region"
       ],
       "dependentActions": []
+    },
+    {
+      "name": "PurchaseCapacityBlock",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PurchaseCapacityBlock.html",
+      "description": "Grants permission to purchase a Capacity Block offering",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "capacity-reservation*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "ec2:CapacityReservationFleet",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
     },
     {
       "name": "PurchaseHostReservation",
@@ -10425,10 +10579,10 @@
         "snapshot"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:ImageID",
         "ec2:Owner",
-        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:OutpostArn",
         "ec2:Owner",
@@ -10440,7 +10594,9 @@
         "ec2:VolumeSize",
         "ec2:Region"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
     },
     {
       "name": "RegisterInstanceEventNotificationAttributes",
@@ -10915,7 +11071,8 @@
         "ec2:Region"
       ],
       "dependentActions": [
-        "ec2:CreateTags"
+        "ec2:CreateTags",
+        "iam:PassRole"
       ]
     },
     {
@@ -11214,7 +11371,6 @@
         "network-interface*",
         "security-group*",
         "subnet*",
-        "volume*",
         "capacity-reservation",
         "elastic-gpu",
         "elastic-inference",
@@ -11224,6 +11380,7 @@
         "license-configuration",
         "placement-group",
         "snapshot",
+        "volume",
         "SCENARIO:",
         "EC2-Classic-EBS",
         "SCENARIO:",
@@ -11289,18 +11446,6 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:SubnetID",
         "ec2:Vpc",
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
-        "ec2:AvailabilityZone",
-        "ec2:Encrypted",
-        "ec2:IsLaunchTemplateResource",
-        "ec2:LaunchTemplate",
-        "ec2:ParentSnapshot",
-        "ec2:VolumeID",
-        "ec2:VolumeIops",
-        "ec2:VolumeSize",
-        "ec2:VolumeThroughput",
-        "ec2:VolumeType",
         "aws:ResourceTag/${TagKey}",
         "ec2:IsLaunchTemplateResource",
         "ec2:LaunchTemplate",
@@ -11335,10 +11480,24 @@
         "ec2:SnapshotID",
         "ec2:SnapshotTime",
         "ec2:VolumeSize",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "ec2:AvailabilityZone",
+        "ec2:Encrypted",
+        "ec2:IsLaunchTemplateResource",
+        "ec2:LaunchTemplate",
+        "ec2:ParentSnapshot",
+        "ec2:VolumeID",
+        "ec2:VolumeIops",
+        "ec2:VolumeSize",
+        "ec2:VolumeThroughput",
+        "ec2:VolumeType",
         "ec2:Region"
       ],
       "dependentActions": [
         "ec2:CreateTags",
+        "iam:PassRole",
+        "ssm:GetParameters",
         "image*",
         "instance*",
         "security-group*",
@@ -11710,6 +11869,29 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UnlockSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnlockSnapshot.html",
+      "description": "Grants permission to unlock a snapshot that is locked in governance mode or in compliance mode while still in the cooling-off period",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:Encrypted",
+        "ec2:Owner",
+        "ec2:ParentVolume",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:SnapshotCoolOffPeriod",
+        "ec2:SnapshotID",
+        "ec2:SnapshotLockDuration",
+        "ec2:SnapshotTime",
+        "ec2:VolumeSize",
         "ec2:Region"
       ],
       "dependentActions": []

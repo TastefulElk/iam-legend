@@ -99,6 +99,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteMedicalScribeJob",
+      "documentationUrl": "https://docs.aws.amazon.com/transcribe/latest/dg/API_DeleteMedicalScribeJob.html",
+      "description": "Grants permission to delete a previously submitted Medical Scribe job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "medicalscribejob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteMedicalTranscriptionJob",
       "documentationUrl": "https://docs.aws.amazon.com/transcribe/latest/dg/API_DeleteMedicalTranscriptionJob.html",
       "description": "Grants permission to delete a previously submitted medical transcription job",
@@ -183,6 +194,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetMedicalScribeJob",
+      "documentationUrl": "https://docs.aws.amazon.com/transcribe/latest/dg/API_GetMedicalScribeJob.html",
+      "description": "Grants permission to return information about a Medical Scribe job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "medicalscribejob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetMedicalTranscriptionJob",
       "documentationUrl": "https://docs.aws.amazon.com/transcribe/latest/dg/API_GetMedicalTranscriptionJob.html",
       "description": "Grants permission to return information about a medical transcription job",
@@ -259,6 +281,15 @@
       "name": "ListLanguageModels",
       "documentationUrl": "https://docs.aws.amazon.com/transcribe/latest/dg/API_ListLanguageModels.html",
       "description": "Grants permission to list custom language models",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMedicalScribeJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/transcribe/latest/dg/API_ListMedicalScribeJobs.html",
+      "description": "Grants permission to list Medical Scribe jobs with the specified status",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -349,6 +380,22 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "StartMedicalScribeJob",
+      "documentationUrl": "https://docs.aws.amazon.com/transcribe/latest/dg/API_StartMedicalScribeJob.html",
+      "description": "Grants permission to start an asynchronous job to transcribe patient-clinician conversations and generates clinical notes",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "transcribe:OutputBucketName",
+        "transcribe:OutputEncryptionKMSKeyId",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "s3:GetObject"
+      ]
     },
     {
       "name": "StartMedicalStreamTranscription",

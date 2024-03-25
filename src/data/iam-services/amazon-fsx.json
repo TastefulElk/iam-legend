@@ -64,6 +64,18 @@
       ]
     },
     {
+      "name": "CopySnapshotAndUpdateVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopySnapshotAndUpdateVolume.html",
+      "description": "Grants permission to update an existing volume by using a snapshot from another Amazon FSx for OpenZFS file system",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "snapshot*",
+        "volume*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateBackup",
       "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateBackup.html",
       "description": "Grants permission to create a new backup of an Amazon FSx file system or an Amazon FSx volume",
@@ -134,6 +146,7 @@
         "ec2:DescribeSecurityGroups",
         "ec2:DescribeSubnets",
         "ec2:DescribeVpcs",
+        "ec2:GetSecurityGroupsForVpc",
         "fsx:CreateDataRepositoryAssociation",
         "fsx:TagResource",
         "logs:CreateLogGroup",
@@ -155,6 +168,7 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
+        "ec2:GetSecurityGroupsForVpc",
         "fsx:TagResource"
       ]
     },
@@ -172,6 +186,7 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
+        "ec2:GetSecurityGroupsForVpc",
         "fsx:TagResource"
       ]
     },
@@ -305,6 +320,17 @@
       ]
     },
     {
+      "name": "DeleteResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/on-demand-replication.html",
+      "description": "Required to manage cross-account sharing of FSx volumes through AWS Resource Access Manager (RAM). PutResourcePolicy and GetResourcePolicy are also required",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "volume*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteSnapshot",
       "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DeleteSnapshot.html",
       "description": "Grants permission to delete a snapshot on a volume",
@@ -413,6 +439,15 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeSharedVpcConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeSharedVpcConfiguration.html",
+      "description": "Grants permission to return the descriptions of whether FSx route table updates from participant accounts are allowed in your account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeSnapshots",
       "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeSnapshots.html",
       "description": "Grants permission to return the descriptions of all snapshots owned by your AWS account in the AWS Region of the endpoint you're calling",
@@ -462,6 +497,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/on-demand-replication.html",
+      "description": "Required to manage cross-account sharing of FSx volumes through AWS Resource Access Manager (RAM). PutResourcePolicy and DeleteResourcePolicy are also required",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "volume*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to list tags for an Amazon FSx resource",
@@ -486,6 +532,17 @@
       "accessLevel": "Permissions management",
       "resourceTypes": [
         "backup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/on-demand-replication.html",
+      "description": "Required to manage cross-account sharing of FSx volumes through AWS Resource Access Manager (RAM). DeleteResourcePolicy and GetResourcePolicy are also required",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "volume*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -595,6 +652,15 @@
       "resourceTypes": [
         "file-system*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSharedVpcConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateSharedVpcConfiguration.html",
+      "description": "Grants permission to enable or disable FSx route table updates from participant accounts in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },

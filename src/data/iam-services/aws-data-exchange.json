@@ -86,7 +86,8 @@
       "description": "Grants permission to delete a data set",
       "accessLevel": "Write",
       "resourceTypes": [
-        "data-sets*"
+        "data-sets*",
+        "entitled-data-sets*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -289,7 +290,13 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "dataexchange:CreateAsset"
+        "dataexchange:CreateAsset",
+        "dataexchange:DeleteDataSet",
+        "dataexchange:GetAsset",
+        "dataexchange:GetDataSet",
+        "dataexchange:GetRevision",
+        "dataexchange:PublishDataSet",
+        "redshift:AuthorizeDataShare"
       ]
     },
     {

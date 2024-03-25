@@ -1,0 +1,113 @@
+{
+  "serviceName": "AWS Diagnostic tools",
+  "servicePrefix": "ts",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsdiagnostictools.html",
+  "actions": [
+    {
+      "name": "GetExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/diagnostic-tools/latest/APIReference/API_GetExecution.html",
+      "description": "Grants permission to get details about specific execution within AWS Diagnostic tools",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "execution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetExecutionOutput",
+      "documentationUrl": "https://docs.aws.amazon.com/diagnostic-tools/latest/APIReference/API_GetExecutionOutput.html",
+      "description": "Grants permission to get details about specific execution output within AWS Diagnostic tools",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "execution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTool",
+      "documentationUrl": "https://docs.aws.amazon.com/diagnostic-tools/latest/APIReference/API_GetTool.html",
+      "description": "Grants permission to get details about specific tool within AWS Diagnostic tools",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "tool*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExecutions",
+      "documentationUrl": "https://docs.aws.amazon.com/diagnostic-tools/latest/APIReference/API_ListExecutions.html",
+      "description": "Grants permission to list all available execution within AWS Diagnostic tools",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/diagnostic-tools/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list the tags for an AWS Diagnostic tools resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "execution*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTools",
+      "documentationUrl": "https://docs.aws.amazon.com/diagnostic-tools/latest/APIReference/API_ListTools.html",
+      "description": "Grants permission to list all available tools within AWS Diagnostic tools",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/diagnostic-tools/latest/APIReference/API_StartExecution.html",
+      "description": "Grants permission to start an execution workflow of specific tool within AWS Diagnostic tools",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/diagnostic-tools/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag an AWS Diagnostic tools resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "execution*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/diagnostic-tools/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag an AWS Diagnostic tools resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "execution*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

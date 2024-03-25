@@ -99,6 +99,17 @@
       "dependentActions": []
     },
     {
+      "name": "CreateBotReplica",
+      "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBotReplica.html",
+      "description": "Grants permission to create bot replica for a bot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "bot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateBotVersion",
       "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_CreateBotVersion.html",
       "description": "Grants permission to create a new version of an existing bot",
@@ -262,6 +273,17 @@
         "lex:DeleteSlot",
         "lex:DeleteSlotType"
       ]
+    },
+    {
+      "name": "DeleteBotReplica",
+      "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DeleteBotReplica.html",
+      "description": "Grants permission to delete an existing bot replica",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "bot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "DeleteBotVersion",
@@ -443,6 +465,28 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeBotReplica",
+      "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBotReplica.html",
+      "description": "Grants permission to retrieve an existing bot replica",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "bot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeBotResourceGeneration",
+      "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBotResourceGeneration.html",
+      "description": "Grants permission to retrieve metadata information for a bot resource generation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "bot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeBotVersion",
       "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBotVersion.html",
       "description": "Grants permission to retrieve an existing bot version",
@@ -599,6 +643,17 @@
       "dependentActions": []
     },
     {
+      "name": "GenerateBotElement",
+      "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_GenerateBotElement.html",
+      "description": "Grants permission to generate supported fields or elements for a bot",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "bot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetSession",
       "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_GetSession.html",
       "description": "Grants permission to retrieve session information for a bot alias and user ID",
@@ -624,6 +679,17 @@
       "name": "ListAggregatedUtterances",
       "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListAggregatedUtterances.html",
       "description": "Grants permission to list utterances and statistics for a bot",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "bot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListBotAliasReplicas",
+      "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotAliasReplicas.html",
+      "description": "Grants permission to list alias replicas in a bot replica",
       "accessLevel": "List",
       "resourceTypes": [
         "bot*"
@@ -668,6 +734,39 @@
       "name": "ListBotRecommendations",
       "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotRecommendations.html",
       "description": "Grants permission to get a list of bot recommendations that meet the specified criteria",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "bot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListBotReplicas",
+      "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotReplicas.html",
+      "description": "Grants permission to list replicas of a bot",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "bot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListBotResourceGenerations",
+      "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotResourceGenerations.html",
+      "description": "Grants permission to list the resource generations for a bot",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "bot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListBotVersionReplicas",
+      "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_ListBotVersionReplicas.html",
+      "description": "Grants permission to list version replicas in a bot replica",
       "accessLevel": "List",
       "resourceTypes": [
         "bot*"
@@ -952,6 +1051,17 @@
       "dependentActions": []
     },
     {
+      "name": "StartBotResourceGeneration",
+      "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_StartBotResourceGeneration.html",
+      "description": "Grants permission to start a resource generation for an existing bot locale",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "bot*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartConversation",
       "documentationUrl": "https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_StartConversation.html",
       "description": "Grants permission to stream user input (speech/text/DTMF) to a bot alias",
@@ -1058,8 +1168,7 @@
         "testset"
       ],
       "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },

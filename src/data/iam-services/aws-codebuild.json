@@ -37,6 +37,17 @@
       "dependentActions": []
     },
     {
+      "name": "BatchGetFleets",
+      "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_BatchGetFleets.html",
+      "description": "Grants permission to return an array of the Fleet objects specified by the input parameter",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "BatchGetProjects",
       "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_BatchGetProjects.html",
       "description": "Grants permission to get information about one or more build projects",
@@ -89,6 +100,20 @@
         "report-group*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_CreateFleet.html",
+      "description": "Grants permission to create a compute fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -148,6 +173,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "project*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_DeleteFleet.html",
+      "description": "Grants permission to delete a compute fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "fleet*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -350,6 +386,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListFleets",
+      "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListFleets.html",
+      "description": "Grants permission to get a list of compute fleet ARNs, with each compute fleet ARN representing a single fleet",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListProjects",
       "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListProjects.html",
       "description": "Grants permission to get a list of build project names, with each build project name representing a single build project",
@@ -508,6 +553,20 @@
         "project*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_UpdateFleet.html",
+      "description": "Grants permission to change the settings of an existing compute fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

@@ -75,6 +75,71 @@
       ]
     },
     {
+      "name": "CreateRegistration",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_CreateRegistration.html",
+      "description": "Grants permission to create a registration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "sms-voice:TagResource"
+      ]
+    },
+    {
+      "name": "CreateRegistrationAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_CreateRegistrationAssociation.html",
+      "description": "Grants permission to associate a registration with a phone number or another registration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Registration*",
+        "PhoneNumber"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateRegistrationAttachment",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_CreateRegistrationAttachment.html",
+      "description": "Grants permission to create a registration attachment",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "sms-voice:TagResource"
+      ]
+    },
+    {
+      "name": "CreateRegistrationVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_CreateRegistrationVersion.html",
+      "description": "Grants permission to create a registration version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Registration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateVerifiedDestinationNumber",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_CreateVerifiedDestinationNumber.html",
+      "description": "Grants permission to create a verified destination number",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "sms-voice:TagResource"
+      ]
+    },
+    {
       "name": "DeleteConfigurationSet",
       "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DeleteConfigurationSet.html",
       "description": "Grants permission to delete a configuration set",
@@ -164,11 +229,55 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteRegistration",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DeleteRegistration.html",
+      "description": "Grants permission to delete a registration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Registration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRegistrationAttachment",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DeleteRegistrationAttachment.html",
+      "description": "Grants permission to delete a registration attachment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "RegistrationAttachment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRegistrationFieldValue",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DeleteRegistrationFieldValue.html",
+      "description": "Grants permission to delete an optional registration field value",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Registration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteTextMessageSpendLimitOverride",
       "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DeleteTextMessageSpendLimitOverride.html",
       "description": "Grants permission to delete an override for your account's text messaging monthly spend limit",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteVerifiedDestinationNumber",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DeleteVerifiedDestinationNumber.html",
+      "description": "Grants permission to delete a verified destination number",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "VerifiedDestinationNumber*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -267,6 +376,77 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeRegistrationAttachments",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribePools.html",
+      "description": "Grants permission to describe the registration attachments in your account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "RegistrationAttachment"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRegistrationFieldDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribeRegistrationFieldDefinitions.html",
+      "description": "Grants permission to describe the field definitions for a given registration type",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRegistrationFieldValues",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribeRegistrationFieldValues.html",
+      "description": "Grants permission to describe the field values for a given registration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Registration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRegistrationSectionDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribeRegistrationSectionDefinitions.html",
+      "description": "Grants permission to describe the section definitions for a given registration type",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRegistrationTypeDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribeRegistrationTypeDefinitions.html",
+      "description": "Grants permission to describe the registration types supported by the service",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRegistrationVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribeRegistrationVersions.html",
+      "description": "Grants permission to describe the versions for a given registration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Registration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRegistrations",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribeRegistrations.html",
+      "description": "Grants permission to describe the registrations in your account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Registration"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeSenderIds",
       "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribeSenderIds.html",
       "description": "Grants permission to describe the sender IDs in your account",
@@ -287,6 +467,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeVerifiedDestinationNumbers",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DescribeVerifiedDestinationNumbers.html",
+      "description": "Grants permission to describe the verified destination numbers in your account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "VerifiedDestinationNumber"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DisassociateOriginationIdentity",
       "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DisassociateOriginationIdentity.html",
       "description": "Grants permission to disassociate an origination phone number or sender ID from a pool",
@@ -300,12 +491,34 @@
       "dependentActions": []
     },
     {
+      "name": "DiscardRegistrationVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_DiscardRegistrationVersion.html",
+      "description": "Grants permission to discard the latest version of a given registration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Registration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListPoolOriginationIdentities",
       "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_ListPoolOriginationIdentities.html",
       "description": "Grants permission to list all origination phone numbers and sender IDs associated to a pool",
       "accessLevel": "Read",
       "resourceTypes": [
         "Pool*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRegistrationAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_ListRegistrationAssociations.html",
+      "description": "Grants permission to list all resources associated to a registration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Registration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -349,12 +562,34 @@
       "dependentActions": []
     },
     {
+      "name": "PutRegistrationFieldValue",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_PutRegistrationFieldValue.html",
+      "description": "Grants permission to put a registration field value",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Registration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ReleasePhoneNumber",
       "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_ReleasePhoneNumber.html",
       "description": "Grants permission to release an origination phone number",
       "accessLevel": "Write",
       "resourceTypes": [
         "PhoneNumber*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ReleaseSenderId",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_ReleaseSenderId.html",
+      "description": "Grants permission to release a sender ID",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SenderId*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -374,6 +609,36 @@
       "dependentActions": [
         "sms-voice:AssociateOriginationIdentity",
         "sms-voice:TagResource"
+      ]
+    },
+    {
+      "name": "RequestSenderId",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_RequestSenderId.html",
+      "description": "Grants permission to request an unregistered sender ID",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "sms-voice:TagResource"
+      ]
+    },
+    {
+      "name": "SendDestinationNumberVerificationCode",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_SendDestinationNumberVerificationCode.html",
+      "description": "Grants permission to send a text or voice message containing a verification code to a destination phone number",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "PhoneNumber",
+        "Pool",
+        "SenderId"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sms-voice:SendTextMessage",
+        "sms-voice:SendVoiceMessage"
       ]
     },
     {
@@ -442,6 +707,17 @@
       "dependentActions": []
     },
     {
+      "name": "SubmitRegistrationVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_SubmitRegistrationVersion.html",
+      "description": "Grants permission to submit the latest version of a given registration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Registration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_TagResource.html",
       "description": "Grants permission to add tags to a resource",
@@ -451,7 +727,10 @@
         "OptOutList",
         "PhoneNumber",
         "Pool",
-        "SenderId"
+        "Registration",
+        "RegistrationAttachment",
+        "SenderId",
+        "VerifiedDestinationNumber"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -469,10 +748,12 @@
         "OptOutList",
         "PhoneNumber",
         "Pool",
-        "SenderId"
+        "Registration",
+        "RegistrationAttachment",
+        "SenderId",
+        "VerifiedDestinationNumber"
       ],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": []
@@ -499,7 +780,9 @@
         "PhoneNumber*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "UpdatePool",
@@ -508,6 +791,30 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "Pool*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdateSenderId",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_UpdateSenderId.html",
+      "description": "Grants permission to update a sender ID's configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "SenderId*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "VerifyDestinationNumber",
+      "documentationUrl": "https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_VerifyDestinationNumber.html",
+      "description": "Grants permission to verify a destination phone number",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "VerifiedDestinationNumber*"
       ],
       "conditionKeys": [],
       "dependentActions": []

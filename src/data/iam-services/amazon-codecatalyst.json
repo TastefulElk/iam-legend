@@ -31,6 +31,82 @@
       ]
     },
     {
+      "name": "AssociateIdentityCenterApplicationToSpace",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to associate an IAM Identity Center application with an Amazon CodeCatalyst space",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "identity-center-applications*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateIdentityToIdentityCenterApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to associate an identity with an IAM Identity Center application for an Amazon CodeCatalyst space",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "identity-center-applications*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchAssociateIdentitiesToIdentityCenterApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to associate multiple identities with an IAM Identity Center application for an Amazon CodeCatalyst space",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "identity-center-applications*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchDisassociateIdentitiesFromIdentityCenterApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to disassociate multiple identities from an IAM Identity Center application for an Amazon CodeCatalyst space",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "identity-center-applications*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateIdentityCenterApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to create an IAM Identity Center application",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSpace",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to create an Amazon CodeCatalyst space",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSpaceAdminRoleAssignment",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to create an administrator role assignment for a given Amazon CodeCatalyst space and IAM Identity Center application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "identity-center-applications*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteConnection",
       "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
       "description": "Grants permission to delete a connection",
@@ -44,6 +120,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteIdentityCenterApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to delete an IAM Identity Center application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "identity-center-applications*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DisassociateIamRoleFromConnection",
       "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
       "description": "Grants permission to disassociate an IAM role from a connection",
@@ -54,6 +141,28 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateIdentityCenterApplicationFromSpace",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to disassociate an IAM Identity Center application from an Amazon CodeCatalyst space",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "identity-center-applications*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateIdentityFromIdentityCenterApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to disassociate an identity from an IAM Identity Center application for an Amazon CodeCatalyst space",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "identity-center-applications*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -80,6 +189,17 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetIdentityCenterApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to get information about an IAM Identity Center application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "identity-center-applications*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -111,6 +231,35 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListIdentityCenterApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to view a list of all IAM Identity Center applications in the account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListIdentityCenterApplicationsForSpace",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to view a list of IAM Identity Center applications by Amazon CodeCatalyst space",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSpacesForIdentityCenterApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to view a list of Amazon CodeCatalyst spaces by IAM Identity Center application",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "identity-center-applications*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -149,6 +298,17 @@
       "dependentActions": []
     },
     {
+      "name": "SynchronizeIdentityCenterApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to synchronize an IAM Identity Center application with the backing identity store",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "identity-center-applications*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-connections",
       "description": "Grants permission to tag an Amazon CodeCatalyst resource",
@@ -175,6 +335,17 @@
         "aws:TagKeys",
         "aws:ResourceTag/${TagKey}"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateIdentityCenterApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/codecatalyst/latest/userguide/security-iam.html#permissions-reference-applications",
+      "description": "Grants permission to update an IAM Identity Center application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "identity-center-applications*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     }
   ]
