@@ -1271,6 +1271,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetSetupHistory",
+      "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetSetupHistory.html",
+      "description": "Grants permission to get detailed information for setup requests that were run on the specified resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Instance"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetStaticIp",
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetStaticIp.html",
       "description": "Grants permission to get information about a static IP",
@@ -1438,6 +1449,19 @@
       "dependentActions": []
     },
     {
+      "name": "SetupInstanceHttps",
+      "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetupInstanceHttps.html",
+      "description": "Grants permission to create an SSL/TLS certificate and install it on a specified instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "lightsail:GetInstanceAccessDetails"
+      ]
+    },
+    {
       "name": "StartGUISession",
       "documentationUrl": "https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_StartGUISession.html",
       "description": "Grants permission to initiate a graphical user interface (GUI) session used to access an instance's operating system or application",
@@ -1572,7 +1596,6 @@
         "StaticIp"
       ],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": []

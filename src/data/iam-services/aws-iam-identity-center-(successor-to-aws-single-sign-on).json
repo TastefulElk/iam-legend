@@ -61,6 +61,34 @@
       "dependentActions": []
     },
     {
+      "name": "CreateApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplication.html",
+      "description": "Grants permission to create an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ApplicationProvider*",
+        "Instance*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateApplicationAssignment",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateApplicationAssignment.html",
+      "description": "Grants permission to create an application assignment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateApplicationInstance",
       "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample",
       "description": "Grants permission to add an application instance to AWS IAM Identity Center",
@@ -77,6 +105,23 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "CreateInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateInstance.html",
+      "description": "Grants permission to create an identity center instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Instance*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole",
+        "organizations:DescribeOrganization"
+      ]
     },
     {
       "name": "CreateInstanceAccessControlAttributeConfiguration",
@@ -143,6 +188,20 @@
       "dependentActions": []
     },
     {
+      "name": "CreateTrustedTokenIssuer",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_CreateTrustedTokenIssuer.html",
+      "description": "Grants permission to create a trusted token issuer for an instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Instance*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteAccountAssignment",
       "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DeleteAccountAssignment.html",
       "description": "Grants permission to delete a Principal's access from a specified AWS account using a specified permission set",
@@ -153,6 +212,71 @@
         "PermissionSet*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DeleteApplication.html",
+      "description": "Grants permission to delete an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteApplicationAccessScope",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DeleteApplicationAccessScope.html",
+      "description": "Grants permission to delete an access scope to an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteApplicationAssignment",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DeleteApplicationAssignment.html",
+      "description": "Grants permission to delete an application assignment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteApplicationAuthenticationMethod",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DeleteApplicationAuthenticationMethod.html",
+      "description": "Grants permission to delete an authentication method to an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteApplicationGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DeleteApplicationGrant.html",
+      "description": "Grants permission to delete a grant from an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
       "dependentActions": []
     },
     {
@@ -186,6 +310,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DeleteInstance.html",
+      "description": "Grants permission to delete an identity center instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteInstanceAccessControlAttributeConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DeleteInstanceAccessControlAttributeConfiguration.html",
       "description": "Grants permission to disable ABAC and remove the attributes list for the instance",
@@ -207,7 +342,7 @@
     },
     {
       "name": "DeletePermissionSet",
-      "documentationUrl": "{DocHomeURL}singlesignon/latest/APIReference/API_DeletePermissionSet.html",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DeletePermissionSet.html",
       "description": "Grants permission to delete a permission set",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -248,6 +383,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteTrustedTokenIssuer",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DeleteTrustedTokenIssuer.html",
+      "description": "Grants permission to delete a trusted token issuer for an instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TrustedTokenIssuer*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeAccountAssignmentCreationStatus",
       "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeAccountAssignmentCreationStatus.html",
       "description": "Grants permission to describe the status of the assignment creation request",
@@ -270,11 +416,59 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeApplication.html",
+      "description": "Grants permission to obtain information about an application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeApplicationAssignment",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeApplicationAssignment.html",
+      "description": "Grants permission to retrieve an application assignment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeApplicationProvider",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeApplicationProvider.html",
+      "description": "Grants permission to describe an application provider",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ApplicationProvider*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeDirectories",
       "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample",
       "description": "Grants permission to obtain information about the directories for this account",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeInstance.html",
+      "description": "Grants permission to obtain information about an identity center instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Instance*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -331,6 +525,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeTrustedTokenIssuer",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_DescribeTrustedTokenIssuer.html",
+      "description": "Grants permission to describe a trusted token issuer for an instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "TrustedTokenIssuer*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeTrusts",
       "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample",
       "description": "Grants permission to obtain information about the trust relationships for this account",
@@ -381,6 +586,58 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetApplicationAccessScope",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_GetApplicationAccessScope.html",
+      "description": "Grants permission to get an access scope to an application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetApplicationAssignmentConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_GetApplicationAssignmentConfiguration.html",
+      "description": "Grants permission to read assignment configurations for an application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetApplicationAuthenticationMethod",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_GetApplicationAuthenticationMethod.html",
+      "description": "Grants permission to get an authentication method to an application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetApplicationGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_GetApplicationGrant.html",
+      "description": "Grants permission to obtain details about a grant belonging to an application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
       "dependentActions": []
     },
     {
@@ -553,6 +810,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListAccountAssignmentsForPrincipal",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListAccountAssignmentsForPrincipal.html",
+      "description": "Grants permission to list accounts assigned to user or group",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListAccountsForProvisionedPermissionSet",
       "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListAccountsForProvisionedPermissionSet.html",
       "description": "Grants permission to list all the AWS accounts where the specified permission set is provisioned",
@@ -562,6 +830,71 @@
         "PermissionSet*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListApplicationAccessScopes",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListApplicationAccessScopes.html",
+      "description": "Grants permission to list access scopes to an application",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListApplicationAssignments",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListApplicationAssignments.html",
+      "description": "Grants permission to list application assignments",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListApplicationAssignmentsForPrincipal",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListApplicationAssignmentsForPrincipal.html",
+      "description": "Grants permission to list applications assigned to user or group",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Instance*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListApplicationAuthenticationMethods",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListApplicationAuthenticationMethods.html",
+      "description": "Grants permission to list authentication methods to an application",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListApplicationGrants",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListApplicationGrants.html",
+      "description": "Grants permission to list grants from an application",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
       "dependentActions": []
     },
     {
@@ -585,6 +918,17 @@
       ]
     },
     {
+      "name": "ListApplicationProviders",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListApplicationProviders.html",
+      "description": "Grants permission to list application providers",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "ApplicationProvider*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListApplicationTemplates",
       "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample",
       "description": "Grants permission to retrieve all supported application templates",
@@ -597,8 +941,8 @@
     },
     {
       "name": "ListApplications",
-      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample",
-      "description": "Grants permission to retrieve all supported applications",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListApplications.html",
+      "description": "Grants permission to retrieve all applications associated with the instance of IAM Identity Center",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -659,7 +1003,7 @@
     },
     {
       "name": "ListPermissionSets",
-      "documentationUrl": "{DocHomeURL}singlesignon/latest/APIReference/API_ListPermissionSets.html",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListPermissionSets.html",
       "description": "Grants permission to retrieve all permission sets",
       "accessLevel": "List",
       "resourceTypes": [
@@ -706,8 +1050,21 @@
       "description": "Grants permission to list the tags that are attached to a specified resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "Instance*",
-        "PermissionSet*"
+        "Application",
+        "Instance",
+        "PermissionSet",
+        "TrustedTokenIssuer"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrustedTokenIssuers",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListTrustedTokenIssuers.html",
+      "description": "Grants permission to list trusted token issuers for an instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Instance*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -726,12 +1083,55 @@
       "dependentActions": []
     },
     {
+      "name": "PutApplicationAccessScope",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_PutApplicationAccessScope.html",
+      "description": "Grants permission to create/update an access scope to an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "PutApplicationAssignmentConfiguration",
-      "documentationUrl": "iam-auth-access-using-id-policies.html#policyexample",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_PutApplicationAssignmentConfiguration.html",
       "description": "Grants permission to add assignment configurations to an application",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutApplicationAuthenticationMethod",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_PutApplicationAuthenticationMethod.html",
+      "description": "Grants permission to create/update an authentication method to an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutApplicationGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_PutApplicationGrant.html",
+      "description": "Grants permission to create/update a grant to an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
+      ],
       "dependentActions": []
     },
     {
@@ -816,8 +1216,10 @@
       "description": "Grants permission to associate a set of tags with a specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "Instance*",
-        "PermissionSet*"
+        "Application",
+        "Instance",
+        "PermissionSet",
+        "TrustedTokenIssuer"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -831,12 +1233,26 @@
       "description": "Grants permission to disassociate a set of tags from a specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "Instance*",
-        "PermissionSet*"
+        "Application",
+        "Instance",
+        "PermissionSet",
+        "TrustedTokenIssuer"
       ],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_UpdateApplication.html",
+      "description": "Grants permission to update an application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Application*"
+      ],
+      "conditionKeys": [
+        "sso:ApplicationAccount"
       ],
       "dependentActions": []
     },
@@ -913,6 +1329,17 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_UpdateInstance.html",
+      "description": "Grants permission to update an identity center instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateInstanceAccessControlAttributeConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_UpdateInstanceAccessControlAttributeConfiguration.html",
       "description": "Grants permission to update the attributes to use with the instance for ABAC",
@@ -934,7 +1361,7 @@
     },
     {
       "name": "UpdatePermissionSet",
-      "documentationUrl": "{DocHomeURL}singlesignon/latest/APIReference/API_UpdatePermissionSet.html",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_UpdatePermissionSet.html",
       "description": "Grants permission to update the permission set",
       "accessLevel": "Permissions management",
       "resourceTypes": [
@@ -968,6 +1395,17 @@
       "description": "Grants permission to update the federation trust in a target account",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTrustedTokenIssuer",
+      "documentationUrl": "https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_UpdateTrustedTokenIssuer.html",
+      "description": "Grants permission to update a trusted token issuer for an instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TrustedTokenIssuer*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     }

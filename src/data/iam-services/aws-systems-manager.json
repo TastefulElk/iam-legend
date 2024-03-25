@@ -22,6 +22,7 @@
         "task"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
@@ -76,6 +77,7 @@
       "description": "Grants permission to associate a specified Systems Manager document with specified instances or other targets",
       "accessLevel": "Write",
       "resourceTypes": [
+        "association*",
         "document*",
         "instance",
         "managed-instance"
@@ -1198,7 +1200,9 @@
         "parameter",
         "patchbaseline"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1357,6 +1361,7 @@
         "task"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": []

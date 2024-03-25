@@ -257,7 +257,7 @@
     {
       "name": "CreateDBCluster",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBCluster.html",
-      "description": "Grants permission to create a new Amazon Aurora DB cluster",
+      "description": "Grants permission to create a new DB cluster",
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*",
@@ -294,7 +294,7 @@
     {
       "name": "CreateDBClusterEndpoint",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBClusterEndpoint.html",
-      "description": "Grants permission to create a new custom endpoint and associates it with an Amazon Aurora DB cluster",
+      "description": "Grants permission to create a new custom endpoint and associates it with an Amazon Aurora DB cluster or Amazon DocumentDB cluster",
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*",
@@ -463,6 +463,18 @@
       ]
     },
     {
+      "name": "CreateDBShardGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBShardGroup.html",
+      "description": "Grants permission to create a new Aurora Limitless Database DB shard group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "shardgrp*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateDBSnapshot",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSnapshot.html",
       "description": "Grants permission to create a DBSnapshot",
@@ -519,7 +531,7 @@
     {
       "name": "CreateGlobalCluster",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateGlobalCluster.html",
-      "description": "Grants permission to create an Aurora global database spread across multiple regions",
+      "description": "Grants permission to create an Aurora global database or DocumentDB global database spread across multiple regions",
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*",
@@ -601,10 +613,7 @@
         "deployment*"
       ],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
-        "aws:ResourceTag/${TagKey}",
-        "aws:TagKeys",
-        "rds:req-tag/${TagKey}"
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": [
         "rds:DeleteDBCluster",
@@ -651,7 +660,7 @@
     {
       "name": "DeleteDBClusterEndpoint",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBClusterEndpoint.html",
-      "description": "Grants permission to delete a custom endpoint and removes it from an Amazon Aurora DB cluster",
+      "description": "Grants permission to delete a custom endpoint and removes it from an Amazon Aurora DB cluster or Amazon DocumentDB cluster",
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster-endpoint*"
@@ -745,6 +754,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "secgrp*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDBShardGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBShardGroup.html",
+      "description": "Grants permission to delete an Aurora Limitless Database DB shard group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "shardgrp*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -954,7 +974,7 @@
     {
       "name": "DescribeDBClusters",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html",
-      "description": "Grants permission to return information about provisioned Aurora DB clusters",
+      "description": "Grants permission to return information about provisioned Aurora DB clusters or DocumentDB clusters",
       "accessLevel": "List",
       "resourceTypes": [
         "cluster*"
@@ -1067,11 +1087,18 @@
       "description": "Grants permission to view database proxy target details",
       "accessLevel": "List",
       "resourceTypes": [
-        "cluster*",
-        "db*",
         "proxy*",
         "target-group*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDBRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBRecommendations.html",
+      "description": "Grants permission to list recommendation details",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1082,6 +1109,17 @@
       "accessLevel": "List",
       "resourceTypes": [
         "secgrp*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDBShardGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBShardGroups.html",
+      "description": "Grants permission to return information about all Aurora Limitless Database DB shard groups for this account. You can filter by shard group(s)",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "shardgrp*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1192,7 +1230,7 @@
     {
       "name": "DescribeGlobalClusters",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeGlobalClusters.html",
-      "description": "Grants permission to return information about Aurora global database clusters",
+      "description": "Grants permission to return information about Aurora global database clusters or DocumentDB global database clusters",
       "accessLevel": "List",
       "resourceTypes": [
         "global-cluster*"
@@ -1327,6 +1365,17 @@
       "dependentActions": []
     },
     {
+      "name": "DisableHttpEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DisableHttpEndpoint.html",
+      "description": "Grants permission to disable http endpoint for a DB cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DownloadCompleteDBLogFile",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/USER_LogAccess.html",
       "description": "Grants permission to download specified log file",
@@ -1344,6 +1393,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "db*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "EnableHttpEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_EnableHttpEndpoint.html",
+      "description": "Grants permission to enable http endpoint for a DB cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1423,7 +1483,7 @@
     {
       "name": "ModifyCurrentDBClusterCapacity",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyCurrentDBClusterCapacity.html",
-      "description": "Grants permission to modify current cluster capacity for an Amazon Aurora Severless DB cluster",
+      "description": "Grants permission to modify current cluster capacity for an Amazon Aurora Serverless DB cluster",
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*"
@@ -1445,7 +1505,7 @@
     {
       "name": "ModifyDBCluster",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBCluster.html",
-      "description": "Grants permission to modify a setting for an Amazon Aurora DB cluster",
+      "description": "Grants permission to modify a setting for an Amazon Aurora DB cluster or Amazon DocumentDB cluster",
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*",
@@ -1473,7 +1533,7 @@
     {
       "name": "ModifyDBClusterEndpoint",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBClusterEndpoint.html",
-      "description": "Grants permission to modify the properties of an endpoint in an Amazon Aurora DB cluster",
+      "description": "Grants permission to modify the properties of an endpoint in an Amazon Aurora DB cluster or Amazon DocumentDB cluster",
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster-endpoint*"
@@ -1578,6 +1638,26 @@
       "dependentActions": []
     },
     {
+      "name": "ModifyDBRecommendation",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBRecommendation.html",
+      "description": "Grants permission to modify recommendation",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyDBShardGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBShardGroup.html",
+      "description": "Grants permission to modify properties of an Aurora Limitless Database DB shard group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "shardgrp*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ModifyDBSnapshot",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBSnapshot.html",
       "description": "Grants permission to update a manual DB snapshot, which can be encrypted or not encrypted, with a new engine version",
@@ -1625,7 +1705,7 @@
     {
       "name": "ModifyGlobalCluster",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyGlobalCluster.html",
-      "description": "Grants permission to modify a setting for an Amazon Aurora global cluster",
+      "description": "Grants permission to modify a setting for an Amazon Aurora global cluster or Amazon DocumentDB global cluster",
       "accessLevel": "Write",
       "resourceTypes": [
         "global-cluster*"
@@ -1730,6 +1810,17 @@
       "dependentActions": []
     },
     {
+      "name": "RebootDBShardGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBShardGroup.html",
+      "description": "Grants permission to reboot an Aurora Limitless Database DB shard group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "shardgrp*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "RegisterDBProxyTargets",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RegisterDBProxyTargets.html",
       "description": "Grants permission to add targets to a database proxy target group",
@@ -1743,7 +1834,7 @@
     {
       "name": "RemoveFromGlobalCluster",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RemoveFromGlobalCluster.html",
-      "description": "Grants permission to detach an Aurora secondary cluster from an Aurora global database cluster",
+      "description": "Grants permission to detach an Aurora secondary cluster from an Aurora global database cluster or DocumentDB global cluster",
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*",
@@ -2126,10 +2217,7 @@
         "deployment*"
       ],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
-        "aws:ResourceTag/${TagKey}",
-        "aws:TagKeys",
-        "rds:req-tag/${TagKey}"
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": [
         "rds:ModifyDBCluster",

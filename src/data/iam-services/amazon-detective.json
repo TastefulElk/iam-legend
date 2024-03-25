@@ -39,10 +39,13 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
+        "aws:TagKeys",
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:ResourceTag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "detective:TagResource"
+      ]
     },
     {
       "name": "CreateMembers",
@@ -147,6 +150,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetInvestigation",
+      "documentationUrl": "https://docs.aws.amazon.com/detective/latest/APIReference/API_GetInvestigation.html",
+      "description": "Grants permission to get an investigation's status and metadata",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Graph*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetMembers",
       "documentationUrl": "https://docs.aws.amazon.com/detective/latest/APIReference/API_GetMembers.html",
       "description": "Grants permission to retrieve details on specified members of a behavior graph",
@@ -178,6 +192,17 @@
       "dependentActions": []
     },
     {
+      "name": "InvokeAssistant",
+      "documentationUrl": "https://docs.aws.amazon.com/detective/latest/userguide/finding-groups-summary.html",
+      "description": "Grants permission to invoke Detective's Assistant",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Graph*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListDatasourcePackages",
       "documentationUrl": "https://docs.aws.amazon.com/detective/latest/APIReference/API_ListDatasourcePackages.html",
       "description": "Grants permission to list a graph's datasource package ingest states and timestamps for the most recent state changes in a behavior graph managed by this account",
@@ -201,6 +226,28 @@
       "name": "ListHighDegreeEntities",
       "documentationUrl": "https://docs.aws.amazon.com/detective/latest/userguide/high-volume-entities.html",
       "description": "Grants permission to retrieve high volume entities whose relationships cannot be stored by Detective",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Graph*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListIndicators",
+      "documentationUrl": "https://docs.aws.amazon.com/detective/latest/APIReference/API_ListIndicators.html",
+      "description": "Grants permission to list the indicators of an investigation",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Graph*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListInvestigations",
+      "documentationUrl": "https://docs.aws.amazon.com/detective/latest/APIReference/API_ListInvestigations.html",
+      "description": "Grants permission to list the investigations of a behavior graph",
       "accessLevel": "List",
       "resourceTypes": [
         "Graph*"
@@ -273,6 +320,17 @@
       "dependentActions": []
     },
     {
+      "name": "StartInvestigation",
+      "documentationUrl": "https://docs.aws.amazon.com/detective/latest/APIReference/API_StartInvestigation.html",
+      "description": "Grants permission to start investigations",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Graph*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartMonitoringMember",
       "documentationUrl": "https://docs.aws.amazon.com/detective/latest/APIReference/API_StartMonitoringMember.html",
       "description": "Grants permission to start data ingest for a member account that has a status of ACCEPTED_BUT_DISABLED",
@@ -315,6 +373,17 @@
       "name": "UpdateDatasourcePackages",
       "documentationUrl": "https://docs.aws.amazon.com/detective/latest/APIReference/API_UpdateDatasourcePackages.html",
       "description": "Grants permission to enable or disable datasource package(s) in a behavior graph managed by this account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Graph*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateInvestigationState",
+      "documentationUrl": "https://docs.aws.amazon.com/detective/latest/APIReference/API_UpdateInvestigationState.html",
+      "description": "Grants permission to update an investigation's state and metadata",
       "accessLevel": "Write",
       "resourceTypes": [
         "Graph*"

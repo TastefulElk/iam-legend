@@ -1,0 +1,138 @@
+{
+  "serviceName": "Amazon Timestream InfluxDB",
+  "servicePrefix": "timestream-influxdb",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazontimestreaminfluxdb.html",
+  "actions": [
+    {
+      "name": "CreateDbInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/ts-influxdb/latest/ts-influxdb-api/API_CreateDbInstance.html",
+      "description": "Grants permission to create a new Timestream InfluxDB instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "db-parameter-group"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateDbParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/ts-influxdb/latest/ts-influxdb-api/API_CreateDbParameterGroup.html",
+      "description": "Grants permission to create a new Timestream InfluxDB parameter group",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDbInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/ts-influxdb/latest/ts-influxdb-api/API_DeleteDbInstance.html",
+      "description": "Grants permission to delete a Timestream InfluxDB instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "db-instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDbInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/ts-influxdb/latest/ts-influxdb-api/API_GetDbInstance.html",
+      "description": "Grants permission to get information about a Timestream InfluxDB instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "db-instance*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDbParameterGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/ts-influxdb/latest/ts-influxdb-api/API_GetDbParameterGroup.html",
+      "description": "Grants permission to get information about a Timestream InfluxDB parameter group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "db-parameter-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDbInstances",
+      "documentationUrl": "https://docs.aws.amazon.com/ts-influxdb/latest/ts-influxdb-api/API_ListDbInstances.html",
+      "description": "Grants permission to list information about all Timestream InfluxDB instances in the account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDbParameterGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/ts-influxdb/latest/ts-influxdb-api/API_ListDbParameterGroups.html",
+      "description": "Grants permission to list information about all Timestream InfluxDB parameter groups",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/ts-influxdb/latest/ts-influxdb-api/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a Timestream InfluxDB resource",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/ts-influxdb/latest/ts-influxdb-api/API_TagResource.html",
+      "description": "Grants permission to tag a Timestream InfluxDB resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "db-instance",
+        "db-parameter-group"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/ts-influxdb/latest/ts-influxdb-api/API_UntagResource.html",
+      "description": "Grants permission to untag a Timestream InfluxDB resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "db-instance",
+        "db-parameter-group"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDbInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/ts-influxdb/latest/ts-influxdb-api/API_UpdateDbInstance.html",
+      "description": "Grants permission to update a Timestream InfluxDB instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "db-instance*",
+        "db-parameter-group"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

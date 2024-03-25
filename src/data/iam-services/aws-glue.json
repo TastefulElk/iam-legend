@@ -136,6 +136,21 @@
       "dependentActions": []
     },
     {
+      "name": "BatchGetTableOptimizer",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-table-optimizers.html#aws-glue-api-table-optimizers-BatchGetTableOptimizer",
+      "description": "Grants permission to return the configuration for the specified table optimizers",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "catalog*",
+        "database*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "glue:GetTable"
+      ]
+    },
+    {
       "name": "BatchGetTriggers",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-trigger.html#aws-glue-api-jobs-trigger-BatchGetTriggers",
       "description": "Grants permission to retrieve one or more triggers",
@@ -441,7 +456,10 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "glue:VpcIds",
+        "glue:SubnetIds",
+        "glue:SecurityGroupIds"
       ],
       "dependentActions": []
     },
@@ -452,10 +470,26 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "catalog*",
-        "database*"
+        "database*",
+        "table*"
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "CreateTableOptimizer",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-table-optimizers.html#aws-glue-api-table-optimizers-CreateTableOptimizer",
+      "description": "Grants permission to create a new table optimizer for a specific function. Compaction is the only currently supported optimizer type",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "catalog*",
+        "database*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "glue:GetTable"
+      ]
     },
     {
       "name": "CreateTrigger",
@@ -741,6 +775,21 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteTableOptimizer",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-table-optimizers.html#aws-glue-api-table-optimizers-DeleteTableOptimizer",
+      "description": "Grants permission to delete an optimizer and all associated metadata for a table. The optimization will no longer be performed on the table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "catalog*",
+        "database*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "glue:GetTable"
+      ]
+    },
+    {
       "name": "DeleteTableVersion",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-DeleteTableVersion",
       "description": "Grants permission to delete a version of a table",
@@ -881,6 +930,35 @@
         "catalog*",
         "database*",
         "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetColumnStatisticsTaskRun",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-column-statistics.html#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskRun",
+      "description": "Grants permission to retrieve Column Statistics run information for the table based on run-id",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetColumnStatisticsTaskRuns",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-column-statistics.html#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskRuns",
+      "description": "Grants permission to retrieve Column Statistics run information for the table based on run-ids",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCompletion",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api.html#",
+      "description": "Grants permission to get generated response for a completion request in Glue from AWS Q",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "completion*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1362,6 +1440,21 @@
       "dependentActions": []
     },
     {
+      "name": "GetTableOptimizer",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-table-optimizers.html#aws-glue-api-table-optimizers-GetTableOptimizer",
+      "description": "Grants permission to return the configuration of all optimizers associated with a specified table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "catalog*",
+        "database*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "glue:GetTable"
+      ]
+    },
+    {
       "name": "GetTableVersion",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-GetTableVersion",
       "description": "Grants permission to retrieve a version of a table",
@@ -1546,6 +1639,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListColumnStatisticsTaskRuns",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-column-statistics.html#aws-glue-api-crawler-column-statistics-ListColumnStatisticsTaskRuns",
+      "description": "Grants permission to list all Column Statistics run-ids that have been executed for the account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListCrawlers",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-ListCrawlers",
       "description": "Grants permission to retrieve all crawlers",
@@ -1569,10 +1671,7 @@
       "description": "Grants permission to retrieve all Custom Entity Types",
       "accessLevel": "List",
       "resourceTypes": [],
-      "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
-      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -1616,10 +1715,7 @@
       "resourceTypes": [
         "dataQualityRuleset*"
       ],
-      "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
-      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -1648,10 +1744,7 @@
       "resourceTypes": [
         "mlTransform*"
       ],
-      "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
-      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -1707,6 +1800,21 @@
       "dependentActions": []
     },
     {
+      "name": "ListTableOptimizerRuns",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-table-optimizers.html#aws-glue-api-table-optimizers-ListTableOptimizerRuns",
+      "description": "Grants permission to list the history of previous optimizer runs for a specific table",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "catalog*",
+        "database*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "glue:GetTable"
+      ]
+    },
+    {
       "name": "ListTriggers",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-trigger.html#aws-glue-api-jobs-trigger-ListTriggers",
       "description": "Grants permission to retrieve all triggers",
@@ -1731,6 +1839,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PassConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-connections.html#aws-glue-api-catalog-connections-CreateConnection",
+      "description": "Grants permission to pass glue connection name in input for APIs that require them",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connection*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1881,6 +2000,15 @@
       "dependentActions": []
     },
     {
+      "name": "SendFeedback",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api.html#",
+      "description": "Grants permission to provide feedback about a glue completion experience in AWS Q",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartBlueprintRun",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-workflow.html#aws-glue-api-workflow-StartBlueprintRun",
       "description": "Grants permission to start running a blueprint",
@@ -1888,6 +2016,30 @@
       "resourceTypes": [
         "blueprint*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartColumnStatisticsTaskRun",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-column-statistics.html#aws-glue-api-crawler-column-statistics-StartColumnStatisticsTaskRun",
+      "description": "Grants permission to start a run for generating Column Statistics for the table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "database*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "glue:GetSecurityConfiguration",
+        "glue:GetTable"
+      ]
+    },
+    {
+      "name": "StartCompletion",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api.html#",
+      "description": "Grants permission to create a completion request in Glue for AWS Q experience",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -2020,6 +2172,18 @@
       "dependentActions": []
     },
     {
+      "name": "StopColumnStatisticsTaskRun",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-column-statistics.html#aws-glue-api-crawler-column-statistics-StopColumnStatisticsTaskRun",
+      "description": "Grants permission to stop execution for Column Statistics run",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "database*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StopCrawler",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-StopCrawler",
       "description": "Grants permission to stop a running crawler",
@@ -2137,8 +2301,7 @@
         "workflow"
       ],
       "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -2350,6 +2513,21 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "UpdateTableOptimizer",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-table-optimizers.html#aws-glue-api-table-optimizers-UpdateTableOptimizer",
+      "description": "Grants permission to update the configuration for an existing table optimizer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "catalog*",
+        "database*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "glue:GetTable"
+      ]
     },
     {
       "name": "UpdateTrigger",

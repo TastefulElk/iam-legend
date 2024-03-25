@@ -57,6 +57,28 @@
       "dependentActions": []
     },
     {
+      "name": "CreateScraper",
+      "documentationUrl": "https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-CreateScraper",
+      "description": "Grants permission to create a scraper",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "workspace*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "aps:TagResource",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "eks:DescribeCluster",
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
       "name": "CreateWorkspace",
       "documentationUrl": "https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-CreateWorkspace",
       "description": "Grants permission to create a workspace",
@@ -121,6 +143,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteScraper",
+      "documentationUrl": "https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-DeleteScraper",
+      "description": "Grants permission to delete a scraper",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "scraper*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteWorkspace",
       "documentationUrl": "https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-DeleteWorkspace",
       "description": "Grants permission to delete a workspace",
@@ -173,6 +208,19 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeScraper",
+      "documentationUrl": "https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-DescribeScraper",
+      "description": "Grants permission to describe a scraper",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "scraper*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeWorkspace",
       "documentationUrl": "https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-DescribeWorkspace",
       "description": "Grants permission to describe a workspace",
@@ -209,6 +257,15 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDefaultScraperConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-GetDefaultScraperConfiguration",
+      "description": "Grants permission to get default scraper configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -342,12 +399,22 @@
       "dependentActions": []
     },
     {
+      "name": "ListScrapers",
+      "documentationUrl": "https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-ListScrapers",
+      "description": "Grants permission to list scrapers",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-ListTagsForResource",
       "description": "Grants permission to list tags on an AMP resource",
       "accessLevel": "Read",
       "resourceTypes": [
         "rulegroupsnamespace",
+        "scraper",
         "workspace"
       ],
       "conditionKeys": [
@@ -437,6 +504,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "rulegroupsnamespace",
+        "scraper",
         "workspace"
       ],
       "conditionKeys": [
@@ -452,11 +520,11 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "rulegroupsnamespace",
+        "scraper",
         "workspace"
       ],
       "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },

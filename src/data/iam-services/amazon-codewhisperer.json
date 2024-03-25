@@ -113,7 +113,9 @@
       "resourceTypes": [
         "customization*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -124,7 +126,22 @@
       "resourceTypes": [
         "customization*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCustomizationVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/codewhisperer/latest/userguide/security_iam_service-with-iam.html",
+      "description": "Grants permission to invoke ListCustomizationVersions on CodeWhisperer",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "customization*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -153,7 +170,8 @@
       "description": "Grants permission to invoke ListTagsForResource on CodeWhisperer",
       "accessLevel": "List",
       "resourceTypes": [
-        "profile*"
+        "customization",
+        "profile"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
@@ -166,7 +184,8 @@
       "description": "Grants permission to invoke TagResource on CodeWhisperer",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "profile*"
+        "customization",
+        "profile"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -181,7 +200,8 @@
       "description": "Grants permission to invoke UntagResource on CodeWhisperer",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "profile*"
+        "customization",
+        "profile"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",

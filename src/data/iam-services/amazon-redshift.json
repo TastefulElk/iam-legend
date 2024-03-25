@@ -30,7 +30,8 @@
         "datashare*"
       ],
       "conditionKeys": [
-        "redshift:ConsumerArn"
+        "redshift:ConsumerArn",
+        "redshift:AllowWrites"
       ],
       "dependentActions": []
     },
@@ -55,7 +56,8 @@
         "datashare*"
       ],
       "conditionKeys": [
-        "redshift:ConsumerIdentifier"
+        "redshift:ConsumerIdentifier",
+        "redshift:AllowWrites"
       ],
       "dependentActions": []
     },
@@ -301,6 +303,34 @@
       "dependentActions": []
     },
     {
+      "name": "CreateQev2IdcApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html",
+      "description": "Grants permission to create a qev2 idc application",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sso:CreateApplication",
+        "sso:PutApplicationAccessScope",
+        "sso:PutApplicationAuthenticationMethod",
+        "sso:PutApplicationGrant"
+      ]
+    },
+    {
+      "name": "CreateRedshiftIdcApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateRedshiftIdcApplication.html",
+      "description": "Grants permission to create a redshift idc application",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sso:CreateApplication",
+        "sso:PutApplicationAccessScope",
+        "sso:PutApplicationAuthenticationMethod",
+        "sso:PutApplicationGrant"
+      ]
+    },
+    {
       "name": "CreateSavedQuery",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
       "description": "Grants permission to create saved SQL queries through the Amazon Redshift console",
@@ -527,6 +557,32 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "DeleteQev2IdcApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html",
+      "description": "Grants permission to delete a qev2 idc application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "qev2idcapplication*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sso:DeleteApplication"
+      ]
+    },
+    {
+      "name": "DeleteRedshiftIdcApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteRedshiftIdcApplication.html",
+      "description": "Grants permission to delete a redshift idc application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "redshiftidcapplication*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sso:DeleteApplication"
+      ]
     },
     {
       "name": "DeleteResourcePolicy",
@@ -777,7 +833,7 @@
       "name": "DescribeEndpointAuthorization",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEndpointAuthorization.html",
       "description": "Grants permission to authorize describe activity for redshift-managed vpc endpoint",
-      "accessLevel": "Permissions management",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -877,6 +933,15 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeQev2IdcApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html",
+      "description": "Grants permission to describe qev2 idc applications",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeQuery",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
       "description": "Grants permission to describe a query through the Amazon Redshift console",
@@ -884,6 +949,18 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "DescribeRedshiftIdcApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeRedshiftIdcApplications.html",
+      "description": "Grants permission to describe redshift idc applications",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sso:GetApplicationGrant",
+        "sso:ListApplicationAccessScopes"
+      ]
     },
     {
       "name": "DescribeReservedNodeExchangeStatus",
@@ -1192,6 +1269,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListRecommendations",
+      "documentationUrl": "API_ListRecommendations.html",
+      "description": "Grants permission to list Advisor recommendations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListSavedQueries",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-policy-resources.resource-permissions.html",
       "description": "Grants permission to list saved queries through the Amazon Redshift console",
@@ -1358,6 +1444,38 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "ModifyQev2IdcApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html",
+      "description": "Grants permission to modify a qev2 idc application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "qev2idcapplication*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sso:UpdateApplication"
+      ]
+    },
+    {
+      "name": "ModifyRedshiftIdcApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyRedshiftIdcApplication.html",
+      "description": "Grants permission to modify a redshift idc application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "redshiftidcapplication*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sso:DeleteApplicationAccessScope",
+        "sso:DeleteApplicationGrant",
+        "sso:GetApplicationGrant",
+        "sso:ListApplicationAccessScopes",
+        "sso:PutApplicationAccessScope",
+        "sso:PutApplicationGrant",
+        "sso:UpdateApplication"
+      ]
     },
     {
       "name": "ModifySavedQuery",

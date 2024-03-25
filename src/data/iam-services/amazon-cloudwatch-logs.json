@@ -51,6 +51,20 @@
       "dependentActions": []
     },
     {
+      "name": "CreateLogAnomalyDetector",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogAnomalyDetector.html",
+      "description": "Grants permission to create a log anomaly detector",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "log-group*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateLogDelivery",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html",
       "description": "Grants permission to create the log delivery",
@@ -155,6 +169,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "destination*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteLogAnomalyDetector",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogAnomalyDetector.html",
+      "description": "Grants permission to delete a log anomaly detector",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "anomaly-detector*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -442,6 +467,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetLogAnomalyDetector",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogAnomalyDetector.html",
+      "description": "Grants permission to get a log anomaly detector",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "anomaly-detector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetLogDelivery",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html",
       "description": "Grants permission to get the log delivery information for specified log delivery",
@@ -504,6 +540,28 @@
       "dependentActions": []
     },
     {
+      "name": "ListAnomalies",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html",
+      "description": "Grants permission to list all anomalies detected in the AWS account making the request",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "anomaly-detector"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLogAnomalyDetectors",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListLogAnomalyDetectors.html",
+      "description": "Grants permission to return all the anomaly detectors that are associated with the AWS account making the request",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "log-group"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListLogDeliveries",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html",
       "description": "Grants permission to list all the log deliveries for specified account and/or log source",
@@ -518,6 +576,7 @@
       "description": "Grants permission to list the tags for the specified resource",
       "accessLevel": "List",
       "resourceTypes": [
+        "anomaly-detector",
         "delivery",
         "delivery-destination",
         "delivery-source",
@@ -693,10 +752,12 @@
     },
     {
       "name": "StartLiveTail",
-      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs_LiveTail.html",
-      "description": "Grants permission to start a livetail session in CloudWatch Logs",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTail.html",
+      "description": "Grants permission to start a Live Tail session in CloudWatch Logs",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "log-group*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -714,7 +775,7 @@
     {
       "name": "StopLiveTail",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs_LiveTail.html",
-      "description": "Grants permission to stop a CloudWatch Logs livetail session that is in progress",
+      "description": "Grants permission to stop a Live Tail session that is in progress",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -749,6 +810,7 @@
       "description": "Grants permission to add or update the specified tags for the specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "anomaly-detector",
         "delivery",
         "delivery-destination",
         "delivery-source",
@@ -800,6 +862,7 @@
       "description": "Grants permission to remove the specified tags from the specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "anomaly-detector",
         "delivery",
         "delivery-destination",
         "delivery-source",
@@ -809,6 +872,28 @@
       "conditionKeys": [
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAnomaly",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateAnomaly.html",
+      "description": "Grants permission to update an anomaly reported by a log anomaly detector",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "anomaly-detector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateLogAnomalyDetector",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateLogAnomalyDetector.html",
+      "description": "Grants permission to update a log anomaly detector",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "anomaly-detector*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {

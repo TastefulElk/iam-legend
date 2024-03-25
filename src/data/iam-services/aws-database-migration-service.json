@@ -22,6 +22,7 @@
         "ReplicationTask"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "dms:req-tag/${TagKey}"
@@ -114,11 +115,14 @@
         "MigrationProject*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "dms:req-tag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "CreateDataProvider",
@@ -127,11 +131,14 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "dms:req-tag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "CreateEndpoint",
@@ -140,11 +147,14 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "dms:req-tag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "CreateEventSubscription",
@@ -153,6 +163,7 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "dms:req-tag/${TagKey}"
@@ -166,7 +177,9 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "CreateInstanceProfile",
@@ -175,11 +188,14 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "dms:req-tag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "CreateMigrationProject",
@@ -191,11 +207,14 @@
         "InstanceProfile*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "dms:req-tag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "CreateReplicationConfig",
@@ -206,6 +225,7 @@
         "Endpoint*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "dms:req-tag/${TagKey}"
@@ -219,11 +239,14 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "dms:req-tag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "CreateReplicationSubnetGroup",
@@ -232,6 +255,7 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "dms:req-tag/${TagKey}"
@@ -248,6 +272,7 @@
         "ReplicationInstance*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "dms:req-tag/${TagKey}"
@@ -917,6 +942,7 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
@@ -1073,7 +1099,9 @@
         "DataMigration*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "ModifyDataProvider",
@@ -1085,7 +1113,8 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "dms:UpdateDataProvider"
+        "dms:UpdateDataProvider",
+        "iam:PassRole"
       ]
     },
     {
@@ -1098,7 +1127,9 @@
         "Certificate"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "ModifyEventSubscription",
@@ -1137,7 +1168,8 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "dms:UpdateInstanceProfile"
+        "dms:UpdateInstanceProfile",
+        "iam:PassRole"
       ]
     },
     {
@@ -1150,7 +1182,8 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "dms:UpdateMigrationProject"
+        "dms:UpdateMigrationProject",
+        "iam:PassRole"
       ]
     },
     {
@@ -1271,6 +1304,8 @@
         "ReplicationTask"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": []
@@ -1429,7 +1464,9 @@
         "ReplicationTask*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "StopDataMigration",

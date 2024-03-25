@@ -1,0 +1,340 @@
+{
+  "serviceName": "AWS Fault Injection Service",
+  "servicePrefix": "fis",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsfaultinjectionservice.html",
+  "actions": [
+    {
+      "name": "CreateExperimentTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_CreateExperimentTemplate.html",
+      "description": "Grants permission to create an AWS FIS experiment template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "action*",
+        "experiment-template*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTargetAccountConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_CreateTargetAccountConfiguration.html",
+      "description": "Grants permission to create an AWS FIS target account configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteExperimentTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_DeleteExperimentTemplate.html",
+      "description": "Grants permission to delete the AWS FIS experiment template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTargetAccountConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_DeleteTargetAccountConfiguration.html",
+      "description": "Grants permission to delete an AWS FIS target account configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAction",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_GetAction.html",
+      "description": "Grants permission to retrieve an AWS FIS action",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "action*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetExperiment",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_GetExperiment.html",
+      "description": "Grants permission to retrieve an AWS FIS experiment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "experiment*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetExperimentTargetAccountConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_GetExperimentTargetAccountConfiguration.html",
+      "description": "Grants permission to retrieve an AWS FIS target account configuration for an AWS FIS experiment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "experiment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetExperimentTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_GetExperimentTemplate.html",
+      "description": "Grants permission to retrieve an AWS FIS Experiment Template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "experiment-template*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTargetAccountConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_GetTargetAccountConfiguration.html",
+      "description": "Grants permission to retrieve an AWS FIS target account configuration for an AWS FIS experiment template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "experiment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTargetResourceType",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_GetTargetResourceType.html",
+      "description": "Grants permission to get information about the specified resource type",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "InjectApiInternalError",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#fis-actions-reference-fis",
+      "description": "Grants permission to inject an API internal error on the provided AWS service from an FIS Experiment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment*"
+      ],
+      "conditionKeys": [
+        "fis:Service",
+        "fis:Operations",
+        "fis:Percentage",
+        "fis:Targets"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "InjectApiThrottleError",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#fis-actions-reference-fis",
+      "description": "Grants permission to inject an API throttle error on the provided AWS service from an FIS Experiment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment*"
+      ],
+      "conditionKeys": [
+        "fis:Service",
+        "fis:Operations",
+        "fis:Percentage",
+        "fis:Targets"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "InjectApiUnavailableError",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#fis-actions-reference-fis",
+      "description": "Grants permission to inject an API unavailable error on the provided AWS service from an FIS Experiment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment*"
+      ],
+      "conditionKeys": [
+        "fis:Service",
+        "fis:Operations",
+        "fis:Percentage",
+        "fis:Targets"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListActions",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_ListActions.html",
+      "description": "Grants permission to list all available AWS FIS actions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExperimentResolvedTargets",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_ListExperimentResolvedTargets.html",
+      "description": "Grants permission to list resolved targets for AWS FIS experiments",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "experiment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExperimentTargetAccountConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_ListExperimentTargetAccountConfigurations.html",
+      "description": "Grants permission to list target account configurations for AWS FIS experiments",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "experiment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExperimentTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_ListExperimentTemplates.html",
+      "description": "Grants permission to list all available AWS FIS experiment templates",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExperiments",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_ListExperiments.html",
+      "description": "Grants permission to list all available AWS FIS experiments",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list the tags for an AWS FIS resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "action",
+        "experiment",
+        "experiment-template"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTargetAccountConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_ListTargetAccountConfigurations.html",
+      "description": "Grants permission to list target account configurations for AWS FIS experiment templates",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "experiment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTargetResourceTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_ListTargetResourceTypes.html",
+      "description": "Grants permission to list the resource types",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartExperiment",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_StartExperiment.html",
+      "description": "Grants permission to run an AWS FIS experiment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment*",
+        "experiment-template*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
+      "name": "StopExperiment",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_StopExperiment.html",
+      "description": "Grants permission to stop an AWS FIS experiment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag AWS FIS resources",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "action",
+        "experiment",
+        "experiment-template"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag AWS FIS resources",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "action",
+        "experiment",
+        "experiment-template"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateExperimentTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_UpdateExperimentTemplate.html",
+      "description": "Grants permission to update the specified AWS FIS experiment template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment-template*",
+        "action"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTargetAccountConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/APIReference/API_UpdateTargetAccountConfiguration.html",
+      "description": "Grants permission to update an AWS FIS target account configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "experiment-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

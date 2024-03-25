@@ -8,7 +8,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html",
       "description": "Grants permission to create a new capacity provider. Capacity providers are associated with an Amazon ECS cluster and are used in capacity provider strategies to facilitate cluster auto scaling",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "capacity-provider*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -20,7 +22,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html",
       "description": "Grants permission to create a new Amazon ECS cluster",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
@@ -43,6 +47,7 @@
         "ecs:cluster",
         "ecs:capacity-provider",
         "ecs:task-definition",
+        "ecs:enable-ebs-volumes",
         "ecs:enable-execute-command",
         "ecs:enable-service-connect",
         "ecs:namespace"
@@ -54,7 +59,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateTaskSet.html",
       "description": "Grants permission to create a new Amazon ECS task set",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "task-set*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
@@ -176,7 +183,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html",
       "description": "Grants permission to deregister the specified task definition by family and revision",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "task-definition*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -239,7 +248,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskDefinition.html",
       "description": "Grants permission to describe a task definition. You can specify a family and revision to find information about a specific task definition, or you can simply specify the family to find the latest ACTIVE revision in that family",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "task-definition*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -339,7 +350,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html",
       "description": "Grants permission to get a list of existing clusters",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -361,7 +374,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html",
       "description": "Grants permission to get a list of services that are running in a specified cluster",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "service*"
+      ],
       "conditionKeys": [
         "ecs:cluster"
       ],
@@ -399,7 +414,7 @@
     },
     {
       "name": "ListTaskDefinitionFamilies",
-      "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTaskDefinitionFamilies.html",
       "description": "Grants permission to get a list of task definition families that are registered to your account (which may include task definition families that no longer have any ACTIVE task definitions)",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -411,7 +426,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTaskDefinitions.html",
       "description": "Grants permission to get a list of task definitions that are registered to your account",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "task-definition*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -512,7 +529,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterTaskDefinition.html",
       "description": "Grants permission to register a new task definition from the supplied family and containerDefinitions",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "task-definition*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -533,6 +552,7 @@
         "aws:TagKeys",
         "ecs:cluster",
         "ecs:capacity-provider",
+        "ecs:enable-ebs-volumes",
         "ecs:enable-execute-command"
       ],
       "dependentActions": []
@@ -551,6 +571,7 @@
         "aws:TagKeys",
         "ecs:cluster",
         "ecs:container-instances",
+        "ecs:enable-ebs-volumes",
         "ecs:enable-execute-command"
       ],
       "dependentActions": []
@@ -742,6 +763,7 @@
         "aws:ResourceTag/${TagKey}",
         "ecs:cluster",
         "ecs:capacity-provider",
+        "ecs:enable-ebs-volumes",
         "ecs:enable-execute-command",
         "ecs:enable-service-connect",
         "ecs:namespace",
