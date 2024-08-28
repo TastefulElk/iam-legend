@@ -68,7 +68,9 @@
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "elasticfilesystem:TagResource"
+      ]
     },
     {
       "name": "CreateFileSystem",
@@ -81,7 +83,9 @@
         "aws:TagKeys",
         "elasticfilesystem:Encrypted"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "elasticfilesystem:TagResource"
+      ]
     },
     {
       "name": "CreateMountTarget",
@@ -407,6 +411,17 @@
       "name": "UpdateFileSystem",
       "documentationUrl": "https://docs.aws.amazon.com/efs/latest/ug/API_UpdateFileSystem.html",
       "description": "Grants permission to update the throughput mode or the amount of provisioned throughput of an existing file system",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "file-system*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateFileSystemProtection",
+      "documentationUrl": "https://docs.aws.amazon.com/efs/latest/ug/API_UpdateFileSystemProtection.html",
+      "description": "Grants permission to update the file system protection of an existing file system",
       "accessLevel": "Write",
       "resourceTypes": [
         "file-system*"

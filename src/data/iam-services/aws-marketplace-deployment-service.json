@@ -1,0 +1,74 @@
+{
+  "serviceName": "AWS Marketplace Deployment Service",
+  "servicePrefix": "aws-marketplace",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsmarketplacedeploymentservice.html",
+  "actions": [
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/marketplace-deployment/latest/api-reference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a deployment parameter resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "DeploymentParameter"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutDeploymentParameter",
+      "documentationUrl": "https://docs.aws.amazon.com/marketplace-deployment/latest/api-reference/API_PutDeploymentParameter.html",
+      "description": "Grants permission to create or update a deployment parameter resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "DeploymentParameter*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "aws-marketplace:TagResource"
+      ]
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/marketplace-deployment/latest/api-reference/API_TagResource.html",
+      "description": "Grants permission to tag a deployment parameter resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "DeploymentParameter*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/marketplace-deployment/latest/api-reference/API_UntagResource.html",
+      "description": "Grants permission to untag a deployment parameter resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "DeploymentParameter*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

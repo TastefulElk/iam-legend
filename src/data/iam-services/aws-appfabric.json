@@ -20,7 +20,8 @@
       "description": "Grants permission to connect app authorizations",
       "accessLevel": "Write",
       "resourceTypes": [
-        "appauthorization*"
+        "appauthorization*",
+        "appbundle*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -44,9 +45,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppBundle.html",
       "description": "Grants permission to create app bundles in your account",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "appbundle*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -88,7 +87,8 @@
       "description": "Grants permission to delete app authorizations within an app bundle",
       "accessLevel": "Write",
       "resourceTypes": [
-        "appauthorization*"
+        "appauthorization*",
+        "appbundle*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -110,6 +110,7 @@
       "description": "Grants permission to delete ingestions within an app bundle",
       "accessLevel": "Write",
       "resourceTypes": [
+        "appbundle*",
         "ingestion*"
       ],
       "conditionKeys": [],
@@ -121,6 +122,8 @@
       "description": "Grants permission to delete destinations within an ingestion",
       "accessLevel": "Write",
       "resourceTypes": [
+        "appbundle*",
+        "ingestion*",
         "ingestiondestination*"
       ],
       "conditionKeys": [],
@@ -245,6 +248,7 @@
       "description": "Grants permission to start ingestions",
       "accessLevel": "Write",
       "resourceTypes": [
+        "appbundle*",
         "ingestion*"
       ],
       "conditionKeys": [],
@@ -267,6 +271,7 @@
       "description": "Grants permission to stop ingestions",
       "accessLevel": "Write",
       "resourceTypes": [
+        "appbundle*",
         "ingestion*"
       ],
       "conditionKeys": [],

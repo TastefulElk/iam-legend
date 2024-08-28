@@ -14,7 +14,11 @@
         "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:CreateServiceLinkedRole",
+        "iam:PassRole",
+        "kms:DescribeKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "logs:CreateLogDelivery"
       ]
     },
     {
@@ -26,7 +30,11 @@
         "pipeline*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "logs:DeleteLogDelivery",
+        "logs:GetLogDelivery",
+        "logs:ListLogDeliveries"
+      ]
     },
     {
       "name": "GetPipeline",
@@ -146,7 +154,6 @@
         "pipeline*"
       ],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": []
@@ -161,7 +168,12 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "kms:DescribeKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "logs:GetLogDelivery",
+        "logs:ListLogDeliveries",
+        "logs:UpdateLogDelivery"
       ]
     },
     {

@@ -9,7 +9,10 @@
       "description": "Grants permission to create a payment instrument",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -26,7 +29,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html",
       "description": "Grants permission to get information about a payment instrument",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "payment-instrument"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -35,6 +40,15 @@
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html",
       "description": "Grants permission to get payment status of invoices",
       "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPaymentInstruments",
+      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html",
+      "description": "Grants permission to list payment instrument metadata",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -49,9 +63,56 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html",
+      "description": "Grants permission to list tags on a payment resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "payment-instrument"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "MakePayment",
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html",
       "description": "Grants permission to make a payment, authenticate a payment, verify a payment method, and generate a funding request document for Advance Pay",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html",
+      "description": "Grants permission to tag a payment resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "payment-instrument"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html",
+      "description": "Grants permission to untag a payment resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "payment-instrument"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePaymentInstrument",
+      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html",
+      "description": "Grants permission to update a payment instrument",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],

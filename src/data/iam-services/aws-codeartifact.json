@@ -50,6 +50,18 @@
       "dependentActions": []
     },
     {
+      "name": "CreatePackageGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_CreatePackageGroup.html",
+      "description": "Grants permission to create a package group",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateRepository",
       "documentationUrl": "https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_CreateRepository.html",
       "description": "Grants permission to create a new repository",
@@ -90,6 +102,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "package*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePackageGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DeletePackageGroup.html",
+      "description": "Grants permission to delete a package group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "package-group*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -150,6 +173,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribePackageGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageGroup.html",
+      "description": "Grants permission to return detailed information about a package group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "package-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribePackageVersion",
       "documentationUrl": "https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html",
       "description": "Grants permission to return information about a package version",
@@ -189,6 +223,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "package*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAssociatedPackageGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_GetAssociatedPackageGroup.html",
+      "description": "Grants permission to return a package's associated package group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "package-group*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -260,11 +305,44 @@
       "dependentActions": []
     },
     {
+      "name": "ListAllowedRepositoriesForGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListRepositoriesInDomain.html",
+      "description": "Grants permission to list the allowed repositories for a package group",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "package-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAssociatedPackages",
+      "documentationUrl": "https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListAssociatedPackages.html",
+      "description": "Grants permission to list the packages associated to a package group",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "package-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListDomains",
       "documentationUrl": "https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListDomains.html",
       "description": "Grants permission to list the domains in the current user's AWS account",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPackageGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageGroups.html",
+      "description": "Grants permission to list the package groups in a domain",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "domain*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -333,12 +411,24 @@
       "dependentActions": []
     },
     {
+      "name": "ListSubPackageGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListSubPackageGroups.html",
+      "description": "Grants permission to list the sub package groups for a parent package group",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "package-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to list tags for a CodeArtifact resource",
       "accessLevel": "List",
       "resourceTypes": [
         "domain",
+        "package-group",
         "repository"
       ],
       "conditionKeys": [],
@@ -417,6 +507,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "domain",
+        "package-group",
         "repository"
       ],
       "conditionKeys": [
@@ -432,11 +523,34 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "domain",
+        "package-group",
         "repository"
       ],
       "conditionKeys": [
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePackageGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageGroup.html",
+      "description": "Grants permission to modify the properties of a package group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "package-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePackageGroupOriginConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageGroupOriginConfiguration.html",
+      "description": "Grants permission to modify the package origin configuration of a package group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "package-group*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {

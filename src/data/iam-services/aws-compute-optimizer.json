@@ -14,7 +14,9 @@
       ],
       "dependentActions": [
         "autoscaling:DescribeAutoScalingGroups",
-        "ec2:DescribeInstances"
+        "ec2:DescribeInstances",
+        "rds:DescribeDBClusters",
+        "rds:DescribeDBInstances"
       ]
     },
     {
@@ -101,6 +103,19 @@
       ]
     },
     {
+      "name": "ExportRDSDatabaseRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_ExportRDSDatabaseRecommendations.html",
+      "description": "Grants permission to export rds recommendations to S3 for the provided accounts",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "compute-optimizer:GetRDSDatabaseRecommendations",
+        "rds:DescribeDBClusters",
+        "rds:DescribeDBInstances"
+      ]
+    },
+    {
       "name": "GetAutoScalingGroupRecommendations",
       "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetAutoScalingGroupRecommendations.html",
       "description": "Grants permission to get recommendations for the provided AutoScaling groups",
@@ -177,7 +192,9 @@
       "dependentActions": [
         "autoscaling:DescribeAutoScalingGroups",
         "autoscaling:DescribeAutoScalingInstances",
-        "ec2:DescribeInstances"
+        "ec2:DescribeInstances",
+        "rds:DescribeDBClusters",
+        "rds:DescribeDBInstances"
       ]
     },
     {
@@ -222,6 +239,30 @@
       ]
     },
     {
+      "name": "GetRDSDatabaseRecommendationProjectedMetrics",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetRDSDatabaseRecommendationProjectedMetrics.html",
+      "description": "Grants permission to get the recommendation projected metrics of the specified instance",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "rds:DescribeDBClusters",
+        "rds:DescribeDBInstances"
+      ]
+    },
+    {
+      "name": "GetRDSDatabaseRecommendations",
+      "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetRDSDatabaseRecommendations.html",
+      "description": "Grants permission to get rds recommendations for the specified account(s)",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "rds:DescribeDBClusters",
+        "rds:DescribeDBInstances"
+      ]
+    },
+    {
       "name": "GetRecommendationPreferences",
       "documentationUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/APIReference/API_GetRecommendationPreferences.html",
       "description": "Grants permission to get recommendation preferences",
@@ -253,7 +294,9 @@
       "dependentActions": [
         "autoscaling:DescribeAutoScalingGroups",
         "autoscaling:DescribeAutoScalingInstances",
-        "ec2:DescribeInstances"
+        "ec2:DescribeInstances",
+        "rds:DescribeDBClusters",
+        "rds:DescribeDBInstances"
       ]
     },
     {

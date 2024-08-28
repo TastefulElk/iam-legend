@@ -1,0 +1,158 @@
+{
+  "serviceName": "AWS Billing And Cost Management Data Exports",
+  "servicePrefix": "bcm-data-exports",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsbillingandcostmanagementdataexports.html",
+  "actions": [
+    {
+      "name": "CreateExport",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CreateExport.html",
+      "description": "Grants permission to create an export",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteExport",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_DeleteExport.html",
+      "description": "Grants permission to delete an export",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "export*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetExecution.html",
+      "description": "Grants permission to get the execution of an export",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "export*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetExport",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetExport.html",
+      "description": "Grants permission to get an export",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "export*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTable",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetTable.html",
+      "description": "Grants permission to get the details of a table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExecutions",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ListExecutions.html",
+      "description": "Grants permission to list all executions of an export",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "export*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExports",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ListExports.html",
+      "description": "Grants permission to list all exports",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTables",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ListTables.html",
+      "description": "Grants permission to list all available tables",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "export*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "export*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "export*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateExport",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_UpdateExport.html",
+      "description": "Grants permission to update an export",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "export*",
+        "table*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

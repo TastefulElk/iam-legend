@@ -108,6 +108,15 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteAPIKey",
+      "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteAPIKey.html",
+      "description": "Grants permission to delete an API key",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteFirewallManagerRuleGroups",
       "documentationUrl": "https://docs.aws.amazon.com/waf/latest/APIReference/API_DeleteFirewallManagerRuleGroups.html",
       "description": "Grants permission to delete FirewallManagedRulesGroups from a WebACL if not managed by Firewall Manager anymore",
@@ -137,7 +146,9 @@
       "resourceTypes": [
         "webacl*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "wafv2:LogScope"
+      ],
       "dependentActions": []
     },
     {
@@ -285,7 +296,8 @@
         "webacl*"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}"
+        "aws:ResourceTag/${TagKey}",
+        "wafv2:LogScope"
       ],
       "dependentActions": []
     },
@@ -447,7 +459,9 @@
       "description": "Grants permission to retrieve an array of your LoggingConfiguration objects",
       "accessLevel": "List",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "wafv2:LogScope"
+      ],
       "dependentActions": []
     },
     {
@@ -548,7 +562,10 @@
       "resourceTypes": [
         "webacl*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "wafv2:LogScope",
+        "wafv2:LogDestinationResource"
+      ],
       "dependentActions": [
         "iam:CreateServiceLinkedRole"
       ]

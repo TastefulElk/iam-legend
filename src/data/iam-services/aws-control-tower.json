@@ -4,6 +4,20 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awscontroltower.html",
   "actions": [
     {
+      "name": "CreateLandingZone",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_CreateLandingZone.html",
+      "description": "Grants permission to create a landing zone",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "controltower:TagResource"
+      ]
+    },
+    {
       "name": "CreateManagedAccount",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html",
       "description": "Grants permission to create an account managed by AWS Control Tower",
@@ -14,10 +28,12 @@
     },
     {
       "name": "DeleteLandingZone",
-      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/decommission-landing-zone.html",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_DeleteLandingZone.html",
       "description": "Grants permission to delete AWS Control Tower landing zone",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "LandingZone*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -114,9 +130,20 @@
     {
       "name": "DescribeSingleSignOn",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/sso.html",
-      "description": "Grants permission to describe the current AWS Control Tower &SSO; configuration",
+      "description": "Grants permission to describe the current AWS Control Tower IAM Identity Center configuration",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisableBaseline",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_DisableBaseline.html",
+      "description": "Grants permission to disable a Baseline on a target",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "EnabledBaseline*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -139,6 +166,20 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "EnableBaseline",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_EnableBaseline.html",
+      "description": "Grants permission to enable a Baseline on a target",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "controltower:TagResource"
+      ]
     },
     {
       "name": "EnableControl",
@@ -184,11 +225,42 @@
       "dependentActions": []
     },
     {
+      "name": "GetBaseline",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetBaseline.html",
+      "description": "Grants permission to get Baseline details",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Baseline*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetBaselineOperation",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetBaselineOperation.html",
+      "description": "Grants permission to get the current status of a particular Baseline operation",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetControlOperation",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetControlOperation.html",
       "description": "Grants permission to get the current status of a particular EnabledControl or DisableControl operation",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEnabledBaseline",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetEnabledBaseline.html",
+      "description": "Grants permission to get an enabled Baseline",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "EnabledBaseline*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -222,9 +294,29 @@
       "dependentActions": []
     },
     {
+      "name": "GetLandingZone",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetLandingZone.html",
+      "description": "Grants permission to get the current status of the landing zone setup",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "LandingZone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetLandingZoneDriftStatus",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/drift.html",
       "description": "Grants permission to get the current landing zone drift status",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetLandingZoneOperation",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetLandingZoneOperation.html",
+      "description": "Grants permission to get the current status of a particular landing zone operation",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -240,9 +332,27 @@
       "dependentActions": []
     },
     {
+      "name": "ListBaselines",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListBaselines.html",
+      "description": "Grants permission to list Baselines",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListControlOperations",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListControlOperations.html",
+      "description": "Grants permission to list all control operations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListDirectoryGroups",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/sso.html",
-      "description": "Grants permission to list the current directory groups available through &SSO;",
+      "description": "Grants permission to list the current directory groups available through IAM Identity Center",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -253,6 +363,15 @@
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/drift.html",
       "description": "Grants permission to list occurrences of drift in AWS Control Tower",
       "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEnabledBaselines",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListEnabledBaselines.html",
+      "description": "Grants permission to list enabled Baselines",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -321,6 +440,24 @@
       "dependentActions": []
     },
     {
+      "name": "ListLandingZoneOperations",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListLandingZoneOperations.html",
+      "description": "Grants permission to list all landing zone operations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLandingZones",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListLandingZones.html",
+      "description": "Grants permission to list all landing zones",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListManagedAccounts",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html",
       "description": "Grants permission to list accounts managed through AWS Control Tower",
@@ -371,7 +508,9 @@
       "description": "Grants permission to list the tags for a resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "EnabledControl"
+        "EnabledBaseline",
+        "EnabledControl",
+        "LandingZone"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -395,6 +534,28 @@
       "dependentActions": []
     },
     {
+      "name": "ResetEnabledBaseline",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_ResetEnabledBaseline.html",
+      "description": "Grants permission to reset an enabled Baseline",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "EnabledBaseline*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ResetLandingZone",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_ResetLandingZone.html",
+      "description": "Grants permission to reset a landing zone",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "LandingZone*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "SetupLandingZone",
       "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-with-control-tower.html#step-two",
       "description": "Grants permission to set up or update AWS Control Tower landing zone",
@@ -409,7 +570,9 @@
       "description": "Grants permission to add tags to a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "EnabledControl*"
+        "EnabledBaseline",
+        "EnabledControl",
+        "LandingZone"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -423,7 +586,9 @@
       "description": "Grants permission to remove tags from a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "EnabledControl*"
+        "EnabledBaseline",
+        "EnabledControl",
+        "LandingZone"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -436,6 +601,39 @@
       "description": "Grants permission to update the account factory configuration",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEnabledBaseline",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_UpdateEnabledBaseline.html",
+      "description": "Grants permission to update an enabled Baseline",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "EnabledBaseline*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEnabledControl",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_UpdateEnabledControl.html",
+      "description": "Grants permission to update an enabled control for an organizational unit",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "EnabledControl*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateLandingZone",
+      "documentationUrl": "https://docs.aws.amazon.com/controltower/latest/APIReference/API_UpdateLandingZone.html",
+      "description": "Grants permission to update a landing zone",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "LandingZone*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     }

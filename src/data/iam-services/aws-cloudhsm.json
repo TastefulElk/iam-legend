@@ -4,15 +4,6 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awscloudhsm.html",
   "actions": [
     {
-      "name": "AddTagsToResource",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_AddTagsToResource.html",
-      "description": "Adds or overwrites one or more tags for the specified AWS CloudHSM resource",
-      "accessLevel": "Tagging",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
       "name": "CopyBackupToRegion",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CopyBackupToRegion.html",
       "description": "Grants permission to create a copy of a backup in the specified region",
@@ -54,15 +45,6 @@
       ]
     },
     {
-      "name": "CreateHapg",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_CreateHapg.html",
-      "description": "Creates a high-availability partition group",
-      "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
       "name": "CreateHsm",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html",
       "description": "Grants permission to create a new hardware security module (HSM) in the specified AWS CloudHSM cluster",
@@ -82,15 +64,6 @@
         "ec2:DescribeSubnets",
         "ec2:RevokeSecurityGroupEgress"
       ]
-    },
-    {
-      "name": "CreateLunaClient",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_CreateLunaClient.html",
-      "description": "Creates an HSM client",
-      "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
     },
     {
       "name": "DeleteBackup",
@@ -118,15 +91,6 @@
       ]
     },
     {
-      "name": "DeleteHapg",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_DeleteHapg.html",
-      "description": "Deletes a high-availability partition group",
-      "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
       "name": "DeleteHsm",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DeleteHsm.html",
       "description": "Grants permission to delete the specified HSM",
@@ -138,11 +102,13 @@
       ]
     },
     {
-      "name": "DeleteLunaClient",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_DeleteLunaClient.html",
-      "description": "Deletes a client",
+      "name": "DeleteResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DeleteResourcePolicy.html",
+      "description": "Grants permission to delete the policy attached to CloudHSM resources",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "backup*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -165,38 +131,13 @@
       "dependentActions": []
     },
     {
-      "name": "DescribeHapg",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_DescribeHapg.html",
-      "description": "Retrieves information about a high-availability partition group",
+      "name": "GetResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_GetResourcePolicy.html",
+      "description": "Grants permission to get information about the policy attached to a AWS CloudHSM resource",
       "accessLevel": "Read",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "DescribeHsm",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_DescribeHsm.html",
-      "description": "Retrieves information about an HSM. You can identify the HSM by its ARN or its serial number",
-      "accessLevel": "Read",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "DescribeLunaClient",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_DescribeLunaClient.html",
-      "description": "Retrieves information about an HSM client",
-      "accessLevel": "Read",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "GetConfig",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_GetConfig.html",
-      "description": "Gets the configuration files necessary to connect to all high availability partition groups the client is associated with",
-      "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "backup*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -212,42 +153,6 @@
       "dependentActions": []
     },
     {
-      "name": "ListAvailableZones",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ListAvailableZones.html",
-      "description": "Lists the Availability Zones that have available AWS CloudHSM capacity",
-      "accessLevel": "List",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "ListHapgs",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ListHapgs.html",
-      "description": "Lists the high-availability partition groups for the account",
-      "accessLevel": "List",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "ListHsms",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ListHsms.html",
-      "description": "Retrieves the identifiers of all of the HSMs provisioned for the current customer",
-      "accessLevel": "List",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "ListLunaClients",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ListLunaClients.html",
-      "description": "Lists all of the clients",
-      "accessLevel": "List",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
       "name": "ListTags",
       "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_ListTags.html",
       "description": "Grants permission to get a list of tags for the specified AWS CloudHSM cluster",
@@ -256,15 +161,6 @@
         "backup",
         "cluster"
       ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "ListTagsForResource",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ListTagsForResource.html",
-      "description": "Returns a list of all tags for the specified AWS CloudHSM resource",
-      "accessLevel": "Read",
-      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -291,38 +187,13 @@
       "dependentActions": []
     },
     {
-      "name": "ModifyHapg",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ModifyHapg.html",
-      "description": "Modifies an existing high-availability partition group",
+      "name": "PutResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_PutResourcePolicy.html",
+      "description": "Grants permission to attach a policy to an AWS CloudHSM resource",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "ModifyHsm",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ModifyHsm.html",
-      "description": "Modifies an HSM",
-      "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "ModifyLunaClient",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_ModifyLunaClient.html",
-      "description": "Modifies the certificate used by the client",
-      "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "RemoveTagsFromResource",
-      "documentationUrl": "https://docs.aws.amazon.com/cloudhsm/classic/APIReference/API_RemoveTagsFromResource.html",
-      "description": "Removes one or more tags from the specified AWS CloudHSM resource",
-      "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "backup*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },

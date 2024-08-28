@@ -1,0 +1,1417 @@
+{
+  "serviceName": "AWS Deadline Cloud",
+  "servicePrefix": "deadline",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsdeadlinecloud.html",
+  "actions": [
+    {
+      "name": "AssociateMemberToFarm",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_AssociateMemberToFarm.html",
+      "description": "Grants permission to associate a member to a farm",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [
+        "deadline:AssociatedMembershipLevel",
+        "deadline:MembershipLevel"
+      ],
+      "dependentActions": [
+        "identitystore:DescribeGroup",
+        "identitystore:DescribeUser",
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "AssociateMemberToFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_AssociateMemberToFleet.html",
+      "description": "Grants permission to associate a member to a fleet",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [
+        "deadline:AssociatedMembershipLevel",
+        "deadline:MembershipLevel"
+      ],
+      "dependentActions": [
+        "identitystore:DescribeGroup",
+        "identitystore:DescribeUser",
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "AssociateMemberToJob",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_AssociateMemberToJob.html",
+      "description": "Grants permission to associate a member to a job",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [
+        "deadline:AssociatedMembershipLevel",
+        "deadline:MembershipLevel"
+      ],
+      "dependentActions": [
+        "identitystore:DescribeGroup",
+        "identitystore:DescribeUser",
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "AssociateMemberToQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_AssociateMemberToQueue.html",
+      "description": "Grants permission to associate a member to a queue",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [
+        "deadline:AssociatedMembershipLevel",
+        "deadline:MembershipLevel"
+      ],
+      "dependentActions": [
+        "identitystore:DescribeGroup",
+        "identitystore:DescribeUser",
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "AssumeFleetRoleForRead",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_AssumeFleetRoleForRead.html",
+      "description": "Grants permission to assume a fleet role for read-only access",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "AssumeFleetRoleForWorker",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_AssumeFleetRoleForWorker.html",
+      "description": "Grants permission to assume a fleet role for a worker",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "worker*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssumeQueueRoleForRead",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_AssumeQueueRoleForRead.html",
+      "description": "Grants permission to assume a queue role for read-only access",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "AssumeQueueRoleForUser",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_AssumeQueueRoleForUser.html",
+      "description": "Grants permission to assume a queue role for a user",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "AssumeQueueRoleForWorker",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_AssumeQueueRoleForWorker.html",
+      "description": "Grants permission to assume a queue role for a worker",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*",
+        "worker*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchGetJobEntity",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html",
+      "description": "Grants permission to get a job entity for a worker",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "worker*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CopyJobTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CopyJobTemplate.html",
+      "description": "Grants permission to copy a job template to an Amazon S3 bucket",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember",
+        "s3:PutObject"
+      ]
+    },
+    {
+      "name": "CreateBudget",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateBudget.html",
+      "description": "Grants permission to create a budget",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "budget*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "CreateFarm",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateFarm.html",
+      "description": "Grants permission to create a farm",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "deadline:TagResource"
+      ]
+    },
+    {
+      "name": "CreateFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateFleet.html",
+      "description": "Grants permission to create a fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "deadline:TagResource",
+        "iam:PassRole",
+        "identitystore:ListGroupMembershipsForMember",
+        "logs:CreateLogGroup"
+      ]
+    },
+    {
+      "name": "CreateJob",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html",
+      "description": "Grants permission to create a job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "CreateLicenseEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateLicenseEndpoint.html",
+      "description": "Grants permission to create a license endpoint for licensed software or products",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "license-endpoint*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "deadline:TagResource",
+        "ec2:CreateTags",
+        "ec2:CreateVpcEndpoint",
+        "ec2:DescribeVpcEndpoints"
+      ]
+    },
+    {
+      "name": "CreateMonitor",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateMonitor.html",
+      "description": "Grants permission to create a monitor",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "monitor*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole",
+        "sso:CreateApplication",
+        "sso:DeleteApplication",
+        "sso:PutApplicationAssignmentConfiguration",
+        "sso:PutApplicationAuthenticationMethod",
+        "sso:PutApplicationGrant"
+      ]
+    },
+    {
+      "name": "CreateQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateQueue.html",
+      "description": "Grants permission to create a queue",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "deadline:TagResource",
+        "iam:PassRole",
+        "identitystore:ListGroupMembershipsForMember",
+        "logs:CreateLogGroup",
+        "s3:ListBucket"
+      ]
+    },
+    {
+      "name": "CreateQueueEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateQueueEnvironment.html",
+      "description": "Grants permission to create a queue environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "CreateQueueFleetAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateQueueFleetAssociation.html",
+      "description": "Grants permission to create a queue-fleet association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "fleet*",
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "CreateStorageProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateStorageProfile.html",
+      "description": "Grants permission to create a storage profile for a farm",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "CreateWorker",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateWorker.html",
+      "description": "Grants permission to create a worker",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "worker*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteBudget",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DeleteBudget.html",
+      "description": "Grants permission to delete a budget",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "budget*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "DeleteFarm",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DeleteFarm.html",
+      "description": "Grants permission to delete a farm",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "DeleteFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DeleteFleet.html",
+      "description": "Grants permission to delete a fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "DeleteLicenseEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DeleteLicenseEndpoint.html",
+      "description": "Grants permission to delete a license endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "license-endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DeleteVpcEndpoints",
+        "ec2:DescribeVpcEndpoints"
+      ]
+    },
+    {
+      "name": "DeleteMeteredProduct",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DeleteMeteredProduct.html",
+      "description": "Grants permission to delete a metered product",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "metered-product*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMonitor",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DeleteMonitor.html",
+      "description": "Grants permission to delete a monitor",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "monitor*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sso:DeleteApplication"
+      ]
+    },
+    {
+      "name": "DeleteQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DeleteQueue.html",
+      "description": "Grants permission to delete a queue",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "DeleteQueueEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DeleteQueueEnvironment.html",
+      "description": "Grants permission to delete a queue environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "DeleteQueueFleetAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DeleteQueueFleetAssociation.html",
+      "description": "Grants permission to delete a queue-fleet association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "fleet*",
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "DeleteStorageProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DeleteStorageProfile.html",
+      "description": "Grants permission to delete a storage profile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "DeleteWorker",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DeleteWorker.html",
+      "description": "Grants permission to delete a worker",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "worker*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateMemberFromFarm",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DisassociateMemberFromFarm.html",
+      "description": "Grants permission to disassociate a member from a farm",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [
+        "deadline:AssociatedMembershipLevel"
+      ],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "DisassociateMemberFromFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DisassociateMemberFromFleet.html",
+      "description": "Grants permission to disassociate a member from a fleet",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [
+        "deadline:AssociatedMembershipLevel"
+      ],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "DisassociateMemberFromJob",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DisassociateMemberFromJob.html",
+      "description": "Grants permission to disassociate a member from a job",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [
+        "deadline:AssociatedMembershipLevel"
+      ],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "DisassociateMemberFromQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DisassociateMemberFromQueue.html",
+      "description": "Grants permission to disassociate a member from a queue",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [
+        "deadline:AssociatedMembershipLevel"
+      ],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetApplicationVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetApplicationVersion.html",
+      "description": "Grants permission to get the latest version of an application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "monitor*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetBudget",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetBudget.html",
+      "description": "Grants permission to get a budget",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "budget*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetFarm",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetFarm.html",
+      "description": "Grants permission to get a farm",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetFleet.html",
+      "description": "Grants permission to get a fleet",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetJob",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetJob.html",
+      "description": "Grants permission to get a job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetLicenseEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetLicenseEndpoint.html",
+      "description": "Grants permission to get a license endpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "license-endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetMonitor",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetMonitor.html",
+      "description": "Grants permission to get a monitor",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "monitor*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetQueue.html",
+      "description": "Grants permission to get a queue",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetQueueEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetQueueEnvironment.html",
+      "description": "Grants permission to get a queue environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetQueueFleetAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetQueueFleetAssociation.html",
+      "description": "Grants permission to get a queue-fleet association",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "fleet*",
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetSession",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetSession.html",
+      "description": "Grants permission to get a session for a job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetSessionAction",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetSessionAction.html",
+      "description": "Grants permission to get a session action for a job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetSessionsStatisticsAggregation",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetSessionsStatisticsAggregation.html",
+      "description": "Grants permission to get all collected statistics for sessions",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "farm",
+        "fleet",
+        "queue"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetStep",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetStep.html",
+      "description": "Grants permission to get a step in a job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetStorageProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetStorageProfile.html",
+      "description": "Grants permission to get a storage profile",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetStorageProfileForQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetStorageProfileForQueue.html",
+      "description": "Grants permission to get a storage profile for a queue",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetTask",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetTask.html",
+      "description": "Grants permission to get a job task",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetWorker",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetWorker.html",
+      "description": "Grants permission to get a worker",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "worker*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListAvailableMeteredProducts",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListAvailableMeteredProducts.html",
+      "description": "Grants permission to list all available metered products within a license endpoint",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListBudgets",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListBudgets.html",
+      "description": "Grants permission to list all budgets for a farm",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "budget*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListFarmMembers",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListFarmMembers.html",
+      "description": "Grants permission to list all members of a farm",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListFarms",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListFarms.html",
+      "description": "Grants permission to list all farms",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [
+        "deadline:PrincipalId",
+        "deadline:RequesterPrincipalId"
+      ],
+      "dependentActions": [
+        "identitystore:DescribeGroup",
+        "identitystore:DescribeUser",
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListFleetMembers",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListFleetMembers.html",
+      "description": "Grants permission to list all members of a fleet",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListFleets",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListFleets.html",
+      "description": "Grants permission to list all fleets",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [
+        "deadline:PrincipalId",
+        "deadline:RequesterPrincipalId"
+      ],
+      "dependentActions": [
+        "identitystore:DescribeGroup",
+        "identitystore:DescribeUser",
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListJobMembers",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListJobMembers.html",
+      "description": "Grants permission to list all members of a job",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListJobs.html",
+      "description": "Grants permission to list all jobs in a queue",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [
+        "deadline:PrincipalId",
+        "deadline:RequesterPrincipalId"
+      ],
+      "dependentActions": [
+        "identitystore:DescribeGroup",
+        "identitystore:DescribeUser",
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListLicenseEndpoints",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListLicenseEndpoints.html",
+      "description": "Grants permission to list all license endpoints",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "license-endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMeteredProducts",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListMeteredProducts.html",
+      "description": "Grants permission to list all metered products in a license endpoint",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "metered-product*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMonitors",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListMonitors.html",
+      "description": "Grants permission to list all monitors",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "monitor*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListQueueEnvironments",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListQueueEnvironments.html",
+      "description": "Grants permission to list all queue environments to which a queue is associated",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListQueueFleetAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListQueueFleetAssociations.html",
+      "description": "Grants permission to list all queue-fleet associations",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "farm",
+        "fleet",
+        "queue"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListQueueMembers",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListQueueMembers.html",
+      "description": "Grants permission to list all members in a queue",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListQueues",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListQueues.html",
+      "description": "Grants permission to list all queues on a farm",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [
+        "deadline:PrincipalId",
+        "deadline:RequesterPrincipalId"
+      ],
+      "dependentActions": [
+        "identitystore:DescribeGroup",
+        "identitystore:DescribeUser",
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListSessionActions",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListSessionActions.html",
+      "description": "Grants permission to list all session actions for a job",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListSessions",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListSessions.html",
+      "description": "Grants permission to list all sessions for a job",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListSessionsForWorker",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListSessionsForWorker.html",
+      "description": "Grants permission to list all sessions for a worker",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "worker*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListStepConsumers",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListStepConsumers.html",
+      "description": "Grants permission to list the step consumers for a job step",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListStepDependencies",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListStepDependencies.html",
+      "description": "Grants permission to list dependencies for a job step",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListSteps",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListSteps.html",
+      "description": "Grants permission to list all steps for a job",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListStorageProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListStorageProfiles.html",
+      "description": "Grants permission to list all storage profiles in a farm",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListStorageProfilesForQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListStorageProfilesForQueue.html",
+      "description": "Grants permission to list all storage profiles in a queue",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list all tags on specified Deadline Cloud resources",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "farm",
+        "fleet",
+        "license-endpoint",
+        "queue"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTasks",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListTasks.html",
+      "description": "Grants permission to list all tasks for a job",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListWorkers",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListWorkers.html",
+      "description": "Grants permission to list all workers in a fleet",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "worker*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "PutMeteredProduct",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_PutMeteredProduct.html",
+      "description": "Grants permission to add a metered product to a license endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "metered-product*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SearchJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_SearchJobs.html",
+      "description": "Grants permission to search for jobs in multiple queues",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "SearchSteps",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_SearchSteps.html",
+      "description": "Grants permission to search the steps within a single job or to search the steps for multiple queues",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "job",
+        "queue"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "SearchTasks",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_SearchTasks.html",
+      "description": "Grants permission to search the tasks within a single job or to search the tasks for multiple queues",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "job",
+        "queue"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "SearchWorkers",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_SearchWorkers.html",
+      "description": "Grants permission to search for workers in multiple fleets",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "StartSessionsStatisticsAggregation",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_StartSessionsStatisticsAggregation.html",
+      "description": "Grants permission to get all collected statistics for sessions",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "fleet",
+        "queue"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to add or overwrite one or more tags for the specified Deadline Cloud resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "farm",
+        "fleet",
+        "license-endpoint",
+        "queue"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to disassociate one or more tags from the specified Deadline Cloud resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "farm",
+        "fleet",
+        "license-endpoint",
+        "queue"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateBudget",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateBudget.html",
+      "description": "Grants permission to update a budget",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "budget*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "UpdateFarm",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFarm.html",
+      "description": "Grants permission to update a farm",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "UpdateFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html",
+      "description": "Grants permission to update a fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "fleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole",
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "UpdateJob",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateJob.html",
+      "description": "Grants permission to update a job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "UpdateMonitor",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateMonitor.html",
+      "description": "Grants permission to update a monitor",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "monitor*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole",
+        "sso:PutApplicationGrant",
+        "sso:UpdateApplication"
+      ]
+    },
+    {
+      "name": "UpdateQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateQueue.html",
+      "description": "Grants permission to update a queue",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole",
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "UpdateQueueEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateQueueEnvironment.html",
+      "description": "Grants permission to update a queue environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "UpdateQueueFleetAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateQueueFleetAssociation.html",
+      "description": "Grants permission to update a queue-fleet association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "fleet*",
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "UpdateSession",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateSession.html",
+      "description": "Grants permission to update a session for a job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "UpdateStep",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateStep.html",
+      "description": "Grants permission to update a step for a job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "UpdateStorageProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateStorageProfile.html",
+      "description": "Grants permission to update a storage profile for a farm",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "UpdateTask",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateTask.html",
+      "description": "Grants permission to update a task",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "UpdateWorker",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateWorker.html",
+      "description": "Grants permission to update a worker",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "worker*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "logs:CreateLogStream"
+      ]
+    },
+    {
+      "name": "UpdateWorkerSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateWorkerSchedule.html",
+      "description": "Grants permission to update the schedule for a worker",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "worker*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "logs:CreateLogStream"
+      ]
+    }
+  ]
+}

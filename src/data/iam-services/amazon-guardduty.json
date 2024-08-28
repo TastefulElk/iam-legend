@@ -72,6 +72,18 @@
       ]
     },
     {
+      "name": "CreateMalwareProtectionPlan",
+      "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMalwareProtectionPlan.html",
+      "description": "Grants permission to create a new Malware Protection plan",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateMembers",
       "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html",
       "description": "Grants permission to create GuardDuty member accounts, where the account used to create a member becomes the GuardDuty administrator account",
@@ -161,6 +173,17 @@
       "description": "Grants permission to delete invitations to become a GuardDuty member account",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMalwareProtectionPlan",
+      "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMalwareProtectionPlan.html",
+      "description": "Grants permission to delete a Malware Protection plan",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "malwareprotectionplan*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -350,6 +373,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetMalwareProtectionPlan",
+      "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetMalwareProtectionPlan.html",
+      "description": "Grants permission to retrieve a Malware Protection plan details",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "malwareprotectionplan*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetMalwareScanSettings",
       "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetMalwareScanSettings.html",
       "description": "Grants permission to retrieve the malware scan settings",
@@ -380,6 +414,15 @@
       "name": "GetMembers",
       "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetMembers.html",
       "description": "Grants permission to retrieve the member accounts associated with an administrator account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetOrganizationStatistics",
+      "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_GetOrganizationStatistics.html",
+      "description": "Grants permission to retrieve GuardDuty protection plan coverage statistics for member accounts in a Region",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -480,6 +523,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListMalwareProtectionPlans",
+      "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListMalwareProtectionPlans.html",
+      "description": "Grants permission to retrieve a list of Malware Protection plans",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListMembers",
       "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListMembers.html",
       "description": "Grants permission to retrieve a list of GuardDuty member accounts associated with an administrator account",
@@ -515,6 +567,7 @@
         "detector",
         "filter",
         "ipset",
+        "malwareprotectionplan",
         "threatintelset"
       ],
       "conditionKeys": [],
@@ -574,6 +627,7 @@
         "detector",
         "filter",
         "ipset",
+        "malwareprotectionplan",
         "threatintelset"
       ],
       "conditionKeys": [
@@ -600,6 +654,7 @@
         "detector",
         "filter",
         "ipset",
+        "malwareprotectionplan",
         "threatintelset"
       ],
       "conditionKeys": [
@@ -651,6 +706,17 @@
         "iam:DeleteRolePolicy",
         "iam:PutRolePolicy"
       ]
+    },
+    {
+      "name": "UpdateMalwareProtectionPlan",
+      "documentationUrl": "https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateMalwareProtectionPlan.html",
+      "description": "Grants permission to update the Malware Protection plan",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "malwareprotectionplan*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "UpdateMalwareScanSettings",

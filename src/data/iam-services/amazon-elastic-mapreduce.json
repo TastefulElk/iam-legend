@@ -725,12 +725,36 @@
         "aws:TagKeys",
         "elasticmapreduce:RequestTag/${TagKey}"
       ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "SetKeepJobFlowAliveWhenNoSteps",
+      "documentationUrl": "https://docs.aws.amazon.com/emr/latest/APIReference/API_SetKeepJobFlowAliveWhenNoSteps.html",
+      "description": "Grants permission to add and remove auto terminate after step execution for a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "SetTerminationProtection",
       "documentationUrl": "https://docs.aws.amazon.com/emr/latest/APIReference/API_SetTerminationProtection.html",
       "description": "Grants permission to add and remove termination protection for a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SetUnhealthyNodeReplacement",
+      "documentationUrl": "https://docs.aws.amazon.com/emr/latest/APIReference/API_SetUnhealthyNodeReplacement.html",
+      "description": "Grants permission to enable or disable unhealthy node replacement for a cluster",
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*"

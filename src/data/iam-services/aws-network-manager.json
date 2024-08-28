@@ -12,7 +12,9 @@
         "attachment*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions"
+      ]
     },
     {
       "name": "AssociateConnectPeer",
@@ -82,7 +84,10 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions",
+        "networkmanager:TagResource"
+      ]
     },
     {
       "name": "CreateConnectPeer",
@@ -96,7 +101,10 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions",
+        "networkmanager:TagResource"
+      ]
     },
     {
       "name": "CreateConnection",
@@ -110,7 +118,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "networkmanager:TagResource"
+      ]
     },
     {
       "name": "CreateCoreNetwork",
@@ -124,7 +134,10 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions",
+        "networkmanager:TagResource"
+      ]
     },
     {
       "name": "CreateDevice",
@@ -138,7 +151,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "networkmanager:TagResource"
+      ]
     },
     {
       "name": "CreateGlobalNetwork",
@@ -151,7 +166,8 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "iam:CreateServiceLinkedRole"
+        "iam:CreateServiceLinkedRole",
+        "networkmanager:TagResource"
       ]
     },
     {
@@ -167,7 +183,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "networkmanager:TagResource"
+      ]
     },
     {
       "name": "CreateSite",
@@ -181,7 +199,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "networkmanager:TagResource"
+      ]
     },
     {
       "name": "CreateSiteToSiteVpnAttachment",
@@ -196,7 +216,10 @@
         "aws:TagKeys",
         "networkmanager:vpnConnectionArn"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions",
+        "networkmanager:TagResource"
+      ]
     },
     {
       "name": "CreateTransitGatewayPeering",
@@ -211,7 +234,10 @@
         "aws:TagKeys",
         "networkmanager:tgwArn"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions",
+        "networkmanager:TagResource"
+      ]
     },
     {
       "name": "CreateTransitGatewayRouteTableAttachment",
@@ -226,7 +252,10 @@
         "aws:TagKeys",
         "networkmanager:tgwRtbArn"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions",
+        "networkmanager:TagResource"
+      ]
     },
     {
       "name": "CreateVpcAttachment",
@@ -242,7 +271,10 @@
         "networkmanager:vpcArn",
         "networkmanager:subnetArns"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions",
+        "networkmanager:TagResource"
+      ]
     },
     {
       "name": "DeleteAttachment",
@@ -253,7 +285,9 @@
         "attachment*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions"
+      ]
     },
     {
       "name": "DeleteConnectPeer",
@@ -264,7 +298,9 @@
         "connect-peer*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions"
+      ]
     },
     {
       "name": "DeleteConnection",
@@ -287,7 +323,9 @@
         "core-network*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions"
+      ]
     },
     {
       "name": "DeleteCoreNetworkPolicyVersion",
@@ -344,7 +382,9 @@
         "peering*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions"
+      ]
     },
     {
       "name": "DeleteResourcePolicy",
@@ -452,7 +492,9 @@
         "core-network*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions"
+      ]
     },
     {
       "name": "GetConnectAttachment",
@@ -836,7 +878,9 @@
         "core-network*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions"
+      ]
     },
     {
       "name": "PutResourcePolicy",
@@ -882,7 +926,9 @@
         "core-network*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions"
+      ]
     },
     {
       "name": "StartOrganizationServiceAccessUpdate",
@@ -1042,7 +1088,9 @@
         "aws:TagKeys",
         "networkmanager:subnetArns"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "ec2:DescribeRegions"
+      ]
     }
   ]
 }

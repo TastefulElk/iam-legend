@@ -42,6 +42,18 @@
       "dependentActions": []
     },
     {
+      "name": "CreateSecurityConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_CreateSecurityConfiguration.html",
+      "description": "Grants permission to create a security configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateVirtualCluster",
       "documentationUrl": "https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_CreateVirtualCluster.html",
       "description": "Grants permission to create a virtual cluster",
@@ -120,6 +132,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeSecurityConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_DescribeSecurityConfiguration.html",
+      "description": "Grants permission to describe a security configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "securityConfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeVirtualCluster",
       "documentationUrl": "https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_DescribeVirtualCluster.html",
       "description": "Grants permission to describe a virtual cluster",
@@ -169,6 +192,15 @@
       "resourceTypes": [
         "virtualCluster*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSecurityConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_ListSecurityConfigurations.html",
+      "description": "Grants permission to list security configurations",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },

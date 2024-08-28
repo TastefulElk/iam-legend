@@ -9,7 +9,11 @@
       "description": "Grants permissions to create a CloudShell environment",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "cloudshell:SecurityGroupIds",
+        "cloudshell:SubnetIds",
+        "cloudshell:VpcIds"
+      ],
       "dependentActions": []
     },
     {
@@ -31,6 +35,15 @@
       "resourceTypes": [
         "Environment*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEnvironments",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudshell/latest/userguide/sec-auth-with-identities.html#DescribeEnvironments",
+      "description": "Grants permission to return descriptions of existing user's environments",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },

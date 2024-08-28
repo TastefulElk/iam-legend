@@ -254,9 +254,14 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": [
+        "apprunner:DescribeWebAclForService",
         "cloudfront:GetDistribution",
+        "cognito-idp:GetWebACLForResource",
+        "ec2:GetVerifiedAccessInstanceWebAcl",
         "iam:CreateServiceLinkedRole",
-        "iam:GetRole"
+        "iam:GetRole",
+        "wafv2:GetWebACL",
+        "wafv2:GetWebACLForResource"
       ]
     },
     {
@@ -352,7 +357,6 @@
         "protection-group"
       ],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": []
@@ -364,7 +368,13 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "apprunner:DescribeWebAclForService",
+        "cognito-idp:GetWebACLForResource",
+        "ec2:GetVerifiedAccessInstanceWebAcl",
+        "wafv2:GetWebACL",
+        "wafv2:GetWebACLForResource"
+      ]
     },
     {
       "name": "UpdateEmergencyContactSettings",

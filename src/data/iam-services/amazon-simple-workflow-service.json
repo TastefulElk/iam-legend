@@ -5,7 +5,7 @@
   "actions": [
     {
       "name": "CancelTimer",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonswf/latest/apireference/API_Decision.html",
+      "documentationUrl": "${APIReferenceDocPage}API_Decision.html",
       "description": "Grants permission to cancel a previously started timer and record a TimerCanceled event in the history",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -16,7 +16,7 @@
     },
     {
       "name": "CancelWorkflowExecution",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonswf/latest/apireference/API_Decision.html",
+      "documentationUrl": "${APIReferenceDocPage}API_Decision.html",
       "description": "Grants permission to close the workflow execution and record a WorkflowExecutionCanceled event in the history",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -27,7 +27,7 @@
     },
     {
       "name": "CompleteWorkflowExecution",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonswf/latest/apireference/API_Decision.html",
+      "documentationUrl": "${APIReferenceDocPage}API_Decision.html",
       "description": "Grants permission to close the workflow execution and record a WorkflowExecutionCompleted event in the history",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -38,7 +38,7 @@
     },
     {
       "name": "ContinueAsNewWorkflowExecution",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonswf/latest/apireference/API_Decision.html",
+      "documentationUrl": "${APIReferenceDocPage}API_Decision.html",
       "description": "Grants permission to close the workflow execution and start a new workflow execution of the same type using the same workflow ID and a unique run Id",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -100,6 +100,34 @@
       ],
       "conditionKeys": [
         "swf:taskList.name"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteActivityType",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeleteActivityType.html",
+      "description": "Grants permission to delete the specified activity type",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domain*"
+      ],
+      "conditionKeys": [
+        "swf:activityType.name",
+        "swf:activityType.version"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWorkflowType",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeleteWorkflowType.html",
+      "description": "Grants permission to delete the specified workflow type",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domain*"
+      ],
+      "conditionKeys": [
+        "swf:workflowType.name",
+        "swf:workflowType.version"
       ],
       "dependentActions": []
     },
@@ -194,7 +222,7 @@
     },
     {
       "name": "FailWorkflowExecution",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonswf/latest/apireference/API_Decision.html",
+      "documentationUrl": "${APIReferenceDocPage}API_Decision.html",
       "description": "Grants permission to close the workflow execution and record a WorkflowExecutionFailed event in the history",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -325,7 +353,7 @@
     },
     {
       "name": "RecordMarker",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonswf/latest/apireference/API_Decision.html",
+      "documentationUrl": "${APIReferenceDocPage}API_Decision.html",
       "description": "Grants permission to record a MarkerRecorded event in the history",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -378,7 +406,7 @@
     },
     {
       "name": "RequestCancelActivityTask",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonswf/latest/apireference/API_Decision.html",
+      "documentationUrl": "${APIReferenceDocPage}API_Decision.html",
       "description": "Grants permission to attempt to cancel a previously scheduled activity task",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -389,7 +417,7 @@
     },
     {
       "name": "RequestCancelExternalWorkflowExecution",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonswf/latest/apireference/API_Decision.html",
+      "documentationUrl": "${APIReferenceDocPage}API_Decision.html",
       "description": "Grants permission to request that a request be made to cancel the specified external workflow execution",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -466,7 +494,7 @@
     },
     {
       "name": "ScheduleActivityTask",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonswf/latest/apireference/API_Decision.html",
+      "documentationUrl": "${APIReferenceDocPage}API_Decision.html",
       "description": "Grants permission to schedule an activity task",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -477,7 +505,7 @@
     },
     {
       "name": "SignalExternalWorkflowExecution",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonswf/latest/apireference/API_Decision.html",
+      "documentationUrl": "${APIReferenceDocPage}API_Decision.html",
       "description": "Grants permission to request a signal to be delivered to the specified external workflow execution and records",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -499,7 +527,7 @@
     },
     {
       "name": "StartChildWorkflowExecution",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonswf/latest/apireference/API_Decision.html",
+      "documentationUrl": "${APIReferenceDocPage}API_Decision.html",
       "description": "Grants permission to request that a child workflow execution be started",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -510,7 +538,7 @@
     },
     {
       "name": "StartTimer",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonswf/latest/apireference/API_Decision.html",
+      "documentationUrl": "${APIReferenceDocPage}API_Decision.html",
       "description": "Grants permission to start a timer for a workflow execution",
       "accessLevel": "Write",
       "resourceTypes": [

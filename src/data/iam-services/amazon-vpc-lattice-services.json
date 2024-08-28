@@ -4,6 +4,23 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonvpclatticeservices.html",
   "actions": [
     {
+      "name": "Connect",
+      "documentationUrl": "https://docs.aws.amazon.com/vpc-lattice/latest/ug/sigv4-authenticated-requests.html",
+      "description": "Grants permission to connect to a VPC Lattice service",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TCPService*"
+      ],
+      "conditionKeys": [
+        "vpc-lattice-svcs:Port",
+        "vpc-lattice-svcs:ServiceNetworkArn",
+        "vpc-lattice-svcs:ServiceArn",
+        "vpc-lattice-svcs:SourceVpc",
+        "vpc-lattice-svcs:SourceVpcOwnerAccount"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "Invoke",
       "documentationUrl": "https://docs.aws.amazon.com/vpc-lattice/latest/ug/sigv4-authenticated-requests.html",
       "description": "Grants permission to invoke a VPC Lattice service",

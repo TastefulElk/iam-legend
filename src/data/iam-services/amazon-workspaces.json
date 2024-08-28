@@ -4,6 +4,15 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonworkspaces.html",
   "actions": [
     {
+      "name": "AcceptAccountLinkInvitation",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_AcceptAccountLinkInvitation.html",
+      "description": "Grants permission to accept invitations from other AWS accounts to share the same configuration for WorkSpaces BYOL",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateConnectionAlias",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_AssociateConnectionAlias.html",
       "description": "Grants permission to associate connection aliases with directories",
@@ -69,6 +78,15 @@
       "dependentActions": [
         "workspaces:DescribeWorkspaceImages"
       ]
+    },
+    {
+      "name": "CreateAccountLinkInvitation",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_CreateAccountLinkInvitation.html",
+      "description": "Grants permission to invite other AWS accounts to share the same configuration for WorkSpaces BYOL",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "CreateConnectClientAddIn",
@@ -191,6 +209,31 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateWorkspacesPool",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_CreateWorkspacesPool.html",
+      "description": "Grants permission to create a WorkSpaces Pool",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "directoryid*",
+        "workspacebundle*",
+        "workspacespoolid*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAccountLinkInvitation",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteAccountLinkInvitation.html",
+      "description": "Grants permission to delete invitations to other AWS accounts to share the same configuration for WorkSpaces BYOL",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -515,6 +558,26 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeWorkspacesPoolSessions",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspacesPoolSessions.html",
+      "description": "Grants permission to retrieve information about the sessions of a WorkSpaces Pool",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "workspacespoolid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWorkspacesPools",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspacesPools.html",
+      "description": "Grants permission to retrieve information about WorkSpaces Pools",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DisassociateConnectionAlias",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DisassociateConnectionAlias.html",
       "description": "Grants permission to disassociate connection aliases from directories",
@@ -552,6 +615,15 @@
       "dependentActions": []
     },
     {
+      "name": "GetAccountLink",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_GetAccountLink.html",
+      "description": "Grants permission to retrieve a link with another AWS Account for sharing configuration for WorkSpaces BYOL",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ImportClientBranding",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ImportClientBranding.html",
       "description": "Grants permission to import AWS WorkSpaces Client branding data within a directory",
@@ -573,6 +645,15 @@
         "ec2:DescribeImages",
         "ec2:ModifyImageAttribute"
       ]
+    },
+    {
+      "name": "ListAccountLinks",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ListAccountLinks.html",
+      "description": "Grants permission to retrieve links with the AWS Account(s) that share your configuration for WorkSpaces BYOL",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "ListAvailableManagementCidrRanges",
@@ -642,6 +723,17 @@
       "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ModifySelfservicePermissions.html",
       "description": "Grants permission to modify the self-service WorkSpace management capabilities for your users",
       "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "directoryid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyStreamingProperties",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ModifyStreamingProperties.html",
+      "description": "Grants permission to modify the streaming properties",
+      "accessLevel": "Write",
       "resourceTypes": [
         "directoryid*"
       ],
@@ -729,6 +821,15 @@
       "dependentActions": []
     },
     {
+      "name": "RejectAccountLinkInvitation",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_RejectAccountLinkInvitation.html",
+      "description": "Grants permission to reject invitations from other AWS accounts to share the same configuration for WorkSpaces BYOL",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "RestoreWorkspace",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_RestoreWorkspace.html",
       "description": "Grants permission to restore WorkSpaces",
@@ -764,12 +865,34 @@
       "dependentActions": []
     },
     {
+      "name": "StartWorkspacesPool",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_StartWorkspacesPool.html",
+      "description": "Grants permission to start a WorkSpaces Pool",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspacespoolid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StopWorkspaces",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_StopWorkspaces.html",
       "description": "Grants permission to stop AutoStop WorkSpaces",
       "accessLevel": "Write",
       "resourceTypes": [
         "workspaceid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopWorkspacesPool",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_StopWorkspacesPool.html",
+      "description": "Grants permission to stop a WorkSpaces Pool",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspacespoolid*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -795,6 +918,26 @@
       "resourceTypes": [
         "workspaceid*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TerminateWorkspacesPool",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_TerminateWorkspacesPool.html",
+      "description": "Grants permission to terminate a WorkSpaces Pool",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspacespoolid*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TerminateWorkspacesPoolSession",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_TerminateWorkspacesPoolSession.html",
+      "description": "Grants permission to terminate a WorkSpaces Pool session",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -853,6 +996,17 @@
       "accessLevel": "Permissions management",
       "resourceTypes": [
         "workspaceimage*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateWorkspacesPool",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_UpdateWorkspacesPool.html",
+      "description": "Grants permission to update the WorkSpaces pool",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workspacespoolid*"
       ],
       "conditionKeys": [],
       "dependentActions": []

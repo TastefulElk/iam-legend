@@ -54,6 +54,30 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": [
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "kms:RetireGrant",
+        "secretsmanager:CreateSecret",
+        "secretsmanager:DeleteSecret",
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetRandomPassword",
+        "secretsmanager:RotateSecret",
+        "secretsmanager:TagResource",
+        "secretsmanager:UpdateSecret"
+      ]
+    },
+    {
+      "name": "CreateScheduledAction",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateScheduledAction.html",
+      "description": "Grants permission to create a scheduled action for a specified Amazon Redshift Serverless namespace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "namespace*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -68,6 +92,17 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSnapshotCopyConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_CreateSnapshotCopyConfiguration.html",
+      "description": "Grants permission to create a snapshot copy configuration for a specified Amazon Redshift Serverless namespace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "namespace*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -124,12 +159,26 @@
         "namespace*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "kms:DescribeKey",
+        "kms:RetireGrant",
+        "secretsmanager:DeleteSecret",
+        "secretsmanager:DescribeSecret"
+      ]
     },
     {
       "name": "DeleteResourcePolicy",
       "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_DeleteResourcePolicy.html",
       "description": "Grants permission to delete the specified resource policy",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteScheduledAction",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_DeleteScheduledAction.html",
+      "description": "Grants permission to delete a scheduled action from Amazon Redshift Serverless",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -143,6 +192,15 @@
       "resourceTypes": [
         "snapshot*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSnapshotCopyConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_DeleteSnapshotCopyConfiguration.html",
+      "description": "Grants permission to delete a snapshot copy configuration for a Amazon Redshift Serverless namespace",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -240,6 +298,15 @@
       "dependentActions": []
     },
     {
+      "name": "GetScheduledAction",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_GetScheduledAction.html",
+      "description": "Grants permission to get information about a specific scheduled action",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetSnapshot",
       "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_GetSnapshot.html",
       "description": "Grants permission to get information about a specific snapshot",
@@ -312,6 +379,26 @@
       "name": "ListRecoveryPoints",
       "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_ListRecoveryPoints.html",
       "description": "Grants permission to list an array of recovery points",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "namespace"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListScheduledActions",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_ListScheduledActions.html",
+      "description": "Grants permission to list scheduled actions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSnapshotCopyConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_ListSnapshotCopyConfigurations.html",
+      "description": "Grants permission to list SnapshotCopyConfiguration objects and relevant information",
       "accessLevel": "List",
       "resourceTypes": [
         "namespace"
@@ -400,6 +487,31 @@
         "snapshot*"
       ],
       "conditionKeys": [],
+      "dependentActions": [
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "kms:RetireGrant",
+        "secretsmanager:CreateSecret",
+        "secretsmanager:DeleteSecret",
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetRandomPassword",
+        "secretsmanager:RotateSecret",
+        "secretsmanager:TagResource",
+        "secretsmanager:UpdateSecret"
+      ]
+    },
+    {
+      "name": "RestoreTableFromRecoveryPoint",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_RestoreTableFromRecoveryPoint.html",
+      "description": "Grants permission to restore a table from a recovery point",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "namespace*",
+        "recoveryPoint*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -481,6 +593,28 @@
         "namespace*"
       ],
       "conditionKeys": [],
+      "dependentActions": [
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "kms:RetireGrant",
+        "secretsmanager:CreateSecret",
+        "secretsmanager:DeleteSecret",
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetRandomPassword",
+        "secretsmanager:RotateSecret",
+        "secretsmanager:TagResource",
+        "secretsmanager:UpdateSecret"
+      ]
+    },
+    {
+      "name": "UpdateScheduledAction",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_UpdateScheduledAction.html",
+      "description": "Grants permission to update a scheduled action",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -491,6 +625,15 @@
       "resourceTypes": [
         "snapshot*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSnapshotCopyConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_UpdateSnapshotCopyConfiguration.html",
+      "description": "Grants permission to update a snapshot copy configuration for a Amazon Redshift Serverless namespace",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },

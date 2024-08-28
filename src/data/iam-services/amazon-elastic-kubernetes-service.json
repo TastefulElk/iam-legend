@@ -15,6 +15,21 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateAccessPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_AssociateAccessPolicy.html",
+      "description": "Grants permission to associate an Amazon EKS access policy to an Amazon EKS access entry",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "access-entry*"
+      ],
+      "conditionKeys": [
+        "eks:policyArn",
+        "eks:namespaces",
+        "eks:accessScope"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateEncryptionConfig",
       "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_AssociateEncryptionConfig.html",
       "description": "Grants permission to associate encryption configuration to a cluster",
@@ -42,12 +57,31 @@
       "dependentActions": []
     },
     {
+      "name": "CreateAccessEntry",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAccessEntry.html",
+      "description": "Grants permission to create an Amazon EKS access entry",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "eks:principalArn",
+        "eks:kubernetesGroups",
+        "eks:username",
+        "eks:accessEntryType"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateAddon",
       "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_CreateAddon.html",
       "description": "Grants permission to create an Amazon EKS add-on",
       "accessLevel": "Write",
       "resourceTypes": [
-        "cluster*"
+        "cluster*",
+        "podidentityassociation"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -63,7 +97,11 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "eks:bootstrapClusterCreatorAdminPermissions",
+        "eks:bootstrapSelfManagedAddons",
+        "eks:authenticationMode",
+        "eks:supportType"
       ],
       "dependentActions": []
     },
@@ -73,7 +111,10 @@
       "description": "Grants permission to create an EKS Anywhere subscription",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -105,12 +146,38 @@
       "dependentActions": []
     },
     {
+      "name": "CreatePodIdentityAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_CreatePodIdentityAssociation.html",
+      "description": "Grants permission to create an EKS Pod Identity association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAccessEntry",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_DeleteAccessEntry.html",
+      "description": "Grants permission to delete an Amazon EKS access entry",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "access-entry*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteAddon",
       "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_DeleteAddon.html",
       "description": "Grants permission to delete an Amazon EKS add-on",
       "accessLevel": "Write",
       "resourceTypes": [
-        "addon*"
+        "addon*",
+        "podidentityassociation"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -160,12 +227,34 @@
       "dependentActions": []
     },
     {
+      "name": "DeletePodIdentityAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_DeletePodIdentityAssociation.html",
+      "description": "Grants permission to delete an EKS Pod Identity association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "podidentityassociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeregisterCluster",
       "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_DeregisterCluster.html",
       "description": "Grants permission to deregister an External cluster",
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeAccessEntry",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAccessEntry.html",
+      "description": "Grants permission to describe an Amazon EKS access entry",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "access-entry*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -244,12 +333,34 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeInsight",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeInsight.html",
+      "description": "Grants permission to retrieve descriptive information of a detected insight for a specified cluster",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeNodegroup",
       "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeNodegroup.html",
       "description": "Grants permission to retrieve descriptive information about an Amazon EKS nodegroup",
       "accessLevel": "Read",
       "resourceTypes": [
         "nodegroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribePodIdentityAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribePodIdentityAssociation.html",
+      "description": "Grants permission to describe an EKS Pod Identity association",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "podidentityassociation*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -268,6 +379,21 @@
       "dependentActions": []
     },
     {
+      "name": "DisassociateAccessPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_DisassociateAccessPolicy.html",
+      "description": "Grants permission to disassociate an Amazon EKS access policy from an Amazon EKS acces entry",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "access-entry*"
+      ],
+      "conditionKeys": [
+        "eks:policyArn",
+        "eks:namespaces",
+        "eks:accessScope"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DisassociateIdentityProviderConfig",
       "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_DisassociateIdentityProviderConfig.html",
       "description": "Grants permission to delete an asssociated Idp config",
@@ -275,6 +401,26 @@
       "resourceTypes": [
         "identityproviderconfig*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAccessEntries",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAccessEntries.html",
+      "description": "Grants permission to list all Amazon EKS access entries",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAccessPolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAccessPolicies.html",
+      "description": "Grants permission to list Amazon EKS access policies",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -290,6 +436,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListAssociatedAccessPolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAssociatedAccessPolicies.html",
+      "description": "Grants permission to list associated access policy on and Amazon EKS access entry",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "access-entry*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListClusters",
       "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_ListClusters.html",
       "description": "Grants permission to list the Amazon EKS clusters in your AWS account (in the specified or default region)",
@@ -300,7 +457,7 @@
     },
     {
       "name": "ListEksAnywhereSubscriptions",
-      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/ListEksAnywhereSubscriptions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_ListEksAnywhereSubscriptions.html",
       "description": "Grants permission to list EKS Anywhere subscriptions",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -330,9 +487,31 @@
       "dependentActions": []
     },
     {
+      "name": "ListInsights",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_ListInsights.html",
+      "description": "Grants permission to list all detected insights for a specified cluster",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListNodegroups",
       "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_ListNodegroups.html",
       "description": "Grants permission to list the Amazon EKS nodegroups in your AWS account (in the specified or default region) attached to given cluster",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPodIdentityAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_ListPodIdentityAssociations.html",
+      "description": "Grants permission to list EKS Pod Identity associations",
       "accessLevel": "List",
       "resourceTypes": [
         "cluster*"
@@ -387,12 +566,14 @@
       "description": "Grants permission to tag the specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "access-entry",
         "addon",
         "cluster",
         "eks-anywhere-subscription",
         "fargateprofile",
         "identityproviderconfig",
-        "nodegroup"
+        "nodegroup",
+        "podidentityassociation"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -406,16 +587,29 @@
       "description": "Grants permission to untag the specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "access-entry",
         "addon",
         "cluster",
         "eks-anywhere-subscription",
         "fargateprofile",
         "identityproviderconfig",
-        "nodegroup"
+        "nodegroup",
+        "podidentityassociation"
       ],
       "conditionKeys": [
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAccessEntry",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateAccessEntry.html",
+      "description": "Grants permission to update an Amazon EKS access entry",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "access-entry*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -424,7 +618,8 @@
       "description": "Grants permission to update Amazon EKS add-on configurations, such as the VPC-CNI version",
       "accessLevel": "Write",
       "resourceTypes": [
-        "addon*"
+        "addon*",
+        "podidentityassociation"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -437,7 +632,10 @@
       "resourceTypes": [
         "cluster*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "eks:authenticationMode",
+        "eks:supportType"
+      ],
       "dependentActions": []
     },
     {
@@ -480,6 +678,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "nodegroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePodIdentityAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdatePodIdentityAssociation.html",
+      "description": "Grants permission to update an EKS Pod Identity association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "podidentityassociation*"
       ],
       "conditionKeys": [],
       "dependentActions": []

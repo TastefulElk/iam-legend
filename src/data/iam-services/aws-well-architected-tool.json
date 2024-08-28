@@ -11,7 +11,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -22,6 +24,17 @@
       "resourceTypes": [
         "workload*"
       ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ConfigureIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/userguide/setting-up-jira.html",
+      "description": "Grants permission to configure the integration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -33,7 +46,9 @@
       "resourceTypes": [
         "lens*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -44,7 +59,9 @@
       "resourceTypes": [
         "lens*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -55,7 +72,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -78,7 +97,9 @@
       "resourceTypes": [
         "profile*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -101,7 +122,9 @@
       "resourceTypes": [
         "review-template*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -112,7 +135,8 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "wellarchitected:JiraProjectKey"
       ],
       "dependentActions": []
     },
@@ -124,7 +148,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -135,7 +161,9 @@
       "resourceTypes": [
         "lens*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -146,7 +174,9 @@
       "resourceTypes": [
         "lens*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -157,7 +187,9 @@
       "resourceTypes": [
         "profile*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -168,7 +200,9 @@
       "resourceTypes": [
         "profile*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -179,7 +213,9 @@
       "resourceTypes": [
         "review-template*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -190,7 +226,9 @@
       "resourceTypes": [
         "review-template*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -201,7 +239,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -212,7 +252,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -223,7 +265,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -234,7 +278,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -245,7 +291,9 @@
       "resourceTypes": [
         "lens*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -256,13 +304,24 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "GetConsolidatedReport",
       "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetConsolidatedReport.html",
       "description": "Grants permission to get consolidated report metrics or to generate the consolidated report PDF in this account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetGlobalSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_GetGlobalSettings.html",
+      "description": "Grants permission to get all settings for the account",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -289,7 +348,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -300,7 +361,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -311,7 +374,9 @@
       "resourceTypes": [
         "lens*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -322,7 +387,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -368,7 +435,9 @@
       "resourceTypes": [
         "review-template*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -379,7 +448,9 @@
       "resourceTypes": [
         "review-template*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -415,7 +486,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -426,7 +499,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -437,7 +512,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -448,7 +525,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -459,7 +538,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -470,7 +551,9 @@
       "resourceTypes": [
         "lens*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -490,7 +573,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -519,7 +604,9 @@
       "resourceTypes": [
         "profile*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -539,7 +626,9 @@
       "resourceTypes": [
         "review-template*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -584,7 +673,9 @@
       "resourceTypes": [
         "review-template*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -595,7 +686,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -648,16 +741,33 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
       "name": "UpdateGlobalSettings",
       "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateGlobalSettings.html",
-      "description": "Grants permission to update settings to enable aws-organization support",
+      "description": "Grants permission to manage all settings for the account",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "wellarchitected:JiraProjectKey"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateIntegration.html",
+      "description": "Grants permission to update properties of the integration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workload*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -668,7 +778,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -679,7 +791,9 @@
       "resourceTypes": [
         "profile*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -690,7 +804,9 @@
       "resourceTypes": [
         "review-template*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -701,7 +817,9 @@
       "resourceTypes": [
         "review-template*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -712,7 +830,9 @@
       "resourceTypes": [
         "review-template*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -732,18 +852,23 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "wellarchitected:JiraProjectKey"
+      ],
       "dependentActions": []
     },
     {
       "name": "UpdateWorkloadShare",
       "documentationUrl": "https://docs.aws.amazon.com/wellarchitected/latest/APIReference/API_UpdateWorkloadShare.html",
-      "description": "Grants permission to update properties of the specified workload",
+      "description": "Grants permission to update properties of the specified workload share",
       "accessLevel": "Write",
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -754,7 +879,9 @@
       "resourceTypes": [
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -766,7 +893,9 @@
         "profile*",
         "workload*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -777,7 +906,9 @@
       "resourceTypes": [
         "review-template*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     }
   ]
