@@ -1,3 +1,11 @@
+## [1.1.50](https://github.com/TastefulElk/iam-legend/compare/v1.1.49...v1.1.50) (2024-08-28)
+
+
+### Bug Fixes
+
+* name formatting for services including ':' ([03af477](https://github.com/TastefulElk/iam-legend/commit/03af477bc0d0b2db074f3ee47cc26dca6ddd126f))
+* update IAM service definitions ([93b8e46](https://github.com/TastefulElk/iam-legend/commit/93b8e46c0cceb7256f1102f37b1e1c84da6b6f45))
+
 ## [1.1.49](https://github.com/TastefulElk/iam-legend/compare/v1.1.48...v1.1.49) (2023-11-22)
 
 
