@@ -9,15 +9,15 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
-    - name: Install dependencies
-      run: yarn install --frozen-lockfile
-    - name: Publish to Visual Studio Marketplace, Open VSX, and GitHub Releases
-      run: npx semantic-release
-      env:
-        VSCE_PAT: ${{ secrets.VS_MARKETPLACE_PAT }}
-        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        OVSX_PAT: ${{ secrets.OPENVSX_PAT }}
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Publish to Visual Studio Marketplace, Open VSX, and GitHub Releases
+        run: npx semantic-release
+        env:
+          VSCE_PAT: ${{ secrets.VS_MARKETPLACE_PAT }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          OVSX_PAT: ${{ secrets.OPENVSX_PAT }}
