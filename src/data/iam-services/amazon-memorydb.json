@@ -88,7 +88,8 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "memorydb:TLSEnabled"
       ],
       "dependentActions": [
         "ec2:CreateNetworkInterface",
@@ -156,7 +157,8 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "memorydb:UserAuthenticationMode"
       ],
       "dependentActions": [
         "memorydb:TagResource"
@@ -583,7 +585,8 @@
         "user*"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}"
+        "aws:ResourceTag/${TagKey}",
+        "memorydb:UserAuthenticationMode"
       ],
       "dependentActions": []
     }

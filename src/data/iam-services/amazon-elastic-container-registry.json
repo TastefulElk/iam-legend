@@ -83,13 +83,30 @@
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_CreateRepository.html",
       "description": "Grants permission to create an image repository",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "repository*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": [
         "ecr:TagResource"
+      ]
+    },
+    {
+      "name": "CreateRepositoryCreationTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_CreateRepositoryCreationTemplate.html",
+      "description": "Grants permission to create the repository creation template",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ecr:CreateRepository",
+        "ecr:PutLifecyclePolicy",
+        "ecr:SetRepositoryPolicy",
+        "iam:CreateServiceLinkedRole",
+        "iam:PassRole"
       ]
     },
     {
@@ -129,6 +146,15 @@
       "resourceTypes": [
         "repository*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteRepositoryCreationTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_DeleteRepositoryCreationTemplate.html",
+      "description": "Grants permission to delete the repository creation template",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -200,8 +226,26 @@
       "description": "Grants permission to describe image repositories in a registry",
       "accessLevel": "Read",
       "resourceTypes": [
-        "repository"
+        "repository*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRepositoryCreationTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_DescribeRepositoryCreationTemplates.html",
+      "description": "Grants permission to describe the repository creation template",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccountSetting",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_GetAccountSetting.html",
+      "description": "Grants permission to retrieve account settings",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -313,6 +357,15 @@
       "dependentActions": []
     },
     {
+      "name": "PutAccountSetting",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_PutAccountSetting.html",
+      "description": "Grants permission to update account settings",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "PutImage",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_PutImage.html",
       "description": "Grants permission to create or update the image manifest associated with an image",
@@ -381,7 +434,9 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
     },
     {
       "name": "ReplicateImage",
@@ -455,6 +510,30 @@
       "dependentActions": []
     },
     {
+      "name": "UpdatePullThroughCacheRule",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_UpdatePullThroughCacheRule.html",
+      "description": "Grants permission to update the pull-through cache rule",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRepositoryCreationTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_UpdateRepositoryCreationTemplate.html",
+      "description": "Grants permission to update the repository creation template",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ecr:CreateRepository",
+        "ecr:PutLifecyclePolicy",
+        "ecr:SetRepositoryPolicy",
+        "iam:CreateServiceLinkedRole",
+        "iam:PassRole"
+      ]
+    },
+    {
       "name": "UploadLayerPart",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_UploadLayerPart.html",
       "description": "Grants permission to upload an image layer part to Amazon ECR",
@@ -462,6 +541,15 @@
       "resourceTypes": [
         "repository*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ValidatePullThroughCacheRule",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ValidatePullThroughCacheRule.html",
+      "description": "Grants permission to validate the pull-through cache rule",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     }

@@ -55,7 +55,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/MSKC/latest/mskc/API_DeleteConnector.html",
       "description": "Grants permission to delete an MSK Connect connector",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "connector*"
+      ],
       "conditionKeys": [],
       "dependentActions": [
         "logs:DeleteLogDelivery",
@@ -67,7 +69,20 @@
       "documentationUrl": "https://docs.aws.amazon.com/MSKC/latest/mskc/API_DeleteCustomPlugin.html",
       "description": "Grants permission to delete an MSK Connect custom plugin",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "customplugin*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWorkerConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/MSKC/latest/mskc/API_DeleteWorkerConfiguration.html",
+      "description": "Grants permission to delete an MSK Connect worker configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workerconfiguration*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -123,6 +138,23 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/MSKC/latest/mskc/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags of an MSK Connect resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "connector",
+        "customplugin",
+        "workerconfiguration"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListWorkerConfigurations",
       "documentationUrl": "https://docs.aws.amazon.com/MSKC/latest/mskc/API_ListWorkerConfigurations.html",
       "description": "Grants permission to list all MSK Connect worker configurations in this account",
@@ -132,11 +164,56 @@
       "dependentActions": []
     },
     {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/MSKC/latest/mskc/API_TagResource.html",
+      "description": "Grants permission to tag an MSK Connect resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "connector",
+        "customplugin",
+        "workerconfiguration"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/MSKC/latest/mskc/API_UntagResource.html",
+      "description": "Grants permission to remove tags from an MSK Connect resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "connector",
+        "customplugin",
+        "workerconfiguration"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:TagKeys",
+        "aws:TagKeys",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateConnector",
       "documentationUrl": "https://docs.aws.amazon.com/MSKC/latest/mskc/API_UpdateConnector.html",
       "description": "Grants permission to update an MSK Connect connector",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "connector*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     }

@@ -163,6 +163,23 @@
       "dependentActions": []
     },
     {
+      "name": "DeriveSharedSecret",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_DeriveSharedSecret.html",
+      "description": "Controls permission to use the specified AWS KMS key to derive shared secrets",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:KeyAgreementAlgorithm",
+        "kms:RecipientAttestation:ImageSha384",
+        "kms:RequestAlias",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeCustomKeyStores",
       "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeCustomKeyStores.html",
       "description": "Controls permission to view detailed information about custom key stores in the account and region",
@@ -251,6 +268,7 @@
       ],
       "conditionKeys": [
         "kms:CallerAccount",
+        "kms:RotationPeriodInDays",
         "kms:ViaService"
       ],
       "dependentActions": []
@@ -392,7 +410,7 @@
     {
       "name": "GetKeyRotationStatus",
       "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyRotationStatus.html",
-      "description": "Controls permission to determine whether automatic key rotation is enabled on the AWS KMS key",
+      "description": "Controls permission to view the key rotation status for an AWS KMS key",
       "accessLevel": "Read",
       "resourceTypes": [
         "key*"
@@ -478,6 +496,20 @@
       "name": "ListKeyPolicies",
       "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeyPolicies.html",
       "description": "Controls permission to view the names of key policies for an AWS KMS key",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListKeyRotations",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeyRotations.html",
+      "description": "Controls permission to view the list of completed key rotations for an AWS KMS key",
       "accessLevel": "List",
       "resourceTypes": [
         "key*"
@@ -615,6 +647,20 @@
       "conditionKeys": [
         "kms:CallerAccount",
         "kms:GrantIsForAWSResource",
+        "kms:ViaService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RotateKeyOnDemand",
+      "documentationUrl": "https://docs.aws.amazon.com/kms/latest/APIReference/API_RotateKeyOnDemand.html",
+      "description": "Controls permission to invoke on-demand rotation of the cryptographic material in an AWS KMS key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "key*"
+      ],
+      "conditionKeys": [
+        "kms:CallerAccount",
         "kms:ViaService"
       ],
       "dependentActions": []

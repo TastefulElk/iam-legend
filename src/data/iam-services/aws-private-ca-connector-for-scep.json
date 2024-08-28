@@ -1,0 +1,147 @@
+{
+  "serviceName": "AWS Private CA Connector for SCEP",
+  "servicePrefix": "pca-connector-scep",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsprivatecaconnectorforscep.html",
+  "actions": [
+    {
+      "name": "CreateChallenge",
+      "documentationUrl": "https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_CreateChallenge.html",
+      "description": "Grants permission to create a Challenge for a Connector",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_CreateConnector.html",
+      "description": "Grants permission to create a SCEP Connector in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "acm-pca:DescribeCertificateAuthority",
+        "acm-pca:GetCertificate",
+        "acm-pca:GetCertificateAuthorityCertificate",
+        "acm-pca:IssueCertificate"
+      ]
+    },
+    {
+      "name": "DeleteChallenge",
+      "documentationUrl": "https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_DeleteChallenge.html",
+      "description": "Grants permission to delete a Challenge for a Connector",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Challenge*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_DeleteConnector.html",
+      "description": "Grants permission to delete a SCEP Connector in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Connector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetChallengeMetadata",
+      "documentationUrl": "https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_GetChallengeMetadata.html",
+      "description": "Grants permission to get a Challenge for a Connector",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Challenge*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetChallengePassword",
+      "documentationUrl": "https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_GetChallengePassword.html",
+      "description": "Grants permission to get a Challenge password for a Connector",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Challenge*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_GetConnector.html",
+      "description": "Grants permission to get a SCEP Connector in your account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Connector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListChallengeMetadata",
+      "documentationUrl": "https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_ListChallengeMetadata.html",
+      "description": "Grants permission to list Challenges for a Connector",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListConnectors",
+      "documentationUrl": "https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_ListConnectors.html",
+      "description": "Grants permission to list the SCEP Connectors in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list the tags for a pca-connector-scep resource in your account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag a pca-connector-scep resource in your account",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "Challenge",
+        "Connector"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/pca-connector-scep/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag a pca-connector-scep resource in your account",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "Challenge",
+        "Connector"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

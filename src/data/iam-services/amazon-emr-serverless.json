@@ -17,6 +17,19 @@
       ]
     },
     {
+      "name": "AccessLivyEndpoints",
+      "documentationUrl": "https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/interactive-workloads-livy-endpoints.html",
+      "description": "Grants permission to execute interactive workloads on Livy Endpoint enabled on an EMR Serverless Application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
       "name": "CancelJobRun",
       "documentationUrl": "https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_CancelJobRun.html",
       "description": "Grants permission to cancel a job run",
@@ -89,6 +102,17 @@
       "description": "Grants permission to list applications",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListJobRunAttempts",
+      "documentationUrl": "https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_ListJobRunAttempts.html",
+      "description": "Grants permission to list job run attempts associated with a job run",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "jobRun*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },

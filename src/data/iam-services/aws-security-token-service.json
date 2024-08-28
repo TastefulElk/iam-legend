@@ -173,6 +173,21 @@
       "dependentActions": []
     },
     {
+      "name": "SetContext",
+      "documentationUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#condition-keys-sts",
+      "description": "Grants permission to set context keys on a STS session",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "role",
+        "self-session"
+      ],
+      "conditionKeys": [
+        "sts:RequestContext/${ContextKey}",
+        "sts:RequestContextProviders"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "SetSourceIdentity",
       "documentationUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html#id_credentials_temp_control-access_monitor-perms",
       "description": "Grants permission to set a source identity on a STS session",

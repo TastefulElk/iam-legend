@@ -13,6 +13,7 @@
       ],
       "conditionKeys": [
         "s3:DataAccessPointArn",
+        "s3:AccessGrantsInstanceArn",
         "s3:DataAccessPointAccount",
         "s3:AccessPointNetworkOrigin",
         "s3:authType",
@@ -21,6 +22,25 @@
         "s3:signatureversion",
         "s3:TlsVersion",
         "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateAccessGrantsIdentityCenter",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_AssociateAccessGrantsIdentityCenter.html",
+      "description": "Grants permission to associate Access Grants identity center",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "accessgrantsinstance*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -61,6 +81,69 @@
         "s3:object-lock-retain-until-date",
         "s3:object-lock-remaining-retention-days",
         "s3:object-lock-legal-hold"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAccessGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessGrant.html",
+      "description": "Grants permission to create Access Grant",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "accessgrantslocation*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAccessGrantsInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessGrantsInstance.html",
+      "description": "Grants permission to Create Access Grants Instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "accessgrantsinstance*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAccessGrantsLocation",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessGrantsLocation.html",
+      "description": "Grants permission to create Access Grants location",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "accessgrantsinstance*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -191,6 +274,82 @@
         "s3:x-amz-content-sha256",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAccessGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessGrant.html",
+      "description": "Grants permission to delete Access Grant",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "accessgrant*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAccessGrantsInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessGrantsInstance.html",
+      "description": "Grants permission to Delete Access Grants Instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "accessgrantsinstance*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAccessGrantsInstanceResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessGrantsInstanceResourcePolicy.html",
+      "description": "Grants permission to read Access grants instance resource policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "accessgrantsinstance*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAccessGrantsLocation",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessGrantsLocation.html",
+      "description": "Grants permission to delete Access Grants location",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "accessgrantslocation*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -381,6 +540,7 @@
         "object*"
       ],
       "conditionKeys": [
+        "s3:AccessGrantsInstanceArn",
         "s3:DataAccessPointAccount",
         "s3:DataAccessPointArn",
         "s3:AccessPointNetworkOrigin",
@@ -424,6 +584,7 @@
         "object*"
       ],
       "conditionKeys": [
+        "s3:AccessGrantsInstanceArn",
         "s3:DataAccessPointAccount",
         "s3:DataAccessPointArn",
         "s3:AccessPointNetworkOrigin",
@@ -550,6 +711,25 @@
       "dependentActions": []
     },
     {
+      "name": "DissociateAccessGrantsIdentityCenter",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DissociateAccessGrantsIdentityCenter.html",
+      "description": "Grants permission to disassociate Access Grants identity center",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "accessgrantsinstance*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetAccelerateConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html",
       "description": "Grants permission to uses the accelerate subresource to return the Transfer Acceleration state of a bucket, which is either Enabled or Suspended",
@@ -564,6 +744,101 @@
         "s3:signatureversion",
         "s3:TlsVersion",
         "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccessGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessGrant.html",
+      "description": "Grants permission to read Access Grant",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "accessgrant*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccessGrantsInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessGrantsInstance.html",
+      "description": "Grants permission to Read Access Grants Instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "accessgrantsinstance*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccessGrantsInstanceForPrefix",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessGrantsInstanceForPrefix.html",
+      "description": "Grants permission to Read Access Grants Instance by prefix",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "accessgrantsinstance*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccessGrantsInstanceResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessGrantsInstanceResourcePolicy.html",
+      "description": "Grants permission to read Access grants instance resource policy",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "accessgrantsinstance*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccessGrantsLocation",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessGrantsLocation.html",
+      "description": "Grants permission to read Access Grants location",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "accessgrantslocation*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -999,6 +1274,25 @@
       "dependentActions": []
     },
     {
+      "name": "GetDataAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetDataAccess.html",
+      "description": "Grants permission to get Access",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "accessgrantsinstance*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetEncryptionConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketEncryption.html",
       "description": "Grants permission to return the default encryption configuration an Amazon S3 bucket",
@@ -1195,6 +1489,7 @@
         "object*"
       ],
       "conditionKeys": [
+        "s3:AccessGrantsInstanceArn",
         "s3:DataAccessPointAccount",
         "s3:DataAccessPointArn",
         "s3:AccessPointNetworkOrigin",
@@ -1217,6 +1512,7 @@
         "object*"
       ],
       "conditionKeys": [
+        "s3:AccessGrantsInstanceArn",
         "s3:DataAccessPointAccount",
         "s3:DataAccessPointArn",
         "s3:AccessPointNetworkOrigin",
@@ -1343,6 +1639,7 @@
         "object*"
       ],
       "conditionKeys": [
+        "s3:AccessGrantsInstanceArn",
         "s3:DataAccessPointAccount",
         "s3:DataAccessPointArn",
         "s3:AccessPointNetworkOrigin",
@@ -1366,6 +1663,7 @@
         "object*"
       ],
       "conditionKeys": [
+        "s3:AccessGrantsInstanceArn",
         "s3:DataAccessPointAccount",
         "s3:DataAccessPointArn",
         "s3:AccessPointNetworkOrigin",
@@ -1567,6 +1865,60 @@
       "dependentActions": []
     },
     {
+      "name": "ListAccessGrants",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessGrants.html",
+      "description": "Grants permission to list Access Grant",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "accessgrantsinstance*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAccessGrantsInstances",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessGrantsInstances.html",
+      "description": "Grants permission to List Access Grants Instances",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAccessGrantsLocations",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessGrantsLocations.html",
+      "description": "Grants permission to list Access Grants locations",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "accessgrantsinstance*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListAccessPoints",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPoints.html",
       "description": "Grants permission to list access points",
@@ -1623,6 +1975,7 @@
         "bucket*"
       ],
       "conditionKeys": [
+        "s3:AccessGrantsInstanceArn",
         "s3:DataAccessPointAccount",
         "s3:DataAccessPointArn",
         "s3:AccessPointNetworkOrigin",
@@ -1647,6 +2000,7 @@
         "bucket*"
       ],
       "conditionKeys": [
+        "s3:AccessGrantsInstanceArn",
         "s3:DataAccessPointAccount",
         "s3:DataAccessPointArn",
         "s3:AccessPointNetworkOrigin",
@@ -1668,6 +2022,7 @@
         "bucket*"
       ],
       "conditionKeys": [
+        "s3:AccessGrantsInstanceArn",
         "s3:DataAccessPointAccount",
         "s3:DataAccessPointArn",
         "s3:AccessPointNetworkOrigin",
@@ -1723,6 +2078,7 @@
         "object*"
       ],
       "conditionKeys": [
+        "s3:AccessGrantsInstanceArn",
         "s3:DataAccessPointAccount",
         "s3:DataAccessPointArn",
         "s3:AccessPointNetworkOrigin",
@@ -1773,6 +2129,9 @@
       "description": "Grants permission to list the tags attached to the specified resource",
       "accessLevel": "List",
       "resourceTypes": [
+        "accessgrant",
+        "accessgrantsinstance",
+        "accessgrantslocation",
         "storagelensgroup"
       ],
       "conditionKeys": [
@@ -1804,6 +2163,28 @@
       "dependentActions": []
     },
     {
+      "name": "PauseReplication",
+      "documentationUrl": "https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#bucket-pause-replication",
+      "description": "Grants permission to pause S3 Replication from target source buckets to destination buckets",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "bucket*"
+      ],
+      "conditionKeys": [
+        "s3:destinationRegion",
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": [
+        "S3:GetReplicationConfiguration",
+        "S3:PutReplicationConfiguration"
+      ]
+    },
+    {
       "name": "PutAccelerateConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketAccelerateConfiguration.html",
       "description": "Grants permission to use the accelerate subresource to set the Transfer Acceleration state of an existing S3 bucket",
@@ -1818,6 +2199,25 @@
         "s3:signatureversion",
         "s3:TlsVersion",
         "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutAccessGrantsInstanceResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessGrantsInstanceResourcePolicy.html",
+      "description": "Grants permission to put Access grants instance resource policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "accessgrantsinstance*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -2198,7 +2598,8 @@
         "s3:signatureAge",
         "s3:signatureversion",
         "s3:TlsVersion",
-        "s3:x-amz-content-sha256"
+        "s3:x-amz-content-sha256",
+        "s3:InventoryAccessibleOptionalFields"
       ],
       "dependentActions": []
     },
@@ -2289,6 +2690,7 @@
         "object*"
       ],
       "conditionKeys": [
+        "s3:AccessGrantsInstanceArn",
         "s3:DataAccessPointAccount",
         "s3:DataAccessPointArn",
         "s3:AccessPointNetworkOrigin",
@@ -2329,6 +2731,7 @@
         "object*"
       ],
       "conditionKeys": [
+        "s3:AccessGrantsInstanceArn",
         "s3:DataAccessPointAccount",
         "s3:DataAccessPointArn",
         "s3:AccessPointNetworkOrigin",
@@ -2428,6 +2831,7 @@
         "object*"
       ],
       "conditionKeys": [
+        "s3:AccessGrantsInstanceArn",
         "s3:DataAccessPointAccount",
         "s3:DataAccessPointArn",
         "s3:AccessPointNetworkOrigin",
@@ -2488,7 +2892,8 @@
         "s3:signatureAge",
         "s3:signatureversion",
         "s3:TlsVersion",
-        "s3:x-amz-content-sha256"
+        "s3:x-amz-content-sha256",
+        "s3:isReplicationPauseRequest"
       ],
       "dependentActions": [
         "iam:PassRole"
@@ -2636,6 +3041,9 @@
       "description": "Grants permission to add tags to the specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "accessgrant",
+        "accessgrantsinstance",
+        "accessgrantslocation",
         "storagelensgroup"
       ],
       "conditionKeys": [
@@ -2656,6 +3064,9 @@
       "description": "Grants permission to remove tags from the specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "accessgrant",
+        "accessgrantsinstance",
+        "accessgrantslocation",
         "storagelensgroup"
       ],
       "conditionKeys": [
@@ -2666,6 +3077,25 @@
         "s3:TlsVersion",
         "s3:x-amz-content-sha256",
         "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAccessGrantsLocation",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_UpdateAccessGrantsLocation.html",
+      "description": "Grants permission to update Access Grants location",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "accessgrantslocation*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },

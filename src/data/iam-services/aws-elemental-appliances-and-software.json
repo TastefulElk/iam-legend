@@ -25,14 +25,11 @@
       "name": "CreateQuote",
       "documentationUrl": "https://docs.aws.amazon.com/elemental-appliances-software",
       "description": "Grants permission to create a quote",
-      "accessLevel": "Tagging",
+      "accessLevel": "Write",
       "resourceTypes": [
         "quote*"
       ],
-      "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
-      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -47,7 +44,7 @@
     {
       "name": "GetBillingAddresses",
       "documentationUrl": "https://docs.aws.amazon.com/elemental-appliances-software",
-      "description": "Grants permission to list the billing addresses in the user account",
+      "description": "Grants permission to list the billing addresses in the AWS Account",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -56,7 +53,7 @@
     {
       "name": "GetDeliveryAddressesV2",
       "documentationUrl": "https://docs.aws.amazon.com/elemental-appliances-software",
-      "description": "Grants permission to list the delivery addresses in the user account",
+      "description": "Grants permission to list the delivery addresses in the AWS Account",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -74,7 +71,7 @@
     {
       "name": "GetOrdersV2",
       "documentationUrl": "https://docs.aws.amazon.com/elemental-appliances-software",
-      "description": "Grants permission to list the orders in the user account",
+      "description": "Grants permission to list the orders in the AWS Account",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -103,20 +100,9 @@
     {
       "name": "ListQuotes",
       "documentationUrl": "https://docs.aws.amazon.com/elemental-appliances-software",
-      "description": "Grants permission to list the quotes in the user account",
+      "description": "Grants permission to list the quotes in the AWS Account",
       "accessLevel": "List",
       "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "ListTagsForResource",
-      "documentationUrl": "https://docs.aws.amazon.com/elemental-appliances-software",
-      "description": "Grants permission to lists tags for an AWS Elemental Appliances and Software resource",
-      "accessLevel": "Read",
-      "resourceTypes": [
-        "quote"
-      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -136,33 +122,6 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "TagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/elemental-appliances-software",
-      "description": "Grants permission to tag an AWS Elemental Appliances and Software resource",
-      "accessLevel": "Tagging",
-      "resourceTypes": [
-        "quote"
-      ],
-      "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
-      ],
-      "dependentActions": []
-    },
-    {
-      "name": "UntagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/elemental-appliances-software",
-      "description": "Grants permission to remove a tag from an AWS Elemental Appliances and Software resource",
-      "accessLevel": "Tagging",
-      "resourceTypes": [
-        "quote"
-      ],
-      "conditionKeys": [
-        "aws:TagKeys"
-      ],
       "dependentActions": []
     },
     {

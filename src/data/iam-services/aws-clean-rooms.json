@@ -24,7 +24,23 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "collaboration*",
-        "configuredtableassociation*"
+        "configuredtableassociation",
+        "idmappingtable"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "cleanrooms:GetSchema"
+      ]
+    },
+    {
+      "name": "BatchGetSchemaAnalysisRule",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_BatchGetSchemaAnalysisRule.html",
+      "description": "Grants permission to view analysis rules associated with schemas",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "collaboration*",
+        "configuredtableassociation",
+        "idmappingtable"
       ],
       "conditionKeys": [],
       "dependentActions": [
@@ -64,6 +80,29 @@
         "aws:TagKeys"
       ],
       "dependentActions": []
+    },
+    {
+      "name": "CreateConfiguredAudienceModelAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateConfiguredAudienceModelAssociation.html",
+      "description": "Grants permission to link a Cleanrooms ML configured audience model with a collaboration by creating a new association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configuredaudiencemodelassociation*",
+        "membership*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "cleanrooms-ml:GetConfiguredAudienceModel",
+        "cleanrooms-ml:GetConfiguredAudienceModelPolicy",
+        "cleanrooms-ml:PutConfiguredAudienceModelPolicy"
+      ]
     },
     {
       "name": "CreateConfiguredTable",
@@ -126,6 +165,65 @@
       ]
     },
     {
+      "name": "CreateConfiguredTableAssociationAnalysisRule",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateConfiguredTableAssociationAnalysisRule.html",
+      "description": "Grants permission to create an analysis rule for a configured table association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configuredtableassociation*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateIdMappingTable",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateIdMappingTable.html",
+      "description": "Grants permission to link an id mapping workflow with a collaboration by creating a new id mapping table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "idmappingtable*",
+        "membership*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "entityresolution:AddPolicyStatement",
+        "entityresolution:GetIdMappingWorkflow"
+      ]
+    },
+    {
+      "name": "CreateIdNamespaceAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateIdNamespaceAssociation.html",
+      "description": "Grants permission to link an AWS Entity Resolution Id Namespace with a collaboration by creating a new association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "idnamespaceassociation*",
+        "membership*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "entityresolution:AddPolicyStatement",
+        "entityresolution:GetIdNamespace"
+      ]
+    },
+    {
       "name": "CreateMembership",
       "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateMembership.html",
       "description": "Grants permission to join collaborations by creating a membership",
@@ -157,6 +255,25 @@
       ]
     },
     {
+      "name": "CreatePrivacyBudgetTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreatePrivacyBudgetTemplate.html",
+      "description": "Grants permission to create a new privacy budget template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "membership*",
+        "privacybudgettemplate*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteAnalysisTemplate",
       "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_DeleteAnalysisTemplate.html",
       "description": "Grants permission to delete an existing analysis template",
@@ -176,7 +293,26 @@
         "collaboration*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "cleanrooms-ml:DeleteConfiguredAudienceModelPolicy",
+        "cleanrooms-ml:GetConfiguredAudienceModelPolicy",
+        "cleanrooms-ml:PutConfiguredAudienceModelPolicy"
+      ]
+    },
+    {
+      "name": "DeleteConfiguredAudienceModelAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_DeleteConfiguredAudienceModelAssociation.html",
+      "description": "Grants permission to delete an existing configured audience model association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configuredaudiencemodelassociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "cleanrooms-ml:DeleteConfiguredAudienceModelPolicy",
+        "cleanrooms-ml:GetConfiguredAudienceModelPolicy",
+        "cleanrooms-ml:PutConfiguredAudienceModelPolicy"
+      ]
     },
     {
       "name": "DeleteConfiguredTable",
@@ -212,6 +348,45 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteConfiguredTableAssociationAnalysisRule",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_DeleteConfiguredTableAssociationAnalysisRule.html",
+      "description": "Grants permission to delete an existing configured table association analysis rule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configuredtableassociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteIdMappingTable",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_DeleteIdMappingTable.html",
+      "description": "Grants permission to remove an id mapping table from a collaboration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "idmappingtable*",
+        "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "entityresolution:DeletePolicyStatement"
+      ]
+    },
+    {
+      "name": "DeleteIdNamespaceAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_DeleteIdNamespaceAssociation.html",
+      "description": "Grants permission to remove an Id Namespace Association from a collaboration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "idnamespaceassociation*",
+        "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "entityresolution:DeletePolicyStatement"
+      ]
+    },
+    {
       "name": "DeleteMember",
       "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_DeleteMember.html",
       "description": "Grants permission to delete members from a collaboration",
@@ -220,7 +395,11 @@
         "collaboration*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "cleanrooms-ml:DeleteConfiguredAudienceModelPolicy",
+        "cleanrooms-ml:GetConfiguredAudienceModelPolicy",
+        "cleanrooms-ml:PutConfiguredAudienceModelPolicy"
+      ]
     },
     {
       "name": "DeleteMembership",
@@ -229,6 +408,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePrivacyBudgetTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_DeletePrivacyBudgetTemplate.html",
+      "description": "Grants permission to delete an existing privacy budget template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "privacybudgettemplate*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -268,6 +458,53 @@
       "dependentActions": []
     },
     {
+      "name": "GetCollaborationConfiguredAudienceModelAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetCollaborationConfiguredAudienceModelAssociation.html",
+      "description": "Grants permission to view details for a configured audience model association within a collaboration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "collaboration*",
+        "configuredaudiencemodelassociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCollaborationIdNamespaceAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetCollaborationIdNamespaceAssociation.html",
+      "description": "Grants permission to get id namespace association within a collaboration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "collaboration*",
+        "idnamespaceassociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCollaborationPrivacyBudgetTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetCollaborationPrivacyBudgetTemplate.html",
+      "description": "Grants permission to view details for a privacy budget template within a collaboration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "collaboration*",
+        "privacybudgettemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetConfiguredAudienceModelAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetConfiguredAudienceModelAssociation.html",
+      "description": "Grants permission to view details for a configured audience model association",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "configuredaudiencemodelassociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetConfiguredTable",
       "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetConfiguredTable.html",
       "description": "Grants permission to view details for a configured table",
@@ -301,12 +538,60 @@
       "dependentActions": []
     },
     {
+      "name": "GetConfiguredTableAssociationAnalysisRule",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetConfiguredTableAssociationAnalysisRule.html",
+      "description": "Grants permission to view analysis rules for a configured table association",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "configuredtableassociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetIdMappingTable",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetIdMappingTable.html",
+      "description": "Grants permission to view details of an id mapping table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "idmappingtable*",
+        "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetIdNamespaceAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetIdNamespaceAssociation.html",
+      "description": "Grants permission to view details of an id namespace association",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "idnamespaceassociation*",
+        "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "entityresolution:GetIdNamespace"
+      ]
+    },
+    {
       "name": "GetMembership",
       "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetMembership.html",
       "description": "Grants permission to view details about a membership",
       "accessLevel": "Read",
       "resourceTypes": [
         "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPrivacyBudgetTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_GetPrivacyBudgetTemplate.html",
+      "description": "Grants permission to view details for a privacy budget template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "privacybudgettemplate*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -354,6 +639,7 @@
       "description": "Grants permission to list available analysis templates",
       "accessLevel": "List",
       "resourceTypes": [
+        "analysistemplate*",
         "membership*"
       ],
       "conditionKeys": [],
@@ -371,6 +657,50 @@
       "dependentActions": []
     },
     {
+      "name": "ListCollaborationConfiguredAudienceModelAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListCollaborationConfiguredAudienceModelAssociations.html",
+      "description": "Grants permission to list available configured audience model association within a collaboration",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCollaborationIdNamespaceAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListCollaborationIdNamespaceAssociations.html",
+      "description": "Grants permission to list id namespace within a collaboration",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCollaborationPrivacyBudgetTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListCollaborationPrivacyBudgetTemplates.html",
+      "description": "Grants permission to list available privacy budget templates within a collaboration",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCollaborationPrivacyBudgets",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListCollaborationPrivacyBudgets.html",
+      "description": "Grants permission to list privacy budgets within a collaboration",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListCollaborations",
       "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListCollaborations.html",
       "description": "Grants permission to list available collaborations",
@@ -380,11 +710,24 @@
       "dependentActions": []
     },
     {
+      "name": "ListConfiguredAudienceModelAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListConfiguredAudienceModelAssociations.html",
+      "description": "Grants permission to list available configured audience model associations for a membership",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "configuredaudiencemodelassociation*",
+        "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListConfiguredTableAssociations",
       "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListConfiguredTableAssociations.html",
       "description": "Grants permission to list available configured table associations for a membership",
       "accessLevel": "List",
       "resourceTypes": [
+        "configuredtableassociation*",
         "membership*"
       ],
       "conditionKeys": [],
@@ -396,6 +739,30 @@
       "description": "Grants permission to list available configured tables",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListIdMappingTables",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListIdMappingTables.html",
+      "description": "Grants permission to list available id mapping tables for a membership",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "idmappingtable*",
+        "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListIdNamespaceAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListIdNamespaceAssociations.html",
+      "description": "Grants permission to list entity resolution data associations for a membership",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "idnamespaceassociation*",
+        "membership*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -416,6 +783,29 @@
       "description": "Grants permission to list available memberships",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPrivacyBudgetTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListPrivacyBudgetTemplates.html",
+      "description": "Grants permission to list available privacy budget templates",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "membership*",
+        "privacybudgettemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPrivacyBudgets",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_ListPrivacyBudgets.html",
+      "description": "Grants permission to list available privacy budgets",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "membership*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -449,9 +839,36 @@
       "resourceTypes": [
         "analysistemplate",
         "collaboration",
+        "configuredaudiencemodelassociation",
         "configuredtable",
         "configuredtableassociation",
-        "membership"
+        "membership",
+        "privacybudgettemplate"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PopulateIdMappingTable",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_PopulateIdMappingTable.html",
+      "description": "Grants permission to start an Id Mapping Job in AWS Entity Resolution to generate id mapping results in cleanrooms collaboration.",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "idmappingtable*",
+        "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "entityresolution:GetIdMappingWorkflow"
+      ]
+    },
+    {
+      "name": "PreviewPrivacyImpact",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_PreviewPrivacyImpact.html",
+      "description": "Grants permission to preview privacy budget template settings",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "membership*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -462,9 +879,10 @@
       "description": "Grants permission to start protected queries",
       "accessLevel": "Write",
       "resourceTypes": [
-        "configuredtableassociation*",
         "membership*",
-        "analysistemplate"
+        "analysistemplate",
+        "configuredtableassociation",
+        "idmappingtable"
       ],
       "conditionKeys": [],
       "dependentActions": [
@@ -483,9 +901,13 @@
       "resourceTypes": [
         "analysistemplate",
         "collaboration",
+        "configuredaudiencemodelassociation",
         "configuredtable",
         "configuredtableassociation",
-        "membership"
+        "idmappingtable",
+        "idnamespaceassociation",
+        "membership",
+        "privacybudgettemplate"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -501,9 +923,13 @@
       "resourceTypes": [
         "analysistemplate",
         "collaboration",
+        "configuredaudiencemodelassociation",
         "configuredtable",
         "configuredtableassociation",
-        "membership"
+        "idmappingtable",
+        "idnamespaceassociation",
+        "membership",
+        "privacybudgettemplate"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -528,6 +954,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateConfiguredAudienceModelAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_UpdateConfiguredAudienceModelAssociation.html",
+      "description": "Grants permission to update a configured audience model association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configuredaudiencemodelassociation*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -568,6 +1005,43 @@
       ]
     },
     {
+      "name": "UpdateConfiguredTableAssociationAnalysisRule",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_UpdateConfiguredTableAssociationAnalysisRule.html",
+      "description": "Grants permission to update analysis rules for a configured table association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configuredtableassociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateIdMappingTable",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_UpdateIdMappingTable.html",
+      "description": "Grants permission to update an id mapping table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "idmappingtable*",
+        "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateIdNamespaceAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_UpdateIdNamespaceAssociation.html",
+      "description": "Grants permission to update a entity resolution input association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "idnamespaceassociation*",
+        "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "entityresolution:GetIdNamespace"
+      ]
+    },
+    {
       "name": "UpdateMembership",
       "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_UpdateMembership.html",
       "description": "Grants permission to update details of a membership",
@@ -589,6 +1063,17 @@
         "logs:UpdateLogDelivery",
         "s3:GetBucketLocation"
       ]
+    },
+    {
+      "name": "UpdatePrivacyBudgetTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_UpdatePrivacyBudgetTemplate.html",
+      "description": "Grants permission to update details of the privacy budget template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "privacybudgettemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "UpdateProtectedQuery",

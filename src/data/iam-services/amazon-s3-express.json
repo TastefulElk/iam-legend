@@ -1,0 +1,127 @@
+{
+  "serviceName": "Amazon S3 Express",
+  "servicePrefix": "s3express",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazons3express.html",
+  "actions": [
+    {
+      "name": "CreateBucket",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html",
+      "description": "Grants permission to create a new bucket",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "bucket*"
+      ],
+      "conditionKeys": [
+        "s3express:authType",
+        "s3express:LocationName",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSession",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html",
+      "description": "Grants permission to Create Session token which is used for object APIs such as PutObject, GetObject, ect",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "bucket*"
+      ],
+      "conditionKeys": [
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:SessionMode",
+        "s3express:signatureAge",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteBucket",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html",
+      "description": "Grants permission to delete the bucket named in the URI",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "bucket*"
+      ],
+      "conditionKeys": [
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteBucketPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketPolicy.html",
+      "description": "Grants permission to delete the policy on a specified bucket",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "bucket*"
+      ],
+      "conditionKeys": [
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetBucketPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketPolicy.html",
+      "description": "Grants permission to return the policy of the specified bucket",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "bucket*"
+      ],
+      "conditionKeys": [
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAllMyDirectoryBuckets",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListDirectoryBuckets.html",
+      "description": "Grants permission to list all directory buckets owned by the authenticated sender of the request",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutBucketPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketPolicy.html",
+      "description": "Grants permission to add or replace a bucket policy on a bucket",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "bucket*"
+      ],
+      "conditionKeys": [
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

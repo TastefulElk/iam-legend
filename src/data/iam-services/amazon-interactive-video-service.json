@@ -52,12 +52,40 @@
       "dependentActions": []
     },
     {
+      "name": "CreateEncoderConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_CreateEncoderConfiguration.html",
+      "description": "Grants permission to create a new encoder configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Encoder-Configuration*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateParticipantToken",
       "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_CreateParticipantToken.html",
       "description": "Grants permission to create a participant token",
       "accessLevel": "Write",
       "resourceTypes": [
         "Stage*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreatePlaybackRestrictionPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_CreatePlaybackRestrictionPolicy.html",
+      "description": "Grants permission to create a playback restriction policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Playback-Restriction-Policy*"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -94,6 +122,20 @@
       "dependentActions": []
     },
     {
+      "name": "CreateStorageConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_CreateStorageConfiguration.html",
+      "description": "Grants permission to create a new storage configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Storage-Configuration*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateStreamKey",
       "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_CreateStreamKey.html",
       "description": "Grants permission to create a stream key",
@@ -120,12 +162,45 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteEncoderConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_DeleteEncoderConfiguration.html",
+      "description": "Grants permission to delete an encoder configuration for the specified ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Encoder-Configuration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeletePlaybackKeyPair",
       "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_DeletePlaybackKeyPair.html",
       "description": "Grants permission to delete the playback key pair for a specified ARN",
       "accessLevel": "Write",
       "resourceTypes": [
         "Playback-Key-Pair*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePlaybackRestrictionPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_DeletePlaybackRestrictionPolicy.html",
+      "description": "Grants permission to delete the playback restriction policy for a specified ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Playback-Restriction-Policy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePublicKey",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_DeletePublicKey.html",
+      "description": "Grants permission to delete the public key for the specified ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Public-Key*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -148,6 +223,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "Stage*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteStorageConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_DeleteStorageConfiguration.html",
+      "description": "Grants permission to delete an storage configuration for the specified ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Storage-Configuration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -186,6 +272,28 @@
       "dependentActions": []
     },
     {
+      "name": "GetComposition",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_GetComposition.html",
+      "description": "Grants permission to get the composition for the specified ARN",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Composition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEncoderConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_GetEncoderConfiguration.html",
+      "description": "Grants permission to get the encoder configuration for the specified ARN",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Encoder-Configuration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetParticipant",
       "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_GetParticipant.html",
       "description": "Grants permission to get participant information for a specified stage ARN, session, and participant",
@@ -203,6 +311,28 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "Playback-Key-Pair*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPlaybackRestrictionPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_GetPlaybackRestrictionPolicy.html",
+      "description": "Grants permission to get the playback restriction policy for a specified ARN",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Playback-Restriction-Policy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPublicKey",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_GetPublicKey.html",
+      "description": "Grants permission to get the public key for the specified ARN",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Public-Key*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -236,6 +366,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "Stage*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetStorageConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_GetStorageConfiguration.html",
+      "description": "Grants permission to get the storage configuration for the specified ARN",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Storage-Configuration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -288,6 +429,20 @@
       "dependentActions": []
     },
     {
+      "name": "ImportPublicKey",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_ImportPublicKey.html",
+      "description": "Grants permission to import a public key",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Public-Key*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListChannels",
       "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_ListChannels.html",
       "description": "Grants permission to get summary information about channels",
@@ -295,6 +450,27 @@
       "resourceTypes": [
         "Channel*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCompositions",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_ListCompositions.html",
+      "description": "Grants permission to get summary information about compositions",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Encoder-Configuration",
+        "Stage"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEncoderConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_ListEncoderConfigurations.html",
+      "description": "Grants permission to get summary information about encoder configurations",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -332,6 +508,24 @@
       "dependentActions": []
     },
     {
+      "name": "ListPlaybackRestrictionPolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_ListPlaybackRestrictionPolicies.html",
+      "description": "Grants permission to get summary information about playback restriction policies",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPublicKeys",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_ListPublicKeys.html",
+      "description": "Grants permission to get summary information about public keys",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListRecordingConfigurations",
       "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_ListRecordingConfigurations.html",
       "description": "Grants permission to get summary information about recording configurations",
@@ -361,6 +555,15 @@
       "resourceTypes": [
         "Stage*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStorageConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_ListStorageConfigurations.html",
+      "description": "Grants permission to get summary information about storage configurations",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -405,9 +608,14 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "Channel",
+        "Composition",
+        "Encoder-Configuration",
         "Playback-Key-Pair",
+        "Playback-Restriction-Policy",
+        "Public-Key",
         "Recording-Configuration",
         "Stage",
+        "Storage-Configuration",
         "Stream-Key"
       ],
       "conditionKeys": [
@@ -428,12 +636,40 @@
       "dependentActions": []
     },
     {
+      "name": "StartComposition",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_StartComposition.html",
+      "description": "Grants permission to start a new composition",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Encoder-Configuration*",
+        "Stage*",
+        "Channel",
+        "Storage-Configuration"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "StartViewerSessionRevocation",
       "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_StartViewerSessionRevocation.html",
       "description": "Grants permission to start the process of revoking the viewer session associated with a specified channel ARN and viewer ID",
       "accessLevel": "Write",
       "resourceTypes": [
         "Channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopComposition",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_StopComposition.html",
+      "description": "Grants permission to stop the composition for the specified ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Composition*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -456,9 +692,14 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "Channel",
+        "Composition",
+        "Encoder-Configuration",
         "Playback-Key-Pair",
+        "Playback-Restriction-Policy",
+        "Public-Key",
         "Recording-Configuration",
         "Stage",
+        "Storage-Configuration",
         "Stream-Key"
       ],
       "conditionKeys": [
@@ -474,9 +715,14 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "Channel",
+        "Composition",
+        "Encoder-Configuration",
         "Playback-Key-Pair",
+        "Playback-Restriction-Policy",
+        "Public-Key",
         "Recording-Configuration",
         "Stage",
+        "Storage-Configuration",
         "Stream-Key"
       ],
       "conditionKeys": [
@@ -491,6 +737,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "Channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePlaybackRestrictionPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_UpdatePlaybackRestrictionPolicy.html",
+      "description": "Grants permission to update a playback restriction policy for a specified ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Playback-Restriction-Policy*"
       ],
       "conditionKeys": [],
       "dependentActions": []

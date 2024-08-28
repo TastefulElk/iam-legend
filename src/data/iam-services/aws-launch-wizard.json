@@ -14,11 +14,16 @@
     },
     {
       "name": "CreateDeployment",
-      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/",
+      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_CreateDeployment.html",
       "description": "Grants permission to create a deployment",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "deployment*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -50,11 +55,15 @@
     },
     {
       "name": "DeleteDeployment",
-      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/",
+      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_DeleteDeployment.html",
       "description": "Grants permission to delete a deployment",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "deployment*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -104,11 +113,15 @@
     },
     {
       "name": "GetDeployment",
-      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/",
+      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetDeployment.html",
       "description": "Grants permission to get a deployment",
       "accessLevel": "Read",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "deployment*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -158,7 +171,7 @@
     },
     {
       "name": "GetWorkload",
-      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/",
+      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkload.html",
       "description": "Grants permission to get a workload",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -184,6 +197,15 @@
       "dependentActions": []
     },
     {
+      "name": "GetWorkloadDeploymentPattern",
+      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.html",
+      "description": "Grants permission to get a deployment pattern",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListAdditionalNodes",
       "documentationUrl": "https://docs.aws.amazon.com/launchwizard/",
       "description": "Grants permission to list additional nodes",
@@ -203,7 +225,7 @@
     },
     {
       "name": "ListDeploymentEvents",
-      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/",
+      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListDeploymentEvents.html",
       "description": "Grants permission to list the events that occured during a deployment",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -212,7 +234,7 @@
     },
     {
       "name": "ListDeployments",
-      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/",
+      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListDeployments.html",
       "description": "Grants permission to list deployments",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -247,6 +269,19 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a LaunchWizard resource.",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "deployment"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListWorkloadDeploymentOptions",
       "documentationUrl": "https://docs.aws.amazon.com/launchwizard/",
       "description": "Grants permission to list deployment options of a given workload",
@@ -257,7 +292,7 @@
     },
     {
       "name": "ListWorkloadDeploymentPatterns",
-      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/",
+      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html",
       "description": "Grants permission to list the deployment patterns of a workload",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -266,7 +301,7 @@
     },
     {
       "name": "ListWorkloads",
-      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/",
+      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html",
       "description": "Grants permission to list workloads",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -289,6 +324,34 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag a LaunchWizard resource.",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "deployment"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag a LaunchWizard resource.",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "deployment"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

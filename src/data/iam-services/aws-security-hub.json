@@ -70,6 +70,15 @@
       "dependentActions": []
     },
     {
+      "name": "BatchGetConfigurationPolicyAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchGetConfigurationPolicyAssociations.html",
+      "description": "Grants permission to retrieve information about configuration policies associated with a specific list of member accounts and organizational units of the calling account's organization",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "BatchGetControlEvaluations",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/iam-permissions-controls-standards.html",
       "description": "Grants permission to get the enablement and compliance status of controls, the findings count for controls, and the overall security score for controls on the Security Hub console",
@@ -174,6 +183,18 @@
       "dependentActions": []
     },
     {
+      "name": "CreateConfigurationPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateConfigurationPolicy.html",
+      "description": "Grants permission to create a configuration policy to manage organization member settings in Security Hub",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateFindingAggregator",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateFindingAggregator.html",
       "description": "Grants permission to create a finding aggregator, which contains the cross-Region finding aggregation configuration",
@@ -222,6 +243,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "hub"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConfigurationPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeleteConfigurationPolicy.html",
+      "description": "Grants permission to delete an existing configuration policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configuration-policy*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -467,6 +499,26 @@
       "dependentActions": []
     },
     {
+      "name": "GetConfigurationPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetConfigurationPolicy.html",
+      "description": "Grants permission to get a complete overview of one configuration policy created by the calling account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "configuration-policy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetConfigurationPolicyAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetConfigurationPolicyAssociation.html",
+      "description": "Grants permission to retrieve information about a configuration policy associated with a member account or organizational unit of the calling account's organization",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetControlFindingSummary",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetControlFindingSummary.html",
       "description": "Grants permission to retrieve a security score and counts of finding and control statuses for a security standard",
@@ -610,6 +662,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetSecurityControlDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetSecurityControlDefinition.html",
+      "description": "Grants permission to get the definition details of a specific security control identified by ID",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "securityhub:DescribeStandardsControls"
+      ]
+    },
+    {
       "name": "GetUsage",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetUsage.html",
       "description": "Grants permission to retrieve information about Security Hub usage by accounts",
@@ -635,6 +698,24 @@
       "name": "ListAutomationRules",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules",
       "description": "Grants permission to retrieve a list of automation rules and their metadata for the calling account from Security Hub",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListConfigurationPolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListConfigurationPolicies.html",
+      "description": "Grants permission to list the summaries of all configuration policies created by the calling account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListConfigurationPolicyAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListConfigurationPolicyAssociations.html",
+      "description": "Grants permission to retrieve information about all configuration policies associationed with all member accounts and organizational units of the calling account's organization",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -733,6 +814,7 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "automation-rule",
+        "configuration-policy",
         "hub"
       ],
       "conditionKeys": [],
@@ -761,12 +843,35 @@
       "dependentActions": []
     },
     {
+      "name": "StartConfigurationPolicyAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_StartConfigurationPolicyAssociation.html",
+      "description": "Grants permission to associate a configuration policy with a member account or organizational unit in the calling account's organization",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configuration-policy"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartConfigurationPolicyDisassociation",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_StartConfigurationPolicyDisassociation.html",
+      "description": "Grants permission to remove a configuration policy association from a member account or organizational unit in the calling account's organization",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configuration-policy"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_TagResource.html",
       "description": "Grants permission to add tags to a Security Hub resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "automation-rule",
+        "configuration-policy",
         "hub"
       ],
       "conditionKeys": [],
@@ -779,6 +884,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "automation-rule",
+        "configuration-policy",
         "hub"
       ],
       "conditionKeys": [],
@@ -791,6 +897,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "hub"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateConfigurationPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateConfigurationPolicy.html",
+      "description": "Grants permission to update an existing configuration policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configuration-policy*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -838,6 +955,17 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "UpdateSecurityControl",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateSecurityControl.html",
+      "description": "Grants permission to update properties of a specific security control identified by ID or ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "securityhub:UpdateStandardsControl"
+      ]
     },
     {
       "name": "UpdateSecurityHubConfiguration",

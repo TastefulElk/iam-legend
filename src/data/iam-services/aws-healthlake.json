@@ -4,6 +4,17 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awshealthlake.html",
   "actions": [
     {
+      "name": "CancelFHIRExportJobWithDelete",
+      "documentationUrl": "https://docs.aws.amazon.com/healthlake/latest/devguide/export-datastore-rest.html",
+      "description": "Grants permission to cancel an on going FHIR Export job with Delete",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "datastore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateFHIRDatastore",
       "documentationUrl": "https://docs.aws.amazon.com/healthlake/latest/APIReference/API_CreateFHIRDatastore.html",
       "description": "Grants permission to create a datastore that can ingest and export FHIR data",
@@ -71,6 +82,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeFHIRExportJobWithGet",
+      "documentationUrl": "https://docs.aws.amazon.com/healthlake/latest/devguide/export-datastore-rest.html",
+      "description": "Grants permission to display the properties of a FHIR export job, including the ID, ARN, name, and the status of the datastore with Get",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "datastore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeFHIRImportJob",
       "documentationUrl": "https://docs.aws.amazon.com/healthlake/latest/APIReference/API_DescribeFHIRImportJob.html",
       "description": "Grants permission to display the properties of a FHIR import job, including the ID, ARN, name, and the status of the datastore",
@@ -127,7 +149,7 @@
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/healthlake/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to get a list of tags for the specified datastore",
-      "accessLevel": "Read",
+      "accessLevel": "List",
       "resourceTypes": [
         "datastore"
       ],
@@ -138,6 +160,17 @@
       "name": "ReadResource",
       "documentationUrl": "https://docs.aws.amazon.com/healthlake/latest/devguide/crud-healthlake.html",
       "description": "Grants permission to read resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "datastore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SearchEverything",
+      "documentationUrl": "https://docs.aws.amazon.com/healthlake/latest/devguide/search-healthlake.html",
+      "description": "Grants permission to search all resources related to a patient",
       "accessLevel": "Read",
       "resourceTypes": [
         "datastore*"
@@ -171,6 +204,17 @@
       "name": "StartFHIRExportJob",
       "documentationUrl": "https://docs.aws.amazon.com/healthlake/latest/APIReference/API_StartFHIRExportJob.html",
       "description": "Grants permission to begin a FHIR Export job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "datastore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartFHIRExportJobWithPost",
+      "documentationUrl": "https://docs.aws.amazon.com/healthlake/latest/devguide/export-datastore-rest.html",
+      "description": "Grants permission to begin a FHIR Export job with Post",
       "accessLevel": "Write",
       "resourceTypes": [
         "datastore*"

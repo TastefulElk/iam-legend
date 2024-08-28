@@ -10,7 +10,10 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "organizations:DescribeOrganization",
+        "organizations:EnableAWSServiceAccess"
+      ]
     },
     {
       "name": "DeleteServiceQuotaIncreaseRequestFromTemplate",
@@ -19,7 +22,9 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "organizations:DescribeOrganization"
+      ]
     },
     {
       "name": "DisassociateServiceQuotaTemplate",
@@ -28,7 +33,9 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "organizations:DescribeOrganization"
+      ]
     },
     {
       "name": "GetAWSDefaultServiceQuota",
@@ -46,7 +53,9 @@
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "organizations:DescribeOrganization"
+      ]
     },
     {
       "name": "GetRequestedServiceQuotaChange",
@@ -64,7 +73,16 @@
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "autoscaling:DescribeAccountLimits",
+        "cloudformation:DescribeAccountLimits",
+        "dynamodb:DescribeLimits",
+        "elasticloadbalancing:DescribeAccountLimits",
+        "iam:GetAccountSummary",
+        "kinesis:DescribeLimits",
+        "rds:DescribeAccountAttributes",
+        "route53:GetAccountLimit"
+      ]
     },
     {
       "name": "GetServiceQuotaIncreaseRequestFromTemplate",
@@ -73,7 +91,9 @@
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "organizations:DescribeOrganization"
+      ]
     },
     {
       "name": "ListAWSDefaultServiceQuotas",
@@ -104,12 +124,14 @@
     },
     {
       "name": "ListServiceQuotaIncreaseRequestsInTemplate",
-      "documentationUrl": "https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotaIncreaseRequestsInTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListServiceQuotaIncreaseRequestsInTemplate.html",
       "description": "Grants permission to return a list of the service quota increase requests from the service quota template",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "organizations:DescribeOrganization"
+      ]
     },
     {
       "name": "ListServiceQuotas",
@@ -118,7 +140,16 @@
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "autoscaling:DescribeAccountLimits",
+        "cloudformation:DescribeAccountLimits",
+        "dynamodb:DescribeLimits",
+        "elasticloadbalancing:DescribeAccountLimits",
+        "iam:GetAccountSummary",
+        "kinesis:DescribeLimits",
+        "rds:DescribeAccountAttributes",
+        "route53:GetAccountLimit"
+      ]
     },
     {
       "name": "ListServices",
@@ -131,7 +162,7 @@
     },
     {
       "name": "ListTagsForResource",
-      "documentationUrl": "https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_ListTagsForResource.html",
       "description": "Grants permission to view the existing tags on a SQ resource",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -149,7 +180,9 @@
       "conditionKeys": [
         "servicequotas:service"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "organizations:DescribeOrganization"
+      ]
     },
     {
       "name": "RequestServiceQuotaIncrease",
@@ -166,7 +199,7 @@
     },
     {
       "name": "TagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_TagResource.html",
       "description": "Grants permission to associate a set of tags with an existing SQ resource",
       "accessLevel": "Tagging",
       "resourceTypes": [],
@@ -178,12 +211,11 @@
     },
     {
       "name": "UntagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/API_UntagResource.html",
       "description": "Grants permission to remove a set of tags from a SQ resource, where tags to be removed match a set of customer-supplied tag keys",
       "accessLevel": "Tagging",
       "resourceTypes": [],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": []

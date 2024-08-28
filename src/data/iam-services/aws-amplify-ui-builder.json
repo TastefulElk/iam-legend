@@ -14,7 +14,9 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "amplify:GetApp"
+        "amplify:GetApp",
+        "amplifyuibuilder:GetComponent",
+        "amplifyuibuilder:TagResource"
       ]
     },
     {
@@ -28,7 +30,10 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "amplify:GetApp"
+        "amplify:GetApp",
+        "amplifyuibuilder:GetForm",
+        "amplifyuibuilder:TagResource",
+        "amplifyuibuilder:UntagResource"
       ]
     },
     {
@@ -42,7 +47,9 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "amplify:GetApp"
+        "amplify:GetApp",
+        "amplifyuibuilder:GetTheme",
+        "amplifyuibuilder:TagResource"
       ]
     },
     {
@@ -55,7 +62,8 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "amplify:GetApp"
+        "amplify:GetApp",
+        "amplifyuibuilder:UntagResource"
       ]
     },
     {
@@ -68,7 +76,9 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "amplify:GetApp"
+        "amplify:GetApp",
+        "amplifyuibuilder:TagResource",
+        "amplifyuibuilder:UntagResource"
       ]
     },
     {
@@ -81,7 +91,8 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "amplify:GetApp"
+        "amplify:GetApp",
+        "amplifyuibuilder:UntagResource"
       ]
     },
     {
@@ -215,6 +226,20 @@
       ]
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a specified Amazon Resource Name (ARN)",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "CodegenJobResource",
+        "ComponentResource",
+        "FormResource",
+        "ThemeResource"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListThemes",
       "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_ListThemes.html",
       "description": "Grants permission to list themes",
@@ -267,6 +292,39 @@
       ]
     },
     {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag the resource with a tag key and value",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "CodegenJobResource",
+        "ComponentResource",
+        "FormResource",
+        "ThemeResource"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag a resource with a specified Amazon Resource Name (ARN)",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "CodegenJobResource",
+        "ComponentResource",
+        "FormResource",
+        "ThemeResource"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateComponent",
       "documentationUrl": "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/API_UpdateComponent.html",
       "description": "Grants permission to update a component",
@@ -276,7 +334,9 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "amplify:GetApp"
+        "amplify:GetApp",
+        "amplifyuibuilder:TagResource",
+        "amplifyuibuilder:UntagResource"
       ]
     },
     {
@@ -289,7 +349,10 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "amplify:GetApp"
+        "amplify:GetApp",
+        "amplifyuibuilder:GetForm",
+        "amplifyuibuilder:TagResource",
+        "amplifyuibuilder:UntagResource"
       ]
     },
     {
@@ -302,7 +365,10 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "amplify:GetApp"
+        "amplify:GetApp",
+        "amplifyuibuilder:GetTheme",
+        "amplifyuibuilder:TagResource",
+        "amplifyuibuilder:UntagResource"
       ]
     }
   ]

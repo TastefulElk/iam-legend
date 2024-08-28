@@ -4,6 +4,27 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazondocumentdbelasticclusters.html",
   "actions": [
     {
+      "name": "CopyClusterSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/API_elastic_CopyClusterSnapshot.html",
+      "description": "Grants permission to copy a new Amazon DocDB-Elastic cluster snapshot",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster-snapshot*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "docdb-elastic:CreateClusterSnapshot",
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey"
+      ]
+    },
+    {
       "name": "CreateCluster",
       "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/API_elastic_CreateCluster.html",
       "description": "Grants permission to create a new Amazon DocDB-Elastic cluster",
@@ -41,7 +62,8 @@
       "description": "Grants permission to create a new Amazon DocDB-Elastic cluster snapshot",
       "accessLevel": "Write",
       "resourceTypes": [
-        "cluster*"
+        "cluster*",
+        "cluster-snapshot*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -178,6 +200,7 @@
       "description": "Grants permission to restore cluster from a Amazon DocDB-Elastic cluster snapshot",
       "accessLevel": "Write",
       "resourceTypes": [
+        "cluster*",
         "cluster-snapshot*"
       ],
       "conditionKeys": [
@@ -186,6 +209,7 @@
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": [
+        "docdb-elastic:CreateCluster",
         "ec2:CreateVpcEndpoint",
         "ec2:DeleteVpcEndpoints",
         "ec2:DescribeAvailabilityZones",
@@ -206,6 +230,32 @@
         "secretsmanager:ListSecretVersionIds",
         "secretsmanager:ListSecrets"
       ]
+    },
+    {
+      "name": "StartCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/API_elastic_StartCluster.html",
+      "description": "Grants permission to start a stopped Amazon DocDB-Elastic cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StopCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/API_elastic_StopCluster.html",
+      "description": "Grants permission to stop an existing Amazon DocDB-Elastic cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
     },
     {
       "name": "TagResource",
