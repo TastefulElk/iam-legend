@@ -4,8 +4,30 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awslicensemanagerlinuxsubscriptionsmanager.html",
   "actions": [
     {
+      "name": "DeregisterSubscriptionProvider",
+      "documentationUrl": "https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_DeregisterSubscriptionProvider.html",
+      "description": "Grants permission to permanently delete a subscription provider in AWS License Manager",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "subscription-provider*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRegisteredSubscriptionProvider",
+      "documentationUrl": "https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_GetRegisteredSubscriptionProvider.html",
+      "description": "Grants permission to get a subscription provider in AWS License Manager",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "subscription-provider*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetServiceSettings",
-      "documentationUrl": "https://docs.aws.amazon.com/license-manager/latest/APIReference/API_GetServiceSettings.html",
+      "documentationUrl": "https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_GetServiceSettings.html",
       "description": "Grants permission to get the service settings for Linux subscriptions in AWS License Manager",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -14,7 +36,7 @@
     },
     {
       "name": "ListLinuxSubscriptionInstances",
-      "documentationUrl": "https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListLinuxSubscriptionInstances.html",
+      "documentationUrl": "https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_ListLinuxSubscriptionInstances.html",
       "description": "Grants permission to list all instances with Linux subscriptions in AWS License Manager",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -23,7 +45,7 @@
     },
     {
       "name": "ListLinuxSubscriptions",
-      "documentationUrl": "https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListLinuxSubscriptions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_ListLinuxSubscriptions.html",
       "description": "Grants permission to list all Linux subscriptions in AWS License Manager",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -31,8 +53,67 @@
       "dependentActions": []
     },
     {
+      "name": "ListRegisteredSubscriptionProviders",
+      "documentationUrl": "https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_ListRegisteredSubscriptionProviders.html",
+      "description": "Grants permission to list subscription providers in AWS License Manager",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a selected resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "subscription-provider*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RegisterSubscriptionProvider",
+      "documentationUrl": "https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_RegisterSubscriptionProvider.html",
+      "description": "Grants permission to create a new subscription provider in AWS License Manager",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag a selected resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "subscription-provider*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag a selected resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "subscription-provider*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateServiceSettings",
-      "documentationUrl": "https://docs.aws.amazon.com/license-manager/latest/APIReference/API_UpdateServiceSettings.html",
+      "documentationUrl": "https://docs.aws.amazon.com/license-manager-linux-subscriptions/latest/APIReference/API_UpdateServiceSettings.html",
       "description": "Grants permission to update the service settings for Linux subscriptions in AWS License Manager",
       "accessLevel": "Write",
       "resourceTypes": [],

@@ -24,12 +24,25 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "cloudformation:DescribeStacks"
+      ]
     },
     {
       "name": "DeleteGroup",
       "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_DeleteGroup.html",
       "description": "Grants permission to delete a specified resource group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/license-manager/latest/userguide/management-role.html#service-linked-role-permissions-management-role",
+      "description": "Grants permission to delete a resource-based policy for the specified group",
       "accessLevel": "Write",
       "resourceTypes": [
         "group*"
@@ -72,6 +85,17 @@
       "name": "GetGroupConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_GetGroupConfiguration.html",
       "description": "Grants permission to get the service configuration associated with the specified resource group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/license-manager/latest/userguide/management-role.html#service-linked-role-permissions-management-role",
+      "description": "Grants permission to get a resource-based policy for the specified group",
       "accessLevel": "Read",
       "resourceTypes": [
         "group*"
@@ -131,6 +155,15 @@
       "name": "ListGroups",
       "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_ListGroups.html",
       "description": "Grants permission to list all resource groups in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResourceTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html",
+      "description": "Grants permission to list supported resource types",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -238,7 +271,9 @@
         "group*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "cloudformation:DescribeStacks"
+      ]
     }
   ]
 }

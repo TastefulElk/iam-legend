@@ -4,11 +4,22 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsmigrationhuborchestrator.html",
   "actions": [
     {
+      "name": "CreateTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-orchestrator/latest/APIReference/API_CreateTemplate.html",
+      "description": "Grants permission to create a custom template",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateWorkflow",
       "documentationUrl": "https://docs.aws.amazon.com/migrationhub-orchestrator/latest/APIReference/API_CreateWorkflow.html",
       "description": "Grants permission to create a workflow based on the selected template",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "template*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -33,6 +44,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-orchestrator/latest/APIReference/API_DeleteTemplate.html",
+      "description": "Grants permission to delete a custom template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "template*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -84,7 +106,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/migrationhub-orchestrator/latest/APIReference/API_GetTemplate.html",
       "description": "Grants permission to get retrieve metadata for a Template",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "template*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -93,7 +117,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/migrationhub-orchestrator/latest/APIReference/API_GetTemplateStep.html",
       "description": "Grants permission to retrieve details of a step associated with a template and a step group",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "template*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -102,7 +128,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/migrationhub-orchestrator/latest/APIReference/API_GetTemplateStepGroup.html",
       "description": "Grants permission to retrieve metadata of a step group under a template",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "template*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -154,6 +182,7 @@
       "description": "Grants permission to get a list of all the tags tied to a resource",
       "accessLevel": "Read",
       "resourceTypes": [
+        "template*",
         "workflow*"
       ],
       "conditionKeys": [],
@@ -164,16 +193,20 @@
       "documentationUrl": "https://docs.aws.amazon.com/migrationhub-orchestrator/latest/APIReference/API_ListTemplateStepGroups.html",
       "description": "Grants permission to lists step groups of a template",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "template*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "ListTemplateSteps",
-      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-orchestrator/latest/APIReference/API_ListServers.html",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-orchestrator/latest/APIReference/API_ListTemplateSteps.html",
       "description": "Grants permission to get a list of steps in a step group",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "template*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -199,7 +232,7 @@
     },
     {
       "name": "ListWorkflowSteps",
-      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-orchestrator/latest/APIReference/API_ListAntiPatterns.html",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-orchestrator/latest/APIReference/API_ListWorkflowSteps.html",
       "description": "Grants permission to get a list of steps within  step group associated with a workflow",
       "accessLevel": "List",
       "resourceTypes": [
@@ -274,7 +307,8 @@
       "description": "Grants permission to add tags to a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "workflow*"
+        "template",
+        "workflow"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -288,12 +322,23 @@
       "description": "Grants permission to remove tags from a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "workflow*"
+        "template",
+        "workflow"
       ],
       "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/migrationhub-orchestrator/latest/APIReference/API_UpdateTemplate.html",
+      "description": "Grants permission to update a custom template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "template*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {

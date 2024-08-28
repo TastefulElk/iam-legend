@@ -4,9 +4,9 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonworkmail.html",
   "actions": [
     {
-      "name": "AddMembersToGroup",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/groups_overview.html",
-      "description": "Grants permission to add a list of members (users or groups) to a group",
+      "name": "AllowVendedLogDeliveryForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/audit-logging.html",
+      "description": "Grants permission to configure vended log delivery for WorkMail audit logs",
       "accessLevel": "Write",
       "resourceTypes": [
         "organization*"
@@ -117,17 +117,6 @@
       "name": "CreateMailDomain",
       "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html",
       "description": "Grants permission to create a mail domain",
-      "accessLevel": "Write",
-      "resourceTypes": [
-        "organization*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "CreateMailUser",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/manage-users.html",
-      "description": "Grants permission to create a user in the directory",
       "accessLevel": "Write",
       "resourceTypes": [
         "organization*"
@@ -398,6 +387,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeliverToMailbox",
+      "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_DeliverToMailboxAction.html",
+      "description": "Grants permission to deliver emails to a WorkMail organization via the SES MailManager DeliverToMailbox action",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "organization*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeregisterFromWorkMail",
       "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/APIReference/API_DeregisterFromWorkMail.html",
       "description": "Grants permission to mark a user, group, or resource as no longer used in WorkMail",
@@ -416,15 +416,6 @@
       "resourceTypes": [
         "organization*"
       ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "DescribeDirectories",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html",
-      "description": "Grants permission to show a list of directories available for use in creating an organization",
-      "accessLevel": "List",
-      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -484,40 +475,9 @@
       "dependentActions": []
     },
     {
-      "name": "DescribeKmsKeys",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_organization.html",
-      "description": "Grants permission to show a list of KMS Keys available for use in creating an organization",
-      "accessLevel": "List",
-      "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
       "name": "DescribeMailDomains",
       "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/domains_overview.html",
       "description": "Grants permission to show the details of all mail domains associated with the organization",
-      "accessLevel": "List",
-      "resourceTypes": [
-        "organization*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "DescribeMailGroups",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/groups_overview.html",
-      "description": "Grants permission to show the details of all groups associated with the organization",
-      "accessLevel": "List",
-      "resourceTypes": [
-        "organization*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "DescribeMailUsers",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/users_overview.html",
-      "description": "Grants permission to show the details of all users associated with the organization",
       "accessLevel": "List",
       "resourceTypes": [
         "organization*"
@@ -544,15 +504,6 @@
       "resourceTypes": [
         "organization*"
       ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "DescribeOrganizations",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html",
-      "description": "Grants permission to show a summary of all organizations associated with the account",
-      "accessLevel": "List",
-      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -601,28 +552,6 @@
       "dependentActions": []
     },
     {
-      "name": "DisableMailGroups",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/remove_group.html",
-      "description": "Grants permission to disable a mail group when it is not being used, in order to allow it to be deleted",
-      "accessLevel": "Write",
-      "resourceTypes": [
-        "organization*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "DisableMailUsers",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/manage-mailboxes.html#delete_user_mailbox",
-      "description": "Grants permission to disable a user mailbox when it is no longer being used, in order to allow it to be deleted",
-      "accessLevel": "Write",
-      "resourceTypes": [
-        "organization*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
       "name": "DisassociateDelegateFromResource",
       "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/APIReference/API_DisassociateDelegateFromResource.html",
       "description": "Grants permission to remove a member from the resource's set of delegates",
@@ -648,28 +577,6 @@
       "name": "EnableMailDomain",
       "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/add_domain.html",
       "description": "Grants permission to enable a mail domain in the organization",
-      "accessLevel": "Write",
-      "resourceTypes": [
-        "organization*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "EnableMailGroups",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/enable_existing_group.html",
-      "description": "Grants permission to enable a mail group after it has been created to allow it to receive mail",
-      "accessLevel": "Write",
-      "resourceTypes": [
-        "organization*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "EnableMailUsers",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/manage-users.html#enable_existing_user",
-      "description": "Grants permission to enable a user's mailbox after it has been created to allow it to receive mail",
       "accessLevel": "Write",
       "resourceTypes": [
         "organization*"
@@ -747,28 +654,6 @@
       "name": "GetMailDomainDetails",
       "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/domains_overview.html",
       "description": "Grants permission to get the details of the mail domain",
-      "accessLevel": "Read",
-      "resourceTypes": [
-        "organization*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "GetMailGroupDetails",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/groups_overview.html",
-      "description": "Grants permission to get the details of the mail group",
-      "accessLevel": "Read",
-      "resourceTypes": [
-        "organization*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "GetMailUserDetails",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/users_overview.html",
-      "description": "Grants permission to get the details of the user's mailbox and account",
       "accessLevel": "Read",
       "resourceTypes": [
         "organization*"
@@ -964,17 +849,6 @@
       "dependentActions": []
     },
     {
-      "name": "ListMembersInMailGroup",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/groups_overview.html",
-      "description": "Grants permission to get a list of all the members in a mail group",
-      "accessLevel": "Read",
-      "resourceTypes": [
-        "organization*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
       "name": "ListMobileDeviceAccessOverrides",
       "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/APIReference/API_ListMobileDeviceAccessOverrides.html",
       "description": "Grants permission to list the mobile device access overrides",
@@ -1163,31 +1037,9 @@
       "dependentActions": []
     },
     {
-      "name": "RemoveMembersFromGroup",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/groups_overview.html",
-      "description": "Grants permission to remove members from a mail group",
-      "accessLevel": "Write",
-      "resourceTypes": [
-        "organization*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
       "name": "ResetPassword",
       "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/APIReference/API_ResetPassword.html",
       "description": "Grants permission to allow the administrator to reset the password for a user",
-      "accessLevel": "Write",
-      "resourceTypes": [
-        "organization*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "ResetUserPassword",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/manage-users.html#reset_user_password",
-      "description": "Grants permission to reset the password for a user's account",
       "accessLevel": "Write",
       "resourceTypes": [
         "organization*"
@@ -1200,17 +1052,6 @@
       "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/groups_overview.html",
       "description": "Grants permission to perform a prefix search to find a specific user in a mail group",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "organization*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "SetAdmin",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/users_overview.html",
-      "description": "Grants permission to mark a user as being an administrator",
-      "accessLevel": "Write",
       "resourceTypes": [
         "organization*"
       ],
@@ -1232,28 +1073,6 @@
       "name": "SetJournalingRules",
       "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/journaling_overview.html",
       "description": "Grants permission to set journaling and fallback email addresses for email journaling",
-      "accessLevel": "Write",
-      "resourceTypes": [
-        "organization*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "SetMailGroupDetails",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/add_new_group.html",
-      "description": "Grants permission to set the details of the mail group which has just been created",
-      "accessLevel": "Write",
-      "resourceTypes": [
-        "organization*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "SetMailUserDetails",
-      "documentationUrl": "https://docs.aws.amazon.com/workmail/latest/adminguide/manage-users.html",
-      "description": "Grants permission to set the details for the user account which has just been created",
       "accessLevel": "Write",
       "resourceTypes": [
         "organization*"
@@ -1339,8 +1158,7 @@
         "organization*"
       ],
       "conditionKeys": [
-        "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },

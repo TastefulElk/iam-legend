@@ -90,6 +90,64 @@
       "dependentActions": []
     },
     {
+      "name": "CreateCloudWatchAlarmTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-alarms-templates-create.html",
+      "description": "Grants permission to create a cloudwatch alarm template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cloudwatch-alarm-template*",
+        "cloudwatch-alarm-template-group*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCloudWatchAlarmTemplateGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-alarms-templates-create.html",
+      "description": "Grants permission to create a cloudwatch alarm template group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cloudwatch-alarm-template-group*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEventBridgeRuleTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-notifications-template-create.html",
+      "description": "Grants permission to create a eventbridge rule template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "eventbridge-rule-template*",
+        "eventbridge-rule-template-group*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEventBridgeRuleTemplateGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-notifications-template-create.html",
+      "description": "Grants permission to create a eventbridge rule template group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "eventbridge-rule-template-group*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateInput",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/creating-input.html",
       "description": "Grants permission to create an input",
@@ -158,16 +216,35 @@
       "dependentActions": []
     },
     {
+      "name": "CreateSignalMap",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-signal-maps-create.html",
+      "description": "Grants permission to create a signal map",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "signal-map*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateTags",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/tagging.html",
-      "description": "Grants permission to create tags for channels, inputs, input security groups, multiplexes, and reservations",
+      "description": "Grants permission to create tags for channels, inputs, input security groups, multiplexes, reservations, signal maps, template groups, and templates",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "channel",
+        "cloudwatch-alarm-template",
+        "cloudwatch-alarm-template-group",
+        "eventbridge-rule-template",
+        "eventbridge-rule-template-group",
         "input",
         "input-security-group",
         "multiplex",
-        "reservation"
+        "reservation",
+        "signal-map"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -182,6 +259,50 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCloudWatchAlarmTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-alarms.html",
+      "description": "Grants permission to delete a cloudwatch alarm template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cloudwatch-alarm-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCloudWatchAlarmTemplateGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-alarms.html",
+      "description": "Grants permission to delete a cloudwatch alarm template group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cloudwatch-alarm-template-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEventBridgeRuleTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-notifications.html",
+      "description": "Grants permission to delete a eventbridge rule template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "eventbridge-rule-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEventBridgeRuleTemplateGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-notifications.html",
+      "description": "Grants permission to delete a eventbridge rule template group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "eventbridge-rule-template-group*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -253,16 +374,32 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteSignalMap",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-signal-maps-delete.html",
+      "description": "Grants permission to delete a signal map",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "signal-map*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteTags",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/tagging.html",
-      "description": "Grants permission to delete tags from channels, inputs, input security groups, multiplexes, and reservations",
+      "description": "Grants permission to delete tags from channels, inputs, input security groups, multiplexes, reservations, signal maps, template groups, and templates",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "channel",
+        "cloudwatch-alarm-template",
+        "cloudwatch-alarm-template-group",
+        "eventbridge-rule-template",
+        "eventbridge-rule-template-group",
         "input",
         "input-security-group",
         "multiplex",
-        "reservation"
+        "reservation",
+        "signal-map"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -400,9 +537,100 @@
       "dependentActions": []
     },
     {
+      "name": "GetCloudWatchAlarmTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-alarms.html",
+      "description": "Grants permission to get a cloudwatch alarm template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cloudwatch-alarm-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCloudWatchAlarmTemplateGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-alarms.html",
+      "description": "Grants permission to get a cloudwatch alarm template group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cloudwatch-alarm-template-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEventBridgeRuleTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-notifications.html",
+      "description": "Grants permission to get a eventbridge rule template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "eventbridge-rule-template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEventBridgeRuleTemplateGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-notifications.html",
+      "description": "Grants permission to get a eventbridge rule template group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "eventbridge-rule-template-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSignalMap",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-signal-maps-view.html",
+      "description": "Grants permission to get a signal map",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "signal-map*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListChannels",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/viewing-channel-configuration.html",
       "description": "Grants permission to list channels",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCloudWatchAlarmTemplateGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-alarms.html",
+      "description": "Grants permission to list cloudwatch alarm template groups",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCloudWatchAlarmTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-alarms.html",
+      "description": "Grants permission to list cloudwatch alarm templates",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEventBridgeRuleTemplateGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-notifications.html",
+      "description": "Grants permission to list eventbridge rule template groups",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEventBridgeRuleTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-notifications.html",
+      "description": "Grants permission to list eventbridge rule templates",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -481,16 +709,30 @@
       "dependentActions": []
     },
     {
+      "name": "ListSignalMaps",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-signal-maps-view.html",
+      "description": "Grants permission to list signal maps",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/tagging.html",
-      "description": "Grants permission to list tags for channels, inputs, input security groups, multiplexes, and reservations",
+      "description": "Grants permission to list tags for channels, inputs, input security groups, multiplexes, reservations, signal maps, template groups, and templates",
       "accessLevel": "List",
       "resourceTypes": [
         "channel",
+        "cloudwatch-alarm-template",
+        "cloudwatch-alarm-template-group",
+        "eventbridge-rule-template",
+        "eventbridge-rule-template-group",
         "input",
         "input-security-group",
         "multiplex",
-        "reservation"
+        "reservation",
+        "signal-map"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -533,12 +775,34 @@
       "dependentActions": []
     },
     {
+      "name": "RestartChannelPipelines",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/maintenance-user-initiated.html",
+      "description": "Grants permission to restart pipelines on a running channel",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartChannel",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/starting-stopping-deleting-a-channel.html",
       "description": "Grants permission to start a channel",
       "accessLevel": "Write",
       "resourceTypes": [
         "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartDeleteMonitorDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-signal-maps-delete.html",
+      "description": "Grants permission to start deletion of a signal map's monitor",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "signal-map*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -566,12 +830,34 @@
       "dependentActions": []
     },
     {
+      "name": "StartMonitorDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-deploy.html",
+      "description": "Grants permission to start a signal map monitor deployment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "signal-map*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartMultiplex",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/start-multiplex.html",
       "description": "Grants permission to start a multiplex",
       "accessLevel": "Write",
       "resourceTypes": [
         "multiplex*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartUpdateSignalMap",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-signal-maps-update.html",
+      "description": "Grants permission to start a signal map update",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "signal-map*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -647,6 +933,52 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCloudWatchAlarmTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-alarms-templates-create.html",
+      "description": "Grants permission to update a cloudwatch alarm template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cloudwatch-alarm-template*",
+        "cloudwatch-alarm-template-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCloudWatchAlarmTemplateGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-alarms-templates-create.html",
+      "description": "Grants permission to update a cloudwatch alarm template group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cloudwatch-alarm-template-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEventBridgeRuleTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-notifications-template-create.html",
+      "description": "Grants permission to update a eventbridge rule template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "eventbridge-rule-template*",
+        "eventbridge-rule-template-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEventBridgeRuleTemplateGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-notifications-template-create.html",
+      "description": "Grants permission to update a eventbridge rule template group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "eventbridge-rule-template-group*"
       ],
       "conditionKeys": [],
       "dependentActions": []

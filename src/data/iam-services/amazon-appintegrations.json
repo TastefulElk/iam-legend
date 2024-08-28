@@ -22,6 +22,20 @@
       ]
     },
     {
+      "name": "CreateApplicationAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/adminguide/onboard-3p-apps.html",
+      "description": "Grants permission to create an ApplicationAssociation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateDataIntegration",
       "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html",
       "description": "Grants permission to create a new DataIntegration",
@@ -40,6 +54,8 @@
         "iam:CreateServiceLinkedRole",
         "iam:PutRolePolicy",
         "kms:CreateGrant",
+        "profile:GetDomain",
+        "profile:GetProfileObjectType",
         "s3:GetBucketNotification",
         "s3:GetEncryptionConfiguration",
         "s3:PutBucketNotification"
@@ -63,7 +79,9 @@
         "appflow:DescribeConnectorEntity",
         "appflow:DescribeConnectorProfiles",
         "appflow:TagResource",
-        "appflow:UseConnectorProfile"
+        "appflow:UseConnectorProfile",
+        "profile:CreateSnapshot",
+        "profile:GetSnapshot"
       ]
     },
     {
@@ -100,6 +118,30 @@
         "events:PutRule",
         "events:PutTargets"
       ]
+    },
+    {
+      "name": "DeleteApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteApplication.html",
+      "description": "Grants permission to delete an Application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteApplicationAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/adminguide/onboard-3p-apps.html",
+      "description": "Grants permission to delete an ApplicationAssociation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application-association*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "DeleteDataIntegration",
@@ -201,6 +243,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListApplicationAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListApplicationAssociations.html",
+      "description": "Grants permission to list ApplicationAssociations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListApplications",
       "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_ListApplications.html",
       "description": "Grants permission to list Applications",
@@ -269,6 +320,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "application",
+        "application-association",
         "data-integration",
         "data-integration-association",
         "event-integration",
@@ -288,6 +340,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "application",
+        "application-association",
         "data-integration",
         "data-integration-association",
         "event-integration",
@@ -324,6 +377,22 @@
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
+    },
+    {
+      "name": "UpdateDataIntegrationAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_UpdateDataIntegrationAssociation.html",
+      "description": "Grants permission to modify a DataIntegrationAssociation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "data-integration-association*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "profile:CreateSnapshot",
+        "profile:GetSnapshot"
+      ]
     },
     {
       "name": "UpdateEventIntegration",

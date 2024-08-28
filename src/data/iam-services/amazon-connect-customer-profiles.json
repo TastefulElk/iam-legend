@@ -69,7 +69,8 @@
       "description": "Grants permission to create an integration workflow in a domain",
       "accessLevel": "Write",
       "resourceTypes": [
-        "domains*"
+        "domains*",
+        "integrations*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -81,6 +82,17 @@
       "name": "CreateProfile",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateProfile.html",
       "description": "Grants permission to create a profile in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSnapshot",
+      "documentationUrl": "${UserGuideDocPage}set-up-bulk-export.html",
+      "description": "Grants permission to create a snapshot in the domain",
       "accessLevel": "Write",
       "resourceTypes": [
         "domains*"
@@ -188,6 +200,17 @@
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteWorkflow.html",
       "description": "Grants permission to delete a workflow in a domain",
       "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DetectProfileObjectType",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DetectProfileObjectType.html",
+      "description": "Grants permission to auto detect object type",
+      "accessLevel": "Read",
       "resourceTypes": [
         "domains*"
       ],
@@ -314,6 +337,17 @@
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetSimilarProfiles.html",
       "description": "Grants permission to get all the similar profiles in the domain",
       "accessLevel": "List",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSnapshot",
+      "documentationUrl": "${UserGuideDocPage}set-up-bulk-export.html",
+      "description": "Grants permission to get a snapshot in the domain",
+      "accessLevel": "Read",
       "resourceTypes": [
         "domains*"
       ],

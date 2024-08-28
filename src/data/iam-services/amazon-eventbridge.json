@@ -571,6 +571,17 @@
       "dependentActions": []
     },
     {
+      "name": "RetrieveConnectionCredentials",
+      "documentationUrl": "https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html",
+      "description": "Grants permission to retrieve credentials from a connection",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartReplay",
       "documentationUrl": "https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_StartReplay.html",
       "description": "Grants permission to start a replay of an archive",
@@ -668,6 +679,20 @@
       ],
       "conditionKeys": [
         "events:EventBusArn"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateEventBus",
+      "documentationUrl": "https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdateEventBus.html",
+      "description": "Grants permission to update event buses",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "event-bus*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     }

@@ -4,6 +4,38 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazoncloudwatch.html",
   "actions": [
     {
+      "name": "BatchGetServiceLevelIndicatorReport",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html#ApplicationSignals-PreviewSDK",
+      "description": "Grants permission to batch get service level indicator report",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchGetServiceLevelObjectiveBudgetReport",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html#ApplicationSignals-PreviewSDK",
+      "description": "Grants permission to batch retrieve a service level objective budget report",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "slo*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateServiceLevelObjective",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html#ApplicationSignals-PreviewSDK",
+      "description": "Grants permission to create a service level objective",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteAlarms",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteAlarms.html",
       "description": "Grants permission to delete a collection of alarms",
@@ -52,6 +84,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "metric-stream*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteServiceLevelObjective",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html#ApplicationSignals-PreviewSDK",
+      "description": "Grants permission to delete a service level objective",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "slo*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -150,6 +193,24 @@
       "dependentActions": []
     },
     {
+      "name": "EnableTopologyDiscovery",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html#ApplicationSignals-PreviewSDK",
+      "description": "Grants permission to enable a CloudWatch topology discovery",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GenerateQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-query-assist.html",
+      "description": "Grants permission to generate a Metrics Insights or Logs Insights query string from a natural language prompt",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetDashboard",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetDashboard.html",
       "description": "Grants permission to display the details of the CloudWatch dashboard you specify",
@@ -210,6 +271,57 @@
       "dependentActions": []
     },
     {
+      "name": "GetService",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html#ApplicationSignals-PreviewSDK",
+      "description": "Grants permission to retrieve information about a service",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetServiceData",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/permissions-reference-cw.html",
+      "description": "Grants permission to retrieve service data",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetServiceLevelObjective",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html#ApplicationSignals-PreviewSDK",
+      "description": "Grants permission to retrieve information about service level objective",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "slo*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTopologyDiscoveryStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/permissions-reference-cw.html",
+      "description": "Grants permission to retrieve a CloudWatch topology discovery status",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTopologyMap",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html#ApplicationSignals-PreviewSDK",
+      "description": "Grants permission to retrieve a CloudWatch topology map",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "Link",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account-Setup.html#CloudWatch-Unified-Cross-Account-Setup-permissions",
       "description": "Grants permission to share CloudWatch resources with a monitoring account",
@@ -259,6 +371,24 @@
       "dependentActions": []
     },
     {
+      "name": "ListServiceLevelObjectives",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html#ApplicationSignals-PreviewSDK",
+      "description": "Grants permission to list service level objectives",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListServices",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html#ApplicationSignals-PreviewSDK",
+      "description": "Grants permission to list services",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to list tags for an Amazon CloudWatch resource",
@@ -266,15 +396,19 @@
       "resourceTypes": [
         "alarm",
         "insight-rule",
+        "slo",
         "SCENARIO:",
         "CloudWatch-Alarm",
         "SCENARIO:",
-        "CloudWatch-InsightRule"
+        "CloudWatch-InsightRule",
+        "SCENARIO:",
+        "CloudWatch-ServiceLevelObjective"
       ],
       "conditionKeys": [],
       "dependentActions": [
         "alarm*",
-        "insight-rule*"
+        "insight-rule*",
+        "slo*"
       ]
     },
     {
@@ -421,10 +555,13 @@
       "resourceTypes": [
         "alarm",
         "insight-rule",
+        "slo",
         "SCENARIO:",
         "CloudWatch-Alarm",
         "SCENARIO:",
-        "CloudWatch-InsightRule"
+        "CloudWatch-InsightRule",
+        "SCENARIO:",
+        "CloudWatch-ServiceLevelObjective"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -432,7 +569,8 @@
       ],
       "dependentActions": [
         "alarm*",
-        "insight-rule*"
+        "insight-rule*",
+        "slo*"
       ]
     },
     {
@@ -443,18 +581,33 @@
       "resourceTypes": [
         "alarm",
         "insight-rule",
+        "slo",
         "SCENARIO:",
         "CloudWatch-Alarm",
         "SCENARIO:",
-        "CloudWatch-InsightRule"
+        "CloudWatch-InsightRule",
+        "SCENARIO:",
+        "CloudWatch-ServiceLevelObjective"
       ],
       "conditionKeys": [
         "aws:TagKeys"
       ],
       "dependentActions": [
         "alarm*",
-        "insight-rule*"
+        "insight-rule*",
+        "slo*"
       ]
+    },
+    {
+      "name": "UpdateServiceLevelObjective",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html#ApplicationSignals-PreviewSDK",
+      "description": "Grants permission to update a service level objective",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "slo*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     }
   ]
 }

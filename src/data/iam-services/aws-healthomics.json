@@ -776,12 +776,18 @@
       "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_StartRun.html",
       "description": "Grants permission to start a workflow run",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "run*",
+        "runGroup",
+        "workflow"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "StartVariantImportJob",

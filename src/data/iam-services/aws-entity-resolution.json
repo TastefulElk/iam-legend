@@ -4,8 +4,28 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsentityresolution.html",
   "actions": [
     {
+      "name": "AddPolicyStatement",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_AddPolicyStatement.html",
+      "description": "Grants permission to give an AWS service or another account permission to use an AWS Entity Resolution resources",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchDeleteUniqueId",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_BatchDeleteUniqueId.html",
+      "description": "Grants permission to batch delete unique Id",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MatchingWorkflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateIdMappingWorkflow",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_CreateIdMappingWorkflow.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_CreateIdMappingWorkflow.html",
       "description": "Grants permission to create a idmapping workflow",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -16,8 +36,20 @@
       "dependentActions": []
     },
     {
+      "name": "CreateIdNamespace",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_CreateIdNamespace.html",
+      "description": "Grants permission to create a IdNamespace",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateMatchingWorkflow",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_CreateMatchingWorkflow.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_CreateMatchingWorkflow.html",
       "description": "Grants permission to create a matching workflow",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -29,7 +61,7 @@
     },
     {
       "name": "CreateSchemaMapping",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_CreateSchemaMapping.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_CreateSchemaMapping.html",
       "description": "Grants permission to create a schema mapping",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -41,7 +73,7 @@
     },
     {
       "name": "DeleteIdMappingWorkflow",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_DeleteIdMappingWorkflow.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_DeleteIdMappingWorkflow.html",
       "description": "Grants permission to delete a idmapping workflow",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -51,8 +83,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteIdNamespace",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_DeleteIdNamespace.html",
+      "description": "Grants permission to delete a IdNamespace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "IdNamespace*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteMatchingWorkflow",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_DeleteMatchingWorkflow.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_DeleteMatchingWorkflow.html",
       "description": "Grants permission to delete a matching workflow",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -62,8 +105,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeletePolicyStatement",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_DeletePolicyStatement.html",
+      "description": "Grants permission to delete permission given to an AWS service or another account permission to use an AWS Entity Resolution resources",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteSchemaMapping",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_DeleteSchemaMapping.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_DeleteSchemaMapping.html",
       "description": "Grants permission to delete a schema mapping",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -74,7 +126,7 @@
     },
     {
       "name": "GetIdMappingJob",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_GetIdMappingJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetIdMappingJob.html",
       "description": "Grants permission to get a idmapping job",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -85,7 +137,7 @@
     },
     {
       "name": "GetIdMappingWorkflow",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_GetIdMappingWorkflow.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetIdMappingWorkflow.html",
       "description": "Grants permission to get a idmapping workflow",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -95,8 +147,19 @@
       "dependentActions": []
     },
     {
+      "name": "GetIdNamespace",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetIdNamespace.html",
+      "description": "Grants permission to get a IdNamespace",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "IdNamespace*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetMatchId",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_GetMatchId.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetMatchId.html",
       "description": "Grants permission to get match Id",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -107,7 +170,7 @@
     },
     {
       "name": "GetMatchingJob",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_GetMatchingJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetMatchingJob.html",
       "description": "Grants permission to get a matching job",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -118,7 +181,7 @@
     },
     {
       "name": "GetMatchingWorkflow",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_GetMatchingWorkflow.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetMatchingWorkflow.html",
       "description": "Grants permission to get a matching workflow",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -128,8 +191,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetPolicy.html",
+      "description": "Grants permission to get a resource policy for an AWS Entity Resolution resources",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetProviderService",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_GetProviderService.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetProviderService.html",
       "description": "Grants permission to get provider service",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -140,7 +212,7 @@
     },
     {
       "name": "GetSchemaMapping",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_GetSchemaMapping.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_GetSchemaMapping.html",
       "description": "Grants permission to get a schema mapping",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -151,7 +223,7 @@
     },
     {
       "name": "ListIdMappingJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_ListIdMappingJobs.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListIdMappingJobs.html",
       "description": "Grants permission to list idmapping jobs",
       "accessLevel": "List",
       "resourceTypes": [
@@ -162,7 +234,7 @@
     },
     {
       "name": "ListIdMappingWorkflows",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_ListIdMappingWorkflows.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListIdMappingWorkflows.html",
       "description": "Grants permission to list idmapping workflows",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -170,8 +242,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListIdNamespaces",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListIdNamespaces.html",
+      "description": "Grants permission to list IdNamespaces",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListMatchingJobs",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_ListMatchingJobs.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListMatchingJobs.html",
       "description": "Grants permission to list matching jobs",
       "accessLevel": "List",
       "resourceTypes": [
@@ -182,7 +263,7 @@
     },
     {
       "name": "ListMatchingWorkflows",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_ListMatchingWorkflows.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListMatchingWorkflows.html",
       "description": "Grants permission to list matching workflows",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -191,7 +272,7 @@
     },
     {
       "name": "ListProviderServices",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_ListProviderServices.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListProviderServices.html",
       "description": "Grants permission to list provider service",
       "accessLevel": "List",
       "resourceTypes": [
@@ -202,7 +283,7 @@
     },
     {
       "name": "ListSchemaMappings",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_ListSchemaMappings.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListSchemaMappings.html",
       "description": "Grants permission to list schema mappings",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -211,7 +292,7 @@
     },
     {
       "name": "ListTagsForResource",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_ListTagsForResource.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_ListTagsForResource.html",
       "description": "Grants permission to List tags for a resource",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -219,8 +300,17 @@
       "dependentActions": []
     },
     {
+      "name": "PutPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_PutPolicy.html",
+      "description": "Grants permission to put a resource policy for an AWS Entity Resolution resources",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartIdMappingJob",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_StartIdMappingJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_StartIdMappingJob.html",
       "description": "Grants permission to start a idmapping job",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -231,7 +321,7 @@
     },
     {
       "name": "StartMatchingJob",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_StartMatchingJob.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_StartMatchingJob.html",
       "description": "Grants permission to start a matching job",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -242,10 +332,16 @@
     },
     {
       "name": "TagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_TagResource.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_TagResource.html",
       "description": "Grants permission to adds tags to a resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "IdMappingWorkflow",
+        "IdNamespace",
+        "MatchingWorkflow",
+        "ProviderService",
+        "SchemaMapping"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -254,19 +350,24 @@
     },
     {
       "name": "UntagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_UntagResource.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_UntagResource.html",
       "description": "Grants permission to untag a resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "IdMappingWorkflow",
+        "IdNamespace",
+        "MatchingWorkflow",
+        "ProviderService",
+        "SchemaMapping"
+      ],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": []
     },
     {
       "name": "UpdateIdMappingWorkflow",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_UpdateIdMappingWorkflow.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_UpdateIdMappingWorkflow.html",
       "description": "Grants permission to update a idmapping workflow",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -276,8 +377,19 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateIdNamespace",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_UpdateIdNamespace.html",
+      "description": "Grants permission to update a IdNamespace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "IdNamespace*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateMatchingWorkflow",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_UpdateMatchingWorkflow.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_UpdateMatchingWorkflow.html",
       "description": "Grants permission to update a matching workflow",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -288,12 +400,30 @@
     },
     {
       "name": "UpdateSchemaMapping",
-      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/userguide/API_UpdateSchemaMapping.html",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_UpdateSchemaMapping.html",
       "description": "Grants permission to update a schema mapping",
       "accessLevel": "Write",
       "resourceTypes": [
         "SchemaMapping*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UseIdNamespace",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_UseIdNamespace.html",
+      "description": "Grants permission to give an AWS service or another account permission to use IdNamespace within a workflow",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UseWorkflow",
+      "documentationUrl": "https://docs.aws.amazon.com/entityresolution/latest/apireference/API_UseWorkflow.html",
+      "description": "Grants permission to give an AWS service or another account permission to use workflow within a IdNamespace",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     }

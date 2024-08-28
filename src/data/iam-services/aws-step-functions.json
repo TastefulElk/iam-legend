@@ -30,6 +30,7 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
+        "iam:PassRole",
         "states:PublishStateMachineVersion"
       ]
     },
@@ -188,6 +189,15 @@
       "dependentActions": []
     },
     {
+      "name": "InvokeHTTPEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/dg/connect-third-party-apis.html",
+      "description": "Grants permission to invoke the HTTP Task state",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListActivities",
       "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_ListActivities.html",
       "description": "Grants permission to list the existing activities",
@@ -289,6 +299,15 @@
       "dependentActions": []
     },
     {
+      "name": "RevealSecrets",
+      "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/dg/test-state-isolation.html",
+      "description": "Grants permission to reveal sensitive data from an execution",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "SendTaskFailure",
       "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_SendTaskFailure.html",
       "description": "Grants permission to report that the task identified by the taskToken failed",
@@ -368,6 +387,17 @@
       "dependentActions": []
     },
     {
+      "name": "TestState",
+      "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_TestState.html",
+      "description": "Grants permission to test a state machine definition",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "states:RevealSecrets"
+      ]
+    },
+    {
       "name": "UntagResource",
       "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_UntagResource.html",
       "description": "Grants permission to remove a tag from an AWS Step Functions resource",
@@ -405,6 +435,7 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
+        "iam:PassRole",
         "states:PublishStateMachineVersion"
       ]
     },
@@ -419,6 +450,15 @@
       "conditionKeys": [
         "states:StateMachineQualifier"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "ValidateStateMachineDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/step-functions/latest/apireference/API_ValidateStateMachineDefinition.html",
+      "description": "Grants permission to validate a state machine definition",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     }
   ]

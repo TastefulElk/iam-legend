@@ -71,11 +71,39 @@
       "dependentActions": []
     },
     {
+      "name": "CreateKxDataview",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_CreateKxDataview.html",
+      "description": "Grants permission to create a dataview in a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxDataview*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateKxEnvironment",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_CreateKxEnvironment.html",
       "description": "Grants permission to create a managed kdb environment",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateKxScalingGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_CreateKxScalingGroup.html",
+      "description": "Grants permission to create a scaling group in a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxScalingGroup*"
+      ],
       "conditionKeys": [
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
@@ -89,6 +117,20 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "kxEnvironment*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateKxVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_CreateKxVolume.html",
+      "description": "Grants permission to create a volume in a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxVolume*"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -134,12 +176,34 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteKxClusterNode",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_DeleteKxClusterNode.html",
+      "description": "Grants permission to delete a node from a kdb cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxCluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteKxDatabase",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_DeleteKxDatabase.html",
       "description": "Grants permission to delete a kdb database",
       "accessLevel": "Write",
       "resourceTypes": [
         "kxDatabase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteKxDataview",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_DeleteKxDataview.html",
+      "description": "Grants permission to delete a dataview in a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxDataview*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -156,12 +220,34 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteKxScalingGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_DeleteKxScalingGroup.html",
+      "description": "Grants permission to delete a scaling group in a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxScalingGroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteKxUser",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_DeleteKxUser.html",
       "description": "Grants permission to delete a kdb user",
       "accessLevel": "Write",
       "resourceTypes": [
         "kxUser*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteKxVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_DeleteKxVolume.html",
+      "description": "Grants permission to delete a volume in a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxVolume*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -224,6 +310,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetKxDataview",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_GetKxDataview.html",
+      "description": "Grants permission to describe a databiew in a managed kdb environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "kxDataview*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetKxEnvironment",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_GetKxEnvironment.html",
       "description": "Grants permission to describe a managed kdb environment",
@@ -235,12 +332,34 @@
       "dependentActions": []
     },
     {
+      "name": "GetKxScalingGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_GetKxScalingGroup.html",
+      "description": "Grants permission to describe a scaling group in a managed kdb environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "kxScalingGroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetKxUser",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_GetKxUser.html",
       "description": "Grants permission to describe a kdb user",
       "accessLevel": "Read",
       "resourceTypes": [
         "kxUser*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetKxVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_GetKxVolume.html",
+      "description": "Grants permission to describe a volume in a managed kdb environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "kxVolume*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -324,6 +443,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListKxDataviews",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_ListKxDataviews.html",
+      "description": "Grants permission to list dataviews in a database",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "kxDatabase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListKxEnvironments",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_ListKxEnvironments.html",
       "description": "Grants permission to list managed kdb environments",
@@ -333,9 +463,31 @@
       "dependentActions": []
     },
     {
+      "name": "ListKxScalingGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_ListKxScalingGroups.html",
+      "description": "Grants permission to list scaling groups in a managed kdb environment",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "kxEnvironment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListKxUsers",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_ListKxUsers.html",
       "description": "Grants permission to list users in a managed kdb environment",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "kxEnvironment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListKxVolumes",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_ListKxVolumes.html",
+      "description": "Grants permission to list volumes in a managed kdb environment",
       "accessLevel": "List",
       "resourceTypes": [
         "kxEnvironment*"
@@ -352,8 +504,11 @@
         "environment*",
         "kxCluster*",
         "kxDatabase*",
+        "kxDataview*",
         "kxEnvironment*",
-        "kxUser*"
+        "kxScalingGroup*",
+        "kxUser*",
+        "kxVolume*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -413,8 +568,11 @@
         "environment",
         "kxCluster",
         "kxDatabase",
+        "kxDataview",
         "kxEnvironment",
-        "kxUser"
+        "kxScalingGroup",
+        "kxUser",
+        "kxVolume"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -431,8 +589,11 @@
         "environment",
         "kxCluster",
         "kxDatabase",
+        "kxDataview",
         "kxEnvironment",
-        "kxUser"
+        "kxScalingGroup",
+        "kxUser",
+        "kxVolume"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -484,6 +645,17 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateKxDataview",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_UpdateKxDataview.html",
+      "description": "Grants permission to update a dataview in a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxDataview*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateKxEnvironment",
       "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_UpdateKxEnvironment.html",
       "description": "Grants permission to update a managed kdb environment",
@@ -512,6 +684,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "kxUser*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateKxVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/finspace/latest/management-api/API_UpdateKxVolume.html",
+      "description": "Grants permission to update a volume in a managed kdb environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "kxVolume*"
       ],
       "conditionKeys": [],
       "dependentActions": []

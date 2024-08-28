@@ -24,6 +24,33 @@
       "dependentActions": []
     },
     {
+      "name": "CheckAccessNotGranted",
+      "documentationUrl": "https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_CheckAccessNotGranted.html",
+      "description": "Grants permission to check that specified access is not allowed by a policy",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CheckNoNewAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_CheckNoNewAccess.html",
+      "description": "Grants permission to check that no new access is allowed when compared to an existing policy",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CheckNoPublicAccess",
+      "documentationUrl": "https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_CheckNoPublicAccess.html",
+      "description": "Grants permission to check that public access is not allowed by a resource policy",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateAccessPreview",
       "documentationUrl": "https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_CreateAccessPreview.html",
       "description": "Grants permission to create an access preview for the specified analyzer",
@@ -84,6 +111,17 @@
       "dependentActions": []
     },
     {
+      "name": "GenerateFindingRecommendation",
+      "documentationUrl": "https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_GenerateFindingRecommendation.html",
+      "description": "Grants permission to generate recommendation steps to resolve a finding",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Analyzer*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetAccessPreview",
       "documentationUrl": "https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_GetAccessPreview.html",
       "description": "Grants permission to retrieve information about an access preview",
@@ -132,8 +170,30 @@
     },
     {
       "name": "GetFinding",
-      "documentationUrl": "https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_GetFinding.html",
+      "documentationUrl": "https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_GetFindingV2.html",
       "description": "Grants permission to retrieve findings",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Analyzer*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetFindingRecommendation",
+      "documentationUrl": "https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_GetFindingRecommendation.html",
+      "description": "Grants permission to retrieve recommendation steps to resolve a finding",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Analyzer*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetFindingsStatistics",
+      "documentationUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#access-analyzer-permissions",
+      "description": "Grants permission to retrieve statistics for findings",
       "accessLevel": "Read",
       "resourceTypes": [
         "Analyzer*"
@@ -205,7 +265,7 @@
     },
     {
       "name": "ListFindings",
-      "documentationUrl": "https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_ListFindings.html",
+      "documentationUrl": "https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_ListFindingsV2.html",
       "description": "Grants permission to retrieve a list of findings from an analyzer",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -279,7 +339,6 @@
         "Analyzer"
       ],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": []

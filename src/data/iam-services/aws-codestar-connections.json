@@ -30,6 +30,39 @@
       "dependentActions": []
     },
     {
+      "name": "CreateRepositoryLink",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_CreateRepositoryLink.html",
+      "description": "Grants permission to create a repository link",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Connection*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "codestar-connections:PassConnection",
+        "codestar-connections:UseConnection"
+      ]
+    },
+    {
+      "name": "CreateSyncConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_CreateSyncConfiguration.html",
+      "description": "Grants permission to create a template sync config",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "RepositoryLink*"
+      ],
+      "conditionKeys": [
+        "codestar-connections:Branch"
+      ],
+      "dependentActions": [
+        "codestar-connections:PassRepository",
+        "iam:PassRole"
+      ]
+    },
+    {
       "name": "DeleteConnection",
       "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_DeleteConnection.html",
       "description": "Grants permission to delete a Connection resource",
@@ -52,9 +85,40 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteRepositoryLink",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_DeleteRepositoryLink.html",
+      "description": "Grants permission to delete a repository link",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "RepositoryLink*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSyncConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_DeleteSyncConfiguration.html",
+      "description": "Grants permission to delete a sync configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetConnection",
       "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_GetConnection.html",
       "description": "Grants permission to get details about a Connection resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Connection*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetConnectionToken",
+      "documentationUrl": "https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-getconnectiontoken",
+      "description": "Grants permission to get a Connection token to call provider actions",
       "accessLevel": "Read",
       "resourceTypes": [
         "Connection*"
@@ -98,6 +162,57 @@
       "dependentActions": []
     },
     {
+      "name": "GetRepositoryLink",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_GetRepositoryLink.html",
+      "description": "Grants permission to describe a repository link",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "RepositoryLink*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRepositorySyncStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_GetRepositorySyncStatus.html",
+      "description": "Grants permission to get the latest sync status for a repository",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "RepositoryLink*"
+      ],
+      "conditionKeys": [
+        "codestar-connections:Branch"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResourceSyncStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_GetResourceSyncStatus.html",
+      "description": "Grants permission to get the latest sync status for a resource (cfn stack or other resources)",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSyncBlockerSummary",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_GetSyncBlockerSummary.html",
+      "description": "Grants permission to describe service sync blockers on a resource (cfn stack or other resources)",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSyncConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_GetSyncConfiguration.html",
+      "description": "Grants permission to describe a sync configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListConnections",
       "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_ListConnections.html",
       "description": "Grants permission to list Connection resources",
@@ -134,12 +249,41 @@
       ]
     },
     {
+      "name": "ListRepositoryLinks",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_ListRepositoryLinks.html",
+      "description": "Grants permission to list repository links",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRepositorySyncDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_ListRepositorySyncDefinitions.html",
+      "description": "Grants permission to list repository sync definitions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSyncConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_ListSyncConfigurations.html",
+      "description": "Grants permission to list sync configurations for a repository link",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to the set of key-value pairs that are used to manage the resource",
       "accessLevel": "List",
       "resourceTypes": [
-        "Connection*"
+        "Connection",
+        "Host",
+        "RepositoryLink"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -151,6 +295,19 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "Connection*"
+      ],
+      "conditionKeys": [
+        "codestar-connections:PassedToService"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PassRepository",
+      "documentationUrl": "https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-passrepository",
+      "description": "Grants permission to pass a repository link resource to an AWS service that accepts a RepositoryLinkId as input, such as codestar-connections:CreateSyncConfiguration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "RepositoryLink*"
       ],
       "conditionKeys": [
         "codestar-connections:PassedToService"
@@ -196,7 +353,9 @@
       "description": "Grants permission to add or modify the tags of the given resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "Connection*"
+        "Connection",
+        "Host",
+        "RepositoryLink"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -210,7 +369,9 @@
       "description": "Grants permission to remove tags from an AWS resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "Connection*"
+        "Connection",
+        "Host",
+        "RepositoryLink"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -247,6 +408,37 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateRepositoryLink",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_UpdateRepositoryLink.html",
+      "description": "Grants permission to update a repository link",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "RepositoryLink*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSyncBlocker",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_UpdateSyncBlocker.html",
+      "description": "Grants permission to update a sync blocker for a resource (cfn stack or other resources)",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSyncConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/codestar-connections/latest/APIReference/API_UpdateSyncConfiguration.html",
+      "description": "Grants permission to update a sync configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "codestar-connections:Branch"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UseConnection",
       "documentationUrl": "https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html#permissions-reference-connections-use",
       "description": "Grants permission to use a Connection resource to call provider actions",
@@ -255,9 +447,12 @@
         "Connection*"
       ],
       "conditionKeys": [
+        "codestar-connections:BranchName",
         "codestar-connections:FullRepositoryId",
+        "codestar-connections:OwnerId",
         "codestar-connections:ProviderAction",
-        "codestar-connections:ProviderPermissionsRequired"
+        "codestar-connections:ProviderPermissionsRequired",
+        "codestar-connections:RepositoryName"
       ],
       "dependentActions": []
     }

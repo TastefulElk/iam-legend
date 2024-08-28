@@ -85,6 +85,21 @@
       "dependentActions": []
     },
     {
+      "name": "CreateCisScanConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_CreateCisScanConfiguration.html",
+      "description": "Grants permission to create and define the settings for a CIS scan configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "CISScan Configuration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateFilter",
       "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_CreateFilter.html",
       "description": "Grants permission to create and define the settings for a findings filter",
@@ -114,6 +129,19 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCisScanConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_DeleteCisScanConfiguration.html",
+      "description": "Grants permission to delete a CIS scan configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "CISScan Configuration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -177,6 +205,24 @@
       "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_EnableDelegatedAdminAccount.html",
       "description": "Grants permission to enable an account as the delegated Amazon Inspector administrator account for an AWS organization",
       "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCisScanReport",
+      "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_GetCisScanReport.html",
+      "description": "Grants permission to retrieve a report containing information about completed CIS scans",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCisScanResultDetails",
+      "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_GetCisScanResultDetails.html",
+      "description": "Grants permission to retrieve information about all details pertaining to one CIS scan and one targeted resource",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -248,6 +294,42 @@
       "name": "ListAccountPermissions",
       "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListAccountPermissions.html",
       "description": "Grants permission to retrieve feature configuration permissions associated with an Amazon Inspector account within an organization",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCisScanConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListCisScanConfigurations.html",
+      "description": "Grants permission to retrieve information about all CIS scan configurations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCisScanResultsAggregatedByChecks",
+      "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListCisScanResultsAggregatedByChecks.html",
+      "description": "Grants permission to retrieve information about all checks pertaining to one CIS scan",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCisScanResultsAggregatedByTargetResource",
+      "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListCisScanResultsAggregatedByTargetResource.html",
+      "description": "Grants permission to retrieve information about all resources pertaining to one CIS scan",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCisScans",
+      "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListCisScans.html",
+      "description": "Grants permission to retrieve information about completed CIS scans",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -353,12 +435,53 @@
       "dependentActions": []
     },
     {
+      "name": "SendCisSessionHealth",
+      "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_SendCisSessionHealth.html",
+      "description": "Grants permission to send CIS health for a CIS scan",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SendCisSessionTelemetry",
+      "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_SendCisSessionTelemetry.html",
+      "description": "Grants permission to send CIS telemetry for a CIS scan",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartCisSession",
+      "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_StartCisSession.html",
+      "description": "Grants permission to start a CIS scan session",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopCisSession",
+      "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_StopCisSession.html",
+      "description": "Grants permission to stop a CIS scan session",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_TagResource.html",
       "description": "Grants permission to add or update the tags for an Amazon Inspector resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "CISScan Configuration",
+        "Filter"
+      ],
       "conditionKeys": [
+        "inspector2:CisScan Configuration",
+        "inspector2:Filter",
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "aws:ResourceTag/${TagKey}"
@@ -370,9 +493,28 @@
       "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_UntagResource.html",
       "description": "Grants permission to remove tags from an Amazon Inspector resource",
       "accessLevel": "Tagging",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "CISScan Configuration",
+        "Filter"
+      ],
       "conditionKeys": [
+        "inspector2:CisScan Configuration",
+        "inspector2:Filter",
+        "aws:ResourceTag/${TagKey}",
         "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCisScanConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/inspector/v2/APIReference/API_UpdateCisScanConfiguration.html",
+      "description": "Grants permission to update the settings for a CIS scan configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "CISScan Configuration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },

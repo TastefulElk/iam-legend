@@ -20,11 +20,14 @@
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html",
       "description": "Grants permission to create a new Amazon ECS cluster",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cluster*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
-        "ecs:capacity-provider"
+        "ecs:capacity-provider",
+        "ecs:fargate-ephemeral-storage-kms-key"
       ],
       "dependentActions": []
     },
@@ -43,6 +46,7 @@
         "ecs:cluster",
         "ecs:capacity-provider",
         "ecs:task-definition",
+        "ecs:enable-ebs-volumes",
         "ecs:enable-execute-command",
         "ecs:enable-service-connect",
         "ecs:namespace"
@@ -399,7 +403,7 @@
     },
     {
       "name": "ListTaskDefinitionFamilies",
-      "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTaskDefinitionFamilies.html",
       "description": "Grants permission to get a list of task definition families that are registered to your account (which may include task definition families that no longer have any ACTIVE task definitions)",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -533,9 +537,12 @@
         "aws:TagKeys",
         "ecs:cluster",
         "ecs:capacity-provider",
+        "ecs:enable-ebs-volumes",
         "ecs:enable-execute-command"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "StartTask",
@@ -551,9 +558,12 @@
         "aws:TagKeys",
         "ecs:cluster",
         "ecs:container-instances",
+        "ecs:enable-ebs-volumes",
         "ecs:enable-execute-command"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "StartTelemetrySession",
@@ -685,7 +695,8 @@
         "cluster*"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}"
+        "aws:ResourceTag/${TagKey}",
+        "ecs:fargate-ephemeral-storage-kms-key"
       ],
       "dependentActions": []
     },
@@ -742,6 +753,7 @@
         "aws:ResourceTag/${TagKey}",
         "ecs:cluster",
         "ecs:capacity-provider",
+        "ecs:enable-ebs-volumes",
         "ecs:enable-execute-command",
         "ecs:enable-service-connect",
         "ecs:namespace",

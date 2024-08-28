@@ -15,13 +15,23 @@
       "dependentActions": []
     },
     {
+      "name": "CancelLifecycleExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CancelLifecycleExecution.html",
+      "description": "Grants permission to cancel a lifecycle execution",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "lifecycleExecution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateComponent",
       "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html",
       "description": "Grants permission to create a new component",
       "accessLevel": "Write",
       "resourceTypes": [
-        "component*",
-        "kmsKey"
+        "component*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -90,10 +100,12 @@
       ],
       "dependentActions": [
         "iam:CreateServiceLinkedRole",
+        "iam:PassRole",
         "imagebuilder:GetContainerRecipe",
         "imagebuilder:GetDistributionConfiguration",
         "imagebuilder:GetImageRecipe",
         "imagebuilder:GetInfrastructureConfiguration",
+        "imagebuilder:GetWorkflow",
         "imagebuilder:TagResource"
       ]
     },
@@ -111,8 +123,12 @@
       ],
       "dependentActions": [
         "iam:CreateServiceLinkedRole",
+        "iam:PassRole",
         "imagebuilder:GetContainerRecipe",
+        "imagebuilder:GetDistributionConfiguration",
         "imagebuilder:GetImageRecipe",
+        "imagebuilder:GetInfrastructureConfiguration",
+        "imagebuilder:GetWorkflow",
         "imagebuilder:TagResource"
       ]
     },
@@ -157,6 +173,45 @@
         "iam:PassRole",
         "imagebuilder:TagResource",
         "sns:Publish"
+      ]
+    },
+    {
+      "name": "CreateLifecyclePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateLifecyclePolicy.html",
+      "description": "Grants permission to create a new lifecycle policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "lifecyclePolicy*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "imagebuilder:LifecyclePolicyResourceType"
+      ],
+      "dependentActions": [
+        "iam:PassRole",
+        "imagebuilder:TagResource"
+      ]
+    },
+    {
+      "name": "CreateWorkflow",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateWorkflow.html",
+      "description": "Grants permission to create a new workflow",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workflow*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "imagebuilder:TagResource",
+        "kms:Encrypt",
+        "kms:GenerateDataKey",
+        "kms:GenerateDataKeyWithoutPlaintext",
+        "s3:GetObject",
+        "s3:ListBucket"
       ]
     },
     {
@@ -232,6 +287,28 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "infrastructureConfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteLifecyclePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_DeleteLifecyclePolicy.html",
+      "description": "Grants permission to delete a lifecycle policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "lifecyclePolicy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWorkflow",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_DeleteWorkflow.html",
+      "description": "Grants permission to delete a workflow",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workflow*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -362,6 +439,41 @@
       "dependentActions": []
     },
     {
+      "name": "GetLifecycleExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetLifecycleExecution.html",
+      "description": "Grants permission to view details about a lifecycle execution",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "lifecycleExecution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetLifecyclePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetLifecyclePolicy.html",
+      "description": "Grants permission to view details about a lifecycle policy",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "lifecyclePolicy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetWorkflow",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetWorkflow.html",
+      "description": "Grants permission to view details about a workflow",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "kms:Decrypt"
+      ]
+    },
+    {
       "name": "GetWorkflowExecution",
       "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetWorkflowExecution.html",
       "description": "Grants permission to view details about a workflow execution",
@@ -389,8 +501,7 @@
       "description": "Grants permission to import a new component",
       "accessLevel": "Write",
       "resourceTypes": [
-        "component*",
-        "kmsKey"
+        "component*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -410,13 +521,14 @@
       "description": "Grants permission to import an image",
       "accessLevel": "Write",
       "resourceTypes": [
-        "image*"
+        "imageVersion*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": [
+        "ec2:DescribeImages",
         "ec2:DescribeImportImageTasks",
         "iam:CreateServiceLinkedRole"
       ]
@@ -557,6 +669,38 @@
       "dependentActions": []
     },
     {
+      "name": "ListLifecycleExecutionResources",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListLifecycleExecutionResources.html",
+      "description": "Grants permission to list resources for the specified lifecycle execution",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "lifecycleExecution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLifecycleExecutions",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListLifecycleExecutions.html",
+      "description": "Grants permission to list lifecycle executions for the specified resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "image",
+        "lifecyclePolicy"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListLifecyclePolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListLifecyclePolicies.html",
+      "description": "Grants permission to list the lifecycle policies in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to list tags for an Image Builder resource",
@@ -568,11 +712,41 @@
         "image",
         "imagePipeline",
         "imageRecipe",
-        "infrastructureConfiguration"
+        "infrastructureConfiguration",
+        "lifecyclePolicy",
+        "workflow"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWaitingWorkflowSteps",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListWaitingWorkflowSteps.html",
+      "description": "Grants permission to list waiting workflow steps for the caller account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWorkflowBuildVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListWorkflowBuildVersions.html",
+      "description": "Grants permission to list the workflow build versions in your account",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "workflowVersion*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -594,6 +768,15 @@
       "resourceTypes": [
         "workflowExecution*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWorkflows",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListWorkflows.html",
+      "description": "Grants permission to list the workflow versions owned by or shared with your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -642,6 +825,18 @@
       "dependentActions": []
     },
     {
+      "name": "SendWorkflowStepAction",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_SendWorkflowStepAction.html",
+      "description": "Grants permission to send an action to a workflow step",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "image*",
+        "workflowStepExecution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartImagePipelineExecution",
       "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_StartImagePipelineExecution.html",
       "description": "Grants permission to create a new image from a pipeline",
@@ -656,6 +851,17 @@
       ]
     },
     {
+      "name": "StartResourceStateUpdate",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_StartResourceStateUpdate.html",
+      "description": "Grants permission to start a state update for the specified resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "image*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_TagResource.html",
       "description": "Grants permission to tag an Image Builder resource",
@@ -667,9 +873,35 @@
         "image",
         "imagePipeline",
         "imageRecipe",
-        "infrastructureConfiguration"
+        "infrastructureConfiguration",
+        "lifecyclePolicy",
+        "workflow"
       ],
       "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}",
         "aws:ResourceTag/${TagKey}"
@@ -688,9 +920,27 @@
         "image",
         "imagePipeline",
         "imageRecipe",
-        "infrastructureConfiguration"
+        "infrastructureConfiguration",
+        "lifecyclePolicy",
+        "workflow"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
         "aws:ResourceTag/${TagKey}",
         "aws:TagKeys"
       ],
@@ -716,7 +966,15 @@
         "imagePipeline*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole",
+        "iam:PassRole",
+        "imagebuilder:GetContainerRecipe",
+        "imagebuilder:GetDistributionConfiguration",
+        "imagebuilder:GetImageRecipe",
+        "imagebuilder:GetInfrastructureConfiguration",
+        "imagebuilder:GetWorkflow"
+      ]
     },
     {
       "name": "UpdateInfrastructureConfiguration",
@@ -736,6 +994,21 @@
       "dependentActions": [
         "iam:PassRole",
         "sns:Publish"
+      ]
+    },
+    {
+      "name": "UpdateLifecyclePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_UpdateLifecyclePolicy.html",
+      "description": "Grants permission to update an existing lifecycle policy",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "lifecyclePolicy*"
+      ],
+      "conditionKeys": [
+        "imagebuilder:LifecyclePolicyResourceType"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
       ]
     }
   ]

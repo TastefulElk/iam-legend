@@ -36,7 +36,8 @@
       "description": "Grants permission to create a channel",
       "accessLevel": "Write",
       "resourceTypes": [
-        "channel*"
+        "channel*",
+        "eventdatastore*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -69,7 +70,7 @@
     },
     {
       "name": "CreateServiceLinkedChannel",
-      "documentationUrl": "API_CreateServiceLinkedChannel.html",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html#slc-service-events",
       "description": "Grants permission to create a service-linked channel that specifies the settings for delivery of log data to an AWS service",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -132,7 +133,7 @@
     },
     {
       "name": "DeleteServiceLinkedChannel",
-      "documentationUrl": "API_DeleteServiceLinkedChannel.html",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html#slc-service-events",
       "description": "Grants permission to delete a service-linked channel",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -185,6 +186,52 @@
       "dependentActions": []
     },
     {
+      "name": "DisableFederation",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DisableFederation.html",
+      "description": "Grants permission to disable federation of event data store data by using the AWS Glue Data Catalog",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "eventdatastore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "glue:DeleteDatabase",
+        "glue:DeleteTable",
+        "glue:PassConnection",
+        "lakeformation:DeregisterResource",
+        "lakeformation:RegisterResource"
+      ]
+    },
+    {
+      "name": "EnableFederation",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_EnableFederation.html",
+      "description": "Grants permission to enable federation of event data store data by using the AWS Glue Data Catalog",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "eventdatastore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "glue:CreateDatabase",
+        "glue:CreateTable",
+        "iam:GetRole",
+        "iam:PassRole",
+        "lakeformation:DeregisterResource",
+        "lakeformation:RegisterResource"
+      ]
+    },
+    {
+      "name": "GenerateQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-query-generator.html",
+      "description": "Grants permission to generate a query for a specified event data store using the CloudTrail Lake query generator",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "eventdatastore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetChannel",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetChannel.html",
       "description": "Grants permission to return information about a specific channel",
@@ -205,6 +252,20 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "GetEventDataStoreData",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html#query-federation-permissions",
+      "description": "Grants permission to get data from an event data store by using the AWS Glue Data Catalog",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "eventdatastore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ]
     },
     {
       "name": "GetEventSelectors",
@@ -265,7 +326,7 @@
     },
     {
       "name": "GetServiceLinkedChannel",
-      "documentationUrl": "API_GetServiceLinkedChannel.html",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html#slc-service-events",
       "description": "Grants permission to list settings for the service-linked channel",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -354,7 +415,7 @@
     },
     {
       "name": "ListServiceLinkedChannels",
-      "documentationUrl": "API_ListServiceLinkedChannels.html",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html#slc-service-events",
       "description": "Grants permission to list service-linked channels associated with the current region for a specified account",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -386,7 +447,7 @@
     {
       "name": "LookupEvents",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_LookupEvents.html",
-      "description": "Grants permission to look up API activity events captured by CloudTrail that create, update, or delete resources in your account",
+      "description": "Grants permission to look up and retrieve metric data for API activity events captured by CloudTrail that create, update, or delete resources in your account",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -572,8 +633,8 @@
     },
     {
       "name": "UpdateServiceLinkedChannel",
-      "documentationUrl": "API_UpdateServiceLinkedChannel.html",
-      "description": "Grants permission to update the settings that specify delivery of log files",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html#slc-service-events",
+      "description": "Grants permission to update the service-linked channel settings for delivery of log data to an AWS service",
       "accessLevel": "Write",
       "resourceTypes": [
         "channel*"

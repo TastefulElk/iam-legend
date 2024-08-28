@@ -30,7 +30,8 @@
         "listener/net",
         "loadbalancer/app/",
         "loadbalancer/net/",
-        "targetgroup"
+        "targetgroup",
+        "truststore"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -38,6 +39,20 @@
         "aws:ResourceTag/${TagKey}",
         "elasticloadbalancing:ResourceTag/${TagKey}",
         "elasticloadbalancing:CreateAction"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "AddTrustStoreRevocations",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_AddTrustStoreRevocations.html",
+      "description": "Grants permission to add revocations to a trust store",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "truststore*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticloadbalancing:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -122,6 +137,24 @@
       ]
     },
     {
+      "name": "CreateTrustStore",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTrustStore.html",
+      "description": "Grants permission to create a trust store",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "truststore"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "elasticloadbalancing:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "elasticloadbalancing:AddTags"
+      ]
+    },
+    {
       "name": "DeleteListener",
       "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DeleteListener.html",
       "description": "Grants permission to delete the specified listener",
@@ -167,12 +200,40 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteSharedTrustStoreAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DeleteSharedTrustStoreAssociation.html",
+      "description": "Grants permission to delete the specified shared trust store association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "truststore*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticloadbalancing:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteTargetGroup",
       "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DeleteTargetGroup.html",
       "description": "Grants permission to delete the specified target group",
       "accessLevel": "Write",
       "resourceTypes": [
         "targetgroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticloadbalancing:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTrustStore",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DeleteTrustStore.html",
+      "description": "Grants permission to delete the specified trust store",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "truststore*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -294,6 +355,75 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeTrustStoreAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTrustStoreAssociations.html",
+      "description": "Grants permission to describe the associations with a trust store",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTrustStoreRevocations",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTrustStoreRevocations.html",
+      "description": "Grants permission to describe the specified trust stores revocations or all of your revocations related to a trust store",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTrustStores",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTrustStores.html",
+      "description": "Grants permission to describe the specified trust stores or all of your trust stores",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_GetResourcePolicy.html",
+      "description": "Grants permission to retrieve the resource policy associated with the resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "truststore"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticloadbalancing:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTrustStoreCaCertificatesBundle",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_GetTrustStoreCaCertificatesBundle.html",
+      "description": "Grants permission to retrieve a trust store CA certificates bundle",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "truststore*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticloadbalancing:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTrustStoreRevocationContent",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_GetTrustStoreRevocationContent.html",
+      "description": "Grants permission to retrieve a trust store revocation content",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "truststore*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticloadbalancing:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ModifyListener",
       "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_ModifyListener.html",
       "description": "Grants permission to modify the specified properties of the specified listener",
@@ -369,6 +499,20 @@
       "dependentActions": []
     },
     {
+      "name": "ModifyTrustStore",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_ModifyTrustStore.html",
+      "description": "Grants permission to modify the specified trust store",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "truststore*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticloadbalancing:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "RegisterTargets",
       "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_RegisterTargets.html",
       "description": "Grants permission to register the specified targets with the specified target group",
@@ -409,11 +553,26 @@
         "listener/net",
         "loadbalancer/app/",
         "loadbalancer/net/",
-        "targetgroup"
+        "targetgroup",
+        "truststore"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "elasticloadbalancing:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RemoveTrustStoreRevocations",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_RemoveTrustStoreRevocations.html",
+      "description": "Grants permission to remove revocations from a trust store",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "truststore*"
+      ],
+      "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "elasticloadbalancing:ResourceTag/${TagKey}"
       ],
