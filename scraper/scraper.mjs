@@ -2,8 +2,8 @@ import puppeteer from "puppeteer";
 import cheerio from "cheerio";
 import pLimit from "p-limit";
 
-import { writeFile} from "fs";
-import { promisify} from "util";
+import { writeFile } from "fs";
+import { promisify } from "util";
 
 const writeFileAsync = promisify(writeFile);
 
@@ -19,7 +19,8 @@ const scrapeServices = async (url, browser) => {
   const services = [];
   $("#main-col-body .highlights ul a").each((_, el) => {
     let name = $(el).text();
-    const serviceDocsUrl = url.slice(0, url.lastIndexOf("/")) + "/" + $(el).attr("href");
+    const serviceDocsUrl =
+      url.slice(0, url.lastIndexOf("/")) + "/" + $(el).attr("href");
     services.push({ name, url: serviceDocsUrl });
   });
 
@@ -53,10 +54,11 @@ const scrapeService = async (url, browser) => {
 const save = async ({ serviceName, servicePrefix, actions, url }) =>
   writeFileAsync(
     `./src/data/iam-services/${formatFileName(serviceName)}.json`,
-    JSON.stringify({ serviceName, servicePrefix, url, actions }, null, 2)
+    JSON.stringify({ serviceName, servicePrefix, url, actions }, null, 2),
   );
 
-const formatFileName = (serviceName) => serviceName.replace(/\s+/g, "-").toLowerCase();
+export const formatFileName = (serviceName) =>
+  serviceName.replace(/\s+/g, "-").replace(/:+/g, "-").toLowerCase();
 
 const getServicePrefix = ($) => {
   const elements = $("p > code").toArray();
@@ -95,18 +97,19 @@ const getActions = ($) => {
       const documentationUrl = $(tds[0]).find("a[href]").first().attr("href");
 
       actions.push({
-        name: name.split(' ')[0], // action name will always be first word but it may contain junk
+        name: name.split(" ")[0], // action name will always be first word but it may contain junk
         documentationUrl,
         description,
         accessLevel,
         resourceTypes: formatToList(resourceTypes),
         conditionKeys: formatToList(conditionKeys),
-        dependentActions: formatToList(dependentActions)
+        dependentActions: formatToList(dependentActions),
       });
       return;
     }
 
-    const [resourceTypes, conditionKeys, dependentActions] = tds.map((td) => formatToList($(td).text())
+    const [resourceTypes, conditionKeys, dependentActions] = tds.map((td) =>
+      formatToList($(td).text()),
     );
 
     const prevAction = actions[actions.length - 1];
@@ -121,10 +124,11 @@ const getActions = ($) => {
   return actions;
 };
 
-const formatToList = (str) => str
-  .split("\n")
-  .map((x) => x.trim().replace(/\s+/, ""))
-  .filter((x) => x.length > 0);
+const formatToList = (str) =>
+  str
+    .split("\n")
+    .map((x) => x.trim().replace(/\s+/, ""))
+    .filter((x) => x.length > 0);
 
 (async () => {
   const browser = await puppeteer.launch({
@@ -135,16 +139,20 @@ const formatToList = (str) => str
   const limit = pLimit(10);
   const services = await scrapeServices(
     "https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html",
-    browser
+    browser,
   );
   if (!services || services.length === 0) {
     throw new Error("no services found");
   }
 
-  await Promise.all(services.map(({ url }) => limit(() => {
-    console.log('Scraping: ', url);
-    return scrapeService(url, browser);
-  })));
-  
+  await Promise.all(
+    services.map(({ url }) =>
+      limit(() => {
+        console.log("Scraping: ", url);
+        return scrapeService(url, browser);
+      }),
+    ),
+  );
+
   await browser.close();
 })();
