@@ -3,26 +3,26 @@ name: Scrape
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 6 * * 1' # run every monday at 06:00 UTC
-  
+    - cron: "0 6 * * 1" # run every monday at 06:00 UTC
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 14.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
-    - name: Install dependencies
-      run: yarn install --frozen-lockfile
-    - name: Scrape
-      run: node scraper/scraper.mjs
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v4
-      with:
-        token: ${{ secrets.ACCESS_TOKEN }}
-        commit-message: 'fix: update IAM service definitions'
-        title: Update IAM service definitions
-        body: This is an auto-generated PR with IAM service updates.
-        branch: service-updates
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Scrape
+        run: node scraper/scraper.mjs
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          commit-message: "fix: update IAM service definitions"
+          title: Update IAM service definitions
+          body: This is an auto-generated PR with IAM service updates.
+          branch: service-updates
