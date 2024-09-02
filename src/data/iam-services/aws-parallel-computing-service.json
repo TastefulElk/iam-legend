@@ -1,0 +1,296 @@
+{
+  "serviceName": "AWS Parallel Computing Service",
+  "servicePrefix": "pcs",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsparallelcomputingservice.html",
+  "actions": [
+    {
+      "name": "AllowVendedLogDeliveryForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/userguide/adminguide/audit-logging.html",
+      "description": "Grants permission to configure vended log delivery for Skybridge cluster logs",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_CreateCluster.html",
+      "description": "Grants permission to create clusters",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface",
+        "ec2:CreateNetworkInterfacePermission",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs",
+        "ec2:GetSecurityGroupsForVpc",
+        "iam:CreateServiceLinkedRole",
+        "secretsmanager:CreateSecret",
+        "secretsmanager:TagResource"
+      ]
+    },
+    {
+      "name": "CreateComputeNodeGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_CreateComputeNodeGroup.html",
+      "description": "Grants permission to create compute node groups",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ec2:CreateFleet",
+        "ec2:CreateLaunchTemplate",
+        "ec2:CreateLaunchTemplateVersion",
+        "ec2:CreateTags",
+        "ec2:DescribeImages",
+        "ec2:DescribeInstanceStatus",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeInstances",
+        "ec2:DescribeLaunchTemplateVersions",
+        "ec2:DescribeLaunchTemplates",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs",
+        "ec2:RunInstances",
+        "iam:GetInstanceProfile",
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "CreateQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_CreateQueue.html",
+      "description": "Grants permission to create queues",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_DeleteCluster.html",
+      "description": "Grants permission to delete clusters",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DeleteNetworkInterface",
+        "secretsmanager:DeleteSecret"
+      ]
+    },
+    {
+      "name": "DeleteComputeNodeGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_DeleteComputeNodeGroup.html",
+      "description": "Grants permission to delete compute node groups",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "computenodegroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DeleteLaunchTemplate",
+        "ec2:TerminateInstances"
+      ]
+    },
+    {
+      "name": "DeleteQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_DeleteQueue.html",
+      "description": "Grants permission to delete queues",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_GetCluster.html",
+      "description": "Grants permission to get cluster properties",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetComputeNodeGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_GetComputeNodeGroup.html",
+      "description": "Grants permission to get compute node group properties",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster*",
+        "computenodegroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_GetQueue.html",
+      "description": "Grants permission to get queue properties",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster*",
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListClusters",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_ListClusters.html",
+      "description": "Grants permission to list clusters",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListComputeNodeGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_ListComputeNodeGroups.html",
+      "description": "Grants permission to list compute node groups",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListQueues",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_ListQueues.html",
+      "description": "Grants permission to list queues",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list the tags for a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RegisterComputeNodeGroupInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_RegisterComputeNodeGroupInstance.html",
+      "description": "Grants permission to register a compute instance in a compute node group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "secretsmanager:GetSecretValue"
+      ]
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "cluster",
+        "computenodegroup",
+        "queue"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "cluster",
+        "computenodegroup",
+        "queue"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateComputeNodeGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_UpdateComputeNodeGroup.html",
+      "description": "Grants permission to update compute node group properties",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "computenodegroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:CreateFleet",
+        "ec2:CreateLaunchTemplate",
+        "ec2:CreateLaunchTemplateVersion",
+        "ec2:CreateTags",
+        "ec2:DescribeImages",
+        "ec2:DescribeInstanceStatus",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeInstances",
+        "ec2:DescribeLaunchTemplateVersions",
+        "ec2:DescribeLaunchTemplates",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs",
+        "ec2:RunInstances",
+        "iam:GetInstanceProfile",
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdateQueue",
+      "documentationUrl": "https://docs.aws.amazon.com/pcs/latest/APIReference/API_UpdateQueue.html",
+      "description": "Grants permission to update queue properties",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}
