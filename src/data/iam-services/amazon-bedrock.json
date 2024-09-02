@@ -251,6 +251,18 @@
       "dependentActions": []
     },
     {
+      "name": "CreateModelImportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelImportJob.html",
+      "description": "Grants permission to create a job for importing model into Bedrock",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateModelInvocationJob",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelInvocationJob.html",
       "description": "Grants permission to create a new model invocation job",
@@ -433,6 +445,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "guardrail*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteImportedModel",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteImportedModel.html",
+      "description": "Grants permission to delete previously created Bedrock imported model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "imported-model*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -679,6 +702,28 @@
       "dependentActions": []
     },
     {
+      "name": "GetImportedModel",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetImportedModel.html",
+      "description": "Grants permission to get the properties associated with Bedrock imported model",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "imported-model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetInferenceProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetInferenceProfile.html",
+      "description": "Grants permission to get the properties associated with an inference profile",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "inference-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetIngestionJob",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetIngestionJob.html",
       "description": "Grants permission to retrieve an existing ingestion job",
@@ -729,6 +774,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "model-evaluation-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetModelImportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetModelImportJob.html",
+      "description": "Grants permission to get the properties associated with a model import job and is used to get the status of a model import job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "model-import-job*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -825,9 +881,13 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "foundation-model*",
+        "imported-model*",
+        "inference-profile*",
         "provisioned-model*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "bedrock:InferenceProfileArn"
+      ],
       "dependentActions": []
     },
     {
@@ -837,9 +897,13 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "foundation-model*",
+        "imported-model*",
+        "inference-profile*",
         "provisioned-model*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "bedrock:InferenceProfileArn"
+      ],
       "dependentActions": []
     },
     {
@@ -985,6 +1049,24 @@
       "dependentActions": []
     },
     {
+      "name": "ListImportedModels",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListImportedModels.html",
+      "description": "Grants permission to get list of Bedrock imported models",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListInferenceProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListInferenceProfiles.html",
+      "description": "Grants permission to list inference profiles that you can use",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListIngestionJobs",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListIngestionJobs.html",
       "description": "Grants permission to list ingestion jobs in a data source",
@@ -1032,6 +1114,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListModelImportJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListModelImportJobs.html",
+      "description": "Grants permission to get list of model import jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListModelInvocationJobs",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListModelInvocationJobs.html",
       "description": "Grants permission to list model invocation jobs that you created earlier",
@@ -1073,10 +1164,12 @@
         "flow*",
         "flow-alias*",
         "guardrail*",
+        "imported-model*",
         "knowledge-base*",
         "model-copy-job*",
         "model-customization-job*",
         "model-evaluation-job*",
+        "model-import-job*",
         "model-invocation-job*",
         "prompt*",
         "prompt-version*",
@@ -1225,10 +1318,12 @@
         "flow",
         "flow-alias",
         "guardrail",
+        "imported-model",
         "knowledge-base",
         "model-copy-job",
         "model-customization-job",
         "model-evaluation-job",
+        "model-import-job",
         "model-invocation-job",
         "prompt",
         "prompt-version",
@@ -1253,10 +1348,12 @@
         "flow",
         "flow-alias",
         "guardrail",
+        "imported-model",
         "knowledge-base",
         "model-copy-job",
         "model-customization-job",
         "model-evaluation-job",
+        "model-import-job",
         "model-invocation-job",
         "prompt",
         "prompt-version",
