@@ -90,6 +90,21 @@
       "dependentActions": []
     },
     {
+      "name": "CreateChannelPlacementGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to create a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channel-placement-group*",
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateCloudWatchAlarmTemplate",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-alarms-templates-create.html",
       "description": "Grants permission to create a cloudwatch alarm template",
@@ -111,6 +126,20 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "cloudwatch-alarm-template-group*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to create a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -202,6 +231,46 @@
       "dependentActions": []
     },
     {
+      "name": "CreateNetwork",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to create a network",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "network*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateNode",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to create a node",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "node*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateNodeRegistrationScript",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to create a node registration script",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreatePartnerInput",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/input-create-cdi-partners.html",
       "description": "Grants permission to create a partner input",
@@ -232,17 +301,21 @@
     {
       "name": "CreateTags",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/tagging.html",
-      "description": "Grants permission to create tags for channels, inputs, input security groups, multiplexes, reservations, signal maps, template groups, and templates",
+      "description": "Grants permission to create tags for channels, inputs, input security groups, multiplexes, reservations, nodes, networks, clusters, channel placement groups, signal maps, template groups, and templates",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "channel",
+        "channel-placement-group",
         "cloudwatch-alarm-template",
         "cloudwatch-alarm-template-group",
+        "cluster",
         "eventbridge-rule-template",
         "eventbridge-rule-template-group",
         "input",
         "input-security-group",
         "multiplex",
+        "network",
+        "node",
         "reservation",
         "signal-map"
       ],
@@ -259,6 +332,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteChannelPlacementGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to delete a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channel-placement-group*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -281,6 +365,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "cloudwatch-alarm-template-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to delete a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -352,6 +447,28 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteNetwork",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to delete a network",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "network*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteNode",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to delete a node",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "node*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteReservation",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/deleting-reservations.html",
       "description": "Grants permission to delete an expired reservation",
@@ -387,17 +504,21 @@
     {
       "name": "DeleteTags",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/tagging.html",
-      "description": "Grants permission to delete tags from channels, inputs, input security groups, multiplexes, reservations, signal maps, template groups, and templates",
+      "description": "Grants permission to delete tags from channels, inputs, input security groups, multiplexes, reservations, nodes, clusters, networks, channel placement groups, signal maps, template groups, and templates",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "channel",
+        "channel-placement-group",
         "cloudwatch-alarm-template",
         "cloudwatch-alarm-template-group",
+        "cluster",
         "eventbridge-rule-template",
         "eventbridge-rule-template-group",
         "input",
         "input-security-group",
         "multiplex",
+        "network",
+        "node",
         "reservation",
         "signal-map"
       ],
@@ -422,6 +543,28 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeChannelPlacementGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/emla-setup-cl-create.html",
+      "description": "Grants permission to describe a channel placement group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "channel-placement-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/emla-setup-cl-create.html",
+      "description": "Grants permission to describe a cluster",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -488,6 +631,28 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "multiplex*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeNetwork",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/emla-setup-cl-networks.html",
+      "description": "Grants permission to describe a network",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "network*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeNode",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/emla-setup-cl-nodes-create.html",
+      "description": "Grants permission to describe a node",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "node*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -592,6 +757,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListChannelPlacementGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to list channel placement groups",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListChannels",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/viewing-channel-configuration.html",
       "description": "Grants permission to list channels",
@@ -613,6 +787,15 @@
       "name": "ListCloudWatchAlarmTemplates",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-alarms.html",
       "description": "Grants permission to list cloudwatch alarm templates",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListClusters",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to list clusters",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -691,6 +874,24 @@
       "dependentActions": []
     },
     {
+      "name": "ListNetworks",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to list networks",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListNodes",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to list nodes",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListOfferings",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/purchasing-reservations.html",
       "description": "Grants permission to list reservation offerings",
@@ -720,20 +921,33 @@
     {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/tagging.html",
-      "description": "Grants permission to list tags for channels, inputs, input security groups, multiplexes, reservations, signal maps, template groups, and templates",
+      "description": "Grants permission to list tags for channels, inputs, input security groups, multiplexes, reservations, nodes, clusters, networks, channel placement groups, signal maps, template groups, and templates",
       "accessLevel": "List",
       "resourceTypes": [
         "channel",
+        "channel-placement-group",
         "cloudwatch-alarm-template",
         "cloudwatch-alarm-template-group",
+        "cluster",
         "eventbridge-rule-template",
         "eventbridge-rule-template-group",
         "input",
         "input-security-group",
         "multiplex",
+        "network",
+        "node",
         "reservation",
         "signal-map"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PollAnywhere",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/about-emla.html",
+      "description": "Grants permission to the node to poll the cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -896,6 +1110,15 @@
       "dependentActions": []
     },
     {
+      "name": "SubmitAnywhereStateChange",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/about-emla.html",
+      "description": "Grants permission to the node to submit state changes to the cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "TransferInputDevice",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/eml-devices.html",
       "description": "Grants permission to transfer an input device",
@@ -938,6 +1161,20 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateChannelPlacementGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to update a node",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channel-placement-group*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateCloudWatchAlarmTemplate",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-alarms-templates-create.html",
       "description": "Grants permission to update a cloudwatch alarm template",
@@ -958,6 +1195,20 @@
         "cloudwatch-alarm-template-group*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/emla-setup-cl-create.html",
+      "description": "Grants permission to update a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1039,6 +1290,48 @@
         "multiplex*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateNetwork",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/emla-deploy-identify-network-requirements.html",
+      "description": "Grants permission to update the state of a node",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "network*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateNode",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/emla-setup-cl-nodes-create.html",
+      "description": "Grants permission to update a node",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "node*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateNodeState",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to update the state of a node",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "node*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
