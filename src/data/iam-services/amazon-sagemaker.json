@@ -283,6 +283,12 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
+        "eks:AssociateAccessPolicy",
+        "eks:CreateAccessEntry",
+        "eks:DeleteAccessEntry",
+        "eks:DescribeAccessEntry",
+        "eks:DescribeCluster",
+        "iam:CreateServiceLinkedRole",
         "iam:PassRole",
         "sagemaker:AddTags"
       ]
@@ -1355,7 +1361,9 @@
         "cluster*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "eks:DeleteAccessEntry"
+      ]
     },
     {
       "name": "DeleteCodeRepository",
@@ -4135,6 +4143,11 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
+        "eks:AssociateAccessPolicy",
+        "eks:CreateAccessEntry",
+        "eks:DeleteAccessEntry",
+        "eks:DescribeAccessEntry",
+        "eks:DescribeCluster",
         "iam:PassRole"
       ]
     },
@@ -4147,7 +4160,9 @@
         "cluster*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "eks:DescribeCluster"
+      ]
     },
     {
       "name": "UpdateCodeRepository",

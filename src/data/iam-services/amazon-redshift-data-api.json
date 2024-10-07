@@ -9,10 +9,12 @@
       "description": "Grants permission to execute multiple queries under a single connection",
       "accessLevel": "Write",
       "resourceTypes": [
-        "cluster*",
-        "workgroup*"
+        "cluster",
+        "workgroup"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "redshift-data:session-owner-iam-userid"
+      ],
       "dependentActions": []
     },
     {
@@ -55,10 +57,12 @@
       "description": "Grants permission to execute a query",
       "accessLevel": "Write",
       "resourceTypes": [
-        "cluster*",
-        "workgroup*"
+        "cluster",
+        "workgroup"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "redshift-data:session-owner-iam-userid"
+      ],
       "dependentActions": []
     },
     {

@@ -265,6 +265,15 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeListenerAttributes",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeListenerAttributes.html",
+      "description": "Grants permission to describe the attributes for the specified listener",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeListenerCertificates",
       "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeListenerCertificates.html",
       "description": "Grants permission to describe the certificates for the specified secure listener",
@@ -437,6 +446,21 @@
         "elasticloadbalancing:ResourceTag/${TagKey}",
         "elasticloadbalancing:SecurityPolicy",
         "elasticloadbalancing:ListenerProtocol"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyListenerAttributes",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_ModifyListenerAttributes.html",
+      "description": "Grants permission to modify the attributes of the specified listener",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "listener/app*",
+        "listener/net*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticloadbalancing:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },

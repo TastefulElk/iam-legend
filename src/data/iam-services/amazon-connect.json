@@ -101,7 +101,7 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "contact-flow*",
-        "instance*"
+        "wildcard-phone-number*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -306,7 +306,7 @@
       "description": "Grants permission to get summary information about the flow associations for the specified Amazon Connect instance",
       "accessLevel": "List",
       "resourceTypes": [
-        "instance*"
+        "wildcard-phone-number*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -442,6 +442,20 @@
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateHoursOfOperationOverride",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateHoursOfOperationOverride.html",
+      "description": "Grants permission to create an hours of operation override in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hours-of-operation*",
+        "instance*"
+      ],
+      "conditionKeys": [
         "connect:InstanceId"
       ],
       "dependentActions": []
@@ -869,6 +883,20 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteHoursOfOperationOverride",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteHoursOfOperationOverride.html",
+      "description": "Grants permission to delete an hours of operation override in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hours-of-operation*",
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteInstance",
       "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
       "description": "Grants permission to delete an Amazon Connect instance. When you remove an instance, the link to an existing AWS directory is also removed",
@@ -1242,6 +1270,20 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeHoursOfOperationOverride",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeHoursOfOperationOverride.html",
+      "description": "Grants permission to describe an hours of operation override in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "hours-of-operation*",
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeInstance",
       "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
       "description": "Grants permission to view details of an Amazon Connect instance and is also required to create an instance",
@@ -1535,7 +1577,7 @@
       "description": "Grants permission to disassociate a resource from a flow in an Amazon Connect instance",
       "accessLevel": "Write",
       "resourceTypes": [
-        "instance*"
+        "wildcard-phone-number*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -1750,6 +1792,20 @@
       "dependentActions": []
     },
     {
+      "name": "GetEffectiveHoursOfOperations",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_GetEffectiveHoursOfOperations.html",
+      "description": "Grants permission to get effective hours of operation resources in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "hours-of-operation*",
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetFederationToken",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_GetFederationToken.html",
       "description": "Grants permission to federate into an Amazon Connect instance when using SAML-based authentication for identity management",
@@ -1768,7 +1824,7 @@
       "description": "Grants permission to get information about the flow associations for the specified Amazon Connect instance",
       "accessLevel": "Read",
       "resourceTypes": [
-        "instance*"
+        "wildcard-phone-number*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -2008,6 +2064,20 @@
       "description": "Grants permission to list summary information about the flow associations for the specified Amazon Connect instance",
       "accessLevel": "List",
       "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListHoursOfOperationOverrides",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListHoursOfOperationOverrides.html",
+      "description": "Grants permission to list hours of operation override resources in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "hours-of-operation*",
         "instance*"
       ],
       "conditionKeys": [
@@ -2649,6 +2719,24 @@
       ]
     },
     {
+      "name": "SearchHoursOfOperationOverrides",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchHoursOfOperationOverrides.html",
+      "description": "Grants permission to search hours of operation override resources in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "hours-of-operation*",
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "connect:SearchTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "connect:DescribeHoursOfOperation",
+        "connect:ListHoursOfOperationOverrides"
+      ]
+    },
+    {
       "name": "SearchHoursOfOperations",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchHoursOfOperations.html",
       "description": "Grants permission to search hours of operation resources in an Amazon Connect instance",
@@ -2826,6 +2914,20 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SendOutboundEmail",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SendOutboundEmail.html",
+      "description": "Grants permission to send outbound email using the Amazon Connect API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*",
+        "contact"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
       "dependentActions": []
     },
     {
@@ -3320,6 +3422,20 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateHoursOfOperationOverride",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateHoursOfOperationOverride.html",
+      "description": "Grants permission to update an hours of operation override in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hours-of-operation*",
+        "instance*"
+      ],
+      "conditionKeys": [
         "connect:InstanceId"
       ],
       "dependentActions": []

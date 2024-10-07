@@ -39,6 +39,19 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateSbomWithPackageVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_AssociateSbomWithPackageVersion.html",
+      "description": "Grants permission to associate SBOM files to a package version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "packageversion*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iot:GetIndexingConfiguration"
+      ]
+    },
+    {
       "name": "AssociateTargetsWithJob",
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_AssociateTargetsWithJob.html",
       "description": "Grants permission to associate a group with a continuous job",
@@ -437,7 +450,8 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
-        "iot:GetIndexingConfiguration"
+        "iot:GetIndexingConfiguration",
+        "s3:GetObjectVersion"
       ]
     },
     {
@@ -1444,6 +1458,17 @@
       "dependentActions": []
     },
     {
+      "name": "DisassociateSbomFromPackageVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_DisassociateSbomFromPackageVersion.html",
+      "description": "Grants permission to disassociate SBOM files from a package version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "packageversion*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "EnableTopicRule",
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_EnableTopicRule.html",
       "description": "Grants permission to enable the specified rule",
@@ -2068,6 +2093,17 @@
       "description": "Grants permission to list role aliases",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSbomValidationResults",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_ListSbomValidationResults.html",
+      "description": "Grants permission to list SBOM validation results of a package version",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "packageversion*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -2889,7 +2925,8 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "iot:GetIndexingConfiguration"
+        "iot:GetIndexingConfiguration",
+        "s3:GetObjectVersion"
       ]
     },
     {

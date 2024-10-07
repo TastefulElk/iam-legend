@@ -276,6 +276,15 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeConfigurationTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeConfigurationTemplates.html",
+      "description": "Grants permission to retrieve a list of configuration templates of available log types",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeDeliveries",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html",
       "description": "Grants permission to retrieve a list of deliveries an account",
@@ -883,6 +892,22 @@
         "anomaly-detector*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDeliveryConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html",
+      "description": "Grants permission to update configuration related to a delivery",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "delivery*",
+        "delivery-destination*",
+        "delivery-source*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {

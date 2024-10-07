@@ -224,14 +224,15 @@
       "description": "Grants permission to submit an AWS Batch job from a job definition in your account",
       "accessLevel": "Write",
       "resourceTypes": [
+        "job*",
         "job-definition*",
         "job-queue*"
       ],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys",
         "batch:ShareIdentifier",
-        "batch:EKSImage"
+        "batch:EKSImage",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },

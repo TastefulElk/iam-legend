@@ -15,6 +15,19 @@
       "dependentActions": []
     },
     {
+      "name": "CancelTagSyncTask",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_CancelTagSyncTask.html",
+      "description": "Grants permission to cancel a tag-sync task for an application group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "resource-groups:DeleteGroup"
+      ]
+    },
+    {
       "name": "CreateGroup",
       "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_CreateGroup.html",
       "description": "Grants permission to create a resource group with a specified name, description, and resource query",
@@ -37,7 +50,9 @@
         "group*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "tag:GetResources"
+      ]
     },
     {
       "name": "DeleteGroupPolicy",
@@ -115,6 +130,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetTagSyncTask",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_GetTagSyncTask.html",
+      "description": "Grants permission to get information of a specified tag-sync task",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetTags",
       "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_GetTags.html",
       "description": "Grants permission to get the tags associated with a specified resource group",
@@ -134,7 +160,10 @@
         "group*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "resource-groups:Tag",
+        "tag:TagResources"
+      ]
     },
     {
       "name": "ListGroupResources",
@@ -152,6 +181,17 @@
       ]
     },
     {
+      "name": "ListGroupingStatuses",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_ListGroupingStatuses.html",
+      "description": "Grants permission to list grouping statuses for a specified application group",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListGroups",
       "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_ListGroups.html",
       "description": "Grants permission to list all resource groups in your account",
@@ -166,6 +206,17 @@
       "description": "Grants permission to list supported resource types",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagSyncTasks",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_ListTagSyncTasks.html",
+      "description": "Grants permission to list all tag-sync tasks in your account",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "group*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -205,6 +256,20 @@
       ]
     },
     {
+      "name": "StartTagSyncTask",
+      "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_StartTagSyncTask.html",
+      "description": "Grants permission to create a tag-sync task for an application group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole",
+        "resource-groups:CreateGroup"
+      ]
+    },
+    {
       "name": "Tag",
       "documentationUrl": "https://docs.aws.amazon.com/ARG/latest/APIReference/API_Tag.html",
       "description": "Grants permission to tag a specified resource group",
@@ -227,7 +292,10 @@
         "group*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "resource-groups:Untag",
+        "tag:UntagResources"
+      ]
     },
     {
       "name": "Untag",

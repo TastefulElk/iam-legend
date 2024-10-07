@@ -45,7 +45,10 @@
       "description": "Grants permission to create an AWS Lambda code signing config",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -55,7 +58,9 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "lambda:FunctionArn"
+        "lambda:FunctionArn",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -209,6 +214,19 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "DeleteResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_DeleteResourcePolicy.html",
+      "description": "Grants permission to delete the resource-based policy for an AWS Lambda function, version, or alias",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "function*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "lambda:RemovePermission"
+      ]
     },
     {
       "name": "DisableReplication",
@@ -402,6 +420,30 @@
       "dependentActions": []
     },
     {
+      "name": "GetPublicAccessBlockConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_GetPublicAccessBlockConfig.html",
+      "description": "Grants permission to view the PublicAccessBlockConfig of an AWS Lambda function",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "function*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_GetResourcePolicy.html",
+      "description": "Grants permission to view the resource-based policy for an AWS Lambda function, version, or alias",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "function*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "lambda:GetPolicy"
+      ]
+    },
+    {
       "name": "GetRuntimeManagementConfig",
       "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_GetRuntimeManagementConfig.html",
       "description": "Grants permission to view the runtime management configuration of an AWS Lambda function",
@@ -556,10 +598,12 @@
     {
       "name": "ListTags",
       "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_ListTags.html",
-      "description": "Grants permission to retrieve a list of tags for an AWS Lambda function",
+      "description": "Grants permission to retrieve a list of tags for an AWS Lambda function, event source mapping or code signing configuration resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "function*"
+        "codesigning config",
+        "eventSourceMapping",
+        "function"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -657,6 +701,31 @@
       "dependentActions": []
     },
     {
+      "name": "PutPublicAccessBlockConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_PutPublicAccessBlockConfig.html",
+      "description": "Grants permission to update the PublicAccessBlockConfig of an AWS Lambda function",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "function*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_PutResourcePolicy.html",
+      "description": "Grants permission to update the resource-based policy for an AWS Lambda function, version, or alias",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "function*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "lambda:AddPermission",
+        "lambda:RemovePermission"
+      ]
+    },
+    {
       "name": "PutRuntimeManagementConfig",
       "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_PutRuntimeManagementConfig.html",
       "description": "Grants permission to update the runtime management configuration of an AWS Lambda function",
@@ -695,10 +764,12 @@
     {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_TagResources.html",
-      "description": "Grants permission to add tags to an AWS Lambda function",
+      "description": "Grants permission to add tags to an AWS Lambda function, event source mapping or code signing configuration resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "function*"
+        "codesigning config",
+        "eventSourceMapping",
+        "function"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -709,10 +780,12 @@
     {
       "name": "UntagResource",
       "documentationUrl": "https://docs.aws.amazon.com/lambda/latest/dg/API_UntagResource.html",
-      "description": "Grants permission to remove tags from an AWS Lambda function",
+      "description": "Grants permission to remove tags from an AWS Lambda function, event source mapping or code signing configuration resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "function*"
+        "codesigning config",
+        "eventSourceMapping",
+        "function"
       ],
       "conditionKeys": [
         "aws:TagKeys"

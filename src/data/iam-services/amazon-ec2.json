@@ -142,11 +142,14 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "elastic-ip*",
+        "ipam-pool",
         "ipv4pool-ec2"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
@@ -929,7 +932,6 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:CapacityReservationFleet",
-        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -1137,6 +1139,38 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "ec2:CapacityReservationFleet",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
+    },
+    {
+      "name": "CreateCapacityReservationBySplitting",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateCapacityReservationBySplitting.html",
+      "description": "Grants permission to create a new Capacity Reservation by splitting the available capacity of the source Capacity Reservation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "capacity-reservation*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:CapacityReservationFleet",
+        "ec2:CreateDate",
+        "ec2:DestinationCapacityReservationId",
+        "ec2:EbsOptimized",
+        "ec2:EndDate",
+        "ec2:EndDateType",
+        "ec2:InstanceCount",
+        "ec2:InstanceMatchCriteria",
+        "ec2:InstancePlatform",
+        "ec2:InstanceType",
+        "ec2:OutpostArn",
+        "ec2:PlacementGroup",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:SourceCapacityReservationId",
+        "ec2:Tenancy",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -2546,7 +2580,6 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -2855,6 +2888,8 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -4566,6 +4601,7 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -8167,7 +8203,6 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:CapacityReservationFleet",
-        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -8309,7 +8344,6 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:CapacityReservationFleet",
-        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -9199,7 +9233,6 @@
         "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:CapacityReservationFleet",
-        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -9472,7 +9505,6 @@
         "ec2:RootDeviceType",
         "ec2:Tenancy",
         "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -10072,6 +10104,7 @@
         "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
         "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:Region"
@@ -10658,6 +10691,36 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "MoveCapacityReservationInstances",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_MoveCapacityReservationInstances.html",
+      "description": "Grants permission to move available capacity from a source Capacity Reservation to a destination Capacity Reservation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "capacity-reservation*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:CapacityReservationFleet",
+        "ec2:CreateDate",
+        "ec2:DestinationCapacityReservationId",
+        "ec2:EbsOptimized",
+        "ec2:EndDate",
+        "ec2:EndDateType",
+        "ec2:InstanceCount",
+        "ec2:InstanceMatchCriteria",
+        "ec2:InstancePlatform",
+        "ec2:InstanceType",
+        "ec2:OutpostArn",
+        "ec2:PlacementGroup",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:SourceCapacityReservationId",
+        "ec2:Tenancy",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -11768,7 +11831,6 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:IsLaunchTemplateResource",
         "ec2:LaunchTemplate",
-        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ElasticGpuType",
         "ec2:IsLaunchTemplateResource",

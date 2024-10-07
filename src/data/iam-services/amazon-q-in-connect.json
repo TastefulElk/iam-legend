@@ -4,6 +4,18 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonqinconnect.html",
   "actions": [
     {
+      "name": "ActivateMessageTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ActivateMessageTemplate.html",
+      "description": "Grants permission to activate a message template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "KnowledgeBase*",
+        "MessageTemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateAssistant",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAssistant.html",
       "description": "Grants permission to create an assistant",
@@ -71,6 +83,44 @@
       "dependentActions": []
     },
     {
+      "name": "CreateMessageTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateMessageTemplate.html",
+      "description": "Grants permission to create a message template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "KnowledgeBase*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateMessageTemplateAttachment",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateMessageTemplateAttachment.html",
+      "description": "Grants permission to create an attachment to a message template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "KnowledgeBase*",
+        "MessageTemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateMessageTemplateVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateMessageTemplateVersion.html",
+      "description": "Grants permission to create a version of a message template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "KnowledgeBase*",
+        "MessageTemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateQuickResponse",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateQuickResponse.html",
       "description": "Grants permission to create quick response",
@@ -96,6 +146,18 @@
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeactivateMessageTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeactivateMessageTemplate.html",
+      "description": "Grants permission to deactivate a message template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "KnowledgeBase*",
+        "MessageTemplate*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -164,6 +226,30 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "KnowledgeBase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMessageTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteMessageTemplate.html",
+      "description": "Grants permission to delete a message template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "KnowledgeBase*",
+        "MessageTemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMessageTemplateAttachment",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteMessageTemplateAttachment.html",
+      "description": "Grants permission to delete an attachment from a message template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "KnowledgeBase*",
+        "MessageTemplate*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -260,6 +346,20 @@
         "KnowledgeBase*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetMessageTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetMessageTemplate.html",
+      "description": "Grants permission to retrieve a message template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "KnowledgeBase*",
+        "MessageTemplate*"
+      ],
+      "conditionKeys": [
+        "wisdom:MessageTemplate/RoutingProfileArn"
+      ],
       "dependentActions": []
     },
     {
@@ -361,6 +461,29 @@
       "dependentActions": []
     },
     {
+      "name": "ListMessageTemplateVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListMessageTemplateVersions.html",
+      "description": "Grants permission to list message template versions for the specified message template",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "KnowledgeBase*",
+        "MessageTemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMessageTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListMessageTemplates.html",
+      "description": "Grants permission to list the message templates for a knowledge base",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "KnowledgeBase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListQuickResponses",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListQuickResponses.html",
       "description": "Grants permission to list the quick response with a knowledge base",
@@ -425,6 +548,22 @@
       "dependentActions": []
     },
     {
+      "name": "RenderMessageTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_RenderMessageTemplate.html",
+      "description": "Grants permission to render a message template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "KnowledgeBase*",
+        "MessageTemplate*"
+      ],
+      "conditionKeys": [
+        "wisdom:MessageTemplate/RoutingProfileArn"
+      ],
+      "dependentActions": [
+        "wisdom:GetMessageTemplate"
+      ]
+    },
+    {
       "name": "SearchContent",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_SearchContent.html",
       "description": "Grants permission to search for content referencing a specified knowledge base. Can be used to get a specific content resource by its name",
@@ -433,6 +572,20 @@
         "KnowledgeBase*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SearchMessageTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_SearchMessageTemplates.html",
+      "description": "Grants permission to search for message templates referencing a specified knowledge base",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "KnowledgeBase*"
+      ],
+      "conditionKeys": [
+        "wisdom:SearchFilter/RoutingProfileArn",
+        "wisdom:SearchFilter/Qualifier"
+      ],
       "dependentActions": []
     },
     {
@@ -497,6 +650,7 @@
         "Content",
         "ContentAssociation",
         "KnowledgeBase",
+        "MessageTemplate",
         "QuickResponse",
         "Session"
       ],
@@ -518,6 +672,7 @@
         "Content",
         "ContentAssociation",
         "KnowledgeBase",
+        "MessageTemplate",
         "QuickResponse",
         "Session"
       ],
@@ -546,6 +701,30 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "KnowledgeBase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateMessageTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateMessageTemplate.html",
+      "description": "Grants permission to update content of the message template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "KnowledgeBase*",
+        "MessageTemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateMessageTemplateMetadata",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateMessageTemplateMetadata.html",
+      "description": "Grants permission to update metadata of the message template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "KnowledgeBase*",
+        "MessageTemplate*"
       ],
       "conditionKeys": [],
       "dependentActions": []

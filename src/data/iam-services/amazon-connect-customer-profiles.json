@@ -15,6 +15,29 @@
       "dependentActions": []
     },
     {
+      "name": "BatchGetCalculatedAttributeForProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_BatchGetCalculatedAttributeForProfile.html",
+      "description": "Grants permission to retrieve a calculated attribute for the specific profiles in the domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "calculated-attributes*",
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchGetProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_BatchGetProfile.html",
+      "description": "Grants permission to get profiles in the domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateCalculatedAttributeDefinition",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateCalculatedAttributeDefinition.html",
       "description": "Grants permission to create a calculated attribute definition in the domain",
@@ -85,6 +108,44 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSegmentDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateSegmentDefinition.html",
+      "description": "Grants permission to create a segment definition in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*",
+        "segment-definitions*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSegmentEstimate",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateSegmentEstimate.html",
+      "description": "Grants permission to create a segment estimate in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateSegmentSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateSegmentSnapshot.html",
+      "description": "Grants permission to create a segment snapshot in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*",
+        "segment-definitions*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -191,6 +252,18 @@
       "resourceTypes": [
         "domains*",
         "object-types*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteSegmentDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteSegmentDefinition.html",
+      "description": "Grants permission to delete a segment definition in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*",
+        "segment-definitions*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -333,6 +406,53 @@
       "dependentActions": []
     },
     {
+      "name": "GetSegmentDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetSegmentDefinition.html",
+      "description": "Grants permission to get a segment definition in the domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "domains*",
+        "segment-definitions*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSegmentEstimate",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetSegmentEstimate.html",
+      "description": "Grants permission to get a segment estimate in the domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSegmentMembership",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetSegmentMembership.html",
+      "description": "Grants permission to determine if the given profiles are part of a segment in the domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "domains*",
+        "segment-definitions*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSegmentSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetSegmentSnapshot.html",
+      "description": "Grants permission to get a segment snapshot in the domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "domains*",
+        "segment-definitions*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetSimilarProfiles",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetSimilarProfiles.html",
       "description": "Grants permission to get all the similar profiles in the domain",
@@ -450,6 +570,29 @@
       "dependentActions": []
     },
     {
+      "name": "ListObjectTypeAttributes",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListObjectTypeAttributes.html",
+      "description": "Grants permission to list all the attributes of a specific object type in the domain",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "domains*",
+        "object-types*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListProfileAttributeValues",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListProfileAttributeValues.html",
+      "description": "Grants permission to list all the values of a profile attribute in the domain",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListProfileObjectTypeTemplates",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListProfileObjectTypeTemplates.html",
       "description": "Grants permission to list all the profile object type templates in the account",
@@ -485,6 +628,17 @@
       "name": "ListRuleBasedMatches",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListRuleBasedMatches.html",
       "description": "Grants permission to list all the rule-based matching result in the domain",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSegmentDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListSegmentDefinitions.html",
+      "description": "Grants permission to list all the segment definitions in the domain",
       "accessLevel": "List",
       "resourceTypes": [
         "domains*"
