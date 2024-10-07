@@ -1532,6 +1532,7 @@
       "description": "Grants permission to retrieve attributes related to a specific object",
       "accessLevel": "Read",
       "resourceTypes": [
+        "accesspoint*",
         "object*"
       ],
       "conditionKeys": [
@@ -2035,6 +2036,25 @@
         "s3:signatureversion",
         "s3:TlsVersion",
         "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCallerAccessGrants",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListCallerAccessGrants.html",
+      "description": "Grants permission to list caller's Access Grant",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "accessgrantsinstance*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },

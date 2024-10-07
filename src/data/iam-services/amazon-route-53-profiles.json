@@ -1,0 +1,192 @@
+{
+  "serviceName": "Amazon Route 53 Profiles",
+  "servicePrefix": "route53profiles",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonroute53profiles.html",
+  "actions": [
+    {
+      "name": "AssociateProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_AssociateProfile.html",
+      "description": "Grants permission to associates a Profile to the customer VPC",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "AssociateResourceToProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_AssociateResourceToProfile.html",
+      "description": "Grants permission to associates a resource, such as DNS Firewall rule group, private hosted zone, resolver rule, etc. to a specified Profile",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_CreateProfile.html",
+      "description": "Grants permission to create a new Profile resource",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_DeleteProfile.html",
+      "description": "Grants permission to delete a Profile specified by the ProfileId",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_DisassociateProfile.html",
+      "description": "Grants permission to delete an association between a customer VPC and the specified Profile",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateResourceFromProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_DisassociateResourceFromProfile.html",
+      "description": "Grants permission to delete the asoociation between the resource. such as DNS Firewall rule group, private hosted zone, resolver rule, etc. and the specified Profile",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_GetProfile.html",
+      "description": "Grants permission to get a Profile",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetProfileAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_GetProfileAssociation.html",
+      "description": "Grants permission to get a Profile to a VPC association specified by the Profile association ID",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetProfilePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/sharing-profiles.html",
+      "description": "Grants permission to read the RAM access control policy for a Profile",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetProfileResourceAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_GetProfileResourceAssociation.html",
+      "description": "Grants permission to get a Profile resource association based on the ProfileResourceAssociationId",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListProfileAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_ListProfileAssociations.html",
+      "description": "Grants permission to list all VPCs the specified Profile is associated to",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListProfileResourceAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_ListProfileResourceAssociations.html",
+      "description": "Grants permission to list all the associations between the resources, such as DNS Firewall rule groups, private hosted zones, resolver rules, etc. for the given Profile ID",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListProfiles",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_ListProfiles.html",
+      "description": "Grants permission to list all the Profiles created by, and shared to the customer",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_ListTagsForResource.html",
+      "description": "Grants permission to list all tags associated with the resource",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutProfilePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/sharing-profiles.html",
+      "description": "Grants permission to define the RAM access control policy for a Profile",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_TagResource.html",
+      "description": "Grants permission to add a tag to the given resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "profile",
+        "profile-association"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_UntagResource.html",
+      "description": "Grants permission to delete a tag from the given resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "profile",
+        "profile-association"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateProfileResourceAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_UpdateProfileResourceAssociation.html",
+      "description": "Grants permission to update the Profile resource association name or the resource properties or both, if both name and resource properties are null, the api returns the existing Profile resource association",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

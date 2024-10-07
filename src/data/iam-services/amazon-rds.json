@@ -118,6 +118,17 @@
       "dependentActions": []
     },
     {
+      "name": "CopyCustomDBEngineVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonrds.html",
+      "description": "Grants permission to copy a custom engine version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cev*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CopyDBClusterParameterGroup",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBClusterParameterGroup.html",
       "description": "Grants permission to copy the specified DB cluster parameter group",
@@ -179,7 +190,8 @@
         "rds:CopyOptionGroup"
       ],
       "dependentActions": [
-        "rds:AddTagsToResource"
+        "rds:AddTagsToResource",
+        "rds:CopyCustomDBEngineVersion"
       ]
     },
     {
@@ -617,7 +629,9 @@
       "dependentActions": [
         "rds:DeleteDBCluster",
         "rds:DeleteDBClusterEndpoint",
-        "rds:DeleteDBInstance"
+        "rds:DeleteDBInstance",
+        "rds:PromoteReadReplica",
+        "rds:PromoteReadReplicaDBCluster"
       ]
     },
     {
@@ -642,6 +656,8 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
+        "rds:AddTagsToResource",
+        "rds:CreateDBClusterSnapshot",
         "rds:DeleteDBInstance"
       ]
     },
@@ -699,6 +715,8 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
+        "rds:AddTagsToResource",
+        "rds:CreateDBSnapshot",
         "rds:DeleteTenantDatabase"
       ]
     },
@@ -844,7 +862,10 @@
         "tenant-database*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "rds:AddTagsToResource",
+        "rds:CreateDBSnapshot"
+      ]
     },
     {
       "name": "DeregisterDBProxyTargets",
@@ -1134,6 +1155,19 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeDBSnapshotTenantDatabases",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSnapshotTenantDatabases.html",
+      "description": "Grants permission to return information about tenant databases in DB snapshots. You can filter by Region or snapshot",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "snapshot-tenant-database*",
+        "db",
+        "snapshot"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeDBSnapshots",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSnapshots.html",
       "description": "Grants permission to return information about DB snapshots",
@@ -1152,19 +1186,6 @@
       "accessLevel": "List",
       "resourceTypes": [
         "subgrp*"
-      ],
-      "conditionKeys": [],
-      "dependentActions": []
-    },
-    {
-      "name": "DescribeDbSnapshotTenantDatabases",
-      "documentationUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSnapshotTenantDatabases.html",
-      "description": "Grants permission to return information about tenant databases in DB snapshots. You can filter by Region or snapshot",
-      "accessLevel": "List",
-      "resourceTypes": [
-        "snapshot-tenant-database*",
-        "db",
-        "snapshot"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1510,7 +1531,8 @@
       "resourceTypes": [
         "cluster*",
         "cluster-pg",
-        "og"
+        "og",
+        "pg"
       ],
       "conditionKeys": [
         "rds:DatabaseClass",
@@ -2210,10 +2232,14 @@
       "description": "Grants permission to stop the DB instance",
       "accessLevel": "Write",
       "resourceTypes": [
-        "db*"
+        "db*",
+        "snapshot"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "rds:AddTagsToResource",
+        "rds:CreateDBSnapshot"
+      ]
     },
     {
       "name": "StopDBInstanceAutomatedBackupsReplication",
