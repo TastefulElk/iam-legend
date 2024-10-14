@@ -596,6 +596,16 @@
       ]
     },
     {
+      "name": "GetJobTemplate",
+      "description": "Grants permission to read job template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetLicenseEndpoint",
       "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetLicenseEndpoint.html",
       "description": "Grants permission to get a license endpoint",
@@ -851,6 +861,19 @@
       "name": "ListJobMembers",
       "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListJobMembers.html",
       "description": "Grants permission to list all members of a job",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListJobParameterDefinitions",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListJobParameterDefinitions.html",
+      "description": "Grants permission to get a job's parameter definitions in the job template",
       "accessLevel": "List",
       "resourceTypes": [
         "job*"

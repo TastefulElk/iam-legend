@@ -16,6 +16,64 @@
       "dependentActions": []
     },
     {
+      "name": "CreateAIAgent",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAIAgent.html",
+      "description": "Grants permission to create an ai agent",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Assistant*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAIAgentVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAIAgentVersion.html",
+      "description": "Grants permission to create an ai agent version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AIAgent*",
+        "Assistant*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAIPrompt",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAIPrompt.html",
+      "description": "Grants permission to create an ai prompt",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Assistant*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAIPromptVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAIPromptVersion.html",
+      "description": "Grants permission to create an ai prompt version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AIPrompt*",
+        "Assistant*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateAssistant",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAssistant.html",
       "description": "Grants permission to create an assistant",
@@ -161,6 +219,54 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteAIAgent",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAIAgent.html",
+      "description": "Grants permission to delete an ai agent",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AIAgent*",
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAIAgentVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAIAgentVersion.html",
+      "description": "Grants permission to delete an ai agent version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AIAgent*",
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAIPrompt",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAIPrompt.html",
+      "description": "Grants permission to delete an ai prompt",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AIPrompt*",
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAIPromptVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAIPromptVersion.html",
+      "description": "Grants permission to delete an ai prompt version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AIPrompt*",
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteAssistant",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAssistant.html",
       "description": "Grants permission to delete an assistant",
@@ -262,6 +368,30 @@
       "resourceTypes": [
         "KnowledgeBase*",
         "QuickResponse*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAIAgent",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetAIAgent.html",
+      "description": "Grants permission to retrieve information about an ai agent",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "AIAgent*",
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAIPrompt",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetAIPrompt.html",
+      "description": "Grants permission to retrieve information about an ai prompt",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "AIPrompt*",
+        "Assistant*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -393,6 +523,52 @@
       "resourceTypes": [
         "Assistant*",
         "Session*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAIAgentVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListAIAgentVersions.html",
+      "description": "Grants permission to list information about ai agent versions",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "AIAgent*",
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAIAgents",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListAIAgents.html",
+      "description": "Grants permission to list information about ai agents",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAIPromptVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListAIPromptVersions.html",
+      "description": "Grants permission to list information about ai prompt versions",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "AIPrompt*",
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAIPrompts",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListAIPrompts.html",
+      "description": "Grants permission to list information about ai prompts",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Assistant*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -530,6 +706,17 @@
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_QueryAssistant.html",
       "description": "Grants permission to perform a manual search against the specified assistant",
       "accessLevel": "Read",
+      "resourceTypes": [
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RemoveAssistantAIAgent",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_RemoveAssistantAIAgent.html",
+      "description": "Grants permission to remove an ai agent from an assistant",
+      "accessLevel": "Write",
       "resourceTypes": [
         "Assistant*"
       ],
@@ -683,6 +870,41 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateAIAgent",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateAIAgent.html",
+      "description": "Grants permission to update information about an ai agent",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AIAgent*",
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAIPrompt",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateAIPrompt.html",
+      "description": "Grants permission to update information about an ai prompt",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AIPrompt*",
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAssistantAIAgent",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateAssistantAIAgent.html",
+      "description": "Grants permission to update assistant information about an ai agent",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateContent",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateContent.html",
       "description": "Grants permission to update information about the content",
@@ -745,6 +967,18 @@
       "name": "UpdateSession",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateSession.html",
       "description": "Grants permission to update a session",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Assistant*",
+        "Session*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSessionData",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateSessionData.html",
+      "description": "Grants permission to update data stored in a session",
       "accessLevel": "Write",
       "resourceTypes": [
         "Assistant*",
