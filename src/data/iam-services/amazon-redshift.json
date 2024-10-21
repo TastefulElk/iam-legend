@@ -71,6 +71,17 @@
       "dependentActions": []
     },
     {
+      "name": "AuthorizeInboundIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/zero-etl-using.setting-up.html",
+      "description": "Grants permission to Amazon Redshift to continuously validate that the target data warehouse can receive data replicated from the source ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "integration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "AuthorizeSnapshotAccess",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeSnapshotAccess.html",
       "description": "Grants permission to the specified AWS account to restore a snapshot",
@@ -316,6 +327,34 @@
       "dependentActions": []
     },
     {
+      "name": "CreateInboundIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/zero-etl-using.setting-up.html",
+      "description": "Grants permission to the source principal to create an inbound integration for data to be replicated from the source into the target data warehouse",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateIntegration.html",
+      "description": "Grants permission to create an Amazon Redshift zero-ETL integration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "integration*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "redshift:IntegrationSourceArn",
+        "redshift:IntegrationTargetArn"
+      ],
+      "dependentActions": [
+        "kms:CreateGrant",
+        "kms:DescribeKey"
+      ]
+    },
+    {
       "name": "CreateQev2IdcApplication",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html",
       "description": "Grants permission to create a qev2 idc application",
@@ -399,6 +438,7 @@
         "eventsubscription",
         "hsmclientcertificate",
         "hsmconfiguration",
+        "integration",
         "parametergroup",
         "securitygroup",
         "securitygroupingress-cidr",
@@ -560,6 +600,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteIntegration.html",
+      "description": "Grants permission to delete an Amazon Redshift zero-ETL integration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "integration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeletePartner",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DeletePartner.html",
       "description": "Grants permission to delete a partner integration from a cluster",
@@ -655,6 +708,7 @@
         "eventsubscription",
         "hsmclientcertificate",
         "hsmconfiguration",
+        "integration",
         "parametergroup",
         "securitygroup",
         "securitygroupingress-cidr",
@@ -902,6 +956,19 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeIntegrations",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeIntegrations.html",
+      "description": "Grants permission to describe an Amazon Redshift zero-ETL integration",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "integration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeLoggingStatus",
       "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeLoggingStatus.html",
       "description": "Grants permission to describe whether information, such as queries and connection attempts, is being logged for a cluster",
@@ -1082,6 +1149,7 @@
         "eventsubscription",
         "hsmclientcertificate",
         "hsmconfiguration",
+        "integration",
         "parametergroup",
         "securitygroup",
         "securitygroupingress-cidr",
@@ -1459,6 +1527,19 @@
         "eventsubscription*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyIntegration.html",
+      "description": "Grants permission to modify an Amazon Redshift zero-ETL integration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "integration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
