@@ -4,6 +4,17 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsdataexchange.html",
   "actions": [
     {
+      "name": "AcceptDataGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_AcceptDataGrant.html",
+      "description": "Grants permission to accept a data grant",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "data-grants*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CancelJob",
       "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_CancelJob.html",
       "description": "Grants permission to cancel a job",
@@ -24,6 +35,20 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "CreateDataGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_CreateDataGrant.html",
+      "description": "Grants permission to create a data grant",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "dataexchange:PublishToDataGrant"
+      ]
     },
     {
       "name": "CreateDataSet",
@@ -81,6 +106,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteDataGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_DeleteDataGrant.html",
+      "description": "Grants permission to delete a data grant",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "data-grants*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteDataSet",
       "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_DeleteDataSet.html",
       "description": "Grants permission to delete a data set",
@@ -127,6 +163,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetDataGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetDataGrant.html",
+      "description": "Grants permission to get a data grant",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "data-grants*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetDataSet",
       "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetDataSet.html",
       "description": "Grants permission to get information about a data set",
@@ -161,6 +208,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetReceivedDataGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetReceivedDataGrant.html",
+      "description": "Grants permission to get a received data grant",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "data-grants*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetRevision",
       "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_GetRevision.html",
       "description": "Grants permission to get information about a revision",
@@ -169,6 +227,15 @@
         "entitled-revisions*",
         "revisions*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDataGrants",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListDataGrants.html",
+      "description": "Grants permission to list data grants for the account",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -212,6 +279,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListReceivedDataGrants",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListReceivedDataGrants.html",
+      "description": "Grants permission to list received data grants for the account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListRevisionAssets",
       "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/apireference/API_ListRevisionAssets.html",
       "description": "Grants permission to get list the assets of a revision",
@@ -229,6 +305,7 @@
       "description": "Grants permission to list the tags that you associated with the specified resource",
       "accessLevel": "List",
       "resourceTypes": [
+        "data-grants",
         "data-sets",
         "revisions"
       ],
@@ -238,7 +315,18 @@
     {
       "name": "PublishDataSet",
       "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/userguide/api-permissions-ref.html",
-      "description": "Grants permission to publish a data set",
+      "description": "Grants permission to publish a data set to a product",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "data-sets*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PublishToDataGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/data-exchange/latest/userguide/api-permissions-ref.html",
+      "description": "Grants permission to publish a data set to a data grant",
       "accessLevel": "Write",
       "resourceTypes": [
         "data-sets*"
@@ -305,6 +393,7 @@
       "description": "Grants permission to add one or more tags to a specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "data-grants",
         "data-sets",
         "revisions"
       ],
@@ -320,6 +409,7 @@
       "description": "Grants permission to remove one or more tags from a specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "data-grants",
         "data-sets",
         "revisions"
       ],
@@ -371,7 +461,8 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "dataexchange:PublishDataSet"
+        "dataexchange:PublishDataSet",
+        "dataexchange:PublishToDataGrant"
       ]
     }
   ]
