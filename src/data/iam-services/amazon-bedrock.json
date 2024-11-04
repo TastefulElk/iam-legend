@@ -195,6 +195,22 @@
       "dependentActions": []
     },
     {
+      "name": "CreateInferenceProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateInferenceProfile.html",
+      "description": "Grants permission to create inference profiles",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application-inference-profile*",
+        "foundation-model*",
+        "inference-profile*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateKnowledgeBase",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html",
       "description": "Grants permission to create a knowledge base",
@@ -461,6 +477,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteInferenceProfile",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteInferenceProfile.html",
+      "description": "Grants permission to delete inference profiles",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application-inference-profile*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteKnowledgeBase",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeleteKnowledgeBase.html",
       "description": "Grants permission to delete a knowledge base",
@@ -718,6 +745,7 @@
       "description": "Grants permission to get the properties associated with an inference profile",
       "accessLevel": "Read",
       "resourceTypes": [
+        "application-inference-profile*",
         "inference-profile*"
       ],
       "conditionKeys": [],
@@ -889,6 +917,7 @@
       "description": "Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body",
       "accessLevel": "Read",
       "resourceTypes": [
+        "application-inference-profile*",
         "foundation-model*",
         "imported-model*",
         "inference-profile*",
@@ -905,6 +934,7 @@
       "description": "Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body with streaming response",
       "accessLevel": "Read",
       "resourceTypes": [
+        "application-inference-profile*",
         "foundation-model*",
         "imported-model*",
         "inference-profile*",
@@ -1168,6 +1198,7 @@
       "resourceTypes": [
         "agent*",
         "agent-alias*",
+        "application-inference-profile*",
         "custom-model*",
         "evaluation-job*",
         "flow*",
@@ -1333,6 +1364,7 @@
       "resourceTypes": [
         "agent",
         "agent-alias",
+        "application-inference-profile",
         "custom-model",
         "evaluation-job",
         "flow",
@@ -1363,6 +1395,7 @@
       "resourceTypes": [
         "agent",
         "agent-alias",
+        "application-inference-profile",
         "custom-model",
         "evaluation-job",
         "flow",
