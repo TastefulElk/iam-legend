@@ -96,6 +96,19 @@
       "dependentActions": []
     },
     {
+      "name": "BatchDeleteClusterNodes",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_BatchDeleteClusterNodes.html",
+      "description": "Grants permission to batch delete SageMaker HyperPod cluster nodes",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "eks:DescribeCluster"
+      ]
+    },
+    {
       "name": "BatchDescribeModelPackage",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_BatchDescribeModelPackage.html",
       "description": "Grants permission to describe one or more ModelPackages",
@@ -4148,7 +4161,8 @@
         "eks:DeleteAccessEntry",
         "eks:DescribeAccessEntry",
         "eks:DescribeCluster",
-        "iam:PassRole"
+        "iam:PassRole",
+        "sagemaker:BatchDeleteClusterNodes"
       ]
     },
     {

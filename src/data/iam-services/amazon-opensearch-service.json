@@ -38,6 +38,7 @@
       "description": "Grants permission to attach resource tags to an OpenSearch Service domain",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "application*",
         "domain*"
       ],
       "conditionKeys": [
@@ -97,6 +98,18 @@
         "domain*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateApplication.html",
+      "description": "Grants permission to create an OpenSearch Application",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -182,6 +195,17 @@
       "description": "Grants permission to create an Amazon OpenSearch Service-managed VPC endpoint",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteApplication.html",
+      "description": "Grants permission to delete an OpenSearch Application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -599,6 +623,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetApplication.html",
+      "description": "Grants permission to get information about an OpenSearch Application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetCompatibleElasticsearchVersions",
       "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetCompatibleVersions.html",
       "description": "Grants permission to fetch a list of compatible OpenSearch and Elasticsearch versions to which an OpenSearch Service domain can be upgraded. This permission is deprecated. Use GetCompatibleVersions instead",
@@ -669,6 +704,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListApplications",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListApplications.html",
+      "description": "Grants permission to list OpenSearch Applications",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "application*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -777,6 +823,7 @@
       "description": "Grants permission to display all resource tags for an OpenSearch Service domain",
       "accessLevel": "Read",
       "resourceTypes": [
+        "application*",
         "domain*"
       ],
       "conditionKeys": [],
@@ -860,6 +907,7 @@
       "description": "Grants permission to remove resource tags from an OpenSearch Service domain",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "application*",
         "domain*"
       ],
       "conditionKeys": [
@@ -905,6 +953,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateApplication.html",
+      "description": "Grants permission to update an OpenSearch Application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
       ],
       "conditionKeys": [],
       "dependentActions": []

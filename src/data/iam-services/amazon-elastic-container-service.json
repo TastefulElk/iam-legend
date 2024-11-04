@@ -225,6 +225,42 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeServiceDeployments",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServiceDeployments.html",
+      "description": "Grants permission to describe one or more of your service deployments",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "service*",
+        "service-deployment*"
+      ],
+      "conditionKeys": [
+        "ecs:cluster",
+        "aws:ResourceTag/${TagKey}",
+        "ecs:cluster",
+        "ecs:service",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeServiceRevisions",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServiceRevisions.html",
+      "description": "Grants permission to describe one or more of your service revisions",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "service*",
+        "service-revision*"
+      ],
+      "conditionKeys": [
+        "ecs:cluster",
+        "aws:ResourceTag/${TagKey}",
+        "ecs:cluster",
+        "ecs:service",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeServices",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html",
       "description": "Grants permission to describe the specified services running in your cluster",
@@ -357,6 +393,20 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListServiceDeployments",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServiceDeployments.html",
+      "description": "Grants permission to get a list of service deployments for a specified service",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "service*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ecs:cluster"
       ],
       "dependentActions": []
     },
