@@ -66,6 +66,7 @@
         "monitoring-schedule",
         "notebook-instance",
         "optimization-job",
+        "partner-app",
         "pipeline",
         "processing-job",
         "project",
@@ -1016,6 +1017,33 @@
       ]
     },
     {
+      "name": "CreatePartnerApp",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreatePartnerApp.html",
+      "description": "Grants permission to create an Amazon SageMaker Partner AI App",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "partner-app*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
+    },
+    {
+      "name": "CreatePartnerAppPresignedUrl",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreatePartnerAppPresignedUrl.html",
+      "description": "Grants permission to return a URL that you can use from your browser to connect to the Amazon SageMaker Partner AI App",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "partner-app*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreatePipeline",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreatePipeline.html",
       "description": "Grants permission to create a pipeline",
@@ -1788,6 +1816,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeletePartnerApp",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeletePartnerApp.html",
+      "description": "Grants permission to delete an Amazon SageMaker Partner AI App",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "partner-app*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeletePipeline",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeletePipeline.html",
       "description": "Grants permission to delete a pipeline",
@@ -1902,6 +1941,7 @@
         "monitoring-schedule",
         "notebook-instance",
         "optimization-job",
+        "partner-app",
         "pipeline",
         "processing-job",
         "project",
@@ -2529,6 +2569,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "optimization-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribePartnerApp",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribePartnerApp.html",
+      "description": "Grants permission to describe an Amazon SageMaker Partner AI App",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "partner-app*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -3275,9 +3326,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListMlflowTrackingServers.html",
       "description": "Grants permission to list MLflow tracking servers",
       "accessLevel": "List",
-      "resourceTypes": [
-        "mlflow-tracking-server*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -3435,6 +3484,15 @@
       "name": "ListOptimizationJobs",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListOptimizationJobs.html",
       "description": "Grants permission to list optimization jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPartnerApps",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListPartnerApps.html",
+      "description": "Grants permission to list the Amazon SageMaker Partner AI Apps in your account",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -3622,6 +3680,7 @@
         "monitoring-schedule",
         "notebook-instance",
         "optimization-job",
+        "partner-app",
         "pipeline",
         "processing-job",
         "project",
@@ -4461,6 +4520,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "notebook-instance-lifecycle-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePartnerApp",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdatePartnerApp.html",
+      "description": "Grants permission to update an Amazon SageMaker Partner AI App",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "partner-app*"
       ],
       "conditionKeys": [],
       "dependentActions": []

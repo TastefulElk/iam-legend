@@ -128,6 +128,21 @@
       "dependentActions": []
     },
     {
+      "name": "CreateStateTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateStateTemplate.html",
+      "description": "Grants permission to create a state template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "signalcatalog*",
+        "statetemplate*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateVehicle",
       "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_CreateVehicle.html",
       "description": "Grants permission to create a vehicle",
@@ -202,6 +217,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteStateTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_DeleteStateTemplate.html",
+      "description": "Grants permission to delete a state template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "statetemplate*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteVehicle",
       "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_DeleteVehicle.html",
       "description": "Grants permission to delete a vehicle",
@@ -222,6 +248,20 @@
         "vehicle*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GenerateCommandPayload",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/controlling-access.html#generate-command-payload",
+      "description": "Grants permission to generate the payload for running a command on a vehicle",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "vehicle*",
+        "statetemplate"
+      ],
+      "conditionKeys": [
+        "iotfleetwise:Signals"
+      ],
       "dependentActions": []
     },
     {
@@ -302,6 +342,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "signalcatalog*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetStateTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_GetStateTemplate.html",
+      "description": "Grants permission to get summary information for a given state template",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "statetemplate*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -454,6 +505,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListStateTemplates",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListStateTemplates.html",
+      "description": "Grants permission to list state templates",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to list tags for a resource",
@@ -529,6 +589,7 @@
         "fleet",
         "modelmanifest",
         "signalcatalog",
+        "statetemplate",
         "vehicle"
       ],
       "conditionKeys": [
@@ -548,6 +609,7 @@
         "fleet",
         "modelmanifest",
         "signalcatalog",
+        "statetemplate",
         "vehicle"
       ],
       "conditionKeys": [
@@ -606,6 +668,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "signalcatalog*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateStateTemplate",
+      "documentationUrl": "https://docs.aws.amazon.com/iot-fleetwise/latest/APIReference/API_UpdateStateTemplate.html",
+      "description": "Grants permission to update the given state template",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "statetemplate*"
       ],
       "conditionKeys": [],
       "dependentActions": []

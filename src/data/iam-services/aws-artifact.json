@@ -5,8 +5,19 @@
   "actions": [
     {
       "name": "AcceptAgreement",
-      "documentationUrl": "https://docs.aws.amazon.com/artifact/latest/ug/managing-agreements.html",
+      "documentationUrl": "https://docs.aws.amazon.com/artifact/latest/APIReference/API_AcceptAgreement.html",
       "description": "Grants permission to accept an AWS agreement that has not yet been accepted by the customer account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agreement*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AcceptNdaForAgreement",
+      "documentationUrl": "https://docs.aws.amazon.com/artifact/latest/APIReference/API_AcceptNdaForAgreement.html",
+      "description": "Grants permission to accept the terms of an NDA Document for a given agreement resource",
       "accessLevel": "Write",
       "resourceTypes": [
         "agreement*"
@@ -47,6 +58,39 @@
       "dependentActions": []
     },
     {
+      "name": "GetAgreement",
+      "documentationUrl": "https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetAgreement.html",
+      "description": "Grants permission to get an AWS agreement that has not yet been accepted by the customer account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "agreement*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCustomerAgreement",
+      "documentationUrl": "https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetCustomerAgreement.html",
+      "description": "Grants permission to get an AWS agreement that has been accepted by the customer account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "customer-agreement*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetNdaForAgreement",
+      "documentationUrl": "https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetNdaForAgreement.html",
+      "description": "Grants permission to retrieve the NDA Document for a given agreement resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "agreement*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetReport",
       "documentationUrl": "https://docs.aws.amazon.com/artifact/latest/APIReference/API_GetReport.html",
       "description": "Grants permission to download a report",
@@ -80,6 +124,24 @@
       "dependentActions": []
     },
     {
+      "name": "ListAgreements",
+      "documentationUrl": "https://docs.aws.amazon.com/artifact/latest/APIReference/API_ListAgreements.html",
+      "description": "Grants permission to list AWS agreements",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCustomerAgreements",
+      "documentationUrl": "https://docs.aws.amazon.com/artifact/latest/APIReference/API_ListCustomerAgreements.html",
+      "description": "Grants permission to list customer-agreement resources that have been accepted by the customer account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListReports",
       "documentationUrl": "https://docs.aws.amazon.com/artifact/latest/APIReference/API_ListReports.html",
       "description": "Grants permission to list reports in your account",
@@ -99,7 +161,7 @@
     },
     {
       "name": "TerminateAgreement",
-      "documentationUrl": "https://docs.aws.amazon.com/artifact/latest/ug/managing-agreements.html",
+      "documentationUrl": "https://docs.aws.amazon.com/artifact/latest/APIReference/API_TerminateAgreement.html",
       "description": "Grants permission to terminate a customer agreement that was previously accepted by the customer account",
       "accessLevel": "Write",
       "resourceTypes": [

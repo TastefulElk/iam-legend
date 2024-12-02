@@ -265,6 +265,15 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeCapacityReservation",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeCapacityReservation.html",
+      "description": "Grants permission to describe the capacity reservation for a load balancer",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeListenerAttributes",
       "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeListenerAttributes.html",
       "description": "Grants permission to describe the attributes for the specified listener",
@@ -425,6 +434,21 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "truststore*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "elasticloadbalancing:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyCapacityReservation",
+      "documentationUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_ModifyCapacityReservation.html",
+      "description": "Grants permission to modify the capacity reservation for a load balancer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "loadbalancer/app/",
+        "loadbalancer/net/"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
