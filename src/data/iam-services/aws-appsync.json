@@ -37,6 +37,21 @@
       "dependentActions": []
     },
     {
+      "name": "CreateApi",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateApi.html",
+      "description": "Grants permission to create an API",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
       "name": "CreateApiCache",
       "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateApiCache.html",
       "description": "Grants permission to create an API cache in AppSync",
@@ -52,6 +67,21 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateChannelNamespace",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_CreateChannelNamespace.html",
+      "description": "Grants permission to create a channel namespace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channelNamespace*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -115,6 +145,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteApi",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteApi.html",
+      "description": "Grants permission to delete a API. This will also clean up every AppSync resource below that API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "api*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteApiCache",
       "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteApiCache.html",
       "description": "Grants permission to delete an API cache in AppSync",
@@ -130,6 +173,19 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteChannelNamespace",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_DeleteChannelNamespace.html",
+      "description": "Grants permission to delete a channel namespace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channelNamespace*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -253,12 +309,58 @@
       "dependentActions": []
     },
     {
+      "name": "EventConnect",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/devguide/using-your-event-api.html",
+      "description": "Grants permission to connect to an Event API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "api*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "EventPublish",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/devguide/using-your-event-api.html",
+      "description": "Grants permission to publish events to a channel namespace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channelNamespace*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "EventSubscribe",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/devguide/using-your-event-api.html",
+      "description": "Grants permission to subscribe to a channel namespace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channelNamespace*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "FlushApiCache",
       "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_FlushApiCache.html",
       "description": "Grants permission to flush an API cache in AppSync",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetApi",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetApi.html",
+      "description": "Grants permission to retrieve an API",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "api*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -279,6 +381,19 @@
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetChannelNamespace",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_GetChannelNamespace.html",
+      "description": "Grants permission to retrieve a channel namespace",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "channelNamespace*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -419,6 +534,30 @@
       "dependentActions": []
     },
     {
+      "name": "ListApis",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListApis.html",
+      "description": "Grants permission to list APIs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListChannelNamespaces",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListChannelNamespaces.html",
+      "description": "Grants permission to list channel namespace",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "api*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListDataSources",
       "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_ListDataSources.html",
       "description": "Grants permission to list the data sources for a given API",
@@ -487,6 +626,8 @@
       "description": "Grants permission to list the tags for a resource",
       "accessLevel": "Read",
       "resourceTypes": [
+        "api",
+        "channelNamespace",
         "graphqlapi"
       ],
       "conditionKeys": [
@@ -586,7 +727,11 @@
       "description": "Grants permission to tag a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "api*",
+        "channelNamespace*",
         "graphqlapi*",
+        "api",
+        "channelNamespace",
         "graphqlapi"
       ],
       "conditionKeys": [
@@ -602,13 +747,33 @@
       "description": "Grants permission to untag a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "api*",
+        "channelNamespace*",
         "graphqlapi*",
+        "api",
+        "channelNamespace",
         "graphqlapi"
       ],
       "conditionKeys": [
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
+    },
+    {
+      "name": "UpdateApi",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_UpdateApi.html",
+      "description": "Grants permission to update an API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "api*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
     },
     {
       "name": "UpdateApiCache",
@@ -626,6 +791,19 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateChannelNamespace",
+      "documentationUrl": "https://docs.aws.amazon.com/appsync/latest/APIReference/API_UpdateChannelNamespace.html",
+      "description": "Grants permission to update a channel namespace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "channelNamespace*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {

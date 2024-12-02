@@ -81,7 +81,10 @@
       "resourceTypes": [
         "table*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -356,6 +359,15 @@
       "resourceTypes": [
         "table*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAbacStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/abac-enable-ddb.html",
+      "description": "Grants permission to view the status of Attribute Based Access Control for the account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -702,7 +714,10 @@
       "resourceTypes": [
         "table*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -713,6 +728,17 @@
       "resourceTypes": [
         "table*"
       ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAbacStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/abac-enable-ddb.html",
+      "description": "Grants permission to update the status of Attribute Based Access Control for the account",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },

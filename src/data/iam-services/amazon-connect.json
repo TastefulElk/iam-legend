@@ -32,6 +32,19 @@
       ]
     },
     {
+      "name": "AssociateAnalyticsDataSet",
+      "documentationUrl": "API_AssociateAnalyticsDataSet.html",
+      "description": "Grants permission to grant access and to associate a dataset with the specified AWS account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateApprovedOrigin",
       "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
       "description": "Grants permission to associate approved origin for an existing Amazon Connect instance",
@@ -261,7 +274,7 @@
     },
     {
       "name": "BatchAssociateAnalyticsDataSet",
-      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/adminguide/optimization-apis.html",
+      "documentationUrl": "API_BatchAssociateAnalyticsDataSet.html",
       "description": "Grants permission to grant access and to associate the datasets with the specified AWS account",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -274,7 +287,7 @@
     },
     {
       "name": "BatchDisassociateAnalyticsDataSet",
-      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/adminguide/optimization-apis.html",
+      "documentationUrl": "API_BatchDisassociateAnalyticsDataSet.html",
       "description": "Grants permission to revoke access and to disassociate the datasets with the specified AWS account",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -399,7 +412,8 @@
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
-        "connect:InstanceId"
+        "connect:InstanceId",
+        "connect:FlowType"
       ],
       "dependentActions": []
     },
@@ -415,6 +429,21 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateContactFlowVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateContactFlowVersion.html",
+      "description": "Grants permission to create a version a flow in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId",
+        "connect:FlowType"
       ],
       "dependentActions": []
     },
@@ -836,7 +865,8 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "connect:InstanceId"
+        "connect:InstanceId",
+        "connect:FlowType"
       ],
       "dependentActions": []
     },
@@ -1210,7 +1240,8 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "connect:InstanceId"
+        "connect:InstanceId",
+        "connect:FlowType"
       ],
       "dependentActions": []
     },
@@ -1517,6 +1548,19 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateAnalyticsDataSet",
+      "documentationUrl": "API_DisassociateAnalyticsDataSet.html",
+      "description": "Grants permission to revoke access and to disassociate a dataset with the specified AWS account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
         "connect:InstanceId"
       ],
       "dependentActions": []
@@ -1933,6 +1977,19 @@
       "dependentActions": []
     },
     {
+      "name": "ListAnalyticsDataAssociations",
+      "documentationUrl": "API_ListAnalyticsDataAssociations.html",
+      "description": "Grants permission to list the association status of a dataset for a given Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListApprovedOrigins",
       "documentationUrl": "https://docs.aws.amazon.com/console/connect/amazon-connect-console/grant-instance-permissions",
       "description": "Grants permission to view approved origins of an existing Amazon Connect instance",
@@ -1993,6 +2050,21 @@
         "instance*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListContactFlowVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListContactFlowVersions.html",
+      "description": "Grants permission to list all the versions a flow in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "contact-flow*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId",
+        "connect:FlowType"
+      ],
       "dependentActions": []
     },
     {
@@ -2696,7 +2768,8 @@
       ],
       "conditionKeys": [
         "connect:InstanceId",
-        "connect:SearchTag/${TagKey}"
+        "connect:SearchTag/${TagKey}",
+        "connect:FlowType"
       ],
       "dependentActions": [
         "connect:DescribeContactFlow"
@@ -3012,6 +3085,23 @@
       "dependentActions": []
     },
     {
+      "name": "StartOutboundChatContact",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundChatContact.html",
+      "description": "Grants permission to initiate an outbound chat using the Amazon Connect API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow*",
+        "instance*",
+        "contact",
+        "phone-number"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "connect:Subtype"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "StartOutboundVoiceContact",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundVoiceContact.html",
       "description": "Grants permission to initiate outbound calls using the Amazon Connect API",
@@ -3020,6 +3110,20 @@
         "contact*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartScreenSharing",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_StartScreenSharing.html",
+      "description": "Grants permission to start screen sharing for contact",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact*",
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
       "dependentActions": []
     },
     {
@@ -3035,7 +3139,8 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "connect:InstanceId"
+        "connect:InstanceId",
+        "connect:AssignmentType"
       ],
       "dependentActions": []
     },
@@ -3312,7 +3417,8 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "connect:InstanceId"
+        "connect:InstanceId",
+        "connect:FlowType"
       ],
       "dependentActions": []
     },
@@ -3326,7 +3432,8 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "connect:InstanceId"
+        "connect:InstanceId",
+        "connect:FlowType"
       ],
       "dependentActions": []
     },
@@ -3368,7 +3475,8 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
-        "connect:InstanceId"
+        "connect:InstanceId",
+        "connect:FlowType"
       ],
       "dependentActions": []
     },

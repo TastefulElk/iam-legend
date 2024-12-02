@@ -6,10 +6,11 @@
     {
       "name": "AddTags",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AddTags.html",
-      "description": "Grants permission to add one or more tags to a trail, event data store, or channel, up to a limit of 50",
+      "description": "Grants permission to add one or more tags to a trail, event data store, channel or dashboard, up to a limit of 50",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "channel",
+        "dashboard",
         "eventdatastore",
         "trail"
       ],
@@ -45,6 +46,24 @@
       ],
       "dependentActions": [
         "cloudtrail:AddTags"
+      ]
+    },
+    {
+      "name": "CreateDashboard",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_CreateDashboard.html",
+      "description": "Grants permission to create a dashboard",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dashboard*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "cloudtrail:AddTags",
+        "cloudtrail:StartDashboardRefresh",
+        "cloudtrail:StartQuery"
       ]
     },
     {
@@ -110,6 +129,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteDashboard",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteDashboard.html",
+      "description": "Grants permission to delete a dashboard",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dashboard*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteEventDataStore",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteEventDataStore.html",
       "description": "Grants permission to delete an event data store",
@@ -126,7 +156,9 @@
       "description": "Grants permission to delete a resource policy from the provided resource",
       "accessLevel": "Write",
       "resourceTypes": [
-        "channel*"
+        "channel",
+        "dashboard",
+        "eventdatastore"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -232,12 +264,38 @@
       "dependentActions": []
     },
     {
+      "name": "GenerateQueryResultsSummary",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-results-summary.html",
+      "description": "Grants permission to generate a results summary for specified queries using the CloudTrail natural language generator",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "eventdatastore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "cloudtrail:GetQueryResults",
+        "kms:Decrypt",
+        "kms:GenerateDataKey"
+      ]
+    },
+    {
       "name": "GetChannel",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetChannel.html",
       "description": "Grants permission to return information about a specific channel",
       "accessLevel": "Read",
       "resourceTypes": [
         "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDashboard",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_GetDashboard.html",
+      "description": "Grants permission to list settings for the dashboard",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dashboard*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -319,7 +377,9 @@
       "description": "Grants permission to get the resource policy attached to the provided resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "channel*"
+        "channel",
+        "dashboard",
+        "eventdatastore"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -361,6 +421,15 @@
       "name": "ListChannels",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListChannels.html",
       "description": "Grants permission to list the channels in the current account, and their source names",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDashboards",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListDashboards.html",
+      "description": "Grants permission to list dashboards associated with the current region for your account",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -425,10 +494,11 @@
     {
       "name": "ListTags",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_ListTags.html",
-      "description": "Grants permission to list the tags for trails, event data stores, or channels in the current region",
+      "description": "Grants permission to list the tags for trails, event data stores, channels or dashboards in the current region",
       "accessLevel": "Read",
       "resourceTypes": [
         "channel",
+        "dashboard",
         "eventdatastore",
         "trail"
       ],
@@ -482,7 +552,9 @@
       "description": "Grants permission to attach a resource policy to the provided resource",
       "accessLevel": "Write",
       "resourceTypes": [
-        "channel*"
+        "channel",
+        "dashboard",
+        "eventdatastore"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -504,10 +576,11 @@
     {
       "name": "RemoveTags",
       "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_RemoveTags.html",
-      "description": "Grants permission to remove tags from a trail, event data store, or channel",
+      "description": "Grants permission to remove tags from a trail, event data store, channel or dashboard",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "channel",
+        "dashboard",
         "eventdatastore",
         "trail"
       ],
@@ -526,6 +599,19 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "StartDashboardRefresh",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartDashboardRefresh.html",
+      "description": "Grants permission to start a refresh on the specified dashboard",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dashboard*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "cloudtrail:StartQuery"
+      ]
     },
     {
       "name": "StartEventDataStoreIngestion",
@@ -613,6 +699,20 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "UpdateDashboard",
+      "documentationUrl": "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_UpdateDashboard.html",
+      "description": "Grants permission to update a dashboard",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dashboard*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "cloudtrail:StartDashboardRefresh",
+        "cloudtrail:StartQuery"
+      ]
     },
     {
       "name": "UpdateEventDataStore",

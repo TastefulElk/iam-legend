@@ -61,6 +61,7 @@
         "proxy-endpoint",
         "ri",
         "secgrp",
+        "shardgrp",
         "snapshot",
         "snapshot-tenant-database",
         "subgrp",
@@ -482,8 +483,13 @@
         "cluster*",
         "shardgrp*"
       ],
-      "conditionKeys": [],
-      "dependentActions": []
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "rds:AddTagsToResource"
+      ]
     },
     {
       "name": "CreateDBSnapshot",
@@ -1472,6 +1478,7 @@
         "proxy-endpoint",
         "ri",
         "secgrp",
+        "shardgrp",
         "snapshot",
         "snapshot-tenant-database",
         "subgrp",
@@ -1934,6 +1941,7 @@
         "proxy-endpoint",
         "ri",
         "secgrp",
+        "shardgrp",
         "snapshot",
         "snapshot-tenant-database",
         "subgrp",
