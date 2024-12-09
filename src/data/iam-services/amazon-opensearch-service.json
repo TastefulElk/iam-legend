@@ -33,12 +33,27 @@
       "dependentActions": []
     },
     {
+      "name": "AddDirectQueryDataSource",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AddDirectQueryDataSource.html",
+      "description": "Grants permission to add the data source for the provided OpenSearch arns",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "datasource*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "AddTags",
       "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AddTags.html",
-      "description": "Grants permission to attach resource tags to an OpenSearch Service domain",
+      "description": "Grants permission to attach resource tags to an OpenSearch Service domain, data source, or application",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "application*",
+        "datasource*",
         "domain*"
       ],
       "conditionKeys": [
@@ -51,6 +66,17 @@
       "name": "AssociatePackage",
       "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AssociatePackage.html",
       "description": "Grants permission to associate a package with an OpenSearch Service domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociatePackages",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AssociatePackages.html",
+      "description": "Grants permission to associate multiple packages with an OpenSearch Service domain",
       "accessLevel": "Write",
       "resourceTypes": [
         "domain*"
@@ -216,6 +242,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDirectQueryDataSource",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DeleteDirectQueryDataSource.html",
+      "description": "Grants permission to delete the data source for the provided OpenSearch arns",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "datasource*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -546,6 +583,17 @@
       "dependentActions": []
     },
     {
+      "name": "DissociatePackages",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DissociatePackages.html",
+      "description": "Grants permission to disassociate multiple packages from the specified OpenSearch Service domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ESCrossClusterGet",
       "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/Welcome.html",
       "description": "Grants permission to send cross-cluster requests to a destination domain",
@@ -667,6 +715,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetDirectQueryDataSource",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetDirectQueryDataSource.html",
+      "description": "Grants permission to get the data source for the provided OpenSearch arns",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "datasource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetDomainMaintenanceStatus",
       "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_GetDomainMaintenanceStatus.html",
       "description": "Grants permission to retrieve the status of maintenance action for the node",
@@ -726,6 +785,17 @@
       "accessLevel": "List",
       "resourceTypes": [
         "domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDirectQueryDataSources",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListDirectQueryDataSources.html",
+      "description": "Grants permission to retrieve a list of data source for the provided OpenSearch arns",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "datasource*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -820,10 +890,11 @@
     {
       "name": "ListTags",
       "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListTags.html",
-      "description": "Grants permission to display all resource tags for an OpenSearch Service domain",
+      "description": "Grants permission to display all resource tags for an OpenSearch Service domain, data source, or application",
       "accessLevel": "Read",
       "resourceTypes": [
         "application*",
+        "datasource*",
         "domain*"
       ],
       "conditionKeys": [],
@@ -904,10 +975,11 @@
     {
       "name": "RemoveTags",
       "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_RemoveTags.html",
-      "description": "Grants permission to remove resource tags from an OpenSearch Service domain",
+      "description": "Grants permission to remove resource tags from an OpenSearch Service domain, data source, or application",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "application*",
+        "datasource*",
         "domain*"
       ],
       "conditionKeys": [
@@ -980,6 +1052,17 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateDirectQueryDataSource",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateDirectQueryDataSource.html",
+      "description": "Grants permission to update the data source for the provided OpenSearch arns",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "datasource*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateDomainConfig",
       "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateDomainConfig.html",
       "description": "Grants permission to modify the configuration of an OpenSearch Service domain, such as the instance type or number of instances",
@@ -1005,6 +1088,15 @@
       "name": "UpdatePackage",
       "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdatePackage.html",
       "description": "Grants permission to update a package for use with OpenSearch Service domains",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePackageScope",
+      "documentationUrl": "https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdatePackageScope.html",
+      "description": "Grants permission to update scope a package",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],

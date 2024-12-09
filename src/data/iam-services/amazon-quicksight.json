@@ -104,11 +104,27 @@
       "dependentActions": []
     },
     {
+      "name": "CreateBrand",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateBrand.html",
+      "description": "Grants permission to create an Amazon QuickSight brand",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "brand*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateCustomPermissions",
-      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html",
-      "description": "Grants permission to create a custom permissions resource for restricting user access",
-      "accessLevel": "Permissions management",
-      "resourceTypes": [],
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateCustomPermissions.html",
+      "description": "Grants permission to create a QuickSight custom permissions resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "custompermissions*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -290,7 +306,10 @@
       "description": "Grants permission to add a group member to a role",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "quicksight:Group",
+        "identitystore:GroupId"
+      ],
       "dependentActions": []
     },
     {
@@ -435,10 +454,30 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteBrand",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteBrand.html",
+      "description": "Grants permission to delete an Amazon QuickSight brand",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "brand*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteBrandAssignment",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteBrandAssignment.html",
+      "description": "Grants permission to delete a brand assignment",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteCustomPermissions",
-      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html",
-      "description": "Grants permission to delete a custom permissions resource",
-      "accessLevel": "Permissions management",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteCustomPermissions.html",
+      "description": "Grants permission to delete a QuickSight custom permissions resource",
+      "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -491,6 +530,15 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDefaultQBusinessApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteDefaultQBusinessApplication.html",
+      "description": "Grants permission to delete linked QBusiness application for QuickSight account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -612,7 +660,10 @@
       "description": "Grants permission to remove a group member from a role",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "quicksight:Group",
+        "identitystore:GroupId"
+      ],
       "dependentActions": []
     },
     {
@@ -699,6 +750,17 @@
       "name": "DeleteUserByPrincipalId",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteUserByPrincipalId.html",
       "description": "Grants permission to deletes a user identified by its principal ID",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteUserCustomPermission",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DeleteUserCustomPermission.html",
+      "description": "Grants permission to remove the custom permission associated with a user",
       "accessLevel": "Write",
       "resourceTypes": [
         "user*"
@@ -796,11 +858,44 @@
       "dependentActions": []
     },
     {
-      "name": "DescribeCustomPermissions",
-      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html",
-      "description": "Grants permission to describe a custom permissions resource in a QuickSight account",
-      "accessLevel": "Write",
+      "name": "DescribeBrand",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeBrand.html",
+      "description": "Grants permission to describe a brand",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "brand*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeBrandAssignment",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeBrandAssignment.html",
+      "description": "Grants permission to describe a brand assignment",
+      "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeBrandPublishedVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeBrandPublishedVersion.html",
+      "description": "Grants permission to describes the published version of the brand",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "brand*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCustomPermissions",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeCustomPermissions.html",
+      "description": "Grants permission to describe a custom permissions resource in a QuickSight account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "custompermissions*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -845,6 +940,15 @@
       "resourceTypes": [
         "dashboardSnapshotJob*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDashboardsQAConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboardsQAConfiguration.html",
+      "description": "Grants permission to describe dashboards qa configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -913,6 +1017,15 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDefaultQBusinessApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDefaultQBusinessApplication.html",
+      "description": "Grants permission to describe linked QBusiness application Id for QuickSight account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -1041,6 +1154,15 @@
       "name": "DescribeQPersonalizationConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeQPersonalizationConfiguration.html",
       "description": "Grants permission to describe a personalization configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeQuickSightQSearchConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeQuickSightQSearchConfiguration.html",
+      "description": "Grants permission to describe QuickSight Q Search configuration",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -1242,6 +1364,17 @@
       "dependentActions": []
     },
     {
+      "name": "GenerateEmbedUrlForRegisteredUserWithIdentity",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUserWithIdentity.html",
+      "description": "Grants permission to generate a URL used to embed a QuickSight Experience for a user registered with QuickSight using Identity-enhanced role session",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "quicksight:AllowedEmbeddingDomains"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetAnonymousUserEmbedUrl",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html",
       "description": "Grants permission to get a URL used to embed a QuickSight Dashboard for a user not registered with QuickSight",
@@ -1324,10 +1457,19 @@
       "dependentActions": []
     },
     {
+      "name": "ListBrands",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListBrands.html",
+      "description": "Grants permission to lists all brands in an Amazon QuickSight account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListCustomPermissions",
-      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ListCustomPermissions.html",
       "description": "Grants permission to list custom permissions resources in QuickSight account",
-      "accessLevel": "Write",
+      "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -1703,6 +1845,18 @@
       "dependentActions": []
     },
     {
+      "name": "PredictQAResults",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_PredictQAResults.html",
+      "description": "Grants permission to predict QA results",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dashboard",
+        "topic"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "PutDataSetRefreshProperties",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_PutDataSetRefreshProperties.html",
       "description": "Grants permission to put dataset refresh properties for a dataset",
@@ -1841,6 +1995,17 @@
       "dependentActions": []
     },
     {
+      "name": "SearchTopics",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_SearchTopics.html",
+      "description": "Grants permission to search for a sub-set of topics",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "topic*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "SearchUsers",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html",
       "description": "Grants permission to search the QuickSight users belonging to this account",
@@ -1921,7 +2086,9 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "analysis",
+        "brand",
         "customization",
+        "custompermissions",
         "dashboard",
         "dataset",
         "datasource",
@@ -1954,7 +2121,9 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "analysis",
+        "brand",
         "customization",
+        "custompermissions",
         "dashboard",
         "dataset",
         "datasource",
@@ -2013,11 +2182,53 @@
       "dependentActions": []
     },
     {
-      "name": "UpdateCustomPermissions",
-      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/user/iam-actions.html",
-      "description": "Grants permission to update a custom permissions resource",
-      "accessLevel": "Permissions management",
+      "name": "UpdateApplicationWithTokenExchangeGrant",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateApplicationWithTokenExchangeGrant.html",
+      "description": "Grants permission to update QuickSight IAM Identity Center application with Token Exchange grant",
+      "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateBrand",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateBrand.html",
+      "description": "Grants permission to update a brand",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "brand*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateBrandAssignment",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateBrandAssignment.html",
+      "description": "Grants permission to update a brand assignment",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateBrandPublishedVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateBrandPublishedVersion.html",
+      "description": "Grants permission to update the published version of a brand",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "brand*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCustomPermissions",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateCustomPermissions.html",
+      "description": "Grants permission to update a QuickSight custom permissions resource",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "custompermissions*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -2062,6 +2273,15 @@
       "resourceTypes": [
         "dashboard*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDashboardsQAConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardsQAConfiguration.html",
+      "description": "Grants permission to update dashboards qa configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -2124,6 +2344,15 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDefaultQBusinessApplication",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDefaultQBusinessApplication.html",
+      "description": "Grants permission to update linked QBusiness application Id for QuickSight account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -2221,6 +2450,15 @@
       "name": "UpdateQPersonalizationConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateQPersonalizationConfiguration.html",
       "description": "Grants permission to update a personalization configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateQuickSightQSearchConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateQuickSightQSearchConfiguration.html",
+      "description": "Grants permission to update QuickSight Q Search configuration",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -2376,6 +2614,17 @@
       "name": "UpdateUser",
       "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html",
       "description": "Grants permission to update an Amazon QuickSight user",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateUserCustomPermission",
+      "documentationUrl": "https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUserCustomPermission.html",
+      "description": "Grants permission to update the custom permission associated with a user",
       "accessLevel": "Write",
       "resourceTypes": [
         "user*"

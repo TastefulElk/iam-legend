@@ -1,0 +1,266 @@
+{
+  "serviceName": "AWS Security Incident Response",
+  "servicePrefix": "security-ir",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awssecurityincidentresponse.html",
+  "actions": [
+    {
+      "name": "BatchGetMemberAccountDetails",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_BatchGetMemberAccountDetails.html",
+      "description": "Grants permission to get member account details in batch",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelMembership",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_CancelMembership.html",
+      "description": "Grants permission to cancel a membership",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CloseCase",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_CloseCase.html",
+      "description": "Grants permission to close a case",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "case*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCase",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_CreateCase.html",
+      "description": "Grants permission to create a case",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCaseComment",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_CreateCaseComment.html",
+      "description": "Grants permission to create a case comment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "case*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateMembership",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_CreateMembership.html",
+      "description": "Grants permission to create a membership",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole",
+        "organizations:DescribeOrganization",
+        "organizations:ListDelegatedAdministrators"
+      ]
+    },
+    {
+      "name": "GetCase",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_GetCase.html",
+      "description": "Grants permission to get a case",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "case*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCaseAttachmentDownloadUrl",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_GetCaseAttachmentDownloadUrl.html",
+      "description": "Grants permission to get a case attachment download URL",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "case*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCaseAttachmentUploadUrl",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_GetCaseAttachmentUploadUrl.html",
+      "description": "Grants permission to get a case attachment upload URL",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "case*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetMembership",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_GetMembership.html",
+      "description": "Grants permission to get a membership",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCaseEdits",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_ListCaseEdits.html",
+      "description": "Grants permission to list case edits",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "case*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCases",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_ListCases.html",
+      "description": "Grants permission to list cases",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListComments",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_ListComments.html",
+      "description": "Grants permission to list case comments",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "case*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMemberships",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_ListMemberships.html",
+      "description": "Grants permission to list memberships",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list the tags attached to the specified resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "case",
+        "membership"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to add tags to the specified resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "case",
+        "membership"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove tags from the specified resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "case",
+        "membership"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCase",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_UpdateCase.html",
+      "description": "Grants permission to update a case",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "case*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCaseComment",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_UpdateCaseComment.html",
+      "description": "Grants permission to update a case comment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "case*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCaseStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_UpdateCaseStatus.html",
+      "description": "Grants permission to update a case status",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "case*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateMembership",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_UpdateMembership.html",
+      "description": "Grants permission to update memberships",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "membership*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
+      "name": "UpdateResolverType",
+      "documentationUrl": "https://docs.aws.amazon.com/security-ir/latest/APIReference/API_UpdateResolverType.html",
+      "description": "Grants permission to update case resolver type",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "case*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

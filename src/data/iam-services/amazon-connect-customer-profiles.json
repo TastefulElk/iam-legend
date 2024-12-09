@@ -87,6 +87,21 @@
       ]
     },
     {
+      "name": "CreateEventTrigger",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateEventTrigger.html",
+      "description": "Grants permission to create an event trigger in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*",
+        "event-triggers*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateIntegrationWorkflow",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateIntegrationWorkflow.html",
       "description": "Grants permission to create an integration workflow in a domain",
@@ -197,6 +212,18 @@
       "dependentActions": [
         "iam:DeleteRolePolicy"
       ]
+    },
+    {
+      "name": "DeleteEventTrigger",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteEventTrigger.html",
+      "description": "Grants permission to delete an event trigger in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*",
+        "event-triggers*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "DeleteIntegration",
@@ -349,6 +376,18 @@
       "dependentActions": [
         "kinesis:DescribeStreamSummary"
       ]
+    },
+    {
+      "name": "GetEventTrigger",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetEventTrigger.html",
+      "description": "Grants permission to get an event trigger in the domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "domains*",
+        "event-triggers*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "GetIdentityResolutionJob",
@@ -540,6 +579,17 @@
       "name": "ListEventStreams",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListEventStreams.html",
       "description": "Grants permission to list all the event streams in a specific domain",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEventTriggers",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListEventTriggers.html",
+      "description": "Grants permission to list all the event triggers in the domain",
       "accessLevel": "List",
       "resourceTypes": [
         "domains*"
@@ -795,6 +845,18 @@
       "dependentActions": [
         "iam:CreateServiceLinkedRole"
       ]
+    },
+    {
+      "name": "UpdateEventTrigger",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateEventTrigger.html",
+      "description": "Grants permission to update an event trigger in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*",
+        "event-triggers*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "UpdateProfile",

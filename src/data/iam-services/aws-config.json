@@ -4,6 +4,17 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsconfig.html",
   "actions": [
     {
+      "name": "AssociateResourceTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html",
+      "description": "Grants permission to add all specified resource types to the RecordingGroup of configuration recorder and includes those resource types when recording",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfigurationRecorder*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "BatchGetAggregateResourceConfig",
       "documentationUrl": "https://docs.aws.amazon.com/config/latest/APIReference/API_BatchGetAggregateResourceConfig.html",
       "description": "Grants permission to return the current configuration items for resources that are present in your AWS Config aggregator",
@@ -59,9 +70,11 @@
     {
       "name": "DeleteConfigurationRecorder",
       "documentationUrl": "https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConfigurationRecorder.html",
-      "description": "Grants permission to delete the configuration recorder",
+      "description": "Grants permission to delete the customer managed configuration recorder",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "ConfigurationRecorder*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -163,6 +176,19 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteServiceLinkedConfigurationRecorder",
+      "documentationUrl": "https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html",
+      "description": "Grants permission to delete the service-linked configuration recorder",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfigurationRecorder*"
+      ],
+      "conditionKeys": [
+        "config:ConfigurationRecorderServicePrincipal"
+      ],
       "dependentActions": []
     },
     {
@@ -277,17 +303,25 @@
       "documentationUrl": "https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html",
       "description": "Grants permission to return the current status of the specified configuration recorder",
       "accessLevel": "Read",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "ConfigurationRecorder*"
+      ],
+      "conditionKeys": [
+        "config:ConfigurationRecorderServicePrincipal"
+      ],
       "dependentActions": []
     },
     {
       "name": "DescribeConfigurationRecorders",
       "documentationUrl": "https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html",
       "description": "Grants permission to return the names of one or more specified configuration recorders",
-      "accessLevel": "List",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ConfigurationRecorder*"
+      ],
+      "conditionKeys": [
+        "config:ConfigurationRecorderServicePrincipal"
+      ],
       "dependentActions": []
     },
     {
@@ -419,6 +453,17 @@
       "description": "Grants permission to return the details of one or more retention configurations",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateResourceTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html",
+      "description": "Grants permission to remove all specified resource types from the RecordingGroup of configuration recorder and excludes these resource types when recording",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfigurationRecorder*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -631,6 +676,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListConfigurationRecorders",
+      "documentationUrl": "https://docs.aws.amazon.com/config/latest/APIReference/API_ListConfigurationRecorders.html",
+      "description": "Grants permission to list the configuration recorder summaries for an AWS account in an AWS Region",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListConformancePackComplianceScores",
       "documentationUrl": "https://docs.aws.amazon.com/config/latest/APIReference/API_ListConformancePackComplianceScores.html",
       "description": "Grants permission to return the percentage of compliant rule-resource combinations in a conformance pack compared to the number of total possible rule-resource combinations",
@@ -675,6 +729,7 @@
         "AggregationAuthorization",
         "ConfigRule",
         "ConfigurationAggregator",
+        "ConfigurationRecorder",
         "ConformancePack",
         "OrganizationConfigRule",
         "OrganizationConformancePack",
@@ -732,11 +787,16 @@
     {
       "name": "PutConfigurationRecorder",
       "documentationUrl": "https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html",
-      "description": "Grants permission to create a new configuration recorder to record the selected resource configurations",
+      "description": "Grants permission to create or update a customer managed configuration recorder to record the selected resource configurations",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
-      "dependentActions": []
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
     },
     {
       "name": "PutConformancePack",
@@ -858,6 +918,22 @@
       "dependentActions": []
     },
     {
+      "name": "PutServiceLinkedConfigurationRecorder",
+      "documentationUrl": "https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html",
+      "description": "Grants permission to create a new service-linked configuration recorder to record the resource configurations in scope for the linked service",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "config:ConfigurationRecorderServicePrincipal"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole",
+        "iam:PassRole"
+      ]
+    },
+    {
       "name": "PutStoredQuery",
       "documentationUrl": "https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html",
       "description": "Grants permission to save a new query or updates an existing saved query",
@@ -905,9 +981,11 @@
     {
       "name": "StartConfigurationRecorder",
       "documentationUrl": "https://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html",
-      "description": "Grants permission to start recording configurations of the AWS resources you have selected to record in your AWS account",
+      "description": "Grants permission to the customer managed configuration recorder to start recording configurations of the AWS resources you have selected to record in your AWS account",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "ConfigurationRecorder*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -936,9 +1014,11 @@
     {
       "name": "StopConfigurationRecorder",
       "documentationUrl": "https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html",
-      "description": "Grants permission to stop recording configurations of the AWS resources you have selected to record in your AWS account",
+      "description": "Grants permission to the customer managed configuration recorder to stop recording configurations of the AWS resources you have selected to record in your AWS account",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "ConfigurationRecorder*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -951,6 +1031,7 @@
         "AggregationAuthorization",
         "ConfigRule",
         "ConfigurationAggregator",
+        "ConfigurationRecorder",
         "ConformancePack",
         "OrganizationConfigRule",
         "OrganizationConformancePack",
@@ -971,6 +1052,7 @@
         "AggregationAuthorization",
         "ConfigRule",
         "ConfigurationAggregator",
+        "ConfigurationRecorder",
         "ConformancePack",
         "OrganizationConfigRule",
         "OrganizationConformancePack",

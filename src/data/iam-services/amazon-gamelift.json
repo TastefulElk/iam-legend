@@ -54,9 +54,26 @@
       ]
     },
     {
+      "name": "CreateContainerFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerFleet.html",
+      "description": "Grants permission to create a new container fleet of computing resources to run your game servers",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeRegions",
+        "gamelift:TagResource",
+        "iam:PassRole"
+      ]
+    },
+    {
       "name": "CreateContainerGroupDefinition",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateContainerGroupDefinition.html",
-      "description": "Grants permission to create a new container group definition for a container fleet",
+      "description": "Grants permission to create a new container group definition using images stored in an Amazon ECR repository",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
@@ -66,6 +83,7 @@
       "dependentActions": [
         "ecr:BatchGetImage",
         "ecr:DescribeImages",
+        "ecr:GetAuthorizationToken",
         "ecr:GetDownloadUrlForLayer",
         "gamelift:TagResource"
       ]
@@ -93,7 +111,8 @@
       "description": "Grants permission to specify additional locations for a fleet",
       "accessLevel": "Write",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
       ],
       "conditionKeys": [],
       "dependentActions": [
@@ -274,9 +293,20 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteContainerFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteContainerFleet.html",
+      "description": "Grants permission to delete a container fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "containerFleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteContainerGroupDefinition",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteContainerGroupDefinition.html",
-      "description": "Grants permission to delete a container group definition that is not being used in a fleet",
+      "description": "Grants permission to delete a container group definition",
       "accessLevel": "Write",
       "resourceTypes": [
         "containerGroupDefinition*"
@@ -301,7 +331,8 @@
       "description": "Grants permission to delete locations for a fleet",
       "accessLevel": "Write",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -374,7 +405,8 @@
       "description": "Grants permission to delete a set of auto-scaling rules",
       "accessLevel": "Write",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -455,10 +487,22 @@
     {
       "name": "DescribeCompute",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeCompute.html",
-      "description": "Grants permission to retrieve general properties of the compute such as ARN, fleet details, SDK endpoints, and location",
+      "description": "Grants permission to retrieve information for a compute in a fleet",
       "accessLevel": "Read",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeContainerFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeContainerFleet.html",
+      "description": "Grants permission to retrieve the properties of an existing container fleet",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "containerFleet*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -466,7 +510,7 @@
     {
       "name": "DescribeContainerGroupDefinition",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeContainerGroupDefinition.html",
-      "description": "Grants permission to retrieve general properties, including status, for a container group definition",
+      "description": "Grants permission to retrieve the properties of an existing container group definition",
       "accessLevel": "Read",
       "resourceTypes": [
         "containerGroupDefinition*"
@@ -495,9 +539,20 @@
     {
       "name": "DescribeFleetCapacity",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html",
-      "description": "Grants permission to retrieve the current capacity setting for fleets",
+      "description": "Grants permission to retrieve the current capacity settings for managed fleets",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeFleetDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetDeployment.html",
+      "description": "Grants permission to retrieve the properties of an existing fleet deployment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "containerFleet*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -507,7 +562,8 @@
       "description": "Grants permission to retrieve entries from a fleet's event log",
       "accessLevel": "Read",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -518,7 +574,8 @@
       "description": "Grants permission to retrieve general properties, including statuses, for a fleet's locations",
       "accessLevel": "Read",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -529,7 +586,8 @@
       "description": "Grants permission to retrieve the current capacity setting for a fleet's location",
       "accessLevel": "Read",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -637,10 +695,11 @@
     {
       "name": "DescribeInstances",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html",
-      "description": "Grants permission to retrieve information about instances in a fleet",
+      "description": "Grants permission to retrieve information about instances in a managed fleet",
       "accessLevel": "Read",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -698,7 +757,8 @@
       "description": "Grants permission to retrieve all scaling policies that are applied to a fleet",
       "accessLevel": "Read",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -735,10 +795,11 @@
     {
       "name": "GetComputeAccess",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess.html",
-      "description": "Grants permission to retrieve access credentials of the compute",
+      "description": "Grants permission to retrieve credentials to remotely access a compute in a managed fleet",
       "accessLevel": "Read",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -746,10 +807,11 @@
     {
       "name": "GetComputeAuthToken",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAuthToken.html",
-      "description": "Grants permission to retrieve an authorization token for a compute and fleet to use in game server processes",
+      "description": "Grants permission to retrieve an authentication token that allows processes on a compute to send requests to the Amazon GameLift service",
       "accessLevel": "Read",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -798,7 +860,28 @@
       "description": "Grants permission to retrieve all compute resources in the current Region",
       "accessLevel": "List",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListContainerFleets",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerFleets.html",
+      "description": "Grants permission to retrieve the properties of all existing container fleets in the current Region",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListContainerGroupDefinitionVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitionVersions.html",
+      "description": "Grants permission to retrieve the properties of all versions of an existing container group definition",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "containerGroupDefinition*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -806,7 +889,16 @@
     {
       "name": "ListContainerGroupDefinitions",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListContainerGroupDefinitions.html",
-      "description": "Grants permission to retrieve a list of names for all container group definitions in the current Region",
+      "description": "Grants permission to retrieve the properties of all existing container group definitions in the current Region",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFleetDeployments",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_ListFleetDeployments.html",
+      "description": "Grants permission to retrieve the properties of all existing fleet deployments in the current Region",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -867,6 +959,7 @@
       "resourceTypes": [
         "alias",
         "build",
+        "containerFleet",
         "containerGroupDefinition",
         "fleet",
         "gameServerGroup",
@@ -885,7 +978,8 @@
       "description": "Grants permission to create or update a fleet auto-scaling policy",
       "accessLevel": "Write",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -960,7 +1054,8 @@
       "description": "Grants permission to resume auto-scaling activity on a fleet after it was suspended with StopFleetActions()",
       "accessLevel": "Write",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1000,7 +1095,8 @@
       "description": "Grants permission to suspend auto-scaling activity on a fleet",
       "accessLevel": "Write",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1042,6 +1138,7 @@
       "resourceTypes": [
         "alias",
         "build",
+        "containerFleet",
         "containerGroupDefinition",
         "fleet",
         "gameServerGroup",
@@ -1065,6 +1162,7 @@
       "resourceTypes": [
         "alias",
         "build",
+        "containerFleet",
         "containerGroupDefinition",
         "fleet",
         "gameServerGroup",
@@ -1102,6 +1200,33 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateContainerFleet",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerFleet.html",
+      "description": "Grants permission to update an existing container fleet",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "containerFleet*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateContainerGroupDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateContainerGroupDefinition.html",
+      "description": "Grants permission to update the properties of an existing container group definition",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "containerGroupDefinition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ecr:BatchGetImage",
+        "ecr:DescribeImages",
+        "ecr:GetAuthorizationToken",
+        "ecr:GetDownloadUrlForLayer"
+      ]
+    },
+    {
       "name": "UpdateFleetAttributes",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetAttributes.html",
       "description": "Grants permission to update the general properties of an existing fleet",
@@ -1115,10 +1240,11 @@
     {
       "name": "UpdateFleetCapacity",
       "documentationUrl": "https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html",
-      "description": "Grants permission to adjust a fleet's capacity settings",
+      "description": "Grants permission to adjust a managed fleet's capacity settings",
       "accessLevel": "Write",
       "resourceTypes": [
-        "fleet*"
+        "containerFleet",
+        "fleet"
       ],
       "conditionKeys": [],
       "dependentActions": []

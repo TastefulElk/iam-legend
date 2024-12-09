@@ -276,6 +276,20 @@
       "dependentActions": []
     },
     {
+      "name": "CreateCommand",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCommand.html",
+      "description": "Grants permission to create a command that can be used to start new executions against a device",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "command*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateCustomMetric",
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCustomMetric.html",
       "description": "Grants permission to create a custom metric for device side metric reporting and monitoring",
@@ -711,6 +725,29 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "certificateprovider*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCommand",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteCommand.html",
+      "description": "Grants permission to delete a command",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "command*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCommandExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_DeleteCommandExecution.html",
+      "description": "Grants permission to delete a command execution",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "client",
+        "thing"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1513,6 +1550,29 @@
       "dependentActions": []
     },
     {
+      "name": "GetCommand",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_GetCommand.html",
+      "description": "Grants permission to get the information about the command",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "command*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCommandExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_GetCommandExecution.html",
+      "description": "Grants permission to get the information of a command execution",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "client",
+        "thing"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetEffectivePolicies",
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_GetEffectivePolicies.html",
       "description": "Grants permission to get effective policies",
@@ -1816,6 +1876,28 @@
       "name": "ListCertificatesByCA",
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_ListCertificatesByCA.html",
       "description": "Grants permission to list the device certificates signed by the specified CA certificate",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCommandExecutions",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_ListCommandExecutions.html",
+      "description": "Grants permission to list commands executions in the account",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "client",
+        "command",
+        "thing"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCommands",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_ListCommands.html",
+      "description": "Grants permission to list commands in the account",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -2158,6 +2240,7 @@
         "billinggroup",
         "cacert",
         "certificateprovider",
+        "command",
         "custommetric",
         "dimension",
         "domainconfiguration",
@@ -2565,6 +2648,23 @@
       "dependentActions": []
     },
     {
+      "name": "StartCommandExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_iot-jobs-data_StartCommandExecution.html",
+      "description": "Grants permission to start a new command execution",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "command*",
+        "client",
+        "thing"
+      ],
+      "conditionKeys": [
+        "iot:CommandExecutionParameterString/${CommandParameterName}",
+        "iot:CommandExecutionParameterBoolean/${CommandParameterName}",
+        "iot:CommandExecutionParameterNumber/${CommandParameterName}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "StartDetectMitigationActionsTask",
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_StartDetectMitigationActionsTask.html",
       "description": "Grants permission to start a Device Defender ML Detect mitigation actions task",
@@ -2623,6 +2723,7 @@
         "billinggroup",
         "cacert",
         "certificateprovider",
+        "command",
         "custommetric",
         "dimension",
         "domainconfiguration",
@@ -2693,6 +2794,7 @@
         "billinggroup",
         "cacert",
         "certificateprovider",
+        "command",
         "custommetric",
         "dimension",
         "domainconfiguration",
@@ -2790,6 +2892,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "certificateprovider*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCommand",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateCommand.html",
+      "description": "Grants permission to update a command",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "command*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -3031,6 +3144,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "thing*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateThingType",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_UpdateThingType.html",
+      "description": "Grants permission to update information associated with the specified thing type",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "thingtype*"
       ],
       "conditionKeys": [],
       "dependentActions": []

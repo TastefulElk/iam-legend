@@ -39,9 +39,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_CancelAnnotationImportJob.html",
       "description": "Grants permission to cancel an Annotation Import Job",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "AnnotationImportJob*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -61,9 +59,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_CancelVariantImportJob.html",
       "description": "Grants permission to cancel a Variant Import Job",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "VariantImportJob*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -84,7 +80,10 @@
       "description": "Grants permission to create an Annotation Store",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -95,7 +94,10 @@
       "resourceTypes": [
         "AnnotationStore*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -113,6 +115,18 @@
       "name": "CreateReferenceStore",
       "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_CreateReferenceStore.html",
       "description": "Grants permission to create a Reference Store",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateRunCache",
+      "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_CreateRunCache.html",
+      "description": "Grants permission to create a new workflow run cache",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
@@ -160,7 +174,10 @@
       "description": "Grants permission to create a Variant Store",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -233,12 +250,34 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteRunCache",
+      "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_DeleteRunCache.html",
+      "description": "Grants permission to delete a workflow run cache",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "runCache*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteRunGroup",
       "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_DeleteRunGroup.html",
       "description": "Grants permission to delete a workflow run group",
       "accessLevel": "Write",
       "resourceTypes": [
         "runGroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteS3AccessPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_DeleteS3AccessPolicy.html",
+      "description": "Grants permission to delete an access policy on a given store",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "sequenceStore*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -290,9 +329,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_GetAnnotationImportJob.html",
       "description": "Grants permission to get the status of an Annotation Import Job",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "AnnotationImportJob*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -313,7 +350,6 @@
       "description": "Grants permission to get detailed information about a version in an Annotation Store",
       "accessLevel": "Read",
       "resourceTypes": [
-        "AnnotationStore*",
         "AnnotationStoreVersion*"
       ],
       "conditionKeys": [],
@@ -434,6 +470,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetRunCache",
+      "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_GetRunCache.html",
+      "description": "Grants permission to retrieve workflow run cache details",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "runCache*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetRunGroup",
       "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_GetRunGroup.html",
       "description": "Grants permission to retrieve workflow run group details",
@@ -452,6 +499,17 @@
       "resourceTypes": [
         "TaskResource*",
         "run*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetS3AccessPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_GetS3AccessPolicy.html",
+      "description": "Grants permission to get details about an access policy on a given store",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "sequenceStore*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -481,9 +539,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_GetVariantImportJob.html",
       "description": "Grants permission to get the status of a Variant Import Job",
       "accessLevel": "Read",
-      "resourceTypes": [
-        "VariantImportJob*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -636,6 +692,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListRunCaches",
+      "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_ListRunCaches.html",
+      "description": "Grants permission to retrieve a list of workflow run caches",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListRunGroups",
       "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_ListRunGroups.html",
       "description": "Grants permission to retrieve a list of workflow run groups",
@@ -719,11 +784,25 @@
       "dependentActions": []
     },
     {
+      "name": "PutS3AccessPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_PutS3AccessPolicy.html",
+      "description": "Grants permission to put an access policy on a given store",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "sequenceStore*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartAnnotationImportJob",
       "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_StartAnnotationImportJob.html",
       "description": "Grants permission to import a list of Annotation files to an Annotation Store",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "AnnotationStore*",
+        "AnnotationStoreVersion*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -778,6 +857,7 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "run*",
+        "runCache",
         "runGroup",
         "workflow"
       ],
@@ -794,7 +874,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_StartVariantImportJob.html",
       "description": "Grants permission to import a list of variant files to an Variant Store",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "VariantStore*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -804,10 +886,14 @@
       "description": "Grants permission to add AWS tags to a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "AnnotationStore",
+        "AnnotationStoreVersion",
+        "VariantStore",
         "readSet",
         "reference",
         "referenceStore",
         "run",
+        "runCache",
         "runGroup",
         "sequenceStore",
         "workflow"
@@ -824,10 +910,14 @@
       "description": "Grants permission to remove resource AWS tags",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "AnnotationStore",
+        "AnnotationStoreVersion",
+        "VariantStore",
         "readSet",
         "reference",
         "referenceStore",
         "run",
+        "runCache",
         "runGroup",
         "sequenceStore",
         "workflow"
@@ -854,8 +944,18 @@
       "description": "Grants permission to update information about the Version in an Annotation Store",
       "accessLevel": "Write",
       "resourceTypes": [
-        "AnnotationStore*",
         "AnnotationStoreVersion*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateRunCache",
+      "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_UpdateRunCache.html",
+      "description": "Grants permission to update a workflow run cache",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "runCache*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -867,6 +967,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "runGroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSequenceStore",
+      "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_UpdateSequenceStore.html",
+      "description": "Grants permission to update details about a Sequence Store",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "sequenceStore*"
       ],
       "conditionKeys": [],
       "dependentActions": []

@@ -542,6 +542,23 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateScraper",
+      "documentationUrl": "https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-UpdateScraper",
+      "description": "Grants permission to update a scraper",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "scraper*",
+        "workspace"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "aps:CreateScraper",
+        "aps:TagResource"
+      ]
+    },
+    {
       "name": "UpdateWorkspaceAlias",
       "documentationUrl": "https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-UpdateWorkspaceAlias",
       "description": "Grants permission to modify the alias of existing AMP workspace",

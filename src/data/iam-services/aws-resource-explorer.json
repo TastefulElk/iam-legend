@@ -8,9 +8,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_AssociateDefaultView.html",
       "description": "Grants permission to set the specified view as the default for this AWS Region in this AWS account",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "view*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -35,6 +33,15 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateManagedView",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/userguide/API_ManagedView.html",
+      "description": "Grants permission to create managed view",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -119,6 +126,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetManagedView",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_GetManagedView.html",
+      "description": "Grants permission to get managed view",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "managed-view*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetResourcePolicy",
       "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-share.html",
       "description": "Grants permission to retrieve information about the specified view's resource policy",
@@ -153,6 +171,15 @@
       "name": "ListIndexesForMembers",
       "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_ListIndexesForMembers.html",
       "description": "Grants permission to list the organization member account's indexes in all AWS Regions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListManagedViews",
+      "documentationUrl": "https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_ListManagedViews.html",
+      "description": "Grants permission to list managed views",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -207,7 +234,9 @@
       "resourceTypes": [
         "view*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "resource-explorer-2:Operation"
+      ],
       "dependentActions": []
     },
     {

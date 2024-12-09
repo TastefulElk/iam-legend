@@ -5,7 +5,7 @@
   "actions": [
     {
       "name": "CreateAssignment",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/aws-builder-use-ug/security_iam_manage-access-with-policies.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
       "description": "Grants permission to create a user or group assignment for an Amazon Q Developer Profile",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -18,8 +18,22 @@
       "dependentActions": []
     },
     {
+      "name": "CreatePlugin",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
+      "description": "Grants permission to create and configure a third party plugin in Amazon Q",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "plugin*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteAssignment",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/aws-builder-use-ug/security_iam_manage-access-with-policies.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
       "description": "Grants permission to delete a user or group assignment for an Amazon Q Developer Profile",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -32,8 +46,21 @@
       "dependentActions": []
     },
     {
+      "name": "DeletePlugin",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
+      "description": "Grants permission to delete a configured plugin in Amazon Q",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "plugin*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GenerateCodeFromCommands",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/aws-builder-use-ug/security_iam_manage-access-with-policies.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
       "description": "Grants permission to generate code from CLI commands in Amazon Q",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -42,7 +69,7 @@
     },
     {
       "name": "GetConversation",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/aws-builder-use-ug/security_iam_manage-access-with-policies.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
       "description": "Grants permission to get individual messages associated with a specific conversation with Amazon Q",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -51,7 +78,7 @@
     },
     {
       "name": "GetIdentityMetadata",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/aws-builder-use-ug/security_iam_manage-access-with-policies.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
       "description": "Grants permission to Amazon Q to get the identity metadata",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -59,8 +86,21 @@
       "dependentActions": []
     },
     {
+      "name": "GetPlugin",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
+      "description": "Grants permission to view information about a specific configured Amazon Q plugin",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "plugin*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetTroubleshootingResults",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/aws-builder-use-ug/security_iam_manage-access-with-policies.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
       "description": "Grants permission to get troubleshooting results with Amazon Q",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -69,7 +109,7 @@
     },
     {
       "name": "ListConversations",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/aws-builder-use-ug/security_iam_manage-access-with-policies.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
       "description": "Grants permission to list individual conversations associated with a specific Amazon Q user",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -77,8 +117,50 @@
       "dependentActions": []
     },
     {
+      "name": "ListDashboardMetrics",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
+      "description": "Grants permission to read metrics to populate Amazon Q dashboard",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPluginProviders",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
+      "description": "Grants permission to list available plugins in Amazon Q",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPlugins",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
+      "description": "Grants permission to list configured plugins in Amazon Q",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "plugin*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
+      "description": "Grants permission to list all tags associated with an Amazon Q resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "plugin"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "PassRequest",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/aws-builder-use-ug/security_iam_manage-access-with-policies.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
       "description": "Grants permission to allow Amazon Q to perform actions on your behalf",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -87,7 +169,7 @@
     },
     {
       "name": "SendMessage",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/aws-builder-use-ug/security_iam_manage-access-with-policies.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
       "description": "Grants permission to send a message to Amazon Q",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -96,7 +178,7 @@
     },
     {
       "name": "StartConversation",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/aws-builder-use-ug/security_iam_manage-access-with-policies.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
       "description": "Grants permission to start a conversation with Amazon Q",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -105,7 +187,7 @@
     },
     {
       "name": "StartTroubleshootingAnalysis",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/aws-builder-use-ug/security_iam_manage-access-with-policies.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
       "description": "Grants permission to start a troubleshooting analysis with Amazon Q",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -114,7 +196,7 @@
     },
     {
       "name": "StartTroubleshootingResolutionExplanation",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/aws-builder-use-ug/security_iam_manage-access-with-policies.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
       "description": "Grants permission to start a troubleshooting resolution explanation with Amazon Q",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -122,11 +204,51 @@
       "dependentActions": []
     },
     {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
+      "description": "Grants permission to associate tags with an Amazon Q resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "plugin"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
+      "description": "Grants permission to remove tags associated with an Amazon Q resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "plugin"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateTroubleshootingCommandResult",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/aws-builder-use-ug/security_iam_manage-access-with-policies.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
       "description": "Grants permission to update a troubleshooting command result with Amazon Q",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UsePlugin",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
+      "description": "Grants permission to use Amazon Q plugins",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "plugin*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     }

@@ -17,9 +17,7 @@
         "s3express:ResourceAccount",
         "s3express:signatureversion",
         "s3express:TlsVersion",
-        "s3express:x-amz-content-sha256",
-        "s3express:x-amz-server-side-encryption",
-        "s3express:x-amz-server-side-encryption-aws-kms-key-id"
+        "s3express:x-amz-content-sha256"
       ],
       "dependentActions": []
     },
@@ -38,7 +36,9 @@
         "s3express:signatureAge",
         "s3express:signatureversion",
         "s3express:TlsVersion",
-        "s3express:x-amz-content-sha256"
+        "s3express:x-amz-content-sha256",
+        "s3express:x-amz-server-side-encryption",
+        "s3express:x-amz-server-side-encryption-aws-kms-key-id"
       ],
       "dependentActions": []
     },
@@ -111,6 +111,23 @@
       "dependentActions": []
     },
     {
+      "name": "GetLifecycleConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html",
+      "description": "Grants permission to return the lifecycle configuration information set on a directory bucket",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "bucket*"
+      ],
+      "conditionKeys": [
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListAllMyDirectoryBuckets",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListDirectoryBuckets.html",
       "description": "Grants permission to list all directory buckets owned by the authenticated sender of the request",
@@ -146,6 +163,23 @@
       "name": "PutEncryptionConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketEncryption.html",
       "description": "Grants permission to set the encryption configuration for a directory bucket",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "bucket*"
+      ],
+      "conditionKeys": [
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutLifecycleConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html",
+      "description": "Grants permission to create a new lifecycle configuration for the directory bucket or replace an existing lifecycle configuration",
       "accessLevel": "Write",
       "resourceTypes": [
         "bucket*"

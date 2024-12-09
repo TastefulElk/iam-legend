@@ -92,6 +92,15 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateVoiceConnectorConnect",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions",
+      "description": "Grants permission to associate the specified Amazon Connect instance with an Amazon Chime Voice Connector",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "AuthorizeDirectory",
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/ag/control-access.html",
       "description": "Grants permission to authorize an Active Directory for your Amazon Chime Enterprise account",
@@ -390,6 +399,34 @@
       "dependentActions": []
     },
     {
+      "name": "CreateConnectAnalyticsConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.html",
+      "description": "Grants permission to create an Amazon Connect Analytics Connector in the AWS account (tag-based access controls are only supported on voice-chime.<region>.amazonaws.com endpoints)",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "chime:CreateVoiceConnector"
+      ]
+    },
+    {
+      "name": "CreateConnectCallTransferConnector",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.html",
+      "description": "Grants permission to create an Amazon Connect Call Transfer Connector in the AWS account (tag-based access controls are only supported on voice-chime.<region>.amazonaws.com endpoints)",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "chime:CreateVoiceConnector"
+      ]
+    },
+    {
       "name": "CreateMediaCapturePipeline",
       "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_media-pipelines-chime_CreateMediaCapturePipeline.html",
       "description": "Grants permission to create a media capture pipeline (tag-based access controls are only supported on media-pipelines-chime.<region>.amazonaws.com endpoints)",
@@ -616,7 +653,7 @@
     },
     {
       "name": "CreateVoiceConnector",
-      "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_CreateVoiceConnector.html",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_CreateVoiceConnector.html",
       "description": "Grants permission to create a Voice Connector in the AWS account (tag-based access controls are only supported on voice-chime.<region>.amazonaws.com endpoints)",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -624,7 +661,10 @@
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
       ],
-      "dependentActions": []
+      "dependentActions": [
+        "chime:CreateConnectAnalyticsConnector",
+        "chime:CreateConnectCallTransferConnector"
+      ]
     },
     {
       "name": "CreateVoiceConnectorGroup",
@@ -1034,6 +1074,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteVoiceConnectorExternalSystemsConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_DeleteVoiceConnectorExternalSystemsConfiguration.html",
+      "description": "Grants permission to delete the configuration of the external system that is connected with the specified Amazon Chime Voice Connector",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "voice-connector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteVoiceConnectorGroup",
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_DeleteVoiceConnectorGroup.html",
       "description": "Grants permission to delete the specified Amazon Chime Voice Connector Group",
@@ -1323,6 +1374,15 @@
       "name": "DisassociateSigninDelegateGroupsFromAccount",
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_DisassociateSigninDelegateGroupsFromAccount.html",
       "description": "Grants permission to disassociate the specified sign-in delegate groups from the specified Amazon Chime account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateVoiceConnectorConnect",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions",
+      "description": "Grants permission to disassociate the Amazon Connect instance from the specified Amazon Chime Voice Connector",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -1750,6 +1810,17 @@
       "name": "GetVoiceConnectorEmergencyCallingConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_GetVoiceConnectorEmergencyCallingConfiguration.html",
       "description": "Grants permission to get details of the emergency calling configuration for the specified Amazon Chime Voice Connector",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "voice-connector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetVoiceConnectorExternalSystemsConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_GetVoiceConnectorExternalSystemsConfiguration.html",
+      "description": "Grants permission to get the configuration of the external system that is connected with the specified Amazon Chime Voice Connector",
       "accessLevel": "Read",
       "resourceTypes": [
         "voice-connector*"
@@ -2549,6 +2620,17 @@
       "name": "PutVoiceConnectorEmergencyCallingConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/chime/latest/APIReference/API_PutVoiceConnectorEmergencyCallingConfiguration.html",
       "description": "Grants permission to add emergency calling configuration for the specified Amazon Chime Voice Connector",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "voice-connector*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutVoiceConnectorExternalSystemsConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_PutVoiceConnectorExternalSystemsConfiguration.html",
+      "description": "Grants permission to update the configuration of the external system that is connected with the specified Amazon Chime Voice Connector",
       "accessLevel": "Write",
       "resourceTypes": [
         "voice-connector*"

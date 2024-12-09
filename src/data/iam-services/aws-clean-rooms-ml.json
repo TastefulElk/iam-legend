@@ -4,6 +4,34 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awscleanroomsml.html",
   "actions": [
     {
+      "name": "CancelTrainedModel",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_CancelTrainedModel.html",
+      "description": "Grants permission to cancel a trained model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TrainedModel*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelTrainedModelInferenceJob",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_CancelTrainedModelInferenceJob.html",
+      "description": "Grants permission to cancel a trained model inference job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TrainedModelInferenceJob*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateAudienceModel",
       "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_CreateAudienceModel.html",
       "description": "Grants permission to create an audience model",
@@ -24,6 +52,60 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "audiencemodel*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateConfiguredModelAlgorithm",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_CreateConfiguredModelAlgorithm.html",
+      "description": "Grants permission to create a configured model algorithm",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateConfiguredModelAlgorithmAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_CreateConfiguredModelAlgorithmAssociation.html",
+      "description": "Grants permission to create a configured model algorithm association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfiguredModelAlgorithm*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateMLInputChannel",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_CreateMLInputChannel.html",
+      "description": "Grants permission to create an ML input channel",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfiguredModelAlgorithmAssociation*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTrainedModel",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_CreateTrainedModel.html",
+      "description": "Grants permission to create a trained model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfiguredModelAlgorithmAssociation*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -100,6 +182,74 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteConfiguredModelAlgorithm",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_DeleteConfiguredModelAlgorithm.html",
+      "description": "Grants permission to delete a configured model algorithm",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfiguredModelAlgorithm*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConfiguredModelAlgorithmAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_DeleteConfiguredModelAlgorithmAssociation.html",
+      "description": "Grants permission to delete a configured model algorithm association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfiguredModelAlgorithmAssociation*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMLConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_DeleteMLConfiguration.html",
+      "description": "Grants permission to delete an ML configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMLInputChannelData",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_DeleteMLInputChannelData.html",
+      "description": "Grants permission to delete all data associated with the ML input channel",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "MLInputChannel*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTrainedModelOutput",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_DeleteTrainedModelOutput.html",
+      "description": "Grants permission to delete all output associated with the trained model",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TrainedModel*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteTrainingDataset",
       "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_DeleteTrainingDataset.html",
       "description": "Grants permission to delete a training dataset",
@@ -142,6 +292,51 @@
       "dependentActions": []
     },
     {
+      "name": "GetCollaborationConfiguredModelAlgorithmAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_GetCollaborationConfiguredModelAlgorithmAssociation.html",
+      "description": "Grants permission to return information about a configured model algorithm association created by any member in the collaboration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ConfiguredModelAlgorithmAssociation*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "cleanrooms-ml:CollaborationId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCollaborationMLInputChannel",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_GetCollaborationMLInputChannel.html",
+      "description": "Grants permission to return information about an ML input channel created by any member in the collaboration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "MLInputChannel*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "cleanrooms-ml:CollaborationId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCollaborationTrainedModel",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_GetCollaborationTrainedModel.html",
+      "description": "Grants permission to return information about a trained model created by any member in the collaboration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "TrainedModel*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "cleanrooms-ml:CollaborationId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetConfiguredAudienceModel",
       "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_GetConfiguredAudienceModel.html",
       "description": "Grants permission to return information about a configured audience model",
@@ -162,6 +357,88 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "configuredaudiencemodel*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetConfiguredModelAlgorithm",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_GetConfiguredModelAlgorithm.html",
+      "description": "Grants permission to return information about a configured model algorithm",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ConfiguredModelAlgorithm*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetConfiguredModelAlgorithmAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_GetConfiguredModelAlgorithmAssociation.html",
+      "description": "Grants permission to return information about a configured model algorithm association",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ConfiguredModelAlgorithmAssociation*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetMLConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_GetMLConfiguration.html",
+      "description": "Grants permission to return information about an ML configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetMLInputChannel",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_GetMLInputChannel.html",
+      "description": "Grants permission to return information about an ML input channel",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "MLInputChannel*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTrainedModel",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_GetTrainedModel.html",
+      "description": "Grants permission to return information about a trained model",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "TrainedModel*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTrainedModelInferenceJob",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_GetTrainedModelInferenceJob.html",
+      "description": "Grants permission to return information about a trained model inference job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "TrainedModelInferenceJob*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -221,12 +498,115 @@
       "dependentActions": []
     },
     {
+      "name": "ListCollaborationConfiguredModelAlgorithmAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_ListCollaborationConfiguredModelAlgorithmAssociations.html",
+      "description": "Grants permission to return a list of configured model algorithms created by any member in the collaboration",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "cleanrooms-ml:CollaborationId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCollaborationMLInputChannels",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_ListCollaborationMLInputChannels.html",
+      "description": "Grants permission to return a list of ML input channels created by any member in the collaboration",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "cleanrooms-ml:CollaborationId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCollaborationTrainedModelExportJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_ListCollaborationTrainedModelExportJobs.html",
+      "description": "Grants permission to return a list of trained model export jobs started by any member in the collaboration",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "TrainedModel*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "cleanrooms-ml:CollaborationId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCollaborationTrainedModelInferenceJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_ListCollaborationTrainedModelInferenceJobs.html",
+      "description": "Grants permission to return a list of trained model inference jobs started by any member in the collaboration",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "cleanrooms-ml:CollaborationId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCollaborationTrainedModels",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_ListCollaborationTrainedModels.html",
+      "description": "Grants permission to return a list of trained models created by any member in the collaboration",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "cleanrooms-ml:CollaborationId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListConfiguredAudienceModels",
       "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_ListConfiguredAudienceModels.html",
       "description": "Grants permission to return a list of configured audience models",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListConfiguredModelAlgorithmAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_ListConfiguredModelAlgorithmAssociations.html",
+      "description": "Grants permission to return a list of configured model algorithm associations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListConfiguredModelAlgorithms",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_ListConfiguredModelAlgorithms.html",
+      "description": "Grants permission to return a list of configured model algorithms",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMLInputChannels",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_ListMLInputChannels.html",
+      "description": "Grants permission to return a list of ML input channels",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -243,6 +623,30 @@
       "conditionKeys": [
         "aws:TagKeys",
         "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrainedModelInferenceJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_ListTrainedModelInferenceJobs.html",
+      "description": "Grants permission to return a list of trained model inference jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrainedModels",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_ListTrainedModels.html",
+      "description": "Grants permission to return a list of trained models",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -264,6 +668,18 @@
         "configuredaudiencemodel*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutMLConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_PutMLConfiguration.html",
+      "description": "Grants permission to put an ML configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -296,11 +712,46 @@
       "dependentActions": []
     },
     {
+      "name": "StartTrainedModelExportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_StartTrainedModelExportJob.html",
+      "description": "Grants permission to start a trained model export job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TrainedModel*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StartTrainedModelInferenceJob",
+      "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_StartTrainedModelInferenceJob.html",
+      "description": "Grants permission to start a trained model inference job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ConfiguredModelAlgorithmAssociation*",
+        "MLInputChannel*",
+        "TrainedModel*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/API_TagResource.html",
       "description": "Grants permission to tag a specific resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "ConfiguredModelAlgorithm",
+        "ConfiguredModelAlgorithmAssociation",
+        "MLInputChannel",
+        "TrainedModel",
+        "TrainedModelInferenceJob",
         "audiencegenerationjob",
         "audiencemodel",
         "configuredaudiencemodel",
@@ -319,6 +770,11 @@
       "description": "Grants permission to untag a specific resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "ConfiguredModelAlgorithm",
+        "ConfiguredModelAlgorithmAssociation",
+        "MLInputChannel",
+        "TrainedModel",
+        "TrainedModelInferenceJob",
         "audiencegenerationjob",
         "audiencemodel",
         "configuredaudiencemodel",
