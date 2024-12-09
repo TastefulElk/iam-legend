@@ -156,6 +156,25 @@
       ]
     },
     {
+      "name": "CreateDirectConnectGatewayAttachment",
+      "documentationUrl": "https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_CreateDirectConnectGatewayAttachment.html",
+      "description": "Grants permission to create a Direct Connect gateway attachment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "core-network*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "networkmanager:directConnectGatewayArn",
+        "networkmanager:edgeLocations"
+      ],
+      "dependentActions": [
+        "ec2:DescribeRegions",
+        "networkmanager:TagResource"
+      ]
+    },
+    {
       "name": "CreateGlobalNetwork",
       "documentationUrl": "https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_CreateGlobalNetwork.html",
       "description": "Grants permission to create a new global network",
@@ -609,6 +628,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetDirectConnectGatewayAttachment",
+      "documentationUrl": "https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetDirectConnectGatewayAttachment.html",
+      "description": "Grants permission to retrieve a Direct Connect gateway attachment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "attachment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetLinkAssociations",
       "documentationUrl": "https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_GetLinkAssociations.html",
       "description": "Grants permission to describe link associations",
@@ -1028,6 +1058,23 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "UpdateDirectConnectGatewayAttachment",
+      "documentationUrl": "https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_UpdateDirectConnectGatewayAttachment.html",
+      "description": "Grants permission to update a Direct Connect gateway attachment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "attachment*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "networkmanager:edgeLocations"
+      ],
+      "dependentActions": [
+        "ec2:DescribeRegions"
+      ]
     },
     {
       "name": "UpdateGlobalNetwork",

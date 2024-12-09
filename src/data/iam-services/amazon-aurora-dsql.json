@@ -1,0 +1,153 @@
+{
+  "serviceName": "Amazon Aurora DSQL",
+  "servicePrefix": "dsql",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonauroradsql.html",
+  "actions": [
+    {
+      "name": "CreateCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_CreateCluster.html",
+      "description": "Grants permission to create new clusters",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
+      "name": "CreateMultiRegionClusters",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_CreateMultiRegionClusters.html",
+      "description": "Grants permission to create multi-Region clusters. Creating multi-Region clusters also requires CreateCluster permission in each specified Region",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [
+        "dsql:WitnessRegion"
+      ],
+      "dependentActions": [
+        "dsql:CreateCluster"
+      ]
+    },
+    {
+      "name": "DbConnect",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/userguide/accessing-sql-clients.html",
+      "description": "Grants permission to connect to the database",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DbConnectAdmin",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/userguide/accessing-sql-clients.html",
+      "description": "Grants permission to connect to the database with admin role. Connecting with any other role requires DbConnect permission",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_DeleteCluster.html",
+      "description": "Grants permission to delete a cluster and all of its data",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMultiRegionClusters",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_DeleteMultiRegionClusters.html",
+      "description": "Grants permission to delete multi-Region clusters. Deleting multi-Region clusters also requires DeleteCluster permission in each specified Region",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dsql:DeleteCluster"
+      ]
+    },
+    {
+      "name": "GetCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_GetCluster.html",
+      "description": "Grants permission to get information about a cluster",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListClusters",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_ListClusters.html",
+      "description": "Grants permission to retrieve a list of clusters",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list all tags on an Aurora DSQL resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to add tags to Aurora DSQL resources",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove tags from Aurora DSQL resources",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_UpdateCluster.html",
+      "description": "Grants permission to modify cluster attributes",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    }
+  ]
+}

@@ -26,6 +26,17 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateAgentCollaborator",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_AssociateAgentCollaborator.html",
+      "description": "Grants permission to associate another existing agent as a collaborator to an existing agent",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateAgentKnowledgeBase",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_AssociateAgentKnowledgeBase.html",
       "description": "Grants permission to associate a knowledge base with an agent",
@@ -97,6 +108,37 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateBlueprint",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateBlueprint.html",
+      "description": "Grants permission to create a blueprint for custom output from data automation",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateBlueprintVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateBlueprintVersion.html",
+      "description": "Grants permission to create a new version for an existing blueprint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "blueprint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateDataAutomationProject",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataAutomationProject.html",
+      "description": "Grants permission to create a data automation project",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "blueprint"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -220,6 +262,15 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateMarketplaceModelEndpoint",
+      "documentationUrl": "API_CreateMarketplaceModelEndpoint",
+      "description": "Grants permission to create a marketplace model endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -391,12 +442,34 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteBlueprint",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeleteBlueprint.html",
+      "description": "Grants permission to delete a blueprint for data automation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "blueprint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteCustomModel",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModel.html",
       "description": "Grants permission to delete a custom model that you created earlier",
       "accessLevel": "Write",
       "resourceTypes": [
         "custom-model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDataAutomationProject",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeleteDataAutomationProject.html",
+      "description": "Grants permission to delete a data automation project",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "data-automation-project*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -499,6 +572,37 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteKnowledgeBaseDocuments",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeleteKnowledgeBaseDocuments.html",
+      "description": "Grants permission to delete documents from a knowledge base",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMarketplaceModelAgreement",
+      "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html",
+      "description": "Grants permission to unsubscribe from a bedrock marketplace enabled AWS marketplace model",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMarketplaceModelEndpoint",
+      "documentationUrl": "API_DeleteMarketplaceModelEndpoint",
+      "description": "Grants permission to delete a marketplace model endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "bedrock-marketplace-model-endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteModelInvocationLoggingConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteModelInvocationLoggingConfiguration.html",
       "description": "Grants permission to delete an existing Invocation logging configuration",
@@ -542,12 +646,34 @@
       "dependentActions": []
     },
     {
+      "name": "DeregisterMarketplaceModelEndpoint",
+      "documentationUrl": "API_DeregisterMarketplaceModelEndpoint",
+      "description": "Grants permission to deregister a marketplace model endpoint to make it unusable in Bedrock Marketplace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "bedrock-marketplace-model-endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DetectGeneratedContent",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
       "description": "Grants permission to detect if the provided content is generated using Amazon Bedrock",
       "accessLevel": "Read",
       "resourceTypes": [
         "foundation-model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateAgentCollaborator",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DisassociateAgentCollaborator.html",
+      "description": "Grants permission to diassociate a collaborator that you associated earlier",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -561,6 +687,15 @@
         "agent*",
         "knowledge-base*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GenerateQuery",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to generate queries associated with user input",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -593,6 +728,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "agent-alias*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAgentCollaborator",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentCollaborator.html",
+      "description": "Grants permission to retrieve an existing collaborator",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "agent*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -632,12 +778,65 @@
       "dependentActions": []
     },
     {
+      "name": "GetAsyncInvoke",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetAsyncInvoke.html",
+      "description": "Grants permission to get the properties associated with an asynchronous invocation that you have submitted",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "async-invoke*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetBlueprint",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetBlueprint.html",
+      "description": "Grants permission to retrieve an existing blueprint for data automation",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "blueprint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetBlueprintRecommendation",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetBlueprintRecommendation.html",
+      "description": "Grants permission to retrieve blueprint recommendation",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetCustomModel",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModel.html",
       "description": "Grants permission to get the properties associated with a Bedrock custom model that you have created",
       "accessLevel": "Read",
       "resourceTypes": [
         "custom-model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDataAutomationProject",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetDataAutomationProject.html",
+      "description": "Grants permission to retrieve an existing data automation project",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "data-automation-project*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDataAutomationStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetDataAutomationStatus.html",
+      "description": "Grants permission to retrieve the status of a data automation invocation job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "data-automation-invocation-job*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -774,6 +973,28 @@
       "dependentActions": []
     },
     {
+      "name": "GetKnowledgeBaseDocuments",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetKnowledgeBaseDocuments.html",
+      "description": "Grants permission to get details for documents in a knowledge base",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetMarketplaceModelEndpoint",
+      "documentationUrl": "API_GetMarketplaceModelEndpoint",
+      "description": "Grants permission to get the properties of a marketplace model endpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "bedrock-marketplace-model-endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetModelCopyJob",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetModelCopyJob.html",
       "description": "Grants permission to get the properties associated with a model-copy job. Use this operation to get the status of a model-copy job",
@@ -850,6 +1071,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetPromptRouter",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetPromptRouter.html",
+      "description": "Grants permission to get the properties associated with a prompt router",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "default-prompt-router*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetProvisionedModelThroughput",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetProvisionedModelThroughput.html",
       "description": "Grants permission to retrieve a provisioned model throughput",
@@ -881,6 +1113,17 @@
       "dependentActions": []
     },
     {
+      "name": "IngestKnowledgeBaseDocuments",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_IngestKnowledgeBaseDocuments.html",
+      "description": "Grants permission to directly ingest documents into a knowledge base",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "InvokeAgent",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html",
       "description": "Grants permission to send user input (text-only) to the alias of an agent for Bedrock",
@@ -892,11 +1135,32 @@
       "dependentActions": []
     },
     {
+      "name": "InvokeBlueprintRecommendationAsync",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_InvokeBlueprintRecommendationAsync.html",
+      "description": "Grants permission to invoke blueprint recommendations asynchronously",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "InvokeBuilder",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-create-cb.html",
       "description": "Grants permission to use the conversational builder which aids in building supported bedrock resources",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "InvokeDataAutomationAsync",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_InvokeDataAutomationAsync.html",
+      "description": "Grants permission to invoke a Bedrock data automation job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "blueprint*",
+        "data-automation-project*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -912,19 +1176,34 @@
       "dependentActions": []
     },
     {
+      "name": "InvokeInlineAgent",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeInlineAgent.html",
+      "description": "Grants permission to send user input (text-only) to the inline agent for Bedrock",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "InvokeModel",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html",
       "description": "Grants permission to invoke the specified Bedrock model to run inference using the input provided in the request body",
       "accessLevel": "Read",
       "resourceTypes": [
         "application-inference-profile*",
+        "async-invoke*",
+        "bedrock-marketplace-model-endpoint*",
+        "default-prompt-router*",
         "foundation-model*",
         "imported-model*",
         "inference-profile*",
         "provisioned-model*"
       ],
       "conditionKeys": [
-        "bedrock:InferenceProfileArn"
+        "bedrock:InferenceProfileArn",
+        "bedrock:PromptRouterArn",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -935,13 +1214,16 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "application-inference-profile*",
+        "bedrock-marketplace-model-endpoint*",
+        "default-prompt-router*",
         "foundation-model*",
         "imported-model*",
         "inference-profile*",
         "provisioned-model*"
       ],
       "conditionKeys": [
-        "bedrock:InferenceProfileArn"
+        "bedrock:InferenceProfileArn",
+        "bedrock:PromptRouterArn"
       ],
       "dependentActions": []
     },
@@ -960,6 +1242,17 @@
       "name": "ListAgentAliases",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListAgentAliases.html",
       "description": "Grants permission to list aliases for an agent",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAgentCollaborators",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListAgentCollaborators.html",
+      "description": "Grants permission to list collaborators for an agent",
       "accessLevel": "List",
       "resourceTypes": [
         "agent*"
@@ -999,11 +1292,42 @@
       "dependentActions": []
     },
     {
+      "name": "ListAsyncInvokes",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListAsyncInvokes.html",
+      "description": "Grants permission to get a list of asynchronous invocations that you have submitted",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListBlueprints",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListBlueprints.html",
+      "description": "Grants permission to list existing blueprints for data automation",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "data-automation-project"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListCustomModels",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModels.html",
       "description": "Grants permission to get a list of Bedrock custom models that you have created",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDataAutomationProjects",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListDataAutomationProjects.html",
+      "description": "Grants permission to list existing data automation projects",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "blueprint"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1117,10 +1441,30 @@
       "dependentActions": []
     },
     {
+      "name": "ListKnowledgeBaseDocuments",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListKnowledgeBaseDocuments.html",
+      "description": "Grants permission to list documents in a knowledge base",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListKnowledgeBases",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListKnowledgeBases.html",
       "description": "Grants permission to list existing knowledge bases",
       "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMarketplaceModelEndpoints",
+      "documentationUrl": "API_ListMarketplaceModelEndpoints",
+      "description": "Grants permission to list marketplace model endpoints that you can use",
+      "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -1171,6 +1515,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListPromptRouters",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListPromptRouters.html",
+      "description": "Grants permission to list prompt routers that you can use",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListPrompts",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListPrompts.html",
       "description": "Grants permission to list existing prompts",
@@ -1199,6 +1552,7 @@
         "agent*",
         "agent-alias*",
         "application-inference-profile*",
+        "async-invoke*",
         "custom-model*",
         "evaluation-job*",
         "flow*",
@@ -1215,6 +1569,15 @@
         "prompt-version*",
         "provisioned-model*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "OptimizePrompt",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_OptimizePrompt.html",
+      "description": "Grants permission to optimize a prompt with user input",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1276,6 +1639,38 @@
       "name": "PutUseCaseForModelAccess",
       "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html",
       "description": "Grants permission to put a use case for model access",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RegisterMarketplaceModelEndpoint",
+      "documentationUrl": "API_RegisterMarketplaceModelEndpoint",
+      "description": "Grants permission to register a sagemaker endpoint as a marketplace model endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "bedrock-marketplace-model-endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RenderPrompt",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to render an existing prompt or its version",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "prompt*",
+        "prompt-version*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "Rerank",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to rank documents based on user input",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -1365,6 +1760,7 @@
         "agent",
         "agent-alias",
         "application-inference-profile",
+        "async-invoke",
         "custom-model",
         "evaluation-job",
         "flow",
@@ -1396,6 +1792,7 @@
         "agent",
         "agent-alias",
         "application-inference-profile",
+        "async-invoke",
         "custom-model",
         "evaluation-job",
         "flow",
@@ -1451,6 +1848,17 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateAgentCollaborator",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentCollaborator.html",
+      "description": "Grants permission to update an existing collaborator",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "agent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateAgentKnowledgeBase",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentKnowledgeBase.html",
       "description": "Grants permission to update a knowledge base associated with an agent",
@@ -1458,6 +1866,29 @@
       "resourceTypes": [
         "agent*",
         "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateBlueprint",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateBlueprint.html",
+      "description": "Grants permission to update a blueprint for data automation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "blueprint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDataAutomationProject",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateDataAutomationProject.html",
+      "description": "Grants permission to update a data automation project",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "data-automation-project*",
+        "blueprint"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1518,6 +1949,17 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateMarketplaceModelEndpoint",
+      "documentationUrl": "API_UpdateMarketplaceModelEndpoint",
+      "description": "Grants permission to update a marketplace model endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "bedrock-marketplace-model-endpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdatePrompt",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdatePrompt.html",
       "description": "Grants permission to update a prompt",
@@ -1538,6 +1980,15 @@
         "foundation-model*",
         "provisioned-model*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ValidateFlowDefinition",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ValidateFlowDefinition.html",
+      "description": "Grants permission to validate prompt flow definitions",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     }

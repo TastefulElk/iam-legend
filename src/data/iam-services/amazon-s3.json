@@ -218,6 +218,29 @@
       "dependentActions": []
     },
     {
+      "name": "CreateBucketMetadataTableConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataTableConfiguration.html",
+      "description": "Grants permission to create a new S3 Metadata configuration for a specified bucket",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "bucket*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": [
+        "s3tables:CreateNamespace",
+        "s3tables:CreateTable",
+        "s3tables:GetTable",
+        "s3tables:PutTablePolicy"
+      ]
+    },
+    {
       "name": "CreateJob",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateJob.html",
       "description": "Grants permission to create a new Amazon S3 Batch Operations job",
@@ -441,6 +464,24 @@
       "name": "DeleteBucket",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucket.html",
       "description": "Grants permission to delete the bucket named in the URI",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "bucket*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteBucketMetadataTableConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketMetadataTableConfiguration.html",
+      "description": "Grants permission to delete the S3 Metadata configuration for a specified bucket",
       "accessLevel": "Write",
       "resourceTypes": [
         "bucket*"
@@ -1094,6 +1135,24 @@
       "dependentActions": []
     },
     {
+      "name": "GetBucketMetadataTableConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataTableConfiguration.html",
+      "description": "Grants permission to return the S3 Metadata configuration for a specified bucket",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "bucket*"
+      ],
+      "conditionKeys": [
+        "s3:authType",
+        "s3:ResourceAccount",
+        "s3:signatureAge",
+        "s3:signatureversion",
+        "s3:TlsVersion",
+        "s3:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetBucketNotification",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotification.html",
       "description": "Grants permission to get the notification configuration of an Amazon S3 bucket",
@@ -1499,7 +1558,9 @@
         "s3:signatureAge",
         "s3:signatureversion",
         "s3:TlsVersion",
-        "s3:x-amz-content-sha256"
+        "s3:x-amz-content-sha256",
+        "s3:if-match",
+        "s3:if-none-match"
       ],
       "dependentActions": []
     },
@@ -2200,8 +2261,8 @@
         "s3:x-amz-content-sha256"
       ],
       "dependentActions": [
-        "S3:GetReplicationConfiguration",
-        "S3:PutReplicationConfiguration"
+        "s3:GetReplicationConfiguration",
+        "s3:PutReplicationConfiguration"
       ]
     },
     {
@@ -2738,7 +2799,10 @@
         "s3:object-lock-mode",
         "s3:object-lock-retain-until-date",
         "s3:object-lock-remaining-retention-days",
-        "s3:object-lock-legal-hold"
+        "s3:object-lock-legal-hold",
+        "s3:if-match",
+        "s3:if-none-match",
+        "s3:ObjectCreationOperation"
       ],
       "dependentActions": []
     },

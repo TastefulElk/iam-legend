@@ -4,14 +4,26 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsglue.html",
   "actions": [
     {
+      "name": "AuthorizeInboundIntegration",
+      "documentationUrl": "aws-glue-api-integrations.html",
+      "description": "Grants permission to Glue to continuously validate that the target Arn can receive data replicated from the source ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "integration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "BatchCreatePartition",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-BatchCreatePartition",
       "description": "Grants permission to create one or more partitions",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -22,8 +34,8 @@
       "description": "Grants permission to delete one or more connections",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
-        "connection*"
+        "connection*",
+        "rootcatalog*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -34,9 +46,10 @@
       "description": "Grants permission to delete one or more partitions",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -47,9 +60,10 @@
       "description": "Grants permission to delete one or more tables",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -60,9 +74,10 @@
       "description": "Grants permission to delete one or more versions of a table",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -126,9 +141,10 @@
       "description": "Grants permission to retrieve one or more partitions",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -148,8 +164,8 @@
       "description": "Grants permission to return the configuration for the specified table optimizers",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
         "database*",
+        "rootcatalog*",
         "table*"
       ],
       "conditionKeys": [],
@@ -196,9 +212,10 @@
       "description": "Grants permission to update one or more partitions",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -271,6 +288,18 @@
       "dependentActions": []
     },
     {
+      "name": "CreateCatalog",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog.html",
+      "description": "Grants permission to create a catalog",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "catalog*",
+        "rootcatalog*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateClassifier",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-classifiers.html#aws-glue-api-crawler-classifiers-CreateClassifier",
       "description": "Grants permission to create a classifier",
@@ -280,12 +309,24 @@
       "dependentActions": []
     },
     {
+      "name": "CreateColumnStatisticsTaskSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-column-statistics.html#aws-glue-api-crawler-column-statistics-CreateColumnStatisticsTaskSettings",
+      "description": "Grants permission to create settings for a column statistics task",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "database*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateConnection",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-connections.html#aws-glue-api-catalog-connections-CreateConnection",
       "description": "Grants permission to create a connection",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*"
+        "rootcatalog*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -335,8 +376,9 @@
       "description": "Grants permission to create a database",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
-        "database*"
+        "database*",
+        "rootcatalog*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -351,6 +393,61 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateInboundIntegration",
+      "documentationUrl": "aws-glue-api-integrations.html",
+      "description": "Grants permission to the source principal to create an inbound integration for data to be replicated from the source into the target",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html#aws-glue-api-integrations-CreateIntegration",
+      "description": "Grants permission to create an integration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "catalog*",
+        "connection*",
+        "database*",
+        "integration*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "kms:CreateGrant",
+        "kms:DescribeKey"
+      ]
+    },
+    {
+      "name": "CreateIntegrationResourceProperty",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html#aws-glue-api-integrations-CreateIntegrationResourceProperty",
+      "description": "Grants permission to create integration resource property",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "catalog*",
+        "connection*",
+        "database*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateIntegrationTableProperties",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html#aws-glue-api-integrations-CreateIntegrationTableProperties",
+      "description": "Grants permission to create integration table properties",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "catalog*",
+        "connection*",
+        "database*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -388,9 +485,10 @@
       "description": "Grants permission to create a partition",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -401,9 +499,10 @@
       "description": "Grants permission to create a specified partition index in an existing table",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -478,9 +577,10 @@
       "description": "Grants permission to create a table",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -491,8 +591,8 @@
       "description": "Grants permission to create a new table optimizer for a specific function. Compaction is the only currently supported optimizer type",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
+        "rootcatalog*",
         "table*"
       ],
       "conditionKeys": [],
@@ -534,8 +634,9 @@
       "description": "Grants permission to create a function definition",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
-        "database*"
+        "database*",
+        "rootcatalog*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -566,6 +667,18 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteCatalog",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog.html",
+      "description": "Grants permission to delete a catalog",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rootcatalog*",
+        "catalog"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteClassifier",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-classifiers.html#aws-glue-api-crawler-classifiers-DeleteClassifier",
       "description": "Grants permission to delete a classifier",
@@ -580,9 +693,10 @@
       "description": "Grants permission to delete the partition column statistics of a column",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -593,7 +707,20 @@
       "description": "Grants permission to delete the table statistics of columns",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
+        "database*",
+        "rootcatalog*",
+        "table*",
+        "catalog"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteColumnStatisticsTaskSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-column-statistics.html#aws-glue-api-crawler-column-statistics-DeleteColumnStatisticsTaskSettings",
+      "description": "Grants permission to delete settings for a column statistics task",
+      "accessLevel": "Write",
+      "resourceTypes": [
         "database*",
         "table*"
       ],
@@ -606,8 +733,8 @@
       "description": "Grants permission to delete a connection",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
-        "connection*"
+        "connection*",
+        "rootcatalog*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -649,10 +776,11 @@
       "description": "Grants permission to delete a database",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
+        "rootcatalog*",
         "table*",
-        "userdefinedfunction*"
+        "userdefinedfunction*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -664,6 +792,32 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "devendpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html#aws-glue-api-integrations-DeleteIntegration",
+      "description": "Grants permission to delete an integration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "integration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteIntegrationTableProperties",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html#aws-glue-api-integrations-DeleteIntegrationTableProperties",
+      "description": "Grants permission to delete integration table properties",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "catalog*",
+        "connection*",
+        "database*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -696,9 +850,10 @@
       "description": "Grants permission to delete a partition",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -709,9 +864,10 @@
       "description": "Grants permission to delete a specified partition index from an existing table",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -733,7 +889,7 @@
       "description": "Grants permission to delete a resource policy",
       "accessLevel": "Permissions management",
       "resourceTypes": [
-        "catalog*"
+        "rootcatalog*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -788,9 +944,10 @@
       "description": "Grants permission to delete a table",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -801,8 +958,8 @@
       "description": "Grants permission to delete an optimizer and all associated metadata for a table. The optimization will no longer be performed on the table",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
+        "rootcatalog*",
         "table*"
       ],
       "conditionKeys": [],
@@ -816,9 +973,10 @@
       "description": "Grants permission to delete a version of a table",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -851,9 +1009,10 @@
       "description": "Grants permission to delete a function definition",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "userdefinedfunction*"
+        "rootcatalog*",
+        "userdefinedfunction*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -893,10 +1052,32 @@
       "description": "Grants permission to describe entity in glue studio",
       "accessLevel": "Permissions management",
       "resourceTypes": [
-        "catalog*",
-        "connection*"
+        "connection*",
+        "rootcatalog*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeInboundIntegrations",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html#aws-glue-api-integrations-DescribeInboundIntegrations",
+      "description": "Grants permission to list the inbound integrations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeIntegrations",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html#aws-glue-api-integrations-DescribeIntegrations",
+      "description": "Grants permission to describe zero-ETL integrations",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "integration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -933,14 +1114,42 @@
       "dependentActions": []
     },
     {
+      "name": "GetCatalog",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog.html",
+      "description": "Grants permission to retrieve a catalog",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "rootcatalog*",
+        "catalog"
+      ],
+      "conditionKeys": [
+        "glue:EnabledForRedshiftAutoDiscovery"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetCatalogImportStatus",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-migration.html#aws-glue-api-catalog-migration-GetCatalogImportStatus",
       "description": "Grants permission to retrieve the catalog import status",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*"
+        "rootcatalog*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetCatalogs",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog.html",
+      "description": "Grants permission to retrieve all catalogs",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "rootcatalog*",
+        "catalog"
+      ],
+      "conditionKeys": [
+        "glue:EnabledForRedshiftAutoDiscovery"
+      ],
       "dependentActions": []
     },
     {
@@ -967,9 +1176,10 @@
       "description": "Grants permission to retrieve partition statistics of columns",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -980,9 +1190,10 @@
       "description": "Grants permission to retrieve table statistics of columns",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1006,6 +1217,15 @@
       "dependentActions": []
     },
     {
+      "name": "GetColumnStatisticsTaskSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-column-statistics.html#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskSettings",
+      "description": "Grants permission to retrieve settings for a column statistics task",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetCompletion",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api.html#",
       "description": "Grants permission to get generated response for a completion request in Glue from AWS Q",
@@ -1022,8 +1242,8 @@
       "description": "Grants permission to retrieve a connection",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
-        "connection*"
+        "connection*",
+        "rootcatalog*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1034,8 +1254,8 @@
       "description": "Grants permission to retrieve a list of connections",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
-        "connection*"
+        "connection*",
+        "rootcatalog*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1079,12 +1299,23 @@
       "dependentActions": []
     },
     {
+      "name": "GetDashboardUrl",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-interactive-sessions.html",
+      "description": "Grants permission to generate presigned url for accessing spark live UI",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "session*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetDataCatalogEncryptionSettings",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-security.html#aws-glue-api-jobs-security-GetDataCatalogEncryptionSettings",
       "description": "Grants permission to retrieve catalog encryption settings",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*"
+        "rootcatalog*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1172,8 +1403,9 @@
       "description": "Grants permission to retrieve a database",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
-        "database*"
+        "database*",
+        "rootcatalog*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1184,8 +1416,9 @@
       "description": "Grants permission to retrieve all databases",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
-        "database*"
+        "database*",
+        "rootcatalog*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1220,6 +1453,18 @@
       "dependentActions": []
     },
     {
+      "name": "GetEntityRecords",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/glue-connections.html#connection-type-permissions-operations",
+      "description": "Grants permission to preview entity records in glue",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "catalog*",
+        "connection"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetEnvironment",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/monitor-spark-ui.html",
       "description": "Grants permission to get environment details for SparkUI",
@@ -1243,6 +1488,41 @@
       "description": "Grants permission to get executor threads for SparkUI",
       "accessLevel": "Permissions management",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetGeneratedCode",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-etl-script-generation.html#aws-glue-api-etl-script-generation-GetGeneratedCode",
+      "description": "Transforms a directed acyclic graph (DAG) into code",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetIntegrationResourceProperty",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html#aws-glue-api-integrations-GetIntegrationResourceProperty",
+      "description": "Grants permission to retrieve the integration resource property",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "catalog*",
+        "connection*",
+        "database*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetIntegrationTableProperties",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html#aws-glue-api-integrations-GetIntegrationTableProperties",
+      "description": "Grants permission to retrieve the integration table properties",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "catalog*",
+        "connection*",
+        "database*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1281,6 +1561,17 @@
       "name": "GetJobRuns",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html#aws-glue-api-jobs-runs-GetJobRuns",
       "description": "Grants permission to retrieve all job runs of a job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetJobUpgradeAnalysis",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-upgrade-analysis.html#aws-glue-api-upgrade-analysis-GetJobUpgradeAnalysis",
+      "description": "Grants permission to retrieve an upgrade analysis for a job",
       "accessLevel": "Read",
       "resourceTypes": [
         "job*"
@@ -1374,9 +1665,10 @@
       "description": "Grants permission to retrieve a partition",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1387,9 +1679,10 @@
       "description": "Grants permission to retrieve partition indexes for a table",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1400,9 +1693,10 @@
       "description": "Grants permission to retrieve the partitions of a table",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1460,7 +1754,7 @@
       "description": "Grants permission to retrieve resource policies",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*"
+        "rootcatalog*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1471,7 +1765,7 @@
       "description": "Grants permission to retrieve a resource policy",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*"
+        "rootcatalog*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1642,9 +1936,10 @@
       "description": "Grants permission to retrieve a table",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1655,8 +1950,8 @@
       "description": "Grants permission to return the configuration of all optimizers associated with a specified table",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
         "database*",
+        "rootcatalog*",
         "table*"
       ],
       "conditionKeys": [],
@@ -1670,9 +1965,10 @@
       "description": "Grants permission to retrieve a version of a table",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1683,9 +1979,10 @@
       "description": "Grants permission to retrieve a list of versions of a table",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1696,9 +1993,10 @@
       "description": "Grants permission to retrieve the tables in a database",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1758,9 +2056,10 @@
       "description": "Grants permission to retrieve a function definition",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "userdefinedfunction*"
+        "rootcatalog*",
+        "userdefinedfunction*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1771,9 +2070,10 @@
       "description": "Grants permission to retrieve multiple function definitions",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "userdefinedfunction*"
+        "rootcatalog*",
+        "userdefinedfunction*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1846,7 +2146,7 @@
       "description": "Grants permission to import an Athena data catalog into AWS Glue",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*"
+        "rootcatalog*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1964,8 +2264,19 @@
       "description": "Grants permission to list entities in glue studio",
       "accessLevel": "Permissions management",
       "resourceTypes": [
-        "catalog*",
-        "connection*"
+        "connection*",
+        "rootcatalog*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListJobUpgradeAnalyses",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-upgrade-analysis.html#aws-glue-api-upgrade-analysis-ListJobUpgradeAnalyses",
+      "description": "Grants permission to list upgrade analyses for a job",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "job*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2048,8 +2359,8 @@
       "description": "Grants permission to list the history of previous optimizer runs for a specific table",
       "accessLevel": "List",
       "resourceTypes": [
-        "catalog*",
         "database*",
+        "rootcatalog*",
         "table*"
       ],
       "conditionKeys": [],
@@ -2082,6 +2393,19 @@
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyIntegration",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html#aws-glue-api-integrations-ModifyIntegration",
+      "description": "Grants permission to modify a zero-ETL integration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "integration*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -2123,7 +2447,7 @@
       "description": "Grants permission to update catalog encryption settings",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*"
+        "rootcatalog*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2158,7 +2482,7 @@
       "description": "Grants permission to update a resource policy",
       "accessLevel": "Permissions management",
       "resourceTypes": [
-        "catalog*"
+        "rootcatalog*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2204,8 +2528,8 @@
       "description": "Grants permission to refresh the oauth2 tokens for connection during job execution",
       "accessLevel": "Permissions management",
       "resourceTypes": [
-        "catalog*",
-        "connection*"
+        "connection*",
+        "rootcatalog*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2289,9 +2613,10 @@
       "description": "Grants permission to retrieve the tables in the catalog",
       "accessLevel": "Read",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2339,6 +2664,18 @@
         "glue:GetSecurityConfiguration",
         "glue:GetTable"
       ]
+    },
+    {
+      "name": "StartColumnStatisticsTaskRunSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-column-statistics.html#aws-glue-api-crawler-column-statistics-StartColumnStatisticsTaskRunSchedule",
+      "description": "Grants permission to start a column statistics task run schedule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "database*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "StartCompletion",
@@ -2425,6 +2762,17 @@
       "dependentActions": []
     },
     {
+      "name": "StartJobUpgradeAnalysis",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-upgrade-analysis.html#aws-glue-api-upgrade-analysis-StartJobUpgradeAnalysis",
+      "description": "Grants permission to start running upgrade analysis for a job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartMLEvaluationTaskRun",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-machine-learning-api.html#aws-glue-api-machine-learning-api-StartMLEvaluationTaskRun",
       "description": "Grants permission to start an Evaluation ML Task Run",
@@ -2490,6 +2838,18 @@
       "dependentActions": []
     },
     {
+      "name": "StopColumnStatisticsTaskRunSchedule",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-column-statistics.html#aws-glue-api-crawler-column-statistics-StopColumnStatisticsTaskRunSchedule",
+      "description": "Grants permission to stop a column statistics task run schedule",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "database*",
+        "table*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StopCrawler",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-crawling.html#aws-glue-api-crawler-crawling-StopCrawler",
       "description": "Grants permission to stop a running crawler",
@@ -2506,6 +2866,17 @@
       "description": "Grants permission to set the schedule state of a crawler to NOT_SCHEDULED",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopJobUpgradeAnalysis",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-upgrade-analysis.html#aws-glue-api-upgrade-analysis-StopJobUpgradeAnalysis",
+      "description": "Grants permission to stop an on-going upgrade analysis for a job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "job*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -2554,6 +2925,7 @@
         "customEntityType",
         "dataQualityRuleset",
         "devendpoint",
+        "integration",
         "job",
         "mlTransform",
         "registry",
@@ -2599,6 +2971,7 @@
         "customEntityType",
         "dataQualityRuleset",
         "devendpoint",
+        "integration",
         "job",
         "mlTransform",
         "registry",
@@ -2625,6 +2998,18 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateCatalog",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog.html",
+      "description": "Grants permission to update a catalog",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "rootcatalog*",
+        "catalog"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateClassifier",
       "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-classifiers.html#aws-glue-api-crawler-classifiers-UpdateClassifier",
       "description": "Grants permission to update a classifier",
@@ -2639,9 +3024,10 @@
       "description": "Grants permission to update partition statistics of columns",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2652,7 +3038,20 @@
       "description": "Grants permission to update table statistics of columns",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
+        "database*",
+        "rootcatalog*",
+        "table*",
+        "catalog"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateColumnStatisticsTaskSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-crawler-column-statistics.html#aws-glue-api-crawler-column-statistics-UpdateColumnStatisticsTaskSettings",
+      "description": "Grants permission to update settings for a column statistics task",
+      "accessLevel": "Write",
+      "resourceTypes": [
         "database*",
         "table*"
       ],
@@ -2665,8 +3064,8 @@
       "description": "Grants permission to update a connection",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
-        "connection*"
+        "connection*",
+        "rootcatalog*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2708,8 +3107,9 @@
       "description": "Grants permission to update a database",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
-        "database*"
+        "database*",
+        "rootcatalog*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2721,6 +3121,32 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "devendpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateIntegrationResourceProperty",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html#aws-glue-api-integrations-UpdateIntegrationResourceProperty",
+      "description": "Grants permission to update the integration resource property",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "catalog*",
+        "connection*",
+        "database*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateIntegrationTableProperties",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-integrations.html#aws-glue-api-integrations-UpdateIntegrationTableProperties",
+      "description": "Grants permission to update the integration table properties",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "catalog*",
+        "connection*",
+        "database*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2768,9 +3194,10 @@
       "description": "Grants permission to update a partition",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2815,9 +3242,10 @@
       "description": "Grants permission to update a table",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "table*"
+        "rootcatalog*",
+        "table*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2828,8 +3256,8 @@
       "description": "Grants permission to update the configuration for an existing table optimizer",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
+        "rootcatalog*",
         "table*"
       ],
       "conditionKeys": [],
@@ -2865,9 +3293,10 @@
       "description": "Grants permission to update a function definition",
       "accessLevel": "Write",
       "resourceTypes": [
-        "catalog*",
         "database*",
-        "userdefinedfunction*"
+        "rootcatalog*",
+        "userdefinedfunction*",
+        "catalog"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2879,6 +3308,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpgradeJob",
+      "documentationUrl": "https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-upgrade-analysis.html#aws-glue-api-upgrade-analysis-UpgradeJob",
+      "description": "Grants permission to upgrade a job to the latest version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "job*"
       ],
       "conditionKeys": [],
       "dependentActions": []

@@ -83,6 +83,7 @@
         "acl*",
         "parametergroup*",
         "subnetgroup*",
+        "multiregioncluster",
         "snapshot"
       ],
       "conditionKeys": [
@@ -99,6 +100,24 @@
         "ec2:DescribeVpcs",
         "memorydb:TagResource",
         "s3:GetObject"
+      ]
+    },
+    {
+      "name": "CreateMultiRegionCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_CreateMultiRegionCluster.html",
+      "description": "Grants permissions to create a Multi-Region cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "multiregionparametergroup*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "memorydb:TLSEnabled"
+      ],
+      "dependentActions": [
+        "memorydb:TagResource"
       ]
     },
     {
@@ -184,6 +203,7 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "cluster*",
+        "multiregioncluster",
         "snapshot"
       ],
       "conditionKeys": [
@@ -196,6 +216,19 @@
         "ec2:DescribeSubnets",
         "ec2:DescribeVpcs"
       ]
+    },
+    {
+      "name": "DeleteMultiRegionCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DeleteMultiRegionCluster.html",
+      "description": "Grants permissions to delete a Multi-Region cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "multiregioncluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
     },
     {
       "name": "DeleteParameterGroup",
@@ -296,6 +329,41 @@
       "description": "Grants permissions to retrieve events related to clusters, subnet groups, and parameter groups",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeMultiRegionClusters",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeMultiRegionClusters.html",
+      "description": "Grants permissions to retrieve information about all Multi-Region clusters if no cluster identifier is specified, or about a specific Multi-Region cluster if a cluster identifier is supplied",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "multiregioncluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeMultiRegionParameterGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeMultiRegionParameterGroups.html",
+      "description": "Grants permissions to retrieve information about Multi-Region parameter groups",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "multiregionparametergroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeMultiRegionParameters",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeMultiRegionParameters.html",
+      "description": "Grants permissions to retrieve a detailed parameter list for a particular Multi-Region parameter group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "multiregionparametergroup*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -415,6 +483,19 @@
       ]
     },
     {
+      "name": "ListAllowedMultiRegionClusterUpdates",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_ListAllowedMultiRegionClusterUpdates.html",
+      "description": "Grants permissions to list available Multi-Region cluster updates",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "multiregioncluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListAllowedNodeTypeUpdates",
       "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_ListAllowedNodeTypeUpdates.html",
       "description": "Grants permissions to list available node type updates",
@@ -435,6 +516,7 @@
       "resourceTypes": [
         "acl",
         "cluster",
+        "multiregioncluster",
         "parametergroup",
         "snapshot",
         "subnetgroup",
@@ -483,6 +565,7 @@
       "resourceTypes": [
         "acl",
         "cluster",
+        "multiregioncluster",
         "parametergroup",
         "reservednode",
         "snapshot",
@@ -504,6 +587,7 @@
       "resourceTypes": [
         "acl",
         "cluster",
+        "multiregioncluster",
         "parametergroup",
         "snapshot",
         "subnetgroup",
@@ -538,6 +622,26 @@
         "cluster*",
         "acl",
         "parametergroup"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "ec2:CreateNetworkInterface",
+        "ec2:DeleteNetworkInterface",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVpcs"
+      ]
+    },
+    {
+      "name": "UpdateMultiRegionCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/memorydb/latest/APIReference/API_UpdateMultiRegionCluster.html",
+      "description": "Grants permissions to update the settings for a Multi-Region cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "multiregioncluster*",
+        "multiregionparametergroup"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"

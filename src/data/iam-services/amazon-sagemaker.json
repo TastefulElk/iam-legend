@@ -31,8 +31,10 @@
         "artifact",
         "automl-job",
         "cluster",
+        "cluster-scheduler-config",
         "code-repository",
         "compilation-job",
+        "compute-quota",
         "context",
         "data-quality-job-definition",
         "device",
@@ -66,12 +68,15 @@
         "monitoring-schedule",
         "notebook-instance",
         "optimization-job",
+        "partner-app",
         "pipeline",
         "processing-job",
         "project",
+        "reserved-capacity",
         "space",
         "studio-lifecycle-config",
         "training-job",
+        "training-plan",
         "transform-job",
         "user-profile",
         "workteam"
@@ -150,6 +155,17 @@
       "resourceTypes": [
         "experiment-trial-component*",
         "training-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CallPartnerAppApi",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/partner-apps-onboard.html",
+      "description": "Grants permission for Partner App SDK to access the Partner App for reading or writing data use cases",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "partner-app*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -289,7 +305,9 @@
       "description": "Grants permission to create a SageMaker HyperPod cluster",
       "accessLevel": "Write",
       "resourceTypes": [
-        "cluster*"
+        "cluster*",
+        "reserved-capacity",
+        "training-plan"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -304,6 +322,27 @@
         "iam:CreateServiceLinkedRole",
         "iam:PassRole",
         "sagemaker:AddTags"
+      ]
+    },
+    {
+      "name": "CreateClusterSchedulerConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateClusterSchedulerConfig.html",
+      "description": "Grants permission to create a cluster scheduler config",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "cluster-scheduler-config*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "eks:AssociateAccessPolicy",
+        "eks:DescribeCluster",
+        "eks:ListAssociatedAccessPolicies",
+        "sagemaker:AddTags",
+        "sagemaker:DescribeCluster"
       ]
     },
     {
@@ -337,6 +376,27 @@
       "dependentActions": [
         "iam:PassRole",
         "sagemaker:AddTags"
+      ]
+    },
+    {
+      "name": "CreateComputeQuota",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateComputeQuota.html",
+      "description": "Grants permission to create a compute quota",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*",
+        "compute-quota*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "eks:AssociateAccessPolicy",
+        "eks:DescribeCluster",
+        "eks:ListAssociatedAccessPolicies",
+        "sagemaker:AddTags",
+        "sagemaker:DescribeCluster"
       ]
     },
     {
@@ -1016,6 +1076,33 @@
       ]
     },
     {
+      "name": "CreatePartnerApp",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreatePartnerApp.html",
+      "description": "Grants permission to create an Amazon SageMaker Partner AI App",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "partner-app*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
+    },
+    {
+      "name": "CreatePartnerAppPresignedUrl",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreatePartnerAppPresignedUrl.html",
+      "description": "Grants permission to return a URL that you can use from your browser to connect to the Amazon SageMaker Partner AI App",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "partner-app*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreatePipeline",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreatePipeline.html",
       "description": "Grants permission to create a pipeline",
@@ -1107,6 +1194,22 @@
       ]
     },
     {
+      "name": "CreateReservedCapacity",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateReservedCapacity.html",
+      "description": "Grants permission to create a reserved capacity",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "reserved-capacity*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "sagemaker:AddTags"
+      ]
+    },
+    {
       "name": "CreateSharedModel",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/canvas-collaborate-permissions.html",
       "description": "Grants permission to create a shared model in a SageMaker Studio application",
@@ -1160,7 +1263,9 @@
       "description": "Grants permission to start a model training job. After training completes, Amazon SageMaker saves the resulting model artifacts and other optional output to an Amazon S3 location that you specify",
       "accessLevel": "Write",
       "resourceTypes": [
-        "training-job*"
+        "training-job*",
+        "reserved-capacity",
+        "training-plan"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1183,6 +1288,23 @@
       "dependentActions": [
         "iam:PassRole",
         "sagemaker:AddTags"
+      ]
+    },
+    {
+      "name": "CreateTrainingPlan",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingPlan.html",
+      "description": "Grants permission to create a training plan that allocates resources for scheduling workloads within a specified time range",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "training-plan*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "sagemaker:AddTags",
+        "sagemaker:CreateReservedCapacity"
       ]
     },
     {
@@ -1379,6 +1501,17 @@
       ]
     },
     {
+      "name": "DeleteClusterSchedulerConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteClusterSchedulerConfig.html",
+      "description": "Grants permission to delete a cluster scheduler config",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster-scheduler-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteCodeRepository",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteCodeRepository.html",
       "description": "Grants permission to delete a CodeRepository",
@@ -1396,6 +1529,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "compilation-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteComputeQuota",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteComputeQuota.html",
+      "description": "Grants permission to delete a compute quota",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "compute-quota*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1788,6 +1932,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeletePartnerApp",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeletePartnerApp.html",
+      "description": "Grants permission to delete an Amazon SageMaker Partner AI App",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "partner-app*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeletePipeline",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeletePipeline.html",
       "description": "Grants permission to delete a pipeline",
@@ -1867,8 +2022,10 @@
         "artifact",
         "automl-job",
         "cluster",
+        "cluster-scheduler-config",
         "code-repository",
         "compilation-job",
+        "compute-quota",
         "context",
         "data-quality-job-definition",
         "device",
@@ -1902,12 +2059,15 @@
         "monitoring-schedule",
         "notebook-instance",
         "optimization-job",
+        "partner-app",
         "pipeline",
         "processing-job",
         "project",
+        "reserved-capacity",
         "space",
         "studio-lifecycle-config",
         "training-job",
+        "training-plan",
         "transform-job",
         "user-profile",
         "workteam"
@@ -2095,6 +2255,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeClusterSchedulerConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeClusterSchedulerConfig.html",
+      "description": "Grants permission to get information about a cluster scheduler config",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster-scheduler-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeCodeRepository",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCodeRepository.html",
       "description": "Grants permission to describe a CodeRepository",
@@ -2112,6 +2283,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "compilation-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeComputeQuota",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeComputeQuota.html",
+      "description": "Grants permission to get information about a compute quota",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "compute-quota*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2534,6 +2716,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribePartnerApp",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribePartnerApp.html",
+      "description": "Grants permission to describe an Amazon SageMaker Partner AI App",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "partner-app*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribePipeline",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribePipeline.html",
       "description": "Grants permission to get information about a pipeline",
@@ -2639,6 +2832,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "training-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeTrainingPlan",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingPlan.html",
+      "description": "Grants permission to return information about a specified training plan",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "training-plan*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2992,6 +3196,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListClusterSchedulerConfigs",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListClusterSchedulerConfigs.html",
+      "description": "Grants permission to list cluster scheduler configs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListClusters",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListClusters.html",
       "description": "Grants permission to list SageMaker HyperPod clusters",
@@ -3013,6 +3226,15 @@
       "name": "ListCompilationJobs",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html",
       "description": "Grants permission to list compilation jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListComputeQuotas",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListComputeQuotas.html",
+      "description": "Grants permission to list compute quotas",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -3275,9 +3497,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListMlflowTrackingServers.html",
       "description": "Grants permission to list MLflow tracking servers",
       "accessLevel": "List",
-      "resourceTypes": [
-        "mlflow-tracking-server*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -3441,6 +3661,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListPartnerApps",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListPartnerApps.html",
+      "description": "Grants permission to list the Amazon SageMaker Partner AI Apps in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListPipelineExecutionSteps",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListPipelineExecutionSteps.html",
       "description": "Grants permission to list steps for a pipeline execution",
@@ -3587,8 +3816,10 @@
         "artifact",
         "automl-job",
         "cluster",
+        "cluster-scheduler-config",
         "code-repository",
         "compilation-job",
+        "compute-quota",
         "context",
         "data-quality-job-definition",
         "device",
@@ -3622,12 +3853,15 @@
         "monitoring-schedule",
         "notebook-instance",
         "optimization-job",
+        "partner-app",
         "pipeline",
         "processing-job",
         "project",
+        "reserved-capacity",
         "space",
         "studio-lifecycle-config",
         "training-job",
+        "training-plan",
         "transform-job",
         "user-profile",
         "workteam"
@@ -3652,6 +3886,15 @@
       "resourceTypes": [
         "hyper-parameter-tuning-job*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTrainingPlans",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrainingPlans.html",
+      "description": "Grants permission to list all the training plans that have been created in a specified account",
+      "accessLevel": "List",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -3803,6 +4046,15 @@
       "conditionKeys": [
         "sagemaker:SearchVisibilityCondition/${FilterKey}"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "SearchTrainingPlanOfferings",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SearchTrainingPlanOfferings.html",
+      "description": "Grants permissions to search for the available training plan offerings that best match specified capacity requirements",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -4152,7 +4404,9 @@
       "description": "Grants permission to update a SageMaker HyperPod cluster",
       "accessLevel": "Write",
       "resourceTypes": [
-        "cluster*"
+        "cluster*",
+        "reserved-capacity",
+        "training-plan"
       ],
       "conditionKeys": [],
       "dependentActions": [
@@ -4164,6 +4418,17 @@
         "iam:PassRole",
         "sagemaker:BatchDeleteClusterNodes"
       ]
+    },
+    {
+      "name": "UpdateClusterSchedulerConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateClusterSchedulerConfig.html",
+      "description": "Grants permission to update a cluster scheduler config",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster-scheduler-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "UpdateClusterSoftware",
@@ -4185,6 +4450,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "code-repository*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateComputeQuota",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateComputeQuota.html",
+      "description": "Grants permission to update a compute quota",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "compute-quota*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -4461,6 +4737,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "notebook-instance-lifecycle-config*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdatePartnerApp",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdatePartnerApp.html",
+      "description": "Grants permission to update an Amazon SageMaker Partner AI App",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "partner-app*"
       ],
       "conditionKeys": [],
       "dependentActions": []

@@ -740,6 +740,15 @@
       "dependentActions": []
     },
     {
+      "name": "ExecuteAPI",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html#systems-manager-namespace-other-API-operations",
+      "description": "Grants permission to a Systems Manager delegated administrator to view related resource details about OpsItems across multiple AWS accounts in the AWS Management Console",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetAutomationExecution",
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AutomationExecution.html",
       "description": "Grants permission to view details of a specified Automation execution",
@@ -828,6 +837,15 @@
       "conditionKeys": [
         "ssm:DocumentCategories"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetExecutionPreview",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetExecutionPreview.html",
+      "description": "Grants permission to retrieve an existing preview that shows the effects that running a specified Automation runbook would have on the targeted resources",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -1160,6 +1178,28 @@
       "dependentActions": []
     },
     {
+      "name": "ListNodes",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListNodes.html",
+      "description": "Grants permission to view details about managed nodes based on specified filters",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "resourcedatasync*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListNodesSummary",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListNodesSummary.html",
+      "description": "Grants permission to view summary information about managed nodes based on specified filters and aggregators",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "resourcedatasync*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListOpsItemEvents",
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ListOpsItemEvents.html",
       "description": "Grants permission to view details about OpsItemEvents",
@@ -1486,6 +1526,15 @@
       "dependentActions": []
     },
     {
+      "name": "StartExecutionPreview",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartExecutionPreview.html",
+      "description": "Grants permission to create a preview showing the effects that running a specified Automation runbook would have on the targeted resources",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartSession",
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartSession.html",
       "description": "Grants permission to initiate a connection to a specified target for a Session Manager session",
@@ -1497,7 +1546,6 @@
         "task"
       ],
       "conditionKeys": [
-        "ssm:SessionDocumentAccessCheck",
         "ssm:resourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}"
       ],

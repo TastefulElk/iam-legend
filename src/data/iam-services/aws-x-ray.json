@@ -22,6 +22,15 @@
       "dependentActions": []
     },
     {
+      "name": "CancelTraceRetrieval",
+      "documentationUrl": "API_CancelTraceRetrieval.html",
+      "description": "Grants permission to cancel an ongoing trace retrieval job initiated by StartTraceRetrieval using the provided RetrievalToken. A successful cancellation will return an HTTP 200 response",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateGroup",
       "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_CreateGroup.html",
       "description": "Grants permission to create a group resource with a name and a filter expression",
@@ -125,6 +134,15 @@
       "dependentActions": []
     },
     {
+      "name": "GetIndexingRules",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetIndexingRules.html",
+      "description": "Grants permission to retrieve all indexing rules. Indexing rules are used to determine the server-side sampling rate for spans ingested through the CloudWatchLogs destination and indexed by X-Ray",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetInsight",
       "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetInsight.html",
       "description": "Grants permission to retrieve the details of a specific insight",
@@ -155,6 +173,15 @@
       "name": "GetInsightSummaries",
       "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetInsightSummaries.html",
       "description": "Grants permission to retrieve the summary of all insights for a group and time range with optional filters",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRetrievedTracesGraph",
+      "documentationUrl": "API_GetRetrievedTracesGraph.html",
+      "description": "Grants permission to retrieve a service graph for traces based on the specified RetrievalToken from the Transaction Search CloudWatch log group",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -215,6 +242,15 @@
       "dependentActions": []
     },
     {
+      "name": "GetTraceSegmentDestination",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetTraceSegmentDestination.html",
+      "description": "Grants permission to retrieve the current destination of data sent to PutTraceSegments and OpenTelemetry API",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetTraceSummaries",
       "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_GetTraceSummaries.html",
       "description": "Grants permission to retrieve IDs and metadata for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to BatchGetTraces",
@@ -236,6 +272,15 @@
       "name": "ListResourcePolicies",
       "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_ListResourcePolicies.html",
       "description": "Grants permission to list resource policies",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRetrievedTraces",
+      "documentationUrl": "API_ListRetrievedTraces.html",
+      "description": "Grants permission to retrieve a list of traces for a given RetrievalToken from the Transaction Search CloudWatch log group",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -272,6 +317,24 @@
       "dependentActions": []
     },
     {
+      "name": "PutSpans",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_PutSpans.html",
+      "description": "Grants permission to upload OpenTelemetry spans to AWS X-Ray",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutSpansForIndexing",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/devguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-console",
+      "description": "Grants permission to upload spans to AWS X-Ray to be indexed",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "PutTelemetryRecords",
       "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_PutTelemetryRecords.html",
       "description": "Grants permission to send AWS X-Ray daemon telemetry to the service",
@@ -285,6 +348,15 @@
       "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_PutTraceSegments.html",
       "description": "Grants permission to upload segment documents to AWS X-Ray. The X-Ray SDK generates segment documents and sends them to the X-Ray daemon, which uploads them in batches",
       "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartTraceRetrieval",
+      "documentationUrl": "API_StartTraceRetrieval",
+      "description": "Grants permission to initiate a trace retrieval process using the specified time range and for the given trace IDs on the Transaction Search CloudWatch log group",
+      "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
@@ -332,6 +404,15 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateIndexingRule",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_UpdateIndexingRule.html",
+      "description": "Grants permission to modify an indexing rule's configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateSamplingRule",
       "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_UpdateSamplingRule.html",
       "description": "Grants permission to modify a sampling rule's configuration",
@@ -342,6 +423,15 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTraceSegmentDestination",
+      "documentationUrl": "https://docs.aws.amazon.com/xray/latest/api/API_UpdateTraceSegmentDestination.html",
+      "description": "Grants permission to modify the destination of data sent to PutTraceSegments and OpenTelemetry API",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
       "dependentActions": []
     }
   ]

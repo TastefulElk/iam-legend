@@ -1,0 +1,311 @@
+{
+  "serviceName": "Amazon AI Operations",
+  "servicePrefix": "aiops",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonaioperations.html",
+  "actions": [
+    {
+      "name": "CreateInvestigation",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_CreateInvestigation.html",
+      "description": "Grants permission to create a new investigation in the specified investigation group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey",
+        "sts:SetContext"
+      ]
+    },
+    {
+      "name": "CreateInvestigationEvent",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_CreateInvestigationEvent.html",
+      "description": "Grants permission to create a new investigation event in the specified investigation group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey",
+        "sts:SetContext"
+      ]
+    },
+    {
+      "name": "CreateInvestigationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_CreateInvestigationGroup.html",
+      "description": "Grants permission to create a new investigation group",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "aiops:TagResource",
+        "cloudtrail:DescribeTrails",
+        "iam:PassRole",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "sso:CreateApplication",
+        "sso:DeleteApplication",
+        "sso:PutApplicationAccessScope",
+        "sso:PutApplicationAssignmentConfiguration",
+        "sso:PutApplicationAuthenticationMethod",
+        "sso:PutApplicationGrant",
+        "sso:TagResource"
+      ]
+    },
+    {
+      "name": "CreateInvestigationResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_CreateInvestigationResource.html",
+      "description": "Grants permission to create an investigation resource in the specified investigation group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "cloudwatch:DescribeAlarmHistory",
+        "cloudwatch:DescribeAlarms",
+        "cloudwatch:GetInsightRuleReport",
+        "cloudwatch:GetMetricData",
+        "kms:GenerateDataKey",
+        "logs:GetQueryResults"
+      ]
+    },
+    {
+      "name": "DeleteInvestigation",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_DeleteInvestigation.html",
+      "description": "Grants permission to delete an investigation in the specified investigation group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sts:SetContext"
+      ]
+    },
+    {
+      "name": "DeleteInvestigationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_DeleteInvestigationGroup.html",
+      "description": "Grants permission to delete the specified investigation group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "sso:DeleteApplication"
+      ]
+    },
+    {
+      "name": "DeleteInvestigationGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_DeleteInvestigationGroupPolicy.html",
+      "description": "Grants permission to delete the investigation group policy attached to an investigation group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetInvestigation",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_GetInvestigation.html",
+      "description": "Grants permission to retrieve an investigation in the specified investigation group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetInvestigationEvent",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_GetInvestigationEvent.html",
+      "description": "Grants permission to retrieve an investigation event in the specified investigation group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "kms:Decrypt"
+      ]
+    },
+    {
+      "name": "GetInvestigationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_GetInvestigationGroup.html",
+      "description": "Grants permission to retrieve the specified investigation group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetInvestigationGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_GetInvestigationGroupPolicy.html",
+      "description": "Grants permission to retrieve the investigation group policy attached to an investigation group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetInvestigationResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_GetInvestigationResource.html",
+      "description": "Grants permission to retrieve an investigation resource in the specified investigation group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "kms:Decrypt"
+      ]
+    },
+    {
+      "name": "ListInvestigationEvents",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_ListInvestigationEvents.html",
+      "description": "Grants permission to list all investigation events in the specified investigation group",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListInvestigationGroups",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_ListInvestigationGroups.html",
+      "description": "Grants permission to list all investigation groups in the AWS account making the request",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListInvestigations",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_ListInvestigations.html",
+      "description": "Grants permission to list all investigations that are in the specified investigation group",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_ListTagsForResource.html",
+      "description": "Grants permission to list the tags for the specified resource",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutInvestigationGroupPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_PutInvestigationGroupPolicy.html",
+      "description": "Grants permission to create/update the investigation group policy attached to an investigation group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_TagResource.html",
+      "description": "Grants permission to add or update the specified tags for the specified resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_UntagResource.html",
+      "description": "Grants permission to remove the specified tags from the specified resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateInvestigation",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_UpdateInvestigation.html",
+      "description": "Grants permission to update an investigation in the specified investigation group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey",
+        "sts:SetContext"
+      ]
+    },
+    {
+      "name": "UpdateInvestigationEvent",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_UpdateInvestigationEvent.html",
+      "description": "Grants permission to update an investigation event in the specified investigation group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "kms:Decrypt",
+        "kms:GenerateDataKey",
+        "sts:SetContext"
+      ]
+    },
+    {
+      "name": "UpdateInvestigationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_UpdateInvestigationGroup.html",
+      "description": "Grants permission to update the specified investigation group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "cloudtrail:DescribeTrails",
+        "iam:PassRole",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey",
+        "sso:CreateApplication",
+        "sso:DeleteApplication",
+        "sso:PutApplicationAccessScope",
+        "sso:PutApplicationAssignmentConfiguration",
+        "sso:PutApplicationAuthenticationMethod",
+        "sso:PutApplicationGrant",
+        "sso:TagResource"
+      ]
+    }
+  ]
+}
