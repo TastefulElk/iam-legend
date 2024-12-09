@@ -4,6 +4,17 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazoncloudfront.html",
   "actions": [
     {
+      "name": "AllowVendedLogDeliveryForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-logs-infrastructure-V2-service-specific",
+      "description": "Grants permission to configure vended log delivery for a distribution",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "distribution"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateAlias",
       "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_AssociateAlias.html",
       "description": "Grants permission to associate an alias to a CloudFront distribution",
@@ -28,6 +39,20 @@
         "cloudfront:CreateDistribution",
         "cloudfront:GetDistribution"
       ]
+    },
+    {
+      "name": "CreateAnycastIpList",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateAnycastIpList.html",
+      "description": "Grants permission to create an Anycast static IP list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "anycast-ip-list*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
     },
     {
       "name": "CreateCachePolicy",
@@ -228,6 +253,29 @@
       "dependentActions": []
     },
     {
+      "name": "CreateVpcOrigin",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateVpcOrigin.html",
+      "description": "Grants permission to create a VPC origin",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAnycastIpList",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_DeleteAnycastIpList.html",
+      "description": "Grants permission to delete an Anycast static IP list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "anycast-ip-list*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteCachePolicy",
       "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_DeleteCachePolicy.html",
       "description": "Grants permission to delete a cache policy",
@@ -398,6 +446,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteVpcOrigin",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_DeleteVpcOrigin.html",
+      "description": "Grants permission to delete a VPC origin",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vpcorigin*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeFunction",
       "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_DescribeFunction.html",
       "description": "Grants permission to get a CloudFront function summary",
@@ -415,6 +474,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "key-value-store*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAnycastIpList",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetAnycastIpList.html",
+      "description": "Grants permission to get an Anycast static IP list",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "anycast-ip-list*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -727,6 +797,26 @@
       "dependentActions": []
     },
     {
+      "name": "GetVpcOrigin",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetVpcOrigin.html",
+      "description": "Grants permission to get the information about a VPC origin",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "vpcorigin*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAnycastIpLists",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListAnycastIpLists.html",
+      "description": "Grants permission to list your Anycast static IP lists",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListCachePolicies",
       "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListCachePolicies.html",
       "description": "Grants permission to list all cache policies that have been created in CloudFront for this account",
@@ -768,6 +858,15 @@
       "name": "ListDistributions",
       "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributions.html",
       "description": "Grants permission to list the distributions associated with your AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDistributionsByAnycastIpListId",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByAnycastIpListId.html",
+      "description": "Grants permission to list the distributions in your account that are associated with the specified AnycastIpListId",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -822,6 +921,15 @@
       "name": "ListDistributionsByResponseHeadersPolicyId",
       "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByResponseHeadersPolicyId.html",
       "description": "Grants permission to list distribution IDs for distributions that have a cache behavior that's associated with the specified response headers policy",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDistributionsByVpcOriginId",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByVpcOriginId.html",
+      "description": "Grants permission to list IDs for distributions associated with the specified VPC origin",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -970,7 +1078,9 @@
       "description": "Grants permission to list tags for a CloudFront resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "distribution"
+        "anycast-ip-list",
+        "distribution",
+        "vpcorigin"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -979,6 +1089,15 @@
       "name": "ListUsages",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cf-api-permissions-ref.html",
       "description": "Grants permission to list CloudFront usage",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListVpcOrigins",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListVpcOrigins.html",
+      "description": "Grants permission to list VPC origins",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -1001,8 +1120,10 @@
       "description": "Grants permission to add tags to a CloudFront resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "anycast-ip-list",
         "distribution",
-        "streaming-distribution"
+        "streaming-distribution",
+        "vpcorigin"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1027,8 +1148,10 @@
       "description": "Grants permission to remove tags from a CloudFront resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "anycast-ip-list",
         "distribution",
-        "streaming-distribution"
+        "streaming-distribution",
+        "vpcorigin"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -1210,6 +1333,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "streaming-distribution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateVpcOrigin",
+      "documentationUrl": "https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateVpcOrigin.html",
+      "description": "Grants permission to update a VPC origin",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vpcorigin*"
       ],
       "conditionKeys": [],
       "dependentActions": []

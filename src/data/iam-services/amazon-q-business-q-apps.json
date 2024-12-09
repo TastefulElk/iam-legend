@@ -5,7 +5,7 @@
   "actions": [
     {
       "name": "AssociateLibraryItemReview",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_AssociateLibraryItemReview.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_AssociateLibraryItemReview.html",
       "description": "Grants permission to associate a library item review in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -19,7 +19,7 @@
     },
     {
       "name": "AssociateQAppWithUser",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_AssociateQAppWithUser.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_AssociateQAppWithUser.html",
       "description": "Grants permission to associate Q App with a user in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -30,6 +30,39 @@
         "qapps:UserIsAppOwner",
         "qapps:AppIsPublished"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchCreateCategory",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_BatchCreateCategory.html",
+      "description": "Grants permission to create the categories of a library in the Q Business application environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchDeleteCategory",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_BatchDeleteCategory.html",
+      "description": "Grants permission to delete the categories of a library in the Q Business application environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchUpdateCategory",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_BatchUpdateCategory.html",
+      "description": "Grants permission to update the categories of a library in the Q Business application environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -49,7 +82,7 @@
     },
     {
       "name": "CreateLibraryItem",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateLibraryItem.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_CreateLibraryItem.html",
       "description": "Grants permission to create a library item in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -78,8 +111,25 @@
       "dependentActions": []
     },
     {
+      "name": "CreatePresignedUrl",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_CreatePresignedUrl.html",
+      "description": "Grants permission to create a presigned URL for uploading a file to a Q App or Q App Session in the Q Business application environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "qapp",
+        "qapp-session"
+      ],
+      "conditionKeys": [
+        "qapps:UserIsAppOwner",
+        "qapps:AppIsPublished",
+        "qapps:UserIsSessionModerator",
+        "qapps:SessionIsShared"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateQApp",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateQApp.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_CreateQApp.html",
       "description": "Grants permission to create Q App in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -104,7 +154,7 @@
     },
     {
       "name": "DeleteLibraryItem",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteLibraryItems.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_DeleteLibraryItem.html",
       "description": "Grants permission to delete a library item in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -119,7 +169,7 @@
     },
     {
       "name": "DeleteQApp",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteQApp.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_DeleteQApp.html",
       "description": "Grants permission to delete Q App in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -133,8 +183,23 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeQAppPermissions",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_DescribeQAppPermissions.html",
+      "description": "Grants permission to get Q App sharing permissions in the Q Business application environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application",
+        "qapp"
+      ],
+      "conditionKeys": [
+        "qapps:UserIsAppOwner",
+        "qapps:AppIsPublished"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DisassociateLibraryItemReview",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DisassociateLibraryItemReview.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_DisassociateLibraryItemReview.html",
       "description": "Grants permission to disassociate a library item review in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -148,7 +213,7 @@
     },
     {
       "name": "DisassociateQAppFromUser",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DisassociateQAppFromUser.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_DisassociateQAppFromUser.html",
       "description": "Grants permission to disassociate Q App with a user in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -174,7 +239,7 @@
     },
     {
       "name": "GetLibraryItem",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetLibraryItem.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_GetLibraryItem.html",
       "description": "Grants permission to get a library item in the Q Business application environment",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -189,7 +254,7 @@
     },
     {
       "name": "GetQApp",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetQApp.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_GetQApp.html",
       "description": "Grants permission to get Q App in the Q Business application environment",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -204,7 +269,7 @@
     },
     {
       "name": "GetQAppSession",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetQAppSession.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_GetQAppSession.html",
       "description": "Grants permission to get Q App session in the Q Business application environment",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -231,7 +296,7 @@
     },
     {
       "name": "ImportDocument",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ImportDocument.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_ImportDocument.html",
       "description": "Grants permission to import a document to Q App or Q App Session in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -279,8 +344,19 @@
       "dependentActions": []
     },
     {
+      "name": "ListCategories",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_ListCategories.html",
+      "description": "Grants permission to list categories in the Q Business application environment",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListLibraryItems",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListLibraryItems.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_ListLibraryItems.html",
       "description": "Grants permission to list library items in the Q Business application environment",
       "accessLevel": "List",
       "resourceTypes": [
@@ -302,7 +378,7 @@
     },
     {
       "name": "ListQApps",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListQApps.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_ListQApps.html",
       "description": "Grants permission to list Q Apps in the Q Business application environment",
       "accessLevel": "List",
       "resourceTypes": [
@@ -336,7 +412,7 @@
     },
     {
       "name": "PredictQApp",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_PredictQApp.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_PredictQApp.html",
       "description": "Grants permission to predict Q App from conversation log or problem statement in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -358,7 +434,7 @@
     },
     {
       "name": "StartQAppSession",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_StartQAppSession.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_StartQAppSession.html",
       "description": "Grants permission to start Q App session in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -375,7 +451,7 @@
     },
     {
       "name": "StopQAppSession",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_StopQAppSession.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_StopQAppSession.html",
       "description": "Grants permission to stop Q App session in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -421,7 +497,7 @@
     },
     {
       "name": "UpdateLibraryItem",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateLibraryItem.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_UpdateLibraryItem.html",
       "description": "Grants permission to update a library item in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -436,7 +512,7 @@
     },
     {
       "name": "UpdateLibraryItemMetadata",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateLibraryItemMetadata.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_UpdateLibraryItemMetadata.html",
       "description": "Grants permission to update the metadata of a library item in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -449,7 +525,7 @@
     },
     {
       "name": "UpdateQApp",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateQApps.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_UpdateQApp.html",
       "description": "Grants permission to update Q App in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -463,8 +539,23 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateQAppPermissions",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_UpdateQAppPermissions.html",
+      "description": "Grants permission to update Q App sharing permissions in the Q Business application environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application",
+        "qapp"
+      ],
+      "conditionKeys": [
+        "qapps:UserIsAppOwner",
+        "qapps:AppIsPublished"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateQAppSession",
-      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateQAppSession.html",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/api-reference/API_qapps_UpdateQAppSession.html",
       "description": "Grants permission to update Q App session in the Q Business application environment",
       "accessLevel": "Write",
       "resourceTypes": [

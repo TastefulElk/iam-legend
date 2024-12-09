@@ -89,6 +89,20 @@
       ]
     },
     {
+      "name": "CreateWebApp",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_CreateWebApp.html",
+      "description": "Grants permission to create a webapp",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
       "name": "CreateWorkflow",
       "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_CreateWorkflow.html",
       "description": "Grants permission to create a workflow",
@@ -195,6 +209,28 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWebApp",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DeleteWebApp.html",
+      "description": "Grants permission to delete webapp",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "webapp*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWebAppCustomization",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DeleteWebAppCustomization.html",
+      "description": "Grants permission to delete webapp customization",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "webapp*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -314,6 +350,28 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWebApp",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeWebApp.html",
+      "description": "Grants permission to describe a webapp",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "webapp*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeWebAppCustomization",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_DescribeWebAppCustomization.html",
+      "description": "Grants permission to describe a webapp customization",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "webapp*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -496,6 +554,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListWebApps",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListWebApps.html",
+      "description": "Grants permission to list webapps",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListWorkflows",
       "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_ListWorkflows.html",
       "description": "Grants permission to list workflows",
@@ -572,6 +639,7 @@
         "profile",
         "server",
         "user",
+        "webapp",
         "workflow"
       ],
       "conditionKeys": [
@@ -615,6 +683,7 @@
         "profile",
         "server",
         "user",
+        "webapp",
         "workflow"
       ],
       "conditionKeys": [
@@ -712,6 +781,32 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "user*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdateWebApp",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateWebApp.html",
+      "description": "Grants permission to update the configuration of a webapp",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "webapp*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "UpdateWebAppCustomization",
+      "documentationUrl": "https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateWebAppCustomization.html",
+      "description": "Grants permission to update the configuration of a webapp cutomization",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "webapp*"
       ],
       "conditionKeys": [],
       "dependentActions": [

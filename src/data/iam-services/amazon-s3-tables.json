@@ -1,0 +1,359 @@
+{
+  "serviceName": "Amazon S3 Tables",
+  "servicePrefix": "s3tables",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazons3tables.html",
+  "actions": [
+    {
+      "name": "CreateNamespace",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_CreateNamespace.html",
+      "description": "Grants permission to create a namespace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTable",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_CreateTable.html",
+      "description": "Grants permission to create a table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateTableBucket",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_CreateTableBucket.html",
+      "description": "Grants permission to create a table bucket",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteNamespace",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_DeleteNamespace.html",
+      "description": "Grants permission to delete a namespace",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTable",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_DeleteTable.html",
+      "description": "Grants permission to delete a table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Table*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace",
+        "s3tables:tableName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTableBucket",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_DeleteTableBucket.html",
+      "description": "Grants permission to delete a table bucket",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTableBucketPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_DeleteTableBucketPolicy.html",
+      "description": "Grants permission to delete a policy on a table bucket",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTablePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_DeleteTablePolicy.html",
+      "description": "Grants permission to delete a policy on a table",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "Table*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace",
+        "s3tables:tableName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetNamespace",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_GetNamespace.html",
+      "description": "Grants permission to get a namespace",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTable",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_GetTable.html",
+      "description": "Grants permission to retrieve a table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Table*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace",
+        "s3tables:tableName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTableBucket",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_GetTableBucket.html",
+      "description": "Grants permission to retrieve a table bucket",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTableBucketMaintenanceConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_GetTableBucketMaintenanceConfiguration.html",
+      "description": "Grants permission to retrieve a maintenance configuration on a table bucket",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTableBucketPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_GetTableBucketPolicy.html",
+      "description": "Grants permission to retrieve a policy on a table bucket",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTableData",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-setting-up.html#s3-tables-actions",
+      "description": "Grants permission to read metadata and data objects from a table storage endpoint using S3 APIs",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Table*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace",
+        "s3tables:tableName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTableMaintenanceConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_GetTableMaintenanceConfiguration.html",
+      "description": "Grants permission to retrieve a maintenance configuration on a table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Table*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace",
+        "s3tables:tableName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTableMaintenanceJobStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_GetTableMaintenanceJobStatus.html",
+      "description": "Grants permission to retrieve the status of maintenance jobs on a table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Table*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace",
+        "s3tables:tableName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTableMetadataLocation",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_GetTableMetadataLocation.html",
+      "description": "Grants permission to retrieve the metadata location of a table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Table*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace",
+        "s3tables:tableName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTablePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_GetTablePolicy.html",
+      "description": "Grants permission to retrieve a policy on a table",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Table*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace",
+        "s3tables:tableName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListNamespaces",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_ListNamespaces.html",
+      "description": "Grants permission to list namespaces",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTableBuckets",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_ListTableBuckets.html",
+      "description": "Grants permission to list table buckets",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTables",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_ListTables.html",
+      "description": "Grants permission to list tables",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutTableBucketMaintenanceConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_PutTableBucketMaintenanceConfiguration.html",
+      "description": "Grants permission to put a maintenance configuration on a table bucket",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutTableBucketPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_PutTableBucketPolicy.html",
+      "description": "Grants permission to create or overwrite a policy on a table bucket",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutTableData",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-setting-up.html#s3-tables-actions",
+      "description": "Grants permission to write metadata and data objects to a table storage endpoint using S3 APIs",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Table*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace",
+        "s3tables:tableName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutTableMaintenanceConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_PutTableMaintenanceConfiguration.html",
+      "description": "Grants permission to put a maintenance configuration on a table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Table*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace",
+        "s3tables:tableName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutTablePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_PutTablePolicy.html",
+      "description": "Grants permission to create or overwrite a policy on a table",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "Table*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace",
+        "s3tables:tableName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "RenameTable",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_RenameTable.html",
+      "description": "Grants permission to rename a table or move a table across namespaces",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Table*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateTableMetadataLocation",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_UpdateTableMetadataLocation.html",
+      "description": "Grants permission to update the metadata location of a table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Table*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace",
+        "s3tables:tableName"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

@@ -4,12 +4,27 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awselementalmediapackagev2.html",
   "actions": [
     {
+      "name": "CancelHarvestJob",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/APIReference/API_CancelHarvestJob.html",
+      "description": "Grants permission to cancel a harvest job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Channel*",
+        "ChannelGroup*",
+        "HarvestJob*",
+        "OriginEndpoint*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateChannel",
       "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/APIReference/API_CreateChannel.html",
       "description": "Grants permission to create a channel in a channel group",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Channel*"
+        "Channel*",
+        "ChannelGroup*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -32,11 +47,30 @@
       "dependentActions": []
     },
     {
+      "name": "CreateHarvestJob",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/APIReference/API_CreateHarvestJob.html",
+      "description": "Grants permission to create a harvest job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Channel*",
+        "ChannelGroup*",
+        "HarvestJob*",
+        "OriginEndpoint*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateOriginEndpoint",
       "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/APIReference/API_CreateOriginEndpoint.html",
       "description": "Grants permission to create an origin endpoint for a channel",
       "accessLevel": "Write",
       "resourceTypes": [
+        "Channel*",
+        "ChannelGroup*",
         "OriginEndpoint*"
       ],
       "conditionKeys": [
@@ -51,7 +85,8 @@
       "description": "Grants permission to delete a channel in a channel group",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Channel*"
+        "Channel*",
+        "ChannelGroup*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -73,7 +108,9 @@
       "description": "Grants permission to delete a resource policy from a channel",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Channel*"
+        "Channel*",
+        "ChannelGroup*",
+        "ChannelPolicy*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -84,6 +121,8 @@
       "description": "Grants permission to delete an origin endpoint of a channel",
       "accessLevel": "Write",
       "resourceTypes": [
+        "Channel*",
+        "ChannelGroup*",
         "OriginEndpoint*"
       ],
       "conditionKeys": [],
@@ -95,7 +134,10 @@
       "description": "Grants permission to delete a resource policy from an origin endpoint",
       "accessLevel": "Write",
       "resourceTypes": [
-        "OriginEndpoint*"
+        "Channel*",
+        "ChannelGroup*",
+        "OriginEndpoint*",
+        "OriginEndpointPolicy*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -106,7 +148,8 @@
       "description": "Grants permission to retrieve details of a channel in a channel group",
       "accessLevel": "Read",
       "resourceTypes": [
-        "Channel*"
+        "Channel*",
+        "ChannelGroup*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -128,7 +171,23 @@
       "description": "Grants permission to retrieve a resource policy for a channel",
       "accessLevel": "Read",
       "resourceTypes": [
-        "Channel*"
+        "Channel*",
+        "ChannelGroup*",
+        "ChannelPolicy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetHarvestJob",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/APIReference/API_GetHarvestJob.html",
+      "description": "Grants permission to retrieve details of an harvest job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Channel*",
+        "ChannelGroup*",
+        "HarvestJob*",
+        "OriginEndpoint*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -161,6 +220,8 @@
       "description": "Grants permission to retrieve details of an origin endpoint",
       "accessLevel": "Read",
       "resourceTypes": [
+        "Channel*",
+        "ChannelGroup*",
         "OriginEndpoint*"
       ],
       "conditionKeys": [],
@@ -170,6 +231,20 @@
       "name": "GetOriginEndpointPolicy",
       "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/APIReference/API_GetOriginEndpointPolicy.html",
       "description": "Grants permission to retrieve details of a resource policy for an origin endpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Channel*",
+        "ChannelGroup*",
+        "OriginEndpoint*",
+        "OriginEndpointPolicy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "HarvestObject",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/userguide/dataplane-apis.html",
+      "description": "Grants permission to make HarvestObject requests to MediaPackage",
       "accessLevel": "Read",
       "resourceTypes": [
         "OriginEndpoint*"
@@ -198,12 +273,24 @@
       "dependentActions": []
     },
     {
+      "name": "ListHarvestJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/APIReference/API_ListHarvestJobs.html",
+      "description": "Grants permission to list all harvest jobs in a channel group, channel, origin endpoint",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "ChannelGroup*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListOriginEndpoints",
       "documentationUrl": "https://docs.aws.amazon.com/mediapackage/latest/APIReference/API_ListOriginEndpoints.html",
       "description": "Grants permission to list all origin endpoints of a channel",
       "accessLevel": "List",
       "resourceTypes": [
-        "Channel*"
+        "Channel*",
+        "ChannelGroup*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -216,6 +303,7 @@
       "resourceTypes": [
         "Channel",
         "ChannelGroup",
+        "HarvestJob",
         "OriginEndpoint"
       ],
       "conditionKeys": [],
@@ -227,7 +315,9 @@
       "description": "Grants permission to attach a resource policy for a channel",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Channel*"
+        "Channel*",
+        "ChannelGroup*",
+        "ChannelPolicy*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -249,7 +339,10 @@
       "description": "Grants permission to attach a resource policy to an origin endpoint",
       "accessLevel": "Write",
       "resourceTypes": [
-        "OriginEndpoint*"
+        "Channel*",
+        "ChannelGroup*",
+        "OriginEndpoint*",
+        "OriginEndpointPolicy*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -262,6 +355,7 @@
       "resourceTypes": [
         "Channel",
         "ChannelGroup",
+        "HarvestJob",
         "OriginEndpoint"
       ],
       "conditionKeys": [
@@ -278,6 +372,7 @@
       "resourceTypes": [
         "Channel",
         "ChannelGroup",
+        "HarvestJob",
         "OriginEndpoint"
       ],
       "conditionKeys": [
@@ -291,7 +386,8 @@
       "description": "Grants permission to update a channel in a channel group",
       "accessLevel": "Write",
       "resourceTypes": [
-        "Channel*"
+        "Channel*",
+        "ChannelGroup*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -313,6 +409,8 @@
       "description": "Grants permission to update an origin endpoint of a channel",
       "accessLevel": "Write",
       "resourceTypes": [
+        "Channel*",
+        "ChannelGroup*",
         "OriginEndpoint*"
       ],
       "conditionKeys": [],

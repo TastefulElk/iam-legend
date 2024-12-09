@@ -56,6 +56,35 @@
       "dependentActions": []
     },
     {
+      "name": "CreateAIGuardrail",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAIGuardrail.html",
+      "description": "Grants permission to create an ai guardrail",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Assistant*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAIGuardrailVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAIGuardrailVersion.html",
+      "description": "Grants permission to create an ai guardrail version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AIGuardrail*",
+        "Assistant*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateAIPrompt",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_CreateAIPrompt.html",
       "description": "Grants permission to create an ai prompt",
@@ -254,6 +283,30 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteAIGuardrail",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAIGuardrail.html",
+      "description": "Grants permission to delete an ai guardrail",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AIGuardrail*",
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAIGuardrailVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAIGuardrailVersion.html",
+      "description": "Grants permission to delete an ai guardrail version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AIGuardrail*",
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteAIPrompt",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_DeleteAIPrompt.html",
       "description": "Grants permission to delete an ai prompt",
@@ -396,6 +449,18 @@
       "dependentActions": []
     },
     {
+      "name": "GetAIGuardrail",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetAIGuardrail.html",
+      "description": "Grants permission to retrieve information about an ai guardrail",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "AIGuardrail*",
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetAIPrompt",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetAIPrompt.html",
       "description": "Grants permission to retrieve information about an ai prompt",
@@ -504,6 +569,18 @@
       "dependentActions": []
     },
     {
+      "name": "GetNextMessage",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetNextMessage.html",
+      "description": "Grants permission to retrieve for next message in a session",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Assistant*",
+        "Session*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetQuickResponse",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetQuickResponse.html",
       "description": "Grants permission to retrieve content",
@@ -554,6 +631,29 @@
       "name": "ListAIAgents",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListAIAgents.html",
       "description": "Grants permission to list information about ai agents",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAIGuardrailVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListAIGuardrailVersions.html",
+      "description": "Grants permission to list information about ai guardrail versions",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "AIGuardrail*",
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAIGuardrails",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListAIGuardrails.html",
+      "description": "Grants permission to list information about ai guardrails",
       "accessLevel": "List",
       "resourceTypes": [
         "Assistant*"
@@ -666,6 +766,18 @@
       "accessLevel": "List",
       "resourceTypes": [
         "KnowledgeBase*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMessages",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_ListMessages.html",
+      "description": "Grants permission to list messages in a session",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Assistant*",
+        "Session*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -813,6 +925,18 @@
       "dependentActions": []
     },
     {
+      "name": "SendMessage",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_SendMessage.html",
+      "description": "Grants permission to send a message",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Assistant*",
+        "Session*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartContentUpload",
       "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html",
       "description": "Grants permission to get a URL to upload content to a knowledge base",
@@ -887,6 +1011,18 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "AIAgent*",
+        "Assistant*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAIGuardrail",
+      "documentationUrl": "https://docs.aws.amazon.com/wisdom/latest/APIReference/API_UpdateAIGuardrail.html",
+      "description": "Grants permission to update information about an ai guardrail",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "AIGuardrail*",
         "Assistant*"
       ],
       "conditionKeys": [],

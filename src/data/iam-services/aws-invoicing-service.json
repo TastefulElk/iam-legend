@@ -4,8 +4,42 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsinvoicingservice.html",
   "actions": [
     {
+      "name": "BatchGetInvoiceProfile",
+      "documentationUrl": "API_BatchGetInvoiceProfile.html",
+      "description": "Grants permission to get invoice profile details for an account in your organization",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateInvoiceUnit",
+      "documentationUrl": "API_CreateInvoiceUnit.html",
+      "description": "Grants permission to create an invoice unit for your organization",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteInvoiceUnit",
+      "documentationUrl": "API_DeleteInvoiceUnit.html",
+      "description": "Grants permission to update an invoice unit for your organization",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "invoice-unit*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetInvoiceEmailDeliveryPreferences",
-      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
+      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/security_iam_id-based-policy-examples.html#billing-permissions-ref",
       "description": "Grants permission to get Invoice Email Delivery Preferences",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -14,7 +48,7 @@
     },
     {
       "name": "GetInvoicePDF",
-      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
+      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/security_iam_id-based-policy-examples.html#billing-permissions-ref",
       "description": "Grants permission to get Invoice PDF",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -22,8 +56,19 @@
       "dependentActions": []
     },
     {
+      "name": "GetInvoiceUnit",
+      "documentationUrl": "API_GetInvoiceUnit.html",
+      "description": "Grants permission to get invoice units for your organization",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "invoice-unit*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListInvoiceSummaries",
-      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
+      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/security_iam_id-based-policy-examples.html#billing-permissions-ref",
       "description": "Grants permission to get Invoice summary information for your account or linked account",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -31,12 +76,76 @@
       "dependentActions": []
     },
     {
+      "name": "ListInvoiceUnits",
+      "documentationUrl": "API_ListInvoiceUnits.html",
+      "description": "Grants permission to list invoice units for your organization",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "invoice-unit*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "PutInvoiceEmailDeliveryPreferences",
-      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
+      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/security_iam_id-based-policy-examples.html#billing-permissions-ref",
       "description": "Grants permission to put Invoice Email Delivery Preferences",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "invoice-unit*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "invoice-unit*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateInvoiceUnit",
+      "documentationUrl": "API_UpdateInvoiceUnit.html",
+      "description": "Grants permission to update an invoice unit for your organization",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "invoice-unit*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     }
   ]

@@ -43,9 +43,7 @@
       "documentationUrl": "https://docs.aws.amazon.com/rekognition/latest/APIReference/API_CreateCollection.html",
       "description": "Grants permission to create a collection in an AWS Region",
       "accessLevel": "Write",
-      "resourceTypes": [
-        "collection*"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -60,7 +58,10 @@
       "resourceTypes": [
         "project*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -80,7 +81,10 @@
       "resourceTypes": [
         "project*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -532,7 +536,11 @@
       "description": "Grants permission to return a list of tags associated with a resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "projectversion*"
+        "collection",
+        "dataset",
+        "project",
+        "projectversion",
+        "streamprocessor"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -757,6 +765,8 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "collection",
+        "dataset",
+        "project",
         "projectversion",
         "streamprocessor"
       ],
@@ -773,6 +783,8 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "collection",
+        "dataset",
+        "project",
         "projectversion",
         "streamprocessor"
       ],

@@ -26,6 +26,19 @@
       "dependentActions": []
     },
     {
+      "name": "AssociatePermission",
+      "documentationUrl": "${APIReferenceDocPage}API_AssociatePermission.html",
+      "description": "Associate resource based policy statement to the application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "qbusiness:PutResourcePolicy"
+      ]
+    },
+    {
       "name": "BatchDeleteDocument",
       "documentationUrl": "${APIReferenceDocPage}API_BatchDeleteDocument.html",
       "description": "Grants permission to batch delete document",
@@ -96,6 +109,17 @@
       "dependentActions": []
     },
     {
+      "name": "CreateDataAccessor",
+      "documentationUrl": "${APIReferenceDocPage}API_CreateDataAccessor.html",
+      "description": "Create DataAccessor to the application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateDataSource",
       "documentationUrl": "${APIReferenceDocPage}API_CreateDataSource.html",
       "description": "Grants permission to create a data source for a given application and index",
@@ -114,6 +138,20 @@
       "name": "CreateIndex",
       "documentationUrl": "${APIReferenceDocPage}API_CreateIndex.html",
       "description": "Grants permission to create an index for a given application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateIntegration",
+      "documentationUrl": "${APIReferenceDocPage}API_CreateIntegration.html",
+      "description": "Grants permission to create a new integration for a Q Business application",
       "accessLevel": "Write",
       "resourceTypes": [
         "application*"
@@ -169,7 +207,10 @@
       "resourceTypes": [
         "application*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "identitystore:UserId",
+        "identitystore:GroupId"
+      ],
       "dependentActions": []
     },
     {
@@ -231,6 +272,18 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteDataAccessor",
+      "documentationUrl": "${APIReferenceDocPage}API_DeleteDataAccessor.html",
+      "description": "Delete DataAccessor",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*",
+        "data-accessor*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteDataSource",
       "documentationUrl": "${APIReferenceDocPage}API_DeleteDataSource.html",
       "description": "Grants permission to delete a DataSource",
@@ -263,6 +316,18 @@
       "resourceTypes": [
         "application*",
         "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteIntegration",
+      "documentationUrl": "${APIReferenceDocPage}API_DeleteIntegration.html",
+      "description": "Grants permission to delete an integration for a Q Business application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*",
+        "integration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -326,6 +391,19 @@
       "dependentActions": []
     },
     {
+      "name": "DisassociatePermission",
+      "documentationUrl": "${APIReferenceDocPage}API_DisassociatePermission.html",
+      "description": "Disassociate resource based policy statement to the application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "qbusiness:PutResourcePolicy"
+      ]
+    },
+    {
       "name": "GetApplication",
       "documentationUrl": "${APIReferenceDocPage}API_GetApplication.html",
       "description": "Grants permission to get an application",
@@ -343,6 +421,18 @@
       "accessLevel": "List",
       "resourceTypes": [
         "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDataAccessor",
+      "documentationUrl": "${APIReferenceDocPage}API_GetDataAccessor.html",
+      "description": "Get DataAccessor",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application*",
+        "data-accessor*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -385,12 +475,35 @@
       "dependentActions": []
     },
     {
+      "name": "GetIntegration",
+      "documentationUrl": "${APIReferenceDocPage}API_GetIntegration.html",
+      "description": "Grants permission to get an integration for a Q Business application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application*",
+        "integration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetLicense",
       "documentationUrl": "${APIReferenceDocPage}API_GetLicense.html",
       "description": "Grants permission to get a license",
       "accessLevel": "Read",
       "resourceTypes": [
         "user-license*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetMedia",
+      "documentationUrl": "${APIReferenceDocPage}API_GetMedia.html",
+      "description": "Grants permission to get the media associated to a system message",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -403,6 +516,17 @@
       "resourceTypes": [
         "application*",
         "plugin*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPolicy",
+      "documentationUrl": "${APIReferenceDocPage}API_GetPolicy.html",
+      "description": "Get resource based policy of the application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -452,9 +576,31 @@
       "dependentActions": []
     },
     {
+      "name": "ListAttachments",
+      "documentationUrl": "${APIReferenceDocPage}API_ListAttachments.html",
+      "description": "Grants permission to list attachments in the current chat context",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListConversations",
       "documentationUrl": "${APIReferenceDocPage}API_ListConversations.html",
       "description": "Grants permission to list all conversations for an application",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDataAccessors",
+      "documentationUrl": "${APIReferenceDocPage}API_ListDataAccessors.html",
+      "description": "List DataAccessor for the application",
       "accessLevel": "List",
       "resourceTypes": [
         "application*"
@@ -523,6 +669,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListIntegrations",
+      "documentationUrl": "${APIReferenceDocPage}API_ListIntegrations.html",
+      "description": "Grants permission to list all integrations for a Q Business application",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListMessages",
       "documentationUrl": "${APIReferenceDocPage}API_ListMessages.html",
       "description": "Grants permission to list all messages",
@@ -530,6 +687,36 @@
       "resourceTypes": [
         "application*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPluginActions",
+      "documentationUrl": "${APIReferenceDocPage}API_ListPluginActions.html",
+      "description": "Grants permission to list the plugins actions of a plugin within application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application*",
+        "plugin*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPluginTypeActions",
+      "documentationUrl": "${APIReferenceDocPage}API_ListPluginTypeActions.html",
+      "description": "Grants permission to list all the actions for a plugin type",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPluginTypeMetadata",
+      "documentationUrl": "${APIReferenceDocPage}API_ListPluginTypeMetadata.html",
+      "description": "Grants permission to list all the plugin type metadata",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -573,8 +760,10 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "application",
+        "data-accessor",
         "data-source",
         "index",
+        "integration",
         "plugin",
         "retriever",
         "web-experience"
@@ -626,11 +815,33 @@
       "dependentActions": []
     },
     {
+      "name": "PutResourcePolicy",
+      "documentationUrl": "${APIReferenceDocPage}API_AssociatePermission.html",
+      "description": "Put resource based policy statement to the application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "RemoveUserLicenses",
       "documentationUrl": "${APIReferenceDocPage}API_RemoveUserLicenses.html",
       "description": "Grants permission to remove licenses for one or more users",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "SearchRelevantContent",
+      "documentationUrl": "${APIReferenceDocPage}API_SearchRelevantContent.html",
+      "description": "Search relevant content from the Amazon Q Business Application",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "application*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -643,6 +854,18 @@
         "application*",
         "data-source*",
         "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartDeployment",
+      "documentationUrl": "${APIReferenceDocPage}API_StartDeployment.html",
+      "description": "Grants permission to start deployment for an integration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*",
+        "integration*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -667,8 +890,10 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "application",
+        "data-accessor",
         "data-source",
         "index",
+        "integration",
         "plugin",
         "retriever",
         "web-experience"
@@ -686,8 +911,10 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "application",
+        "data-accessor",
         "data-source",
         "index",
+        "integration",
         "plugin",
         "retriever",
         "web-experience"
@@ -720,6 +947,18 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateDataAccessor",
+      "documentationUrl": "${APIReferenceDocPage}API_UpdateDataAccessor.html",
+      "description": "Update DataAccessor",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*",
+        "data-accessor*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateDataSource",
       "documentationUrl": "${APIReferenceDocPage}API_UpdateDataSource.html",
       "description": "Grants permission to update a DataSource",
@@ -740,6 +979,18 @@
       "resourceTypes": [
         "application*",
         "index*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateIntegration",
+      "documentationUrl": "${APIReferenceDocPage}API_UpdateIntegration.html",
+      "description": "Grants permission to update an integration for a Q Business application",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application*",
+        "integration*"
       ],
       "conditionKeys": [],
       "dependentActions": []

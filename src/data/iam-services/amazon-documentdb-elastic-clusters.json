@@ -4,6 +4,19 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazondocumentdbelasticclusters.html",
   "actions": [
     {
+      "name": "ApplyPendingMaintenanceAction",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/API_elastic_ApplyPendingMaintenanceAction.html",
+      "description": "Grants permission to apply pending maintenance actions on Amazon DocDB-Elastic cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CopyClusterSnapshot",
       "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/API_elastic_CopyClusterSnapshot.html",
       "description": "Grants permission to copy a new Amazon DocDB-Elastic cluster snapshot",
@@ -163,6 +176,19 @@
       "dependentActions": []
     },
     {
+      "name": "GetPendingMaintenanceAction",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/API_elastic_GetPendingMaintenanceAction.html",
+      "description": "Grants permission to view details about pending maintenance actions on Amazon DocDB-Elastic cluster",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cluster*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListClusterSnapshots",
       "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/API_elastic_ListClusterSnapshots.html",
       "description": "Grants permission to list the cluster snapshots in your account",
@@ -178,6 +204,17 @@
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPendingMaintenanceActions",
+      "documentationUrl": "https://docs.aws.amazon.com/documentdb/latest/developerguide/API_elastic_ListPendingMaintenanceActions.html",
+      "description": "Grants permission to list details about pending maintenance actions on any Amazon DocDB-Elastic cluster",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {

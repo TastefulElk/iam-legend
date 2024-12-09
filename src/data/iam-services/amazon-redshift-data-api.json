@@ -13,7 +13,8 @@
         "workgroup"
       ],
       "conditionKeys": [
-        "redshift-data:session-owner-iam-userid"
+        "redshift-data:session-owner-iam-userid",
+        "redshift-data:glue-catalog-arn"
       ],
       "dependentActions": []
     },
@@ -61,8 +62,20 @@
         "workgroup"
       ],
       "conditionKeys": [
-        "redshift-data:session-owner-iam-userid"
+        "redshift-data:session-owner-iam-userid",
+        "redshift-data:glue-catalog-arn"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetStagingBucketLocation",
+      "documentationUrl": "https://docs.aws.amazon.com/redshift-data/latest/APIReference/API_GetStagingBucketLocation.html",
+      "description": "Grants permission to get staging bucket location for a given managed workgroup",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "managed-workgroup*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {

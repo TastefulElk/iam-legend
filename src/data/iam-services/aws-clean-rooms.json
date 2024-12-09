@@ -118,6 +118,7 @@
         "aws:TagKeys"
       ],
       "dependentActions": [
+        "athena:GetTableMetadata",
         "glue:BatchGetPartition",
         "glue:GetDatabase",
         "glue:GetDatabases",
@@ -844,6 +845,28 @@
         "configuredtableassociation",
         "membership",
         "privacybudgettemplate"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PassCollaboration",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/userguide/ml-behaviors-byom.html#ml-behaviors-byom-membership-collaboration-access",
+      "description": "Grants permission to access a collaboration in the context of Clean Rooms ML custom models",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "collaboration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PassMembership",
+      "documentationUrl": "https://docs.aws.amazon.com/clean-rooms/latest/userguide/ml-behaviors-byom.html#ml-behaviors-byom-membership-collaboration-access",
+      "description": "Grants permission to access a membership in the context of Clean Rooms ML custom models",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "membership*"
       ],
       "conditionKeys": [],
       "dependentActions": []
