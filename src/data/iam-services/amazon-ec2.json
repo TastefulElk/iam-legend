@@ -127,6 +127,8 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:vpceMultiRegion",
+        "ec2:vpceSupportedRegion",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -1054,6 +1056,21 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelDeclarativePoliciesReport",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelDeclarativePoliciesReport.html",
+      "description": "Grants permission to cancel a declarative policies report",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "declarative-policies-report*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -2607,6 +2624,7 @@
         "client-vpn-endpoint",
         "coip-pool",
         "customer-gateway",
+        "declarative-policies-report",
         "dedicated-host",
         "dhcp-options",
         "egress-only-internet-gateway",
@@ -2670,6 +2688,7 @@
         "transit-gateway-route-table",
         "transit-gateway-route-table-announcement",
         "verified-access-endpoint",
+        "verified-access-endpoint-target",
         "verified-access-group",
         "verified-access-instance",
         "verified-access-policy",
@@ -2701,6 +2720,8 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:SamlProviderArn",
         "ec2:ServerCertificateArn",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -2914,6 +2935,8 @@
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
         "ec2:AvailabilityZone",
         "ec2:Encrypted",
         "ec2:ManagedResourceOperator",
@@ -2934,6 +2957,9 @@
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:vpceMultiRegion",
+        "ec2:vpceServiceRegion",
+        "ec2:vpceSupportedRegion",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -3462,6 +3488,33 @@
       ]
     },
     {
+      "name": "CreateVpcBlockPublicAccessExclusion",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcBlockPublicAccessExclusion.html",
+      "description": "Grants permission to create an exclusion list for blocked public access on a VPC",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "subnet",
+        "vpc"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:SubnetID",
+        "ec2:Vpc",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:Ipv4IpamPoolId",
+        "ec2:Ipv6IpamPoolId",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Tenancy",
+        "ec2:VpcID",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
+    },
+    {
       "name": "CreateVpcEndpoint",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpoint.html",
       "description": "Grants permission to create a VPC endpoint for an AWS service",
@@ -3511,6 +3564,8 @@
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:vpceMultiRegion",
+        "ec2:vpceServiceRegion",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -3527,6 +3582,8 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "ec2:VpceServicePrivateDnsName",
+        "ec2:vpceMultiRegion",
+        "ec2:vpceServiceRegion",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -4443,6 +4500,7 @@
         "client-vpn-endpoint",
         "coip-pool",
         "customer-gateway",
+        "declarative-policies-report",
         "dedicated-host",
         "dhcp-options",
         "egress-only-internet-gateway",
@@ -4506,6 +4564,7 @@
         "transit-gateway-route-table",
         "transit-gateway-route-table-announcement",
         "verified-access-endpoint",
+        "verified-access-endpoint-target",
         "verified-access-group",
         "verified-access-instance",
         "verified-access-policy",
@@ -4522,6 +4581,10 @@
         "vpn-gateway"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
@@ -5036,6 +5099,21 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteVpcBlockPublicAccessExclusion",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVpcBlockPublicAccessExclusion.html",
+      "description": "Grants permission to delete an exclusion list for blocked public access on a VPC",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vpc-block-public-access-exclusion*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteVpcEndpointConnectionNotifications",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteVpcEndpointConnectionNotifications.html",
       "description": "Grants permission to delete one or more VPC endpoint connection notifications",
@@ -5049,6 +5127,8 @@
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:vpceMultiRegion",
+        "ec2:vpceSupportedRegion",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -5064,6 +5144,8 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:vpceMultiRegion",
+        "ec2:vpceSupportedRegion",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -5382,6 +5464,66 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeCapacityBlockExtensionHistory",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityBlockExtensionHistory.html",
+      "description": "Grants permission to describe Capacity Block extensions history",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "capacity-reservation"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:CapacityReservationFleet",
+        "ec2:CreateDate",
+        "ec2:DestinationCapacityReservationId",
+        "ec2:EbsOptimized",
+        "ec2:EndDate",
+        "ec2:EndDateType",
+        "ec2:InstanceCount",
+        "ec2:InstanceMatchCriteria",
+        "ec2:InstancePlatform",
+        "ec2:InstanceType",
+        "ec2:OutpostArn",
+        "ec2:PlacementGroup",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:SourceCapacityReservationId",
+        "ec2:Tenancy",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCapacityBlockExtensionOfferings",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityBlockExtensionOfferings.html",
+      "description": "Grants permission to describe Capacity Block extensions offerings",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "capacity-reservation*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:CapacityReservationFleet",
+        "ec2:CreateDate",
+        "ec2:DestinationCapacityReservationId",
+        "ec2:EbsOptimized",
+        "ec2:EndDate",
+        "ec2:EndDateType",
+        "ec2:InstanceCount",
+        "ec2:InstanceMatchCriteria",
+        "ec2:InstancePlatform",
+        "ec2:InstanceType",
+        "ec2:OutpostArn",
+        "ec2:PlacementGroup",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:SourceCapacityReservationId",
+        "ec2:Tenancy",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeCapacityBlockOfferings",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityBlockOfferings.html",
       "description": "Grants permission to describe Capacity Block offerings available for purchase",
@@ -5572,6 +5714,17 @@
       "name": "DescribeCustomerGateways",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html",
       "description": "Grants permission to describe one or more customer gateways",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeDeclarativePoliciesReports",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDeclarativePoliciesReports.html",
+      "description": "Grants permission to describe one or more declarative policies reports",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
@@ -7012,6 +7165,32 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeVpcBlockPublicAccessExclusions",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcBlockPublicAccessExclusions.html",
+      "description": "Grants permission to describe an exclusion list for blocked public access on a VPC",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "vpc-block-public-access-exclusion"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeVpcBlockPublicAccessOptions",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcBlockPublicAccessOptions.html",
+      "description": "Grants permission to describe options for blocked public access on a VPC",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeVpcClassicLink",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcClassicLink.html",
       "description": "Grants permission to describe the ClassicLink status of one or more VPCs",
@@ -7029,6 +7208,23 @@
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeVpcEndpointAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointAssociations.html",
+      "description": "Grants permission to describe the VPC endpoint associations",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "vpc-endpoint"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:VpceServiceName",
+        "ec2:VpceServiceOwner",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -7077,6 +7273,8 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:vpceMultiRegion",
+        "ec2:vpceSupportedRegion",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -7338,6 +7536,17 @@
         "ec2:Domain",
         "ec2:PublicIpAddress",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisableAllowedImagesSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableAllowedImagesSettings.html",
+      "description": "Grants permission to disable allowed images settings",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
         "ec2:Region"
       ],
       "dependentActions": []
@@ -7991,6 +8200,17 @@
       "dependentActions": []
     },
     {
+      "name": "EnableAllowedImagesSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableAllowedImagesSettings.html",
+      "description": "Grants permission to enable allowed images settings",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "EnableAwsNetworkPerformanceMetricSubscription",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableAwsNetworkPerformanceMetricSubscription.html",
       "description": "Grants permission to enable infrastructure performance subscriptions",
@@ -8379,6 +8599,32 @@
       "dependentActions": []
     },
     {
+      "name": "ExportVerifiedAccessInstanceClientConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ExportVerifiedAccessInstanceClientConfiguration.html",
+      "description": "Grants permission to export a verified access instance client configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "verified-access-instance*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAllowedImagesSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetAllowedImagesSettings.html",
+      "description": "Grants permission to get the allowed settings for images",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetAssociatedEnclaveCertificateIamRoles",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetAssociatedEnclaveCertificateIamRoles.html",
       "description": "Grants permission to get the list of roles associated with an ACM certificate",
@@ -8504,6 +8750,21 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:RootDeviceType",
         "ec2:Tenancy",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDeclarativePoliciesReportSummary",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetDeclarativePoliciesReportSummary.html",
+      "description": "Grants permission to get the report summary of declarative policies",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "declarative-policies-report*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -9101,6 +9362,21 @@
       "name": "GetVerifiedAccessEndpointPolicy",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetVerifiedAccessEndpointPolicy.html",
       "description": "Grants permission to show the Verified Access policy associated with the endpoint",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "verified-access-endpoint*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetVerifiedAccessEndpointTargets",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetVerifiedAccessEndpointTargets.html",
+      "description": "Grants permission to get verified access endpoint targets",
       "accessLevel": "List",
       "resourceTypes": [
         "verified-access-endpoint*"
@@ -10675,6 +10951,32 @@
       "dependentActions": []
     },
     {
+      "name": "ModifyVpcBlockPublicAccessExclusion",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcBlockPublicAccessExclusion.html",
+      "description": "Grants permission to modify an exclusion list for blocked public access on a VPC",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "vpc-block-public-access-exclusion*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyVpcBlockPublicAccessOptions",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcBlockPublicAccessOptions.html",
+      "description": "Grants permission to modify options for blocked public access on a VPC",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ModifyVpcEndpoint",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html",
       "description": "Grants permission to modify an attribute of a VPC endpoint",
@@ -10720,6 +11022,8 @@
         "ec2:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:vpceMultiRegion",
+        "ec2:vpceSupportedRegion",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -10738,6 +11042,8 @@
         "ec2:Attribute/${AttributeName}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:VpceServicePrivateDnsName",
+        "ec2:vpceMultiRegion",
+        "ec2:vpceSupportedRegion",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -10755,6 +11061,8 @@
         "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:vpceMultiRegion",
+        "ec2:vpceSupportedRegion",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -10772,6 +11080,8 @@
         "ec2:Attribute",
         "ec2:Attribute/${AttributeName}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:vpceMultiRegion",
+        "ec2:vpceSupportedRegion",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -11130,6 +11440,21 @@
       ]
     },
     {
+      "name": "PurchaseCapacityBlockExtension",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PurchaseCapacityBlockExtension.html",
+      "description": "Grants permission to purchase a Capacity Block extension",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "capacity-reservation*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:CapacityReservationFleet",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "PurchaseHostReservation",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PurchaseHostReservation.html",
       "description": "Grants permission to purchase a reservation with configurations that match those of a Dedicated Host",
@@ -11404,6 +11729,8 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:vpceMultiRegion",
+        "ec2:vpceSupportedRegion",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -11508,6 +11835,17 @@
       "dependentActions": [
         "iam:PassRole"
       ]
+    },
+    {
+      "name": "ReplaceImageCriteriaInAllowedImagesSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReplaceImageCriteriaInAllowedImagesSettings.html",
+      "description": "Grants permission to replace image criteria in allowed images settings",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
     },
     {
       "name": "ReplaceNetworkAclAssociation",
@@ -12371,6 +12709,17 @@
       "dependentActions": []
     },
     {
+      "name": "StartDeclarativePoliciesReport",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartDeclarativePoliciesReport.html",
+      "description": "Grants permission to start a declarative policies report",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "StartInstances",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartInstances.html",
       "description": "Grants permission to start a stopped instance",
@@ -12451,6 +12800,8 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
+        "ec2:vpceMultiRegion",
+        "ec2:vpceSupportedRegion",
         "ec2:Region"
       ],
       "dependentActions": []
