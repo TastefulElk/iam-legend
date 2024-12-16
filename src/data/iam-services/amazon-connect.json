@@ -611,6 +611,19 @@
       ]
     },
     {
+      "name": "CreatePushNotificationRegistration",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreatePushNotificationRegistration.html",
+      "description": "Grants permission to create a push notification registration for an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateQueue",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateQueue.html",
       "description": "Grants permission to create a queue in an Amazon Connect instance",
@@ -993,6 +1006,19 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePushNotificationRegistration",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeletePushNotificationRegistration.html",
+      "description": "Grants permission to delete a push notification registration for an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
         "connect:InstanceId"
       ],
       "dependentActions": []
@@ -2081,7 +2107,9 @@
       "resourceTypes": [
         "wildcard-contact-flow*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
       "dependentActions": []
     },
     {
