@@ -14,6 +14,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Scrape
