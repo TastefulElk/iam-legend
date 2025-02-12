@@ -134,6 +134,7 @@ const formatToList = (str) =>
   const browser = await puppeteer.launch({
     headless: true,
     ignoreHTTPSErrors: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
 
   const limit = pLimit(10);
