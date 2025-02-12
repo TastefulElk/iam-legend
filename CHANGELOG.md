@@ -1,3 +1,10 @@
+## [1.1.58](https://github.com/TastefulElk/iam-legend/compare/v1.1.57...v1.1.58) (2025-02-12)
+
+
+### Bug Fixes
+
+* add chrome sandbox arguments for puppeteer ([f4bf682](https://github.com/TastefulElk/iam-legend/commit/f4bf682534139bc08bb990c4f87dfc6d59c3ae61))
+
 ## [1.1.57](https://github.com/TastefulElk/iam-legend/compare/v1.1.56...v1.1.57) (2024-12-11)
 
 
