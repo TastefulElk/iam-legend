@@ -4,6 +4,19 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonneptuneanalytics.html",
   "actions": [
     {
+      "name": "CancelExportTask",
+      "documentationUrl": "https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_CancelExportTask.html",
+      "description": "Grants permission to cancel an ongoing export task",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "export-task*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CancelImportTask",
       "documentationUrl": "https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_CancelImportTask.html",
       "description": "Grants permission to cancel an ongoing import task",
@@ -54,7 +67,7 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "graph*",
-        "graph-snapshot"
+        "graph-snapshot*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -69,8 +82,8 @@
       "description": "Grants permission to create a new graph while importing data into the new graph",
       "accessLevel": "Write",
       "resourceTypes": [
-        "import-task*",
-        "graph"
+        "graph*",
+        "import-task*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -186,6 +199,19 @@
       "dependentActions": []
     },
     {
+      "name": "GetExportTask",
+      "documentationUrl": "https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_GetExportTask.html",
+      "description": "Grants permission to get details about an export task",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "export-task*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetGraph",
       "documentationUrl": "https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_GetGraph.html",
       "description": "Grants permission to get details about a graph",
@@ -272,6 +298,17 @@
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListExportTasks",
+      "documentationUrl": "https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_ListExportTasks.html",
+      "description": "Grants permission to list the export tasks in your account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "export-task*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -379,8 +416,8 @@
       "description": "Grants permission to create a new graph from an existing snapshot",
       "accessLevel": "Write",
       "resourceTypes": [
-        "graph-snapshot*",
-        "graph"
+        "graph*",
+        "graph-snapshot*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -395,12 +432,31 @@
       ]
     },
     {
+      "name": "StartExportTask",
+      "documentationUrl": "https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_StartExportTask.html",
+      "description": "Grants permission to export data from an existing graph",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "export-task*",
+        "graph*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
       "name": "StartImportTask",
       "documentationUrl": "https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_StartImportTask.html",
       "description": "Grants permission to import data into an existing graph",
       "accessLevel": "Write",
       "resourceTypes": [
-        "graph*"
+        "graph*",
+        "import-task*"
       ],
       "conditionKeys": [],
       "dependentActions": [

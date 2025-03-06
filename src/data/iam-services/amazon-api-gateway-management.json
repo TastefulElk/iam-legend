@@ -16,6 +16,17 @@
       "dependentActions": []
     },
     {
+      "name": "CreateAccessAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html",
+      "description": "Grants permission to create an access association from an access association source to a custom domain name for private APIs",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "PrivateDomainName"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DELETE",
       "documentationUrl": "https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html",
       "description": "Grants permission to delete a particular resource",
@@ -29,12 +40,15 @@
         "DocumentationPart",
         "DocumentationVersion",
         "DomainName",
+        "DomainNameAccessAssociation",
         "GatewayResponse",
         "Integration",
         "IntegrationResponse",
         "Method",
         "MethodResponse",
         "Model",
+        "PrivateBasePathMapping",
+        "PrivateDomainName",
         "RequestValidator",
         "Resource",
         "RestApi",
@@ -73,6 +87,7 @@
         "DocumentationVersion",
         "DocumentationVersions",
         "DomainName",
+        "DomainNameAccessAssociations",
         "DomainNames",
         "GatewayResponse",
         "GatewayResponses",
@@ -82,6 +97,9 @@
         "MethodResponse",
         "Model",
         "Models",
+        "PrivateBasePathMapping",
+        "PrivateBasePathMappings",
+        "PrivateDomainName",
         "RequestValidator",
         "RequestValidators",
         "Resource",
@@ -123,6 +141,8 @@
         "Method",
         "MethodResponse",
         "Model",
+        "PrivateBasePathMapping",
+        "PrivateDomainName",
         "RequestValidator",
         "Resource",
         "RestApi",
@@ -151,11 +171,13 @@
         "Deployments",
         "DocumentationParts",
         "DocumentationVersions",
+        "DomainNameAccessAssociations",
         "DomainNames",
         "GatewayResponses",
         "IntegrationResponse",
         "MethodResponse",
         "Models",
+        "PrivateBasePathMappings",
         "RequestValidators",
         "Resources",
         "RestApis",
@@ -190,6 +212,17 @@
       "dependentActions": []
     },
     {
+      "name": "RejectAccessAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html",
+      "description": "Grants permission to reject an existing access association owned by another account to a custom domain name for private APIs",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "PrivateDomainName"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "RemoveCertificateFromDomain",
       "documentationUrl": "https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html",
       "description": "Grants permission to remove certificates for mutual TLS authentication from a domain name. This is an additional authorization control for managing the DomainName resource due to the sensitive nature of mTLS",
@@ -209,6 +242,29 @@
       "resourceTypes": [
         "Stage",
         "Stages"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDomainNameManagementPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html",
+      "description": "Grants permission to update the management policy of a custom domain name for private APIs",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "PrivateDomainName"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDomainNamePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/apigateway/latest/api/API_Operations.html",
+      "description": "Grants permission to update the invoke policy of a custom domain name for private APIs",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "DomainNames",
+        "PrivateDomainName"
       ],
       "conditionKeys": [],
       "dependentActions": []

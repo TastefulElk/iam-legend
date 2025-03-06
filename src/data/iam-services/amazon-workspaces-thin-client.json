@@ -11,7 +11,8 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": [
         "appstream:DescribeStacks",
@@ -156,8 +157,14 @@
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-thin-client/latest/api/API_ListTagsForResource.html",
       "description": "Grants permission to list tags for a resource",
       "accessLevel": "List",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "device",
+        "environment",
+        "softwareset"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {

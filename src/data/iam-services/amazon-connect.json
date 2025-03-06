@@ -402,6 +402,23 @@
       "dependentActions": []
     },
     {
+      "name": "CreateContact",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateContact.html",
+      "description": "Grants permission to create a new contact using the Amazon Connect API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*",
+        "contact",
+        "user"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId",
+        "connect:ContactInitiationMethod"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateContactFlow",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateContactFlow.html",
       "description": "Grants permission to create a contact flow in an Amazon Connect instance",
@@ -444,6 +461,21 @@
         "aws:ResourceTag/${TagKey}",
         "connect:InstanceId",
         "connect:FlowType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEmailAddress",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateEmailAddress.html",
+      "description": "Grants permission to create an email address resource in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "connect:InstanceId"
       ],
       "dependentActions": []
     },
@@ -609,6 +641,19 @@
         "s3:GetObject",
         "s3:GetObjectAcl"
       ]
+    },
+    {
+      "name": "CreatePushNotificationRegistration",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_CreatePushNotificationRegistration.html",
+      "description": "Grants permission to create a push notification registration for an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
     },
     {
       "name": "CreateQueue",
@@ -889,6 +934,35 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteContactFlowVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteContactFlowVersion.html",
+      "description": "Grants permission to delete a version of a flow in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "contact-flow*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId",
+        "connect:FlowType"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEmailAddress",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteEmailAddress.html",
+      "description": "Grants permission to delete an email address resource in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "email-address*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteEvaluationForm",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteEvaluationForm.html",
       "description": "Grants permission to delete an evaluation form in the specified Amazon Connect instance. If the version property is provided, only the specified version of the evaluation form is deleted",
@@ -993,6 +1067,19 @@
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePushNotificationRegistration",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DeletePushNotificationRegistration.html",
+      "description": "Grants permission to delete a push notification registration for an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
         "connect:InstanceId"
       ],
       "dependentActions": []
@@ -1256,6 +1343,20 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "contact-flow-module*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeEmailAddress",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeEmailAddress.html",
+      "description": "Grants permission to describe an email address resource in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "email-address*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
@@ -2009,6 +2110,19 @@
       "dependentActions": []
     },
     {
+      "name": "ListAssociatedContacts",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListAssociatedContacts.html",
+      "description": "Grants permission to list the contacts associated with an email address in an Amazon Connect instance",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "contact*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListAuthenticationProfiles",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_ListAuthenticationProfiles.html",
       "description": "Grants permission to list authentication profile resources in an Amazon Connect instance",
@@ -2081,7 +2195,9 @@
       "resourceTypes": [
         "wildcard-contact-flow*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
       "dependentActions": []
     },
     {
@@ -2798,6 +2914,22 @@
       ]
     },
     {
+      "name": "SearchEmailAddresses",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchEmailAddresses.html",
+      "description": "Grants permission to search email address resources in an Amazon Connect instance",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId",
+        "connect:SearchTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "connect:DescribeEmailAddress"
+      ]
+    },
+    {
       "name": "SearchHoursOfOperationOverrides",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchHoursOfOperationOverrides.html",
       "description": "Grants permission to search hours of operation override resources in an Amazon Connect instance",
@@ -3128,6 +3260,21 @@
       "conditionKeys": [
         "connect:InstanceId",
         "connect:Subtype"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StartOutboundEmailContact",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_StartOutboundEmailContact.html",
+      "description": "Grants permission to initiate an outbound email using the Amazon Connect API",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*",
+        "contact-flow"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
       ],
       "dependentActions": []
     },
@@ -3537,6 +3684,20 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateEmailAddressMetadata",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateEmailAddressMetadata.html",
+      "description": "Grants permission to update the metadata of an email address resource in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "email-address*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateEvaluationForm",
       "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateEvaluationForm.html",
       "description": "Grants permission to update details about a specific evaluation form version in the specified Amazon Connect instance. Question and section identifiers cannot be duplicated within the same evaluation form",
@@ -3621,6 +3782,19 @@
         "s3:GetBucketAcl",
         "s3:GetBucketLocation"
       ]
+    },
+    {
+      "name": "UpdateParticipantAuthentication",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateParticipantAuthentication.html",
+      "description": "Grants permission to update and continue authentication for a specific contact",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance*"
+      ],
+      "conditionKeys": [
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
     },
     {
       "name": "UpdateParticipantRoleConfig",
@@ -3748,6 +3922,20 @@
         "queue*",
         "contact-flow",
         "phone-number"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "connect:InstanceId"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateQueueOutboundEmailConfig",
+      "documentationUrl": "https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateQueueOutboundEmailConfig.html",
+      "description": "Grants permission to update the outbound email configuration for a queue in an Amazon Connect instance",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "queue*"
       ],
       "conditionKeys": [
         "aws:ResourceTag/${TagKey}",

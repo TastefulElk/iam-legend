@@ -112,7 +112,7 @@
     },
     {
       "name": "CreateBlueprint",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateBlueprint.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_CreateBlueprint.html",
       "description": "Grants permission to create a blueprint for custom output from data automation",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -121,7 +121,7 @@
     },
     {
       "name": "CreateBlueprintVersion",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateBlueprintVersion.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_CreateBlueprintVersion.html",
       "description": "Grants permission to create a new version for an existing blueprint",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -132,7 +132,7 @@
     },
     {
       "name": "CreateDataAutomationProject",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataAutomationProject.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_CreateDataAutomationProject.html",
       "description": "Grants permission to create a data automation project",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -250,6 +250,17 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateInvocation",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_CreateInvocation.html",
+      "description": "Grants permission to create a new invocation in an existing session",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "session*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -387,6 +398,18 @@
       "dependentActions": []
     },
     {
+      "name": "CreateSession",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_CreateSession.html",
+      "description": "Grants permission to create a new session",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteAgent",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeleteAgent.html",
       "description": "Grants permission to delete an Agent that you created earlier",
@@ -443,7 +466,7 @@
     },
     {
       "name": "DeleteBlueprint",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeleteBlueprint.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_DeleteBlueprint.html",
       "description": "Grants permission to delete a blueprint for data automation",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -465,7 +488,7 @@
     },
     {
       "name": "DeleteDataAutomationProject",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DeleteDataAutomationProject.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_DeleteDataAutomationProject.html",
       "description": "Grants permission to delete a data automation project",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -646,6 +669,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteSession",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_DeleteSession.html",
+      "description": "Grants permission to delete a Session that you created earlier",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "session*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeregisterMarketplaceModelEndpoint",
       "documentationUrl": "API_DeregisterMarketplaceModelEndpoint",
       "description": "Grants permission to deregister a marketplace model endpoint to make it unusable in Bedrock Marketplace",
@@ -686,6 +720,17 @@
       "resourceTypes": [
         "agent*",
         "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "EndSession",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_EndSession.html",
+      "description": "Grants permission to end a Session that you created earlier",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "session*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -790,7 +835,7 @@
     },
     {
       "name": "GetBlueprint",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetBlueprint.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_GetBlueprint.html",
       "description": "Grants permission to retrieve an existing blueprint for data automation",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -801,7 +846,7 @@
     },
     {
       "name": "GetBlueprintRecommendation",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetBlueprintRecommendation.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
       "description": "Grants permission to retrieve blueprint recommendation",
       "accessLevel": "Read",
       "resourceTypes": [],
@@ -821,7 +866,7 @@
     },
     {
       "name": "GetDataAutomationProject",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetDataAutomationProject.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_GetDataAutomationProject.html",
       "description": "Grants permission to retrieve an existing data automation project",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -832,7 +877,7 @@
     },
     {
       "name": "GetDataAutomationStatus",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetDataAutomationStatus.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation-runtime_GetDataAutomationStatus.html",
       "description": "Grants permission to retrieve the status of a data automation invocation job",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -957,6 +1002,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "knowledge-base*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetInvocationStep",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetInvocationStep.html",
+      "description": "Grants permission to get an invocation step from a session",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "session*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1104,6 +1160,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetSession",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetSession.html",
+      "description": "Grants permission to retrieve an existing session",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "session*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetUseCaseForModelAccess",
       "documentationUrl": "https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html",
       "description": "Grants permission to retrieve a use case for model access",
@@ -1136,10 +1203,12 @@
     },
     {
       "name": "InvokeBlueprintRecommendationAsync",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_InvokeBlueprintRecommendationAsync.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
       "description": "Grants permission to invoke blueprint recommendations asynchronously",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "data-automation-profile*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1154,11 +1223,12 @@
     },
     {
       "name": "InvokeDataAutomationAsync",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_InvokeDataAutomationAsync.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.html",
       "description": "Grants permission to invoke a Bedrock data automation job",
       "accessLevel": "Write",
       "resourceTypes": [
         "blueprint*",
+        "data-automation-profile*",
         "data-automation-project*"
       ],
       "conditionKeys": [],
@@ -1302,7 +1372,7 @@
     },
     {
       "name": "ListBlueprints",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListBlueprints.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_ListBlueprints.html",
       "description": "Grants permission to list existing blueprints for data automation",
       "accessLevel": "List",
       "resourceTypes": [
@@ -1322,7 +1392,7 @@
     },
     {
       "name": "ListDataAutomationProjects",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListDataAutomationProjects.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_ListDataAutomationProjects.html",
       "description": "Grants permission to list existing data automation projects",
       "accessLevel": "List",
       "resourceTypes": [
@@ -1441,6 +1511,28 @@
       "dependentActions": []
     },
     {
+      "name": "ListInvocationSteps",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListInvocationSteps.html",
+      "description": "Grants permission to get list of invocation step from a session",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "session*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListInvocations",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListInvocations.html",
+      "description": "Grants permission to list invocations in a session",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "session*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListKnowledgeBaseDocuments",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListKnowledgeBaseDocuments.html",
       "description": "Grants permission to list documents in a knowledge base",
@@ -1544,6 +1636,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListSessions",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListSessions.html",
+      "description": "Grants permission to list existing sessions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to list tags for a Bedrock resource",
@@ -1553,7 +1654,10 @@
         "agent-alias*",
         "application-inference-profile*",
         "async-invoke*",
+        "blueprint*",
         "custom-model*",
+        "data-automation-invocation-job*",
+        "data-automation-project*",
         "evaluation-job*",
         "flow*",
         "flow-alias*",
@@ -1567,7 +1671,8 @@
         "model-invocation-job*",
         "prompt*",
         "prompt-version*",
-        "provisioned-model*"
+        "provisioned-model*",
+        "session*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1609,6 +1714,17 @@
       "description": "Grants permission to put entitlement to access a foundation model",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutInvocationStep",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_PutInvocationStep.html",
+      "description": "Grants permission to put an invocation step into an invocation in session",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "session*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -1761,7 +1877,10 @@
         "agent-alias",
         "application-inference-profile",
         "async-invoke",
+        "blueprint",
         "custom-model",
+        "data-automation-invocation-job",
+        "data-automation-project",
         "evaluation-job",
         "flow",
         "flow-alias",
@@ -1775,7 +1894,8 @@
         "model-invocation-job",
         "prompt",
         "prompt-version",
-        "provisioned-model"
+        "provisioned-model",
+        "session"
       ],
       "conditionKeys": [
         "aws:TagKeys",
@@ -1793,7 +1913,10 @@
         "agent-alias",
         "application-inference-profile",
         "async-invoke",
+        "blueprint",
         "custom-model",
+        "data-automation-invocation-job",
+        "data-automation-project",
         "evaluation-job",
         "flow",
         "flow-alias",
@@ -1807,7 +1930,8 @@
         "model-invocation-job",
         "prompt",
         "prompt-version",
-        "provisioned-model"
+        "provisioned-model",
+        "session"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -1872,7 +1996,7 @@
     },
     {
       "name": "UpdateBlueprint",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateBlueprint.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_UpdateBlueprint.html",
       "description": "Grants permission to update a blueprint for data automation",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -1883,7 +2007,7 @@
     },
     {
       "name": "UpdateDataAutomationProject",
-      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateDataAutomationProject.html",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_UpdateDataAutomationProject.html",
       "description": "Grants permission to update a data automation project",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -1979,6 +2103,17 @@
         "custom-model*",
         "foundation-model*",
         "provisioned-model*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSession",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_UpdateSession.html",
+      "description": "Grants permission to update an existing session",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "session*"
       ],
       "conditionKeys": [],
       "dependentActions": []

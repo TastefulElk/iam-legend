@@ -1,0 +1,149 @@
+{
+  "serviceName": "AWS Backup Search",
+  "servicePrefix": "backup-search",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsbackupsearch.html",
+  "actions": [
+    {
+      "name": "GetSearchJob",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_GetSearchJob.html",
+      "description": "Grants permission to get details of a search job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "searchJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSearchResultExportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_GetSearchResultExportJob.html",
+      "description": "Grants permission to get details of a search result export job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "searchExportJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSearchJobBackups",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListSearchJobBackups.html",
+      "description": "Grants permission to list backups in scope of a search job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "searchJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSearchJobResults",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListSearchJobResults.html",
+      "description": "Grants permission to list results of a search job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "searchJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSearchJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListSearchJobs.html",
+      "description": "Grants permission to list search jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSearchResultExportJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListSearchResultExportJobs.html",
+      "description": "Grants permission to list search result export jobs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "searchExportJob",
+        "searchJob"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartSearchJob",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_StartSearchJob.html",
+      "description": "Grants permission to create a search job",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StartSearchResultExportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_StartSearchResultExportJob.html",
+      "description": "Grants permission to start an export job for an existing search job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "searchJob*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:PassRole"
+      ]
+    },
+    {
+      "name": "StopSearchJob",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_StopSearchJob.html",
+      "description": "Grants permission to stop an in-progress search job",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "searchJob*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_TagResource.html",
+      "description": "Grants permission to tag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "searchExportJob",
+        "searchJob"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_UntagResource.html",
+      "description": "Grants permission to untag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "searchExportJob",
+        "searchJob"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

@@ -853,7 +853,8 @@
         "aws:TagKeys",
         "sagemaker:NetworkIsolation",
         "sagemaker:VpcSecurityGroupIds",
-        "sagemaker:VpcSubnets"
+        "sagemaker:VpcSubnets",
+        "sagemaker:DirectGatedModelAccess"
       ],
       "dependentActions": [
         "iam:PassRole",
@@ -1283,7 +1284,8 @@
         "sagemaker:VpcSecurityGroupIds",
         "sagemaker:VpcSubnets",
         "sagemaker:KeepAlivePeriod",
-        "sagemaker:EnableRemoteDebug"
+        "sagemaker:EnableRemoteDebug",
+        "sagemaker:DirectGatedModelAccess"
       ],
       "dependentActions": [
         "iam:PassRole",
@@ -4366,6 +4368,18 @@
       "dependentActions": []
     },
     {
+      "name": "TrainHubModel",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-curated-hubs-admin-guide.html",
+      "description": "Grants permission to train a model in hub",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hub*",
+        "hub-content*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateAction",
       "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateAction.html",
       "description": "Grants permission to update an action",
@@ -4580,6 +4594,30 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "hub*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateHubContent",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateHubContent.html",
+      "description": "Grants permission to update hub content",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hub*",
+        "hub-content*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateHubContentReference",
+      "documentationUrl": "https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateHubContentReference.html",
+      "description": "Grants permission to update hub content reference",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "hub*",
+        "hub-content*"
       ],
       "conditionKeys": [],
       "dependentActions": []

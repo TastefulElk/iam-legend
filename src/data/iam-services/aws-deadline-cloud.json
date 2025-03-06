@@ -220,6 +220,7 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
+        "deadline:GetJobTemplate",
         "identitystore:ListGroupMembershipsForMember"
       ]
     },
@@ -240,6 +241,19 @@
         "ec2:CreateTags",
         "ec2:CreateVpcEndpoint",
         "ec2:DescribeVpcEndpoints"
+      ]
+    },
+    {
+      "name": "CreateLimit",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateLimit.html",
+      "description": "Grants permission to create a limit for a farm",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
       ]
     },
     {
@@ -300,6 +314,20 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "fleet*",
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "CreateQueueLimitAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateQueueLimitAssociation.html",
+      "description": "Grants permission to create a queue-limit association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "farm*",
         "queue*"
       ],
       "conditionKeys": [],
@@ -385,6 +413,19 @@
       ]
     },
     {
+      "name": "DeleteLimit",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DeleteLimit.html",
+      "description": "Grants permission to delete a limit",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
       "name": "DeleteMeteredProduct",
       "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DeleteMeteredProduct.html",
       "description": "Grants permission to delete a metered product",
@@ -441,6 +482,20 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "fleet*",
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "DeleteQueueLimitAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_DeleteQueueLimitAssociation.html",
+      "description": "Grants permission to delete a queue-limit association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "farm*",
         "queue*"
       ],
       "conditionKeys": [],
@@ -598,7 +653,7 @@
     {
       "name": "GetJobTemplate",
       "description": "Grants permission to read job template",
-      "accessLevel": "Write",
+      "accessLevel": "Read",
       "resourceTypes": [
         "job*"
       ],
@@ -615,6 +670,19 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "GetLimit",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetLimit.html",
+      "description": "Grants permission to get a limit",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
     },
     {
       "name": "GetMonitor",
@@ -660,6 +728,20 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "fleet*",
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "GetQueueLimitAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetQueueLimitAssociation.html",
+      "description": "Grants permission to get a queue-limit association",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "farm*",
         "queue*"
       ],
       "conditionKeys": [],
@@ -913,6 +995,19 @@
       "dependentActions": []
     },
     {
+      "name": "ListLimits",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListLimits.html",
+      "description": "Grants permission to list all limits in a farm",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
       "name": "ListMeteredProducts",
       "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListMeteredProducts.html",
       "description": "Grants permission to list all metered products in a license endpoint",
@@ -953,9 +1048,23 @@
       "description": "Grants permission to list all queue-fleet associations",
       "accessLevel": "List",
       "resourceTypes": [
-        "farm",
-        "fleet",
-        "queue"
+        "farm*",
+        "fleet*",
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "ListQueueLimitAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListQueueLimitAssociations.html",
+      "description": "Grants permission to list all queue-limit associations",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "farm*",
+        "queue*"
       ],
       "conditionKeys": [],
       "dependentActions": [
@@ -1303,6 +1412,19 @@
       ]
     },
     {
+      "name": "UpdateLimit",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateLimit.html",
+      "description": "Grants permission to update a limit for a farm",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "farm*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
       "name": "UpdateMonitor",
       "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateMonitor.html",
       "description": "Grants permission to update a monitor",
@@ -1351,6 +1473,20 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "fleet*",
+        "queue*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "identitystore:ListGroupMembershipsForMember"
+      ]
+    },
+    {
+      "name": "UpdateQueueLimitAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateQueueLimitAssociation.html",
+      "description": "Grants permission to update a queue-limit association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "farm*",
         "queue*"
       ],
       "conditionKeys": [],

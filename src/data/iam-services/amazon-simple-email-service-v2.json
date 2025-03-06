@@ -199,6 +199,21 @@
       "dependentActions": []
     },
     {
+      "name": "CreateMultiRegionEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_CreateMultiRegionEndpoint.html",
+      "description": "Grants permission to create a new multi-region endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ses:ApiVersion",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
       "name": "DeleteConfigurationSet",
       "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DeleteConfigurationSet.html",
       "description": "Grants permission to delete an existing configuration set",
@@ -319,6 +334,20 @@
       ],
       "conditionKeys": [
         "ses:ApiVersion"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteMultiRegionEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DeleteMultiRegionEndpoint.html",
+      "description": "Grants permission to delete a multi-region endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "multi-region-endpoint*"
+      ],
+      "conditionKeys": [
+        "ses:ApiVersion",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -592,6 +621,20 @@
       "dependentActions": []
     },
     {
+      "name": "GetMultiRegionEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_GetMultiRegionEndpoint.html",
+      "description": "Grants permission to get information about a multi-region endpoint",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "multi-region-endpoint*"
+      ],
+      "conditionKeys": [
+        "ses:ApiVersion",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetSuppressedDestination",
       "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_GetSuppressedDestination.html",
       "description": "Grants permission to retrieve information about a specific email address that's on the suppression list for your account",
@@ -727,6 +770,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListMultiRegionEndpoints",
+      "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_ListMultiRegionEndpoints.html",
+      "description": "Grants permission to list all of the multi-region endpoints for your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ses:ApiVersion"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListRecommendations",
       "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_ListRecommendations.html",
       "description": "Grants permission to list recommendations for your account",
@@ -820,6 +874,20 @@
       "resourceTypes": [],
       "conditionKeys": [
         "ses:ApiVersion"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutConfigurationSetArchivingOptions",
+      "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_PutConfigurationSetArchivingOptions.html",
+      "description": "Grants permission to associate a configuration set with a Mail Manager archive",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "configuration-set*"
+      ],
+      "conditionKeys": [
+        "ses:ApiVersion",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -1040,6 +1108,18 @@
       "dependentActions": []
     },
     {
+      "name": "ReplicateEmailIdentityDkimSigningKey",
+      "description": "Grants permission to replicate email identity DKIM signing key",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "identity*"
+      ],
+      "conditionKeys": [
+        "ses:ReplicaRegion"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "SendBulkEmail",
       "documentationUrl": "https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_SendBulkEmail.html",
       "description": "Grants permission to compose an email message to multiple destinations",
@@ -1050,7 +1130,8 @@
         "configuration-set"
       ],
       "conditionKeys": [
-        "ses:ApiVersion"
+        "ses:ApiVersion",
+        "ses:MultiRegionEndpointId"
       ],
       "dependentActions": []
     },
@@ -1082,7 +1163,8 @@
         "ses:FeedbackAddress",
         "ses:FromAddress",
         "ses:FromDisplayName",
-        "ses:Recipients"
+        "ses:Recipients",
+        "ses:MultiRegionEndpointId"
       ],
       "dependentActions": []
     },
