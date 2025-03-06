@@ -527,6 +527,28 @@
       ]
     },
     {
+      "name": "ImportDiskImage",
+      "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ImportDiskImage.html",
+      "description": "Grants permission to import a disk image",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "imageVersion*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole",
+        "iam:PassRole",
+        "imagebuilder:GetInfrastructureConfiguration",
+        "imagebuilder:GetWorkflow",
+        "imagebuilder:TagResource",
+        "s3:GetObject",
+        "s3:ListBucket"
+      ]
+    },
+    {
       "name": "ImportVmImage",
       "documentationUrl": "https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ImportVmImage.html",
       "description": "Grants permission to import an image",

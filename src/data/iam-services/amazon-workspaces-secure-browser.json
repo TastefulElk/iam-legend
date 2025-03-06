@@ -16,6 +16,18 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateDataProtectionSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_AssociateDataProtectionSettings.html",
+      "description": "Grants permission to associate data protection settings with web portals",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dataProtectionSettings*",
+        "portal*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateIpAccessSettings",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_AssociateIpAccessSettings.html",
       "description": "Grants permission to associate ip access settings with web portals",
@@ -103,6 +115,18 @@
       ]
     },
     {
+      "name": "CreateDataProtectionSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateDataProtectionSettings.html",
+      "description": "Grants permission to create data protection settings",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateIdentityProvider",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_CreateIdentityProvider.html",
       "description": "Grants permission to create identity providers",
@@ -111,7 +135,10 @@
         "identityProvider*",
         "portal*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -206,6 +233,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteDataProtectionSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeleteDataProtectionSettings.html",
+      "description": "Grants permission to delete data protection settings",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dataProtectionSettings*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteIdentityProvider",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DeleteIdentityProvider.html",
       "description": "Grants permission to delete identity providers",
@@ -295,6 +333,17 @@
       "dependentActions": []
     },
     {
+      "name": "DisassociateDataProtectionSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DisassociateDataProtectionSettings.html",
+      "description": "Grants permission to disassociate data protection logging from web portals",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "portal*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DisassociateIpAccessSettings",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_DisassociateIpAccessSettings.html",
       "description": "Grants permission to disassociate ip access logging from web portals",
@@ -367,6 +416,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "browserSettings*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetDataProtectionSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_GetDataProtectionSettings.html",
+      "description": "Grants permission to get details on data protection settings",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "dataProtectionSettings*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -491,6 +551,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListDataProtectionSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListDataProtectionSettings.html",
+      "description": "Grants permission to list data protection settings",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListIdentityProviders",
       "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_ListIdentityProviders.html",
       "description": "Grants permission to list identity providers",
@@ -591,6 +660,8 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "browserSettings",
+        "dataProtectionSettings",
+        "identityProvider",
         "ipAccessSettings",
         "networkSettings",
         "portal",
@@ -611,6 +682,8 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "browserSettings",
+        "dataProtectionSettings",
+        "identityProvider",
         "ipAccessSettings",
         "networkSettings",
         "portal",
@@ -630,6 +703,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "browserSettings*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateDataProtectionSettings",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces-web/latest/APIReference/API_UpdateDataProtectionSettings.html",
+      "description": "Grants permission to update data protection settings",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "dataProtectionSettings*"
       ],
       "conditionKeys": [],
       "dependentActions": []

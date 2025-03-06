@@ -4,6 +4,46 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsbilling.html",
   "actions": [
     {
+      "name": "CreateBillingView",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_CreateBillingView.html",
+      "description": "Grants permission to create a billing view",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "billingview*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteBillingView",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_DeleteBillingView.html",
+      "description": "Grants permission to delete a billing view",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "billingview*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_DeleteResourcePolicy.html",
+      "description": "Grants permission to delete a billing view resource policy",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "billingview*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetBillingData",
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
       "description": "Grants permission to perform queries on billing information",
@@ -40,6 +80,19 @@
       "dependentActions": []
     },
     {
+      "name": "GetBillingView",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_GetBillingView.html",
+      "description": "Grants permission to get the metadata for a specified billing view",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "billingview*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetContractInformation",
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
       "description": "Grants permission to view the account's contract information including the contract number, end-user organization names, PO numbers and if the account is used to service public-sector customers",
@@ -67,6 +120,19 @@
       "dependentActions": []
     },
     {
+      "name": "GetResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_GetResourcePolicy.html",
+      "description": "Grants permission to get the resource policy specified billing view",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "billingview*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetSellerOfRecord",
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
       "description": "Grants permission to retrieve the account's default Seller of Record",
@@ -77,11 +143,37 @@
     },
     {
       "name": "ListBillingViews",
-      "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
-      "description": "Grants permission to get a list of all your available billing views such as pro forma billing group related billing views",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_ListBillingViews.html",
+      "description": "Grants permission to get a list of all your available billing views",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSourceViewsForBillingView",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_ListSourceViewsForBillingView.html",
+      "description": "Grants permission to get the list of source views for a specified billing view",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "billingview*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_ListTagsForResource.html",
+      "description": "Grants permission to get the list of tags for a specified billing view",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "billingview*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -94,6 +186,19 @@
       "dependentActions": []
     },
     {
+      "name": "PutResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_PutResourcePolicy.html",
+      "description": "Grants permission to put a billing view resource policy",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "billingview*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "RedeemCredits",
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
       "description": "Grants permission to redeem an AWS credit",
@@ -103,12 +208,54 @@
       "dependentActions": []
     },
     {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_TagResource.html",
+      "description": "Grants permission to add tags to a specified billing view",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "billingview*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_UntagResource.html",
+      "description": "Grants permission to remove a tag from a specified billing view",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "billingview*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateBillingPreferences",
       "documentationUrl": "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions",
       "description": "Grants permission to update billing preferences such as reserved instance, savings plans and credits sharing",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateBillingView",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_UpdateBillingView.html",
+      "description": "Grants permission to update a billing view",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "billingview*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {

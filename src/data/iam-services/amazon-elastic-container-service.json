@@ -40,17 +40,23 @@
         "service*"
       ],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
-        "aws:ResourceTag/${TagKey}",
-        "aws:TagKeys",
         "ecs:cluster",
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
         "ecs:capacity-provider",
         "ecs:task-definition",
         "ecs:enable-ebs-volumes",
         "ecs:enable-execute-command",
         "ecs:enable-service-connect",
         "ecs:namespace",
-        "ecs:enable-vpc-lattice"
+        "ecs:enable-vpc-lattice",
+        "ecs:enable-ecs-managed-tags",
+        "ecs:propagate-tags",
+        "ecs:auto-assign-public-ip",
+        "ecs:subnet",
+        "ecs:task-cpu",
+        "ecs:task-memory"
       ],
       "dependentActions": []
     },
@@ -567,10 +573,17 @@
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterTaskDefinition.html",
       "description": "Grants permission to register a new task definition from the supplied family and containerDefinitions",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "task-definition*"
+      ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "ecs:compute-compatibility",
+        "ecs:privileged",
+        "ecs:task-cpu",
+        "ecs:task-memory"
       ],
       "dependentActions": []
     },
@@ -801,15 +814,21 @@
         "service*"
       ],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
         "ecs:cluster",
+        "aws:ResourceTag/${TagKey}",
         "ecs:capacity-provider",
         "ecs:enable-ebs-volumes",
         "ecs:enable-execute-command",
         "ecs:enable-service-connect",
         "ecs:namespace",
         "ecs:task-definition",
-        "ecs:enable-vpc-lattice"
+        "ecs:enable-vpc-lattice",
+        "ecs:enable-ecs-managed-tags",
+        "ecs:propagate-tags",
+        "ecs:auto-assign-public-ip",
+        "ecs:subnet",
+        "ecs:task-cpu",
+        "ecs:task-memory"
       ],
       "dependentActions": []
     },

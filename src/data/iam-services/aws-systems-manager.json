@@ -353,7 +353,8 @@
       "description": "Grants permission to deregister a specified target from a maintenance window",
       "accessLevel": "Write",
       "resourceTypes": [
-        "maintenancewindow*"
+        "maintenancewindow*",
+        "windowtarget*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -364,7 +365,8 @@
       "description": "Grants permission to deregister a specified task from a maintenance window",
       "accessLevel": "Write",
       "resourceTypes": [
-        "maintenancewindow*"
+        "maintenancewindow*",
+        "windowtask*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -756,7 +758,9 @@
       "resourceTypes": [
         "automation-execution*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1463,7 +1467,9 @@
       "resourceTypes": [
         "automation-execution*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -1559,7 +1565,9 @@
       "resourceTypes": [
         "automation-execution*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {

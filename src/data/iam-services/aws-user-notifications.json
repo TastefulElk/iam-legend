@@ -5,7 +5,7 @@
   "actions": [
     {
       "name": "AssociateChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_AssociateChannel.html",
       "description": "Grants permission to associate a new Channel with a particular NotificationConfiguration",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -15,8 +15,30 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateManagedNotificationAccountContact",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_AssociateManagedNotificationAccountContact.html",
+      "description": "Grants permission to associate an Account contact to a particular Managed Notification Configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ManagedNotificationConfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateManagedNotificationAdditionalChannel",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_AssociateManagedNotificationAdditionalChannel.html",
+      "description": "Grants permission to associate a Channel to a particular Managed Notification Configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ManagedNotificationConfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateEventRule",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_CreateEventRule.html",
       "description": "Grants permission to create a new EventRule, associating it with a NotificationConfiguration",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -25,7 +47,7 @@
     },
     {
       "name": "CreateNotificationConfiguration",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_CreateNotificationConfiguration.html",
       "description": "Grants permission to create a NotificationConfiguration",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -37,7 +59,7 @@
     },
     {
       "name": "DeleteEventRule",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_DeleteEventRule.html",
       "description": "Grants permission to delete an EventRule",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -48,7 +70,7 @@
     },
     {
       "name": "DeleteNotificationConfiguration",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_DeleteNotificationConfiguration.html",
       "description": "Grants permission to delete a NotificationConfiguration",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -59,7 +81,7 @@
     },
     {
       "name": "DeregisterNotificationHub",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_DeregisterNotificationHub.html",
       "description": "Grants permission to deregister a NotificationHub",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -67,8 +89,19 @@
       "dependentActions": []
     },
     {
+      "name": "DisableNotificationsAccessForOrganization",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_DisableNotificationsAccessForOrganization.html",
+      "description": "Grants permission to disable Service Trust for AWS User Notifications",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "organizations:DisableAWSServiceAccess"
+      ]
+    },
+    {
       "name": "DisassociateChannel",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_DisassociateChannel.html",
       "description": "Grants permission to remove a Channel from a NotificationConfiguration",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -78,8 +111,42 @@
       "dependentActions": []
     },
     {
+      "name": "DisassociateManagedNotificationAccountContact",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_DisassociateManagedNotificationAccountContact.html",
+      "description": "Grants permission to remove an Account contact from a Managed Notification Configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ManagedNotificationConfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateManagedNotificationAdditionalChannel",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_DisassociateManagedNotificationAdditionalChannel.html",
+      "description": "Grants permission to remove a Channel from a Managed Notification Configuration",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "ManagedNotificationConfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "EnableNotificationsAccessForOrganization",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_EnableNotificationsAccessForOrganization.html",
+      "description": "Grants permission to enable Service Trust for AWS User Notifications",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole",
+        "organizations:EnableAWSServiceAccess"
+      ]
+    },
+    {
       "name": "GetEventRule",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetEventRule.html",
       "description": "Grants permission to get an EventRule",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -89,8 +156,50 @@
       "dependentActions": []
     },
     {
+      "name": "GetFeatureOptInStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/managing-notification-features.html",
+      "description": "Grants permission to read the opt-in status of an AWS User Notification Service feature",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetManagedNotificationChildEvent",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetManagedNotificationChildEvent.html",
+      "description": "Grants permission to get a Managed Notification Child Event",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ManagedNotificationChildEvent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetManagedNotificationConfiguration",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetManagedNotificationConfiguration.html",
+      "description": "Grants permission to get a Managed Notification Configuration",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ManagedNotificationConfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetManagedNotificationEvent",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetManagedNotificationEvent.html",
+      "description": "Grants permission to get a Managed NotificationEvent",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "ManagedNotificationEvent*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetNotificationConfiguration",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetNotificationConfiguration.html",
       "description": "Grants permission to get a NotificationConfiguration",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -101,7 +210,7 @@
     },
     {
       "name": "GetNotificationEvent",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetNotificationEvent.html",
       "description": "Grants permission to get a NotificationEvent",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -111,17 +220,28 @@
       "dependentActions": []
     },
     {
-      "name": "ListChannels",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
-      "description": "Grants permission to list Channels by NotificationConfiguration",
-      "accessLevel": "List",
+      "name": "GetNotificationsAccessForOrganization",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_GetNotificationsAccessForOrganization.html",
+      "description": "Grants permission to read Service Trust for AWS User Notifications",
+      "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
+      "name": "ListChannels",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListChannels.html",
+      "description": "Grants permission to list Channels by NotificationConfiguration",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "NotificationConfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListEventRules",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListEventRules.html",
       "description": "Grants permission to list EventRules",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -129,8 +249,46 @@
       "dependentActions": []
     },
     {
+      "name": "ListManagedNotificationChannelAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListManagedNotificationChannelAssociations.html",
+      "description": "Grants permission to list Account contacts and Channels associated with a Managed Notification Configuration",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "ManagedNotificationConfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListManagedNotificationChildEvents",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListManagedNotificationChildEvents.html",
+      "description": "Grants permission to list Managed Notification Child Events",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListManagedNotificationConfigurations",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListManagedNotificationConfigurations.html",
+      "description": "Grants permission to list Managed Notification Configurations",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListManagedNotificationEvents",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListManagedNotificationEvents.html",
+      "description": "Grants permission to list Managed Notification Events",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListNotificationConfigurations",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListNotificationConfigurations.html",
       "description": "Grants permission to list NotificationConfigurations",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -139,7 +297,7 @@
     },
     {
       "name": "ListNotificationEvents",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListNotificationEvents.html",
       "description": "Grants permission to list NotificationEvents",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -148,7 +306,7 @@
     },
     {
       "name": "ListNotificationHubs",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListNotificationHubs.html",
       "description": "Grants permission to list NotificationHubs",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -157,16 +315,25 @@
     },
     {
       "name": "ListTagsForResource",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_ListTagsForResource.html",
       "description": "Grants permission to get tags for a resource",
-      "accessLevel": "Read",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutFeatureOptInStatus",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/managing-notification-features.html",
+      "description": "Grants permission to update the opt-in status of an AWS User Notification Service feature",
+      "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
     {
       "name": "RegisterNotificationHub",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_RegisterNotificationHub.html",
       "description": "Grants permission to register a NotificationHub",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -175,7 +342,7 @@
     },
     {
       "name": "TagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_TagResource.html",
       "description": "Grants permission to tag a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
@@ -189,7 +356,7 @@
     },
     {
       "name": "UntagResource",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_UntagResource.html",
       "description": "Grants permission to remove tags from a resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
@@ -202,7 +369,7 @@
     },
     {
       "name": "UpdateEventRule",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_UpdateEventRule.html",
       "description": "Grants permission to update an EventRule",
       "accessLevel": "Write",
       "resourceTypes": [
@@ -213,7 +380,7 @@
     },
     {
       "name": "UpdateNotificationConfiguration",
-      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/userguide/resource-level-permissions.html",
+      "documentationUrl": "https://docs.aws.amazon.com/notifications/latest/APIReference/API_UpdateNotificationConfiguration.html",
       "description": "Grants permission to update a NotificationConfiguration",
       "accessLevel": "Write",
       "resourceTypes": [

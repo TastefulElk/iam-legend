@@ -4,6 +4,18 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonconnectcases.html",
   "actions": [
     {
+      "name": "BatchGetCaseRule",
+      "documentationUrl": "https://docs.aws.amazon.com/cases/latest/APIReference/API_BatchGetCaseRule.html",
+      "description": "Grants permission to retrieve information about the case rules in the case domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "CaseRule*",
+        "Domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "BatchGetField",
       "documentationUrl": "https://docs.aws.amazon.com/cases/latest/APIReference/API_BatchGetField.html",
       "description": "Grants permission to retrieve information about the fields in the case domain",
@@ -41,6 +53,18 @@
       "conditionKeys": [
         "connect:UserArn"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateCaseRule",
+      "documentationUrl": "https://docs.aws.amazon.com/cases/latest/APIReference/API_CreateCaseRule.html",
+      "description": "Grants permission to create a case rule in the case domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "CaseRule*",
+        "Domain*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
@@ -100,6 +124,18 @@
         "Domain*",
         "Layout*",
         "Template*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteCaseRule",
+      "documentationUrl": "https://docs.aws.amazon.com/cases/latest/APIReference/API_DeleteCaseRule.html",
+      "description": "Grants permission to delete the case rule in the case domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "CaseRule*",
+        "Domain*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -236,6 +272,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListCaseRules",
+      "documentationUrl": "https://docs.aws.amazon.com/cases/latest/APIReference/API_ListCaseRules.html",
+      "description": "Grants permission to list case rules in the case domain",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Domain*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListCasesForContact",
       "documentationUrl": "https://docs.aws.amazon.com/cases/latest/APIReference/API_ListCasesForContact.html",
       "description": "Grants permission to list cases for a specific contact in the case domain",
@@ -350,6 +397,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "Case",
+        "CaseRule",
         "Domain",
         "Field",
         "Layout",
@@ -369,6 +417,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "Case",
+        "CaseRule",
         "Domain",
         "Field",
         "Layout",
@@ -393,6 +442,18 @@
       "conditionKeys": [
         "connect:UserArn"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateCaseRule",
+      "documentationUrl": "https://docs.aws.amazon.com/cases/latest/APIReference/API_UpdateCaseRule.html",
+      "description": "Grants permission to update the case rule in the case domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "CaseRule*",
+        "Domain*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {

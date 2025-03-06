@@ -4,6 +4,18 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonsimpleemailservice-mailmanager.html",
   "actions": [
     {
+      "name": "AllowVendedLogDeliveryForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/ses/latest/dg/eb-policies.html",
+      "description": "Grants permission to configure vended log delivery for Mail Manager resources",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "mailmanager-ingress-point",
+        "mailmanager-rule-set"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateAddonInstance",
       "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_CreateAddonInstance.html",
       "description": "Grants permission to create an addon instance",
@@ -25,6 +37,31 @@
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAddressList",
+      "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_CreateAddressList.html",
+      "description": "Grants permission to create an address list",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAddressListImportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_CreateAddressListImportJob.html",
+      "description": "Grants permission to create an import job on an address list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "mailmanager-address-list*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -119,6 +156,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteAddressList",
+      "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_DeleteAddressList.html",
+      "description": "Grants permission to delete an address list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "mailmanager-address-list*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteArchive",
       "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_DeleteArchive.html",
       "description": "Grants permission to delete an archive",
@@ -184,6 +234,19 @@
       "dependentActions": []
     },
     {
+      "name": "DeregisterMemberFromAddressList",
+      "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_DeregisterMemberFromAddressList.html",
+      "description": "Grants permission to remove a member from an address list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "mailmanager-address-list*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetAddonInstance",
       "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_GetAddonInstance.html",
       "description": "Grants permission to get information about an addon instance",
@@ -206,6 +269,32 @@
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAddressList",
+      "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_GetAddressList.html",
+      "description": "Grants permission to get information about an address list",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "mailmanager-address-list*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAddressListImportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_GetAddressListImportJob.html",
+      "description": "Grants permission to get information about an import job on an address list",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "mailmanager-address-list*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -291,6 +380,19 @@
       "dependentActions": []
     },
     {
+      "name": "GetMemberOfAddressList",
+      "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_GetMemberOfAddressList.html",
+      "description": "Grants permission to get information about a member in an address list",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "mailmanager-address-list*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetRelay",
       "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_GetRelay.html",
       "description": "Grants permission to get information about a SMTP relay",
@@ -348,6 +450,28 @@
       "dependentActions": []
     },
     {
+      "name": "ListAddressListImportJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_ListAddressListImportJobs.html",
+      "description": "Grants permission to list all of the import jobs associated with an address list",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "mailmanager-address-list*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAddressLists",
+      "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_ListAddressLists.html",
+      "description": "Grants permission to list all of the address lists associated with your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListArchiveExports",
       "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_ListArchiveExports.html",
       "description": "Grants permission to list all of the archive exports associated with your account",
@@ -381,6 +505,19 @@
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListMembersOfAddressList",
+      "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_ListMembersOfAddressList.html",
+      "description": "Grants permission to list all of the members associated with an address list",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "mailmanager-address-list*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -428,6 +565,32 @@
       "dependentActions": []
     },
     {
+      "name": "RegisterMemberToAddressList",
+      "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_RegisterMemberToAddressList.html",
+      "description": "Grants permission to add a member to an address list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "mailmanager-address-list*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StartAddressListImportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_StartAddressListImportJob.html",
+      "description": "Grants permission to start an import job on an address list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "mailmanager-address-list*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "StartArchiveExport",
       "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_StartArchiveExport.html",
       "description": "Grants permission to start an archive export",
@@ -447,6 +610,19 @@
         "mailmanager-archive*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopAddressListImportJob",
+      "documentationUrl": "https://docs.aws.amazon.com/sesmailmanager/latest/APIReference/API_StopAddressListImportJob.html",
+      "description": "Grants permission to stop an ongoing import job on an address list",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "mailmanager-address-list*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -479,6 +655,7 @@
       "resourceTypes": [
         "addon-instance",
         "addon-subscription",
+        "mailmanager-address-list",
         "mailmanager-archive",
         "mailmanager-ingress-point",
         "mailmanager-rule-set",
@@ -499,6 +676,7 @@
       "resourceTypes": [
         "addon-instance",
         "addon-subscription",
+        "mailmanager-address-list",
         "mailmanager-archive",
         "mailmanager-ingress-point",
         "mailmanager-rule-set",

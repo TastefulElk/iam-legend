@@ -32,9 +32,12 @@
       "description": "Grants permission to add one or more tags to the specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "cache-report",
+        "fs-association",
         "gateway",
         "share",
         "tape",
+        "tapepool",
         "volume"
       ],
       "conditionKeys": [
@@ -131,6 +134,17 @@
       "resourceTypes": [
         "gateway*",
         "tape*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "CancelCacheReport",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CancelCacheReport.html",
+      "description": "Grants permission to cancel a cache report",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cache-report*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -297,6 +311,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteCacheReport",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteCacheReport.html",
+      "description": "Grants permission to delete the metadata associated with a cache report",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "cache-report*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteChapCredentials",
       "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteChapCredentials.html",
       "description": "Grants permission to delete Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target and initiator pair",
@@ -423,6 +448,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "gateway*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeCacheReport",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeCacheReport.html",
+      "description": "Grants permission to get a description of a cache report",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "cache-report*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -635,6 +671,17 @@
       "dependentActions": []
     },
     {
+      "name": "EvictFilesFailingUpload",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_EvictFilesFailingUpload.html",
+      "description": "Grants permission to clean a share's cache of file entries that are failing upload to Amazon S3",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "share*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "JoinDomain",
       "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_JoinDomain.html",
       "description": "Grants permission to enable you to join an Active Directory Domain",
@@ -649,6 +696,15 @@
       "name": "ListAutomaticTapeCreationPolicies",
       "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListAutomaticTapeCreationPolicies.html",
       "description": "Grants permission to list the automatic tape creation policies configured on the specified gateway-VTL or all gateway-VTLs owned by your AWS account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListCacheReports",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListCacheReports.html",
+      "description": "Grants permission to get a list of the cache reports owned by your AWS account",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -783,9 +839,12 @@
       "description": "Grants permission to remove one or more tags from the specified resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "cache-report",
+        "fs-association",
         "gateway",
         "share",
         "tape",
+        "tapepool",
         "volume"
       ],
       "conditionKeys": [
@@ -870,6 +929,20 @@
         "gateway*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartCacheReport",
+      "documentationUrl": "https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_StartCacheReport.html",
+      "description": "Grants permission to start a cache report for an existing file share",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "share*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

@@ -9,7 +9,10 @@
       "description": "Grants permission to create an analytics category. Amazon Transcribe applies the conditions specified by your analytics categories to your call analytics jobs",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -74,7 +77,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/transcribe/latest/dg/API_DeleteCallAnalyticsCategory.html",
       "description": "Grants permission to delete a call analytics category using its name from Amazon Transcribe",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "callanalyticscategory*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -83,7 +88,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/transcribe/latest/dg/API_DeleteCallAnalyticsJob.html",
       "description": "Grants permission to delete a previously submitted call analytics job along with any other generated results such as the transcription, models, and so on",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "callanalyticsjob*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -180,7 +187,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/transcribe/latest/dg/API_GetCallAnalyticsCategory.html",
       "description": "Grants permission to retrieve information about a call analytics category",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "callanalyticscategory*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -189,7 +198,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/transcribe/latest/dg/API_GetCallAnalyticsJob.html",
       "description": "Grants permission to return information about a call analytics job",
       "accessLevel": "Read",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "callanalyticsjob*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -201,6 +212,15 @@
       "resourceTypes": [
         "medicalscribejob*"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetMedicalScribeStream",
+      "documentationUrl": "https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_GetMedicalScribeStream.html",
+      "description": "Grants permission to get information about the specified AWS HealthScribe streaming session",
+      "accessLevel": "Read",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -357,7 +377,9 @@
       "resourceTypes": [],
       "conditionKeys": [
         "transcribe:OutputEncryptionKMSKeyId",
-        "transcribe:OutputLocation"
+        "transcribe:OutputLocation",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": [
         "s3:GetObject"
@@ -396,6 +418,15 @@
       "dependentActions": [
         "s3:GetObject"
       ]
+    },
+    {
+      "name": "StartMedicalScribeStream",
+      "documentationUrl": "https://docs.aws.amazon.com/transcribe/latest/dg/API_streaming_StartMedicalScribeStream.html",
+      "description": "Grants permission to start a bidirectional HTTP2 stream where audio is streamed to AWS HealthScribe and the transcription results are streamed to your application",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "StartMedicalStreamTranscription",
@@ -495,7 +526,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/transcribe/latest/dg/API_UpdateCallAnalyticsCategory.html",
       "description": "Grants permission to update the call analytics category with new values. The UpdateCallAnalyticsCategory operation overwrites all of the existing information with the values that you provide in the request",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "callanalyticscategory*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },

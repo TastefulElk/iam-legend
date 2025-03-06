@@ -118,6 +118,17 @@
       "dependentActions": []
     },
     {
+      "name": "CreateStackRefactor",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackRefactor.html",
+      "description": "Grants permission to create a stack refactor",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateStackSet",
       "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackSet.html",
       "description": "Grants permission to create a stackset as specified in the template",
@@ -331,6 +342,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeStackRefactor",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackRefactor.html",
+      "description": "Grants permission to return the description for the specified stack refactor",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeStackResource",
       "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html",
       "description": "Grants permission to return a description of the specified resource in the specified stack",
@@ -474,6 +496,17 @@
       "dependentActions": []
     },
     {
+      "name": "ExecuteStackRefactor",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteStackRefactor.html",
+      "description": "Grants permission to execute a stack refactor using the input information that was provided when the specified stack refactor was created",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetGeneratedTemplate",
       "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetGeneratedTemplate.html",
       "description": "Grants permission to retrieve a generated template",
@@ -559,6 +592,19 @@
       "dependentActions": []
     },
     {
+      "name": "ListHookResults",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListHookResults.html",
+      "description": "Grants permission to return Hook invocations result information for the specified target",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "stack"
+      ],
+      "conditionKeys": [
+        "cloudformation:ChangeSetName"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListImports",
       "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListImports.html",
       "description": "Grants permission to list all stacks that are importing an exported output value",
@@ -612,6 +658,28 @@
       "accessLevel": "List",
       "resourceTypes": [
         "stackset*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStackRefactorActions",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackRefactorActions.html",
+      "description": "Grants permission to return the list of actions of the specified stack refactor",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "stack*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListStackRefactors",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackRefactors.html",
+      "description": "Grants permission to return the ID and status of each active stack refactor",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "stack*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -830,7 +898,8 @@
       ],
       "conditionKeys": [
         "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:RequestTag/${TagKey}",
+        "cloudformation:CreateAction"
       ],
       "dependentActions": []
     },
@@ -854,7 +923,8 @@
         "stackset"
       ],
       "conditionKeys": [
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "cloudformation:CreateAction"
       ],
       "dependentActions": []
     },
