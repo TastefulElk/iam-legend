@@ -2,8 +2,8 @@ import puppeteer from "puppeteer";
 import cheerio from "cheerio";
 import pLimit from "p-limit";
 
-import { writeFile } from "fs";
-import { promisify } from "util";
+import { writeFile } from "node:fs";
+import { promisify } from "node:util";
 
 const writeFileAsync = promisify(writeFile);
 
@@ -18,9 +18,10 @@ const scrapeServices = async (url, browser) => {
 
   const services = [];
   $("#main-col-body .highlights ul a").each((_, el) => {
-    let name = $(el).text();
-    const serviceDocsUrl =
-      url.slice(0, url.lastIndexOf("/")) + "/" + $(el).attr("href");
+    const name = $(el).text();
+    const serviceDocsUrl = `${url.slice(0, url.lastIndexOf("/"))}/${$(el).attr(
+      "href"
+    )}`;
     services.push({ name, url: serviceDocsUrl });
   });
 
@@ -43,9 +44,10 @@ const scrapeService = async (url, browser) => {
     const actions = getActions($);
 
     await save({ servicePrefix, serviceName, actions, url });
+    console.log(`Successfully scraped: ${url}`);
   } catch (e) {
-    console.error(`error scraping: ${url}`);
-    throw e;
+    console.error(`Error scraping: ${url}, skipping.\n reason: ${e.message}`);
+    // Not rethrowing the error so we can continue with other services
   } finally {
     await page.close();
   }
