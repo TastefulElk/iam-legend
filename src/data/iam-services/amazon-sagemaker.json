@@ -951,7 +951,9 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "sagemaker:ModelApprovalStatus",
-        "sagemaker:CustomerMetadataProperties/${MetadataKey}"
+        "sagemaker:CustomerMetadataProperties/${MetadataKey}",
+        "sagemaker:ModelLifeCycle:Stage",
+        "sagemaker:ModelLifeCycle:StageStatus"
       ],
       "dependentActions": [
         "sagemaker:AddTags"
@@ -4712,7 +4714,9 @@
       "conditionKeys": [
         "sagemaker:ModelApprovalStatus",
         "sagemaker:CustomerMetadataProperties/${MetadataKey}",
-        "sagemaker:CustomerMetadataPropertiesToRemove"
+        "sagemaker:CustomerMetadataPropertiesToRemove",
+        "sagemaker:ModelLifeCycle:Stage",
+        "sagemaker:ModelLifeCycle:StageStatus"
       ],
       "dependentActions": []
     },

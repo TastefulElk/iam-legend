@@ -29,6 +29,20 @@
       "dependentActions": []
     },
     {
+      "name": "CreateConsumableResource",
+      "documentationUrl": "https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateConsumableResource.html",
+      "description": "Grants permission to create an AWS Batch consumable resource in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "consumable-resource*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateJobQueue",
       "documentationUrl": "https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateJobQueue.html",
       "description": "Grants permission to create an AWS Batch job queue in your account",
@@ -65,6 +79,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "compute-environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConsumableResource",
+      "documentationUrl": "https://docs.aws.amazon.com/batch/latest/APIReference/API_DeleteConsumableResource.html",
+      "description": "Grants permission to delete an AWS Batch consumable resource in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "consumable-resource*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -108,6 +133,17 @@
       "description": "Grants permission to describe one or more AWS Batch compute environments in your account",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeConsumableResource",
+      "documentationUrl": "https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeConsumableResource.html",
+      "description": "Grants permission to describe one or more AWS Batch consumable resource in your account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "consumable-resource*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -159,11 +195,31 @@
       "dependentActions": []
     },
     {
+      "name": "ListConsumableResources",
+      "documentationUrl": "https://docs.aws.amazon.com/batch/latest/APIReference/API_ListConsumableResources.html",
+      "description": "Grants permission to list AWS Batch consumable resources in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListJobs",
       "documentationUrl": "https://docs.aws.amazon.com/batch/latest/APIReference/API_ListJobs.html",
       "description": "Grants permission to list jobs for a specified AWS Batch job queue in your account",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListJobsByConsumableResource",
+      "documentationUrl": "https://docs.aws.amazon.com/batch/latest/APIReference/API_ListJobsByConsumableResource.html",
+      "description": "Grants permission to list AWS Batch jobs that require a specific consumable resource in your account",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "consumable-resource*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -183,6 +239,7 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "compute-environment",
+        "consumable-resource",
         "job",
         "job-definition-revision",
         "job-queue",
@@ -197,7 +254,8 @@
       "description": "Grants permission to register an AWS Batch job definition in your account",
       "accessLevel": "Write",
       "resourceTypes": [
-        "job-definition*"
+        "job-definition*",
+        "consumable-resource"
       ],
       "conditionKeys": [
         "batch:User",
@@ -227,7 +285,8 @@
       "resourceTypes": [
         "job*",
         "job-definition*",
-        "job-queue*"
+        "job-queue*",
+        "consumable-resource"
       ],
       "conditionKeys": [
         "batch:ShareIdentifier",
@@ -245,6 +304,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "compute-environment",
+        "consumable-resource",
         "job",
         "job-definition-revision",
         "job-queue",
@@ -274,6 +334,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "compute-environment",
+        "consumable-resource",
         "job",
         "job-definition-revision",
         "job-queue",
@@ -291,6 +352,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "compute-environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateConsumableResource",
+      "documentationUrl": "https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateConsumableResource.html",
+      "description": "Grants permission to update an AWS Batch consumable resource in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "consumable-resource*"
       ],
       "conditionKeys": [],
       "dependentActions": []

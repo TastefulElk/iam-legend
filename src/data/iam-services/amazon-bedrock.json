@@ -159,7 +159,9 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "custom-model*",
-        "foundation-model*"
+        "default-prompt-router*",
+        "foundation-model*",
+        "prompt-router*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -362,6 +364,22 @@
       "description": "Grants permission to create a prompt",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreatePromptRouter",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreatePromptRouter.html",
+      "description": "Grants permission to create a custom prompt router",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "application-inference-profile*",
+        "foundation-model*",
+        "inference-profile*"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -642,6 +660,17 @@
       "resourceTypes": [
         "prompt*",
         "prompt-version*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeletePromptRouter",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeletePromptRouter.html",
+      "description": "Grants permission to delete a custom prompt router",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "prompt-router*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1132,7 +1161,8 @@
       "description": "Grants permission to get the properties associated with a prompt router",
       "accessLevel": "Read",
       "resourceTypes": [
-        "default-prompt-router*"
+        "default-prompt-router*",
+        "prompt-router*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1267,6 +1297,7 @@
         "foundation-model*",
         "imported-model*",
         "inference-profile*",
+        "prompt-router*",
         "provisioned-model*"
       ],
       "conditionKeys": [
@@ -1290,6 +1321,7 @@
         "foundation-model*",
         "imported-model*",
         "inference-profile*",
+        "prompt-router*",
         "provisioned-model*"
       ],
       "conditionKeys": [
@@ -1672,6 +1704,7 @@
         "model-import-job*",
         "model-invocation-job*",
         "prompt*",
+        "prompt-router*",
         "prompt-version*",
         "provisioned-model*",
         "session*"
@@ -1895,6 +1928,7 @@
         "model-import-job",
         "model-invocation-job",
         "prompt",
+        "prompt-router",
         "prompt-version",
         "provisioned-model",
         "session"
@@ -1931,6 +1965,7 @@
         "model-import-job",
         "model-invocation-job",
         "prompt",
+        "prompt-router",
         "prompt-version",
         "provisioned-model",
         "session"

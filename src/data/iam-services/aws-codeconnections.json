@@ -25,7 +25,8 @@
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
-        "codeconnections:ProviderType"
+        "codeconnections:ProviderType",
+        "codeconnections:VpcId"
       ],
       "dependentActions": []
     },
@@ -404,7 +405,9 @@
       "resourceTypes": [
         "Host*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "codeconnections:VpcId"
+      ],
       "dependentActions": []
     },
     {
