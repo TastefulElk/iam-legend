@@ -10,6 +10,7 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "webacl*",
+        "amplify-app",
         "apigateway",
         "apprunner",
         "appsync",
@@ -19,12 +20,15 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
+        "amplify:AssociateWebACL",
         "apigateway:SetWebACL",
         "apprunner:AssociateWebAcl",
         "appsync:SetWebACL",
         "cognito-idp:AssociateWebACL",
         "ec2:AssociateVerifiedAccessInstanceWebAcl",
-        "elasticloadbalancing:SetWebAcl"
+        "elasticloadbalancing:SetWebAcl",
+        "wafv2:GetPermissionPolicy",
+        "wafv2:PutPermissionPolicy"
       ]
     },
     {
@@ -247,6 +251,7 @@
       "description": "Grants permission to disassociate a WebACL from an application resource",
       "accessLevel": "Write",
       "resourceTypes": [
+        "amplify-app",
         "apigateway",
         "apprunner",
         "appsync",
@@ -256,12 +261,14 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
+        "amplify:DisassociateWebACL",
         "apigateway:SetWebACL",
         "apprunner:DisassociateWebAcl",
         "appsync:SetWebACL",
         "cognito-idp:DisassociateWebACL",
         "ec2:DisassociateVerifiedAccessInstanceWebAcl",
-        "elasticloadbalancing:SetWebAcl"
+        "elasticloadbalancing:SetWebAcl",
+        "wafv2:PutPermissionPolicy"
       ]
     },
     {
@@ -410,6 +417,7 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "webacl*",
+        "amplify-app",
         "apigateway",
         "apprunner",
         "appsync",
@@ -419,6 +427,7 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
+        "amplify:GetWebACLForResource",
         "apprunner:DescribeWebAclForService",
         "cognito-idp:GetWebACLForResource",
         "ec2:GetVerifiedAccessInstanceWebAcl",
@@ -506,12 +515,14 @@
       "accessLevel": "List",
       "resourceTypes": [
         "webacl*",
+        "amplify-app",
         "apprunner",
         "userpool",
         "verified-access-instance"
       ],
       "conditionKeys": [],
       "dependentActions": [
+        "amplify:ListResourcesForWebACL",
         "apprunner:ListAssociatedServicesForWebAcl",
         "cognito-idp:ListResourcesForWebACL",
         "ec2:DescribeVerifiedAccessInstanceWebAclAssociations"

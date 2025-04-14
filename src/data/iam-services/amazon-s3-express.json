@@ -4,6 +4,27 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazons3express.html",
   "actions": [
     {
+      "name": "CreateAccessPoint",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateAccessPoint.html",
+      "description": "Grants permission to create a new access point",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "accesspoint*"
+      ],
+      "conditionKeys": [
+        "s3express:DataAccessPointAccount",
+        "s3express:DataAccessPointArn",
+        "s3express:AccessPointNetworkOrigin",
+        "s3express:authType",
+        "s3express:LocationName",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateBucket",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html",
       "description": "Grants permission to create a new bucket",
@@ -38,7 +59,68 @@
         "s3express:TlsVersion",
         "s3express:x-amz-content-sha256",
         "s3express:x-amz-server-side-encryption",
-        "s3express:x-amz-server-side-encryption-aws-kms-key-id"
+        "s3express:x-amz-server-side-encryption-aws-kms-key-id",
+        "s3express:AllAccessRestrictedToLocalZoneGroup"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAccessPoint",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPoint.html",
+      "description": "Grants permission to delete the access point named in the URI",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "accesspoint*"
+      ],
+      "conditionKeys": [
+        "s3express:DataAccessPointAccount",
+        "s3express:DataAccessPointArn",
+        "s3express:AccessPointNetworkOrigin",
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAccessPointPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointPolicy.html",
+      "description": "Grants permission to delete the policy on a specified access point",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "accesspoint*"
+      ],
+      "conditionKeys": [
+        "s3express:DataAccessPointAccount",
+        "s3express:DataAccessPointArn",
+        "s3express:AccessPointNetworkOrigin",
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAccessPointScope",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteAccessPointScope.html",
+      "description": "Grants permission to delete the scope configuration on a specified access point",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "accesspoint*"
+      ],
+      "conditionKeys": [
+        "s3express:DataAccessPointAccount",
+        "s3express:DataAccessPointArn",
+        "s3express:AccessPointNetworkOrigin",
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
       ],
       "dependentActions": []
     },
@@ -68,6 +150,64 @@
         "bucket*"
       ],
       "conditionKeys": [
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccessPoint",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html",
+      "description": "Grants permission to return configuration information about the specified access point",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "s3express:DataAccessPointAccount",
+        "s3express:DataAccessPointArn",
+        "s3express:AccessPointNetworkOrigin",
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccessPointPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointPolicy.html",
+      "description": "Grants permission to return the access point policy associated with the specified access point",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "accesspoint*"
+      ],
+      "conditionKeys": [
+        "s3express:DataAccessPointAccount",
+        "s3express:DataAccessPointArn",
+        "s3express:AccessPointNetworkOrigin",
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAccessPointScope",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPointScope.html",
+      "description": "Grants permission to return the scope configuration associated with the specified access point",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "accesspoint*"
+      ],
+      "conditionKeys": [
+        "s3express:DataAccessPointAccount",
+        "s3express:DataAccessPointArn",
+        "s3express:AccessPointNetworkOrigin",
         "s3express:authType",
         "s3express:ResourceAccount",
         "s3express:signatureversion",
@@ -128,12 +268,67 @@
       "dependentActions": []
     },
     {
+      "name": "ListAccessPointsForDirectoryBuckets",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListAccessPointsForDirectoryBuckets.html",
+      "description": "Grants permission to list access points",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListAllMyDirectoryBuckets",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListDirectoryBuckets.html",
       "description": "Grants permission to list all directory buckets owned by the authenticated sender of the request",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutAccessPointPolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointPolicy.html",
+      "description": "Grants permission to associate an access policy with a specified access point",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "accesspoint*"
+      ],
+      "conditionKeys": [
+        "s3express:DataAccessPointAccount",
+        "s3express:DataAccessPointArn",
+        "s3express:AccessPointNetworkOrigin",
+        "s3express:authType",
+        "s3express:ResourceAccount",
+        "s3express:signatureversion",
+        "s3express:TlsVersion",
+        "s3express:x-amz-content-sha256"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutAccessPointScope",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutAccessPointScope.html",
+      "description": "Grants permission to associate an access point with a specified access point scope configuration",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [
+        "accesspoint*"
+      ],
+      "conditionKeys": [
+        "s3express:DataAccessPointAccount",
+        "s3express:DataAccessPointArn",
+        "s3express:AccessPointNetworkOrigin",
         "s3express:authType",
         "s3express:ResourceAccount",
         "s3express:signatureversion",
