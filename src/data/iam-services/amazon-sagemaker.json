@@ -311,7 +311,10 @@
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "sagemaker:InstanceTypes",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets"
       ],
       "dependentActions": [
         "eks:AssociateAccessPolicy",
@@ -4424,7 +4427,11 @@
         "reserved-capacity",
         "training-plan"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "sagemaker:InstanceTypes",
+        "sagemaker:VpcSecurityGroupIds",
+        "sagemaker:VpcSubnets"
+      ],
       "dependentActions": [
         "eks:AssociateAccessPolicy",
         "eks:CreateAccessEntry",

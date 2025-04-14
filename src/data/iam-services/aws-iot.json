@@ -106,8 +106,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_AttachThingPrincipal.html",
       "description": "Grants permission to attach the specified principal to the specified thing",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "cert"
+      ],
+      "conditionKeys": [
+        "iot:thingArn"
+      ],
       "dependentActions": []
     },
     {
@@ -1477,8 +1481,12 @@
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_DetachThingPrincipal.html",
       "description": "Grants permission to detach the specified principal from the specified thing",
       "accessLevel": "Write",
-      "resourceTypes": [],
-      "conditionKeys": [],
+      "resourceTypes": [
+        "cert"
+      ],
+      "conditionKeys": [
+        "iot:thingArn"
+      ],
       "dependentActions": []
     },
     {
@@ -1719,7 +1727,7 @@
     },
     {
       "name": "GetThingConnectivityData",
-      "documentationUrl": "API_GetThingConnectivityData.html",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_GetThingConnectivityData.html",
       "description": "Grants permission to get the thing's connectivity data",
       "accessLevel": "Read",
       "resourceTypes": [
@@ -2136,7 +2144,20 @@
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_ListPrincipalThings.html",
       "description": "Grants permission to list the things associated with the specified principal",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "cert"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPrincipalThingsV2",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_ListPrincipalThingsV2.html",
+      "description": "Grants permission to list the things associated with the specified principal",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "cert"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -2319,7 +2340,20 @@
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_ListThingPrincipals.html",
       "description": "Grants permission to list the principals associated with the specified thing",
       "accessLevel": "List",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "thing*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListThingPrincipalsV2",
+      "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_ListThingPrincipalsV2.html",
+      "description": "Grants permission to list the principals associated with the specified thing",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "thing*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },

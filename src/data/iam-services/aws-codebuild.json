@@ -37,6 +37,17 @@
       "dependentActions": []
     },
     {
+      "name": "BatchGetCommandExecutions",
+      "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_BatchGetCommandExecutions.html",
+      "description": "Grants permission to get information about one or more command executions",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "sandbox*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "BatchGetFleets",
       "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_BatchGetFleets.html",
       "description": "Grants permission to return an array of the Fleet objects specified by the input parameter",
@@ -76,6 +87,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "report-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "BatchGetSandboxes",
+      "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_BatchGetSandboxes.html",
+      "description": "Grants permission to get information about one or more sandboxes",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "project*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -368,6 +390,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListCommandExecutionsForSandbox",
+      "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListCommandExecutionsForSandbox.html",
+      "description": "Grants permission to get a list of command execution IDs for the specified sandbox, with each command execution ID representing a single command execution",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "sandbox*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListConnectedOAuthAccounts",
       "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#console-policies",
       "description": "Grants permission to list connected third-party OAuth providers. Only used in the AWS CodeBuild console",
@@ -438,6 +471,26 @@
       "description": "Grants permission to list source code repositories from a connected third-party OAuth provider. Only used in the AWS CodeBuild console",
       "accessLevel": "List",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSandboxes",
+      "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListSandboxes.html",
+      "description": "Grants permission to get a list of sandbox IDs, with each sandbox ID representing a single sandbox",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSandboxesForProject",
+      "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ListSandboxesForProject.html",
+      "description": "Grants permission to get a list of sandbox IDs for the specified sandbox project, with each sandbox ID representing a single sandbox",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "project*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -534,6 +587,39 @@
       "dependentActions": []
     },
     {
+      "name": "StartCommandExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StartCommandExecution.html",
+      "description": "Grants permission to start running a command execution",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "sandbox*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartSandbox",
+      "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StartSandbox.html",
+      "description": "Grants permission to start running a sandbox",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "project*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartSandboxConnection",
+      "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StartSandboxConnection.html",
+      "description": "Grants permission to establish a connection to the sandbox",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "sandbox*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StopBuild",
       "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StopBuild.html",
       "description": "Grants permission to attempt to stop running a build",
@@ -548,6 +634,17 @@
       "name": "StopBuildBatch",
       "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StopBuildBatch.html",
       "description": "Grants permission to attempt to stop running a build batch",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "project*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopSandbox",
+      "documentationUrl": "https://docs.aws.amazon.com/codebuild/latest/APIReference/API_StopSandbox.html",
+      "description": "Grants permission to attempt to stop running a sandbox",
       "accessLevel": "Write",
       "resourceTypes": [
         "project*"
