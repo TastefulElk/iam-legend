@@ -193,6 +193,20 @@
       "dependentActions": []
     },
     {
+      "name": "CreateWorkflowVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_CreateWorkflowVersion.html",
+      "description": "Grants permission to create a new workflow version with a workflow definition and template of workflow parameters",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "workflow*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteAnnotationStore",
       "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_DeleteAnnotationStore.html",
       "description": "Grants permission to delete an Annotation Store",
@@ -319,6 +333,18 @@
       "description": "Grants permission to delete a workflow",
       "accessLevel": "Write",
       "resourceTypes": [
+        "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteWorkflowVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_DeleteWorkflowVersion.html",
+      "description": "Grants permission to delete a workflow version",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "WorkflowVersion*",
         "workflow*"
       ],
       "conditionKeys": [],
@@ -566,6 +592,18 @@
       "dependentActions": []
     },
     {
+      "name": "GetWorkflowVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_GetWorkflowVersion.html",
+      "description": "Grants permission to retrieve workflow version details",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "WorkflowVersion*",
+        "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListAnnotationImportJobs",
       "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_ListAnnotationImportJobs.html",
       "description": "Grants permission to get a list of Annotation Import Jobs",
@@ -775,6 +813,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListWorkflowVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_ListWorkflowVersions.html",
+      "description": "Grants permission to retrieve a list of available versions for a workflow",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListWorkflows",
       "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_ListWorkflows.html",
       "description": "Grants permission to retrieve a list of available workflows",
@@ -889,6 +938,7 @@
         "AnnotationStore",
         "AnnotationStoreVersion",
         "VariantStore",
+        "WorkflowVersion",
         "readSet",
         "reference",
         "referenceStore",
@@ -913,6 +963,7 @@
         "AnnotationStore",
         "AnnotationStoreVersion",
         "VariantStore",
+        "WorkflowVersion",
         "readSet",
         "reference",
         "referenceStore",
@@ -999,6 +1050,18 @@
       "description": "Grants permission to update workflow details",
       "accessLevel": "Write",
       "resourceTypes": [
+        "workflow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateWorkflowVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/omics/latest/api/API_UpdateWorkflowVersion.html",
+      "description": "Grants permission to update workflow version details",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "WorkflowVersion*",
         "workflow*"
       ],
       "conditionKeys": [],
