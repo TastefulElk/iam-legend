@@ -285,6 +285,20 @@
       "dependentActions": []
     },
     {
+      "name": "CreateSdiSource",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to create a SDI source",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "sdi-source*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateSignalMap",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-signal-maps-create.html",
       "description": "Grants permission to create a signal map",
@@ -301,7 +315,7 @@
     {
       "name": "CreateTags",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/tagging.html",
-      "description": "Grants permission to create tags for channels, inputs, input security groups, multiplexes, reservations, nodes, networks, clusters, channel placement groups, signal maps, template groups, and templates",
+      "description": "Grants permission to create tags for channels, inputs, input security groups, multiplexes, reservations, nodes, networks, clusters, channel placement groups, signal maps, SDI sources, template groups, and templates",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "channel",
@@ -317,6 +331,7 @@
         "network",
         "node",
         "reservation",
+        "sdi-source",
         "signal-map"
       ],
       "conditionKeys": [
@@ -491,6 +506,17 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteSdiSource",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to delete a SDI source",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "sdi-source*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteSignalMap",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-signal-maps-delete.html",
       "description": "Grants permission to delete a signal map",
@@ -504,7 +530,7 @@
     {
       "name": "DeleteTags",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/tagging.html",
-      "description": "Grants permission to delete tags from channels, inputs, input security groups, multiplexes, reservations, nodes, clusters, networks, channel placement groups, signal maps, template groups, and templates",
+      "description": "Grants permission to delete tags from channels, inputs, input security groups, multiplexes, reservations, nodes, clusters, networks, channel placement groups, SDI source, signal maps, template groups, and templates",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "channel",
@@ -520,6 +546,7 @@
         "network",
         "node",
         "reservation",
+        "sdi-source",
         "signal-map"
       ],
       "conditionKeys": [
@@ -686,6 +713,17 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "channel*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSdiSource",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/emla-setup-cl-create.html",
+      "description": "Grants permission to describe a SDI source",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "sdi-source*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -910,6 +948,15 @@
       "dependentActions": []
     },
     {
+      "name": "ListSdiSource",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to list SDI sources",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListSignalMaps",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/monitor-with-workflow-monitor-configure-signal-maps-view.html",
       "description": "Grants permission to list signal maps",
@@ -921,7 +968,7 @@
     {
       "name": "ListTagsForResource",
       "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/tagging.html",
-      "description": "Grants permission to list tags for channels, inputs, input security groups, multiplexes, reservations, nodes, clusters, networks, channel placement groups, signal maps, template groups, and templates",
+      "description": "Grants permission to list tags for channels, inputs, input security groups, multiplexes, reservations, nodes, clusters, networks, channel placement groups, SDI sources, signal maps, template groups, and templates",
       "accessLevel": "List",
       "resourceTypes": [
         "channel",
@@ -937,6 +984,7 @@
         "network",
         "node",
         "reservation",
+        "sdi-source",
         "signal-map"
       ],
       "conditionKeys": [],
@@ -1352,6 +1400,20 @@
         "reservation*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateSdiSource",
+      "documentationUrl": "https://docs.aws.amazon.com/medialive/latest/ug/setup-emla.html",
+      "description": "Grants permission to update the state of a sdi source",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "sdi-source*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     }
   ]

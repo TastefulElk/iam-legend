@@ -23,7 +23,9 @@
         "TableBucket*"
       ],
       "conditionKeys": [
-        "s3tables:namespace"
+        "s3tables:namespace",
+        "s3tables:SSEAlgorithm",
+        "s3tables:KMSKeyArn"
       ],
       "dependentActions": []
     },
@@ -35,7 +37,10 @@
       "resourceTypes": [
         "TableBucket*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "s3tables:SSEAlgorithm",
+        "s3tables:KMSKeyArn"
+      ],
       "dependentActions": []
     },
     {
@@ -69,6 +74,17 @@
       "name": "DeleteTableBucket",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_DeleteTableBucket.html",
       "description": "Grants permission to delete a table bucket",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteTableBucketEncryption",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_DeleteTableBucketEncryption.html",
+      "description": "Grants permission to delete encryption configuration on a table bucket",
       "accessLevel": "Write",
       "resourceTypes": [
         "TableBucket*"
@@ -140,6 +156,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetTableBucketEncryption",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_GetTableBucketEncryption.html",
+      "description": "Grants permission to retrieve encryption configuration on a table bucket",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetTableBucketMaintenanceConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_GetTableBucketMaintenanceConfiguration.html",
       "description": "Grants permission to retrieve a maintenance configuration on a table bucket",
@@ -165,6 +192,20 @@
       "name": "GetTableData",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-setting-up.html#s3-tables-actions",
       "description": "Grants permission to read metadata and data objects from a table storage endpoint using S3 APIs",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Table*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace",
+        "s3tables:tableName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetTableEncryption",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_GetTableEncryption.html",
+      "description": "Grants permission to retrieve encryption configuration on a table",
       "accessLevel": "Read",
       "resourceTypes": [
         "Table*"
@@ -265,6 +306,20 @@
       "dependentActions": []
     },
     {
+      "name": "PutTableBucketEncryption",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_PutTableBucketEncryption.html",
+      "description": "Grants permission to put or overwrite encryption configuration on a table bucket",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "TableBucket*"
+      ],
+      "conditionKeys": [
+        "s3tables:KMSKeyArn",
+        "s3tables:SSEAlgorithm"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "PutTableBucketMaintenanceConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/API/API_s3TableBuckets_PutTableBucketMaintenanceConfiguration.html",
       "description": "Grants permission to put a maintenance configuration on a table bucket",
@@ -297,6 +352,21 @@
       "conditionKeys": [
         "s3tables:namespace",
         "s3tables:tableName"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "PutTableEncryption",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-setting-up.html#s3-tables-actions",
+      "description": "Grants permission to put encryption configuration on a table",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Table*"
+      ],
+      "conditionKeys": [
+        "s3tables:namespace",
+        "s3tables:SSEAlgorithm",
+        "s3tables:KMSKeyArn"
       ],
       "dependentActions": []
     },
@@ -337,7 +407,8 @@
         "Table*"
       ],
       "conditionKeys": [
-        "s3tables:namespace"
+        "s3tables:namespace",
+        "s3tables:tableName"
       ],
       "dependentActions": []
     },

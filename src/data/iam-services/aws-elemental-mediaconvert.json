@@ -65,7 +65,8 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -77,7 +78,8 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -238,6 +240,7 @@
       "description": "Grants permission to retrieve the tags for a MediaConvert queue, preset, or job template",
       "accessLevel": "Read",
       "resourceTypes": [
+        "Job",
         "JobTemplate",
         "Preset",
         "Queue"
@@ -289,6 +292,7 @@
       "description": "Grants permission to add tags to a MediaConvert queue, preset, or job template",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "Job",
         "JobTemplate",
         "Preset",
         "Queue"
@@ -305,6 +309,7 @@
       "description": "Grants permission to remove tags from a MediaConvert queue, preset, or job template",
       "accessLevel": "Tagging",
       "resourceTypes": [
+        "Job",
         "JobTemplate",
         "Preset",
         "Queue"
