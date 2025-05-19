@@ -643,6 +643,24 @@
       "dependentActions": []
     },
     {
+      "name": "StopServiceDeployment",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StopServiceDeployment.html",
+      "description": "Grants permission to stop an ongoing service deployment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "service*",
+        "service-deployment*"
+      ],
+      "conditionKeys": [
+        "ecs:cluster",
+        "aws:ResourceTag/${TagKey}",
+        "ecs:cluster",
+        "ecs:service",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "StopTask",
       "documentationUrl": "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StopTask.html",
       "description": "Grants permission to stop a running task",

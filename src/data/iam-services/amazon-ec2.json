@@ -557,6 +557,28 @@
       "dependentActions": []
     },
     {
+      "name": "AssociateRouteServer",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateRouteServer.html",
+      "description": "Grants permission to associate a route server with a VPC",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "route-server*",
+        "vpc*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:Ipv4IpamPoolId",
+        "ec2:Ipv6IpamPoolId",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Tenancy",
+        "ec2:VpcID",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateRouteTable",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateRouteTable.html",
       "description": "Grants permission to associate a subnet or gateway with a route table",
@@ -1227,7 +1249,7 @@
     {
       "name": "CopySnapshot",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopySnapshot.html",
-      "description": "Grants permission to copy a point-in-time snapshot of an EBS volume and store it in Amazon S3. Resource-level permissions specified for this action apply to the new snapshot only. They do not apply to the source snapshot",
+      "description": "Grants permission to copy a point-in-time snapshot of an EBS volume and store it in Amazon S3. Resource-level permissions specified for this action apply to both the snapshot copy and the source snapshot",
       "accessLevel": "Write",
       "resourceTypes": [
         "snapshot*"
@@ -1235,8 +1257,14 @@
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "ec2:Encrypted",
         "ec2:OutpostArn",
+        "ec2:Owner",
+        "ec2:ParentSnapshot",
+        "ec2:ParentVolume",
         "ec2:SnapshotID",
+        "ec2:SnapshotTime",
+        "ec2:VolumeSize",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -1254,7 +1282,20 @@
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
+        "ec2:AvailabilityZone",
+        "ec2:AvailabilityZoneId",
         "ec2:CapacityReservationFleet",
+        "ec2:EbsOptimized",
+        "ec2:EndDate",
+        "ec2:EndDateType",
+        "ec2:EphemeralStorage",
+        "ec2:InstanceCount",
+        "ec2:InstanceMatchCriteria",
+        "ec2:InstancePlatform",
+        "ec2:InstanceType",
+        "ec2:OutpostArn",
+        "ec2:PlacementGroup",
+        "ec2:Tenancy",
         "ec2:Region"
       ],
       "dependentActions": [
@@ -2061,6 +2102,49 @@
       ]
     },
     {
+      "name": "CreateLocalGatewayVirtualInterface",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLocalGatewayVirtualInterface.html",
+      "description": "Grants permission to create a local gateway virtual interface",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "local-gateway-virtual-interface*",
+        "local-gateway-virtual-interface-group*",
+        "outpost-lag*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
+    },
+    {
+      "name": "CreateLocalGatewayVirtualInterfaceGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLocalGatewayVirtualInterfaceGroup.html",
+      "description": "Grants permission to create a local gateway virtual interface group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "local-gateway*",
+        "local-gateway-virtual-interface-group*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags"
+      ]
+    },
+    {
       "name": "CreateManagedPrefixList",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateManagedPrefixList.html",
       "description": "Grants permission to create a managed prefix list",
@@ -2420,6 +2504,79 @@
         "ec2:Region"
       ],
       "dependentActions": []
+    },
+    {
+      "name": "CreateRouteServer",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRouteServer.html",
+      "description": "Grants permission to create a route server",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "route-server*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:CreateTags",
+        "sns:CreateTopic"
+      ]
+    },
+    {
+      "name": "CreateRouteServerEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRouteServerEndpoint.html",
+      "description": "Grants permission to create a route server endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "route-server*",
+        "route-server-endpoint*",
+        "subnet*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "ec2:AvailabilityZone",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:SubnetID",
+        "ec2:Vpc",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:CreateNetworkInterface",
+        "ec2:CreateNetworkInterfacePermission",
+        "ec2:CreateSecurityGroup",
+        "ec2:CreateTags",
+        "ec2:DescribeSecurityGroups"
+      ]
+    },
+    {
+      "name": "CreateRouteServerPeer",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRouteServerPeer.html",
+      "description": "Grants permission to create a route server peer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "route-server-endpoint*",
+        "route-server-peer*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys",
+        "ec2:AvailabilityZone",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:CreateTags"
+      ]
     },
     {
       "name": "CreateRouteTable",
@@ -4333,6 +4490,36 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteLocalGatewayVirtualInterface",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteLocalGatewayVirtualInterface.html",
+      "description": "Grants permission to delete a local gateway virtual interface",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "local-gateway-virtual-interface*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteLocalGatewayVirtualInterfaceGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteLocalGatewayVirtualInterfaceGroup.html",
+      "description": "Grants permission to delete a local gateway virtual interface group",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "local-gateway-virtual-interface-group*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteManagedPrefixList",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteManagedPrefixList.html",
       "description": "Grants permission to delete a managed prefix list",
@@ -4578,6 +4765,61 @@
         "ec2:Region"
       ],
       "dependentActions": []
+    },
+    {
+      "name": "DeleteRouteServer",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRouteServer.html",
+      "description": "Grants permission to delete a route server",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "route-server*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "sns:DeleteTopic"
+      ]
+    },
+    {
+      "name": "DeleteRouteServerEndpoint",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRouteServerEndpoint.html",
+      "description": "Grants permission to delete a route server endpoint",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "route-server-endpoint*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:DeleteNetworkInterface",
+        "ec2:DeleteSecurityGroup",
+        "ec2:RevokeSecurityGroupIngress"
+      ]
+    },
+    {
+      "name": "DeleteRouteServerPeer",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRouteServerPeer.html",
+      "description": "Grants permission to delete a route server peer",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "route-server-peer*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:AvailabilityZone",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": [
+        "ec2:RevokeSecurityGroupIngress"
+      ]
     },
     {
       "name": "DeleteRouteTable",
@@ -5836,27 +6078,8 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityBlockExtensionHistory.html",
       "description": "Grants permission to describe Capacity Block extensions history",
       "accessLevel": "List",
-      "resourceTypes": [
-        "capacity-reservation"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
-        "ec2:AvailabilityZone",
-        "ec2:CapacityReservationFleet",
-        "ec2:CreateDate",
-        "ec2:DestinationCapacityReservationId",
-        "ec2:EbsOptimized",
-        "ec2:EndDate",
-        "ec2:EndDateType",
-        "ec2:InstanceCount",
-        "ec2:InstanceMatchCriteria",
-        "ec2:InstancePlatform",
-        "ec2:InstanceType",
-        "ec2:OutpostArn",
-        "ec2:PlacementGroup",
-        "ec2:ResourceTag/${TagKey}",
-        "ec2:SourceCapacityReservationId",
-        "ec2:Tenancy",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -5998,18 +6221,8 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html",
       "description": "Grants permission to describe one or more Client VPN endpoints",
       "accessLevel": "List",
-      "resourceTypes": [
-        "client-vpn-endpoint"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ClientRootCertificateChainArn",
-        "ec2:CloudwatchLogGroupArn",
-        "ec2:CloudwatchLogStreamArn",
-        "ec2:DirectoryArn",
-        "ec2:ResourceTag/${TagKey}",
-        "ec2:SamlProviderArn",
-        "ec2:ServerCertificateArn",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -6873,6 +7086,17 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeOutpostLags",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeOutpostLags.html",
+      "description": "Grants permission to describe Outpost LAGs",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribePlacementGroups",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePlacementGroups.html",
       "description": "Grants permission to describe one or more placement groups",
@@ -6983,6 +7207,39 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeRouteServerEndpoints",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteServerEndpoints.html",
+      "description": "Grants permission to describe one or more route server endpoints",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRouteServerPeers",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteServerPeers.html",
+      "description": "Grants permission to describe one or more route server peers",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeRouteServers",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteServers.html",
+      "description": "Grants permission to describe one or more route servers",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeRouteTables",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html",
       "description": "Grants permission to describe one or more route tables",
@@ -7058,6 +7315,17 @@
       "name": "DescribeSecurityGroups",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html",
       "description": "Grants permission to describe one or more security groups",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeServiceLinkVirtualInterfaces",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeServiceLinkVirtualInterfaces.html",
+      "description": "Grants permission to describe service link virtual interfaces",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [
@@ -7582,14 +7850,8 @@
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointAssociations.html",
       "description": "Grants permission to describe the VPC endpoint associations",
       "accessLevel": "List",
-      "resourceTypes": [
-        "vpc-endpoint"
-      ],
+      "resourceTypes": [],
       "conditionKeys": [
-        "aws:ResourceTag/${TagKey}",
-        "ec2:ResourceTag/${TagKey}",
-        "ec2:VpceServiceName",
-        "ec2:VpceServiceOwner",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -8068,6 +8330,26 @@
       ]
     },
     {
+      "name": "DisableRouteServerPropagation",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableRouteServerPropagation.html",
+      "description": "Grants permission to disable route server propagation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "route-server*",
+        "route-table*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:RouteTableID",
+        "ec2:Vpc",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "DisableSerialConsoleAccess",
       "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableSerialConsoleAccess.html",
       "description": "Grants permission to disable access to the EC2 serial console of all instances for your account",
@@ -8359,6 +8641,28 @@
         "ec2:ResourceTag/${TagKey}",
         "ec2:Subnet",
         "ec2:Vpc",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateRouteServer",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateRouteServer.html",
+      "description": "Grants permission to disassociate a route server from a VPC",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "route-server*",
+        "vpc*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:Ipv4IpamPoolId",
+        "ec2:Ipv6IpamPoolId",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Tenancy",
+        "ec2:VpcID",
         "ec2:Region"
       ],
       "dependentActions": []
@@ -8764,6 +9068,26 @@
         "iam:CreateServiceLinkedRole",
         "organizations:EnableAWSServiceAccess"
       ]
+    },
+    {
+      "name": "EnableRouteServerPropagation",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableRouteServerPropagation.html",
+      "description": "Grants permission to enable route server propagation",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "route-server*",
+        "route-table*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:RouteTableID",
+        "ec2:Vpc",
+        "ec2:Region"
+      ],
+      "dependentActions": []
     },
     {
       "name": "EnableSerialConsoleAccess",
@@ -9574,6 +9898,56 @@
         "ec2:PlacementGroupName",
         "ec2:PlacementGroupStrategy",
         "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRouteServerAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetRouteServerAssociations.html",
+      "description": "Grants permission to get associations for a route server",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "route-server*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRouteServerPropagations",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetRouteServerPropagations.html",
+      "description": "Grants permission to get propagations for a route server",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "route-server*",
+        "route-table"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
+        "ec2:RouteTableID",
+        "ec2:Vpc",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetRouteServerRoutingDatabase",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetRouteServerRoutingDatabase.html",
+      "description": "Grants permission to get the routing database for a route server",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "route-server*"
+      ],
+      "conditionKeys": [
         "aws:ResourceTag/${TagKey}",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
@@ -10926,6 +11300,21 @@
         "ec2:ReservedInstancesOfferingType",
         "ec2:ResourceTag/${TagKey}",
         "ec2:Tenancy",
+        "ec2:Region"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ModifyRouteServer",
+      "documentationUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyRouteServer.html",
+      "description": "Grants permission to modify a route server",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "route-server*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "ec2:ResourceTag/${TagKey}",
         "ec2:Region"
       ],
       "dependentActions": []

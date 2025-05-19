@@ -51,7 +51,10 @@
       "resourceTypes": [
         "license*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -71,7 +74,10 @@
       "description": "Grants permission to create a new license",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -413,7 +419,10 @@
       "description": "Grants permission to list tags for a selected resource",
       "accessLevel": "Read",
       "resourceTypes": [
-        "license-configuration*"
+        "grant",
+        "license",
+        "license-configuration",
+        "report-generator"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -455,11 +464,14 @@
       "description": "Grants permission to tag a selected resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "license-configuration*"
+        "grant",
+        "license",
+        "license-configuration",
+        "report-generator"
       ],
       "conditionKeys": [
-        "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -469,9 +481,14 @@
       "description": "Grants permission to untag a selected resource",
       "accessLevel": "Tagging",
       "resourceTypes": [
-        "license-configuration*"
+        "grant",
+        "license",
+        "license-configuration",
+        "report-generator"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
