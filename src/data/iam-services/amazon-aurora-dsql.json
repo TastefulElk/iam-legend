@@ -4,6 +4,19 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonauroradsql.html",
   "actions": [
     {
+      "name": "AddPeerCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_CreateCluster.html",
+      "description": "Grants permission to add a peer cluster to a multi-Region cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dsql:PutMultiRegionProperties"
+      ]
+    },
+    {
       "name": "CreateCluster",
       "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_CreateCluster.html",
       "description": "Grants permission to create new clusters",
@@ -22,7 +35,7 @@
     {
       "name": "CreateMultiRegionClusters",
       "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_CreateMultiRegionClusters.html",
-      "description": "Grants permission to create multi-Region clusters. Creating multi-Region clusters also requires CreateCluster permission in each specified Region",
+      "description": "Grants permission to create multi-Region clusters. Creating multi-Region clusters also requires CreateCluster permission in each specified Region. **This action is deprecated as of 05/09/2025 and will be removed on 05/21/2025.**",
       "accessLevel": "Write",
       "resourceTypes": [
         "Cluster*"
@@ -70,7 +83,7 @@
     {
       "name": "DeleteMultiRegionClusters",
       "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_DeleteMultiRegionClusters.html",
-      "description": "Grants permission to delete multi-Region clusters. Deleting multi-Region clusters also requires DeleteCluster permission in each specified Region",
+      "description": "Grants permission to delete multi-Region clusters. Deleting multi-Region clusters also requires DeleteCluster permission in each specified Region. **This action is deprecated as of 05/09/2025 and will be removed on 05/21/2025.**",
       "accessLevel": "Write",
       "resourceTypes": [
         "Cluster*"
@@ -84,6 +97,17 @@
       "name": "GetCluster",
       "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_GetCluster.html",
       "description": "Grants permission to get information about a cluster",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetVpcEndpointServiceName",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_GetVpcEndpointServiceName.html",
+      "description": "Grants permission to retrieve the VPC endpoint service name for a cluster",
       "accessLevel": "Read",
       "resourceTypes": [
         "Cluster*"
@@ -110,6 +134,43 @@
       ],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "PutMultiRegionProperties",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_CreateCluster.html",
+      "description": "Grants permission to update multi-Region properties of a cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutWitnessRegion",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_CreateCluster.html",
+      "description": "Grants permission to configure and update the witness Region of a multi-Region cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dsql:PutMultiRegionProperties"
+      ]
+    },
+    {
+      "name": "RemovePeerCluster",
+      "documentationUrl": "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_UpdateCluster.html",
+      "description": "Grants permission to remove a peer cluster from a multi-Region cluster",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Cluster*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "dsql:PutMultiRegionProperties"
+      ]
     },
     {
       "name": "TagResource",

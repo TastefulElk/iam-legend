@@ -83,6 +83,15 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteConversation",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
+      "description": "Grants permission to delete a conversation with Amazon Q",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteOAuthAppConnection",
       "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
       "description": "Grants permission to delete an OAuth application in Amazon Q",
@@ -339,6 +348,15 @@
       ]
     },
     {
+      "name": "UpdateConversation",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
+      "description": "Grants permission to update a conversation with Amazon Q",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateOAuthAppConnection",
       "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
       "description": "Grants permission to update an OAuth application in Amazon Q",
@@ -351,6 +369,20 @@
         "kms:ReEncryptFrom",
         "kms:ReEncryptTo"
       ]
+    },
+    {
+      "name": "UpdatePlugin",
+      "documentationUrl": "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/security_iam_manage-access-with-policies.html",
+      "description": "Grants permission to update a third party plugin in Amazon Q",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "plugin*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
     },
     {
       "name": "UpdateTroubleshootingCommandResult",

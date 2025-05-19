@@ -116,7 +116,8 @@
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "ssm:DocumentType"
       ],
       "dependentActions": [
         "iam:PassRole"
@@ -216,7 +217,9 @@
       "resourceTypes": [
         "document*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:DocumentType"
+      ],
       "dependentActions": []
     },
     {
@@ -317,6 +320,7 @@
       "description": "Grants permission to delete a Systems Manager resource policy",
       "accessLevel": "Permissions management",
       "resourceTypes": [
+        "document",
         "opsitemgroup",
         "parameter"
       ],
@@ -459,7 +463,9 @@
       "resourceTypes": [
         "document*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:DocumentType"
+      ],
       "dependentActions": []
     },
     {
@@ -481,7 +487,9 @@
       "resourceTypes": [
         "document*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:DocumentType"
+      ],
       "dependentActions": []
     },
     {
@@ -751,6 +759,17 @@
       "dependentActions": []
     },
     {
+      "name": "GetAccessToken",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetAccessToken.html",
+      "description": "Grants permission to return a credentials set to be used with just-in-time node access",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "opsitem*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetAutomationExecution",
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AutomationExecution.html",
       "description": "Grants permission to view details of a specified Automation execution",
@@ -839,7 +858,8 @@
         "document*"
       ],
       "conditionKeys": [
-        "ssm:DocumentCategories"
+        "ssm:DocumentCategories",
+        "ssm:DocumentType"
       ],
       "dependentActions": []
     },
@@ -1039,6 +1059,7 @@
       "description": "Grants permission to retrieve lists of Systems Manager resource policies",
       "accessLevel": "List",
       "resourceTypes": [
+        "document",
         "opsitemgroup",
         "parameter"
       ],
@@ -1135,7 +1156,9 @@
       "resourceTypes": [
         "document*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:DocumentType"
+      ],
       "dependentActions": []
     },
     {
@@ -1146,7 +1169,9 @@
       "resourceTypes": [
         "document*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:DocumentType"
+      ],
       "dependentActions": []
     },
     {
@@ -1279,7 +1304,9 @@
       "resourceTypes": [
         "document*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:DocumentType"
+      ],
       "dependentActions": []
     },
     {
@@ -1348,6 +1375,7 @@
       "description": "Grants permission to create or update a Systems Manager resource policy",
       "accessLevel": "Permissions management",
       "resourceTypes": [
+        "document",
         "opsitemgroup",
         "parameter"
       ],
@@ -1490,6 +1518,21 @@
       "dependentActions": []
     },
     {
+      "name": "StartAccessRequest",
+      "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartAccessRequest.html",
+      "description": "Grants permission to start the workflow for just-in-time node access sessions",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "instance",
+        "managed-instance"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "StartAssociationsOnce",
       "documentationUrl": "https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartAssociationsOnce.html",
       "description": "Grants permission to run a specified association manually",
@@ -1508,7 +1551,8 @@
       "description": "Grants permission to initiate the execution of an Automation document",
       "accessLevel": "Write",
       "resourceTypes": [
-        "automation-definition*"
+        "automation-definition*",
+        "document*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1522,7 +1566,8 @@
       "description": "Grants permission to initiate the execution of an Automation Change Template document",
       "accessLevel": "Write",
       "resourceTypes": [
-        "automation-definition*"
+        "automation-definition*",
+        "document*"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -1552,8 +1597,10 @@
         "task"
       ],
       "conditionKeys": [
+        "ssm:SessionDocumentAccessCheck",
         "ssm:resourceTag/${TagKey}",
-        "aws:ResourceTag/${TagKey}"
+        "aws:ResourceTag/${TagKey}",
+        "ssm:AccessRequestId"
       ],
       "dependentActions": []
     },
@@ -1638,7 +1685,9 @@
       "resourceTypes": [
         "document*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:DocumentType"
+      ],
       "dependentActions": []
     },
     {
@@ -1649,7 +1698,9 @@
       "resourceTypes": [
         "document*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:DocumentType"
+      ],
       "dependentActions": []
     },
     {
@@ -1660,7 +1711,9 @@
       "resourceTypes": [
         "document*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "ssm:DocumentType"
+      ],
       "dependentActions": []
     },
     {
