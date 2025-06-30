@@ -20,7 +20,8 @@
       "description": "Grants permission to apply a guardrail",
       "accessLevel": "Read",
       "resourceTypes": [
-        "guardrail*"
+        "guardrail*",
+        "guardrail-profile"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -71,6 +72,15 @@
       "dependentActions": []
     },
     {
+      "name": "CallWithBearerToken",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
+      "description": "Grants permission to use bearer token",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateAgent",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgent.html",
       "description": "Grants permission to create a new agent and a test agent alias pointing to the DRAFT agent version",
@@ -116,7 +126,10 @@
       "description": "Grants permission to create a blueprint for custom output from data automation",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -131,6 +144,18 @@
       "dependentActions": []
     },
     {
+      "name": "CreateCustomModel",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModel.html",
+      "description": "Grants permission to create a custom model into Bedrock",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateDataAutomationProject",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_CreateDataAutomationProject.html",
       "description": "Grants permission to create a data automation project",
@@ -138,7 +163,10 @@
       "resourceTypes": [
         "blueprint"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -220,7 +248,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.html",
       "description": "Grants permission to create a new guardrail",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "guardrail-profile"
+      ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys"
@@ -938,6 +968,19 @@
       "dependentActions": []
     },
     {
+      "name": "GetExecutionFlowSnapshot",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetExecutionFlowSnapshot.html",
+      "description": "Grants permission to retrieve the flow definition for a flow execution",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "flow*",
+        "flow-alias*",
+        "flow-execution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetFlow",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetFlow.html",
       "description": "Grants permission to retrieve an existing prompt flow",
@@ -955,6 +998,19 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "flow-alias*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetFlowExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetFlowExecution.html",
+      "description": "Grants permission to retrieve an existing execution of a flow alias",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "flow*",
+        "flow-alias*",
+        "flow-execution*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1261,7 +1317,10 @@
         "data-automation-profile*",
         "data-automation-project*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1281,7 +1340,9 @@
       "description": "Grants permission to send user input (text-only) to the inline agent for Bedrock",
       "accessLevel": "Read",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "bedrock:InlineAgentName"
+      ],
       "dependentActions": []
     },
     {
@@ -1462,6 +1523,31 @@
       "accessLevel": "List",
       "resourceTypes": [
         "flow*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFlowExecutionEvents",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListFlowExecutionEvents.html",
+      "description": "Grants permission to retrieve events for a flow execution",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "flow*",
+        "flow-alias*",
+        "flow-execution*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListFlowExecutions",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListFlowExecutions.html",
+      "description": "Grants permission to list executions of a flow or a flow alias",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "flow*",
+        "flow-alias"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -1848,6 +1934,18 @@
       "dependentActions": []
     },
     {
+      "name": "StartFlowExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_StartFlowExecution.html",
+      "description": "Grants permission to start an execution of a flow alias",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "flow*",
+        "flow-alias*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "StartIngestionJob",
       "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_StartIngestionJob.html",
       "description": "Grants permission to start an ingestion job",
@@ -1865,6 +1963,19 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "evaluation-job*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopFlowExecution",
+      "documentationUrl": "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_StopFlowExecution.html",
+      "description": "Grants permission to stop an execution of a flow alias",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "flow*",
+        "flow-alias*",
+        "flow-execution*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -2093,7 +2204,8 @@
       "description": "Grants permission to update a guardrail",
       "accessLevel": "Write",
       "resourceTypes": [
-        "guardrail*"
+        "guardrail*",
+        "guardrail-profile"
       ],
       "conditionKeys": [],
       "dependentActions": []

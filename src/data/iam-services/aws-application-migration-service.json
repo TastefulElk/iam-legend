@@ -122,7 +122,10 @@
       "description": "Grants permission to create a network migration definition",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -1064,7 +1067,10 @@
       "description": "Grants permission to start an export task",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": [
         "ec2:DescribeLaunchTemplateVersions",
         "mgn:DescribeSourceServers",
@@ -1472,6 +1478,8 @@
       "resourceTypes": [
         "ApplicationResource",
         "ConnectorResource",
+        "ExportResource",
+        "ImportResource",
         "JobResource",
         "LaunchConfigurationTemplateResource",
         "ReplicationConfigurationTemplateResource",

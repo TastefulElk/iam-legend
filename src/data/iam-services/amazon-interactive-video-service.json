@@ -531,6 +531,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListParticipantReplicas",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_ListParticipantReplicas.html",
+      "description": "Grants permission to get summary information about participant replicas",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "Stage*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListParticipants",
       "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_ListParticipants.html",
       "description": "Grants permission to list participants for a specified stage ARN and session",
@@ -699,6 +710,20 @@
       "dependentActions": []
     },
     {
+      "name": "StartParticipantReplication",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_StartParticipantReplication.html",
+      "description": "Grants permission to start a new participant replication",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Stage*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "StartViewerSessionRevocation",
       "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_StartViewerSessionRevocation.html",
       "description": "Grants permission to start the process of revoking the viewer session associated with a specified channel ARN and viewer ID",
@@ -716,6 +741,17 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "Composition*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopParticipantReplication",
+      "documentationUrl": "https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_StopParticipantReplication.html",
+      "description": "Grants permission to stop the participant replication for the specified ARN",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Stage*"
       ],
       "conditionKeys": [],
       "dependentActions": []

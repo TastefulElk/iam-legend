@@ -137,14 +137,16 @@
     },
     {
       "name": "BatchUpdateFindings",
-      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindings.html",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateFindingsV2.html",
       "description": "Grants permission to update customer-controlled fields for a selected set of Security Hub findings",
       "accessLevel": "Write",
       "resourceTypes": [
-        "hub"
+        "hub",
+        "hubv2"
       ],
       "conditionKeys": [
-        "securityhub:ASFFSyntaxPath/${ASFFSyntaxPath}"
+        "securityhub:ASFFSyntaxPath/${ASFFSyntaxPath}",
+        "securityhub:OCSFSyntaxPath/${OCSFSyntaxPath}"
       ],
       "dependentActions": []
     },
@@ -160,6 +162,15 @@
       ]
     },
     {
+      "name": "ConnectorRegistrationsV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ConnectorRegistrationsV2.html",
+      "description": "Grants permission to complete the OAuth 2.0 authorization code flow based on input parameters",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateActionTarget",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateActionTarget.html",
       "description": "Grants permission to create custom actions in Security Hub",
@@ -171,9 +182,30 @@
       "dependentActions": []
     },
     {
+      "name": "CreateAggregatorV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateAggregatorV2.html",
+      "description": "Grants permission to create an aggregatorV2, which configures data aggregation across Regions",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "CreateAutomationRule",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules",
       "description": "Grants permission to create an automation rule based on input parameters",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateAutomationRuleV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules",
+      "description": "Grants permission to create an automation rule V2 based on input parameters",
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
@@ -195,8 +227,20 @@
       "dependentActions": []
     },
     {
+      "name": "CreateConnectorV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateConnectorV2.html",
+      "description": "Grants permission to create a connector V2 based on input parameters",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateFindingAggregator",
-      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateFindingAggregator.html",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateFindingAggregator.html",
       "description": "Grants permission to create a finding aggregator, which contains the cross-Region finding aggregation configuration",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -226,6 +270,17 @@
       "dependentActions": []
     },
     {
+      "name": "CreateTicketV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateTicketV2.html",
+      "description": "Grants permission to create ticket for a selected OCSF finding",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connectorv2"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeclineInvitations",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeclineInvitations.html",
       "description": "Grants permission to decline Security Hub invitations to become a member account",
@@ -248,12 +303,45 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteAggregatorV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeleteAggregatorV2.html",
+      "description": "Grants permission to delete an aggregatorV2, which configures data aggregation across Regions",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "aggregatorv2*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteAutomationRuleV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules",
+      "description": "Grants permission to delete an automation rule V2 in Security Hub",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "automation-rulev2*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteConfigurationPolicy",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeleteConfigurationPolicy.html",
       "description": "Grants permission to delete an existing configuration policy",
       "accessLevel": "Write",
       "resourceTypes": [
         "configuration-policy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteConnectorV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DeleteConnectorV2.html",
+      "description": "Grants permission to delete a connector V2 in Security Hub",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connectorv2*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -347,6 +435,26 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeProductsV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeProductsV2.html",
+      "description": "Grants permission to retrieve information about the available Security Hub V2 product integrations",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "hubv2"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeSecurityHubV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeSecurityHubV2.html",
+      "description": "Grants permission to retrieve information about the hub V2 resource in your account",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeStandards",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html",
       "description": "Grants permission to retrieve information about Security Hub standards",
@@ -389,7 +497,9 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "organizations:DescribeOrganization"
+        "organizations:DeregisterDelegatedAdministrator",
+        "organizations:DescribeOrganization",
+        "organizations:ListDelegatedAdministrators"
       ]
     },
     {
@@ -400,6 +510,15 @@
       "resourceTypes": [
         "hub"
       ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisableSecurityHubV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DisableSecurityHubV2.html",
+      "description": "Grants permission to disable Security Hub V2",
+      "accessLevel": "Write",
+      "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -459,6 +578,8 @@
       "dependentActions": [
         "organizations:DescribeOrganization",
         "organizations:EnableAWSServiceAccess",
+        "organizations:ListAWSServiceAccessForOrganization",
+        "organizations:ListDelegatedAdministrators",
         "organizations:RegisterDelegatedAdministrator"
       ]
     },
@@ -477,12 +598,25 @@
       "dependentActions": []
     },
     {
+      "name": "EnableSecurityHubV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_EnableSecurityHubV2.html",
+      "description": "Grants permission to enable Security Hub V2",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "GetAdhocInsightResults",
-      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetAdhocInsightResults.html",
-      "description": "Grants permission to retrieve insight results by providing a set of filters instead of an insight ARN",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindingStatisticsV2.html",
+      "description": "Grants permission to retrieve aggregated statistical data about the findings",
       "accessLevel": "Read",
       "resourceTypes": [
-        "hub"
+        "hub",
+        "hubv2"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -494,6 +628,28 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "hub"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAggregatorV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetAggregatorV2.html",
+      "description": "Grants permission to retrieve details for an aggregatorV2, which configures data aggregation across Regions",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "aggregatorv2*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetAutomationRuleV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules",
+      "description": "Grants permission to retrieve details for an automation rule V2 from Security Hub based on rule Amazon Resource Name (ARN)",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "automation-rulev2*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -515,6 +671,17 @@
       "description": "Grants permission to retrieve information about a configuration policy associated with a member account or organizational unit of the calling account's organization",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetConnectorV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetConnectorV2.html",
+      "description": "Grants permission to retrieve details for a connector V2 from Security Hub based on connector id",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "connectorv2*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -564,11 +731,12 @@
     },
     {
       "name": "GetFindings",
-      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindings.html",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindingsV2.html",
       "description": "Grants permission to retrieve a list of findings from Security Hub",
       "accessLevel": "Read",
       "resourceTypes": [
-        "hub"
+        "hub",
+        "hubv2"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -662,6 +830,28 @@
       "dependentActions": []
     },
     {
+      "name": "GetResourcesStatisticsV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetResourcesStatisticsV2.html",
+      "description": "Grants permission to retrieve aggregate statistics about resources",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "hubv2"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResourcesV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetResourcesV2.html",
+      "description": "Grants permission to retrieve a list of resources",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "hubv2"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetSecurityControlDefinition",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetSecurityControlDefinition.html",
       "description": "Grants permission to get the definition details of a specific security control identified by ID",
@@ -695,9 +885,27 @@
       "dependentActions": []
     },
     {
+      "name": "ListAggregatorsV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListAggregatorsV2.html",
+      "description": "Grants permission to retrieve a list of aggregatorsV2, which configures data aggregation across Regions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListAutomationRules",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules",
       "description": "Grants permission to retrieve a list of automation rules and their metadata for the calling account from Security Hub",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListAutomationRulesV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules",
+      "description": "Grants permission to retrieve a list of automation rules V2 and their metadata for the calling account from Security Hub",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -716,6 +924,15 @@
       "name": "ListConfigurationPolicyAssociations",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListConfigurationPolicyAssociations.html",
       "description": "Grants permission to retrieve information about all configuration policies associationed with all member accounts and organizational units of the calling account's organization",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListConnectorsV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListConnectorsV2.html",
+      "description": "Grants permission to retrieve a list of connectors V2 and their metadata for the calling account from Security Hub",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -745,7 +962,7 @@
     },
     {
       "name": "ListFindingAggregators",
-      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateFindingAggregator.html",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListFindingAggregators.html",
       "description": "Grants permission to retrieve a list of finding aggregators, which contain the cross-Region finding aggregation configuration",
       "accessLevel": "List",
       "resourceTypes": [],
@@ -784,7 +1001,8 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
-        "organizations:DescribeOrganization"
+        "organizations:DescribeOrganization",
+        "organizations:ListDelegatedAdministrators"
       ]
     },
     {
@@ -871,8 +1089,11 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "automation-rule",
+        "automation-rulev2",
         "configuration-policy",
-        "hub"
+        "connectorv2",
+        "hub",
+        "hubv2"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -884,8 +1105,11 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "automation-rule",
+        "automation-rulev2",
         "configuration-policy",
-        "hub"
+        "connectorv2",
+        "hub",
+        "hubv2"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -902,12 +1126,45 @@
       "dependentActions": []
     },
     {
+      "name": "UpdateAggregatorV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateAggregatorV2.html",
+      "description": "Grants permission to update an aggregatorV2, which configures data aggregation across Regions",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "aggregatorv2*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAutomationRuleV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules",
+      "description": "Grants permission to update an automation rule V2 in Security Hub based on rule Amazon Resource Name (ARN) and input parameters",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "automation-rulev2*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "UpdateConfigurationPolicy",
       "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateConfigurationPolicy.html",
       "description": "Grants permission to update an existing configuration policy",
       "accessLevel": "Write",
       "resourceTypes": [
         "configuration-policy*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateConnectorV2",
+      "documentationUrl": "https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateConnectorV2.html",
+      "description": "Grants permission to update a connector V2 in Security Hub based on connector id and input parameters",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "connectorv2*"
       ],
       "conditionKeys": [],
       "dependentActions": []

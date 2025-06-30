@@ -23,7 +23,9 @@
       "description": "Grants permission to get attributes for one or more collections",
       "accessLevel": "Read",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aoss:collection"
+      ],
       "dependentActions": []
     },
     {
@@ -73,6 +75,7 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": []
@@ -84,7 +87,6 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aoss:collection",
         "aoss:index"
       ],
       "dependentActions": []
@@ -162,7 +164,6 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aoss:collection",
         "aoss:index"
       ],
       "dependentActions": []
@@ -372,7 +373,6 @@
       "accessLevel": "Write",
       "resourceTypes": [],
       "conditionKeys": [
-        "aoss:collection",
         "aoss:index"
       ],
       "dependentActions": []

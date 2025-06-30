@@ -1,0 +1,164 @@
+{
+  "serviceName": "AWS WorkSpaces Managed Instances",
+  "servicePrefix": "workspaces-instances",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsworkspacesmanagedinstances.html",
+  "actions": [
+    {
+      "name": "AssociateVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_AssociateVolume.html",
+      "description": "Grants permission to associate a workspace managed volume to a workspace managed instance in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "WorkspaceInstanceId*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:AttachVolume",
+        "ec2:DescribeVolumes"
+      ]
+    },
+    {
+      "name": "CreateVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_CreateVolume.html",
+      "description": "Grants permission to create a workspace managed volume in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:CreateVolume"
+      ]
+    },
+    {
+      "name": "CreateWorkspaceInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_CreateWorkspaceInstance.html",
+      "description": "Grants permission to create a workspace managed instance in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "ec2:DescribeInstances",
+        "ec2:RunInstances"
+      ]
+    },
+    {
+      "name": "DeleteVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteVolume.html",
+      "description": "Grants permission to delete a workspace managed volume in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "VolumeId*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DeleteVolume",
+        "ec2:DescribeVolumes"
+      ]
+    },
+    {
+      "name": "DeleteWorkspaceInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DeleteWorkspaceInstance.html",
+      "description": "Grants permission to delete a workspace managed instance in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "WorkspaceInstanceId*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:TerminateInstances"
+      ]
+    },
+    {
+      "name": "DisassociateVolume",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_DisassociateVolume.html",
+      "description": "Grants permission to disassociate a workspace managed volume from a workspace managed instance in your account",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "WorkspaceInstanceId*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "ec2:DescribeVolumes",
+        "ec2:DetachVolume"
+      ]
+    },
+    {
+      "name": "GetWorkspaceInstance",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_GetWorkspaceInstance.html",
+      "description": "Grants permission to get details for a specific workspace managed instance in your account",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "WorkspaceInstanceId*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListInstanceTypes",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ListInstanceTypes.html",
+      "description": "Grants permission to list all supported instance types",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListRegions",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ListRegions.html",
+      "description": "Grants permission to list all supported AWS regions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ListTagsForResource.html",
+      "description": "Grants permission to list user tags for resources in your account",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "WorkspaceInstanceId*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListWorkspaceInstances",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_ListWorkspaceInstances.html",
+      "description": "Grants permission to list workspace managed instances in your account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_TagResource.html",
+      "description": "Grants permission to add user tags to resources in your account",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "WorkspaceInstanceId*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/workspaces/latest/api/API_UntagResource.html",
+      "description": "Grants permission to remove user tags from resources in your account",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "WorkspaceInstanceId*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

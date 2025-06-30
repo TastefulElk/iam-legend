@@ -476,7 +476,7 @@
       "name": "CreatePolicy",
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_CreatePolicy.html",
       "description": "Grants permission to create an AWS IoT policy",
-      "accessLevel": "Write",
+      "accessLevel": "Permissions management",
       "resourceTypes": [
         "policy*"
       ],
@@ -490,7 +490,7 @@
       "name": "CreatePolicyVersion",
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_CreatePolicyVersion.html",
       "description": "Grants permission to create a new version of the specified AWS IoT policy",
-      "accessLevel": "Write",
+      "accessLevel": "Permissions management",
       "resourceTypes": [
         "policy*"
       ],
@@ -892,7 +892,7 @@
       "name": "DeletePolicy",
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_DeletePolicy.html",
       "description": "Grants permission to delete the specified policy",
-      "accessLevel": "Write",
+      "accessLevel": "Permissions management",
       "resourceTypes": [
         "policy*"
       ],
@@ -903,7 +903,7 @@
       "name": "DeletePolicyVersion",
       "documentationUrl": "https://docs.aws.amazon.com/iot/latest/apireference/API_DeletePolicyVersion.html",
       "description": "Grants permission to Delete the specified version of the specified policy",
-      "accessLevel": "Write",
+      "accessLevel": "Permissions management",
       "resourceTypes": [
         "policy*"
       ],
@@ -2516,7 +2516,8 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": [
         "iam:PassRole"

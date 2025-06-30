@@ -31,7 +31,11 @@
       "description": "Grants permission to create a Cedar policy and save it in the specified policy store",
       "accessLevel": "Write",
       "resourceTypes": [],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {
@@ -120,7 +124,9 @@
         "policy-store*"
       ],
       "conditionKeys": [],
-      "dependentActions": []
+      "dependentActions": [
+        "verifiedpermissions:ListTagsForResource"
+      ]
     },
     {
       "name": "GetPolicyTemplate",
@@ -209,6 +215,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListTagsForResource.html",
+      "description": "Grants permission to view a list of resource tags for the specified policy store",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "policy-store*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "PutSchema",
       "documentationUrl": "https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PutSchema.html",
       "description": "Grants permission to create or update the policy schema in the specified policy store",
@@ -217,6 +234,33 @@
         "policy-store*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_TagResource.html",
+      "description": "Grants permission to add tags to the specified policy store",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "policy-store*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UntagResource.html",
+      "description": "Grants permission to remove tags from the specified policy store",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "policy-store*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys"
+      ],
       "dependentActions": []
     },
     {

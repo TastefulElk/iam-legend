@@ -62,7 +62,8 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -74,7 +75,8 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -113,7 +115,8 @@
       "conditionKeys": [
         "organizations:PolicyType",
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -230,7 +233,7 @@
     {
       "name": "DescribeOrganization",
       "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html",
-      "description": "Grants permission to retrieves details about the organization that the calling credentials belong to",
+      "description": "Grants permission to retrieve details about the organization that the calling credentials belong to",
       "accessLevel": "Read",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -250,7 +253,7 @@
     {
       "name": "DescribePolicy",
       "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribePolicy.html",
-      "description": "Grants permission to retrieves details about a policy",
+      "description": "Grants permission to retrieve details about a policy",
       "accessLevel": "Read",
       "resourceTypes": [
         "policy*"
@@ -377,7 +380,7 @@
     {
       "name": "ListAccounts",
       "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListAccounts.html",
-      "description": "Grants permission to list all of the the accounts in the organization",
+      "description": "Grants permission to list all of the accounts in the organization",
       "accessLevel": "List",
       "resourceTypes": [],
       "conditionKeys": [],
@@ -459,7 +462,7 @@
     {
       "name": "ListOrganizationalUnitsForParent",
       "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListOrganizationalUnitsForParent.html",
-      "description": "Grants permission to lists all of the organizational units (OUs) in a parent organizational unit or root",
+      "description": "Grants permission to list all of the organizational units (OUs) in a parent organizational unit or root",
       "accessLevel": "List",
       "resourceTypes": [
         "organizationalunit",
@@ -586,7 +589,7 @@
     {
       "name": "RemoveAccountFromOrganization",
       "documentationUrl": "https://docs.aws.amazon.com/organizations/latest/APIReference/API_RemoveAccountFromOrganization.html",
-      "description": "Grants permission to removes the specified account from the organization",
+      "description": "Grants permission to remove the specified account from the organization",
       "accessLevel": "Write",
       "resourceTypes": [
         "account*"
@@ -607,6 +610,7 @@
         "root"
       ],
       "conditionKeys": [
+        "organizations:PolicyType",
         "aws:TagKeys",
         "aws:RequestTag/${TagKey}"
       ],

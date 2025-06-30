@@ -6,7 +6,7 @@
     {
       "name": "AddTagsToStream",
       "documentationUrl": "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html",
-      "description": "Grants permission to add or update tags for the specified Amazon Kinesis stream. Each stream can have up to 10 tags",
+      "description": "Grants permission to add or update tags for the specified Amazon Kinesis stream. Each stream can have up to 50 tags",
       "accessLevel": "Tagging",
       "resourceTypes": [
         "stream*"
@@ -56,6 +56,7 @@
         "stream*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
@@ -81,7 +82,9 @@
       "resourceTypes": [
         "consumer*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -114,7 +117,9 @@
       "resourceTypes": [
         "consumer*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {
@@ -171,6 +176,7 @@
         "stream*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
@@ -237,6 +243,21 @@
       "dependentActions": []
     },
     {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list the tags for the specified Amazon Kinesis resource",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "consumer*",
+        "stream*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "ListTagsForStream",
       "documentationUrl": "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListTagsForStream.html",
       "description": "Grants permission to list the tags for the specified Amazon Kinesis stream",
@@ -298,6 +319,7 @@
         "stream*"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
@@ -311,6 +333,8 @@
         "stream*"
       ],
       "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
         "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
@@ -378,7 +402,45 @@
       "resourceTypes": [
         "consumer*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to add or update tags for the specified Amazon Kinesis resource. Each resource can have up to 50 tags",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "consumer*",
+        "stream*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/kinesis/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove tags from the specified Kinesis data resource. Removed tags are deleted and cannot be recovered after this operation successfully completes",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "consumer*",
+        "stream*"
+      ],
+      "conditionKeys": [
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
+      ],
       "dependentActions": []
     },
     {

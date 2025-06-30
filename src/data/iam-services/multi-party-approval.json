@@ -1,0 +1,284 @@
+{
+  "serviceName": "Multi-party approval",
+  "servicePrefix": "mpa",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_multi-partyapproval.html",
+  "actions": [
+    {
+      "name": "CancelSession",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_CancelSession.html",
+      "description": "Grants permission to cancel an approval session",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "session*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "mpa:RequestedOperation",
+        "mpa:ProtectedResourceAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateApprovalTeam",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_CreateApprovalTeam.html",
+      "description": "Grants permission to create an approval team",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "approval-team*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateIdentitySource",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_CreateIdentitySource.html",
+      "description": "Grants permission to create an identity source",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "identity-source*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteIdentitySource",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_DeleteIdentitySource.html",
+      "description": "Grants permission to delete an identity source",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "identity-source*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteInactiveApprovalTeamVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_DeleteInactiveApprovalTeamVersion.html",
+      "description": "Grants permission to delete an inactive approval team",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "approval-team*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_DeleteResourcePolicy.html",
+      "description": "Grants permission to delete a resource policy",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetApprovalTeam",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_GetApprovalTeam.html",
+      "description": "Grants permission to retrieve details for an approval team",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "approval-team*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetIdentitySource",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_GetIdentitySource.html",
+      "description": "Grants permission to retrieve details for an identity source",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "identity-source*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "GetPolicyVersion",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_GetPolicyVersion.html",
+      "description": "Grants permission to retrieve details for a policy",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_GetResourcePolicy.html",
+      "description": "Grants permission to retrieve details for a specific resource",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetSession",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_GetSession.html",
+      "description": "Grants permission to retrieve details for an approval session",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "session*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "mpa:RequestedOperation",
+        "mpa:ProtectedResourceAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "ListApprovalTeams",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_ListApprovalTeams.html",
+      "description": "Grants permission to list approval teams",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListIdentitySources",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_ListIdentitySources.html",
+      "description": "Grants permission to list identity sources",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_ListPolicies.html",
+      "description": "Grants permission to list policies",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListPolicyVersions",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_ListPolicyVersions.html",
+      "description": "Grants permission to list the versions for policies",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListResourcePolicies",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_ListResourcePolicies.html",
+      "description": "Grants permission to list policies for a resource",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListSessions",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_ListSessions.html",
+      "description": "Grants permission to list approval sessions",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list tags for a resource",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "PutResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_PutResourcePolicy.html",
+      "description": "Grants permission to create or update policies for a resource",
+      "accessLevel": "Permissions management",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StartActiveApprovalTeamDeletion",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_StartActiveApprovalTeamDeletion.html",
+      "description": "Grants permission to start the deletion process for an active approval team",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "approval-team*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "StartSession",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_StartSessionInternal.html",
+      "description": "Grants permission to start an approval session",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "session*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "mpa:RequestedOperation",
+        "mpa:ProtectedResourceAccount"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to untag a resource",
+      "accessLevel": "Tagging",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateApprovalTeam",
+      "documentationUrl": "https://docs.aws.amazon.com/mpa/latest/APIReference/API_UpdateApprovalTeam.html",
+      "description": "Grants permission to update approval team",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "approval-team*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

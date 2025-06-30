@@ -4,6 +4,28 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsnetworkfirewall.html",
   "actions": [
     {
+      "name": "AcceptNetworkFirewallTransitGatewayAttachment",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_AcceptNetworkFirewallTransitGatewayAttachment.html",
+      "description": "Grants permission to accept pending Network Firewall attachments on a transit gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "AssociateAvailabilityZones",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_AssociateAvailabilityZones.html",
+      "description": "Grants permission to associate availability zones to a firewall",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "AssociateFirewallPolicy",
       "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_AssociateFirewallPolicy.html",
       "description": "Grants permission to create an association between a firewall policy and a firewall",
@@ -92,6 +114,23 @@
       ]
     },
     {
+      "name": "CreateVpcEndpointAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_CreateVpcEndpointAssociation.html",
+      "description": "Grants permission to create an AWS Network Firewall vpc endpoint association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*",
+        "VpcEndpointAssociation*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "iam:CreateServiceLinkedRole"
+      ]
+    },
+    {
       "name": "DeleteFirewall",
       "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DeleteFirewall.html",
       "description": "Grants permission to delete a firewall",
@@ -114,11 +153,23 @@
       "dependentActions": []
     },
     {
-      "name": "DeleteResourcePolicy",
-      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DeleteResourcePolicy.html",
-      "description": "Grants permission to delete a resource policy for a firewall policy or rule group",
+      "name": "DeleteNetworkFirewallTransitGatewayAttachment",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DeleteNetworkFirewallTransitGatewayAttachment.html",
+      "description": "Grants permission to delete Network Firewall attachments on a transit gateway",
       "accessLevel": "Write",
       "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteResourcePolicy",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DeleteResourcePolicy.html",
+      "description": "Grants permission to delete a resource policy for a firewall policy or rule group or firewall",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall",
         "FirewallPolicy",
         "StatefulRuleGroup",
         "StatelessRuleGroup"
@@ -150,9 +201,31 @@
       "dependentActions": []
     },
     {
+      "name": "DeleteVpcEndpointAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DeleteVpcEndpointAssociation.html",
+      "description": "Grants permission to delete a vpc endpoint association",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "VpcEndpointAssociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeFirewall",
       "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeFirewall.html",
       "description": "Grants permission to retrieve the data objects that define a firewall",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeFirewallMetadata",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeFirewallMetadata.html",
+      "description": "Grants permission to retrieve the high-level information about a firewall",
       "accessLevel": "Read",
       "resourceTypes": [
         "Firewall*"
@@ -202,9 +275,10 @@
     {
       "name": "DescribeResourcePolicy",
       "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeResourcePolicy.html",
-      "description": "Grants permission to describe a resource policy for a firewall policy or rule group",
+      "description": "Grants permission to describe a resource policy for a firewall policy or rule group or firewall",
       "accessLevel": "Read",
       "resourceTypes": [
+        "Firewall",
         "FirewallPolicy",
         "StatefulRuleGroup",
         "StatelessRuleGroup"
@@ -243,6 +317,28 @@
       "accessLevel": "Read",
       "resourceTypes": [
         "TLSInspectionConfiguration*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DescribeVpcEndpointAssociation",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DescribeVpcEndpointAssociation.html",
+      "description": "Grants permission to retrieve the data objects that define a vpc endpoint association",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "VpcEndpointAssociation*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateAvailabilityZones",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_DisassociateAvailabilityZones.html",
+      "description": "Grants permission to disassociate availability zones to a firewall",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -354,7 +450,19 @@
         "FirewallPolicy*",
         "StatefulRuleGroup",
         "StatelessRuleGroup",
-        "TLSInspectionConfiguration"
+        "TLSInspectionConfiguration",
+        "VpcEndpointAssociation"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListVpcEndpointAssociations",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_ListVpcEndpointAssociations.html",
+      "description": "Grants permission to retrieve the metadata for vpc endpoint associations",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "VpcEndpointAssociation*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -362,12 +470,24 @@
     {
       "name": "PutResourcePolicy",
       "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_PutResourcePolicy.html",
-      "description": "Grants permission to put a resource policy for a firewall policy or rule group",
+      "description": "Grants permission to put a resource policy for a firewall policy or rule group or firewall",
       "accessLevel": "Write",
       "resourceTypes": [
+        "Firewall",
         "FirewallPolicy",
         "StatefulRuleGroup",
         "StatelessRuleGroup"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RejectNetworkFirewallTransitGatewayAttachment",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_RejectNetworkFirewallTransitGatewayAttachment.html",
+      "description": "Grants permission to reject pending Network Firewall attachments on a transit gateway",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -415,7 +535,8 @@
         "FirewallPolicy",
         "StatefulRuleGroup",
         "StatelessRuleGroup",
-        "TLSInspectionConfiguration"
+        "TLSInspectionConfiguration",
+        "VpcEndpointAssociation"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -433,11 +554,23 @@
         "FirewallPolicy",
         "StatefulRuleGroup",
         "StatelessRuleGroup",
-        "TLSInspectionConfiguration"
+        "TLSInspectionConfiguration",
+        "VpcEndpointAssociation"
       ],
       "conditionKeys": [
         "aws:TagKeys"
       ],
+      "dependentActions": []
+    },
+    {
+      "name": "UpdateAvailabilityZoneChangeProtection",
+      "documentationUrl": "https://docs.aws.amazon.com/network-firewall/latest/APIReference/API_UpdateAvailabilityZoneChangeProtection.html",
+      "description": "Grants permission to add or remove availability zone change protection for a firewall",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "Firewall*"
+      ],
+      "conditionKeys": [],
       "dependentActions": []
     },
     {
