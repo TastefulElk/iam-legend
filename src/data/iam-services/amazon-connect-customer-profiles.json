@@ -69,6 +69,21 @@
       ]
     },
     {
+      "name": "CreateDomainLayout",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomainLayout.html",
+      "description": "Grants permission to create a layout in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*",
+        "layouts*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CreateEventStream",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateEventStream.html",
       "description": "Grants permission to put an event stream in a domain",
@@ -177,6 +192,17 @@
       "dependentActions": []
     },
     {
+      "name": "CreateUploadJob",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateUploadJob.html",
+      "description": "Grants permission to create an upload job in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DeleteCalculatedAttributeDefinition",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteCalculatedAttributeDefinition.html",
       "description": "Grants permission to delete a calculated attribute definition in the domain",
@@ -195,6 +221,18 @@
       "accessLevel": "Write",
       "resourceTypes": [
         "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteDomainLayout",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_DeleteDomainLayout.html",
+      "description": "Grants permission to delete a layout in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*",
+        "layouts*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -364,6 +402,18 @@
       "dependentActions": []
     },
     {
+      "name": "GetDomainLayout",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetDomainLayout.html",
+      "description": "Grants permission to get a layout in the domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "domains*",
+        "layouts*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetEventStream",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetEventStream.html",
       "description": "Grants permission to get a specific event stream in a domain",
@@ -514,6 +564,28 @@
       "dependentActions": []
     },
     {
+      "name": "GetUploadJob",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetUploadJob.html",
+      "description": "Grants permission to get details of an upload job in the domain",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetUploadJobPath",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetUploadJobPath.html",
+      "description": "Grants permission to get a pre-signed URL to upload file for an upload job",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "GetWorkflow",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetWorkflow.html",
       "description": "Grants permission to get workflow details in a domain",
@@ -559,6 +631,17 @@
       "name": "ListCalculatedAttributesForProfile",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListCalculatedAttributesForProfile.html",
       "description": "Grants permission to list all calculated attributes for a specific profile in the domain",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListDomainLayouts",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListDomainLayouts.html",
+      "description": "Grants permission to list all the layouts in the domain",
       "accessLevel": "List",
       "resourceTypes": [
         "domains*"
@@ -705,8 +788,22 @@
         "calculated-attributes",
         "domains",
         "event-streams",
+        "event-triggers",
         "integrations",
-        "object-types"
+        "layouts",
+        "object-types",
+        "segment-definitions"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListUploadJobs",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListUploadJobs.html",
+      "description": "Grants permission to list all upload jobs in the domain",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "domains*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -787,6 +884,28 @@
       "dependentActions": []
     },
     {
+      "name": "StartUploadJob",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_StartUploadJob.html",
+      "description": "Grants permission to start an upload job in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "StopUploadJob",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_StopUploadJob.html",
+      "description": "Grants permission to stop an upload job in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "TagResource",
       "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html",
       "description": "Grants permission to adds tags to a resource",
@@ -795,8 +914,11 @@
         "calculated-attributes",
         "domains",
         "event-streams",
+        "event-triggers",
         "integrations",
-        "object-types"
+        "layouts",
+        "object-types",
+        "segment-definitions"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
@@ -813,8 +935,11 @@
         "calculated-attributes",
         "domains",
         "event-streams",
+        "event-triggers",
         "integrations",
-        "object-types"
+        "layouts",
+        "object-types",
+        "segment-definitions"
       ],
       "conditionKeys": [
         "aws:TagKeys"
@@ -845,6 +970,18 @@
       "dependentActions": [
         "iam:CreateServiceLinkedRole"
       ]
+    },
+    {
+      "name": "UpdateDomainLayout",
+      "documentationUrl": "https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UpdateDomainLayout.html",
+      "description": "Grants permission to update a layout in the domain",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "domains*",
+        "layouts*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     },
     {
       "name": "UpdateEventTrigger",

@@ -4,6 +4,19 @@
   "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_awsbackup.html",
   "actions": [
     {
+      "name": "AssociateBackupVaultMpaApprovalTeam",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_AssociateBackupVaultMpaApprovalTeam.html",
+      "description": "Grants permission to associate an MPA approval team with a backup vault",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "backupVault*"
+      ],
+      "conditionKeys": [
+        "backup:MpaApprovalTeamArn"
+      ],
+      "dependentActions": []
+    },
+    {
       "name": "CancelLegalHold",
       "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CancelLegalHold.html",
       "description": "Grants permission to cancel a legal hold",
@@ -138,6 +151,20 @@
         "aws:RequestTag/${TagKey}",
         "aws:TagKeys",
         "backup:FrameworkArns"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateRestoreAccessBackupVault",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_CreateRestoreAccessBackupVault.html",
+      "description": "Grants permission to create a restore access backup vault",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "backupVault*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
       ],
       "dependentActions": []
     },
@@ -404,6 +431,17 @@
       "description": "Grants permission to describe a restore job",
       "accessLevel": "Read",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DisassociateBackupVaultMpaApprovalTeam",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DisassociateBackupVaultMpaApprovalTeam.html",
+      "description": "Grants permission to disassociate an MPA approval team from a backup vault",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "backupVault*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },
@@ -784,6 +822,17 @@
       "dependentActions": []
     },
     {
+      "name": "ListRestoreAccessBackupVaults",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListRestoreAccessBackupVaults.html",
+      "description": "Grants permission to list a restore access backup vaults associated with a backup vault",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "backupVault*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "ListRestoreJobSummaries",
       "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListRestoreJobSummaries.html",
       "description": "Grants permission to list restore job summaries",
@@ -901,6 +950,17 @@
       "description": "Grants permission to put a restore validation result",
       "accessLevel": "Write",
       "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RevokeRestoreAccessBackupVault",
+      "documentationUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/API_RevokeRestoreAccessBackupVault.html",
+      "description": "Grants permission to revoke a restore access backup vault",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "backupVault*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },

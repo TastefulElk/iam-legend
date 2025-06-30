@@ -76,6 +76,21 @@
       "dependentActions": []
     },
     {
+      "name": "CreateAndAttachS3AccessPoint",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateAndAttachS3AccessPoint.html",
+      "description": "Grants permission to create and attach a S3 Access Point to a FSx File System",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "volume"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "s3:CreateAccessPoint",
+        "s3:GetAccessPoint",
+        "s3:PutAccessPointPolicy"
+      ]
+    },
+    {
       "name": "CreateBackup",
       "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateBackup.html",
       "description": "Grants permission to create a new backup of an Amazon FSx file system or an Amazon FSx volume",
@@ -439,6 +454,15 @@
       "dependentActions": []
     },
     {
+      "name": "DescribeS3AccessPointAttachments",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeS3AccessPointAttachments.html",
+      "description": "Grants permission to return the descriptions of S3 Access Point Attachments",
+      "accessLevel": "Read",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
       "name": "DescribeSharedVpcConfiguration",
       "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeSharedVpcConfiguration.html",
       "description": "Grants permission to return the descriptions of whether FSx route table updates from participant accounts are allowed in your account",
@@ -473,6 +497,19 @@
       "resourceTypes": [],
       "conditionKeys": [],
       "dependentActions": []
+    },
+    {
+      "name": "DetachAndDeleteS3AccessPoint",
+      "documentationUrl": "https://docs.aws.amazon.com/fsx/latest/APIReference/API_DetachAndDeleteS3AccessPoint.html",
+      "description": "Grants permission to detach an S3 Access Point from an Amazon FSx File System and delete the S3 Access Point",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "volume"
+      ],
+      "conditionKeys": [],
+      "dependentActions": [
+        "s3:DeleteAccessPoint"
+      ]
     },
     {
       "name": "DisassociateFileGateway",

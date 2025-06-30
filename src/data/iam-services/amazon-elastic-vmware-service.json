@@ -1,0 +1,134 @@
+{
+  "serviceName": "Amazon Elastic VMware Service",
+  "servicePrefix": "evs",
+  "url": "https://docs.aws.amazon.com/service-authorization/latest/reference/./list_amazonelasticvmwareservice.html",
+  "actions": [
+    {
+      "name": "CreateEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/evs/latest/APIReference/API_CreateEnvironment.html",
+      "description": "Grants permission to create an Amazon EVS environment",
+      "accessLevel": "Write",
+      "resourceTypes": [],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "CreateEnvironmentHost",
+      "documentationUrl": "https://docs.aws.amazon.com/evs/latest/APIReference/API_CreateEnvironmentHost.html",
+      "description": "Grants permission to add host to an Amazon EVS environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/evs/latest/APIReference/API_DeleteEnvironment.html",
+      "description": "Grants permission to delete an Amazon EVS environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "DeleteEnvironmentHost",
+      "documentationUrl": "https://docs.aws.amazon.com/evs/latest/APIReference/API_DeleteEnvironmentHost.html",
+      "description": "Grants permission to delete a host from an Amazon EVS environment",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "GetEnvironment",
+      "documentationUrl": "https://docs.aws.amazon.com/evs/latest/APIReference/API_GetEnvironment.html",
+      "description": "Grants permission to get an Amazon EVS environment",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEnvironmentHosts",
+      "documentationUrl": "https://docs.aws.amazon.com/evs/latest/APIReference/API_ListEnvironmentHosts.html",
+      "description": "Grants permission to retrieve a list of hosts associated with an Amazon EVS environment",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEnvironmentVlans",
+      "documentationUrl": "https://docs.aws.amazon.com/evs/latest/APIReference/API_ListEnvironmentVlans.html",
+      "description": "Grants permission to retrieve a list of Amazon EVS environment VLANs",
+      "accessLevel": "List",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListEnvironments",
+      "documentationUrl": "https://docs.aws.amazon.com/evs/latest/APIReference/API_ListEnvironments.html",
+      "description": "Grants permission to retrieve a list of Amazon EVS environments in an account",
+      "accessLevel": "List",
+      "resourceTypes": [],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "ListTagsForResource",
+      "documentationUrl": "https://docs.aws.amazon.com/evs/latest/APIReference/API_ListTagsForResource.html",
+      "description": "Grants permission to list the tags on a specified resource ARN",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "environment"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "TagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/evs/latest/APIReference/API_TagResource.html",
+      "description": "Grants permission to tag a specified resource ARN",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    },
+    {
+      "name": "UntagResource",
+      "documentationUrl": "https://docs.aws.amazon.com/evs/latest/APIReference/API_UntagResource.html",
+      "description": "Grants permission to remove tags from a specified resource ARN",
+      "accessLevel": "Tagging",
+      "resourceTypes": [
+        "environment*"
+      ],
+      "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": []
+    }
+  ]
+}

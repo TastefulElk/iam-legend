@@ -42,12 +42,14 @@
     {
       "name": "ExportCertificate",
       "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_ExportCertificate.html",
-      "description": "Grants permission to export a private certificate issued by a private certificate authority (CA) for use anywhere",
+      "description": "Grants permission to export an exportable certificate for use anywhere",
       "accessLevel": "Read",
       "resourceTypes": [
         "certificate*"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "acm:DomainNames"
+      ],
       "dependentActions": []
     },
     {
@@ -151,7 +153,8 @@
         "acm:CertificateTransparencyLogging",
         "acm:ValidationMethod",
         "acm:KeyAlgorithm",
-        "acm:CertificateAuthority"
+        "acm:CertificateAuthority",
+        "acm:Export"
       ],
       "dependentActions": []
     },
@@ -164,6 +167,19 @@
         "certificate*"
       ],
       "conditionKeys": [],
+      "dependentActions": []
+    },
+    {
+      "name": "RevokeCertificate",
+      "documentationUrl": "https://docs.aws.amazon.com/acm/latest/APIReference/API_RevokeCertificate.html",
+      "description": "Grants permission to revoke an exportable certificate",
+      "accessLevel": "Write",
+      "resourceTypes": [
+        "certificate*"
+      ],
+      "conditionKeys": [
+        "acm:DomainNames"
+      ],
       "dependentActions": []
     },
     {

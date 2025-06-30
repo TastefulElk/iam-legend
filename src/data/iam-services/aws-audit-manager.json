@@ -31,7 +31,8 @@
       "description": "Grants permission to create delegations for an assessment in AWS Audit Manager",
       "accessLevel": "Write",
       "resourceTypes": [
-        "assessment*"
+        "assessment*",
+        "assessmentControlSet*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -42,7 +43,8 @@
       "description": "Grants permission to delete delegations for an assessment in AWS Audit Manager",
       "accessLevel": "Write",
       "resourceTypes": [
-        "assessment*"
+        "assessment*",
+        "assessmentControlSet*"
       ],
       "conditionKeys": [],
       "dependentActions": []
@@ -77,7 +79,8 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -89,7 +92,8 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -112,7 +116,8 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": []
     },
@@ -180,7 +185,7 @@
     },
     {
       "name": "DeregisterAccount",
-      "documentationUrl": "https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_ DeregisterAccount.html",
+      "documentationUrl": "https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html",
       "description": "Grants permission to deregister an account in AWS Audit Manager",
       "accessLevel": "Write",
       "resourceTypes": [],
@@ -536,6 +541,7 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "assessment",
+        "assessmentFramework",
         "control"
       ],
       "conditionKeys": [
@@ -551,9 +557,13 @@
       "accessLevel": "Tagging",
       "resourceTypes": [
         "assessment",
+        "assessmentFramework",
         "control"
       ],
       "conditionKeys": [
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}",
         "aws:TagKeys"
       ],
       "dependentActions": []
@@ -607,7 +617,9 @@
       "documentationUrl": "https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_UpdateAssessmentFrameworkShare.html",
       "description": "Grants permission to update a share request for a custom framework in AWS Audit Manager",
       "accessLevel": "Write",
-      "resourceTypes": [],
+      "resourceTypes": [
+        "assessmentFramework*"
+      ],
       "conditionKeys": [],
       "dependentActions": []
     },

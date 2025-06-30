@@ -28,8 +28,13 @@
       ],
       "conditionKeys": [],
       "dependentActions": [
+        "cloudwatch:DescribeAlarmHistory",
+        "cloudwatch:DescribeAlarms",
+        "cloudwatch:GetInsightRuleReport",
+        "cloudwatch:GetMetricData",
         "kms:Decrypt",
         "kms:GenerateDataKey",
+        "logs:GetQueryResults",
         "sts:SetContext"
       ]
     },
@@ -41,7 +46,8 @@
       "resourceTypes": [],
       "conditionKeys": [
         "aws:TagKeys",
-        "aws:RequestTag/${TagKey}"
+        "aws:RequestTag/${TagKey}",
+        "aws:ResourceTag/${TagKey}"
       ],
       "dependentActions": [
         "aiops:TagResource",
@@ -306,6 +312,17 @@
         "sso:PutApplicationGrant",
         "sso:TagResource"
       ]
+    },
+    {
+      "name": "ValidateInvestigationGroup",
+      "documentationUrl": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/API_ValidateInvestigationGroup.html",
+      "description": "Grants permission to validate the specified investigation group",
+      "accessLevel": "Read",
+      "resourceTypes": [
+        "investigation-group*"
+      ],
+      "conditionKeys": [],
+      "dependentActions": []
     }
   ]
 }

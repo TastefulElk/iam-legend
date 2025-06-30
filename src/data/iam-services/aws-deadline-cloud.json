@@ -356,8 +356,14 @@
       "resourceTypes": [
         "worker*"
       ],
-      "conditionKeys": [],
-      "dependentActions": []
+      "conditionKeys": [
+        "aws:RequestTag/${TagKey}",
+        "aws:TagKeys"
+      ],
+      "dependentActions": [
+        "deadline:ListTagsForResource",
+        "deadline:TagResource"
+      ]
     },
     {
       "name": "DeleteBudget",
@@ -1215,9 +1221,12 @@
         "farm",
         "fleet",
         "license-endpoint",
-        "queue"
+        "queue",
+        "worker"
       ],
-      "conditionKeys": [],
+      "conditionKeys": [
+        "deadline:CalledAction"
+      ],
       "dependentActions": []
     },
     {
@@ -1334,11 +1343,13 @@
         "farm",
         "fleet",
         "license-endpoint",
-        "queue"
+        "queue",
+        "worker"
       ],
       "conditionKeys": [
         "aws:RequestTag/${TagKey}",
-        "aws:TagKeys"
+        "aws:TagKeys",
+        "deadline:CalledAction"
       ],
       "dependentActions": []
     },
@@ -1351,7 +1362,8 @@
         "farm",
         "fleet",
         "license-endpoint",
-        "queue"
+        "queue",
+        "worker"
       ],
       "conditionKeys": [
         "aws:TagKeys"
